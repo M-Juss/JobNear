@@ -21,5 +21,13 @@ namespace JobNear
         {
 
         }
+
+        private void worker_btn_Click(object sender, EventArgs e)
+        {
+            JobSeeker seeker = new JobSeeker();
+            this.Hide();
+            seeker.Show();
+            
+        }
     }
 }

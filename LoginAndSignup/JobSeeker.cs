@@ -15,15 +15,15 @@ namespace JobNear
         public JobSeeker()
         {
             InitializeComponent();
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
+            password_input.PasswordChar = '*';
 
         }
 
-        private void textBox2_TextChanged(object sender, EventArgs e)
+        private void phone_input_KeyPress(object sender, KeyPressEventArgs e)
         {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back) {
+                e.Handled = true;
+            }
 
         }
     }
