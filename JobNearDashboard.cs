@@ -16,5 +16,10 @@ namespace JobNear
         {
             InitializeComponent();
         }
+
+        private void JobNearDashboard_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
