@@ -10,14 +10,19 @@ using System.Windows.Forms;
 
 namespace JobNear
 {
-    public partial class JobNearDashboard : Form
+    public partial class JobSeeker : Form
     {
-        public JobNearDashboard()
+        public JobSeeker()
         {
             InitializeComponent();
         }
 
-        private void JobNearDashboard_Load(object sender, EventArgs e)
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
         {
 
         }

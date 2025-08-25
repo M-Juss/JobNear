@@ -1,6 +1,6 @@
 ﻿namespace JobNear
 {
-    partial class JobNearDashboard
+    partial class JobNear
     {
         /// <summary>
         /// Required designer variable.
@@ -30,9 +30,9 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.worker_btn = new System.Windows.Forms.Button();
-            this.business_btn = new System.Windows.Forms.Button();
             this.admin_btn = new System.Windows.Forms.Button();
+            this.business_btn = new System.Windows.Forms.Button();
+            this.worker_btn = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -57,26 +57,6 @@
             this.panel2.Size = new System.Drawing.Size(272, 335);
             this.panel2.TabIndex = 0;
             // 
-            // worker_btn
-            // 
-            this.worker_btn.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.worker_btn.Location = new System.Drawing.Point(31, 63);
-            this.worker_btn.Name = "worker_btn";
-            this.worker_btn.Size = new System.Drawing.Size(211, 47);
-            this.worker_btn.TabIndex = 0;
-            this.worker_btn.Text = "Worker";
-            this.worker_btn.UseVisualStyleBackColor = true;
-            // 
-            // business_btn
-            // 
-            this.business_btn.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.business_btn.Location = new System.Drawing.Point(31, 148);
-            this.business_btn.Name = "business_btn";
-            this.business_btn.Size = new System.Drawing.Size(211, 47);
-            this.business_btn.TabIndex = 1;
-            this.business_btn.Text = "Business";
-            this.business_btn.UseVisualStyleBackColor = true;
-            // 
             // admin_btn
             // 
             this.admin_btn.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -87,15 +67,35 @@
             this.admin_btn.Text = "Admin";
             this.admin_btn.UseVisualStyleBackColor = true;
             // 
-            // JobNearDashboard
+            // business_btn
+            // 
+            this.business_btn.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.business_btn.Location = new System.Drawing.Point(31, 148);
+            this.business_btn.Name = "business_btn";
+            this.business_btn.Size = new System.Drawing.Size(211, 47);
+            this.business_btn.TabIndex = 1;
+            this.business_btn.Text = "Job Poster";
+            this.business_btn.UseVisualStyleBackColor = true;
+            // 
+            // worker_btn
+            // 
+            this.worker_btn.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.worker_btn.Location = new System.Drawing.Point(31, 63);
+            this.worker_btn.Name = "worker_btn";
+            this.worker_btn.Size = new System.Drawing.Size(211, 47);
+            this.worker_btn.TabIndex = 0;
+            this.worker_btn.Text = "Job Seeker";
+            this.worker_btn.UseVisualStyleBackColor = true;
+            // 
+            // JobNear
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(541, 335);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Name = "JobNearDashboard";
-            this.Text = "Form1";
+            this.Name = "JobNear";
+            this.Text = "JobNear";
             this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 

@@ -46,16 +46,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="JobNearDashboard.cs">
+    <Compile Include="LoginAndSignup\JobNear.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="JobNearDashboard.Designer.cs">
-      <DependentUpon>JobNearDashboard.cs</DependentUpon>
+    <Compile Include="LoginAndSignup\JobNear.Designer.cs">
+      <DependentUpon>JobNear.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoginAndSignup\JobSeeker.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginAndSignup\JobSeeker.Designer.cs">
+      <DependentUpon>JobSeeker.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="JobNearDashboard.resx">
-      <DependentUpon>JobNearDashboard.cs</DependentUpon>
+    <EmbeddedResource Include="LoginAndSignup\JobNear.resx">
+      <DependentUpon>JobNear.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginAndSignup\JobSeeker.resx">
+      <DependentUpon>JobSeeker.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
