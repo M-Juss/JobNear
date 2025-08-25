@@ -3,10 +3,38 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Text.RegularExpressions;
 
 namespace JobNear
 {
-    internal class TextBoxValidator
+    public class TextBoxValidator
     {
+        public static void SetPassword(TextBox password_input)
+        {
+            password_input.UseSystemPasswordChar = true;
+        }
+
+        public static void ShowPassword(TextBox password_input)
+        {
+            password_input.UseSystemPasswordChar = false;
+        }
+
+        public static void AllowOnlyNumbers(TextBox number_input)
+        {
+            number_input.KeyPress += (sender, e) =>
+            {
+                if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+                {
+                    e.Handled = true;
+                }
+            };
+        }
+
+        public static bool ValidateEmail(TextBox email_input)
+        {
+            string pattern = @"^[a-zA-Z0-9.+%_-!$]+@gmail\.com$";
+            return Regex.IsMatch(email_input.Text, pattern);
+        }
     }
 }
