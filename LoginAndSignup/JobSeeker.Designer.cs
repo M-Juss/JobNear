@@ -39,6 +39,7 @@
             this.email_input = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.username_input = new System.Windows.Forms.TextBox();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -100,9 +101,7 @@
             this.phone_input.Margin = new System.Windows.Forms.Padding(4);
             this.phone_input.Name = "phone_input";
             this.phone_input.Size = new System.Drawing.Size(303, 32);
-            this.phone_input.TabIndex = 6;
-            this.phone_input.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.phone_input_KeyPress);
-            // 
+            this.phone_input.TabIndex = 6;            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -121,8 +120,7 @@
             this.password_input.Margin = new System.Windows.Forms.Padding(4);
             this.password_input.Name = "password_input";
             this.password_input.Size = new System.Drawing.Size(303, 32);
-            this.password_input.TabIndex = 4;
-            // 
+            this.password_input.TabIndex = 4;            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -163,6 +161,9 @@
             this.username_input.Size = new System.Drawing.Size(303, 32);
             this.username_input.TabIndex = 0;
             // 
+            // backgroundWorker1
+            // 
+            // 
             // JobSeeker
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -192,5 +193,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox password_input;
         private System.Windows.Forms.Button button1;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }

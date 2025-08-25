@@ -15,16 +15,9 @@ namespace JobNear
         public JobSeeker()
         {
             InitializeComponent();
-            password_input.PasswordChar = '*';
-
+            TextBoxValidator.SetPassword(password_input);
+            TextBoxValidator.AllowOnlyNumbers(phone_input);
         }
 
-        private void phone_input_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back) {
-                e.Handled = true;
-            }
-
-        }
     }
 }

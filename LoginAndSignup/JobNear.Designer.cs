@@ -100,6 +100,7 @@
             this.ClientSize = new System.Drawing.Size(721, 412);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "JobNear";
             this.Text = "JobNear";
