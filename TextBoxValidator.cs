@@ -36,5 +36,11 @@ namespace JobNear
             string pattern = @"^[a-zA-Z0-9.+%_-!$]+@gmail\.com$";
             return Regex.IsMatch(email_input.Text, pattern);
         }
+
+        public static bool ValidatePhoneNumber(TextBox number_input)
+        {
+            string pattern = @"^09\d{9}$";
+            return Regex.IsMatch(number_input.Text, pattern);
+        }
     }
 }
