@@ -1,6 +1,6 @@
 ﻿namespace JobNear.Forms
 {
-    partial class JobPosterLoginForm
+    partial class JobNearAdminForm_
     {
         /// <summary>
         /// Required designer variable.
@@ -30,10 +30,8 @@
         {
             this.app_panel = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.signup_form = new System.Windows.Forms.Label();
             this.login_btn = new System.Windows.Forms.Button();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -58,29 +56,17 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.WhiteSmoke;
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Controls.Add(this.label5);
-            this.panel2.Controls.Add(this.signup_form);
             this.panel2.Controls.Add(this.login_btn);
             this.panel2.Controls.Add(this.textBox3);
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.textBox1);
             this.panel2.Controls.Add(this.label1);
-            this.panel2.Location = new System.Drawing.Point(387, 70);
+            this.panel2.Location = new System.Drawing.Point(381, 88);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(468, 529);
-            this.panel2.TabIndex = 21;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(143, 458);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(175, 22);
-            this.label2.TabIndex = 21;
-            this.label2.Text = "Forgot password? Click here";
+            this.panel2.TabIndex = 23;
             // 
             // pictureBox1
             // 
@@ -98,20 +84,9 @@
             this.label5.Font = new System.Drawing.Font("Poppins SemiBold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(174, 179);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(127, 37);
+            this.label5.Size = new System.Drawing.Size(164, 37);
             this.label5.TabIndex = 19;
-            this.label5.Text = "Job Poster";
-            // 
-            // signup_form
-            // 
-            this.signup_form.AutoSize = true;
-            this.signup_form.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.signup_form.Location = new System.Drawing.Point(127, 436);
-            this.signup_form.Name = "signup_form";
-            this.signup_form.Size = new System.Drawing.Size(204, 22);
-            this.signup_form.TabIndex = 17;
-            this.signup_form.Text = "Don\'t have an account? Click me";
-            this.signup_form.Click += new System.EventHandler(this.login_btn_Click);
+            this.label5.Text = "Administrator";
             // 
             // login_btn
             // 
@@ -164,15 +139,15 @@
             this.label1.TabIndex = 10;
             this.label1.Text = "Email";
             // 
-            // JobPosterLoginForm
+            // JobNearAdminForm_
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1231, 705);
             this.Controls.Add(this.app_panel);
-            this.Name = "JobPosterLoginForm";
-            this.Text = "JobPosterLoginForm";
-            this.Load += new System.EventHandler(this.JobPosterLoginForm_Load);
+            this.Name = "JobNearAdminForm_";
+            this.Text = "JobNearAdminForm_";
+            this.Load += new System.EventHandler(this.JobNearAdminForm__Load);
             this.app_panel.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -187,12 +162,10 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label signup_form;
         private System.Windows.Forms.Button login_btn;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
     }
 }

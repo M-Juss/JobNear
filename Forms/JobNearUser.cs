@@ -27,7 +27,7 @@ namespace JobNear.Forms
 
         private void js_button_Click(object sender, EventArgs e)
         {
-            
+            FormLoad(new JobSeekerLoginForm());
         }
 
 
@@ -46,6 +46,11 @@ namespace JobNear.Forms
 
             app_panel.Controls.Add(form);
             form.Show();
+        }
+
+        private void admin_button_Click(object sender, EventArgs e)
+        {
+            FormLoad(new JobNearAdminForm_());
         }
     }
 }

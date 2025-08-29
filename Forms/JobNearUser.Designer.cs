@@ -30,12 +30,12 @@
         {
             this.app_panel = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.admin_button = new System.Windows.Forms.Button();
             this.jp_button = new System.Windows.Forms.Button();
             this.js_button = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.app_panel.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -65,6 +65,36 @@
             this.panel2.Size = new System.Drawing.Size(468, 529);
             this.panel2.TabIndex = 0;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Poppins", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(127, 214);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(209, 37);
+            this.label5.TabIndex = 21;
+            this.label5.Text = "Local Opportunity";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Poppins", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(88, 187);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(293, 37);
+            this.label4.TabIndex = 20;
+            this.label4.Text = "Where Local Talent meets";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::JobNear.Properties.Resources.JobnearLogo;
+            this.pictureBox1.Location = new System.Drawing.Point(162, 19);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(149, 154);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox1.TabIndex = 3;
+            this.pictureBox1.TabStop = false;
+            // 
             // admin_button
             // 
             this.admin_button.Font = new System.Drawing.Font("Poppins SemiBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -75,6 +105,7 @@
             this.admin_button.TabIndex = 2;
             this.admin_button.Text = "Continue as Administrator";
             this.admin_button.UseVisualStyleBackColor = true;
+            this.admin_button.Click += new System.EventHandler(this.admin_button_Click);
             // 
             // jp_button
             // 
@@ -99,36 +130,6 @@
             this.js_button.Text = "Continue as Job Seeker";
             this.js_button.UseVisualStyleBackColor = true;
             this.js_button.Click += new System.EventHandler(this.js_button_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::JobNear.Properties.Resources.JobnearLogo;
-            this.pictureBox1.Location = new System.Drawing.Point(165, 19);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(149, 154);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox1.TabIndex = 3;
-            this.pictureBox1.TabStop = false;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Poppins", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(127, 214);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(209, 37);
-            this.label5.TabIndex = 21;
-            this.label5.Text = "Local Opportunity";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Poppins", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(88, 187);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(293, 37);
-            this.label4.TabIndex = 20;
-            this.label4.Text = "Where Local Talent meets";
             // 
             // JobNearUser
             // 

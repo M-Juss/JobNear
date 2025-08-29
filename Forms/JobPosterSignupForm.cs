@@ -20,7 +20,7 @@ namespace JobNear.Forms
 
         private void JobPosterLoginForm_Load(object sender, EventArgs e)
         {
-            ButtonStyle.RoundedButton(register_btn, 20, "#10B981");
+            ButtonStyle.RoundedButton(register_btn, 40, "#10B981");
         }
 
         private void label2_Click(object sender, EventArgs e)

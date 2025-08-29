@@ -1,6 +1,6 @@
 ﻿namespace JobNear.Forms
 {
-    partial class JobPosterLoginForm
+    partial class JobSeekerLoginForm
     {
         /// <summary>
         /// Required designer variable.
@@ -31,7 +31,6 @@
             this.app_panel = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
             this.signup_form = new System.Windows.Forms.Label();
             this.login_btn = new System.Windows.Forms.Button();
@@ -39,6 +38,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.app_panel.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -67,10 +67,10 @@
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.textBox1);
             this.panel2.Controls.Add(this.label1);
-            this.panel2.Location = new System.Drawing.Point(387, 70);
+            this.panel2.Location = new System.Drawing.Point(387, 85);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(468, 529);
-            this.panel2.TabIndex = 21;
+            this.panel2.TabIndex = 22;
             // 
             // label2
             // 
@@ -82,25 +82,15 @@
             this.label2.TabIndex = 21;
             this.label2.Text = "Forgot password? Click here";
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::JobNear.Properties.Resources.JobnearLogo;
-            this.pictureBox1.Location = new System.Drawing.Point(163, 22);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(149, 154);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox1.TabIndex = 20;
-            this.pictureBox1.TabStop = false;
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Poppins SemiBold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(174, 179);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(127, 37);
+            this.label5.Size = new System.Drawing.Size(133, 37);
             this.label5.TabIndex = 19;
-            this.label5.Text = "Job Poster";
+            this.label5.Text = "Job Seeker";
             // 
             // signup_form
             // 
@@ -111,7 +101,7 @@
             this.signup_form.Size = new System.Drawing.Size(204, 22);
             this.signup_form.TabIndex = 17;
             this.signup_form.Text = "Don\'t have an account? Click me";
-            this.signup_form.Click += new System.EventHandler(this.login_btn_Click);
+            this.signup_form.Click += new System.EventHandler(this.signup_form_Click);
             // 
             // login_btn
             // 
@@ -164,15 +154,25 @@
             this.label1.TabIndex = 10;
             this.label1.Text = "Email";
             // 
-            // JobPosterLoginForm
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::JobNear.Properties.Resources.JobnearLogo;
+            this.pictureBox1.Location = new System.Drawing.Point(163, 22);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(149, 154);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox1.TabIndex = 20;
+            this.pictureBox1.TabStop = false;
+            // 
+            // JobSeekerLoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1231, 705);
             this.Controls.Add(this.app_panel);
-            this.Name = "JobPosterLoginForm";
-            this.Text = "JobPosterLoginForm";
-            this.Load += new System.EventHandler(this.JobPosterLoginForm_Load);
+            this.Name = "JobSeekerLoginForm";
+            this.Text = "JobSeekerLoginForm";
+            this.Load += new System.EventHandler(this.JobSeekerLoginForm_Load);
             this.app_panel.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -185,6 +185,7 @@
 
         private System.Windows.Forms.Panel app_panel;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label signup_form;
@@ -193,6 +194,5 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
     }
 }

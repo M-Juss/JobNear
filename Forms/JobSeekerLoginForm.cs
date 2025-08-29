@@ -1,4 +1,5 @@
-﻿using System;
+﻿using JobNear.Styles;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,20 +8,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using JobNear.Styles;
 
 namespace JobNear.Forms
 {
-    public partial class JobPosterLoginForm : Form
+    public partial class JobSeekerLoginForm : Form
     {
-        public JobPosterLoginForm()
+        public JobSeekerLoginForm()
         {
             InitializeComponent();
+            ButtonStyle.RoundedButton(login_btn, 40, "#10B981");
         }
 
-        private void login_btn_Click(object sender, EventArgs e)
+        private void signup_form_Click(object sender, EventArgs e)
         {
-            FormLoad(new JobPosterSignupForm());
+            FormLoad(new JobSeekerSignupForm());
         }
 
         private void FormLoad(Form form)
@@ -35,9 +36,9 @@ namespace JobNear.Forms
             form.Show();
         }
 
-        private void JobPosterLoginForm_Load(object sender, EventArgs e)
+        private void JobSeekerLoginForm_Load(object sender, EventArgs e)
         {
-            ButtonStyle.RoundedButton(login_btn, 40, "#10B981");
+
         }
     }
 }
