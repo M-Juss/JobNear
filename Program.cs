@@ -16,7 +16,7 @@ namespace JobNear
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new JobPosterSignupForm());
+            Application.Run(new App());
         }
     }
 }

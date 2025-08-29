@@ -63,39 +63,9 @@ namespace JobNear.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _lock {
+        internal static System.Drawing.Bitmap JobnearLogo {
             get {
-                object obj = ResourceManager.GetObject("lock", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap email {
-            get {
-                object obj = ResourceManager.GetObject("email", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap email__1_ {
-            get {
-                object obj = ResourceManager.GetObject("email (1)", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap iphone {
-            get {
-                object obj = ResourceManager.GetObject("iphone", resourceCulture);
+                object obj = ResourceManager.GetObject("JobnearLogo", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
