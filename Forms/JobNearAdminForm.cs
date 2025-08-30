@@ -17,7 +17,7 @@ namespace JobNear.Forms
         public JobNearAdminForm_()
         {
             InitializeComponent();
-            ButtonStyle.RoundedButton(login_btn, 40, "#10B981");
+            ButtonStyle.RoundedButton(login_button, 40, "#10B981");
         }
 
         private void JobNearAdminForm__Load(object sender, EventArgs e)

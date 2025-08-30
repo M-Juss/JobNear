@@ -33,11 +33,11 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.login_btn = new System.Windows.Forms.Button();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.login_button = new System.Windows.Forms.Button();
+            this.password_input = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.email_input = new System.Windows.Forms.TextBox();
             this.app_panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.back_button)).BeginInit();
             this.panel2.SuspendLayout();
@@ -69,11 +69,11 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.panel2.Controls.Add(this.textBox1);
+            this.panel2.Controls.Add(this.email_input);
             this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Controls.Add(this.label5);
-            this.panel2.Controls.Add(this.login_btn);
-            this.panel2.Controls.Add(this.textBox3);
+            this.panel2.Controls.Add(this.login_button);
+            this.panel2.Controls.Add(this.password_input);
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Location = new System.Drawing.Point(387, 80);
@@ -101,25 +101,25 @@
             this.label5.TabIndex = 19;
             this.label5.Text = "Administrator";
             // 
-            // login_btn
+            // login_button
             // 
-            this.login_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.login_btn.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.login_btn.ForeColor = System.Drawing.Color.White;
-            this.login_btn.Location = new System.Drawing.Point(96, 382);
-            this.login_btn.Name = "login_btn";
-            this.login_btn.Size = new System.Drawing.Size(277, 42);
-            this.login_btn.TabIndex = 16;
-            this.login_btn.Text = "Log in";
-            this.login_btn.UseVisualStyleBackColor = false;
+            this.login_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.login_button.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.login_button.ForeColor = System.Drawing.Color.White;
+            this.login_button.Location = new System.Drawing.Point(96, 382);
+            this.login_button.Name = "login_button";
+            this.login_button.Size = new System.Drawing.Size(277, 42);
+            this.login_button.TabIndex = 16;
+            this.login_button.Text = "Log in";
+            this.login_button.UseVisualStyleBackColor = false;
             // 
-            // textBox3
+            // password_input
             // 
-            this.textBox3.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(96, 332);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(277, 31);
-            this.textBox3.TabIndex = 15;
+            this.password_input.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.password_input.Location = new System.Drawing.Point(96, 332);
+            this.password_input.Name = "password_input";
+            this.password_input.Size = new System.Drawing.Size(277, 31);
+            this.password_input.TabIndex = 15;
             // 
             // label3
             // 
@@ -143,13 +143,13 @@
             this.label1.TabIndex = 10;
             this.label1.Text = "Email";
             // 
-            // textBox1
+            // email_input
             // 
-            this.textBox1.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(96, 257);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(277, 31);
-            this.textBox1.TabIndex = 21;
+            this.email_input.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.email_input.Location = new System.Drawing.Point(96, 257);
+            this.email_input.Name = "email_input";
+            this.email_input.Size = new System.Drawing.Size(277, 31);
+            this.email_input.TabIndex = 21;
             // 
             // JobNearAdminForm_
             // 
@@ -176,11 +176,11 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button login_btn;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Button login_button;
+        private System.Windows.Forms.TextBox password_input;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox back_button;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox email_input;
     }
 }

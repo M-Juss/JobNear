@@ -17,14 +17,8 @@ namespace JobNear.Forms
         public JobSeekerSignupForm()
         {
             InitializeComponent();
-            ButtonStyle.RoundedButton(register_btn, 40, "#10B981");
+            ButtonStyle.RoundedButton(register_button, 40, "#10B981");
         }
-
-        private void login_btn_Click(object sender, EventArgs e)
-        {
-            FormsController.FormLoad(new JobSeekerLoginForm(), app_panel);
-        }
-
 
         private void JobSeekerSignupForm_Load(object sender, EventArgs e)
         {
@@ -34,6 +28,11 @@ namespace JobNear.Forms
         private void back_button_Click(object sender, EventArgs e)
         {
             FormsController.FormLoad(new JobNearUserForm(), app_panel);
+        }
+
+        private void login_label_Click(object sender, EventArgs e)
+        {
+            FormsController.FormLoad(new JobSeekerLoginForm(), app_panel);
         }
     }
 }

@@ -19,19 +19,29 @@ namespace JobNear.Forms
             InitializeComponent();
         }
 
-        private void login_btn_Click(object sender, EventArgs e)
-        {
-            FormsController.FormLoad(new JobPosterSignupForm(), app_panel);
-        }
-
         private void JobPosterLoginForm_Load(object sender, EventArgs e)
         {
-            ButtonStyle.RoundedButton(login_btn, 40, "#10B981");
+            ButtonStyle.RoundedButton(login_button, 40, "#10B981");
         }
 
         private void back_button_Click(object sender, EventArgs e)
         {
             FormsController.FormLoad(new JobNearUserForm(), app_panel);
+        }
+
+        private void signup_label_Click(object sender, EventArgs e)
+        {
+            FormsController.FormLoad(new JobPosterSignupForm(), app_panel);
+        }
+
+        private void forgot_label_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void app_panel_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

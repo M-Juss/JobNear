@@ -21,7 +21,7 @@ namespace JobNear.Forms
 
         private void JobPosterLoginForm_Load(object sender, EventArgs e)
         {
-            ButtonStyle.RoundedButton(register_btn, 40, "#10B981");
+            ButtonStyle.RoundedButton(register_button, 40, "#10B981");
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -29,15 +29,14 @@ namespace JobNear.Forms
 
         }
 
-        private void login_btn_Click(object sender, EventArgs e)
-        {
-            FormsController.FormLoad(new JobPosterLoginForm(), app_panel);
-        }
-
-
         private void back_button_Click(object sender, EventArgs e)
         {
             FormsController.FormLoad(new JobNearUserForm(), app_panel);
+        }
+
+        private void login_label_Click(object sender, EventArgs e)
+        {
+            FormsController.FormLoad(new JobPosterLoginForm(), app_panel);
         }
     }
 }
