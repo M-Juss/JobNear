@@ -71,7 +71,6 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Controls.Add(this.label5);
@@ -81,7 +80,7 @@
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.textBox1);
             this.panel2.Controls.Add(this.label1);
-            this.panel2.Location = new System.Drawing.Point(387, 85);
+            this.panel2.Location = new System.Drawing.Point(387, 80);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(468, 529);
             this.panel2.TabIndex = 22;
@@ -160,7 +159,6 @@
             // 
             // textBox1
             // 
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox1.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.Location = new System.Drawing.Point(96, 257);
             this.textBox1.Name = "textBox1";

@@ -1,29 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using JobNear.Forms;
 
-namespace JobNear
+namespace JobNear.Controller
 {
-    public partial class App : Form
+    public class FormsController
     {
-        public App()
+        public static void FormLoad(Form form, Panel app_panel)
         {
-            InitializeComponent();
-        }
-
-        private void App_Load(object sender, EventArgs e)
-        {
-            FormLoad(new JobNearUserForm());
-        }
-
-        private void FormLoad(Form form) { 
             app_panel.Controls.Clear();
 
             form.TopLevel = false;

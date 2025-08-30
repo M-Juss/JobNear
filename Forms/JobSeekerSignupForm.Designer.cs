@@ -76,7 +76,6 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.textBox5);
             this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.textBox4);
@@ -91,7 +90,7 @@
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.textBox1);
             this.panel2.Controls.Add(this.label1);
-            this.panel2.Location = new System.Drawing.Point(381, 36);
+            this.panel2.Location = new System.Drawing.Point(381, 35);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(468, 633);
             this.panel2.TabIndex = 21;

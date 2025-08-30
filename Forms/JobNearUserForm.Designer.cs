@@ -1,6 +1,6 @@
 ﻿namespace JobNear.Forms
 {
-    partial class JobNearUser
+    partial class JobNearUserForm
     {
         /// <summary>
         /// Required designer variable.
@@ -60,7 +60,7 @@
             this.panel2.Controls.Add(this.admin_button);
             this.panel2.Controls.Add(this.jp_button);
             this.panel2.Controls.Add(this.js_button);
-            this.panel2.Location = new System.Drawing.Point(387, 70);
+            this.panel2.Location = new System.Drawing.Point(387, 80);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(468, 529);
             this.panel2.TabIndex = 0;
@@ -131,13 +131,13 @@
             this.js_button.UseVisualStyleBackColor = true;
             this.js_button.Click += new System.EventHandler(this.js_button_Click);
             // 
-            // JobNearUser
+            // JobNearUserForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1231, 705);
             this.Controls.Add(this.app_panel);
-            this.Name = "JobNearUser";
+            this.Name = "JobNearUserForm";
             this.Text = "JobNearUser";
             this.Load += new System.EventHandler(this.JobNearUser_Load);
             this.app_panel.ResumeLayout(false);

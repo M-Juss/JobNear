@@ -8,7 +8,7 @@ using System.Text.RegularExpressions;
 
 namespace JobNear
 {
-    public class TextBoxValidator
+    public class TextBoxValidatorController
     {
         public static void SetPassword(TextBox password_input)
         {

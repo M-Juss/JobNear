@@ -52,17 +52,18 @@
     <Compile Include="App.Designer.cs">
       <DependentUpon>App.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\FormsController.cs" />
     <Compile Include="Forms\JobNearAdminForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\JobNearAdminForm.Designer.cs">
       <DependentUpon>JobNearAdminForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\JobNearUser.cs">
+    <Compile Include="Forms\JobNearUserForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\JobNearUser.Designer.cs">
-      <DependentUpon>JobNearUser.cs</DependentUpon>
+    <Compile Include="Forms\JobNearUserForm.Designer.cs">
+      <DependentUpon>JobNearUserForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\JobPosterLoginForm.cs">
       <SubType>Form</SubType>
@@ -96,15 +97,15 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Styles\ButtonStyle.cs" />
-    <Compile Include="TextBoxValidator.cs" />
+    <Compile Include="Controllers\TextBoxValidatorController.cs" />
     <EmbeddedResource Include="App.resx">
       <DependentUpon>App.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\JobNearAdminForm.resx">
       <DependentUpon>JobNearAdminForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\JobNearUser.resx">
-      <DependentUpon>JobNearUser.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\JobNearUserForm.resx">
+      <DependentUpon>JobNearUserForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\JobPosterLoginForm.resx">
       <DependentUpon>JobPosterLoginForm.cs</DependentUpon>

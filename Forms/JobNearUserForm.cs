@@ -8,12 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using JobNear.Styles;
+using JobNear.Controller;
 
 namespace JobNear.Forms
 {
-    public partial class JobNearUser : Form
+    public partial class JobNearUserForm : Form
     {
-        public JobNearUser()
+        public JobNearUserForm()
         {
             InitializeComponent();
         }
@@ -27,30 +28,19 @@ namespace JobNear.Forms
 
         private void js_button_Click(object sender, EventArgs e)
         {
-            FormLoad(new JobSeekerLoginForm());
+            FormsController.FormLoad(new JobSeekerLoginForm(), app_panel);
         }
 
 
 
         private void jp_button_Click(object sender, EventArgs e)
         {
-            FormLoad(new JobPosterLoginForm());
-        }
-        private void FormLoad(Form form)
-        {
-            app_panel.Controls.Clear();
-
-            form.TopLevel = false;
-            form.Dock = DockStyle.Fill;
-            form.FormBorderStyle = FormBorderStyle.None;
-
-            app_panel.Controls.Add(form);
-            form.Show();
+            FormsController.FormLoad(new JobPosterLoginForm(), app_panel);
         }
 
         private void admin_button_Click(object sender, EventArgs e)
         {
-            FormLoad(new JobNearAdminForm_());
+            FormsController.FormLoad(new JobNearAdminForm_(), app_panel);
         }
     }
 }

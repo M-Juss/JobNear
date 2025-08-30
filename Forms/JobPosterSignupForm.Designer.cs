@@ -75,7 +75,6 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.textBox4);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.pictureBox1);

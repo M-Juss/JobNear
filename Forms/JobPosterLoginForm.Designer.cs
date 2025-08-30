@@ -38,8 +38,8 @@
             this.login_btn = new System.Windows.Forms.Button();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.app_panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.back_button)).BeginInit();
             this.panel2.SuspendLayout();
@@ -71,7 +71,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.textBox1);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Controls.Add(this.label5);
@@ -79,9 +79,8 @@
             this.panel2.Controls.Add(this.login_btn);
             this.panel2.Controls.Add(this.textBox3);
             this.panel2.Controls.Add(this.label3);
-            this.panel2.Controls.Add(this.textBox1);
             this.panel2.Controls.Add(this.label1);
-            this.panel2.Location = new System.Drawing.Point(387, 70);
+            this.panel2.Location = new System.Drawing.Point(387, 80);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(468, 529);
             this.panel2.TabIndex = 21;
@@ -158,15 +157,6 @@
             this.label3.TabIndex = 14;
             this.label3.Text = "Password";
             // 
-            // textBox1
-            // 
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(96, 257);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(277, 31);
-            this.textBox1.TabIndex = 11;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -177,6 +167,14 @@
             this.label1.Size = new System.Drawing.Size(55, 28);
             this.label1.TabIndex = 10;
             this.label1.Text = "Email";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(96, 257);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(277, 31);
+            this.textBox1.TabIndex = 22;
             // 
             // JobPosterLoginForm
             // 
@@ -207,9 +205,9 @@
         private System.Windows.Forms.Button login_btn;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox back_button;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using JobNear.Styles;
+using JobNear.Controller;
 
 namespace JobNear.Forms
 {
@@ -20,19 +21,7 @@ namespace JobNear.Forms
 
         private void login_btn_Click(object sender, EventArgs e)
         {
-            FormLoad(new JobPosterSignupForm());
-        }
-
-        private void FormLoad(Form form)
-        {
-            app_panel.Controls.Clear();
-
-            form.TopLevel = false;
-            form.Dock = DockStyle.Fill;
-            form.FormBorderStyle = FormBorderStyle.None;
-
-            app_panel.Controls.Add(form);
-            form.Show();
+            FormsController.FormLoad(new JobPosterSignupForm(), app_panel);
         }
 
         private void JobPosterLoginForm_Load(object sender, EventArgs e)
@@ -42,7 +31,7 @@ namespace JobNear.Forms
 
         private void back_button_Click(object sender, EventArgs e)
         {
-            FormLoad(new JobNearUser());
+            FormsController.FormLoad(new JobNearUserForm(), app_panel);
         }
     }
 }
