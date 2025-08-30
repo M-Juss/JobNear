@@ -16,12 +16,29 @@ namespace JobNear.Forms
         public JobNearAdminForm_()
         {
             InitializeComponent();
-            ButtonStyle.RoundedButton(login_btn, 50, "#10B981");
+            ButtonStyle.RoundedButton(login_btn, 40, "#10B981");
         }
 
         private void JobNearAdminForm__Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void FormLoad(Form form)
+        {
+            app_panel.Controls.Clear();
+
+            form.TopLevel = false;
+            form.Dock = DockStyle.Fill;
+            form.FormBorderStyle = FormBorderStyle.None;
+
+            app_panel.Controls.Add(form);
+            form.Show();
+        }
+
+        private void back_button_Click(object sender, EventArgs e)
+        {
+            FormLoad(new JobNearUser());
         }
     }
 }

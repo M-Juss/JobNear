@@ -44,5 +44,10 @@ namespace JobNear.Forms
             app_panel.Controls.Add(form);
             form.Show();
         }
+
+        private void back_button_Click(object sender, EventArgs e)
+        {
+            FormLoad(new JobNearUser());
+        }
     }
 }

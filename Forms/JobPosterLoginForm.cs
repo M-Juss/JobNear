@@ -39,5 +39,10 @@ namespace JobNear.Forms
         {
             ButtonStyle.RoundedButton(login_btn, 40, "#10B981");
         }
+
+        private void back_button_Click(object sender, EventArgs e)
+        {
+            FormLoad(new JobNearUser());
+        }
     }
 }

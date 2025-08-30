@@ -29,11 +29,13 @@
         private void InitializeComponent()
         {
             this.app_panel = new System.Windows.Forms.Panel();
+            this.back_button = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
             this.login_btn = new System.Windows.Forms.Label();
             this.register_btn = new System.Windows.Forms.Button();
@@ -43,8 +45,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.app_panel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.back_button)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -52,12 +54,24 @@
             // app_panel
             // 
             this.app_panel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(186)))), ((int)(((byte)(131)))));
+            this.app_panel.Controls.Add(this.back_button);
             this.app_panel.Controls.Add(this.panel2);
             this.app_panel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.app_panel.Location = new System.Drawing.Point(0, 0);
             this.app_panel.Name = "app_panel";
             this.app_panel.Size = new System.Drawing.Size(1231, 705);
             this.app_panel.TabIndex = 0;
+            // 
+            // back_button
+            // 
+            this.back_button.Image = global::JobNear.Properties.Resources.left_arrow;
+            this.back_button.Location = new System.Drawing.Point(5, 5);
+            this.back_button.Name = "back_button";
+            this.back_button.Size = new System.Drawing.Size(24, 24);
+            this.back_button.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.back_button.TabIndex = 22;
+            this.back_button.TabStop = false;
+            this.back_button.Click += new System.EventHandler(this.back_button_Click);
             // 
             // panel2
             // 
@@ -119,6 +133,16 @@
             this.label4.Size = new System.Drawing.Size(88, 28);
             this.label4.TabIndex = 21;
             this.label4.Text = "Password";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::JobNear.Properties.Resources.JobnearLogo;
+            this.pictureBox1.Location = new System.Drawing.Point(162, 18);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(149, 154);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox1.TabIndex = 20;
+            this.pictureBox1.TabStop = false;
             // 
             // label5
             // 
@@ -212,16 +236,6 @@
             this.label1.TabIndex = 10;
             this.label1.Text = "Username";
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::JobNear.Properties.Resources.JobnearLogo;
-            this.pictureBox1.Location = new System.Drawing.Point(162, 18);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(149, 154);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox1.TabIndex = 20;
-            this.pictureBox1.TabStop = false;
-            // 
             // JobSeekerSignupForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -232,6 +246,8 @@
             this.Text = "JobSeekerSignupForm";
             this.Load += new System.EventHandler(this.JobSeekerSignupForm_Load);
             this.app_panel.ResumeLayout(false);
+            this.app_panel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.back_button)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -257,5 +273,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.PictureBox back_button;
     }
 }
