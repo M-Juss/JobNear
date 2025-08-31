@@ -29,21 +29,21 @@
         private void InitializeComponent()
         {
             this.app_panel = new System.Windows.Forms.Panel();
-            this.back_button = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.email_input = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.forgot_label = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.signup_label = new System.Windows.Forms.Label();
             this.login_button = new System.Windows.Forms.Button();
             this.password_input = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.back_button = new System.Windows.Forms.PictureBox();
             this.app_panel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.back_button)).BeginInit();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.back_button)).BeginInit();
             this.SuspendLayout();
             // 
             // app_panel
@@ -57,24 +57,13 @@
             this.app_panel.Size = new System.Drawing.Size(1231, 705);
             this.app_panel.TabIndex = 0;
             // 
-            // back_button
-            // 
-            this.back_button.Image = global::JobNear.Properties.Resources.left_arrow;
-            this.back_button.Location = new System.Drawing.Point(5, 5);
-            this.back_button.Name = "back_button";
-            this.back_button.Size = new System.Drawing.Size(24, 24);
-            this.back_button.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.back_button.TabIndex = 23;
-            this.back_button.TabStop = false;
-            this.back_button.Click += new System.EventHandler(this.back_button_Click);
-            // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.WhiteSmoke;
             this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.email_input);
-            this.panel2.Controls.Add(this.label2);
+            this.panel2.Controls.Add(this.forgot_label);
             this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.signup_label);
             this.panel2.Controls.Add(this.login_button);
@@ -86,6 +75,28 @@
             this.panel2.Size = new System.Drawing.Size(468, 529);
             this.panel2.TabIndex = 22;
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Poppins SemiBold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(58)))), ((int)(((byte)(138)))));
+            this.label6.Location = new System.Drawing.Point(51, 136);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(375, 37);
+            this.label6.TabIndex = 24;
+            this.label6.Text = " Opportunities are waiting for you.";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Poppins SemiBold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(58)))), ((int)(((byte)(138)))));
+            this.label4.Location = new System.Drawing.Point(145, 109);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(184, 37);
+            this.label4.TabIndex = 23;
+            this.label4.Text = "Welcome back!";
+            // 
             // email_input
             // 
             this.email_input.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -94,15 +105,16 @@
             this.email_input.Size = new System.Drawing.Size(277, 31);
             this.email_input.TabIndex = 22;
             // 
-            // label2
+            // forgot_label
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(152, 430);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(175, 22);
-            this.label2.TabIndex = 21;
-            this.label2.Text = "Forgot password? Click here";
+            this.forgot_label.AutoSize = true;
+            this.forgot_label.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.forgot_label.Location = new System.Drawing.Point(152, 430);
+            this.forgot_label.Name = "forgot_label";
+            this.forgot_label.Size = new System.Drawing.Size(175, 22);
+            this.forgot_label.TabIndex = 21;
+            this.forgot_label.Text = "Forgot password? Click here";
+            this.forgot_label.Click += new System.EventHandler(this.forgot_label_Click);
             // 
             // label5
             // 
@@ -167,27 +179,16 @@
             this.label1.TabIndex = 10;
             this.label1.Text = "Email";
             // 
-            // label4
+            // back_button
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Poppins SemiBold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(58)))), ((int)(((byte)(138)))));
-            this.label4.Location = new System.Drawing.Point(145, 109);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(184, 37);
-            this.label4.TabIndex = 23;
-            this.label4.Text = "Welcome back!";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Poppins SemiBold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(58)))), ((int)(((byte)(138)))));
-            this.label6.Location = new System.Drawing.Point(51, 136);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(375, 37);
-            this.label6.TabIndex = 24;
-            this.label6.Text = " Opportunities are waiting for you.";
+            this.back_button.Image = global::JobNear.Properties.Resources.left_arrow;
+            this.back_button.Location = new System.Drawing.Point(5, 5);
+            this.back_button.Name = "back_button";
+            this.back_button.Size = new System.Drawing.Size(24, 24);
+            this.back_button.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.back_button.TabIndex = 23;
+            this.back_button.TabStop = false;
+            this.back_button.Click += new System.EventHandler(this.back_button_Click);
             // 
             // JobSeekerLoginForm
             // 
@@ -200,9 +201,9 @@
             this.Load += new System.EventHandler(this.JobSeekerLoginForm_Load);
             this.app_panel.ResumeLayout(false);
             this.app_panel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.back_button)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.back_button)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -211,7 +212,7 @@
 
         private System.Windows.Forms.Panel app_panel;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label forgot_label;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label signup_label;
         private System.Windows.Forms.Button login_button;

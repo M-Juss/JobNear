@@ -34,5 +34,10 @@ namespace JobNear.Forms
         {
             FormsController.FormLoad(new JobSeekerSignupForm(), app_panel);
         }
+
+        private void forgot_label_Click(object sender, EventArgs e)
+        {
+            FormsController.FormLoad(new ForgotPasswordForm(), app_panel);
+        }
     }
 }

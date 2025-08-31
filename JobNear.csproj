@@ -53,6 +53,12 @@
       <DependentUpon>App.cs</DependentUpon>
     </Compile>
     <Compile Include="Controllers\FormsController.cs" />
+    <Compile Include="Forms\ForgotPasswordForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ForgotPasswordForm.Designer.cs">
+      <DependentUpon>ForgotPasswordForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\JobNearAdminForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -100,6 +106,9 @@
     <Compile Include="Controllers\TextBoxValidatorController.cs" />
     <EmbeddedResource Include="App.resx">
       <DependentUpon>App.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ForgotPasswordForm.resx">
+      <DependentUpon>ForgotPasswordForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\JobNearAdminForm.resx">
       <DependentUpon>JobNearAdminForm.cs</DependentUpon>

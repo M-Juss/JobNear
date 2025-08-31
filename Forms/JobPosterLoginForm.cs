@@ -36,7 +36,7 @@ namespace JobNear.Forms
 
         private void forgot_label_Click(object sender, EventArgs e)
         {
-
+            FormsController.FormLoad(new ForgotPasswordForm(), app_panel);
         }
 
         private void app_panel_Paint(object sender, PaintEventArgs e)
