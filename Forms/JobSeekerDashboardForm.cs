@@ -63,6 +63,7 @@ namespace JobNear.Forms
 
         private void profile_button_Click(object sender, EventArgs e)
         {
+            hideInactiveSubMenu();
             sidebar_panel.Controls.Clear();
             sidebar_panel.Controls.Add(js_profile);
             js_profile.Dock = DockStyle.Fill;
@@ -85,7 +86,6 @@ namespace JobNear.Forms
 
         private void jobnear_button_Click(object sender, EventArgs e)
         {
-            hideInactiveSubMenu();
             sidebar_panel.Controls.Clear();
             sidebar_panel.Controls.Add(js_dashboard);
             js_dashboard.Dock = DockStyle.Fill;
