@@ -31,5 +31,19 @@ namespace JobNear.Styles
             btn.FlatAppearance.BorderSize = 0;
             btn.FlatAppearance.MouseOverBackColor = ColorTranslator.FromHtml(hexColor);
         }
+
+        public static void SidebarButton(Button btn, string hexColor)
+        {
+            btn.FlatStyle = FlatStyle.Flat;
+            btn.FlatAppearance.BorderSize = 0;
+            btn.BackColor = ColorTranslator.FromHtml(hexColor);
+            btn.ForeColor = Color.White;
+            btn.Font = new Font("Poppins", 11, FontStyle.Bold);
+            btn.Height = 45;
+            btn.Cursor = Cursors.Hand;
+            btn.Padding = new Padding(10, 0, 0, 0);
+            btn.TextAlign = ContentAlignment.MiddleLeft;
+            btn.FlatAppearance.MouseOverBackColor = ControlPaint.Light(ColorTranslator.FromHtml(hexColor), 0.2f);
+        }
     }
 }

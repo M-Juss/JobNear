@@ -83,6 +83,12 @@
     <Compile Include="Forms\JobPosterSignupForm.Designer.cs">
       <DependentUpon>JobPosterSignupForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\JobSeekerDashboardForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\JobSeekerDashboardForm.Designer.cs">
+      <DependentUpon>JobSeekerDashboardForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\JobSeekerLoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -94,6 +100,36 @@
     </Compile>
     <Compile Include="Forms\JobSeekerSignupForm.Designer.cs">
       <DependentUpon>JobSeekerSignupForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="JobSeekerDashboardUserControl\JS_Dashboard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="JobSeekerDashboardUserControl\JS_Dashboard.Designer.cs">
+      <DependentUpon>JS_Dashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="JobSeekerDashboardUserControl\JS_JobBrowse.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="JobSeekerDashboardUserControl\JS_JobBrowse.Designer.cs">
+      <DependentUpon>JS_JobBrowse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="JobSeekerDashboardUserControl\JS_JobList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="JobSeekerDashboardUserControl\JS_JobList.Designer.cs">
+      <DependentUpon>JS_JobList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="JobSeekerDashboardUserControl\JS_Notifications.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="JobSeekerDashboardUserControl\JS_Notifications.Designer.cs">
+      <DependentUpon>JS_Notifications.cs</DependentUpon>
+    </Compile>
+    <Compile Include="JobSeekerDashboardUserControl\JS_Profile.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="JobSeekerDashboardUserControl\JS_Profile.Designer.cs">
+      <DependentUpon>JS_Profile.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -122,11 +158,29 @@
     <EmbeddedResource Include="Forms\JobPosterSignupForm.resx">
       <DependentUpon>JobPosterSignupForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\JobSeekerDashboardForm.resx">
+      <DependentUpon>JobSeekerDashboardForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\JobSeekerLoginForm.resx">
       <DependentUpon>JobSeekerLoginForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\JobSeekerSignupForm.resx">
       <DependentUpon>JobSeekerSignupForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JobSeekerDashboardUserControl\JS_Dashboard.resx">
+      <DependentUpon>JS_Dashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JobSeekerDashboardUserControl\JS_JobBrowse.resx">
+      <DependentUpon>JS_JobBrowse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JobSeekerDashboardUserControl\JS_JobList.resx">
+      <DependentUpon>JS_JobList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JobSeekerDashboardUserControl\JS_Notifications.resx">
+      <DependentUpon>JS_Notifications.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JobSeekerDashboardUserControl\JS_Profile.resx">
+      <DependentUpon>JS_Profile.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -151,6 +205,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\left-arrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\JobnearSideLogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\JobNearDashboardLogo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

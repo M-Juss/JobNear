@@ -29,18 +29,18 @@
         private void InitializeComponent()
         {
             this.app_panel = new System.Windows.Forms.Panel();
-            this.back_button = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.email_input = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.login_button = new System.Windows.Forms.Button();
             this.password_input = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.email_input = new System.Windows.Forms.TextBox();
+            this.back_button = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.app_panel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.back_button)).BeginInit();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.back_button)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -54,17 +54,6 @@
             this.app_panel.Name = "app_panel";
             this.app_panel.Size = new System.Drawing.Size(1231, 705);
             this.app_panel.TabIndex = 0;
-            // 
-            // back_button
-            // 
-            this.back_button.Image = global::JobNear.Properties.Resources.left_arrow;
-            this.back_button.Location = new System.Drawing.Point(5, 5);
-            this.back_button.Name = "back_button";
-            this.back_button.Size = new System.Drawing.Size(24, 24);
-            this.back_button.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.back_button.TabIndex = 1;
-            this.back_button.TabStop = false;
-            this.back_button.Click += new System.EventHandler(this.back_button_Click);
             // 
             // panel2
             // 
@@ -81,21 +70,19 @@
             this.panel2.Size = new System.Drawing.Size(468, 529);
             this.panel2.TabIndex = 23;
             // 
-            // pictureBox1
+            // email_input
             // 
-            this.pictureBox1.Image = global::JobNear.Properties.Resources.JobnearLogo;
-            this.pictureBox1.Location = new System.Drawing.Point(163, 22);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(149, 154);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox1.TabIndex = 20;
-            this.pictureBox1.TabStop = false;
+            this.email_input.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.email_input.Location = new System.Drawing.Point(96, 257);
+            this.email_input.Name = "email_input";
+            this.email_input.Size = new System.Drawing.Size(277, 31);
+            this.email_input.TabIndex = 21;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Poppins SemiBold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(174, 179);
+            this.label5.Location = new System.Drawing.Point(156, 179);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(164, 37);
             this.label5.TabIndex = 19;
@@ -143,13 +130,26 @@
             this.label1.TabIndex = 10;
             this.label1.Text = "Email";
             // 
-            // email_input
+            // back_button
             // 
-            this.email_input.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.email_input.Location = new System.Drawing.Point(96, 257);
-            this.email_input.Name = "email_input";
-            this.email_input.Size = new System.Drawing.Size(277, 31);
-            this.email_input.TabIndex = 21;
+            this.back_button.Image = global::JobNear.Properties.Resources.left_arrow;
+            this.back_button.Location = new System.Drawing.Point(5, 5);
+            this.back_button.Name = "back_button";
+            this.back_button.Size = new System.Drawing.Size(24, 24);
+            this.back_button.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.back_button.TabIndex = 1;
+            this.back_button.TabStop = false;
+            this.back_button.Click += new System.EventHandler(this.back_button_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::JobNear.Properties.Resources.JobnearLogo;
+            this.pictureBox1.Location = new System.Drawing.Point(163, 22);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(149, 154);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox1.TabIndex = 20;
+            this.pictureBox1.TabStop = false;
             // 
             // JobNearAdminForm_
             // 
@@ -162,9 +162,9 @@
             this.Load += new System.EventHandler(this.JobNearAdminForm__Load);
             this.app_panel.ResumeLayout(false);
             this.app_panel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.back_button)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.back_button)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
