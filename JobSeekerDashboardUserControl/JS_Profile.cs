@@ -16,5 +16,10 @@ namespace JobNear.JobSeekerDashboardUserControl
         {
             InitializeComponent();
         }
+
+        private void email_input_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
