@@ -44,12 +44,28 @@
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label8 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.label12 = new System.Windows.Forms.Label();
             this.sidebar_panel.SuspendLayout();
             this.SuspendLayout();
             // 
             // sidebar_panel
             // 
             this.sidebar_panel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(186)))), ((int)(((byte)(131)))));
+            this.sidebar_panel.Controls.Add(this.panel3);
+            this.sidebar_panel.Controls.Add(this.label12);
+            this.sidebar_panel.Controls.Add(this.textBox4);
+            this.sidebar_panel.Controls.Add(this.label10);
+            this.sidebar_panel.Controls.Add(this.textBox5);
+            this.sidebar_panel.Controls.Add(this.label11);
+            this.sidebar_panel.Controls.Add(this.panel2);
+            this.sidebar_panel.Controls.Add(this.label9);
             this.sidebar_panel.Controls.Add(this.textBox3);
             this.sidebar_panel.Controls.Add(this.label8);
             this.sidebar_panel.Controls.Add(this.dateTimePicker1);
@@ -215,10 +231,88 @@
             // textBox3
             // 
             this.textBox3.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(544, 205);
+            this.textBox3.Location = new System.Drawing.Point(544, 201);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(254, 31);
             this.textBox3.TabIndex = 36;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Poppins", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(58)))), ((int)(((byte)(138)))));
+            this.label9.Location = new System.Drawing.Point(7, 246);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(184, 37);
+            this.label9.TabIndex = 37;
+            this.label9.Text = "Contact Details";
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(58)))), ((int)(((byte)(138)))));
+            this.panel2.Location = new System.Drawing.Point(14, 281);
+            this.panel2.Margin = new System.Windows.Forms.Padding(0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(787, 2);
+            this.panel2.TabIndex = 3;
+            // 
+            // textBox4
+            // 
+            this.textBox4.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox4.Location = new System.Drawing.Point(279, 319);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(254, 31);
+            this.textBox4.TabIndex = 41;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.White;
+            this.label10.Location = new System.Drawing.Point(274, 292);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(132, 28);
+            this.label10.TabIndex = 40;
+            this.label10.Text = "Phone Number:";
+            // 
+            // textBox5
+            // 
+            this.textBox5.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox5.Location = new System.Drawing.Point(14, 319);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(254, 31);
+            this.textBox5.TabIndex = 39;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.White;
+            this.label11.Location = new System.Drawing.Point(9, 292);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(127, 28);
+            this.label11.TabIndex = 38;
+            this.label11.Text = "Email Address:";
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(58)))), ((int)(((byte)(138)))));
+            this.panel3.Location = new System.Drawing.Point(20, 399);
+            this.panel3.Margin = new System.Windows.Forms.Padding(0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(787, 2);
+            this.panel3.TabIndex = 42;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Poppins", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(58)))), ((int)(((byte)(138)))));
+            this.label12.Location = new System.Drawing.Point(13, 364);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(266, 37);
+            this.label12.TabIndex = 43;
+            this.label12.Text = "Supporting Documents";
             // 
             // JS_Profile
             // 
@@ -251,5 +345,13 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Label label12;
     }
 }
