@@ -38,5 +38,10 @@ namespace JobNear.Forms
         {
             FormsController.FormLoad(new JobPosterLoginForm(), app_panel);
         }
+
+        private void email_input_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

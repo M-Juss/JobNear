@@ -31,6 +31,9 @@
             this.app_panel = new System.Windows.Forms.Panel();
             this.back_button = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.email_input = new System.Windows.Forms.TextBox();
             this.confirm_input = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -41,9 +44,6 @@
             this.phone_input = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.app_panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.back_button)).BeginInit();
             this.panel2.SuspendLayout();
@@ -93,6 +93,38 @@
             this.panel2.Size = new System.Drawing.Size(468, 588);
             this.panel2.TabIndex = 20;
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Poppins SemiBold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(58)))), ((int)(((byte)(138)))));
+            this.label7.Location = new System.Drawing.Point(146, 114);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(191, 37);
+            this.label7.TabIndex = 31;
+            this.label7.Text = "let’s build yours!";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Poppins SemiBold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(58)))), ((int)(((byte)(138)))));
+            this.label8.Location = new System.Drawing.Point(52, 87);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(373, 37);
+            this.label8.TabIndex = 30;
+            this.label8.Text = "Great teams start with great hires";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Poppins", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(155, 25);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(166, 48);
+            this.label5.TabIndex = 29;
+            this.label5.Text = "Job Poster";
+            // 
             // email_input
             // 
             this.email_input.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -100,6 +132,7 @@
             this.email_input.Name = "email_input";
             this.email_input.Size = new System.Drawing.Size(277, 31);
             this.email_input.TabIndex = 23;
+            this.email_input.TextChanged += new System.EventHandler(this.email_input_TextChanged);
             // 
             // confirm_input
             // 
@@ -193,38 +226,6 @@
             this.label1.Size = new System.Drawing.Size(55, 28);
             this.label1.TabIndex = 10;
             this.label1.Text = "Email";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Poppins SemiBold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(58)))), ((int)(((byte)(138)))));
-            this.label7.Location = new System.Drawing.Point(146, 114);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(191, 37);
-            this.label7.TabIndex = 31;
-            this.label7.Text = "let’s build yours!";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Poppins SemiBold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(58)))), ((int)(((byte)(138)))));
-            this.label8.Location = new System.Drawing.Point(52, 87);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(373, 37);
-            this.label8.TabIndex = 30;
-            this.label8.Text = "Great teams start with great hires";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Poppins", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(155, 25);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(166, 48);
-            this.label5.TabIndex = 29;
-            this.label5.Text = "Job Poster";
             // 
             // JobPosterSignupForm
             // 
