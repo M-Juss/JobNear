@@ -140,6 +140,7 @@
     </Compile>
     <Compile Include="Styles\ButtonStyle.cs" />
     <Compile Include="Controllers\TextBoxValidatorController.cs" />
+    <Compile Include="Styles\GridStyles.cs" />
     <EmbeddedResource Include="App.resx">
       <DependentUpon>App.cs</DependentUpon>
     </EmbeddedResource>
@@ -211,6 +212,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\JobNearDashboardLogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\default-profile.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

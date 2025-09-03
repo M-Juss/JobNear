@@ -55,7 +55,6 @@ namespace JobNear.Forms
 
         private void job_browsing_sub_button_Click(object sender, EventArgs e)
         {
-            hideInactiveSubMenu();
             sidebar_panel.Controls.Clear();
             sidebar_panel.Controls.Add(js_jobBrowsing);
             js_jobBrowsing.Dock = DockStyle.Fill;
@@ -90,5 +89,6 @@ namespace JobNear.Forms
             sidebar_panel.Controls.Add(js_dashboard);
             js_dashboard.Dock = DockStyle.Fill;
         }
+
     }
 }

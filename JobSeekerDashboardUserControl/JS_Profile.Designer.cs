@@ -29,35 +29,53 @@
         private void InitializeComponent()
         {
             this.sidebar_panel = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.email_input = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.label8 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.file_grid = new System.Windows.Forms.DataGridView();
+            this.button1 = new System.Windows.Forms.Button();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.upload_button = new System.Windows.Forms.Button();
+            this.profile_picture = new System.Windows.Forms.PictureBox();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.label12 = new System.Windows.Forms.Label();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.label12 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label9 = new System.Windows.Forms.Label();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.label7 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.email_input = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.sidebar_panel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.file_grid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.profile_picture)).BeginInit();
             this.SuspendLayout();
             // 
             // sidebar_panel
             // 
             this.sidebar_panel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(186)))), ((int)(((byte)(131)))));
+            this.sidebar_panel.Controls.Add(this.button3);
+            this.sidebar_panel.Controls.Add(this.button2);
+            this.sidebar_panel.Controls.Add(this.file_grid);
+            this.sidebar_panel.Controls.Add(this.button1);
+            this.sidebar_panel.Controls.Add(this.textBox6);
+            this.sidebar_panel.Controls.Add(this.label13);
+            this.sidebar_panel.Controls.Add(this.upload_button);
+            this.sidebar_panel.Controls.Add(this.profile_picture);
             this.sidebar_panel.Controls.Add(this.panel3);
             this.sidebar_panel.Controls.Add(this.label12);
             this.sidebar_panel.Controls.Add(this.textBox4);
@@ -87,105 +105,205 @@
             this.sidebar_panel.Size = new System.Drawing.Size(1031, 705);
             this.sidebar_panel.TabIndex = 3;
             // 
-            // label1
+            // button3
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Poppins", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(3, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(232, 62);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Your Profile";
+            this.button3.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Location = new System.Drawing.Point(824, 650);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(191, 36);
+            this.button3.TabIndex = 51;
+            this.button3.Text = "Submit for verifiation";
+            this.button3.UseVisualStyleBackColor = true;
             // 
-            // label2
+            // button2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Poppins", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(58)))), ((int)(((byte)(138)))));
-            this.label2.Location = new System.Drawing.Point(7, 62);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(190, 37);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Personal Details";
+            this.button2.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(693, 650);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(125, 36);
+            this.button2.TabIndex = 50;
+            this.button2.Text = "Save as Draft";
+            this.button2.UseVisualStyleBackColor = true;
             // 
-            // panel1
+            // file_grid
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(58)))), ((int)(((byte)(138)))));
-            this.panel1.Location = new System.Drawing.Point(14, 94);
-            this.panel1.Margin = new System.Windows.Forms.Padding(0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(787, 2);
-            this.panel1.TabIndex = 2;
+            this.file_grid.AllowUserToAddRows = false;
+            this.file_grid.AllowUserToDeleteRows = false;
+            this.file_grid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.file_grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.file_grid.Location = new System.Drawing.Point(14, 535);
+            this.file_grid.Name = "file_grid";
+            this.file_grid.ReadOnly = true;
+            this.file_grid.Size = new System.Drawing.Size(783, 91);
+            this.file_grid.TabIndex = 49;
+            this.file_grid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.file_grid_CellContentClick);
             // 
-            // label3
+            // button1
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(9, 104);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(94, 28);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "Lastname:";
+            this.button1.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(14, 475);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(786, 47);
+            this.button1.TabIndex = 48;
+            this.button1.Text = "Attach files that will help us verify your details and contact information";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // email_input
+            // textBox6
             // 
-            this.email_input.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.email_input.Location = new System.Drawing.Point(14, 131);
-            this.email_input.Name = "email_input";
-            this.email_input.Size = new System.Drawing.Size(254, 31);
-            this.email_input.TabIndex = 24;
-            this.email_input.TextChanged += new System.EventHandler(this.email_input_TextChanged);
+            this.textBox6.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox6.Location = new System.Drawing.Point(14, 320);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(784, 31);
+            this.textBox6.TabIndex = 47;
             // 
-            // label4
+            // label13
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(274, 104);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(91, 28);
-            this.label4.TabIndex = 25;
-            this.label4.Text = "Firstname";
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.Color.White;
+            this.label13.Location = new System.Drawing.Point(9, 293);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(110, 28);
+            this.label13.TabIndex = 46;
+            this.label13.Text = "Full Address:";
             // 
-            // label5
+            // upload_button
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(539, 104);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(113, 28);
-            this.label5.TabIndex = 27;
-            this.label5.Text = "Middlename";
+            this.upload_button.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.upload_button.Location = new System.Drawing.Point(820, 307);
+            this.upload_button.Name = "upload_button";
+            this.upload_button.Size = new System.Drawing.Size(195, 32);
+            this.upload_button.TabIndex = 45;
+            this.upload_button.Text = "Upload your 2x2 picture";
+            this.upload_button.UseVisualStyleBackColor = true;
+            this.upload_button.Click += new System.EventHandler(this.upload_button_Click);
             // 
-            // textBox1
+            // profile_picture
             // 
-            this.textBox1.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(279, 131);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(254, 31);
-            this.textBox1.TabIndex = 28;
+            this.profile_picture.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.profile_picture.Image = global::JobNear.Properties.Resources.default_profile;
+            this.profile_picture.Location = new System.Drawing.Point(816, 94);
+            this.profile_picture.Name = "profile_picture";
+            this.profile_picture.Size = new System.Drawing.Size(200, 200);
+            this.profile_picture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.profile_picture.TabIndex = 44;
+            this.profile_picture.TabStop = false;
             // 
-            // textBox2
+            // panel3
             // 
-            this.textBox2.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(544, 131);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(254, 31);
-            this.textBox2.TabIndex = 29;
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(58)))), ((int)(((byte)(138)))));
+            this.panel3.Location = new System.Drawing.Point(14, 464);
+            this.panel3.Margin = new System.Windows.Forms.Padding(0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(787, 2);
+            this.panel3.TabIndex = 42;
             // 
-            // label6
+            // label12
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(9, 174);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(42, 28);
-            this.label6.TabIndex = 30;
-            this.label6.Text = "Sex:";
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Poppins", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(58)))), ((int)(((byte)(138)))));
+            this.label12.Location = new System.Drawing.Point(7, 429);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(266, 37);
+            this.label12.TabIndex = 43;
+            this.label12.Text = "Supporting Documents";
+            // 
+            // textBox4
+            // 
+            this.textBox4.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox4.Location = new System.Drawing.Point(279, 381);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(254, 31);
+            this.textBox4.TabIndex = 41;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.White;
+            this.label10.Location = new System.Drawing.Point(274, 354);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(132, 28);
+            this.label10.TabIndex = 40;
+            this.label10.Text = "Phone Number:";
+            // 
+            // textBox5
+            // 
+            this.textBox5.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox5.Location = new System.Drawing.Point(14, 381);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(254, 31);
+            this.textBox5.TabIndex = 39;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.White;
+            this.label11.Location = new System.Drawing.Point(9, 354);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(127, 28);
+            this.label11.TabIndex = 38;
+            this.label11.Text = "Email Address:";
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(58)))), ((int)(((byte)(138)))));
+            this.panel2.Location = new System.Drawing.Point(14, 281);
+            this.panel2.Margin = new System.Windows.Forms.Padding(0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(787, 2);
+            this.panel2.TabIndex = 3;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Poppins", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(58)))), ((int)(((byte)(138)))));
+            this.label9.Location = new System.Drawing.Point(7, 246);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(184, 37);
+            this.label9.TabIndex = 37;
+            this.label9.Text = "Contact Details";
+            // 
+            // textBox3
+            // 
+            this.textBox3.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox3.Location = new System.Drawing.Point(544, 201);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(254, 31);
+            this.textBox3.TabIndex = 36;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.White;
+            this.label8.Location = new System.Drawing.Point(539, 174);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(47, 28);
+            this.label8.TabIndex = 35;
+            this.label8.Text = "Age:";
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(279, 201);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(254, 20);
+            this.dateTimePicker1.TabIndex = 34;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.Location = new System.Drawing.Point(274, 174);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(89, 28);
+            this.label7.TabIndex = 32;
+            this.label7.Text = "Birthdate:";
             // 
             // comboBox1
             // 
@@ -199,120 +317,105 @@
             this.comboBox1.Size = new System.Drawing.Size(254, 31);
             this.comboBox1.TabIndex = 31;
             // 
-            // label7
+            // label6
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(274, 174);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(89, 28);
-            this.label7.TabIndex = 32;
-            this.label7.Text = "Birthdate:";
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(9, 174);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(42, 28);
+            this.label6.TabIndex = 30;
+            this.label6.Text = "Sex:";
             // 
-            // dateTimePicker1
+            // textBox2
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(279, 201);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(254, 20);
-            this.dateTimePicker1.TabIndex = 34;
+            this.textBox2.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.Location = new System.Drawing.Point(544, 131);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(254, 31);
+            this.textBox2.TabIndex = 29;
             // 
-            // label8
+            // textBox1
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(539, 174);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(47, 28);
-            this.label8.TabIndex = 35;
-            this.label8.Text = "Age:";
+            this.textBox1.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(279, 131);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(254, 31);
+            this.textBox1.TabIndex = 28;
             // 
-            // textBox3
+            // label5
             // 
-            this.textBox3.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(544, 201);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(254, 31);
-            this.textBox3.TabIndex = 36;
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(539, 104);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(113, 28);
+            this.label5.TabIndex = 27;
+            this.label5.Text = "Middlename";
             // 
-            // label9
+            // label4
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Poppins", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(58)))), ((int)(((byte)(138)))));
-            this.label9.Location = new System.Drawing.Point(7, 246);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(184, 37);
-            this.label9.TabIndex = 37;
-            this.label9.Text = "Contact Details";
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(274, 104);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(91, 28);
+            this.label4.TabIndex = 25;
+            this.label4.Text = "Firstname";
             // 
-            // panel2
+            // email_input
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(58)))), ((int)(((byte)(138)))));
-            this.panel2.Location = new System.Drawing.Point(14, 281);
-            this.panel2.Margin = new System.Windows.Forms.Padding(0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(787, 2);
-            this.panel2.TabIndex = 3;
+            this.email_input.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.email_input.Location = new System.Drawing.Point(14, 131);
+            this.email_input.Name = "email_input";
+            this.email_input.Size = new System.Drawing.Size(254, 31);
+            this.email_input.TabIndex = 24;
+            this.email_input.TextChanged += new System.EventHandler(this.email_input_TextChanged);
             // 
-            // textBox4
+            // label3
             // 
-            this.textBox4.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(279, 319);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(254, 31);
-            this.textBox4.TabIndex = 41;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(9, 104);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(94, 28);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "Lastname:";
             // 
-            // label10
+            // panel1
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(274, 292);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(132, 28);
-            this.label10.TabIndex = 40;
-            this.label10.Text = "Phone Number:";
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(58)))), ((int)(((byte)(138)))));
+            this.panel1.Location = new System.Drawing.Point(14, 94);
+            this.panel1.Margin = new System.Windows.Forms.Padding(0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(787, 2);
+            this.panel1.TabIndex = 2;
             // 
-            // textBox5
+            // label2
             // 
-            this.textBox5.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.Location = new System.Drawing.Point(14, 319);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(254, 31);
-            this.textBox5.TabIndex = 39;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Poppins", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(58)))), ((int)(((byte)(138)))));
+            this.label2.Location = new System.Drawing.Point(7, 62);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(190, 37);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Personal Details";
             // 
-            // label11
+            // label1
             // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(9, 292);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(127, 28);
-            this.label11.TabIndex = 38;
-            this.label11.Text = "Email Address:";
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(58)))), ((int)(((byte)(138)))));
-            this.panel3.Location = new System.Drawing.Point(20, 399);
-            this.panel3.Margin = new System.Windows.Forms.Padding(0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(787, 2);
-            this.panel3.TabIndex = 42;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Poppins", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(58)))), ((int)(((byte)(138)))));
-            this.label12.Location = new System.Drawing.Point(13, 364);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(266, 37);
-            this.label12.TabIndex = 43;
-            this.label12.Text = "Supporting Documents";
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Poppins", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(3, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(232, 62);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Your Profile";
             // 
             // JS_Profile
             // 
@@ -323,6 +426,8 @@
             this.Size = new System.Drawing.Size(1031, 705);
             this.sidebar_panel.ResumeLayout(false);
             this.sidebar_panel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.file_grid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.profile_picture)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -353,5 +458,13 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.PictureBox profile_picture;
+        private System.Windows.Forms.Button upload_button;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.DataGridView file_grid;
     }
 }
