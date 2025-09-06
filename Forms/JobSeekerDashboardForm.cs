@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using JobNear.Styles;
+using JobNear.JobSeekerDashboardUserControl;
 
 namespace JobNear.Forms
 {
@@ -29,6 +30,11 @@ namespace JobNear.Forms
             ButtonStyle.SidebarButton(job_browsing_sub_button, "#3B82F6");
             ButtonStyle.SidebarButton(notification_button, "#3B82F6");
             ButtonStyle.SidebarButton(logout_button, "#3B82F6");
+
+            sidebar_panel.Controls.Clear();
+            sidebar_panel.Controls.Add(js_dashboard);
+            js_dashboard.Dock = DockStyle.Fill;
+
         }
 
         private void JobSeekerDashboardForm_Load(object sender, EventArgs e)

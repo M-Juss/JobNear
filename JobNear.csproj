@@ -53,6 +53,9 @@
       <DependentUpon>App.cs</DependentUpon>
     </Compile>
     <Compile Include="Controllers\FormsController.cs" />
+    <Compile Include="Controllers\NotificationController.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Forms\ForgotPasswordForm.cs">
       <SubType>Form</SubType>
     </Compile>
