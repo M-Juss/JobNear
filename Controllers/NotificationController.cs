@@ -19,7 +19,7 @@ namespace JobNear.Controllers
         private void SetupNotificationBox(string senderName, string message, string type, DateTime date)
         {
             // Set size - FlowLayoutPanel will handle positioning
-            this.Size = new Size(900, 70);
+            this.Size = new Size(980, 70);
             this.BackColor = Color.White;
             this.BorderStyle = BorderStyle.FixedSingle;
             this.Margin = new Padding(5, 3, 5, 3); // Small margins for spacing

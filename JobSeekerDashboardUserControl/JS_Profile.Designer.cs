@@ -289,9 +289,10 @@
             // 
             // dateTimePicker1
             // 
+            this.dateTimePicker1.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePicker1.Location = new System.Drawing.Point(279, 201);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(254, 20);
+            this.dateTimePicker1.Size = new System.Drawing.Size(254, 31);
             this.dateTimePicker1.TabIndex = 34;
             // 
             // label7

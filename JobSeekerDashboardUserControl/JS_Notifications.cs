@@ -22,13 +22,7 @@ namespace JobNear.JobSeekerDashboardUserControl
 
             // Load some sample notifications
             notificationManager.LoadSampleNotifications();
-            notificationManager.LoadSampleNotifications();
-            notificationManager.LoadSampleNotifications();
-            notificationManager.LoadSampleNotifications();
-            notificationManager.LoadSampleNotifications();
-            notificationManager.LoadSampleNotifications();
-            notificationManager.LoadSampleNotifications();
-            notificationManager.LoadSampleNotifications();
+
 
         }
 
