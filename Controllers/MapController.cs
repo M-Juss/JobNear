@@ -25,7 +25,7 @@ namespace JobNear.Controllers
 
             GMaps.Instance.Mode = AccessMode.ServerAndCache;
 
-            gmap.MapProvider = GMapProviders.GoogleMap;
+            gmap.MapProvider = GMapProviders.GoogleMap; 
 
             gmap.CanDragMap = false;
 

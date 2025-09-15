@@ -19,6 +19,7 @@ namespace JobNear.Forms
         JobSeekerDashboardUserControl.JS_JobBrowse js_jobBrowsing = new JobSeekerDashboardUserControl.JS_JobBrowse();
         JobSeekerDashboardUserControl.JS_JobList js_jobList = new JobSeekerDashboardUserControl.JS_JobList();
         JobSeekerDashboardUserControl.JS_Notifications js_notification = new JobSeekerDashboardUserControl.JS_Notifications();
+        JobSeekerDashboardUserControl.UserControlPractice prac = new JobSeekerDashboardUserControl.UserControlPractice();
         public JobSeekerDashboardForm()
         {
             InitializeComponent();
@@ -96,5 +97,9 @@ namespace JobNear.Forms
             js_dashboard.Dock = DockStyle.Fill;
         }
 
+        private void sidebar_panel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

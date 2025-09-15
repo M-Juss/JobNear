@@ -10,6 +10,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using JobNear.Styles;
+using System.Net.Http;
+using Newtonsoft.Json.Linq;
 
 namespace JobNear.JobSeekerDashboardUserControl
 {
@@ -145,6 +147,11 @@ namespace JobNear.JobSeekerDashboardUserControl
                     file_grid.Rows.Add(fileName);
                 }
             }
+        }
+
+        private void sidebar_panel_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

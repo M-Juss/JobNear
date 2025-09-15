@@ -169,6 +169,12 @@
     <Compile Include="JobSeekerDashboardUserControl\JS_Profile.Designer.cs">
       <DependentUpon>JS_Profile.cs</DependentUpon>
     </Compile>
+    <Compile Include="JobSeekerDashboardUserControl\UserControlPractice.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="JobSeekerDashboardUserControl\UserControlPractice.Designer.cs">
+      <DependentUpon>UserControlPractice.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -220,6 +226,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="JobSeekerDashboardUserControl\JS_Profile.resx">
       <DependentUpon>JS_Profile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JobSeekerDashboardUserControl\UserControlPractice.resx">
+      <DependentUpon>UserControlPractice.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
