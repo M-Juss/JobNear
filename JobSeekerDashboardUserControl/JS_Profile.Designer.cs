@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.sidebar_panel = new System.Windows.Forms.Panel();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.review_button = new System.Windows.Forms.Button();
+            this.draft_button = new System.Windows.Forms.Button();
             this.file_grid = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
+            this.attach_file = new System.Windows.Forms.Button();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.upload_button = new System.Windows.Forms.Button();
@@ -68,10 +68,10 @@
             // sidebar_panel
             // 
             this.sidebar_panel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(186)))), ((int)(((byte)(131)))));
-            this.sidebar_panel.Controls.Add(this.button3);
-            this.sidebar_panel.Controls.Add(this.button2);
+            this.sidebar_panel.Controls.Add(this.review_button);
+            this.sidebar_panel.Controls.Add(this.draft_button);
             this.sidebar_panel.Controls.Add(this.file_grid);
-            this.sidebar_panel.Controls.Add(this.button1);
+            this.sidebar_panel.Controls.Add(this.attach_file);
             this.sidebar_panel.Controls.Add(this.textBox6);
             this.sidebar_panel.Controls.Add(this.label13);
             this.sidebar_panel.Controls.Add(this.upload_button);
@@ -104,26 +104,27 @@
             this.sidebar_panel.Name = "sidebar_panel";
             this.sidebar_panel.Size = new System.Drawing.Size(1031, 705);
             this.sidebar_panel.TabIndex = 3;
+            this.sidebar_panel.Paint += new System.Windows.Forms.PaintEventHandler(this.sidebar_panel_Paint);
             // 
-            // button3
+            // review_button
             // 
-            this.button3.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(824, 650);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(191, 36);
-            this.button3.TabIndex = 51;
-            this.button3.Text = "Submit for verifiation";
-            this.button3.UseVisualStyleBackColor = true;
+            this.review_button.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.review_button.Location = new System.Drawing.Point(854, 650);
+            this.review_button.Name = "review_button";
+            this.review_button.Size = new System.Drawing.Size(161, 36);
+            this.review_button.TabIndex = 51;
+            this.review_button.Text = "Submit for review";
+            this.review_button.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // draft_button
             // 
-            this.button2.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(693, 650);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(125, 36);
-            this.button2.TabIndex = 50;
-            this.button2.Text = "Save as Draft";
-            this.button2.UseVisualStyleBackColor = true;
+            this.draft_button.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.draft_button.Location = new System.Drawing.Point(723, 650);
+            this.draft_button.Name = "draft_button";
+            this.draft_button.Size = new System.Drawing.Size(125, 36);
+            this.draft_button.TabIndex = 50;
+            this.draft_button.Text = "Save as Draft";
+            this.draft_button.UseVisualStyleBackColor = true;
             // 
             // file_grid
             // 
@@ -138,16 +139,16 @@
             this.file_grid.TabIndex = 49;
             this.file_grid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.file_grid_CellContentClick);
             // 
-            // button1
+            // attach_file
             // 
-            this.button1.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(14, 475);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(786, 47);
-            this.button1.TabIndex = 48;
-            this.button1.Text = "Attach files that will help us verify your details and contact information";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.attach_file.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.attach_file.Location = new System.Drawing.Point(14, 475);
+            this.attach_file.Name = "attach_file";
+            this.attach_file.Size = new System.Drawing.Size(786, 47);
+            this.attach_file.TabIndex = 48;
+            this.attach_file.Text = "Attach files that will help us verify your details and contact information";
+            this.attach_file.UseVisualStyleBackColor = true;
+            this.attach_file.Click += new System.EventHandler(this.button1_Click);
             // 
             // textBox6
             // 
@@ -170,12 +171,12 @@
             // 
             // upload_button
             // 
-            this.upload_button.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.upload_button.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.upload_button.Location = new System.Drawing.Point(820, 307);
             this.upload_button.Name = "upload_button";
             this.upload_button.Size = new System.Drawing.Size(195, 32);
             this.upload_button.TabIndex = 45;
-            this.upload_button.Text = "Upload your 2x2 picture";
+            this.upload_button.Text = "Upload your picture here";
             this.upload_button.UseVisualStyleBackColor = true;
             this.upload_button.Click += new System.EventHandler(this.upload_button_Click);
             // 
@@ -289,9 +290,10 @@
             // 
             // dateTimePicker1
             // 
+            this.dateTimePicker1.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePicker1.Location = new System.Drawing.Point(279, 201);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(254, 20);
+            this.dateTimePicker1.Size = new System.Drawing.Size(254, 31);
             this.dateTimePicker1.TabIndex = 34;
             // 
             // label7
@@ -460,11 +462,11 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.PictureBox profile_picture;
         private System.Windows.Forms.Button upload_button;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button attach_file;
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button review_button;
+        private System.Windows.Forms.Button draft_button;
         private System.Windows.Forms.DataGridView file_grid;
     }
 }

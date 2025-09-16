@@ -36,8 +36,8 @@
             this.logout_button = new System.Windows.Forms.Button();
             this.seekjob_button = new System.Windows.Forms.Button();
             this.profile_button = new System.Windows.Forms.Button();
-            this.sidebar_panel = new System.Windows.Forms.Panel();
             this.jobnear_button = new System.Windows.Forms.Button();
+            this.sidebar_panel = new System.Windows.Forms.Panel();
             this.sidebar.SuspendLayout();
             this.subSeekJob.SuspendLayout();
             this.SuspendLayout();
@@ -138,15 +138,6 @@
             this.profile_button.UseVisualStyleBackColor = true;
             this.profile_button.Click += new System.EventHandler(this.profile_button_Click);
             // 
-            // sidebar_panel
-            // 
-            this.sidebar_panel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(186)))), ((int)(((byte)(131)))));
-            this.sidebar_panel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.sidebar_panel.Location = new System.Drawing.Point(200, 0);
-            this.sidebar_panel.Name = "sidebar_panel";
-            this.sidebar_panel.Size = new System.Drawing.Size(1031, 705);
-            this.sidebar_panel.TabIndex = 1;
-            // 
             // jobnear_button
             // 
             this.jobnear_button.BackColor = System.Drawing.Color.Transparent;
@@ -159,6 +150,16 @@
             this.jobnear_button.TabIndex = 0;
             this.jobnear_button.UseVisualStyleBackColor = false;
             this.jobnear_button.Click += new System.EventHandler(this.jobnear_button_Click);
+            // 
+            // sidebar_panel
+            // 
+            this.sidebar_panel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(186)))), ((int)(((byte)(131)))));
+            this.sidebar_panel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.sidebar_panel.Location = new System.Drawing.Point(200, 0);
+            this.sidebar_panel.Name = "sidebar_panel";
+            this.sidebar_panel.Size = new System.Drawing.Size(1031, 705);
+            this.sidebar_panel.TabIndex = 1;
+            this.sidebar_panel.Paint += new System.Windows.Forms.PaintEventHandler(this.sidebar_panel_Paint);
             // 
             // JobSeekerDashboardForm
             // 

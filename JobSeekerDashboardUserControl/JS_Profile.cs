@@ -10,6 +10,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using JobNear.Styles;
+using System.Net.Http;
+using Newtonsoft.Json.Linq;
 
 namespace JobNear.JobSeekerDashboardUserControl
 {
@@ -20,6 +22,10 @@ namespace JobNear.JobSeekerDashboardUserControl
         {
             InitializeComponent();
             SetupFileGrid();
+            ButtonStyle.RoundedButton(upload_button, 25 , "#F5F5F5");
+            ButtonStyle.RoundedButton(attach_file, 25, "#F5F5F5");
+            ButtonStyle.RoundedButton(draft_button, 25, "#F5F5F5");
+            ButtonStyle.RoundedButton(review_button, 25, "#F5F5F5");
 
         }
 
@@ -45,11 +51,14 @@ namespace JobNear.JobSeekerDashboardUserControl
             {
                 file_grid.Columns.Add("Filename", "Filename");
 
-                
-                GridStyles.StyleGrid(file_grid);
+                // Apply the updated modern grid style
 
-                
-                GridStyles.AddActionButtons(file_grid, includeOpen: true, includeDelete: true);
+                // Add modern action buttons
+                GridStyles.AddActionButtons(file_grid, true, true);
+
+                // Add hover effects for interactivity
+                GridStyles.AddHoverEffects(file_grid);
+                GridStyles.ProfessionalGrid(file_grid);
             }
         }
 
@@ -138,6 +147,11 @@ namespace JobNear.JobSeekerDashboardUserControl
                     file_grid.Rows.Add(fileName);
                 }
             }
+        }
+
+        private void sidebar_panel_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
