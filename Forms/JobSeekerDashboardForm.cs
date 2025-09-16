@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using JobNear.Styles;
+using JobNear.JobSeekerDashboardUserControl;
 
 namespace JobNear.Forms
 {
@@ -18,6 +19,7 @@ namespace JobNear.Forms
         JobSeekerDashboardUserControl.JS_JobBrowse js_jobBrowsing = new JobSeekerDashboardUserControl.JS_JobBrowse();
         JobSeekerDashboardUserControl.JS_JobList js_jobList = new JobSeekerDashboardUserControl.JS_JobList();
         JobSeekerDashboardUserControl.JS_Notifications js_notification = new JobSeekerDashboardUserControl.JS_Notifications();
+        JobSeekerDashboardUserControl.UserControlPractice prac = new JobSeekerDashboardUserControl.UserControlPractice();
         public JobSeekerDashboardForm()
         {
             InitializeComponent();
@@ -29,6 +31,11 @@ namespace JobNear.Forms
             ButtonStyle.SidebarButton(job_browsing_sub_button, "#3B82F6");
             ButtonStyle.SidebarButton(notification_button, "#3B82F6");
             ButtonStyle.SidebarButton(logout_button, "#3B82F6");
+
+            sidebar_panel.Controls.Clear();
+            sidebar_panel.Controls.Add(js_dashboard);
+            js_dashboard.Dock = DockStyle.Fill;
+
         }
 
         private void JobSeekerDashboardForm_Load(object sender, EventArgs e)
@@ -55,7 +62,6 @@ namespace JobNear.Forms
 
         private void job_browsing_sub_button_Click(object sender, EventArgs e)
         {
-            hideInactiveSubMenu();
             sidebar_panel.Controls.Clear();
             sidebar_panel.Controls.Add(js_jobBrowsing);
             js_jobBrowsing.Dock = DockStyle.Fill;
@@ -89,6 +95,11 @@ namespace JobNear.Forms
             sidebar_panel.Controls.Clear();
             sidebar_panel.Controls.Add(js_dashboard);
             js_dashboard.Dock = DockStyle.Fill;
+        }
+
+        private void sidebar_panel_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

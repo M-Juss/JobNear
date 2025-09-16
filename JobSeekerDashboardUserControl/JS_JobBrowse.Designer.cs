@@ -29,30 +29,26 @@
         private void InitializeComponent()
         {
             this.sidebar_panel = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.map_panel = new System.Windows.Forms.Panel();
             this.sidebar_panel.SuspendLayout();
             this.SuspendLayout();
             // 
             // sidebar_panel
             // 
             this.sidebar_panel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(186)))), ((int)(((byte)(131)))));
-            this.sidebar_panel.Controls.Add(this.label1);
+            this.sidebar_panel.Controls.Add(this.map_panel);
             this.sidebar_panel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.sidebar_panel.Location = new System.Drawing.Point(0, 0);
             this.sidebar_panel.Name = "sidebar_panel";
             this.sidebar_panel.Size = new System.Drawing.Size(1031, 705);
             this.sidebar_panel.TabIndex = 4;
             // 
-            // label1
+            // map_panel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Poppins", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(423, 325);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(217, 62);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "JobBrowse";
+            this.map_panel.Location = new System.Drawing.Point(35, 39);
+            this.map_panel.Name = "map_panel";
+            this.map_panel.Size = new System.Drawing.Size(956, 616);
+            this.map_panel.TabIndex = 0;
             // 
             // JS_JobBrowse
             // 
@@ -62,7 +58,6 @@
             this.Name = "JS_JobBrowse";
             this.Size = new System.Drawing.Size(1031, 705);
             this.sidebar_panel.ResumeLayout(false);
-            this.sidebar_panel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -70,6 +65,6 @@
         #endregion
 
         private System.Windows.Forms.Panel sidebar_panel;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel map_panel;
     }
 }
