@@ -282,6 +282,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Services\MongoDbServices.cs" />
+    <Compile Include="Session.cs" />
     <Compile Include="Styles\ButtonStyle.cs" />
     <Compile Include="Controllers\TextBoxValidatorController.cs" />
     <Compile Include="Styles\GridStyles.cs" />
