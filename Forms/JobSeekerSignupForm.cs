@@ -66,7 +66,6 @@ namespace JobNear.Forms
                 }
             }
 
-
         }
 
         private void password_checkbox_CheckedChanged(object sender, EventArgs e)

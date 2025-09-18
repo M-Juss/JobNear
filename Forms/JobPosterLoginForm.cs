@@ -52,7 +52,7 @@ namespace JobNear.Forms
 
         private void login_button_Click(object sender, EventArgs e)
         {
-            MongoDbServices.LoginJobNearAccount("jobseeker", email_input.Text, password_input.Text, app_panel);
+            MongoDbServices.LoginJobNearAccount("jobposter", email_input.Text, password_input.Text, app_panel);
         }
     }
 }
