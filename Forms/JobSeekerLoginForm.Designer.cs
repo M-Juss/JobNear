@@ -161,6 +161,7 @@
             this.login_button.TabIndex = 16;
             this.login_button.Text = "Log in";
             this.login_button.UseVisualStyleBackColor = false;
+            this.login_button.Click += new System.EventHandler(this.login_button_Click);
             // 
             // password_input
             // 
@@ -203,7 +204,6 @@
             this.password_checkbox.Text = "Show Password";
             this.password_checkbox.UseVisualStyleBackColor = true;
             this.password_checkbox.CheckedChanged += new System.EventHandler(this.password_checkbox_CheckedChanged);
-            this.password_checkbox.Click += new System.EventHandler(this.password_checkbox_Click);
             // 
             // JobSeekerLoginForm
             // 

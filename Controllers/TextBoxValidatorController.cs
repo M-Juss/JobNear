@@ -28,7 +28,7 @@ namespace JobNear
 
         public static bool ValidateEmail(TextBox email_input)
         {
-            string pattern = @"^[a-zA-Z0-9.+%_-!$]+@gmail\.com$";
+            string pattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
             return Regex.IsMatch(email_input.Text, pattern);
         }
 

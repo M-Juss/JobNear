@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using JobNear.Controller;
+using JobNear.Services;
 
 namespace JobNear.Forms
 {
@@ -45,9 +46,9 @@ namespace JobNear.Forms
             password_input.UseSystemPasswordChar = !password_checkbox.Checked;
         }
 
-        private void password_checkbox_Click(object sender, EventArgs e)
+        private void login_button_Click(object sender, EventArgs e)
         {
-
+            MongoDbServices.LoginJobNearAccount("jobseeker", email_input.Text, password_input.Text, app_panel);
         }
     }
 }

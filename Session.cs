@@ -8,8 +8,8 @@ namespace JobNear
 {
     public class Session
     {
-        public string CurrentUserId { get; set; }
-        public string CurrentUsername { get; set; }
+        public static string CurrentUserId { get; set; }
+        public static string CurrentEmail { get; set; }
 
     }
 }
