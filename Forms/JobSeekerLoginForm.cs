@@ -22,7 +22,7 @@ namespace JobNear.Forms
 
         private void JobSeekerLoginForm_Load(object sender, EventArgs e)
         {
-
+            TextBoxValidatorController.SetPassword(password_input);
         }
 
         private void back_button_Click(object sender, EventArgs e)
@@ -38,6 +38,16 @@ namespace JobNear.Forms
         private void forgot_label_Click(object sender, EventArgs e)
         {
             FormsController.FormLoad(new ForgotPasswordForm(), app_panel);
+        }
+
+        private void password_checkbox_CheckedChanged(object sender, EventArgs e)
+        {
+            password_input.UseSystemPasswordChar = !password_checkbox.Checked;
+        }
+
+        private void password_checkbox_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

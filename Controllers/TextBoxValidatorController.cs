@@ -15,11 +15,6 @@ namespace JobNear
             password_input.UseSystemPasswordChar = true;
         }
 
-        public static void ShowPassword(TextBox password_input)
-        {
-            password_input.UseSystemPasswordChar = false;
-        }
-
         public static void AllowOnlyNumbers(TextBox number_input)
         {
             number_input.KeyPress += (sender, e) =>
