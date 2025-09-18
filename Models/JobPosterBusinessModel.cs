@@ -23,6 +23,7 @@ namespace JobNear.Models
         public string BusinessIndustry { get; set; }
         public string BusinessSite { get; set; }
         public string BusinessDocument { get; set; }
+        public Boolean isDraft { get; set; } = true;
         public bool IsVerified { get; set; } = false;
     }
 }

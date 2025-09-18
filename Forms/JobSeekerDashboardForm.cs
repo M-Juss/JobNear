@@ -1,4 +1,8 @@
-﻿using System;
+﻿using JobNear.JobSeekerDashboardUserControl;
+using JobNear.Services;
+using JobNear.Styles;
+using MongoDB.Driver;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,8 +11,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using JobNear.Styles;
-using JobNear.JobSeekerDashboardUserControl;
 
 namespace JobNear.Forms
 {
@@ -50,13 +52,26 @@ namespace JobNear.Forms
 
         private void seekjob_button_Click(object sender, EventArgs e)
         {
-            if (subSeekJob.Visible == false)
-            {
-                subSeekJob.Visible = true;
+
+            var db = new MongoDbServices();
+
+            var seeker = db.JobSeekerAccount
+                                .Find(x => x.Email == Session.CurrentEmail)
+                                .FirstOrDefault();
+
+            if (seeker.IsVerified == false) { 
+                MessageBox.Show("Your account is not yet verified. ", "Account Not Verified", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
-                subSeekJob.Visible = false;
+                if (subSeekJob.Visible == false)
+                {
+                    subSeekJob.Visible = true;
+                }
+                else
+                {
+                    subSeekJob.Visible = false;
+                }
             }
         }
 

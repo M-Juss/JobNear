@@ -28,6 +28,7 @@ namespace JobNear.Models
         public string Address { get; set; }
         public byte[] ProfilePicture { get; set; }
         public byte[] SupportingDocuments { get; set; }
+        public Boolean isDraft { get; set; } = true;
         public Boolean IsVerified { get; set; } = false;
 
     }
