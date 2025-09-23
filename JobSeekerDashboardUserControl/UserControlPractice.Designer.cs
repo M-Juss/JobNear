@@ -50,6 +50,7 @@
             this.address_listbox.Size = new System.Drawing.Size(549, 147);
             this.address_listbox.TabIndex = 1;
             this.address_listbox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.address_listbox_MouseClick);
+            this.address_listbox.SelectedIndexChanged += new System.EventHandler(this.address_listbox_SelectedIndexChanged);
             // 
             // lat_label
             // 

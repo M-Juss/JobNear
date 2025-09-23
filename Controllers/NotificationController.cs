@@ -187,11 +187,79 @@ namespace JobNear.Controllers
         // Load sample notifications for testing
         public void LoadSampleNotifications()
         {
-            AddNotification("Admin", "Your profile has been verified successfully!", "Success", DateTime.Now.AddMinutes(-5));
-            AddNotification("Admin", "Please update your contact information.", "Warning", DateTime.Now.AddMinutes(-15));
-            AddNotification("System", "Welcome to JobNear! Complete your profile to get started.", "Info", DateTime.Now.AddHours(-1));
-            AddNotification("Admin", "Your document upload failed. Please try again.", "Error", DateTime.Now.AddHours(-3));
+            List<NewNotification> list = new List<NewNotification>();
+            list.Add(new NewNotification
+            {
+                Key = "Admin",
+                Message = "Your profile has been verified successfully!",
+                Type = "Success",
+                Date = DateTime.Now.AddMinutes(-5)
+            });
+            list.Add(new NewNotification
+            {
+                Key = "Admin",
+                Message = "Please update your contact information.",
+                Type = "Warning",
+                Date = DateTime.Now.AddMinutes(-15)
+            });
+            list.Add(new NewNotification
+            {
+                Key = "System",
+                Message = "Welcome to JobNear! Complete your profile to get started.",
+                Type = "Info",
+                Date = DateTime.Now.AddHours(-1)
+            });
+            list.Add(new NewNotification
+            {
+                Key = "Admin",
+                Message = "Your document upload failed. Please try again.",
+                Type = "Error",
+                Date = DateTime.Now.AddHours(-3)
+            });
+            list.Add(new NewNotification
+            {
+                Key = "Admin",
+                Message = "Your profile has been verified successfully!",
+                Type = "Success",
+                Date = DateTime.Now.AddMinutes(-5)
+            });
+            list.Add(new NewNotification
+            {
+                Key = "Admin",
+                Message = "Please update your contact information.",
+                Type = "Warning",
+                Date = DateTime.Now.AddMinutes(-15)
+            });
+            list.Add(new NewNotification
+            {
+                Key = "System",
+                Message = "Welcome to JobNear! Complete your profile to get started.",
+                Type = "Info",
+                Date = DateTime.Now.AddHours(-1)
+            });
+            list.Add(new NewNotification
+            {
+                Key = "Admin",
+                Message = "Your document upload failed. Please try again.",
+                Type = "Error",
+                Date = DateTime.Now.AddHours(-3)
+            });
+
+            foreach (var notif in list)
+            {
+                AddNotification(notif.Key, notif.Message, notif.Type, notif.Date);
+            }
         }
+
+    }
+    public class NewNotification
+    {
+        public string Key { get; set; }
+        public string Message { get; set; }
+        public string Type { get; set; }
+        public DateTime Date { get; set; }
+
+
 
     }
 }

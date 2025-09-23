@@ -137,7 +137,7 @@
             this.file_grid.ReadOnly = true;
             this.file_grid.Size = new System.Drawing.Size(783, 91);
             this.file_grid.TabIndex = 49;
-            this.file_grid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.file_grid_CellContentClick);
+            //this.file_grid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.file_grid_CellContentClick);
             // 
             // attach_file
             // 

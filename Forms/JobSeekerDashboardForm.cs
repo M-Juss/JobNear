@@ -50,28 +50,32 @@ namespace JobNear.Forms
             subSeekJob.Visible = false;
         }
 
-        private void seekjob_button_Click(object sender, EventArgs e)
+        private async void seekjob_button_Click(object sender, EventArgs e)
         {
-
-            var db = new MongoDbServices();
-
-            var seeker = db.JobSeekerAccount
-                                .Find(x => x.Email == Session.CurrentEmail)
-                                .FirstOrDefault();
-
-            if (seeker.IsVerified == false) { 
-                MessageBox.Show("Your account is not yet verified. ", "Account Not Verified", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            else
+            try
             {
-                if (subSeekJob.Visible == false)
+                var seeker = await MongoDbServices.JobSeekerAccount
+                    .Find(x => x.Email == Session.CurrentEmail)
+                    .FirstOrDefaultAsync();
+
+                if (seeker == null)
                 {
-                    subSeekJob.Visible = true;
+                    MessageBox.Show("User not found. Please log in again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                if (!seeker.IsVerified)
+                {
+                    MessageBox.Show("Your account is not yet verified.", "Account Not Verified", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
                 {
-                    subSeekJob.Visible = false;
+                    subSeekJob.Visible = !subSeekJob.Visible; // ✅ toggle visibility in one line
                 }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error fetching user data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -93,7 +97,7 @@ namespace JobNear.Forms
         private void joblist_sub_button_Click(object sender, EventArgs e)
         {
             sidebar_panel.Controls.Clear();
-            sidebar_panel.Controls.Add(js_jobList);
+            sidebar_panel.Controls.Add(prac);
             js_jobList.Dock = DockStyle.Fill;
         }
 

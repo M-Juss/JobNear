@@ -47,7 +47,7 @@ namespace JobNear.Forms
 
         }
 
-        private void register_button_Click(object sender, EventArgs e)
+        private async void register_button_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(phone_input.Text) || string.IsNullOrEmpty(email_input.Text)
         || string.IsNullOrEmpty(password_input.Text) || string.IsNullOrEmpty(confirm_input.Text))
@@ -63,7 +63,7 @@ namespace JobNear.Forms
                     {
                         if (password_input.Text == confirm_input.Text)
                         {
-                            if (MongoDbServices.InsertJobPosterAccount(phone_input.Text, email_input.Text, password_input.Text))
+                            if (await MongoDbServices.InsertJobPosterAccountAsync(phone_input.Text, email_input.Text, password_input.Text))
                             {
                                 MessageBox.Show("Account created successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 FormsController.FormLoad(new JobSeekerLoginForm(), app_panel);

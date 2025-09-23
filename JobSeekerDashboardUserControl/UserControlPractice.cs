@@ -85,5 +85,9 @@ namespace JobNear.JobSeekerDashboardUserControl
             }
         }
 
+        private void address_listbox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

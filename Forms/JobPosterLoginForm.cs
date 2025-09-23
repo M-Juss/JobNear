@@ -50,9 +50,9 @@ namespace JobNear.Forms
             password_input.UseSystemPasswordChar = !password_checkbox.Checked;
         }
 
-        private void login_button_Click(object sender, EventArgs e)
+        private async void login_button_Click(object sender, EventArgs e)
         {
-            MongoDbServices.LoginJobNearAccount("jobposter", email_input.Text, password_input.Text, app_panel);
+            await MongoDbServices.LoginJobNearAccountAsync("jobposter", email_input.Text, password_input.Text, app_panel);
         }
     }
 }
