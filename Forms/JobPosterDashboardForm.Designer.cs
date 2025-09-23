@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.JP_sidebar_panel = new System.Windows.Forms.Panel();
-            this.JP_main_panel = new System.Windows.Forms.Panel();
-            this.dashboard_button = new System.Windows.Forms.Button();
-            this.business_button = new System.Windows.Forms.Button();
-            this.job_button = new System.Windows.Forms.Button();
-            this.notification_button = new System.Windows.Forms.Button();
             this.log_out_button = new System.Windows.Forms.Button();
+            this.notification_button = new System.Windows.Forms.Button();
+            this.job_button = new System.Windows.Forms.Button();
+            this.business_button = new System.Windows.Forms.Button();
+            this.dashboard_button = new System.Windows.Forms.Button();
+            this.JP_main_panel = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.JP_sidebar_panel.SuspendLayout();
             this.SuspendLayout();
@@ -55,23 +55,36 @@
             this.JP_sidebar_panel.Size = new System.Drawing.Size(200, 705);
             this.JP_sidebar_panel.TabIndex = 0;
             // 
-            // JP_main_panel
+            // log_out_button
             // 
-            this.JP_main_panel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.JP_main_panel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.JP_main_panel.Location = new System.Drawing.Point(200, 0);
-            this.JP_main_panel.Name = "JP_main_panel";
-            this.JP_main_panel.Size = new System.Drawing.Size(1031, 705);
-            this.JP_main_panel.TabIndex = 1;
+            this.log_out_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.log_out_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.log_out_button.Location = new System.Drawing.Point(11, 661);
+            this.log_out_button.Name = "log_out_button";
+            this.log_out_button.Size = new System.Drawing.Size(74, 31);
+            this.log_out_button.TabIndex = 5;
+            this.log_out_button.Text = "Log Out";
+            this.log_out_button.UseVisualStyleBackColor = false;
             // 
-            // dashboard_button
+            // notification_button
             // 
-            this.dashboard_button.Location = new System.Drawing.Point(29, 104);
-            this.dashboard_button.Name = "dashboard_button";
-            this.dashboard_button.Size = new System.Drawing.Size(136, 49);
-            this.dashboard_button.TabIndex = 1;
-            this.dashboard_button.Text = "Dashboard";
-            this.dashboard_button.UseVisualStyleBackColor = true;
+            this.notification_button.Location = new System.Drawing.Point(29, 341);
+            this.notification_button.Name = "notification_button";
+            this.notification_button.Size = new System.Drawing.Size(136, 49);
+            this.notification_button.TabIndex = 4;
+            this.notification_button.Text = "Notification";
+            this.notification_button.UseVisualStyleBackColor = true;
+            this.notification_button.Click += new System.EventHandler(this.notification_button_Click);
+            // 
+            // job_button
+            // 
+            this.job_button.Location = new System.Drawing.Point(29, 262);
+            this.job_button.Name = "job_button";
+            this.job_button.Size = new System.Drawing.Size(136, 49);
+            this.job_button.TabIndex = 3;
+            this.job_button.Text = "Job";
+            this.job_button.UseVisualStyleBackColor = true;
+            this.job_button.Click += new System.EventHandler(this.job_button_Click);
             // 
             // business_button
             // 
@@ -83,34 +96,23 @@
             this.business_button.UseVisualStyleBackColor = true;
             this.business_button.Click += new System.EventHandler(this.business_button_Click);
             // 
-            // job_button
+            // dashboard_button
             // 
-            this.job_button.Location = new System.Drawing.Point(29, 262);
-            this.job_button.Name = "job_button";
-            this.job_button.Size = new System.Drawing.Size(136, 49);
-            this.job_button.TabIndex = 3;
-            this.job_button.Text = "Job";
-            this.job_button.UseVisualStyleBackColor = true;
+            this.dashboard_button.Location = new System.Drawing.Point(29, 104);
+            this.dashboard_button.Name = "dashboard_button";
+            this.dashboard_button.Size = new System.Drawing.Size(136, 49);
+            this.dashboard_button.TabIndex = 1;
+            this.dashboard_button.Text = "Dashboard";
+            this.dashboard_button.UseVisualStyleBackColor = true;
             // 
-            // notification_button
+            // JP_main_panel
             // 
-            this.notification_button.Location = new System.Drawing.Point(29, 341);
-            this.notification_button.Name = "notification_button";
-            this.notification_button.Size = new System.Drawing.Size(136, 49);
-            this.notification_button.TabIndex = 4;
-            this.notification_button.Text = "Notification";
-            this.notification_button.UseVisualStyleBackColor = true;
-            // 
-            // log_out_button
-            // 
-            this.log_out_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.log_out_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.log_out_button.Location = new System.Drawing.Point(11, 661);
-            this.log_out_button.Name = "log_out_button";
-            this.log_out_button.Size = new System.Drawing.Size(74, 31);
-            this.log_out_button.TabIndex = 5;
-            this.log_out_button.Text = "Log Out";
-            this.log_out_button.UseVisualStyleBackColor = false;
+            this.JP_main_panel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.JP_main_panel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.JP_main_panel.Location = new System.Drawing.Point(200, 0);
+            this.JP_main_panel.Name = "JP_main_panel";
+            this.JP_main_panel.Size = new System.Drawing.Size(1031, 705);
+            this.JP_main_panel.TabIndex = 1;
             // 
             // button1
             // 

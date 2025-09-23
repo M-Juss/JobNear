@@ -13,6 +13,8 @@ namespace JobNear.Forms
     public partial class JobPosterDashboardForm : Form
     {
         JobPosterDashboardUserControl.JP_Business business_panel = new JobPosterDashboardUserControl.JP_Business();
+        JobPosterDashboardUserControl.JP_PostJobForm post_job_panel = new JobPosterDashboardUserControl.JP_PostJobForm();
+        JobPosterDashboardUserControl.JP_Notifications notification_panel = new JobPosterDashboardUserControl.JP_Notifications();
         public JobPosterDashboardForm()
         {
             InitializeComponent();
@@ -23,6 +25,20 @@ namespace JobNear.Forms
             JP_main_panel.Controls.Clear();
             JP_main_panel.Controls.Add(business_panel);
             business_panel.Dock = DockStyle.Fill;
+        }
+
+        private void job_button_Click(object sender, EventArgs e)
+        {
+            JP_main_panel.Controls.Clear();
+            JP_main_panel.Controls.Add(post_job_panel);
+            post_job_panel.Dock = DockStyle.Fill;
+        }
+
+        private void notification_button_Click(object sender, EventArgs e)
+        {
+            JP_main_panel.Controls.Clear();
+            JP_main_panel.Controls.Add(notification_panel);
+            notification_panel.Dock = DockStyle.Fill;
         }
     }
 }

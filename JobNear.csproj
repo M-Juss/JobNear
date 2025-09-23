@@ -119,6 +119,18 @@
     <Compile Include="JobPosterDashboardUserControl\JP_Business.Designer.cs">
       <DependentUpon>JP_Business.cs</DependentUpon>
     </Compile>
+    <Compile Include="JobPosterDashboardUserControl\JP_PostJobForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="JobPosterDashboardUserControl\JP_PostJobForm.Designer.cs">
+      <DependentUpon>JP_PostJobForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="JobPosterDashboardUserControl\JP_Notifications.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="JobPosterDashboardUserControl\JP_Notifications.Designer.cs">
+      <DependentUpon>JP_Notifications.cs</DependentUpon>
+    </Compile>
     <Compile Include="JobSeekerDashboardUserControl\JS_Dashboard.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -194,6 +206,12 @@
     <EmbeddedResource Include="JobPosterDashboardUserControl\JP_RegisterBusinessForm.resx">
       <DependentUpon>JP_RegisterBusinessForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="JobPosterDashboardUserControl\JP_PostJobForm.resx">
+      <DependentUpon>JP_PostJobForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JobPosterDashboardUserControl\JP_Notifications.resx">
+      <DependentUpon>JP_Notifications.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="JobSeekerDashboardUserControl\JS_Dashboard.resx">
       <DependentUpon>JS_Dashboard.cs</DependentUpon>
     </EmbeddedResource>
@@ -239,6 +257,17 @@
   <ItemGroup>
     <None Include="Resources\JobNearDashboardLogo.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\search-interface-symbol-removebg-preview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Screenshot_2025-09-23_165627-removebg-preview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Screenshot_2025-09-23_165627-removebg-preview1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Screenshot_2025-09-23_165841-removebg-preview.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
