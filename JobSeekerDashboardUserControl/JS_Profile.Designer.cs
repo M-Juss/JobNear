@@ -31,7 +31,6 @@
             this.sidebar_panel = new System.Windows.Forms.Panel();
             this.review_button = new System.Windows.Forms.Button();
             this.draft_button = new System.Windows.Forms.Button();
-            this.file_grid = new System.Windows.Forms.DataGridView();
             this.attach_file = new System.Windows.Forms.Button();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
@@ -60,17 +59,17 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.image_flowlayout = new System.Windows.Forms.FlowLayoutPanel();
             this.sidebar_panel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.file_grid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.profile_picture)).BeginInit();
             this.SuspendLayout();
             // 
             // sidebar_panel
             // 
             this.sidebar_panel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(186)))), ((int)(((byte)(131)))));
+            this.sidebar_panel.Controls.Add(this.image_flowlayout);
             this.sidebar_panel.Controls.Add(this.review_button);
             this.sidebar_panel.Controls.Add(this.draft_button);
-            this.sidebar_panel.Controls.Add(this.file_grid);
             this.sidebar_panel.Controls.Add(this.attach_file);
             this.sidebar_panel.Controls.Add(this.textBox6);
             this.sidebar_panel.Controls.Add(this.label13);
@@ -125,19 +124,6 @@
             this.draft_button.TabIndex = 50;
             this.draft_button.Text = "Save as Draft";
             this.draft_button.UseVisualStyleBackColor = true;
-            // 
-            // file_grid
-            // 
-            this.file_grid.AllowUserToAddRows = false;
-            this.file_grid.AllowUserToDeleteRows = false;
-            this.file_grid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.file_grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.file_grid.Location = new System.Drawing.Point(14, 535);
-            this.file_grid.Name = "file_grid";
-            this.file_grid.ReadOnly = true;
-            this.file_grid.Size = new System.Drawing.Size(783, 91);
-            this.file_grid.TabIndex = 49;
-            //this.file_grid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.file_grid_CellContentClick);
             // 
             // attach_file
             // 
@@ -419,6 +405,13 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Your Profile";
             // 
+            // image_flowlayout
+            // 
+            this.image_flowlayout.Location = new System.Drawing.Point(14, 542);
+            this.image_flowlayout.Name = "image_flowlayout";
+            this.image_flowlayout.Size = new System.Drawing.Size(785, 91);
+            this.image_flowlayout.TabIndex = 52;
+            // 
             // JS_Profile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -428,7 +421,6 @@
             this.Size = new System.Drawing.Size(1031, 705);
             this.sidebar_panel.ResumeLayout(false);
             this.sidebar_panel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.file_grid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.profile_picture)).EndInit();
             this.ResumeLayout(false);
 
@@ -467,6 +459,6 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Button review_button;
         private System.Windows.Forms.Button draft_button;
-        private System.Windows.Forms.DataGridView file_grid;
+        private System.Windows.Forms.FlowLayoutPanel image_flowlayout;
     }
 }
