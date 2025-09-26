@@ -29,7 +29,7 @@ namespace JobNear.JobSeekerDashboardUserControl
         {
             if (address_input.Text.Length < 1)
             {
-                address_listbox.Visible = false;
+                address_input.AutoCompleteCustomSource = null;
                 return;
             }
 
@@ -46,7 +46,7 @@ namespace JobNear.JobSeekerDashboardUserControl
                     var results = json["results"];
 
                     suggestionData.Clear();
-                    address_listbox.Items.Clear();
+                    AutoCompleteStringCollection autoComplete = new AutoCompleteStringCollection();
 
                     foreach (var r in results)
                     {
@@ -55,18 +55,31 @@ namespace JobNear.JobSeekerDashboardUserControl
                         double lon = (double)r["lon"];
 
                         suggestionData[formatted] = (lat, lon);
-                        address_listbox.Items.Add(formatted);
+                        autoComplete.Add(formatted);
                     }
 
-                    address_listbox.Visible = address_listbox.Items.Count > 0;
+                    // Attach to textbox
+                    address_input.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+                    address_input.AutoCompleteSource = AutoCompleteSource.CustomSource;
+                    address_input.AutoCompleteCustomSource = autoComplete;
                 }
                 catch
                 {
-                    address_listbox.Visible = false;
+                    address_input.AutoCompleteCustomSource = null;
                 }
             }
 
+            // ✅ Check if the typed text matches a suggestion
+            if (suggestionData.ContainsKey(address_input.Text))
+            {
+                var coords = suggestionData[address_input.Text];
+                lat_label.Text = $"Lat: {coords.lat}";
+                lng_label.Text = $"Lon: {coords.lon}";
+            }
         }
+
+
+
 
         private void address_listbox_MouseClick(object sender, MouseEventArgs e)
         {
