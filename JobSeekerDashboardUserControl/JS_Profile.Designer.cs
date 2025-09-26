@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.sidebar_panel = new System.Windows.Forms.Panel();
+            this.image_flowlayout = new System.Windows.Forms.FlowLayoutPanel();
             this.review_button = new System.Windows.Forms.Button();
             this.draft_button = new System.Windows.Forms.Button();
             this.attach_file = new System.Windows.Forms.Button();
@@ -59,7 +60,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.image_flowlayout = new System.Windows.Forms.FlowLayoutPanel();
             this.sidebar_panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.profile_picture)).BeginInit();
             this.SuspendLayout();
@@ -105,10 +105,17 @@
             this.sidebar_panel.TabIndex = 3;
             this.sidebar_panel.Paint += new System.Windows.Forms.PaintEventHandler(this.sidebar_panel_Paint);
             // 
+            // image_flowlayout
+            // 
+            this.image_flowlayout.Location = new System.Drawing.Point(14, 542);
+            this.image_flowlayout.Name = "image_flowlayout";
+            this.image_flowlayout.Size = new System.Drawing.Size(785, 102);
+            this.image_flowlayout.TabIndex = 52;
+            // 
             // review_button
             // 
             this.review_button.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.review_button.Location = new System.Drawing.Point(854, 650);
+            this.review_button.Location = new System.Drawing.Point(854, 654);
             this.review_button.Name = "review_button";
             this.review_button.Size = new System.Drawing.Size(161, 36);
             this.review_button.TabIndex = 51;
@@ -118,7 +125,7 @@
             // draft_button
             // 
             this.draft_button.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.draft_button.Location = new System.Drawing.Point(723, 650);
+            this.draft_button.Location = new System.Drawing.Point(723, 654);
             this.draft_button.Name = "draft_button";
             this.draft_button.Size = new System.Drawing.Size(125, 36);
             this.draft_button.TabIndex = 50;
@@ -404,13 +411,6 @@
             this.label1.Size = new System.Drawing.Size(232, 62);
             this.label1.TabIndex = 0;
             this.label1.Text = "Your Profile";
-            // 
-            // image_flowlayout
-            // 
-            this.image_flowlayout.Location = new System.Drawing.Point(14, 542);
-            this.image_flowlayout.Name = "image_flowlayout";
-            this.image_flowlayout.Size = new System.Drawing.Size(785, 91);
-            this.image_flowlayout.TabIndex = 52;
             // 
             // JS_Profile
             // 

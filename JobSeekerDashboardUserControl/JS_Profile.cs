@@ -21,11 +21,13 @@ namespace JobNear.JobSeekerDashboardUserControl
         public JS_Profile()
         {
             InitializeComponent();
-            //SetupFileGrid();
             ButtonStyle.RoundedButton(upload_button, 25 , "#F5F5F5");
             ButtonStyle.RoundedButton(attach_file, 25, "#F5F5F5");
             ButtonStyle.RoundedButton(draft_button, 25, "#F5F5F5");
             ButtonStyle.RoundedButton(review_button, 25, "#F5F5F5");
+            image_flowlayout.FlowDirection = FlowDirection.TopDown;
+            image_flowlayout.WrapContents = false;
+            image_flowlayout.AutoScroll = true;
 
         }
 
@@ -44,83 +46,6 @@ namespace JobNear.JobSeekerDashboardUserControl
                 MessageBox.Show("No file selected.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-        //private void SetupFileGrid()
-        //{
-        //    if (file_grid.Columns.Count == 0) // prevent duplicate setup
-        //    {
-        //        file_grid.Columns.Add("Filename", "Filename");
-
-        //        // Apply the updated modern grid style
-
-        //        // Add modern action buttons
-        //        GridStyles.AddActionButtons(file_grid, true, true);
-
-        //        // Add hover effects for interactivity
-        //        GridStyles.AddHoverEffects(file_grid);
-        //        GridStyles.ProfessionalGrid(file_grid);
-        //    }
-        //}
-
-        //private void file_grid_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        //{
-        //    // Prevent invalid clicks (header row, out of bounds, or no rows left)
-        //    if (e.RowIndex < 0 || e.RowIndex >= file_grid.Rows.Count)
-        //        return;
-
-        //    if (e.ColumnIndex < 0)
-        //        return;
-
-        //    string fileName = file_grid.Rows[e.RowIndex].Cells["FileName"].Value?.ToString();
-        //    if (string.IsNullOrEmpty(fileName)) return;
-
-        //    string folderPath = Path.Combine(Application.StartupPath, "SupportingDocs");
-        //    string fullPath = Path.Combine(folderPath, fileName);
-
-        //    // --- Open Button (column index 1) ---
-        //    if (e.ColumnIndex == 1)
-        //    {
-        //        if (File.Exists(fullPath))
-        //        {
-        //            System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo()
-        //            {
-        //                FileName = fullPath,
-        //                UseShellExecute = true
-        //            });
-        //        }
-        //        else
-        //        {
-        //            MessageBox.Show("File not found!");
-        //        }
-        //    }
-
-        //    // --- Delete Button (column index 2) ---
-        //    else if (e.ColumnIndex == 2)
-        //    {
-        //        var confirm = MessageBox.Show($"Delete {fileName}?", "Confirm Delete",
-        //            MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-
-        //        if (confirm == DialogResult.Yes)
-        //        {
-        //            // Delete from disk
-        //            if (File.Exists(fullPath))
-        //            {
-        //                File.Delete(fullPath);
-        //            }
-
-        //            // Remove row safely
-        //            file_grid.Rows.RemoveAt(e.RowIndex);
-
-        //            // 🛑 Clear selection to stop re-triggering
-        //            file_grid.ClearSelection();
-
-        //            // 🛑 End method immediately
-        //            return;
-        //        }
-        //    }
-        //}
-
-
 
 
         private void button1_Click(object sender, EventArgs e)
@@ -157,66 +82,123 @@ namespace JobNear.JobSeekerDashboardUserControl
 
         private void AddFileItem(string filePath)
         {
-            // Create panel for file item
+            // Panel for file item
             Panel filePanel = new Panel();
-            filePanel.Width = 400;
-            filePanel.Height = 40;
-            filePanel.BorderStyle = BorderStyle.FixedSingle;
-            filePanel.Margin = new Padding(5);
+            filePanel.Width = 765;
+            filePanel.Height = 50;
+            filePanel.BackColor = Color.White; // modern flat background
+            filePanel.Margin = new Padding(0,0,0,2);
+            filePanel.Padding = new Padding(10);
+            filePanel.BorderStyle = BorderStyle.None;
 
-            // File icon as Label (instead of PictureBox)
-            Label lblIcon = new Label();
-            lblIcon.Width = 30;
-            lblIcon.Height = 30;
-            lblIcon.Location = new Point(5, 5);
-            lblIcon.TextAlign = ContentAlignment.MiddleCenter;
+            // Shadow effect (optional)
+            filePanel.Paint += (s, e) =>
+            {
+                ControlPaint.DrawBorder(e.Graphics, filePanel.ClientRectangle,
+                    Color.LightGray, 1, ButtonBorderStyle.Solid,
+                    Color.LightGray, 1, ButtonBorderStyle.Solid,
+                    Color.LightGray, 1, ButtonBorderStyle.Solid,
+                    Color.LightGray, 1, ButtonBorderStyle.Solid);
+            };
+
+            // File icon (system icon)
+            PictureBox picIcon = new PictureBox();
+            picIcon.Width = 30;
+            picIcon.Height = 30;
+            picIcon.SizeMode = PictureBoxSizeMode.StretchImage;
+            picIcon.Location = new Point(10, 10);
 
             try
             {
-                // Get system file icon and set as label background
                 Icon sysIcon = Icon.ExtractAssociatedIcon(filePath);
-                lblIcon.ImageAlign = ContentAlignment.MiddleCenter;
-                lblIcon.Image = sysIcon.ToBitmap();
+                picIcon.Image = sysIcon.ToBitmap();
             }
             catch
             {
-                lblIcon.Image = SystemIcons.Application.ToBitmap(); // fallback icon
+                picIcon.Image = SystemIcons.Application.ToBitmap();
             }
 
-            // File name
+            // File name (single line, trimmed if too long)
             Label lbl = new Label();
             lbl.Text = Path.GetFileName(filePath);
-            lbl.AutoSize = true;
-            lbl.Location = new Point(45, 12);
+            lbl.AutoSize = false;
+            lbl.Width = 180;
+            lbl.Height = 30;
+            lbl.Location = new Point(70, 10);
+            lbl.TextAlign = ContentAlignment.MiddleLeft;
+            lbl.Font = new Font("Segoe UI", 9, FontStyle.Regular);
+            lbl.ForeColor = Color.Black;
 
-            // Preview button (eye)
+            // Preview button (eye icon)
             Button btnPreview = new Button();
             btnPreview.Width = 30;
             btnPreview.Height = 30;
-            btnPreview.Location = new Point(250, 5);
-            btnPreview.Image = Properties.Resources.eye; // use your eye.png
-            btnPreview.ImageAlign = ContentAlignment.MiddleCenter;
+            btnPreview.Location = new Point(680, 10);
             btnPreview.FlatStyle = FlatStyle.Flat;
+            btnPreview.FlatAppearance.BorderSize = 0;
+            btnPreview.BackColor = Color.Transparent;
+            btnPreview.Text = "👁";
+            btnPreview.Font = new Font("Segoe UI Emoji", 12);
+            btnPreview.Cursor = Cursors.Hand;
             btnPreview.Click += (s, e) =>
             {
-                MessageBox.Show("Preview: " + filePath);
+                string fileName = Path.GetFileName(filePath);
+                if (string.IsNullOrEmpty(fileName)) return;
+
+                string folderPath = Path.Combine(Application.StartupPath, "SupportingDocs");
+                string fullPath = Path.Combine(folderPath, fileName);
+
+                if (File.Exists(fullPath))
+                {
+                    System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo()
+                    {
+                        FileName = fullPath,
+                        UseShellExecute = true
+                    });
+                }
+                else
+                {
+                    MessageBox.Show("File not found!");
+                }
             };
 
-            // Delete button (trash)
+            // Delete button (trash icon)
             Button btnDelete = new Button();
             btnDelete.Width = 30;
             btnDelete.Height = 30;
-            btnDelete.Location = new Point(290, 5);
-            btnDelete.Image = Properties.Resources; // use your trash.png
-            btnDelete.ImageAlign = ContentAlignment.MiddleCenter;
+            btnDelete.Location = new Point(720, 10);
             btnDelete.FlatStyle = FlatStyle.Flat;
+            btnDelete.FlatAppearance.BorderSize = 0;
+            btnDelete.BackColor = Color.Transparent;
+            btnDelete.Text = "🗑";
+            btnDelete.Font = new Font("Segoe UI Emoji", 12);
+            btnDelete.Cursor = Cursors.Hand;
             btnDelete.Click += (s, e) =>
             {
-                filePanel.Dispose(); // remove the item
+                string fileName = Path.GetFileName(filePath);
+                if (string.IsNullOrEmpty(fileName)) return;
+
+                string folderPath = Path.Combine(Application.StartupPath, "SupportingDocs");
+                string fullPath = Path.Combine(folderPath, fileName);
+
+                var confirm = MessageBox.Show($"Delete {fileName}?", "Confirm Delete",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                if (confirm == DialogResult.Yes)
+                {
+                    // Delete from disk
+                    if (File.Exists(fullPath))
+                    {
+                        File.Delete(fullPath);
+                    }
+
+                    // Remove the file panel from UI
+                    filePanel.Dispose();
+                }
             };
 
             // Add controls to panel
-            filePanel.Controls.Add(lblIcon);
+            filePanel.Controls.Add(picIcon);
             filePanel.Controls.Add(lbl);
             filePanel.Controls.Add(btnPreview);
             filePanel.Controls.Add(btnDelete);
@@ -224,5 +206,6 @@ namespace JobNear.JobSeekerDashboardUserControl
             // Add panel to FlowLayoutPanel
             image_flowlayout.Controls.Add(filePanel);
         }
+
     }
 }
