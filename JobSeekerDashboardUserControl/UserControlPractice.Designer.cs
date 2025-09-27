@@ -49,6 +49,7 @@
             this.address_listbox.Name = "address_listbox";
             this.address_listbox.Size = new System.Drawing.Size(549, 147);
             this.address_listbox.TabIndex = 1;
+
             // 
             // lat_label
             // 
