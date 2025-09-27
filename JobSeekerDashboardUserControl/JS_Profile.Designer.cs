@@ -33,7 +33,7 @@
             this.review_button = new System.Windows.Forms.Button();
             this.draft_button = new System.Windows.Forms.Button();
             this.attach_file = new System.Windows.Forms.Button();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.address_input = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.upload_button = new System.Windows.Forms.Button();
             this.profile_picture = new System.Windows.Forms.PictureBox();
@@ -71,7 +71,7 @@
             this.sidebar_panel.Controls.Add(this.review_button);
             this.sidebar_panel.Controls.Add(this.draft_button);
             this.sidebar_panel.Controls.Add(this.attach_file);
-            this.sidebar_panel.Controls.Add(this.textBox6);
+            this.sidebar_panel.Controls.Add(this.address_input);
             this.sidebar_panel.Controls.Add(this.label13);
             this.sidebar_panel.Controls.Add(this.upload_button);
             this.sidebar_panel.Controls.Add(this.profile_picture);
@@ -103,6 +103,7 @@
             this.sidebar_panel.Name = "sidebar_panel";
             this.sidebar_panel.Size = new System.Drawing.Size(1031, 705);
             this.sidebar_panel.TabIndex = 3;
+            this.sidebar_panel.Paint += new System.Windows.Forms.PaintEventHandler(this.sidebar_panel_Paint);
             // 
             // image_flowlayout
             // 
@@ -144,13 +145,14 @@
             this.attach_file.UseVisualStyleBackColor = false;
             this.attach_file.Click += new System.EventHandler(this.attach_file_Click);
             // 
-            // textBox6
+            // address_input
             // 
-            this.textBox6.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox6.Location = new System.Drawing.Point(14, 320);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(784, 31);
-            this.textBox6.TabIndex = 47;
+            this.address_input.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.address_input.Location = new System.Drawing.Point(14, 320);
+            this.address_input.Name = "address_input";
+            this.address_input.Size = new System.Drawing.Size(784, 31);
+            this.address_input.TabIndex = 47;
+            this.address_input.TextChanged += new System.EventHandler(this.address_input_TextChanged);
             // 
             // label13
             // 
@@ -456,7 +458,7 @@
         private System.Windows.Forms.PictureBox profile_picture;
         private System.Windows.Forms.Button upload_button;
         private System.Windows.Forms.Button attach_file;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox address_input;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Button review_button;
         private System.Windows.Forms.Button draft_button;

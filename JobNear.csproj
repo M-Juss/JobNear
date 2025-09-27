@@ -281,11 +281,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Services\GeoaptifyAutocompeteAPIServices.cs" />
     <Compile Include="Services\MongoDbServices.cs" />
     <Compile Include="Session.cs" />
     <Compile Include="Styles\ButtonStyle.cs" />
     <Compile Include="Controllers\TextBoxValidatorController.cs" />
-    <Compile Include="Styles\GridStyles.cs" />
+    <Compile Include="Styles\PanelStyles.cs" />
     <EmbeddedResource Include="Forms\ForgotPasswordForm.resx">
       <DependentUpon>ForgotPasswordForm.cs</DependentUpon>
     </EmbeddedResource>

@@ -12,12 +12,17 @@ using System.Windows.Forms;
 using JobNear.Styles;
 using System.Net.Http;
 using Newtonsoft.Json.Linq;
+using JobNear.Services;
 
 namespace JobNear.JobSeekerDashboardUserControl
 {
     public partial class JS_Profile : UserControl
     {
         OpenFileDialog ofd = new OpenFileDialog();
+        private Timer debounceTimer;
+        private Dictionary<string, (double lat, double lon)> suggestionData = new Dictionary<string, (double lat, double lon)>();
+
+        private GeoaptifyAutocompeteAPIServices geoServices = new GeoaptifyAutocompeteAPIServices();
         public JS_Profile()
         {
             InitializeComponent();
@@ -30,7 +35,21 @@ namespace JobNear.JobSeekerDashboardUserControl
             image_flowlayout.WrapContents = false;
             image_flowlayout.AutoScroll = true;
 
+            debounceTimer = new Timer();
+            debounceTimer.Interval = 300; // 3 seconds
+            debounceTimer.Tick += DebounceTimer_Tick;
+
         }
+
+        private async void DebounceTimer_Tick(object sender, EventArgs e)
+        {
+            debounceTimer.Stop();
+
+            suggestionData = await geoServices.GetSuggestionsAsync(address_input.Text);
+
+            geoServices.ApplyAutoComplete(address_input, suggestionData);
+        }
+
 
         private void email_input_TextChanged(object sender, EventArgs e)
         {
@@ -204,5 +223,16 @@ namespace JobNear.JobSeekerDashboardUserControl
             image_flowlayout.Controls.Add(filePanel);
         }
 
+        private void sidebar_panel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void address_input_TextChanged(object sender, EventArgs e)
+        {
+            debounceTimer.Stop();
+            debounceTimer.Start();
+
+        }
     }
 }
