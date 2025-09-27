@@ -14,9 +14,15 @@ namespace JobNear.JobSeekerDashboardUserControl
 {
     public partial class UserControlPractice : UserControl
     {
+        private Timer debounceTimer;
+        private Dictionary<string, (double lat, double lon)> suggestionData = new Dictionary<string, (double lat, double lon)>();
         public UserControlPractice()
         {
             InitializeComponent();
+
+            debounceTimer = new Timer();
+            debounceTimer.Interval = 300; // 3 seconds
+            debounceTimer.Tick += DebounceTimer_Tick;
         }
 
         private void UserControlPractice_Load(object sender, EventArgs e)
@@ -24,9 +30,24 @@ namespace JobNear.JobSeekerDashboardUserControl
 
         }
 
-        private Dictionary<string, (double lat, double lon)> suggestionData = new Dictionary<string, (double lat, double lon)>();
         private async void address_input_TextChanged(object sender, EventArgs e)
         {
+            debounceTimer.Stop();
+            debounceTimer.Start();
+
+            // ✅ Check if the typed text matches a suggestion
+            if (suggestionData.ContainsKey(address_input.Text))
+            {
+                var coords = suggestionData[address_input.Text];
+                lat_label.Text = $"Lat: {coords.lat}";
+                lng_label.Text = $"Lon: {coords.lon}";
+            }
+        }
+
+        private async void DebounceTimer_Tick(object sender, EventArgs e)
+        {
+            debounceTimer.Stop();
+
             if (address_input.Text.Length < 1)
             {
                 address_input.AutoCompleteCustomSource = null;
@@ -58,49 +79,42 @@ namespace JobNear.JobSeekerDashboardUserControl
                         autoComplete.Add(formatted);
                     }
 
-                    // Attach to textbox
-                    address_input.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-                    address_input.AutoCompleteSource = AutoCompleteSource.CustomSource;
-                    address_input.AutoCompleteCustomSource = autoComplete;
+                    // ✅ Compare new results with old ones
+                    bool changed = true;
+                    if (address_input.AutoCompleteCustomSource != null &&
+                        address_input.AutoCompleteCustomSource.Count == autoComplete.Count)
+                    {
+                        changed = false;
+                        for (int i = 0; i < autoComplete.Count; i++)
+                        {
+                            if (address_input.AutoCompleteCustomSource[i] != autoComplete[i])
+                            {
+                                changed = true;
+                                break;
+                            }
+                        }
+                    }
+
+                    if (changed)
+                    {
+                        address_input.AutoCompleteMode = AutoCompleteMode.Suggest;
+                        address_input.AutoCompleteSource = AutoCompleteSource.CustomSource;
+                        address_input.AutoCompleteCustomSource = autoComplete;
+
+                        // ✅ Force dropdown refresh
+                        string current = address_input.Text;
+                        address_input.Text = "";
+                        address_input.Text = current;
+                        address_input.SelectionStart = address_input.Text.Length;
+                    }
                 }
                 catch
                 {
                     address_input.AutoCompleteCustomSource = null;
                 }
             }
-
-            // ✅ Check if the typed text matches a suggestion
-            if (suggestionData.ContainsKey(address_input.Text))
-            {
-                var coords = suggestionData[address_input.Text];
-                lat_label.Text = $"Lat: {coords.lat}";
-                lng_label.Text = $"Lon: {coords.lon}";
-            }
         }
 
 
-
-
-        private void address_listbox_MouseClick(object sender, MouseEventArgs e)
-        {
-            if (address_listbox.SelectedItem != null)
-            {
-                string selected = address_listbox.SelectedItem.ToString(); // ✅ define selected
-                address_input.Text = selected;
-                address_listbox.Visible = false;
-
-                if (suggestionData.ContainsKey(selected))
-                {
-                    var coords = suggestionData[selected];
-                    lat_label.Text = $"Lat: {coords.lat}";
-                    lng_label.Text = $"Lon: {coords.lon}";
-                }
-            }
-        }
-
-        private void address_listbox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }
