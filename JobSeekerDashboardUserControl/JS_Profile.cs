@@ -21,10 +21,11 @@ namespace JobNear.JobSeekerDashboardUserControl
         public JS_Profile()
         {
             InitializeComponent();
-            ButtonStyle.RoundedButton(upload_button, 25 , "#F5F5F5");
-            ButtonStyle.RoundedButton(attach_file, 25, "#F5F5F5");
-            ButtonStyle.RoundedButton(draft_button, 25, "#F5F5F5");
-            ButtonStyle.RoundedButton(review_button, 25, "#F5F5F5");
+            ButtonStyle.RoundedButton(upload_button, 25 , "#FFFFFF");
+            ButtonStyle.RoundedButton(attach_file, 25, "#FFFFFF");
+            ButtonStyle.RoundedButton(draft_button, 25, "#FFFFFF");
+            ButtonStyle.RoundedButton(review_button, 25, "#FFFFFF");
+
             image_flowlayout.FlowDirection = FlowDirection.TopDown;
             image_flowlayout.WrapContents = false;
             image_flowlayout.AutoScroll = true;
@@ -48,7 +49,7 @@ namespace JobNear.JobSeekerDashboardUserControl
         }
 
 
-        private void button1_Click(object sender, EventArgs e)
+        private void attach_file_Click(object sender, EventArgs e)
         {
             OpenFileDialog ofd = new OpenFileDialog();
             ofd.Multiselect = true; // allow multiple uploads
@@ -68,26 +69,20 @@ namespace JobNear.JobSeekerDashboardUserControl
                     string destPath = Path.Combine(savePath, fileName);
                     File.Copy(filePath, destPath, true);
 
-                    //// Add row into grid
-                    //file_grid.Rows.Add(fileName);
                     AddFileItem(fileName);
                 }
             }
         }
-
-        private void sidebar_panel_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void AddFileItem(string filePath)
         {
+
+
             // Panel for file item
             Panel filePanel = new Panel();
             filePanel.Width = 765;
             filePanel.Height = 50;
             filePanel.BackColor = Color.White; // modern flat background
-            filePanel.Margin = new Padding(0,0,0,2);
+            filePanel.Margin = new Padding(0, 0, 0, 2);
             filePanel.Padding = new Padding(10);
             filePanel.BorderStyle = BorderStyle.None;
 
@@ -126,7 +121,7 @@ namespace JobNear.JobSeekerDashboardUserControl
             lbl.Height = 30;
             lbl.Location = new Point(70, 10);
             lbl.TextAlign = ContentAlignment.MiddleLeft;
-            lbl.Font = new Font("Segoe UI", 9, FontStyle.Regular);
+            lbl.Font = new Font("Poppins", 12, FontStyle.Regular);
             lbl.ForeColor = Color.Black;
 
             // Preview button (eye icon)
@@ -138,7 +133,8 @@ namespace JobNear.JobSeekerDashboardUserControl
             btnPreview.FlatAppearance.BorderSize = 0;
             btnPreview.BackColor = Color.Transparent;
             btnPreview.Text = "👁";
-            btnPreview.Font = new Font("Segoe UI Emoji", 12);
+            btnPreview.Font = new Font("Segoe UI Emoji", 13, FontStyle.Bold);
+            btnPreview.ForeColor = Color.DimGray;
             btnPreview.Cursor = Cursors.Hand;
             btnPreview.Click += (s, e) =>
             {
@@ -171,7 +167,8 @@ namespace JobNear.JobSeekerDashboardUserControl
             btnDelete.FlatAppearance.BorderSize = 0;
             btnDelete.BackColor = Color.Transparent;
             btnDelete.Text = "🗑";
-            btnDelete.Font = new Font("Segoe UI Emoji", 12);
+            btnDelete.Font = new Font("Segoe UI Emoji", 13, FontStyle.Bold);
+            btnDelete.ForeColor = Color.DimGray;
             btnDelete.Cursor = Cursors.Hand;
             btnDelete.Click += (s, e) =>
             {

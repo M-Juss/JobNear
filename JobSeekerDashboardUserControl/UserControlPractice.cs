@@ -35,7 +35,6 @@ namespace JobNear.JobSeekerDashboardUserControl
             debounceTimer.Stop();
             debounceTimer.Start();
 
-            // ✅ Check if the typed text matches a suggestion
             if (suggestionData.ContainsKey(address_input.Text))
             {
                 var coords = suggestionData[address_input.Text];
@@ -101,7 +100,6 @@ namespace JobNear.JobSeekerDashboardUserControl
                         address_input.AutoCompleteSource = AutoCompleteSource.CustomSource;
                         address_input.AutoCompleteCustomSource = autoComplete;
 
-                        // ✅ Force dropdown refresh
                         string current = address_input.Text;
                         address_input.Text = "";
                         address_input.Text = current;
