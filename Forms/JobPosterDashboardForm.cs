@@ -40,5 +40,10 @@ namespace JobNear.Forms
             JP_main_panel.Controls.Add(notification_panel);
             notification_panel.Dock = DockStyle.Fill;
         }
+
+        private void dashboard_button_Click(object sender, EventArgs e)
+        {
+            // i still dont have any ideas
+        }
     }
 }

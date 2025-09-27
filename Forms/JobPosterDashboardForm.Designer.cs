@@ -34,8 +34,8 @@
             this.job_button = new System.Windows.Forms.Button();
             this.business_button = new System.Windows.Forms.Button();
             this.dashboard_button = new System.Windows.Forms.Button();
-            this.JP_main_panel = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
+            this.JP_main_panel = new System.Windows.Forms.Panel();
             this.JP_sidebar_panel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -104,15 +104,7 @@
             this.dashboard_button.TabIndex = 1;
             this.dashboard_button.Text = "Dashboard";
             this.dashboard_button.UseVisualStyleBackColor = true;
-            // 
-            // JP_main_panel
-            // 
-            this.JP_main_panel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.JP_main_panel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.JP_main_panel.Location = new System.Drawing.Point(200, 0);
-            this.JP_main_panel.Name = "JP_main_panel";
-            this.JP_main_panel.Size = new System.Drawing.Size(1031, 705);
-            this.JP_main_panel.TabIndex = 1;
+            this.dashboard_button.Click += new System.EventHandler(this.dashboard_button_Click);
             // 
             // button1
             // 
@@ -122,6 +114,15 @@
             this.button1.Size = new System.Drawing.Size(136, 49);
             this.button1.TabIndex = 0;
             this.button1.UseVisualStyleBackColor = true;
+            // 
+            // JP_main_panel
+            // 
+            this.JP_main_panel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.JP_main_panel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.JP_main_panel.Location = new System.Drawing.Point(200, 0);
+            this.JP_main_panel.Name = "JP_main_panel";
+            this.JP_main_panel.Size = new System.Drawing.Size(1031, 705);
+            this.JP_main_panel.TabIndex = 1;
             // 
             // JobPosterDashboardForm
             // 
