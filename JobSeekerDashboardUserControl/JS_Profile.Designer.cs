@@ -39,23 +39,23 @@
             this.profile_picture = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label12 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.phone_input = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.email_input = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.age_input = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.birthdate_picker = new System.Windows.Forms.DateTimePicker();
             this.label7 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.sex_combo = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.middlename_input = new System.Windows.Forms.TextBox();
+            this.firstname_input = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.email_input = new System.Windows.Forms.TextBox();
+            this.lastname_input = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
@@ -77,23 +77,23 @@
             this.sidebar_panel.Controls.Add(this.profile_picture);
             this.sidebar_panel.Controls.Add(this.panel3);
             this.sidebar_panel.Controls.Add(this.label12);
-            this.sidebar_panel.Controls.Add(this.textBox4);
+            this.sidebar_panel.Controls.Add(this.phone_input);
             this.sidebar_panel.Controls.Add(this.label10);
-            this.sidebar_panel.Controls.Add(this.textBox5);
+            this.sidebar_panel.Controls.Add(this.email_input);
             this.sidebar_panel.Controls.Add(this.label11);
             this.sidebar_panel.Controls.Add(this.panel2);
             this.sidebar_panel.Controls.Add(this.label9);
-            this.sidebar_panel.Controls.Add(this.textBox3);
+            this.sidebar_panel.Controls.Add(this.age_input);
             this.sidebar_panel.Controls.Add(this.label8);
-            this.sidebar_panel.Controls.Add(this.dateTimePicker1);
+            this.sidebar_panel.Controls.Add(this.birthdate_picker);
             this.sidebar_panel.Controls.Add(this.label7);
-            this.sidebar_panel.Controls.Add(this.comboBox1);
+            this.sidebar_panel.Controls.Add(this.sex_combo);
             this.sidebar_panel.Controls.Add(this.label6);
-            this.sidebar_panel.Controls.Add(this.textBox2);
-            this.sidebar_panel.Controls.Add(this.textBox1);
+            this.sidebar_panel.Controls.Add(this.middlename_input);
+            this.sidebar_panel.Controls.Add(this.firstname_input);
             this.sidebar_panel.Controls.Add(this.label5);
             this.sidebar_panel.Controls.Add(this.label4);
-            this.sidebar_panel.Controls.Add(this.email_input);
+            this.sidebar_panel.Controls.Add(this.lastname_input);
             this.sidebar_panel.Controls.Add(this.label3);
             this.sidebar_panel.Controls.Add(this.panel1);
             this.sidebar_panel.Controls.Add(this.label2);
@@ -122,6 +122,7 @@
             this.review_button.TabIndex = 51;
             this.review_button.Text = "Submit for review";
             this.review_button.UseVisualStyleBackColor = true;
+            this.review_button.Click += new System.EventHandler(this.review_button_Click);
             // 
             // draft_button
             // 
@@ -207,13 +208,13 @@
             this.label12.TabIndex = 43;
             this.label12.Text = "Supporting Documents";
             // 
-            // textBox4
+            // phone_input
             // 
-            this.textBox4.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(279, 381);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(254, 31);
-            this.textBox4.TabIndex = 41;
+            this.phone_input.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.phone_input.Location = new System.Drawing.Point(279, 381);
+            this.phone_input.Name = "phone_input";
+            this.phone_input.Size = new System.Drawing.Size(254, 31);
+            this.phone_input.TabIndex = 41;
             // 
             // label10
             // 
@@ -226,13 +227,13 @@
             this.label10.TabIndex = 40;
             this.label10.Text = "Phone Number:";
             // 
-            // textBox5
+            // email_input
             // 
-            this.textBox5.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.Location = new System.Drawing.Point(14, 381);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(254, 31);
-            this.textBox5.TabIndex = 39;
+            this.email_input.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.email_input.Location = new System.Drawing.Point(14, 381);
+            this.email_input.Name = "email_input";
+            this.email_input.Size = new System.Drawing.Size(254, 31);
+            this.email_input.TabIndex = 39;
             // 
             // label11
             // 
@@ -265,13 +266,13 @@
             this.label9.TabIndex = 37;
             this.label9.Text = "Contact Details";
             // 
-            // textBox3
+            // age_input
             // 
-            this.textBox3.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(544, 201);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(254, 31);
-            this.textBox3.TabIndex = 36;
+            this.age_input.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.age_input.Location = new System.Drawing.Point(544, 201);
+            this.age_input.Name = "age_input";
+            this.age_input.Size = new System.Drawing.Size(254, 31);
+            this.age_input.TabIndex = 36;
             // 
             // label8
             // 
@@ -284,13 +285,13 @@
             this.label8.TabIndex = 35;
             this.label8.Text = "Age:";
             // 
-            // dateTimePicker1
+            // birthdate_picker
             // 
-            this.dateTimePicker1.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Location = new System.Drawing.Point(279, 201);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(254, 31);
-            this.dateTimePicker1.TabIndex = 34;
+            this.birthdate_picker.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.birthdate_picker.Location = new System.Drawing.Point(279, 201);
+            this.birthdate_picker.Name = "birthdate_picker";
+            this.birthdate_picker.Size = new System.Drawing.Size(254, 31);
+            this.birthdate_picker.TabIndex = 34;
             // 
             // label7
             // 
@@ -303,17 +304,17 @@
             this.label7.TabIndex = 32;
             this.label7.Text = "Birthdate:";
             // 
-            // comboBox1
+            // sex_combo
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.sex_combo.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sex_combo.FormattingEnabled = true;
+            this.sex_combo.Items.AddRange(new object[] {
             "Male",
             "Female"});
-            this.comboBox1.Location = new System.Drawing.Point(14, 201);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(254, 31);
-            this.comboBox1.TabIndex = 31;
+            this.sex_combo.Location = new System.Drawing.Point(14, 201);
+            this.sex_combo.Name = "sex_combo";
+            this.sex_combo.Size = new System.Drawing.Size(254, 31);
+            this.sex_combo.TabIndex = 31;
             // 
             // label6
             // 
@@ -326,21 +327,21 @@
             this.label6.TabIndex = 30;
             this.label6.Text = "Sex:";
             // 
-            // textBox2
+            // middlename_input
             // 
-            this.textBox2.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(544, 131);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(254, 31);
-            this.textBox2.TabIndex = 29;
+            this.middlename_input.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.middlename_input.Location = new System.Drawing.Point(544, 131);
+            this.middlename_input.Name = "middlename_input";
+            this.middlename_input.Size = new System.Drawing.Size(254, 31);
+            this.middlename_input.TabIndex = 29;
             // 
-            // textBox1
+            // firstname_input
             // 
-            this.textBox1.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(279, 131);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(254, 31);
-            this.textBox1.TabIndex = 28;
+            this.firstname_input.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.firstname_input.Location = new System.Drawing.Point(279, 131);
+            this.firstname_input.Name = "firstname_input";
+            this.firstname_input.Size = new System.Drawing.Size(254, 31);
+            this.firstname_input.TabIndex = 28;
             // 
             // label5
             // 
@@ -364,14 +365,14 @@
             this.label4.TabIndex = 25;
             this.label4.Text = "Firstname";
             // 
-            // email_input
+            // lastname_input
             // 
-            this.email_input.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.email_input.Location = new System.Drawing.Point(14, 131);
-            this.email_input.Name = "email_input";
-            this.email_input.Size = new System.Drawing.Size(254, 31);
-            this.email_input.TabIndex = 24;
-            this.email_input.TextChanged += new System.EventHandler(this.email_input_TextChanged);
+            this.lastname_input.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lastname_input.Location = new System.Drawing.Point(14, 131);
+            this.lastname_input.Name = "lastname_input";
+            this.lastname_input.Size = new System.Drawing.Size(254, 31);
+            this.lastname_input.TabIndex = 24;
+            this.lastname_input.TextChanged += new System.EventHandler(this.email_input_TextChanged);
             // 
             // label3
             // 
@@ -436,21 +437,21 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox email_input;
+        private System.Windows.Forms.TextBox lastname_input;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox middlename_input;
+        private System.Windows.Forms.TextBox firstname_input;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker birthdate_picker;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.ComboBox sex_combo;
+        private System.Windows.Forms.TextBox age_input;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox phone_input;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox email_input;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;

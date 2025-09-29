@@ -13,6 +13,8 @@ using JobNear.Styles;
 using System.Net.Http;
 using Newtonsoft.Json.Linq;
 using JobNear.Services;
+using JobNear.Controllers;
+using MongoDB.Driver.Core.Authentication;
 
 namespace JobNear.JobSeekerDashboardUserControl
 {
@@ -232,6 +234,33 @@ namespace JobNear.JobSeekerDashboardUserControl
         {
             debounceTimer.Stop();
             debounceTimer.Start();
+
+        }
+
+        private async void review_button_Click(object sender, EventArgs e)
+        {
+
+
+            if (string.IsNullOrEmpty(firstname_input.Text) || string.IsNullOrEmpty(lastname_input.Text) || string.IsNullOrEmpty(middlename_input.Text) ||
+                string.IsNullOrEmpty(age_input.Text) || string.IsNullOrEmpty(phone_input.Text) || string.IsNullOrEmpty(email_input.Text)
+                || string.IsNullOrEmpty(address_input.Text)) {
+                MessageBox.Show("Please fill all fields", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            } else {
+                TextBoxValidatorController.ValidateEmail(email_input);
+                TextBoxValidatorController.ValidatePhoneNumber(phone_input);
+                TextBoxValidatorController.AllowOnlyNumbers(age_input);
+                TextBoxValidatorController.AllowOnlyNumbers(phone_input);
+            }
+            if (profile_picture.Image == null)
+            {
+                MessageBox.Show("Please upload a profile picture", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            if (image_flowlayout.Controls.Count == 0)
+            {
+                MessageBox.Show("Please attach at least one supporting document", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
+            
 
         }
     }

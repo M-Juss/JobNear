@@ -26,16 +26,37 @@ namespace JobNear
             };
         }
 
-        public static bool ValidateEmail(TextBox email_input)
+        public static void ValidateEmail(TextBox email_input)
         {
             string pattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
-            return Regex.IsMatch(email_input.Text, pattern);
+            bool result = Regex.IsMatch(email_input.Text, pattern);
+            
+            if (result)
+            {
+                return;
+            }
+            else
+            {
+                MessageBox.Show("Invalid email format.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                email_input.Focus();
+            }
+
         }
 
-        public static bool ValidatePhoneNumber(TextBox number_input)
+        public static void ValidatePhoneNumber(TextBox number_input)
         {
             string pattern = @"^09\d{9}$";
-            return Regex.IsMatch(number_input.Text, pattern);
+            bool result = Regex.IsMatch(number_input.Text, pattern);
+
+            if (result)
+            {
+                return;
+            }
+            else
+            {
+                MessageBox.Show("Invalid phone number. It should start with '09' and be 11 digits long.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                number_input.Focus();
+            }
         }
     }
 }

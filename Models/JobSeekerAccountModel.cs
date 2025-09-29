@@ -26,6 +26,8 @@ namespace JobNear.Models
         public DateTime Birthdate { get; set; }
         public short Age { get; set; }
         public string Address { get; set; }
+        public double Latitude { get; set; }
+        public double Longitude { get; set; }
         public byte[] ProfilePicture { get; set; }
         public byte[] SupportingDocuments { get; set; }
         public Boolean isDraft { get; set; } = true;

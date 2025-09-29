@@ -56,33 +56,25 @@ namespace JobNear.Forms
             }
             else
             {
-
-                if (TextBoxValidatorController.ValidatePhoneNumber(phone_input))
+                TextBoxValidatorController.ValidateEmail(email_input);
+                TextBoxValidatorController.ValidatePhoneNumber(phone_input);
+                if (password_input.Text == confirm_input.Text)
                 {
-                    if (TextBoxValidatorController.ValidateEmail(email_input))
+                    if (await MongoDbServices.InsertJobPosterAccountAsync(phone_input.Text, email_input.Text, password_input.Text))
                     {
-                        if (password_input.Text == confirm_input.Text)
-                        {
-                            if (await MongoDbServices.InsertJobPosterAccountAsync(phone_input.Text, email_input.Text, password_input.Text))
-                            {
-                                MessageBox.Show("Account created successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                FormsController.FormLoad(new JobSeekerLoginForm(), app_panel);
-                            }
-                            else
-                            {
-                                MessageBox.Show("Failed to create account. Email might already be in use.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            }
-                        }
-                        else
-                        {
-                            MessageBox.Show("Password and Confirm Password do not match", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        }
+                        MessageBox.Show("Account created successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        FormsController.FormLoad(new JobSeekerLoginForm(), app_panel);
                     }
                     else
                     {
-                        MessageBox.Show("Please enter a valid email address", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show("Failed to create account. Email might already be in use.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
+                else
+                {
+                    MessageBox.Show("Password and Confirm Password do not match", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            
             }
         }
 
