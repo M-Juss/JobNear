@@ -29,9 +29,13 @@ namespace JobNear.Models
         public double Latitude { get; set; }
         public double Longitude { get; set; }
         public byte[] ProfilePicture { get; set; }
-        public byte[] SupportingDocuments { get; set; }
+        public List<SupportingDocument> SupportingDocuments { get; set; }
         public Boolean isDraft { get; set; } = true;
         public Boolean IsVerified { get; set; } = false;
 
+    }
+    public class SupportingDocument {
+        public string FileName { get; set; }
+        public byte[] FileContent { get; set; }
     }
 }

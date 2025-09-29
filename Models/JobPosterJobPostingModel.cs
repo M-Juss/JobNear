@@ -17,7 +17,6 @@ namespace JobNear.Models
         
         [BsonRepresentation(BsonType.ObjectId)]
         public string BusinessId { get; set; } // this will link to JobPosterBusinessModel Id
-
         public string JobPosition { get; set; }
         public string JobType { get; set; }
         public string JobDescription { get; set; }
