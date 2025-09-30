@@ -103,7 +103,6 @@
             this.sidebar_panel.Name = "sidebar_panel";
             this.sidebar_panel.Size = new System.Drawing.Size(1031, 705);
             this.sidebar_panel.TabIndex = 3;
-            this.sidebar_panel.Paint += new System.Windows.Forms.PaintEventHandler(this.sidebar_panel_Paint);
             // 
             // image_flowlayout
             // 
@@ -133,6 +132,7 @@
             this.draft_button.TabIndex = 50;
             this.draft_button.Text = "Save as Draft";
             this.draft_button.UseVisualStyleBackColor = true;
+            this.draft_button.Click += new System.EventHandler(this.draft_button_Click);
             // 
             // attach_file
             // 
@@ -372,7 +372,6 @@
             this.lastname_input.Name = "lastname_input";
             this.lastname_input.Size = new System.Drawing.Size(254, 31);
             this.lastname_input.TabIndex = 24;
-            this.lastname_input.TextChanged += new System.EventHandler(this.email_input_TextChanged);
             // 
             // label3
             // 

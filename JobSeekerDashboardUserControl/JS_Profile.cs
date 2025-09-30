@@ -15,6 +15,7 @@ using Newtonsoft.Json.Linq;
 using JobNear.Services;
 using JobNear.Controllers;
 using MongoDB.Driver.Core.Authentication;
+using JobNear.Models;
 
 namespace JobNear.JobSeekerDashboardUserControl
 {
@@ -24,11 +25,15 @@ namespace JobNear.JobSeekerDashboardUserControl
         private Timer debounceTimer;
         private Dictionary<string, (double lat, double lon)> suggestionData = new Dictionary<string, (double lat, double lon)>();
 
+        private double selectedLat;
+        private double selectedLon;
+
+
         private GeoaptifyAutocompeteAPIServices geoServices = new GeoaptifyAutocompeteAPIServices();
         public JS_Profile()
         {
             InitializeComponent();
-            ButtonStyle.RoundedButton(upload_button, 25 , "#FFFFFF");
+            ButtonStyle.RoundedButton(upload_button, 25, "#FFFFFF");
             ButtonStyle.RoundedButton(attach_file, 25, "#FFFFFF");
             ButtonStyle.RoundedButton(draft_button, 25, "#FFFFFF");
             ButtonStyle.RoundedButton(review_button, 25, "#FFFFFF");
@@ -38,8 +43,10 @@ namespace JobNear.JobSeekerDashboardUserControl
             image_flowlayout.AutoScroll = true;
 
             debounceTimer = new Timer();
-            debounceTimer.Interval = 300; // 3 seconds
+            debounceTimer.Interval = 300;
             debounceTimer.Tick += DebounceTimer_Tick;
+
+            address_input.Leave += Address_input_Leave;
 
         }
 
@@ -48,23 +55,40 @@ namespace JobNear.JobSeekerDashboardUserControl
             debounceTimer.Stop();
 
             suggestionData = await geoServices.GetSuggestionsAsync(address_input.Text);
-
             geoServices.ApplyAutoComplete(address_input, suggestionData);
         }
 
-
-        private void email_input_TextChanged(object sender, EventArgs e)
+        private void Address_input_Leave(object sender, EventArgs e)
         {
+            if (suggestionData != null && suggestionData.ContainsKey(address_input.Text))
+            {
+                var coords = suggestionData[address_input.Text];
+                selectedLat = coords.lat;
+                selectedLon = coords.lon;
+            }
+            else
+            {
+                selectedLat = 0;
+                selectedLon = 0;
+            }
+        }
 
+
+        private void address_input_TextChanged(object sender, EventArgs e)
+        {
+            debounceTimer.Stop();
+            debounceTimer.Start();
         }
 
         private void upload_button_Click(object sender, EventArgs e)
-        {            ofd.Filter = "Image Files (*.jpg;*.jpeg;*.png)|*.jpg;*.jpeg;*.png";
+        {
+            ofd.Filter = "Image Files (*.jpg;*.jpeg;*.png)|*.jpg;*.jpeg;*.png";
             if (ofd.ShowDialog() == DialogResult.OK)
             {
                 profile_picture.Image = Image.FromFile(ofd.FileName);
             }
-            else {
+            else
+            {
                 MessageBox.Show("No file selected.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -73,7 +97,7 @@ namespace JobNear.JobSeekerDashboardUserControl
         private void attach_file_Click(object sender, EventArgs e)
         {
             OpenFileDialog ofd = new OpenFileDialog();
-            ofd.Multiselect = true; 
+            ofd.Multiselect = true;
             ofd.Filter = "All Files|*.*";
 
             if (ofd.ShowDialog() == DialogResult.OK)
@@ -90,56 +114,94 @@ namespace JobNear.JobSeekerDashboardUserControl
                     File.Copy(filePath, destPath, true);
 
                     FlowLayoutStyles.AddFileItem(destPath, image_flowlayout);
-
-                    List<string> filePaths = new List<string>();
-
-                    foreach (Control ctrl in image_flowlayout.Controls)
-                    {
-                        if (ctrl is Panel panel && panel.Tag != null)
-                        {
-                            filePaths.Add(panel.Tag.ToString());
-                        }
-                    }
-                    Console.WriteLine(string.Join(", ", filePaths));
                 }
             }
         }
 
 
-        private void sidebar_panel_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void address_input_TextChanged(object sender, EventArgs e)
-        {
-            debounceTimer.Stop();
-            debounceTimer.Start();
-
-        }
-
         private async void review_button_Click(object sender, EventArgs e)
         {
+            UpdateProfileData(isDraft: false, isVerified: false);
+        }
+
+        private void draft_button_Click(object sender, EventArgs e)
+        {
+            UpdateProfileData(isDraft: true, isVerified: false);
+        }
+
+        public async void UpdateProfileData(bool isDraft, bool isVerified)
+        {
+
+            TextBoxValidatorController.ValidateEmail(email_input);
+            TextBoxValidatorController.ValidatePhoneNumber(phone_input);
+            TextBoxValidatorController.AllowOnlyNumbers(age_input);
+            TextBoxValidatorController.AllowOnlyNumbers(phone_input);
+
             if (string.IsNullOrEmpty(firstname_input.Text) || string.IsNullOrEmpty(lastname_input.Text) || string.IsNullOrEmpty(middlename_input.Text) ||
                 string.IsNullOrEmpty(age_input.Text) || string.IsNullOrEmpty(phone_input.Text) || string.IsNullOrEmpty(email_input.Text)
-                || string.IsNullOrEmpty(address_input.Text)) {
+                || string.IsNullOrEmpty(address_input.Text))
+            {
                 MessageBox.Show("Please fill all fields", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            } else {
-                TextBoxValidatorController.ValidateEmail(email_input);
-                TextBoxValidatorController.ValidatePhoneNumber(phone_input);
-                TextBoxValidatorController.AllowOnlyNumbers(age_input);
-                TextBoxValidatorController.AllowOnlyNumbers(phone_input);
             }
-            if (profile_picture.Image == null)
+            else if (profile_picture.Image == null)
             {
                 MessageBox.Show("Please upload a profile picture", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            if (image_flowlayout.Controls.Count == 0)
+            else if (image_flowlayout.Controls.Count == 0)
             {
                 MessageBox.Show("Please attach at least one supporting document", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+            else
+            {
+                if (selectedLon == 0 & selectedLon == 0)
+                {
+                    var result = await geoServices.GetSuggestionsAsync(address_input.Text);
+                    if (result.Any())
+                    {
+                        var firstEntry = result.First();
+                        selectedLat = firstEntry.Value.lat;
+                        selectedLon = firstEntry.Value.lon;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Could not determine location for this address. Coordinates set to 0,0.",
+                                        "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
 
+                List<SupportingDocument> supportingDocuments = new List<SupportingDocument>();
 
+                foreach (Control ctrl in image_flowlayout.Controls)
+                {
+                    if (ctrl is Panel panel && panel.Tag != null)
+                    {
+                        string filePath = panel.Tag.ToString();
+                        if (File.Exists(filePath))
+                        {
+                            supportingDocuments.Add(new SupportingDocument
+                            {
+                                FileName = Path.GetFileName(filePath),
+                                FileContent = File.ReadAllBytes(filePath)
+                            });
+                        }
+                    }
+                }
+                byte[] imageResponse = ConvertDataTypeServices.ConvertImageToBytes(profile_picture.Image);
+
+                bool response = await MongoDbServices.UpdateJobSeekerProfileAsync(Session.CurrentEmail, phone_input.Text, lastname_input.Text, firstname_input.Text, middlename_input.Text,
+                    sex_combo.Text, birthdate_picker.Text, short.Parse(age_input.Text), address_input.Text, selectedLat, selectedLon, imageResponse,
+                    supportingDocuments, isDraft, isVerified);
+
+                if (response)
+                {
+                    MessageBox.Show(isDraft ? "Profile updated successfully as draft" : "Profile updated successfully and ready for review", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Failed to update profile. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
     }
 }
+

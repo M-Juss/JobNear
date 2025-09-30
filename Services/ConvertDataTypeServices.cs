@@ -10,7 +10,7 @@ namespace JobNear.Services
 {
     public class ConvertDataTypeServices
     {
-        private byte[] ConvertImageToBytes(Image img)
+        public static byte[] ConvertImageToBytes(Image img)
         {
             if (img == null) return null;
             using (MemoryStream ms = new MemoryStream())
