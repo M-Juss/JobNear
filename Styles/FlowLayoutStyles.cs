@@ -1,4 +1,5 @@
-﻿using System;
+﻿using JobNear.Models;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
@@ -123,6 +124,113 @@ namespace JobNear.Styles
 
             docu_flowlayout.Controls.Add(filePanel);
         }
+
+        public static void AddSupportingDocumentToFlow(SupportingDocument doc, FlowLayoutPanel docu_flowlayout)
+        {
+            Panel filePanel = new Panel();
+            filePanel.Width = 765;
+            filePanel.Height = 50;
+            filePanel.BackColor = Color.White;
+            filePanel.Margin = new Padding(0, 0, 0, 2);
+            filePanel.Padding = new Padding(10);
+            filePanel.BorderStyle = BorderStyle.None;
+
+            PictureBox picIcon = new PictureBox();
+            picIcon.Width = 30;
+            picIcon.Height = 30;
+            picIcon.SizeMode = PictureBoxSizeMode.StretchImage;
+            picIcon.Location = new Point(10, 10);
+
+            filePanel.Paint += (s, e) =>
+            {
+                ControlPaint.DrawBorder(e.Graphics, filePanel.ClientRectangle,
+                    Color.LightGray, 1, ButtonBorderStyle.Solid,
+                    Color.LightGray, 1, ButtonBorderStyle.Solid,
+                    Color.LightGray, 1, ButtonBorderStyle.Solid,
+                    Color.LightGray, 1, ButtonBorderStyle.Solid);
+            };
+
+            // Choose icon based on extension
+            try
+            {
+                string tempFile = Path.Combine(Path.GetTempPath(), doc.FileName);
+                File.WriteAllBytes(tempFile, doc.FileContent); // write temporarily just to extract icon
+                Icon sysIcon = Icon.ExtractAssociatedIcon(tempFile);
+                picIcon.Image = sysIcon?.ToBitmap() ?? SystemIcons.Application.ToBitmap();
+                File.Delete(tempFile); // cleanup
+            }
+            catch
+            {
+                picIcon.Image = SystemIcons.Application.ToBitmap();
+            }
+
+            Label lbl = new Label();
+            lbl.Text = doc.FileName;
+            lbl.AutoSize = false;
+            lbl.Width = 180;
+            lbl.Height = 30;
+            lbl.Location = new Point(70, 10);
+            lbl.TextAlign = ContentAlignment.MiddleLeft;
+            lbl.Font = new Font("Poppins", 12, FontStyle.Regular);
+            lbl.ForeColor = Color.Black;
+
+            // 👁 Preview button
+            Button btnPreview = new Button();
+            btnPreview.Width = 30;
+            btnPreview.Height = 30;
+            btnPreview.Location = new Point(680, 10);
+            btnPreview.FlatStyle = FlatStyle.Flat;
+            btnPreview.FlatAppearance.BorderSize = 0;
+            btnPreview.BackColor = Color.Transparent;
+            btnPreview.Text = "👁";
+            btnPreview.Font = new Font("Segoe UI Emoji", 13, FontStyle.Bold);
+            btnPreview.ForeColor = Color.DimGray;
+            btnPreview.Cursor = Cursors.Hand;
+            btnPreview.Click += (s, e) =>
+            {
+                // Save to temp and open
+                string tempPath = Path.Combine(Path.GetTempPath(), doc.FileName);
+                File.WriteAllBytes(tempPath, doc.FileContent);
+
+                System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo()
+                {
+                    FileName = tempPath,
+                    UseShellExecute = true
+                });
+            };
+
+            // 🗑 Delete button
+            Button btnDelete = new Button();
+            btnDelete.Width = 30;
+            btnDelete.Height = 30;
+            btnDelete.Location = new Point(720, 10);
+            btnDelete.FlatStyle = FlatStyle.Flat;
+            btnDelete.FlatAppearance.BorderSize = 0;
+            btnDelete.BackColor = Color.Transparent;
+            btnDelete.Text = "🗑";
+            btnDelete.Font = new Font("Segoe UI Emoji", 13, FontStyle.Bold);
+            btnDelete.ForeColor = Color.DimGray;
+            btnDelete.Cursor = Cursors.Hand;
+            btnDelete.Click += (s, e) =>
+            {
+                var confirm = MessageBox.Show($"Delete {doc.FileName}?", "Confirm Delete",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                if (confirm == DialogResult.Yes)
+                {
+                    filePanel.Dispose();
+                    // ❗ you can also remove from DB here if needed
+                }
+            };
+
+            filePanel.Controls.Add(picIcon);
+            filePanel.Controls.Add(lbl);
+            filePanel.Controls.Add(btnPreview);
+            filePanel.Controls.Add(btnDelete);
+
+            docu_flowlayout.Controls.Add(filePanel);
+        }
+
 
     }
 }

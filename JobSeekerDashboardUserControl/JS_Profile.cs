@@ -33,6 +33,10 @@ namespace JobNear.JobSeekerDashboardUserControl
         public JS_Profile()
         {
             InitializeComponent();
+
+            this.Load += AccountForm_Load;
+            
+
             ButtonStyle.RoundedButton(upload_button, 25, "#FFFFFF");
             ButtonStyle.RoundedButton(attach_file, 25, "#FFFFFF");
             ButtonStyle.RoundedButton(draft_button, 25, "#FFFFFF");
@@ -200,6 +204,30 @@ namespace JobNear.JobSeekerDashboardUserControl
                 {
                     MessageBox.Show("Failed to update profile. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+            }
+        }
+
+        private async void AccountForm_Load(object sender, EventArgs e)
+        {
+            var seeker = await MongoDbServices.LoadSeekerData();
+            if (seeker != null)
+            {
+                firstname_input.Text = seeker.Firstname;
+                lastname_input.Text = seeker.Lastname;
+                middlename_input.Text = seeker.Middlename;
+                sex_combo.Text = seeker.Sex;
+                birthdate_picker.Value = seeker.Birthdate;
+                age_input.Text = seeker.Age.ToString();
+                phone_input.Text = seeker.Phone;
+                email_input.Text = seeker.Email;
+                address_input.Text = seeker.Address;
+                profile_picture.Image = ConvertDataTypeServices.ConvertBytesToImage(seeker.ProfilePicture);
+
+                foreach (var doc in seeker.SupportingDocuments)
+                {
+                    FlowLayoutStyles.AddSupportingDocumentToFlow(doc, image_flowlayout);
+                }
+
             }
         }
     }
