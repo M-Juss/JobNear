@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.sidebar_panel = new System.Windows.Forms.Panel();
+            this.status_label = new System.Windows.Forms.Label();
             this.image_flowlayout = new System.Windows.Forms.FlowLayoutPanel();
             this.review_button = new System.Windows.Forms.Button();
             this.draft_button = new System.Windows.Forms.Button();
@@ -60,6 +61,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.edit_btn = new System.Windows.Forms.Button();
             this.sidebar_panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.profile_picture)).BeginInit();
             this.SuspendLayout();
@@ -67,6 +69,8 @@
             // sidebar_panel
             // 
             this.sidebar_panel.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.sidebar_panel.Controls.Add(this.edit_btn);
+            this.sidebar_panel.Controls.Add(this.status_label);
             this.sidebar_panel.Controls.Add(this.image_flowlayout);
             this.sidebar_panel.Controls.Add(this.review_button);
             this.sidebar_panel.Controls.Add(this.draft_button);
@@ -103,6 +107,17 @@
             this.sidebar_panel.Name = "sidebar_panel";
             this.sidebar_panel.Size = new System.Drawing.Size(1031, 705);
             this.sidebar_panel.TabIndex = 3;
+            // 
+            // status_label
+            // 
+            this.status_label.AutoSize = true;
+            this.status_label.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.status_label.Location = new System.Drawing.Point(801, 21);
+            this.status_label.Name = "status_label";
+            this.status_label.Padding = new System.Windows.Forms.Padding(20, 0, 20, 0);
+            this.status_label.Size = new System.Drawing.Size(105, 28);
+            this.status_label.TabIndex = 0;
+            this.status_label.Text = "Status";
             // 
             // image_flowlayout
             // 
@@ -415,6 +430,18 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Your Profile";
             // 
+            // edit_btn
+            // 
+            this.edit_btn.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.edit_btn.ForeColor = System.Drawing.Color.White;
+            this.edit_btn.Location = new System.Drawing.Point(922, 16);
+            this.edit_btn.Name = "edit_btn";
+            this.edit_btn.Size = new System.Drawing.Size(94, 33);
+            this.edit_btn.TabIndex = 53;
+            this.edit_btn.Text = "Edit";
+            this.edit_btn.UseVisualStyleBackColor = true;
+            this.edit_btn.Click += new System.EventHandler(this.edit_btn_Click);
+            // 
             // JS_Profile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -463,5 +490,7 @@
         private System.Windows.Forms.Button review_button;
         private System.Windows.Forms.Button draft_button;
         private System.Windows.Forms.FlowLayoutPanel image_flowlayout;
+        private System.Windows.Forms.Label status_label;
+        private System.Windows.Forms.Button edit_btn;
     }
 }

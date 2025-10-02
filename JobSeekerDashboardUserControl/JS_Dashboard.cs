@@ -29,5 +29,10 @@ namespace JobNear.JobSeekerDashboardUserControl
         {
 
         }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

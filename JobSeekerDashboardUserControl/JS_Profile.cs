@@ -1,21 +1,22 @@
-﻿using System;
+﻿using JobNear.Controllers;
+using JobNear.Models;
+using JobNear.Services;
+using JobNear.Styles;
+using MongoDB.Driver.Core.Authentication;
+using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Net.Http;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using JobNear.Styles;
-using System.Net.Http;
-using Newtonsoft.Json.Linq;
-using JobNear.Services;
-using JobNear.Controllers;
-using MongoDB.Driver.Core.Authentication;
-using JobNear.Models;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace JobNear.JobSeekerDashboardUserControl
 {
@@ -28,6 +29,8 @@ namespace JobNear.JobSeekerDashboardUserControl
         private double selectedLat;
         private double selectedLon;
 
+        private bool isEditing = false;
+
 
         private GeoaptifyAutocompeteAPIServices geoServices = new GeoaptifyAutocompeteAPIServices();
         public JS_Profile()
@@ -35,12 +38,15 @@ namespace JobNear.JobSeekerDashboardUserControl
             InitializeComponent();
 
             this.Load += AccountForm_Load;
-            
+            SetProfileEditable(isEditing);
+
+            UpdateProfileStatus("incomplete");
 
             ButtonStyle.RoundedButton(upload_button, 25, "#FFFFFF");
             ButtonStyle.RoundedButton(attach_file, 25, "#FFFFFF");
             ButtonStyle.RoundedButton(draft_button, 25, "#FFFFFF");
             ButtonStyle.RoundedButton(review_button, 25, "#FFFFFF");
+            ButtonStyle.RoundedButton(edit_btn,25, "#3B82F6");
 
             image_flowlayout.FlowDirection = FlowDirection.TopDown;
             image_flowlayout.WrapContents = false;
@@ -224,13 +230,89 @@ namespace JobNear.JobSeekerDashboardUserControl
                 address_input.Text = seeker.Address;
                 profile_picture.Image = ConvertDataTypeServices.ConvertBytesToImage(seeker.ProfilePicture);
 
-                if (seeker.SupportingDocuments != null) {
+                if (seeker.SupportingDocuments != null)
+                {
                     foreach (var doc in seeker.SupportingDocuments)
                     {
                         FlowLayoutStyles.AddSupportingDocumentToFlow(doc, image_flowlayout);
                     }
                 }
             }
+        }
+
+        private void UpdateProfileStatus(string status)
+        {
+
+            switch (status.ToLower())
+            {
+                case "verified":
+                    status_label.Text = "Verified";
+                    PanelStyles.StyleRoundedLabel(status_label, 10, Color.Green, Color.White);
+                    break;
+
+                case "pending":
+                    status_label.Text = "Pending";
+                    PanelStyles.StyleRoundedLabel(status_label, 10, Color.Orange, Color.Black);
+                    break;
+
+                case "incomplete":
+                    status_label.Text = "Incomplete";
+                    PanelStyles.StyleRoundedLabel(status_label, 10, Color.Black, Color.LightGray);
+
+                    break;
+
+                case "rejected":
+                    status_label.Text = "Rejected";
+                    PanelStyles.StyleRoundedLabel(status_label, 10, Color.White, Color.Red);
+                    break;
+
+                default:
+                    PanelStyles.StyleRoundedLabel(status_label, 10, Color.Black, Color.LightGray);
+                    break;
+            }
+
+
+        }
+
+        private void SetProfileEditable(bool isEditable)
+        {
+            foreach (Control c in sidebar_panel.Controls)
+            {
+                if (c is System.Windows.Forms.TextBox tb)
+                {
+                    tb.ReadOnly = !isEditable;
+                    tb.BackColor = isEditable ? Color.White : Color.LightGray; // visual cue
+                }
+                else if (c is System.Windows.Forms.ComboBox cb)
+                {
+                    cb.Enabled = isEditable;
+                }
+                else if (c is DateTimePicker dtp)
+                {
+                    dtp.Enabled = isEditable;
+                }
+                else if (c is System.Windows.Forms.Button btn && (btn == upload_button || btn == attach_file || btn == draft_button || btn == review_button))
+                {
+                    btn.Enabled = isEditable;
+                }
+            }
+        }
+
+        private void edit_btn_Click(object sender, EventArgs e)
+        {
+            if (!isEditing)
+            {
+                SetProfileEditable(true);
+                edit_btn.Text = "Cancel";
+                isEditing = true;
+            }
+            else
+            {
+                SetProfileEditable(false);
+                edit_btn.Text = "Edit";
+                isEditing = false;
+            }
+
         }
     }
 }
