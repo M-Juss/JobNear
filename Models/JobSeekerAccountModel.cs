@@ -23,7 +23,7 @@ namespace JobNear.Models
         public string Firstname { get; set; }
         public string Middlename { get; set; }
         public string Sex { get; set; }
-        public DateTime Birthdate { get; set; }
+        public DateTime Birthdate { get; set; } = DateTime.Now;
         public short Age { get; set; }
         public string Address { get; set; }
         public double Latitude { get; set; }

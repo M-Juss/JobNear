@@ -210,6 +210,7 @@ namespace JobNear.JobSeekerDashboardUserControl
         private async void AccountForm_Load(object sender, EventArgs e)
         {
             var seeker = await MongoDbServices.LoadSeekerData();
+
             if (seeker != null)
             {
                 firstname_input.Text = seeker.Firstname;
@@ -223,11 +224,12 @@ namespace JobNear.JobSeekerDashboardUserControl
                 address_input.Text = seeker.Address;
                 profile_picture.Image = ConvertDataTypeServices.ConvertBytesToImage(seeker.ProfilePicture);
 
-                foreach (var doc in seeker.SupportingDocuments)
-                {
-                    FlowLayoutStyles.AddSupportingDocumentToFlow(doc, image_flowlayout);
+                if (seeker.SupportingDocuments != null) {
+                    foreach (var doc in seeker.SupportingDocuments)
+                    {
+                        FlowLayoutStyles.AddSupportingDocumentToFlow(doc, image_flowlayout);
+                    }
                 }
-
             }
         }
     }
