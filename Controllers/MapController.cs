@@ -15,9 +15,11 @@ namespace JobNear.Controllers
     public class MapController
     {
         public static GMapControl gmap;
-        public static void InitializeMap(Panel map_panel, double lat = 14.5995, double lng = 120.9842)
-        {
 
+
+        public static void InitializeMap(Panel map_panel, double lat, double lng)
+        {
+            Console.Write($"lat: {lat} \n lon: {lng}");
             gmap = new GMapControl();
 
             gmap.Dock = DockStyle.Fill;

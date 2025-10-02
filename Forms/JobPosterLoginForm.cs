@@ -52,7 +52,7 @@ namespace JobNear.Forms
 
         private async void login_button_Click(object sender, EventArgs e)
         {
-            await MongoDbServices.LoginJobNearAccountAsync("jobposter", email_input.Text, password_input.Text, app_panel);
+            await MongoDbServices.LoginJobNearAccountAsync(Session.CurrentUserId, "jobposter", email_input.Text, password_input.Text, app_panel);
         }
     }
 }

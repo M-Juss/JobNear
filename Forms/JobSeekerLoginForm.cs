@@ -53,7 +53,7 @@ namespace JobNear.Forms
                 MessageBox.Show("Please fill all fields", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            await MongoDbServices.LoginJobNearAccountAsync("jobseeker", email_input.Text, password_input.Text, app_panel);
+            await MongoDbServices.LoginJobNearAccountAsync(Session.CurrentUserId, "jobseeker", email_input.Text, password_input.Text, app_panel);
         }
     }
 }

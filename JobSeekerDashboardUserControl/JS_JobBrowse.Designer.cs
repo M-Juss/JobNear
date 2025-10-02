@@ -49,6 +49,7 @@
             this.map_panel.Name = "map_panel";
             this.map_panel.Size = new System.Drawing.Size(956, 616);
             this.map_panel.TabIndex = 0;
+            this.map_panel.Paint += new System.Windows.Forms.PaintEventHandler(this.map_panel_Paint);
             // 
             // JS_JobBrowse
             // 

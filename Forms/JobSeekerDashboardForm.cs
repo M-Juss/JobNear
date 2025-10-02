@@ -84,6 +84,7 @@ namespace JobNear.Forms
             sidebar_panel.Controls.Clear();
             sidebar_panel.Controls.Add(js_jobBrowsing);
             js_jobBrowsing.Dock = DockStyle.Fill;
+
         }
 
         private void profile_button_Click(object sender, EventArgs e)

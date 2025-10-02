@@ -192,7 +192,7 @@ namespace JobNear.JobSeekerDashboardUserControl
                 }
                 byte[] imageResponse = ConvertDataTypeServices.ConvertImageToBytes(profile_picture.Image);
 
-                bool response = await MongoDbServices.UpdateJobSeekerProfileAsync(Session.CurrentEmail, phone_input.Text, lastname_input.Text, firstname_input.Text, middlename_input.Text,
+                bool response = await MongoDbServices.UpdateJobSeekerProfileAsync(Session.CurrentUserId, Session.CurrentEmail, phone_input.Text, lastname_input.Text, firstname_input.Text, middlename_input.Text,
                     sex_combo.Text, birthdate_picker.Text, short.Parse(age_input.Text), address_input.Text, selectedLat, selectedLon, imageResponse,
                     supportingDocuments, isDraft, isVerified);
 
