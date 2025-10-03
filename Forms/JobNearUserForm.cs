@@ -39,15 +39,9 @@ namespace JobNear.Forms
             FormsController.FormLoad(new JobPosterLoginForm(), app_panel);
         }
 
-        private async void admin_button_Click(object sender, EventArgs e)
+        private void admin_button_Click(object sender, EventArgs e)
         {
             FormsController.FormLoad(new JobNearAdminForm_(), app_panel);
-            if (await MongoDbServices.InsertAdminAccountAsync("admin@gmail.com", "admin123"))
-            {
-                MessageBox.Show("Account created successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                FormsController.FormLoad(new JobSeekerLoginForm(), app_panel);
-            }
-            else MessageBox.Show("Failed to create account. Email might already be in use.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 }

@@ -54,7 +54,6 @@ namespace JobNear.Forms
                         FormsController.FormLoad(new JobSeekerLoginForm(), app_panel);
                     }
                     else MessageBox.Show("Failed to create account. Email might already be in use.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
                 }
                 else MessageBox.Show("Password and Confirm Password do not match", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }

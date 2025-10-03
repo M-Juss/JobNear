@@ -38,6 +38,7 @@
             this.password_input = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.password_checkbox = new System.Windows.Forms.CheckBox();
             this.app_panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.back_button)).BeginInit();
             this.panel2.SuspendLayout();
@@ -54,6 +55,7 @@
             this.app_panel.Name = "app_panel";
             this.app_panel.Size = new System.Drawing.Size(1231, 705);
             this.app_panel.TabIndex = 0;
+            this.app_panel.Paint += new System.Windows.Forms.PaintEventHandler(this.app_panel_Paint);
             // 
             // back_button
             // 
@@ -69,6 +71,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel2.Controls.Add(this.password_checkbox);
             this.panel2.Controls.Add(this.email_input);
             this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Controls.Add(this.label5);
@@ -114,12 +117,13 @@
             this.login_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.login_button.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.login_button.ForeColor = System.Drawing.Color.White;
-            this.login_button.Location = new System.Drawing.Point(96, 382);
+            this.login_button.Location = new System.Drawing.Point(96, 401);
             this.login_button.Name = "login_button";
             this.login_button.Size = new System.Drawing.Size(277, 42);
             this.login_button.TabIndex = 16;
             this.login_button.Text = "Log in";
             this.login_button.UseVisualStyleBackColor = false;
+            this.login_button.Click += new System.EventHandler(this.login_button_Click);
             // 
             // password_input
             // 
@@ -150,6 +154,18 @@
             this.label1.Size = new System.Drawing.Size(55, 28);
             this.label1.TabIndex = 10;
             this.label1.Text = "Email";
+            // 
+            // password_checkbox
+            // 
+            this.password_checkbox.AutoSize = true;
+            this.password_checkbox.Font = new System.Drawing.Font("Poppins", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.password_checkbox.Location = new System.Drawing.Point(96, 367);
+            this.password_checkbox.Name = "password_checkbox";
+            this.password_checkbox.Size = new System.Drawing.Size(112, 23);
+            this.password_checkbox.TabIndex = 36;
+            this.password_checkbox.Text = "Show Password";
+            this.password_checkbox.UseVisualStyleBackColor = true;
+            this.password_checkbox.CheckedChanged += new System.EventHandler(this.password_checkbox_CheckedChanged);
             // 
             // JobNearAdminForm_
             // 
@@ -184,5 +200,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox back_button;
         private System.Windows.Forms.TextBox email_input;
+        private System.Windows.Forms.CheckBox password_checkbox;
     }
 }
