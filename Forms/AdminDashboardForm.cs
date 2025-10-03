@@ -48,5 +48,10 @@ namespace JobNear.Forms
             side_panel.Controls.Add(admin_Settings);
             admin_Settings.Dock = DockStyle.Fill;
         }
+
+        private void logout_button_Click(object sender, EventArgs e)
+        {
+            UserController.LogoutUser();
+        }
     }
 }

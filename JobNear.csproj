@@ -204,6 +204,7 @@
     <Compile Include="Controllers\NotificationController.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Forms\AdminDashboardForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -288,6 +289,7 @@
     <Compile Include="JobSeekerDashboardUserControl\JS_Profile.Designer.cs">
       <DependentUpon>JS_Profile.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\AdminAccountModel.cs" />
     <Compile Include="Models\JobPosterAccountModel.cs" />
     <Compile Include="Models\JobPosterBusinessModel.cs" />
     <Compile Include="Models\JobPosterJobPostingModel.cs" />
