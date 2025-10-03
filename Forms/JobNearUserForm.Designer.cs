@@ -137,7 +137,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1231, 705);
             this.Controls.Add(this.app_panel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "JobNearUserForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "JobNearUser";
             this.Load += new System.EventHandler(this.JobNearUser_Load);
             this.app_panel.ResumeLayout(false);

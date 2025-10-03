@@ -112,7 +112,7 @@
             // 
             this.status_label.AutoSize = true;
             this.status_label.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.status_label.Location = new System.Drawing.Point(801, 21);
+            this.status_label.Location = new System.Drawing.Point(801, 20);
             this.status_label.Name = "status_label";
             this.status_label.Padding = new System.Windows.Forms.Padding(20, 0, 20, 0);
             this.status_label.Size = new System.Drawing.Size(105, 28);

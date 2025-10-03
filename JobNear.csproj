@@ -181,10 +181,34 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminDashboardUserControl\Admin_Dashboard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AdminDashboardUserControl\Admin_Dashboard.Designer.cs">
+      <DependentUpon>Admin_Dashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminDashboardUserControl\Admin_SystemSettings.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AdminDashboardUserControl\Admin_SystemSettings.Designer.cs">
+      <DependentUpon>Admin_SystemSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminDashboardUserControl\Admin_UserManagement.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AdminDashboardUserControl\Admin_UserManagement.Designer.cs">
+      <DependentUpon>Admin_UserManagement.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\FormsController.cs" />
     <Compile Include="Controllers\MapController.cs" />
     <Compile Include="Controllers\NotificationController.cs">
       <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\AdminDashboardForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AdminDashboardForm.Designer.cs">
+      <DependentUpon>AdminDashboardForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\ForgotPasswordForm.cs">
       <SubType>Form</SubType>
@@ -283,6 +307,18 @@
     <Compile Include="Controllers\TextBoxValidatorController.cs" />
     <Compile Include="Styles\FlowLayoutStyles.cs" />
     <Compile Include="Styles\PanelStyles.cs" />
+    <EmbeddedResource Include="AdminDashboardUserControl\Admin_Dashboard.resx">
+      <DependentUpon>Admin_Dashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminDashboardUserControl\Admin_SystemSettings.resx">
+      <DependentUpon>Admin_SystemSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminDashboardUserControl\Admin_UserManagement.resx">
+      <DependentUpon>Admin_UserManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AdminDashboardForm.resx">
+      <DependentUpon>AdminDashboardForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\ForgotPasswordForm.resx">
       <DependentUpon>ForgotPasswordForm.cs</DependentUpon>
     </EmbeddedResource>

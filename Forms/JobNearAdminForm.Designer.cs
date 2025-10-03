@@ -29,18 +29,18 @@
         private void InitializeComponent()
         {
             this.app_panel = new System.Windows.Forms.Panel();
+            this.back_button = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.email_input = new System.Windows.Forms.TextBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
             this.login_button = new System.Windows.Forms.Button();
             this.password_input = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.back_button = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.app_panel.SuspendLayout();
-            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.back_button)).BeginInit();
+            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -54,6 +54,17 @@
             this.app_panel.Name = "app_panel";
             this.app_panel.Size = new System.Drawing.Size(1231, 705);
             this.app_panel.TabIndex = 0;
+            // 
+            // back_button
+            // 
+            this.back_button.Image = global::JobNear.Properties.Resources.left_arrow;
+            this.back_button.Location = new System.Drawing.Point(5, 5);
+            this.back_button.Name = "back_button";
+            this.back_button.Size = new System.Drawing.Size(24, 24);
+            this.back_button.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.back_button.TabIndex = 1;
+            this.back_button.TabStop = false;
+            this.back_button.Click += new System.EventHandler(this.back_button_Click);
             // 
             // panel2
             // 
@@ -77,6 +88,16 @@
             this.email_input.Name = "email_input";
             this.email_input.Size = new System.Drawing.Size(277, 31);
             this.email_input.TabIndex = 21;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::JobNear.Properties.Resources.JobnearLogo;
+            this.pictureBox1.Location = new System.Drawing.Point(163, 22);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(149, 154);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox1.TabIndex = 20;
+            this.pictureBox1.TabStop = false;
             // 
             // label5
             // 
@@ -130,41 +151,22 @@
             this.label1.TabIndex = 10;
             this.label1.Text = "Email";
             // 
-            // back_button
-            // 
-            this.back_button.Image = global::JobNear.Properties.Resources.left_arrow;
-            this.back_button.Location = new System.Drawing.Point(5, 5);
-            this.back_button.Name = "back_button";
-            this.back_button.Size = new System.Drawing.Size(24, 24);
-            this.back_button.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.back_button.TabIndex = 1;
-            this.back_button.TabStop = false;
-            this.back_button.Click += new System.EventHandler(this.back_button_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::JobNear.Properties.Resources.JobnearLogo;
-            this.pictureBox1.Location = new System.Drawing.Point(163, 22);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(149, 154);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox1.TabIndex = 20;
-            this.pictureBox1.TabStop = false;
-            // 
             // JobNearAdminForm_
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1231, 705);
             this.Controls.Add(this.app_panel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "JobNearAdminForm_";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "JobNearAdminForm_";
             this.Load += new System.EventHandler(this.JobNearAdminForm__Load);
             this.app_panel.ResumeLayout(false);
             this.app_panel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.back_button)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.back_button)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 

@@ -31,6 +31,7 @@
             this.app_panel = new System.Windows.Forms.Panel();
             this.back_button = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.password_checkbox = new System.Windows.Forms.CheckBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -41,7 +42,6 @@
             this.password_input = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.password_checkbox = new System.Windows.Forms.CheckBox();
             this.app_panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.back_button)).BeginInit();
             this.panel2.SuspendLayout();
@@ -88,6 +88,18 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(468, 529);
             this.panel2.TabIndex = 21;
+            // 
+            // password_checkbox
+            // 
+            this.password_checkbox.AutoSize = true;
+            this.password_checkbox.Font = new System.Drawing.Font("Poppins", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.password_checkbox.Location = new System.Drawing.Point(96, 325);
+            this.password_checkbox.Name = "password_checkbox";
+            this.password_checkbox.Size = new System.Drawing.Size(112, 23);
+            this.password_checkbox.TabIndex = 35;
+            this.password_checkbox.Text = "Show Password";
+            this.password_checkbox.UseVisualStyleBackColor = true;
+            this.password_checkbox.CheckedChanged += new System.EventHandler(this.password_checkbox_CheckedChanged);
             // 
             // label7
             // 
@@ -194,25 +206,15 @@
             this.label1.TabIndex = 10;
             this.label1.Text = "Email";
             // 
-            // password_checkbox
-            // 
-            this.password_checkbox.AutoSize = true;
-            this.password_checkbox.Font = new System.Drawing.Font("Poppins", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.password_checkbox.Location = new System.Drawing.Point(96, 325);
-            this.password_checkbox.Name = "password_checkbox";
-            this.password_checkbox.Size = new System.Drawing.Size(112, 23);
-            this.password_checkbox.TabIndex = 35;
-            this.password_checkbox.Text = "Show Password";
-            this.password_checkbox.UseVisualStyleBackColor = true;
-            this.password_checkbox.CheckedChanged += new System.EventHandler(this.password_checkbox_CheckedChanged);
-            // 
             // JobPosterLoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1231, 705);
             this.Controls.Add(this.app_panel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "JobPosterLoginForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "JobPosterLoginForm";
             this.Load += new System.EventHandler(this.JobPosterLoginForm_Load);
             this.app_panel.ResumeLayout(false);

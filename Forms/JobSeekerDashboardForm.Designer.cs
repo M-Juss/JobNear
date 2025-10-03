@@ -168,6 +168,7 @@
             this.ClientSize = new System.Drawing.Size(1231, 705);
             this.Controls.Add(this.sidebar_panel);
             this.Controls.Add(this.sidebar);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "JobSeekerDashboardForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "JobSeekerDashboardForm";
