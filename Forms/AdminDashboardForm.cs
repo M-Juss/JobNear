@@ -26,6 +26,10 @@ namespace JobNear.Forms
             ButtonStyle.SidebarButton(user_button, "#3B82F6");
             ButtonStyle.SidebarButton(settings_button, "#3B82F6");
             ButtonStyle.SidebarButton(logout_button, "#3B82F6");
+
+            side_panel.Controls.Clear();
+            side_panel.Controls.Add(admin_Dashboard);
+            admin_Dashboard.Dock = DockStyle.Fill;
         }
 
         private void dashboard_button_Click(object sender, EventArgs e)

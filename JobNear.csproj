@@ -394,6 +394,7 @@
     <Analyzer Include="packages\AWSSDK.SecurityToken.3.7.100.14\analyzers\dotnet\cs\AWSSDK.SecurityToken.CodeAnalysis.dll" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\close.png" />
     <Content Include="Resources\deleteIcon.png" />
     <Content Include="Resources\eyeIcon.png" />
     <Content Include="Resources\folderIcon.png" />

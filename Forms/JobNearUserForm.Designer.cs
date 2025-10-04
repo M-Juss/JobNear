@@ -32,18 +32,21 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.admin_button = new System.Windows.Forms.Button();
             this.jp_button = new System.Windows.Forms.Button();
             this.js_button = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.close_image = new System.Windows.Forms.PictureBox();
             this.app_panel.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.close_image)).BeginInit();
             this.SuspendLayout();
             // 
             // app_panel
             // 
             this.app_panel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(186)))), ((int)(((byte)(131)))));
+            this.app_panel.Controls.Add(this.close_image);
             this.app_panel.Controls.Add(this.panel2);
             this.app_panel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.app_panel.Location = new System.Drawing.Point(0, 0);
@@ -85,16 +88,6 @@
             this.label4.TabIndex = 20;
             this.label4.Text = "Where Local Talent meets";
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::JobNear.Properties.Resources.JobnearLogo;
-            this.pictureBox1.Location = new System.Drawing.Point(162, 19);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(149, 154);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox1.TabIndex = 3;
-            this.pictureBox1.TabStop = false;
-            // 
             // admin_button
             // 
             this.admin_button.Font = new System.Drawing.Font("Poppins SemiBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -131,6 +124,26 @@
             this.js_button.UseVisualStyleBackColor = true;
             this.js_button.Click += new System.EventHandler(this.js_button_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::JobNear.Properties.Resources.JobnearLogo;
+            this.pictureBox1.Location = new System.Drawing.Point(162, 19);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(149, 154);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox1.TabIndex = 3;
+            this.pictureBox1.TabStop = false;
+            // 
+            // close_image
+            // 
+            this.close_image.Image = global::JobNear.Properties.Resources.close;
+            this.close_image.Location = new System.Drawing.Point(1193, 4);
+            this.close_image.Name = "close_image";
+            this.close_image.Size = new System.Drawing.Size(33, 32);
+            this.close_image.TabIndex = 2;
+            this.close_image.TabStop = false;
+            this.close_image.Click += new System.EventHandler(this.close_image_Click);
+            // 
             // JobNearUserForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -146,6 +159,7 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.close_image)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -160,5 +174,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.PictureBox close_image;
     }
 }

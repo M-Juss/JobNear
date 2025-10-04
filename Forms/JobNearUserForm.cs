@@ -43,5 +43,10 @@ namespace JobNear.Forms
         {
             FormsController.FormLoad(new JobNearAdminForm_(), app_panel);
         }
+
+        private void close_image_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
