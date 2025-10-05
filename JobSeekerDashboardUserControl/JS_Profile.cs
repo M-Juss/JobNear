@@ -38,9 +38,8 @@ namespace JobNear.JobSeekerDashboardUserControl
             InitializeComponent();
 
             this.Load += AccountForm_Load;
-            SetProfileEditable(isEditing);
 
-            UpdateProfileStatus("incomplete");
+            SetProfileEditable(isEditing);
 
             ButtonStyle.RoundedButton(upload_button, 25, "#FFFFFF");
             ButtonStyle.RoundedButton(attach_file, 25, "#FFFFFF");
@@ -237,6 +236,8 @@ namespace JobNear.JobSeekerDashboardUserControl
                         FlowLayoutStyles.AddSupportingDocumentToFlow(doc, image_flowlayout);
                     }
                 }
+
+                UpdateProfileStatus(seeker.Status);
             }
         }
 
