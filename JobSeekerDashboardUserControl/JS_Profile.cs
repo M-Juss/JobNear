@@ -237,43 +237,10 @@ namespace JobNear.JobSeekerDashboardUserControl
                     }
                 }
 
-                UpdateProfileStatus(seeker.Status);
+                UserController.UpdateAccountStatus(status_label, seeker.Status);
             }
         }
 
-        private void UpdateProfileStatus(string status)
-        {
-
-            switch (status.ToLower())
-            {
-                case "verified":
-                    status_label.Text = "Verified";
-                    PanelStyles.StyleRoundedLabel(status_label, 10, Color.Green, Color.White);
-                    break;
-
-                case "pending":
-                    status_label.Text = "Pending";
-                    PanelStyles.StyleRoundedLabel(status_label, 10, Color.Orange, Color.Black);
-                    break;
-
-                case "incomplete":
-                    status_label.Text = "Incomplete";
-                    PanelStyles.StyleRoundedLabel(status_label, 10, Color.Black, Color.LightGray);
-
-                    break;
-
-                case "rejected":
-                    status_label.Text = "Rejected";
-                    PanelStyles.StyleRoundedLabel(status_label, 10, Color.White, Color.Red);
-                    break;
-
-                default:
-                    PanelStyles.StyleRoundedLabel(status_label, 10, Color.Black, Color.LightGray);
-                    break;
-            }
-
-
-        }
 
         private void SetProfileEditable(bool isEditable)
         {

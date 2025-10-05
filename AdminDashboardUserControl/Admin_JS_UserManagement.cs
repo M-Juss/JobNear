@@ -15,6 +15,37 @@ namespace JobNear.AdminDashboardUserControl
         public Admin_JS_UserManagement()
         {
             InitializeComponent();
+            status_combo.TextChanged += (s, e) =>
+            {
+                
+                string response = status_combo.Text.ToLower();
+
+                switch (response) 
+                {
+                    case "pending":
+                        
+                        break;
+                    case "verified":
+
+                        break;
+                    case "incomplete":
+
+                        break;
+                    case "rejected":
+
+                        break;
+                    case "all":
+
+                        break;
+                    default:
+                        break;
+                }
+            };
+        }
+
+        private void Admin_JS_UserManagement_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -29,8 +29,10 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.seeker_table = new System.Windows.Forms.DataGridView();
+            this.status_combo = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.seeker_table)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -43,26 +45,53 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "JobSeeker User Management";
             // 
-            // dataGridView1
+            // seeker_table
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(27, 112);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(975, 381);
-            this.dataGridView1.TabIndex = 3;
+            this.seeker_table.AllowUserToAddRows = false;
+            this.seeker_table.AllowUserToDeleteRows = false;
+            this.seeker_table.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.seeker_table.Location = new System.Drawing.Point(27, 112);
+            this.seeker_table.Name = "seeker_table";
+            this.seeker_table.ReadOnly = true;
+            this.seeker_table.Size = new System.Drawing.Size(975, 413);
+            this.seeker_table.TabIndex = 3;
+            // 
+            // status_combo
+            // 
+            this.status_combo.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.status_combo.FormattingEnabled = true;
+            this.status_combo.Items.AddRange(new object[] {
+            "Pending",
+            "Verified",
+            "Pending",
+            "Incomplete"});
+            this.status_combo.Location = new System.Drawing.Point(120, 69);
+            this.status_combo.Name = "status_combo";
+            this.status_combo.Size = new System.Drawing.Size(121, 31);
+            this.status_combo.TabIndex = 4;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Poppins", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(20, 69);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(94, 37);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Status:";
             // 
             // Admin_JS_UserManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.status_combo);
+            this.Controls.Add(this.seeker_table);
             this.Controls.Add(this.label1);
             this.Name = "Admin_JS_UserManagement";
             this.Size = new System.Drawing.Size(1031, 705);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Load += new System.EventHandler(this.Admin_JS_UserManagement_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.seeker_table)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -71,6 +100,8 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView seeker_table;
+        private System.Windows.Forms.ComboBox status_combo;
+        private System.Windows.Forms.Label label2;
     }
 }
