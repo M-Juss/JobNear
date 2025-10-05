@@ -30,8 +30,8 @@ namespace JobNear.Models
         public double Longitude { get; set; }
         public byte[] ProfilePicture { get; set; }
         public List<SupportingDocument> SupportingDocuments { get; set; }
-        public Boolean isDraft { get; set; } = true;
-        public Boolean IsVerified { get; set; } = false;
+        public Boolean IsDraft { get; set; } = true;
+        public String Status { get; set; }
 
     }
     public class SupportingDocument {

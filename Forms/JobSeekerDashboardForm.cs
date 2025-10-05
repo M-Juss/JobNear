@@ -1,4 +1,5 @@
-﻿using JobNear.JobSeekerDashboardUserControl;
+﻿using JobNear.Controllers;
+using JobNear.JobSeekerDashboardUserControl;
 using JobNear.Services;
 using JobNear.Styles;
 using MongoDB.Driver;
@@ -121,6 +122,11 @@ namespace JobNear.Forms
         private void sidebar_panel_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void logout_button_Click(object sender, EventArgs e)
+        {
+            UserController.LogoutUser();
         }
     }
 }

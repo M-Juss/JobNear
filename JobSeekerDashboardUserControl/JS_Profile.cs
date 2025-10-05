@@ -129,17 +129,17 @@ namespace JobNear.JobSeekerDashboardUserControl
         }
 
 
-        private async void review_button_Click(object sender, EventArgs e)
+        private void review_button_Click(object sender, EventArgs e)
         {
-            UpdateProfileData(isDraft: false, isVerified: false);
+            UpdateProfileData(false, "pending");
         }
 
         private void draft_button_Click(object sender, EventArgs e)
         {
-            UpdateProfileData(isDraft: true, isVerified: false);
+            UpdateProfileData(isDraft: true, status: "incomplete");
         }
 
-        public async void UpdateProfileData(bool isDraft, bool isVerified)
+        public async void UpdateProfileData(bool isDraft, string status)
         {
 
             TextBoxValidatorController.ValidateEmail(email_input);
@@ -200,7 +200,7 @@ namespace JobNear.JobSeekerDashboardUserControl
 
                 bool response = await MongoDbServices.UpdateJobSeekerProfileAsync(Session.CurrentUserId, Session.CurrentEmail, phone_input.Text, lastname_input.Text, firstname_input.Text, middlename_input.Text,
                     sex_combo.Text, birthdate_picker.Text, short.Parse(age_input.Text), address_input.Text, selectedLat, selectedLon, imageResponse,
-                    supportingDocuments, isDraft, isVerified);
+                    supportingDocuments, isDraft, status);
 
                 if (response)
                 {
@@ -215,7 +215,7 @@ namespace JobNear.JobSeekerDashboardUserControl
 
         private async void AccountForm_Load(object sender, EventArgs e)
         {
-            var seeker = await MongoDbServices.LoadSeekerData();
+            var seeker = await MongoDbServices.LoadCurrentSeekerData();
 
             if (seeker != null)
             {
