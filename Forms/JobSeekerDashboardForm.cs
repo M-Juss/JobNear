@@ -24,7 +24,9 @@ namespace JobNear.Forms
         public JobSeekerDashboardForm()
         {
             InitializeComponent();
+
             hideInactiveSubMenu();
+
             ButtonStyle.SidebarButton(jobnear_button, "#3B82F6");
             ButtonStyle.SidebarButton(profile_button, "#3B82F6");
             ButtonStyle.SidebarButton(seekjob_button, "#3B82F6");
@@ -84,7 +86,6 @@ namespace JobNear.Forms
             sidebar_panel.Controls.Clear();
             sidebar_panel.Controls.Add(js_jobBrowsing);
             js_jobBrowsing.Dock = DockStyle.Fill;
-
         }
 
         private void profile_button_Click(object sender, EventArgs e)

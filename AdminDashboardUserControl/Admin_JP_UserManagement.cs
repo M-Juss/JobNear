@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace JobNear.AdminDashboardUserControl
 {
-    public partial class Admin_UserManagement : UserControl
+    public partial class Admin_JP_UserManagement : UserControl
     {
-        public Admin_UserManagement()
+        public Admin_JP_UserManagement()
         {
             InitializeComponent();
         }

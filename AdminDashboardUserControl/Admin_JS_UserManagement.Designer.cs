@@ -1,6 +1,6 @@
 ﻿namespace JobNear.AdminDashboardUserControl
 {
-    partial class Admin_UserManagement
+    partial class Admin_JS_UserManagement
     {
         /// <summary> 
         /// Required designer variable.
@@ -35,18 +35,18 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Poppins", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(351, 314);
+            this.label1.Location = new System.Drawing.Point(369, 324);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(332, 56);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "User Management";
+            this.label1.Size = new System.Drawing.Size(388, 56);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "JS_UserManagement";
             // 
-            // Admin_UserManagement
+            // Admin_JS_UserManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.label1);
-            this.Name = "Admin_UserManagement";
+            this.Name = "Admin_JS_UserManagement";
             this.Size = new System.Drawing.Size(1031, 705);
             this.ResumeLayout(false);
             this.PerformLayout();
