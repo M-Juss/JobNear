@@ -64,7 +64,8 @@
             "Pending",
             "Verified",
             "Pending",
-            "Incomplete"});
+            "Incomplete",
+            "All"});
             this.status_combo.Location = new System.Drawing.Point(120, 69);
             this.status_combo.Name = "status_combo";
             this.status_combo.Size = new System.Drawing.Size(121, 31);
