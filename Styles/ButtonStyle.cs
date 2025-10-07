@@ -32,6 +32,7 @@ namespace JobNear.Styles
             btn.FlatAppearance.MouseOverBackColor = ColorTranslator.FromHtml(hexColor);
         }
 
+
         public static void SidebarButton(Button btn, string hexColor)
         {
             btn.FlatStyle = FlatStyle.Flat;

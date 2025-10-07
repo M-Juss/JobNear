@@ -113,6 +113,7 @@
             this.logout_button.TabIndex = 4;
             this.logout_button.Text = "Log Out";
             this.logout_button.UseVisualStyleBackColor = true;
+            this.logout_button.Click += new System.EventHandler(this.logout_button_Click);
             // 
             // seekjob_button
             // 
@@ -168,6 +169,7 @@
             this.ClientSize = new System.Drawing.Size(1231, 705);
             this.Controls.Add(this.sidebar_panel);
             this.Controls.Add(this.sidebar);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "JobSeekerDashboardForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "JobSeekerDashboardForm";

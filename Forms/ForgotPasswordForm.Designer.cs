@@ -31,16 +31,16 @@
             this.app_panel = new System.Windows.Forms.Panel();
             this.back_button = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.confirmpass_input = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.email_input = new System.Windows.Forms.TextBox();
             this.changepass_button = new System.Windows.Forms.Button();
             this.newpassword_input = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.confirmpass_input = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.app_panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.back_button)).BeginInit();
             this.panel2.SuspendLayout();
@@ -85,6 +85,57 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(468, 529);
             this.panel2.TabIndex = 23;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Poppins SemiBold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(58)))), ((int)(((byte)(138)))));
+            this.label6.Location = new System.Drawing.Point(118, 128);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(240, 37);
+            this.label6.TabIndex = 34;
+            this.label6.Text = "Let’s get you back in!";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Poppins SemiBold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(58)))), ((int)(((byte)(138)))));
+            this.label4.Location = new System.Drawing.Point(35, 98);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(401, 37);
+            this.label4.TabIndex = 33;
+            this.label4.Text = "No worries, we all forget sometimes. ";
+            // 
+            // confirmpass_input
+            // 
+            this.confirmpass_input.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.confirmpass_input.Location = new System.Drawing.Point(98, 363);
+            this.confirmpass_input.Name = "confirmpass_input";
+            this.confirmpass_input.Size = new System.Drawing.Size(277, 31);
+            this.confirmpass_input.TabIndex = 32;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label2.Location = new System.Drawing.Point(93, 332);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(193, 28);
+            this.label2.TabIndex = 31;
+            this.label2.Text = "Confirm New Password";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Poppins", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(106, 47);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(266, 48);
+            this.label5.TabIndex = 30;
+            this.label5.Text = "Forgot Password?";
             // 
             // email_input
             // 
@@ -137,64 +188,15 @@
             this.label1.TabIndex = 10;
             this.label1.Text = "Email";
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Poppins", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(106, 47);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(266, 48);
-            this.label5.TabIndex = 30;
-            this.label5.Text = "Forgot Password?";
-            // 
-            // confirmpass_input
-            // 
-            this.confirmpass_input.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.confirmpass_input.Location = new System.Drawing.Point(98, 363);
-            this.confirmpass_input.Name = "confirmpass_input";
-            this.confirmpass_input.Size = new System.Drawing.Size(277, 31);
-            this.confirmpass_input.TabIndex = 32;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label2.Location = new System.Drawing.Point(93, 332);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(193, 28);
-            this.label2.TabIndex = 31;
-            this.label2.Text = "Confirm New Password";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Poppins SemiBold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(58)))), ((int)(((byte)(138)))));
-            this.label4.Location = new System.Drawing.Point(35, 98);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(401, 37);
-            this.label4.TabIndex = 33;
-            this.label4.Text = "No worries, we all forget sometimes. ";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Poppins SemiBold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(58)))), ((int)(((byte)(138)))));
-            this.label6.Location = new System.Drawing.Point(118, 128);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(240, 37);
-            this.label6.TabIndex = 34;
-            this.label6.Text = "Let’s get you back in!";
-            // 
             // ForgotPasswordForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1231, 705);
             this.Controls.Add(this.app_panel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ForgotPasswordForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ForgotPasswordForm";
             this.Load += new System.EventHandler(this.ForgotPasswordForm_Load);
             this.app_panel.ResumeLayout(false);

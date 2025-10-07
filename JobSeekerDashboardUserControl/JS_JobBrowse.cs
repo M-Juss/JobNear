@@ -19,7 +19,8 @@ namespace JobNear.JobSeekerDashboardUserControl
         {
             InitializeComponent();
 
-            MapController.InitializeMap(map_panel);
+
+            MapController.InitializeMap(map_panel, Session.CurrentLatitude, Session.CurrentLongitude);
 
             // Example data (this would normally come from your DB)
             var businesses = new List<(double lat, double lng, string name)>
@@ -38,5 +39,9 @@ namespace JobNear.JobSeekerDashboardUserControl
 
         }
 
+        private void map_panel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

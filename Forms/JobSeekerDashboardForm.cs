@@ -1,4 +1,9 @@
-﻿using System;
+﻿using JobNear.Controllers;
+using JobNear.JobSeekerDashboardUserControl;
+using JobNear.Services;
+using JobNear.Styles;
+using MongoDB.Driver;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,8 +12,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using JobNear.Styles;
-using JobNear.JobSeekerDashboardUserControl;
 
 namespace JobNear.Forms
 {
@@ -19,11 +22,12 @@ namespace JobNear.Forms
         JobSeekerDashboardUserControl.JS_JobBrowse js_jobBrowsing = new JobSeekerDashboardUserControl.JS_JobBrowse();
         JobSeekerDashboardUserControl.JS_JobList js_jobList = new JobSeekerDashboardUserControl.JS_JobList();
         JobSeekerDashboardUserControl.JS_Notifications js_notification = new JobSeekerDashboardUserControl.JS_Notifications();
-        JobSeekerDashboardUserControl.UserControlPractice prac = new JobSeekerDashboardUserControl.UserControlPractice();
         public JobSeekerDashboardForm()
         {
             InitializeComponent();
+
             hideInactiveSubMenu();
+
             ButtonStyle.SidebarButton(jobnear_button, "#3B82F6");
             ButtonStyle.SidebarButton(profile_button, "#3B82F6");
             ButtonStyle.SidebarButton(seekjob_button, "#3B82F6");
@@ -48,16 +52,34 @@ namespace JobNear.Forms
             subSeekJob.Visible = false;
         }
 
-        private void seekjob_button_Click(object sender, EventArgs e)
+        private async void seekjob_button_Click(object sender, EventArgs e)
         {
-            if (subSeekJob.Visible == false)
-            {
-                subSeekJob.Visible = true;
-            }
-            else
-            {
-                subSeekJob.Visible = false;
-            }
+            subSeekJob.Visible = !subSeekJob.Visible; // ✅ toggle visibility in one line
+            //try
+            //{
+            //    var seeker = await MongoDbServices.JobSeekerAccount
+            //        .Find(x => x.Email == Session.CurrentEmail)
+            //        .FirstOrDefaultAsync();
+
+            //    if (seeker == null)
+            //    {
+            //        MessageBox.Show("User not found. Please log in again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //        return;
+            //    }
+
+            //    if (!seeker.IsVerified)
+            //    {
+            //        MessageBox.Show("Your account is not yet verified.", "Account Not Verified", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //    }
+            //    else
+            //    {
+            //        subSeekJob.Visible = !subSeekJob.Visible; // ✅ toggle visibility in one line
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show($"Error fetching user data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //}
         }
 
         private void job_browsing_sub_button_Click(object sender, EventArgs e)
@@ -100,6 +122,11 @@ namespace JobNear.Forms
         private void sidebar_panel_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void logout_button_Click(object sender, EventArgs e)
+        {
+            UserController.LogoutUser();
         }
     }
 }

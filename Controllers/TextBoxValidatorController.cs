@@ -15,11 +15,6 @@ namespace JobNear
             password_input.UseSystemPasswordChar = true;
         }
 
-        public static void ShowPassword(TextBox password_input)
-        {
-            password_input.UseSystemPasswordChar = false;
-        }
-
         public static void AllowOnlyNumbers(TextBox number_input)
         {
             number_input.KeyPress += (sender, e) =>
@@ -31,16 +26,37 @@ namespace JobNear
             };
         }
 
-        public static bool ValidateEmail(TextBox email_input)
+        public static void ValidateEmail(TextBox email_input)
         {
-            string pattern = @"^[a-zA-Z0-9.+%_-!$]+@gmail\.com$";
-            return Regex.IsMatch(email_input.Text, pattern);
+            string pattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
+            bool result = Regex.IsMatch(email_input.Text, pattern);
+            
+            if (result)
+            {
+                return;
+            }
+            else
+            {
+                MessageBox.Show("Invalid email format.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                email_input.Focus();
+            }
+
         }
 
-        public static bool ValidatePhoneNumber(TextBox number_input)
+        public static void ValidatePhoneNumber(TextBox number_input)
         {
             string pattern = @"^09\d{9}$";
-            return Regex.IsMatch(number_input.Text, pattern);
+            bool result = Regex.IsMatch(number_input.Text, pattern);
+
+            if (result)
+            {
+                return;
+            }
+            else
+            {
+                MessageBox.Show("Invalid phone number. It should start with '09' and be 11 digits long.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                number_input.Focus();
+            }
         }
     }
 }
