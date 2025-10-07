@@ -16,5 +16,11 @@ namespace JobNear.AdminDashboardUserControl
         {
             InitializeComponent();
         }
+        
+
+        private void Admin_Dashboard_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -32,7 +32,9 @@
             this.seeker_table = new System.Windows.Forms.DataGridView();
             this.status_combo = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.table_panel = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.seeker_table)).BeginInit();
+            this.table_panel.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -50,11 +52,12 @@
             this.seeker_table.AllowUserToAddRows = false;
             this.seeker_table.AllowUserToDeleteRows = false;
             this.seeker_table.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.seeker_table.Location = new System.Drawing.Point(27, 112);
+            this.seeker_table.Location = new System.Drawing.Point(3, 3);
             this.seeker_table.Name = "seeker_table";
             this.seeker_table.ReadOnly = true;
-            this.seeker_table.Size = new System.Drawing.Size(975, 413);
+            this.seeker_table.Size = new System.Drawing.Size(973, 519);
             this.seeker_table.TabIndex = 3;
+            this.seeker_table.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.seeker_table_CellContentClick);
             // 
             // status_combo
             // 
@@ -70,6 +73,7 @@
             this.status_combo.Name = "status_combo";
             this.status_combo.Size = new System.Drawing.Size(121, 31);
             this.status_combo.TabIndex = 4;
+            this.status_combo.SelectedIndexChanged += new System.EventHandler(this.status_combo_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -81,18 +85,27 @@
             this.label2.TabIndex = 5;
             this.label2.Text = "Status:";
             // 
+            // table_panel
+            // 
+            this.table_panel.Controls.Add(this.seeker_table);
+            this.table_panel.Location = new System.Drawing.Point(27, 122);
+            this.table_panel.Name = "table_panel";
+            this.table_panel.Size = new System.Drawing.Size(976, 533);
+            this.table_panel.TabIndex = 6;
+            // 
             // Admin_JS_UserManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.table_panel);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.status_combo);
-            this.Controls.Add(this.seeker_table);
             this.Controls.Add(this.label1);
             this.Name = "Admin_JS_UserManagement";
             this.Size = new System.Drawing.Size(1031, 705);
             this.Load += new System.EventHandler(this.Admin_JS_UserManagement_Load);
             ((System.ComponentModel.ISupportInitialize)(this.seeker_table)).EndInit();
+            this.table_panel.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -104,5 +117,6 @@
         private System.Windows.Forms.DataGridView seeker_table;
         private System.Windows.Forms.ComboBox status_combo;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Panel table_panel;
     }
 }

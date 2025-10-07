@@ -48,6 +48,7 @@
             this.Controls.Add(this.label1);
             this.Name = "Admin_Dashboard";
             this.Size = new System.Drawing.Size(1031, 705);
+            this.Load += new System.EventHandler(this.Admin_Dashboard_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
