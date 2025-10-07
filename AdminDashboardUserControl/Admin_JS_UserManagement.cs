@@ -28,6 +28,40 @@ namespace JobNear.AdminDashboardUserControl
             seeker_table.Columns.Add("Sex", "Sex");
             seeker_table.Columns.Add("Status", "Status");
             seeker_table.Columns.Add("Action", "Action");
+
+            //seeker_table.Dock = DockStyle.Fill;
+            //seeker_table.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            //seeker_table.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            //seeker_table.RowHeadersVisible = false;
+
+            //// Background and border
+            //seeker_table.BackgroundColor = Color.White;
+            //seeker_table.BorderStyle = BorderStyle.None;
+            //seeker_table.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            //seeker_table.GridColor = Color.LightGray;
+
+            //// Header style
+            //seeker_table.EnableHeadersVisualStyles = false;
+            //seeker_table.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            //seeker_table.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(240, 240, 240);
+            //seeker_table.ColumnHeadersDefaultCellStyle.ForeColor = Color.Black;
+            //seeker_table.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI Semibold", 10, FontStyle.Bold);
+            //seeker_table.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            //seeker_table.ColumnHeadersHeight = 35;
+            //seeker_table.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+
+            //// Row style
+            //seeker_table.DefaultCellStyle.BackColor = Color.White;
+            //seeker_table.DefaultCellStyle.ForeColor = Color.Black;
+            //seeker_table.DefaultCellStyle.SelectionBackColor = Color.FromArgb(60, 120, 216);
+            //seeker_table.DefaultCellStyle.SelectionForeColor = Color.White;
+            //seeker_table.DefaultCellStyle.Font = new Font("Segoe UI", 10);
+
+            //// Alternating row color (for modern look)
+            //seeker_table.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(248, 248, 248);
+
+            //// Rounded corners (optional: only works visually if placed in panel with padding)
+            //seeker_table.DefaultCellStyle.Padding = new Padding(6, 6, 6, 6);
         }
 
         private void Admin_JS_UserManagement_Load(object sender, EventArgs e)
