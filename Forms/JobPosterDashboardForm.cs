@@ -15,9 +15,13 @@ namespace JobNear.Forms
         JobPosterDashboardUserControl.JP_Business business_panel = new JobPosterDashboardUserControl.JP_Business();
         JobPosterDashboardUserControl.JP_PostJobForm post_job_panel = new JobPosterDashboardUserControl.JP_PostJobForm();
         JobPosterDashboardUserControl.JP_Notifications notification_panel = new JobPosterDashboardUserControl.JP_Notifications();
+        JobPosterDashboardUserControl.JP_Dashboard dashboard_panel = new JobPosterDashboardUserControl.JP_Dashboard();
         public JobPosterDashboardForm()
         {
             InitializeComponent();
+            JP_main_panel.Controls.Clear();
+            JP_main_panel.Controls.Add(dashboard_panel);
+            dashboard_panel.Dock = DockStyle.Fill;
         }
 
         private void business_button_Click(object sender, EventArgs e)
@@ -43,7 +47,9 @@ namespace JobNear.Forms
 
         private void dashboard_button_Click(object sender, EventArgs e)
         {
-            // i still dont have any ideas
+            JP_main_panel.Controls.Clear();
+            JP_main_panel.Controls.Add(dashboard_panel);
+            dashboard_panel.Dock = DockStyle.Fill;
         }
     }
 }
