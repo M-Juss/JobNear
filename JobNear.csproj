@@ -205,6 +205,12 @@
     <Compile Include="AdminDashboardUserControl\Admin_SystemSettings.Designer.cs">
       <DependentUpon>Admin_SystemSettings.cs</DependentUpon>
     </Compile>
+    <Compile Include="AdminDashboardUserControl\JS_ViewInformation.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AdminDashboardUserControl\JS_ViewInformation.Designer.cs">
+      <DependentUpon>JS_ViewInformation.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\FormsController.cs" />
     <Compile Include="Controllers\MapController.cs" />
     <Compile Include="Controllers\NotificationController.cs">
@@ -327,6 +333,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AdminDashboardUserControl\Admin_SystemSettings.resx">
       <DependentUpon>Admin_SystemSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminDashboardUserControl\JS_ViewInformation.resx">
+      <DependentUpon>JS_ViewInformation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\AdminDashboardForm.resx">
       <DependentUpon>AdminDashboardForm.cs</DependentUpon>

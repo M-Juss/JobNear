@@ -21,6 +21,7 @@ namespace JobNear.AdminDashboardUserControl
         {
             InitializeComponent();
             status_combo.SelectedIndex = 0;
+
             InitialTableValue();
 
             TableStyles.UserTables(seeker_table);
@@ -37,10 +38,6 @@ namespace JobNear.AdminDashboardUserControl
             seeker_table.Columns.Add("Action", "Action");
         }
 
-        private void Admin_JS_UserManagement_Load(object sender, EventArgs e)
-        {
-
-        }
 
         private async void InitialTableValue() {
             var filterPending = Builders<JobSeekerAccountModel>.Filter.Eq(x => x.Status, "pending");

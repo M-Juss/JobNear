@@ -24,7 +24,7 @@ namespace JobNear.Styles
 
             user_table.EnableHeadersVisualStyles = false;
             user_table.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            user_table.ColumnHeadersDefaultCellStyle.BackColor = Color.Blue;
+            user_table.ColumnHeadersDefaultCellStyle.BackColor = ColorTranslator.FromHtml("#3B82F6");
             user_table.ColumnHeadersDefaultCellStyle.ForeColor = Color.Black;
             user_table.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI Semibold", 10, FontStyle.Bold);
             user_table.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;

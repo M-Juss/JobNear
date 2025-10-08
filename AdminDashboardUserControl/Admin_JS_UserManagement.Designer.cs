@@ -110,7 +110,6 @@
             this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Admin_JS_UserManagement";
             this.Size = new System.Drawing.Size(1375, 868);
-            this.Load += new System.EventHandler(this.Admin_JS_UserManagement_Load);
             ((System.ComponentModel.ISupportInitialize)(this.seeker_table)).EndInit();
             this.table_panel.ResumeLayout(false);
             this.ResumeLayout(false);
