@@ -122,7 +122,7 @@ namespace JobNear.JobSeekerDashboardUserControl
                     string destPath = Path.Combine(savePath, fileName);
                     File.Copy(filePath, destPath, true);
 
-                    FlowLayoutStyles.AddFileItem(destPath, image_flowlayout);
+                    FlowLayoutStyles.AddFileItem(destPath, image_flowlayout, 785);
                 }
             }
         }
@@ -233,7 +233,7 @@ namespace JobNear.JobSeekerDashboardUserControl
                 {
                     foreach (var doc in seeker.SupportingDocuments)
                     {
-                        FlowLayoutStyles.AddSupportingDocumentToFlow(doc, image_flowlayout);
+                        FlowLayoutStyles.AddSupportingDocumentToFlow(doc, image_flowlayout, 785);
                     }
                 }
 

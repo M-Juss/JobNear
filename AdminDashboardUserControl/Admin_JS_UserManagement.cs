@@ -1,4 +1,7 @@
-﻿using JobNear.Models;
+﻿using JobNear.Controller;
+using JobNear.Controllers;
+using JobNear.JobSeekerDashboardUserControl;
+using JobNear.Models;
 using JobNear.Services;
 using JobNear.Styles;
 using MongoDB.Driver;
@@ -22,11 +25,9 @@ namespace JobNear.AdminDashboardUserControl
             InitializeComponent();
             status_combo.SelectedIndex = 0;
 
-            InitialTableValue();
+            status_combo.TextChanged += StatusChanged;
 
             TableStyles.UserTables(seeker_table);
-
-            status_combo.TextChanged += StatusChanged;
 
             seeker_table.Columns.Add("Username", "Username");
             seeker_table.Columns.Add("Fullname", "Full Name");
@@ -35,7 +36,20 @@ namespace JobNear.AdminDashboardUserControl
             seeker_table.Columns.Add("Age", "Age");
             seeker_table.Columns.Add("Sex", "Sex");
             seeker_table.Columns.Add("Status", "Status");
-            seeker_table.Columns.Add("Action", "Action");
+
+            var actionButton = new DataGridViewButtonColumn();
+            actionButton.Name = "Action";
+            actionButton.HeaderText = "Action";
+            actionButton.Text = ">";
+            actionButton.UseColumnTextForButtonValue = true; 
+            actionButton.FlatStyle = FlatStyle.Flat;
+            actionButton.Width = 60;
+            actionButton.DefaultCellStyle.Font = new Font("Segoe UI", 9, FontStyle.Bold);
+            seeker_table.Columns.Add(actionButton);
+
+            InitialTableValue();
+
+
         }
 
 
@@ -49,7 +63,6 @@ namespace JobNear.AdminDashboardUserControl
             if (pendingAccounts != null)
             {
                 pendingAccounts.ForEach(account => {
-
 
                     string fullname = $"{account.Lastname}, {account.Firstname} {account.Middlename}";
 
@@ -177,6 +190,19 @@ namespace JobNear.AdminDashboardUserControl
 
         private void seeker_table_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+
+            if (e.RowIndex >= 0 && e.ColumnIndex == seeker_table.Columns["Action"].Index)
+            {
+                string email = seeker_table.Rows[e.RowIndex].Cells["Email"].Value.ToString();
+
+                JS_ViewInformation viewInformation = new JS_ViewInformation(email);
+                sidebar_panel.Controls.Clear();
+                sidebar_panel.Controls.Add(viewInformation);
+                viewInformation.Dock = DockStyle.Fill;
+
+                Console.Write("clicking");
+            } else MessageBox.Show("Please select a valid row.", "Invalid Row", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
 
         }
 

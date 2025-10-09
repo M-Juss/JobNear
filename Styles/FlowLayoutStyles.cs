@@ -12,10 +12,10 @@ namespace JobNear.Styles
 {
     public class FlowLayoutStyles
     {
-        public static void AddFileItem(string filePath, FlowLayoutPanel docu_flowlayout)
+        public static void AddFileItem(string filePath, FlowLayoutPanel docu_flowlayout, int width)
         {
             Panel filePanel = new Panel();
-            filePanel.Width = 765;
+            filePanel.Width = width;
             filePanel.Height = 50;
             filePanel.BackColor = Color.White;
             filePanel.Margin = new Padding(0, 0, 0, 2);
@@ -125,10 +125,11 @@ namespace JobNear.Styles
             docu_flowlayout.Controls.Add(filePanel);
         }
 
-        public static void AddSupportingDocumentToFlow(SupportingDocument doc, FlowLayoutPanel docu_flowlayout)
+        public static void AddSupportingDocumentToFlow(SupportingDocument doc, FlowLayoutPanel docu_flowlayout, int width)
         {
+
             Panel filePanel = new Panel();
-            filePanel.Width = 765;
+            filePanel.Width = width;
             filePanel.Height = 50;
             filePanel.BackColor = Color.White;
             filePanel.Margin = new Padding(0, 0, 0, 2);

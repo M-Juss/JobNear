@@ -32,6 +32,7 @@ namespace JobNear.AdminDashboardUserControl
 
             if (specificUser != null)
             {
+                username_label.Text = specificUser.Username;
                 fullname_input.Text =  $"{specificUser.Lastname}, {specificUser.Firstname} {specificUser.Middlename}";
                 age_input.Text = specificUser.Age.ToString();
                 sex_input.Text = specificUser.Sex;
@@ -46,16 +47,19 @@ namespace JobNear.AdminDashboardUserControl
                 if (specificUser.SupportingDocuments != null) { 
                     foreach (var doc in specificUser.SupportingDocuments)
                     {
-                        FlowLayoutStyles.AddSupportingDocumentToFlow(doc, image_flowlayout);
+                        FlowLayoutStyles.AddSupportingDocumentToFlow(doc, image_flowlayout, 869);
                     }
                 }
 
             }
 
         }
-        private void submit_button_Click(object sender, EventArgs e)
-        {
 
+        private void cancel_button_Click(object sender, EventArgs e)
+        {
+            sidebar_panel.Controls.Clear();
+            sidebar_panel.Controls.Add(new Admin_JS_UserManagement());
+            sidebar_panel.Dock = DockStyle.Fill;
         }
     }
 }
