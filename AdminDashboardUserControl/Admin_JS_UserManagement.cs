@@ -44,12 +44,10 @@ namespace JobNear.AdminDashboardUserControl
             actionButton.UseColumnTextForButtonValue = true; 
             actionButton.FlatStyle = FlatStyle.Flat;
             actionButton.Width = 60;
-            actionButton.DefaultCellStyle.Font = new Font("Segoe UI", 9, FontStyle.Bold);
+            actionButton.DefaultCellStyle.Font = new Font("Poppins", 12, FontStyle.Bold);
             seeker_table.Columns.Add(actionButton);
 
             InitialTableValue();
-
-
         }
 
 
@@ -199,11 +197,7 @@ namespace JobNear.AdminDashboardUserControl
                 sidebar_panel.Controls.Clear();
                 sidebar_panel.Controls.Add(viewInformation);
                 viewInformation.Dock = DockStyle.Fill;
-
-                Console.Write("clicking");
-            } else MessageBox.Show("Please select a valid row.", "Invalid Row", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
-
+            }
         }
 
         private void status_combo_SelectedIndexChanged(object sender, EventArgs e)

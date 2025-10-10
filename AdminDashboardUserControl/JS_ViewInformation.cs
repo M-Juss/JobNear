@@ -61,5 +61,10 @@ namespace JobNear.AdminDashboardUserControl
             sidebar_panel.Controls.Add(new Admin_JS_UserManagement());
             sidebar_panel.Dock = DockStyle.Fill;
         }
+
+        private void submit_button_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

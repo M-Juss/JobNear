@@ -1,4 +1,6 @@
-﻿using JobNear.Controllers;
+﻿using JobNear.AdminDashboardUserControl;
+using JobNear.Controllers;
+using JobNear.Forms;
 using JobNear.Models;
 using JobNear.Services;
 using JobNear.Styles;
@@ -135,7 +137,7 @@ namespace JobNear.JobSeekerDashboardUserControl
 
         private void draft_button_Click(object sender, EventArgs e)
         {
-            UpdateProfileData(isDraft: true, status: "incomplete");
+            UpdateProfileData(true, "incomplete");
         }
 
         public async void UpdateProfileData(bool isDraft, string status)
@@ -203,7 +205,20 @@ namespace JobNear.JobSeekerDashboardUserControl
 
                 if (response)
                 {
-                    MessageBox.Show(isDraft ? "Profile updated successfully as draft" : "Profile updated successfully and ready for review", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    string result = MessageBox.Show(
+                        isDraft ? "Profile updated successfully as draft" : "Profile updated successfully and ready for review",
+                        "Success",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information
+                    ).ToString();
+
+                    if (result == "OK")
+                    {
+                        sidebar_panel.Controls.Clear();
+                        JS_Profile profile = new JS_Profile();
+                        profile.Dock = DockStyle.Fill;
+                        sidebar_panel.Controls.Add(profile);
+                    }
                 }
                 else
                 {

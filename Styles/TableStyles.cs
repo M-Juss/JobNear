@@ -25,17 +25,21 @@ namespace JobNear.Styles
             user_table.EnableHeadersVisualStyles = false;
             user_table.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             user_table.ColumnHeadersDefaultCellStyle.BackColor = ColorTranslator.FromHtml("#3B82F6");
-            user_table.ColumnHeadersDefaultCellStyle.ForeColor = Color.Black;
-            user_table.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI Semibold", 10, FontStyle.Bold);
+            user_table.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            user_table.ColumnHeadersDefaultCellStyle.Font = new Font("Poppins Semibold", 10, FontStyle.Bold);
             user_table.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
             user_table.ColumnHeadersHeight = 35;
             user_table.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
 
             user_table.DefaultCellStyle.BackColor = Color.White;
             user_table.DefaultCellStyle.ForeColor = Color.Black;
-            user_table.DefaultCellStyle.SelectionBackColor = Color.FromArgb(60, 120, 216);
-            user_table.DefaultCellStyle.SelectionForeColor = Color.White;
-            user_table.DefaultCellStyle.Font = new Font("Segoe UI", 10);
+            user_table.DefaultCellStyle.Font = new Font("Poppins", 10);
+            user_table.DefaultCellStyle.SelectionBackColor = Color.White;
+            user_table.DefaultCellStyle.SelectionForeColor = Color.Black;
+            user_table.RowsDefaultCellStyle.SelectionBackColor = Color.White;
+            user_table.RowsDefaultCellStyle.SelectionForeColor = Color.Black;
+            user_table.AlternatingRowsDefaultCellStyle.SelectionBackColor = Color.FromArgb(248, 248, 248);
+            user_table.AlternatingRowsDefaultCellStyle.SelectionForeColor = Color.Black;
 
             user_table.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(248, 248, 248);
 

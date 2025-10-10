@@ -146,7 +146,7 @@ namespace JobNear.Services
             }
         }
 
-        public static async Task<bool> InsertJobSeekerAccountAsync(string username, string phone, string email, string password)
+        public static async Task<bool> InsertJobSeekerAccountAsync(string username, string phone, string email, string password, string status)
         {
             try
             {
@@ -155,7 +155,8 @@ namespace JobNear.Services
                     Username = username,
                     Phone = phone,
                     Email = email,
-                    Password = password
+                    Password = password,
+                    Status = status
                 };
 
                 await JobSeekerAccount.InsertOneAsync(newAccount);

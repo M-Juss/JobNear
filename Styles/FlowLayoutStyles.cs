@@ -179,7 +179,7 @@ namespace JobNear.Styles
             Button btnPreview = new Button();
             btnPreview.Width = 30;
             btnPreview.Height = 30;
-            btnPreview.Location = new Point(680, 10);
+            btnPreview.Location = new Point(width - 105, 10);
             btnPreview.FlatStyle = FlatStyle.Flat;
             btnPreview.FlatAppearance.BorderSize = 0;
             btnPreview.BackColor = Color.Transparent;
@@ -204,7 +204,7 @@ namespace JobNear.Styles
             Button btnDelete = new Button();
             btnDelete.Width = 30;
             btnDelete.Height = 30;
-            btnDelete.Location = new Point(720, 10);
+            btnDelete.Location = new Point(width - 65, 10);
             btnDelete.FlatStyle = FlatStyle.Flat;
             btnDelete.FlatAppearance.BorderSize = 0;
             btnDelete.BackColor = Color.Transparent;

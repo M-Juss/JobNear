@@ -39,6 +39,7 @@ namespace JobNear.Forms
 
         private async void register_button_Click(object sender, EventArgs e)
         {
+            string newAccountStatus = "incomplete";
             if (string.IsNullOrEmpty(username_input.Text) || string.IsNullOrEmpty(phone_input.Text) || string.IsNullOrEmpty(email_input.Text)
                 || string.IsNullOrEmpty(password_input.Text) || string.IsNullOrEmpty(confirm_input.Text)) {
                 MessageBox.Show("Please fill all fields", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -48,7 +49,7 @@ namespace JobNear.Forms
                 TextBoxValidatorController.ValidatePhoneNumber(phone_input);
                 if (password_input.Text == confirm_input.Text)
                 {
-                    if (await MongoDbServices.InsertJobSeekerAccountAsync(username_input.Text, phone_input.Text, email_input.Text, password_input.Text))
+                    if (await MongoDbServices.InsertJobSeekerAccountAsync(username_input.Text, phone_input.Text, email_input.Text, password_input.Text, newAccountStatus))
                     {
                         MessageBox.Show("Account created successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         FormsController.FormLoad(new JobSeekerLoginForm(), app_panel);
