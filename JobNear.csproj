@@ -137,6 +137,18 @@
     <Compile Include="JobPosterDashboardUserControl\JP_Dashboard.Designer.cs">
       <DependentUpon>JP_Dashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="JobPosterDashboardUserControl\JP_MyBusiness.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="JobPosterDashboardUserControl\JP_MyBusiness.Designer.cs">
+      <DependentUpon>JP_MyBusiness.cs</DependentUpon>
+    </Compile>
+    <Compile Include="JobPosterDashboardUserControl\JP_BusinessDetails.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="JobPosterDashboardUserControl\JP_BusinessDetails.Designer.cs">
+      <DependentUpon>JP_BusinessDetails.cs</DependentUpon>
+    </Compile>
     <Compile Include="JobSeekerDashboardUserControl\JS_Dashboard.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -209,8 +221,14 @@
     <EmbeddedResource Include="JobPosterDashboardUserControl\JP_Business.resx">
       <DependentUpon>JP_Business.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="JobPosterDashboardUserControl\JP_BusinessDetails.resx">
+      <DependentUpon>JP_BusinessDetails.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="JobPosterDashboardUserControl\JP_Dashboard.resx">
       <DependentUpon>JP_Dashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JobPosterDashboardUserControl\JP_MyBusiness.resx">
+      <DependentUpon>JP_MyBusiness.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="JobPosterDashboardUserControl\JP_RegisterBusinessForm.resx">
       <DependentUpon>JP_RegisterBusinessForm.cs</DependentUpon>

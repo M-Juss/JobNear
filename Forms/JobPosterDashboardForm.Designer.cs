@@ -31,10 +31,10 @@
             this.JP_sidebar_panel = new System.Windows.Forms.Panel();
             this.log_out_button = new System.Windows.Forms.Button();
             this.notification_button = new System.Windows.Forms.Button();
-            this.job_button = new System.Windows.Forms.Button();
+            this.view_business_button = new System.Windows.Forms.Button();
             this.business_button = new System.Windows.Forms.Button();
             this.dashboard_button = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.jobnear_button = new System.Windows.Forms.Button();
             this.JP_main_panel = new System.Windows.Forms.Panel();
             this.JP_sidebar_panel.SuspendLayout();
             this.SuspendLayout();
@@ -45,10 +45,10 @@
             this.JP_sidebar_panel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.JP_sidebar_panel.Controls.Add(this.log_out_button);
             this.JP_sidebar_panel.Controls.Add(this.notification_button);
-            this.JP_sidebar_panel.Controls.Add(this.job_button);
+            this.JP_sidebar_panel.Controls.Add(this.view_business_button);
             this.JP_sidebar_panel.Controls.Add(this.business_button);
             this.JP_sidebar_panel.Controls.Add(this.dashboard_button);
-            this.JP_sidebar_panel.Controls.Add(this.button1);
+            this.JP_sidebar_panel.Controls.Add(this.jobnear_button);
             this.JP_sidebar_panel.Dock = System.Windows.Forms.DockStyle.Left;
             this.JP_sidebar_panel.Location = new System.Drawing.Point(0, 0);
             this.JP_sidebar_panel.Name = "JP_sidebar_panel";
@@ -76,15 +76,15 @@
             this.notification_button.UseVisualStyleBackColor = true;
             this.notification_button.Click += new System.EventHandler(this.notification_button_Click);
             // 
-            // job_button
+            // view_business_button
             // 
-            this.job_button.Location = new System.Drawing.Point(29, 262);
-            this.job_button.Name = "job_button";
-            this.job_button.Size = new System.Drawing.Size(136, 49);
-            this.job_button.TabIndex = 3;
-            this.job_button.Text = "Job";
-            this.job_button.UseVisualStyleBackColor = true;
-            this.job_button.Click += new System.EventHandler(this.job_button_Click);
+            this.view_business_button.Location = new System.Drawing.Point(29, 262);
+            this.view_business_button.Name = "view_business_button";
+            this.view_business_button.Size = new System.Drawing.Size(136, 49);
+            this.view_business_button.TabIndex = 3;
+            this.view_business_button.Text = "My Business";
+            this.view_business_button.UseVisualStyleBackColor = true;
+            this.view_business_button.Click += new System.EventHandler(this.job_button_Click);
             // 
             // business_button
             // 
@@ -92,7 +92,7 @@
             this.business_button.Name = "business_button";
             this.business_button.Size = new System.Drawing.Size(136, 49);
             this.business_button.TabIndex = 2;
-            this.business_button.Text = "Business";
+            this.business_button.Text = "Register Business";
             this.business_button.UseVisualStyleBackColor = true;
             this.business_button.Click += new System.EventHandler(this.business_button_Click);
             // 
@@ -106,14 +106,14 @@
             this.dashboard_button.UseVisualStyleBackColor = true;
             this.dashboard_button.Click += new System.EventHandler(this.dashboard_button_Click);
             // 
-            // button1
+            // jobnear_button
             // 
-            this.button1.Image = global::JobNear.Properties.Resources.JobNearDashboardLogo;
-            this.button1.Location = new System.Drawing.Point(29, 29);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(136, 49);
-            this.button1.TabIndex = 0;
-            this.button1.UseVisualStyleBackColor = true;
+            this.jobnear_button.Image = global::JobNear.Properties.Resources.JobNearDashboardLogo;
+            this.jobnear_button.Location = new System.Drawing.Point(29, 29);
+            this.jobnear_button.Name = "jobnear_button";
+            this.jobnear_button.Size = new System.Drawing.Size(136, 49);
+            this.jobnear_button.TabIndex = 0;
+            this.jobnear_button.UseVisualStyleBackColor = true;
             // 
             // JP_main_panel
             // 
@@ -143,10 +143,10 @@
         private System.Windows.Forms.Panel JP_sidebar_panel;
         private System.Windows.Forms.Panel JP_main_panel;
         private System.Windows.Forms.Button notification_button;
-        private System.Windows.Forms.Button job_button;
+        private System.Windows.Forms.Button view_business_button;
         private System.Windows.Forms.Button business_button;
         private System.Windows.Forms.Button dashboard_button;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button jobnear_button;
         private System.Windows.Forms.Button log_out_button;
     }
 }

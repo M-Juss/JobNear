@@ -354,6 +354,7 @@
             this.register_button.TabIndex = 27;
             this.register_button.Text = "Register";
             this.register_button.UseVisualStyleBackColor = false;
+            this.register_button.Click += new System.EventHandler(this.register_button_Click);
             // 
             // save_draft_button
             // 
@@ -411,7 +412,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "JP_RegisterBusinessForm";
-            this.Size = new System.Drawing.Size(1014, 705);
+            this.Size = new System.Drawing.Size(997, 705);
             ((System.ComponentModel.ISupportInitialize)(this.document_table)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

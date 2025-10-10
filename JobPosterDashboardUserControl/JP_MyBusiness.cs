@@ -1,5 +1,4 @@
-﻿using JobNear.Forms;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,22 +10,16 @@ using System.Windows.Forms;
 
 namespace JobNear.JobPosterDashboardUserControl
 {
-    public partial class JP_RegisterBusinessForm : UserControl
+    public partial class JP_MyBusiness : UserControl
     {
-        
-        public JP_RegisterBusinessForm()
+        public JP_MyBusiness()
         {
             InitializeComponent();
         }
 
-        private void register_button_Click(object sender, EventArgs e)
+        private void Sample_panel_Click(object sender, EventArgs e)
         {
 
-        }
-
-        private void CreatePanel()
-        {
-            
         }
     }
 }
