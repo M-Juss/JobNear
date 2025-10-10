@@ -20,6 +20,10 @@ namespace JobNear.AdminDashboardUserControl
         {
             InitializeComponent();
             LoadSpecificUser(email);
+
+            image_flowlayout.FlowDirection = FlowDirection.TopDown;
+            image_flowlayout.WrapContents = false;
+            image_flowlayout.AutoScroll = true;
         }
 
         private async void LoadSpecificUser(string email)

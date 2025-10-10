@@ -127,7 +127,6 @@ namespace JobNear.Styles
 
         public static void AddSupportingDocumentToFlow(SupportingDocument doc, FlowLayoutPanel docu_flowlayout, int width)
         {
-
             Panel filePanel = new Panel();
             filePanel.Width = width;
             filePanel.Height = 50;
@@ -136,11 +135,8 @@ namespace JobNear.Styles
             filePanel.Padding = new Padding(10);
             filePanel.BorderStyle = BorderStyle.None;
 
-            PictureBox picIcon = new PictureBox();
-            picIcon.Width = 30;
-            picIcon.Height = 30;
-            picIcon.SizeMode = PictureBoxSizeMode.StretchImage;
-            picIcon.Location = new Point(10, 10);
+            // ✅ Keep original document reference (important for updating later)
+            filePanel.Tag = doc;
 
             filePanel.Paint += (s, e) =>
             {
@@ -151,14 +147,20 @@ namespace JobNear.Styles
                     Color.LightGray, 1, ButtonBorderStyle.Solid);
             };
 
-            // Choose icon based on extension
+            PictureBox picIcon = new PictureBox();
+            picIcon.Width = 30;
+            picIcon.Height = 30;
+            picIcon.SizeMode = PictureBoxSizeMode.StretchImage;
+            picIcon.Location = new Point(10, 10);
+
             try
             {
+                // Just to get system icon
                 string tempFile = Path.Combine(Path.GetTempPath(), doc.FileName);
-                File.WriteAllBytes(tempFile, doc.FileContent); // write temporarily just to extract icon
+                File.WriteAllBytes(tempFile, doc.FileContent);
                 Icon sysIcon = Icon.ExtractAssociatedIcon(tempFile);
                 picIcon.Image = sysIcon?.ToBitmap() ?? SystemIcons.Application.ToBitmap();
-                File.Delete(tempFile); // cleanup
+                File.Delete(tempFile);
             }
             catch
             {
@@ -189,10 +191,8 @@ namespace JobNear.Styles
             btnPreview.Cursor = Cursors.Hand;
             btnPreview.Click += (s, e) =>
             {
-                // Save to temp and open
                 string tempPath = Path.Combine(Path.GetTempPath(), doc.FileName);
                 File.WriteAllBytes(tempPath, doc.FileContent);
-
                 System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo()
                 {
                     FileName = tempPath,
@@ -220,7 +220,6 @@ namespace JobNear.Styles
                 if (confirm == DialogResult.Yes)
                 {
                     filePanel.Dispose();
-                    // ❗ you can also remove from DB here if needed
                 }
             };
 
@@ -231,7 +230,5 @@ namespace JobNear.Styles
 
             docu_flowlayout.Controls.Add(filePanel);
         }
-
-
     }
 }

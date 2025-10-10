@@ -142,90 +142,118 @@ namespace JobNear.JobSeekerDashboardUserControl
 
         public async void UpdateProfileData(bool isDraft, string status)
         {
-
             TextBoxValidatorController.ValidateEmail(email_input);
             TextBoxValidatorController.ValidatePhoneNumber(phone_input);
             TextBoxValidatorController.AllowOnlyNumbers(age_input);
             TextBoxValidatorController.AllowOnlyNumbers(phone_input);
 
-            if (string.IsNullOrEmpty(firstname_input.Text) || string.IsNullOrEmpty(lastname_input.Text) || string.IsNullOrEmpty(middlename_input.Text) ||
-                string.IsNullOrEmpty(age_input.Text) || string.IsNullOrEmpty(phone_input.Text) || string.IsNullOrEmpty(email_input.Text)
-                || string.IsNullOrEmpty(address_input.Text))
+            if (string.IsNullOrEmpty(firstname_input.Text) ||
+                string.IsNullOrEmpty(lastname_input.Text) ||
+                string.IsNullOrEmpty(middlename_input.Text) ||
+                string.IsNullOrEmpty(age_input.Text) ||
+                string.IsNullOrEmpty(phone_input.Text) ||
+                string.IsNullOrEmpty(email_input.Text) ||
+                string.IsNullOrEmpty(address_input.Text))
             {
                 MessageBox.Show("Please fill all fields", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
-            else if (profile_picture.Image == null)
+            if (profile_picture.Image == null)
             {
                 MessageBox.Show("Please upload a profile picture", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
-            else if (image_flowlayout.Controls.Count == 0)
+            if (image_flowlayout.Controls.Count == 0)
             {
                 MessageBox.Show("Please attach at least one supporting document", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
-            else
+
+            // 🧭 Ensure we have coordinates
+            if (selectedLat == 0 && selectedLon == 0)
             {
-                if (selectedLon == 0 & selectedLon == 0)
+                var result = await geoServices.GetSuggestionsAsync(address_input.Text);
+                if (result.Any())
                 {
-                    var result = await geoServices.GetSuggestionsAsync(address_input.Text);
-                    if (result.Any())
-                    {
-                        var firstEntry = result.First();
-                        selectedLat = firstEntry.Value.lat;
-                        selectedLon = firstEntry.Value.lon;
-                    }
-                    else
-                    {
-                        MessageBox.Show("Could not determine location for this address. Coordinates set to 0,0.",
-                                        "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    }
-                }
-
-                List<SupportingDocument> supportingDocuments = new List<SupportingDocument>();
-
-                foreach (Control ctrl in image_flowlayout.Controls)
-                {
-                    if (ctrl is Panel panel && panel.Tag != null)
-                    {
-                        string filePath = panel.Tag.ToString();
-                        if (File.Exists(filePath))
-                        {
-                            supportingDocuments.Add(new SupportingDocument
-                            {
-                                FileName = Path.GetFileName(filePath),
-                                FileContent = File.ReadAllBytes(filePath)
-                            });
-                        }
-                    }
-                }
-                byte[] imageResponse = ConvertDataTypeServices.ConvertImageToBytes(profile_picture.Image);
-
-                bool response = await MongoDbServices.UpdateJobSeekerProfileAsync(Session.CurrentUserId, Session.CurrentEmail, phone_input.Text, lastname_input.Text, firstname_input.Text, middlename_input.Text,
-                    sex_combo.Text, birthdate_picker.Text, short.Parse(age_input.Text), address_input.Text, selectedLat, selectedLon, imageResponse,
-                    supportingDocuments, isDraft, status);
-
-                if (response)
-                {
-                    string result = MessageBox.Show(
-                        isDraft ? "Profile updated successfully as draft" : "Profile updated successfully and ready for review",
-                        "Success",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Information
-                    ).ToString();
-
-                    if (result == "OK")
-                    {
-                        sidebar_panel.Controls.Clear();
-                        JS_Profile profile = new JS_Profile();
-                        profile.Dock = DockStyle.Fill;
-                        sidebar_panel.Controls.Add(profile);
-                    }
+                    var firstEntry = result.First();
+                    selectedLat = firstEntry.Value.lat;
+                    selectedLon = firstEntry.Value.lon;
                 }
                 else
                 {
-                    MessageBox.Show("Failed to update profile. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Could not determine location for this address. Coordinates set to 0,0.",
+                                    "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
+
+            // 🧾 Gather all supporting documents (both new and old)
+            List<SupportingDocument> supportingDocuments = new List<SupportingDocument>();
+
+            foreach (Control ctrl in image_flowlayout.Controls)
+            {
+                if (ctrl is Panel panel)
+                {
+                    // ✅ Old document (from database)
+                    if (panel.Tag is SupportingDocument existingDoc)
+                    {
+                        supportingDocuments.Add(existingDoc);
+                    }
+                    // ✅ New uploaded file
+                    else if (panel.Tag is string filePath && File.Exists(filePath))
+                    {
+                        supportingDocuments.Add(new SupportingDocument
+                        {
+                            FileName = Path.GetFileName(filePath),
+                            FileContent = File.ReadAllBytes(filePath)
+                        });
+                    }
+                }
+            }
+
+            byte[] imageResponse = ConvertDataTypeServices.ConvertImageToBytes(profile_picture.Image);
+
+            bool response = await MongoDbServices.UpdateJobSeekerProfileAsync(
+                Session.CurrentUserId,
+                Session.CurrentEmail,
+                phone_input.Text,
+                lastname_input.Text,
+                firstname_input.Text,
+                middlename_input.Text,
+                sex_combo.Text,
+                birthdate_picker.Text,
+                short.Parse(age_input.Text),
+                address_input.Text,
+                selectedLat,
+                selectedLon,
+                imageResponse,
+                supportingDocuments,
+                isDraft,
+                status
+            );
+
+            if (response)
+            {
+                string result = MessageBox.Show(
+                    isDraft ? "Profile updated successfully as draft" : "Profile updated successfully and ready for review",
+                    "Success",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information
+                ).ToString();
+
+                if (result == "OK")
+                {
+                    sidebar_panel.Controls.Clear();
+                    JS_Profile profile = new JS_Profile();
+                    profile.Dock = DockStyle.Fill;
+                    sidebar_panel.Controls.Add(profile);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Failed to update profile. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+
 
         private async void AccountForm_Load(object sender, EventArgs e)
         {
