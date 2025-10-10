@@ -31,11 +31,11 @@
             this.JP_sidebar_panel = new System.Windows.Forms.Panel();
             this.log_out_button = new System.Windows.Forms.Button();
             this.notification_button = new System.Windows.Forms.Button();
-            this.view_business_button = new System.Windows.Forms.Button();
             this.business_button = new System.Windows.Forms.Button();
             this.dashboard_button = new System.Windows.Forms.Button();
             this.jobnear_button = new System.Windows.Forms.Button();
             this.JP_main_panel = new System.Windows.Forms.Panel();
+            this.view_business_button = new System.Windows.Forms.Button();
             this.JP_sidebar_panel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -43,9 +43,9 @@
             // 
             this.JP_sidebar_panel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.JP_sidebar_panel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.JP_sidebar_panel.Controls.Add(this.view_business_button);
             this.JP_sidebar_panel.Controls.Add(this.log_out_button);
             this.JP_sidebar_panel.Controls.Add(this.notification_button);
-            this.JP_sidebar_panel.Controls.Add(this.view_business_button);
             this.JP_sidebar_panel.Controls.Add(this.business_button);
             this.JP_sidebar_panel.Controls.Add(this.dashboard_button);
             this.JP_sidebar_panel.Controls.Add(this.jobnear_button);
@@ -75,16 +75,6 @@
             this.notification_button.Text = "Notification";
             this.notification_button.UseVisualStyleBackColor = true;
             this.notification_button.Click += new System.EventHandler(this.notification_button_Click);
-            // 
-            // view_business_button
-            // 
-            this.view_business_button.Location = new System.Drawing.Point(29, 262);
-            this.view_business_button.Name = "view_business_button";
-            this.view_business_button.Size = new System.Drawing.Size(136, 49);
-            this.view_business_button.TabIndex = 3;
-            this.view_business_button.Text = "My Business";
-            this.view_business_button.UseVisualStyleBackColor = true;
-            this.view_business_button.Click += new System.EventHandler(this.job_button_Click);
             // 
             // business_button
             // 
@@ -124,6 +114,16 @@
             this.JP_main_panel.Size = new System.Drawing.Size(1031, 705);
             this.JP_main_panel.TabIndex = 1;
             // 
+            // view_business_button
+            // 
+            this.view_business_button.Location = new System.Drawing.Point(29, 266);
+            this.view_business_button.Name = "view_business_button";
+            this.view_business_button.Size = new System.Drawing.Size(136, 49);
+            this.view_business_button.TabIndex = 6;
+            this.view_business_button.Text = "View Business";
+            this.view_business_button.UseVisualStyleBackColor = true;
+            this.view_business_button.Click += new System.EventHandler(this.view_business_button_Click);
+            // 
             // JobPosterDashboardForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -143,10 +143,10 @@
         private System.Windows.Forms.Panel JP_sidebar_panel;
         private System.Windows.Forms.Panel JP_main_panel;
         private System.Windows.Forms.Button notification_button;
-        private System.Windows.Forms.Button view_business_button;
         private System.Windows.Forms.Button business_button;
         private System.Windows.Forms.Button dashboard_button;
         private System.Windows.Forms.Button jobnear_button;
         private System.Windows.Forms.Button log_out_button;
+        private System.Windows.Forms.Button view_business_button;
     }
 }

@@ -19,9 +19,7 @@ namespace JobNear.JobPosterDashboardUserControl
 
         private void add_business_button_Click(object sender, EventArgs e)
         {
-            this.Controls.Clear();
-            this.Controls.Add(new JobPosterDashboardUserControl.JP_RegisterBusinessForm());
-            this.Dock = DockStyle.Fill;
+            
         }
     }
 }

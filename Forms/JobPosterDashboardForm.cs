@@ -12,12 +12,12 @@ namespace JobNear.Forms
 {
     public partial class JobPosterDashboardForm : Form
     {
-        JobPosterDashboardUserControl.JP_RegisterBusinessForm register_business_panel = new JobPosterDashboardUserControl.JP_RegisterBusinessForm();
-        JobPosterDashboardUserControl.JP_PostJobForm post_job_panel = new JobPosterDashboardUserControl.JP_PostJobForm();
-        JobPosterDashboardUserControl.JP_Notifications notification_panel = new JobPosterDashboardUserControl.JP_Notifications();
-        JobPosterDashboardUserControl.JP_Dashboard dashboard_panel = new JobPosterDashboardUserControl.JP_Dashboard();
-        JobPosterDashboardUserControl.JP_MyBusiness my_business_panel = new JobPosterDashboardUserControl.JP_MyBusiness();
-        JobPosterDashboardUserControl.JP_BusinessDetails business_details_ = new JobPosterDashboardUserControl.JP_BusinessDetails();
+        private JobPosterDashboardUserControl.JP_RegisterBusinessForm register_business_panel = new JobPosterDashboardUserControl.JP_RegisterBusinessForm();
+        private JobPosterDashboardUserControl.JP_PostJobForm post_job_panel = new JobPosterDashboardUserControl.JP_PostJobForm();
+        private JobPosterDashboardUserControl.JP_Notifications notification_panel = new JobPosterDashboardUserControl.JP_Notifications();
+        private JobPosterDashboardUserControl.JP_Dashboard dashboard_panel = new JobPosterDashboardUserControl.JP_Dashboard();
+        private JobPosterDashboardUserControl.JP_MyBusiness my_business_panel = new JobPosterDashboardUserControl.JP_MyBusiness();
+        private JobPosterDashboardUserControl.JP_BusinessDetails business_details_ = new JobPosterDashboardUserControl.JP_BusinessDetails();
         
         public JobPosterDashboardForm()
         {
@@ -27,6 +27,7 @@ namespace JobNear.Forms
             JP_main_panel.Controls.Add(notification_panel);
             JP_main_panel.Controls.Add(dashboard_panel);
             JP_main_panel.Controls.Add(business_details_);
+            JP_main_panel.Controls.Add(my_business_panel);
 
             register_business_panel.Dock = DockStyle.Fill;
             register_business_panel.Hide();
@@ -51,8 +52,8 @@ namespace JobNear.Forms
         {
             ShowPanel(register_business_panel);
         }
-
-        private void job_button_Click(object sender, EventArgs e)
+   
+        private void view_business_button_Click(object sender, EventArgs e)
         {
             ShowPanel(my_business_panel);
         }
@@ -76,5 +77,7 @@ namespace JobNear.Forms
             panel_to_show.BringToFront();
             panel_to_show.Show();
         }
+
+        
     }
 }

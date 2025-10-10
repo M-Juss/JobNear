@@ -21,10 +21,11 @@ namespace JobNear.JobPosterDashboardUserControl
 
         private void post_job_button_Click(object sender, EventArgs e)
         {
-            this.Hide();
-
+            this.Controls.Clear();
+            this.Controls.Add(post_job_form);
+            post_job_form.Dock = DockStyle.Fill;
             post_job_form.BringToFront();
-            post_job_form.Show();
+            post_job_form.Visible = true;            
         }
     }
 }
