@@ -69,10 +69,14 @@ namespace JobNear.AdminDashboardUserControl
         private async void submit_button_Click(object sender, EventArgs e)
         {
             string userEmail = email_input.Text.ToString();
+            string status = status_combo.Text.ToString();
 
-            var specificUser = await MongoDbServices.JobSeekerAccount
-                .Find(x => x.Email == userEmail)
-                .FirstOrDefaultAsync();
+            var getUser = Builders<JobSeekerAccountModel>.Filter.Eq(x => x.Email, userEmail);
+
+            var updateUser = Builders<JobSeekerAccountModel>.Update
+                .Set(x => x.Status, status);
+
+            await MongoDbServices.JobSeekerAccount.UpdateOneAsync(getUser, updateUser);
 
         }
     }

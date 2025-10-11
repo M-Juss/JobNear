@@ -17,12 +17,11 @@ namespace JobNear.JobSeekerDashboardUserControl
         public JS_Notifications()
         {
             InitializeComponent();
-            // Initialize with your existing notification panel
+            
             notificationManager = new NotificationFlowManager(sidebar_panel);
 
             // Load some sample notifications
             notificationManager.LoadSampleNotifications();
-
 
         }
 

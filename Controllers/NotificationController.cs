@@ -133,16 +133,15 @@ namespace JobNear.Controllers
 
         private void CreateFlowLayoutPanel(Panel container)
         {
-            // Create FlowLayoutPanel inside your existing panel
+            
             flowPanel = new FlowLayoutPanel();
             flowPanel.Dock = DockStyle.Fill;
-            flowPanel.FlowDirection = FlowDirection.TopDown; // Top to bottom
-            flowPanel.WrapContents = false; // Don't wrap to next column
-            flowPanel.AutoScroll = true; // Enable scrolling
-            flowPanel.BackColor = Color.FromArgb(46, 204, 113); // Your green background
+            flowPanel.FlowDirection = FlowDirection.TopDown; 
+            flowPanel.WrapContents = false; 
+            flowPanel.AutoScroll = true; 
+            flowPanel.BackColor = Color.WhiteSmoke; 
             flowPanel.Padding = new Padding(10);
 
-            // Add FlowLayoutPanel to your existing panel
             container.Controls.Clear();
             container.Controls.Add(flowPanel);
         }
@@ -157,28 +156,15 @@ namespace JobNear.Controllers
             flowPanel.Controls.Add(notification);
             flowPanel.Controls.SetChildIndex(notification, 0);
 
-            // Auto-scroll to top to show the newest notification
+            
             flowPanel.ScrollControlIntoView(notification);
         }
 
-        // Add verification notification
-        public void AddVerificationNotification(string applicantName, bool isVerified)
-        {
-            string message = isVerified
-                ? $"Congratulations {applicantName}! Your profile has been successfully verified."
-                : $"Hello {applicantName}, your profile verification was not approved. Please review and resubmit.";
-
-            string type = isVerified ? "Success" : "Error";
-            AddNotification("Admin", message, type);
-        }
-
-        // Clear all notifications
         public void ClearAllNotifications()
         {
             flowPanel.Controls.Clear();
         }
 
-        // Get count of notifications
         public int GetNotificationCount()
         {
             return flowPanel.Controls.Count;
@@ -258,8 +244,5 @@ namespace JobNear.Controllers
         public string Message { get; set; }
         public string Type { get; set; }
         public DateTime Date { get; set; }
-
-
-
     }
 }
