@@ -22,7 +22,7 @@ namespace JobNear.AdminDashboardUserControl
             LoadSpecificUser(email);
 
             image_flowlayout.FlowDirection = FlowDirection.TopDown;
-            image_flowlayout.WrapContents = false;
+            image_flowlayout.WrapContents = false;  
             image_flowlayout.AutoScroll = true;
         }
 
@@ -66,8 +66,13 @@ namespace JobNear.AdminDashboardUserControl
             sidebar_panel.Dock = DockStyle.Fill;
         }
 
-        private void submit_button_Click(object sender, EventArgs e)
+        private async void submit_button_Click(object sender, EventArgs e)
         {
+            string userEmail = email_input.Text.ToString();
+
+            var specificUser = await MongoDbServices.JobSeekerAccount
+                .Find(x => x.Email == userEmail)
+                .FirstOrDefaultAsync();
 
         }
     }

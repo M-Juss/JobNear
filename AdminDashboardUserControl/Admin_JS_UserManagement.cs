@@ -47,7 +47,11 @@ namespace JobNear.AdminDashboardUserControl
             actionButton.DefaultCellStyle.Font = new Font("Poppins", 12, FontStyle.Bold);
             seeker_table.Columns.Add(actionButton);
 
-            InitialTableValue();
+            //InitialTableValue();
+
+            search_input.Text = "Search";
+            search_input.ForeColor = Color.Gray;
+            
         }
 
 
@@ -203,6 +207,12 @@ namespace JobNear.AdminDashboardUserControl
         private void status_combo_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void search_input_MouseClick(object sender, MouseEventArgs e)
+        {
+            search_input.Text = "";
+            search_input.ForeColor = Color.Gray;
         }
     }
 }
