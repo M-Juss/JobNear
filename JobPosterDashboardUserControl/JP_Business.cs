@@ -15,6 +15,7 @@ namespace JobNear.JobPosterDashboardUserControl
         public JP_Business()
         {
             InitializeComponent();
+
         }
 
         private void add_business_button_Click(object sender, EventArgs e)

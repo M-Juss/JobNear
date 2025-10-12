@@ -1,4 +1,5 @@
-﻿using System;
+﻿using JobNear.Forms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,22 +13,16 @@ namespace JobNear.JobPosterDashboardUserControl
 {
     public partial class JP_MyBusiness : UserControl
     {
-        private JobPosterDashboardUserControl.JP_BusinessDetails business_details = new JobPosterDashboardUserControl.JP_BusinessDetails();
-        public JP_MyBusiness()
+        private JobPosterDashboardForm JP_parent_form;
+        public JP_MyBusiness(JobPosterDashboardForm parent_form)
         {
             InitializeComponent();
-            this.Dock = DockStyle.Fill;
-            this.BringToFront();
-            this.Visible = true;
+            JP_parent_form = parent_form;
         }
 
         private void Sample_panel_Click(object sender, EventArgs e)
         {
-            this.Controls.Clear();
-            this.Controls.Add(business_details);
-            business_details.Dock = DockStyle.Fill;
-
-            Console.Write("Working");
+            JP_parent_form.ShowPanel(JP_parent_form.business_details_panel);
         }
     }
 }

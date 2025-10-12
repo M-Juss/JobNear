@@ -1,4 +1,5 @@
-﻿using System;
+﻿using JobNear.JobPosterDashboardUserControl;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,47 +13,56 @@ namespace JobNear.Forms
 {
     public partial class JobPosterDashboardForm : Form
     {
-        private JobPosterDashboardUserControl.JP_RegisterBusinessForm register_business_panel = new JobPosterDashboardUserControl.JP_RegisterBusinessForm();
-        private JobPosterDashboardUserControl.JP_PostJobForm post_job_panel = new JobPosterDashboardUserControl.JP_PostJobForm();
-        private JobPosterDashboardUserControl.JP_Notifications notification_panel = new JobPosterDashboardUserControl.JP_Notifications();
-        private JobPosterDashboardUserControl.JP_Dashboard dashboard_panel = new JobPosterDashboardUserControl.JP_Dashboard();
-        private JobPosterDashboardUserControl.JP_MyBusiness my_business_panel = new JobPosterDashboardUserControl.JP_MyBusiness();
-        private JobPosterDashboardUserControl.JP_BusinessDetails business_details_ = new JobPosterDashboardUserControl.JP_BusinessDetails();
-        
+        public JP_RegisterBusinessForm register_business_panel;
+        public JP_PostJobForm post_job_form_panel;
+        public JP_Notifications notification_panel;
+        public JP_Dashboard dashboard_panel;
+        public JP_MyBusiness my_business_panel;
+        public JP_BusinessDetails business_details_panel;
+
         public JobPosterDashboardForm()
         {
             InitializeComponent();
+
+            register_business_panel = new JP_RegisterBusinessForm(this);
+            post_job_form_panel = new JP_PostJobForm(this);
+            notification_panel = new JP_Notifications(this);
+            dashboard_panel = new JP_Dashboard(this);
+            my_business_panel = new JP_MyBusiness(this);
+            business_details_panel = new JP_BusinessDetails(this);
+
             JP_main_panel.Controls.Add(register_business_panel);
-            JP_main_panel.Controls.Add(post_job_panel);
+            JP_main_panel.Controls.Add(post_job_form_panel);
             JP_main_panel.Controls.Add(notification_panel);
             JP_main_panel.Controls.Add(dashboard_panel);
-            JP_main_panel.Controls.Add(business_details_);
+            JP_main_panel.Controls.Add(business_details_panel);
             JP_main_panel.Controls.Add(my_business_panel);
 
             register_business_panel.Dock = DockStyle.Fill;
-            register_business_panel.Hide();
+            register_business_panel.Visible = false;
 
-            post_job_panel.Dock = DockStyle.Fill;
-            post_job_panel.Hide();
+            post_job_form_panel.Dock = DockStyle.Fill;
+            post_job_form_panel.Visible = false;
 
             my_business_panel.Dock = DockStyle.Fill;
-            my_business_panel.Hide();
+            my_business_panel.Visible = false;
 
             notification_panel.Dock = DockStyle.Fill;
-            notification_panel.Hide();
+            notification_panel.Visible = false;
 
-            business_details_.Dock = DockStyle.Fill;
-            business_details_.Hide();
+            business_details_panel.Dock = DockStyle.Fill;
+            business_details_panel.Visible = false;
 
             dashboard_panel.Dock = DockStyle.Fill;
-            dashboard_panel.Show();  
+            dashboard_panel.Visible = true;
+
         }
 
         private void business_button_Click(object sender, EventArgs e)
         {
             ShowPanel(register_business_panel);
         }
-   
+
         private void view_business_button_Click(object sender, EventArgs e)
         {
             ShowPanel(my_business_panel);
@@ -68,14 +78,14 @@ namespace JobNear.Forms
             ShowPanel(dashboard_panel);
         }
 
-        private void ShowPanel(Control panel_to_show)
+        public void ShowPanel(Control panel_to_show)
         {
             foreach (Control control in JP_main_panel.Controls)
             {
-                control.Hide();
+                control.Visible = false;
             }
             panel_to_show.BringToFront();
-            panel_to_show.Show();
+            panel_to_show.Visible = true;
         }
 
         

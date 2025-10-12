@@ -30,17 +30,18 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(JP_BusinessDetails));
             this.business_panel = new System.Windows.Forms.Panel();
-            this.company_logo_picturebox = new System.Windows.Forms.PictureBox();
+            this.edit_button = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.edit_button = new System.Windows.Forms.Button();
+            this.company_logo_picturebox = new System.Windows.Forms.PictureBox();
             this.post_job_button = new System.Windows.Forms.Button();
             this.job_list_flowlayoutpanel = new System.Windows.Forms.FlowLayoutPanel();
             this.Job_panel = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.back_button = new System.Windows.Forms.Button();
             this.business_panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.company_logo_picturebox)).BeginInit();
             this.job_list_flowlayoutpanel.SuspendLayout();
@@ -60,14 +61,14 @@
             this.business_panel.Size = new System.Drawing.Size(812, 223);
             this.business_panel.TabIndex = 0;
             // 
-            // company_logo_picturebox
+            // edit_button
             // 
-            this.company_logo_picturebox.Image = global::JobNear.Properties.Resources.JobnearLogo;
-            this.company_logo_picturebox.Location = new System.Drawing.Point(35, 40);
-            this.company_logo_picturebox.Name = "company_logo_picturebox";
-            this.company_logo_picturebox.Size = new System.Drawing.Size(150, 150);
-            this.company_logo_picturebox.TabIndex = 0;
-            this.company_logo_picturebox.TabStop = false;
+            this.edit_button.Location = new System.Drawing.Point(722, 16);
+            this.edit_button.Name = "edit_button";
+            this.edit_button.Size = new System.Drawing.Size(75, 28);
+            this.edit_button.TabIndex = 6;
+            this.edit_button.Text = "Edit";
+            this.edit_button.UseVisualStyleBackColor = true;
             // 
             // label3
             // 
@@ -98,14 +99,14 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "ABC Company";
             // 
-            // edit_button
+            // company_logo_picturebox
             // 
-            this.edit_button.Location = new System.Drawing.Point(722, 16);
-            this.edit_button.Name = "edit_button";
-            this.edit_button.Size = new System.Drawing.Size(75, 28);
-            this.edit_button.TabIndex = 6;
-            this.edit_button.Text = "Edit";
-            this.edit_button.UseVisualStyleBackColor = true;
+            this.company_logo_picturebox.Image = global::JobNear.Properties.Resources.JobnearLogo;
+            this.company_logo_picturebox.Location = new System.Drawing.Point(35, 40);
+            this.company_logo_picturebox.Name = "company_logo_picturebox";
+            this.company_logo_picturebox.Size = new System.Drawing.Size(150, 150);
+            this.company_logo_picturebox.TabIndex = 0;
+            this.company_logo_picturebox.TabStop = false;
             // 
             // post_job_button
             // 
@@ -170,16 +171,27 @@
             this.label6.TabIndex = 0;
             this.label6.Text = "Job Position";
             // 
+            // back_button
+            // 
+            this.back_button.Location = new System.Drawing.Point(25, 25);
+            this.back_button.Name = "back_button";
+            this.back_button.Size = new System.Drawing.Size(68, 34);
+            this.back_button.TabIndex = 3;
+            this.back_button.Text = "Back";
+            this.back_button.UseVisualStyleBackColor = true;
+            this.back_button.Click += new System.EventHandler(this.back_button_Click);
+            // 
             // JP_BusinessDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
+            this.Controls.Add(this.back_button);
             this.Controls.Add(this.job_list_flowlayoutpanel);
             this.Controls.Add(this.post_job_button);
             this.Controls.Add(this.business_panel);
             this.Name = "JP_BusinessDetails";
-            this.Size = new System.Drawing.Size(1031, 705);
+            this.Size = new System.Drawing.Size(997, 705);
             this.business_panel.ResumeLayout(false);
             this.business_panel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.company_logo_picturebox)).EndInit();
@@ -203,5 +215,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button back_button;
     }
 }

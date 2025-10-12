@@ -1,4 +1,5 @@
-﻿using System;
+﻿using JobNear.Forms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,11 @@ namespace JobNear.JobPosterDashboardUserControl
 {
     public partial class JP_Dashboard : UserControl
     {
-        public JP_Dashboard()
+        private JobPosterDashboardForm JP_parent_form;
+        public JP_Dashboard(JobPosterDashboardForm parent_form)
         {
             InitializeComponent();
+            JP_parent_form = parent_form;
         }
     }
 }

@@ -50,6 +50,7 @@
             this.clear_draft_button = new System.Windows.Forms.Button();
             this.save_draft_button = new System.Windows.Forms.Button();
             this.post_button = new System.Windows.Forms.Button();
+            this.back_button = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -271,11 +272,22 @@
             this.post_button.Text = "Post";
             this.post_button.UseVisualStyleBackColor = false;
             // 
+            // back_button
+            // 
+            this.back_button.Location = new System.Drawing.Point(25, 25);
+            this.back_button.Name = "back_button";
+            this.back_button.Size = new System.Drawing.Size(73, 36);
+            this.back_button.TabIndex = 33;
+            this.back_button.Text = "Back";
+            this.back_button.UseVisualStyleBackColor = true;
+            this.back_button.Click += new System.EventHandler(this.back_button_Click);
+            // 
             // JP_PostJobForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
+            this.Controls.Add(this.back_button);
             this.Controls.Add(this.clear_draft_button);
             this.Controls.Add(this.save_draft_button);
             this.Controls.Add(this.post_button);
@@ -299,7 +311,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "JP_PostJobForm";
-            this.Size = new System.Drawing.Size(1014, 705);
+            this.Size = new System.Drawing.Size(980, 705);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -329,5 +341,6 @@
         private System.Windows.Forms.Button clear_draft_button;
         private System.Windows.Forms.Button save_draft_button;
         private System.Windows.Forms.Button post_button;
+        private System.Windows.Forms.Button back_button;
     }
 }

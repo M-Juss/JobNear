@@ -14,7 +14,7 @@ namespace JobNear.JobPosterDashboardUserControl
     public partial class JP_RegisterBusinessForm : UserControl
     {
         
-        public JP_RegisterBusinessForm()
+        public JP_RegisterBusinessForm(JobPosterDashboardForm parent_form)
         {
             InitializeComponent();
         }
