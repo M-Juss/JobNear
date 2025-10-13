@@ -51,6 +51,9 @@ namespace JobNear.Services
         public static IMongoCollection<AdminAccountModel> AdminAccount =>
             _database.GetCollection<AdminAccountModel>("AdminAccounts");
 
+        public static IMongoCollection<UserNotificationModel> UserNotification =>
+            _database.GetCollection<UserNotificationModel>("UserNotifications");
+
 
         public static async Task LoginJobNearAccountAsync(string user, string email, string password, Panel app_panel)
         {

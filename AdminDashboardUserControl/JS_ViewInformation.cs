@@ -68,7 +68,104 @@ namespace JobNear.AdminDashboardUserControl
 
         private async void submit_button_Click(object sender, EventArgs e)
         {
+            
+            string userEmail = email_input.Text.ToString();
+            string status = status_combo.Text.ToString();
 
+            var seeker = await MongoDbServices.JobSeekerAccount
+              .Find(x => x.Email == userEmail)
+              .FirstOrDefaultAsync();
+
+            if (seeker != null)
+            {
+                string key = "Admin";
+                DateTime date = DateTime.Now;
+                string remarks = remarks_richtext.Text.ToString();
+                var id = seeker.Id;
+
+                switch (status.ToLower())
+                {
+                    case "verified":
+                        string verifyMessage = "Your profile status has been updated to verified.";
+                        string verifyType = "Success";
+
+                        var verifyNotif = new UserNotificationModel
+                        {
+                            Id = id,
+                            Key = key,
+                            HeaderMessage = verifyMessage,
+                            Type = verifyType,
+                            Remarks = remarks,
+                            Date = date
+                        };
+
+                        await MongoDbServices.UserNotification.InsertOneAsync(verifyNotif);
+                        break;
+
+                    case "incomplete":
+                        string incMessage = "Some information in your profile is incomplete. Please review and update.";
+                        string incType = "Warning";
+
+                        var incNotif = new UserNotificationModel
+                        {
+                            Id = id,
+                            Key = key,
+                            HeaderMessage = incMessage,
+                            Type = incType,
+                            Remarks = remarks,
+                            Date = date
+                        };
+
+                        await MongoDbServices.UserNotification.InsertOneAsync(incNotif);
+                        break;
+
+                    case "rejected":
+                        string rejectedMessage = "Your submission was not approved. Please review the requirements and resubmit.";
+                        string rejectedType = "Error";
+
+                        var rejectedNotif = new UserNotificationModel
+                        {
+                            Id = id,
+                            Key = key,
+                            HeaderMessage = rejectedMessage,
+                            Type = rejectedType,
+                            Remarks = remarks,
+                            Date = date
+                        };
+
+                        await MongoDbServices.UserNotification.InsertOneAsync(rejectedNotif);
+                        break;
+
+                    case "pending":
+                        string pendingMessage = "Your profile is currently pending review. Please wait for confirmation.";
+                        string pendingType = "Info";
+
+                        var pendingNotif = new UserNotificationModel
+                        {
+                            Id = id,
+                            Key = key,
+                            HeaderMessage = pendingMessage,
+                            Type = pendingType,
+                            Remarks = remarks,
+                            Date = date
+                        };
+
+                        await MongoDbServices.UserNotification.InsertOneAsync(pendingNotif);
+                        break;
+
+                    default:
+                        MessageBox.Show("Please select a valid status.", "Invalid Status", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        break;
+                }
+
+                var getUser = Builders<JobSeekerAccountModel>.Filter.Eq(x => x.Email, userEmail);
+
+                var updateUser = Builders<JobSeekerAccountModel>.Update
+                    .Set(x => x.Status, status);
+
+                await MongoDbServices.JobSeekerAccount.UpdateOneAsync(getUser, updateUser);
+
+            }
         }
     }
 }

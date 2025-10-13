@@ -10,13 +10,14 @@ namespace JobNear.Models
 {
     public class UserNotificationModel
     {
-        [BsonId] 
+        [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
-        string Id { get; set; }
-        string Key { get; set; }
-        string HeaderMessage { get; set; }
-        string Remarks { get; set; }
-        string Type { get; set; }
-        DateTime Date{ get; set; }
+        public string Id { get; set; }
+        public string Key { get; set; }
+        public string HeaderMessage { get; set; }
+        public string Remarks { get; set; }
+        public string Type { get; set; }
+        public DateTime Date { get; set; } = DateTime.Now;
+        public Boolean IsRead { get; set; } = false;
     }
 }
