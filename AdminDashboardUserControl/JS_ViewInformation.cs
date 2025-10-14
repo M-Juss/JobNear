@@ -81,7 +81,6 @@ namespace JobNear.AdminDashboardUserControl
                 string key = "Admin";
                 DateTime date = DateTime.Now;
                 string remarks = remarks_richtext.Text.ToString();
-                var id = seeker.Id;
 
                 switch (status.ToLower())
                 {
@@ -91,7 +90,7 @@ namespace JobNear.AdminDashboardUserControl
 
                         var verifyNotif = new UserNotificationModel
                         {
-                            Id = id,
+                            NotificationId = seeker.Id,
                             Key = key,
                             HeaderMessage = verifyMessage,
                             Type = verifyType,
@@ -108,7 +107,7 @@ namespace JobNear.AdminDashboardUserControl
 
                         var incNotif = new UserNotificationModel
                         {
-                            Id = id,
+                            NotificationId = seeker.Id,
                             Key = key,
                             HeaderMessage = incMessage,
                             Type = incType,
@@ -125,7 +124,7 @@ namespace JobNear.AdminDashboardUserControl
 
                         var rejectedNotif = new UserNotificationModel
                         {
-                            Id = id,
+                            NotificationId = seeker.Id,
                             Key = key,
                             HeaderMessage = rejectedMessage,
                             Type = rejectedType,
@@ -142,7 +141,7 @@ namespace JobNear.AdminDashboardUserControl
 
                         var pendingNotif = new UserNotificationModel
                         {
-                            Id = id,
+                            NotificationId = seeker.Id,
                             Key = key,
                             HeaderMessage = pendingMessage,
                             Type = pendingType,
@@ -160,12 +159,19 @@ namespace JobNear.AdminDashboardUserControl
 
                 var getUser = Builders<JobSeekerAccountModel>.Filter.Eq(x => x.Email, userEmail);
 
-                var updateUser = Builders<JobSeekerAccountModel>.Update
-                    .Set(x => x.Status, status);
+                if (getUser != null) {
+                    var updateUser = Builders<JobSeekerAccountModel>.Update
+                        .Set(x => x.Status, status);
 
-                await MongoDbServices.JobSeekerAccount.UpdateOneAsync(getUser, updateUser);
+                    await MongoDbServices.JobSeekerAccount.UpdateOneAsync(getUser, updateUser);
+                } else MessageBox.Show("User not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
+                MessageBox.Show("User status and notification have been updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                sidebar_panel.Controls.Clear();
+                sidebar_panel.Controls.Add(new Admin_JS_UserManagement());
+                sidebar_panel.Dock = DockStyle.Fill;
             }
+            else MessageBox.Show("User not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 }

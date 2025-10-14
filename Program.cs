@@ -16,7 +16,7 @@ namespace JobNear
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new JobSeekerDashboardForm());
+            Application.Run(new JobNearUserForm());
 
 //            Mongodb queries template in C# 
 
