@@ -62,14 +62,16 @@
             this.save_draft_button = new System.Windows.Forms.Button();
             this.clear_draft_button = new System.Windows.Forms.Button();
             this.country_textbox = new System.Windows.Forms.TextBox();
+            this.business_logo_picturebox = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.document_table)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.business_logo_picturebox)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft YaHei UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(108, 98);
+            this.label1.Location = new System.Drawing.Point(108, 94);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(248, 30);
             this.label1.TabIndex = 0;
@@ -79,7 +81,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft YaHei UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(110, 134);
+            this.label2.Location = new System.Drawing.Point(260, 147);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(110, 20);
             this.label2.TabIndex = 1;
@@ -89,7 +91,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft YaHei UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(541, 134);
+            this.label3.Location = new System.Drawing.Point(261, 211);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(124, 20);
             this.label3.TabIndex = 2;
@@ -99,9 +101,9 @@
             // 
             this.business_name_textbox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.business_name_textbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.business_name_textbox.Location = new System.Drawing.Point(113, 154);
+            this.business_name_textbox.Location = new System.Drawing.Point(264, 170);
             this.business_name_textbox.Name = "business_name_textbox";
-            this.business_name_textbox.Size = new System.Drawing.Size(360, 23);
+            this.business_name_textbox.Size = new System.Drawing.Size(553, 23);
             this.business_name_textbox.TabIndex = 3;
             // 
             // business_industry_combobox
@@ -153,7 +155,7 @@
             "Government Leadership and Policy Making",
             "Cultural and Arts Management",
             "Executive and Strategic Management"});
-            this.business_industry_combobox.Location = new System.Drawing.Point(544, 154);
+            this.business_industry_combobox.Location = new System.Drawing.Point(264, 231);
             this.business_industry_combobox.Name = "business_industry_combobox";
             this.business_industry_combobox.Size = new System.Drawing.Size(357, 24);
             this.business_industry_combobox.TabIndex = 4;
@@ -162,7 +164,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft YaHei UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(110, 191);
+            this.label4.Location = new System.Drawing.Point(110, 281);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(147, 20);
             this.label4.TabIndex = 5;
@@ -172,7 +174,7 @@
             // 
             this.business_description_richbox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.business_description_richbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.business_description_richbox.Location = new System.Drawing.Point(113, 211);
+            this.business_description_richbox.Location = new System.Drawing.Point(113, 301);
             this.business_description_richbox.Name = "business_description_richbox";
             this.business_description_richbox.Size = new System.Drawing.Size(788, 150);
             this.business_description_richbox.TabIndex = 6;
@@ -182,7 +184,7 @@
             // 
             this.business_email_address_textbox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.business_email_address_textbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.business_email_address_textbox.Location = new System.Drawing.Point(113, 453);
+            this.business_email_address_textbox.Location = new System.Drawing.Point(113, 527);
             this.business_email_address_textbox.Name = "business_email_address_textbox";
             this.business_email_address_textbox.Size = new System.Drawing.Size(360, 23);
             this.business_email_address_textbox.TabIndex = 10;
@@ -191,7 +193,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft YaHei UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(541, 433);
+            this.label6.Location = new System.Drawing.Point(541, 507);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(181, 20);
             this.label6.TabIndex = 9;
@@ -201,7 +203,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft YaHei UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(110, 433);
+            this.label7.Location = new System.Drawing.Point(110, 507);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(164, 20);
             this.label7.TabIndex = 8;
@@ -211,7 +213,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft YaHei UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(108, 397);
+            this.label8.Location = new System.Drawing.Point(108, 471);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(285, 30);
             this.label8.TabIndex = 7;
@@ -221,7 +223,7 @@
             // 
             this.business_contact_textbox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.business_contact_textbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.business_contact_textbox.Location = new System.Drawing.Point(544, 453);
+            this.business_contact_textbox.Location = new System.Drawing.Point(544, 527);
             this.business_contact_textbox.Name = "business_contact_textbox";
             this.business_contact_textbox.Size = new System.Drawing.Size(357, 23);
             this.business_contact_textbox.TabIndex = 11;
@@ -230,7 +232,7 @@
             // 
             this.business_website_textbox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.business_website_textbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.business_website_textbox.Location = new System.Drawing.Point(113, 514);
+            this.business_website_textbox.Location = new System.Drawing.Point(113, 582);
             this.business_website_textbox.Name = "business_website_textbox";
             this.business_website_textbox.Size = new System.Drawing.Size(788, 23);
             this.business_website_textbox.TabIndex = 13;
@@ -239,7 +241,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft YaHei UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(110, 494);
+            this.label5.Location = new System.Drawing.Point(110, 562);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(154, 20);
             this.label5.TabIndex = 12;
@@ -249,7 +251,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft YaHei UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(110, 669);
+            this.label9.Location = new System.Drawing.Point(110, 711);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(62, 20);
             this.label9.TabIndex = 19;
@@ -259,7 +261,7 @@
             // 
             this.business_address_textbox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.business_address_textbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.business_address_textbox.Location = new System.Drawing.Point(113, 628);
+            this.business_address_textbox.Location = new System.Drawing.Point(113, 679);
             this.business_address_textbox.Name = "business_address_textbox";
             this.business_address_textbox.Size = new System.Drawing.Size(788, 23);
             this.business_address_textbox.TabIndex = 17;
@@ -268,7 +270,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft YaHei UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(110, 608);
+            this.label11.Location = new System.Drawing.Point(110, 659);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(123, 20);
             this.label11.TabIndex = 15;
@@ -278,7 +280,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft YaHei UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(108, 572);
+            this.label12.Location = new System.Drawing.Point(108, 623);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(207, 30);
             this.label12.TabIndex = 14;
@@ -288,7 +290,7 @@
             // 
             this.postal_code_textbox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.postal_code_textbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.postal_code_textbox.Location = new System.Drawing.Point(544, 691);
+            this.postal_code_textbox.Location = new System.Drawing.Point(544, 733);
             this.postal_code_textbox.Name = "postal_code_textbox";
             this.postal_code_textbox.Size = new System.Drawing.Size(109, 23);
             this.postal_code_textbox.TabIndex = 22;
@@ -297,7 +299,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft YaHei UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(541, 671);
+            this.label10.Location = new System.Drawing.Point(541, 713);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(121, 20);
             this.label10.TabIndex = 21;
@@ -307,7 +309,7 @@
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Microsoft YaHei UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(108, 748);
+            this.label16.Location = new System.Drawing.Point(108, 770);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(385, 30);
             this.label16.TabIndex = 23;
@@ -429,17 +431,29 @@
             this.country_textbox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.country_textbox.Enabled = false;
             this.country_textbox.Font = new System.Drawing.Font("Microsoft YaHei UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.country_textbox.Location = new System.Drawing.Point(113, 689);
+            this.country_textbox.Location = new System.Drawing.Point(113, 731);
             this.country_textbox.Name = "country_textbox";
             this.country_textbox.Size = new System.Drawing.Size(279, 24);
             this.country_textbox.TabIndex = 30;
             this.country_textbox.Text = "Philippines";
+            // 
+            // business_logo_picturebox
+            // 
+            this.business_logo_picturebox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.business_logo_picturebox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.business_logo_picturebox.Location = new System.Drawing.Point(114, 139);
+            this.business_logo_picturebox.Name = "business_logo_picturebox";
+            this.business_logo_picturebox.Size = new System.Drawing.Size(132, 120);
+            this.business_logo_picturebox.TabIndex = 31;
+            this.business_logo_picturebox.TabStop = false;
+            this.business_logo_picturebox.Click += new System.EventHandler(this.business_logo_picturebox_Click);
             // 
             // JP_RegisterBusinessForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
+            this.Controls.Add(this.business_logo_picturebox);
             this.Controls.Add(this.country_textbox);
             this.Controls.Add(this.clear_draft_button);
             this.Controls.Add(this.save_draft_button);
@@ -469,8 +483,9 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "JP_RegisterBusinessForm";
-            this.Size = new System.Drawing.Size(963, 705);
+            this.Size = new System.Drawing.Size(1014, 705);
             ((System.ComponentModel.ISupportInitialize)(this.document_table)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.business_logo_picturebox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -512,5 +527,6 @@
         private System.Windows.Forms.Button save_draft_button;
         private System.Windows.Forms.Button clear_draft_button;
         private System.Windows.Forms.TextBox country_textbox;
+        private System.Windows.Forms.PictureBox business_logo_picturebox;
     }
 }

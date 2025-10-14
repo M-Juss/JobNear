@@ -15,11 +15,16 @@ namespace JobNear.JobPosterDashboardUserControl
     public partial class JP_RegisterBusinessForm : UserControl
     {
         private JobPosterDashboardForm JP_parent_form;
-        private String business_name, business_industry, business_description, business_email_address,
+        private String business_logo, business_name, business_industry, business_description, business_email_address,
                         business_contact, business_website, business_address, business_country, postal_code;
-
+        
         private void clear_draft_button_Click(object sender, EventArgs e)
         {
+            if (business_logo_picturebox.Image != null)
+            {
+                business_logo_picturebox.Image = null;
+                business_logo_picturebox.Tag = null;
+            }
             business_name_textbox.Clear();
             business_industry_combobox.SelectedIndex = -1;
             business_description_richbox.Clear();
@@ -29,7 +34,28 @@ namespace JobNear.JobPosterDashboardUserControl
             business_address_textbox.Clear();
             postal_code_textbox.Clear();
         }
+        private void business_logo_picturebox_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog select_business_logo = new OpenFileDialog())
+            {
+                select_business_logo.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.gif;*.bmp|All Files|*.*";
+                select_business_logo.Title = "Select an image";
 
+                if (select_business_logo.ShowDialog() == DialogResult.OK)
+                {
+                    try
+                    {
+                        business_logo_picturebox.Image = Image.FromFile(select_business_logo.FileName);
+                        business_logo_picturebox.Tag = select_business_logo.FileName;
+                        business_logo_picturebox.SizeMode = PictureBoxSizeMode.Zoom;
+                    }
+                    catch (Exception exc)
+                    {
+                        Console.WriteLine(exc.Message);
+                    }
+                }
+            }
+        }
         public JP_RegisterBusinessForm(JobPosterDashboardForm parent_form)
         {
             InitializeComponent();
@@ -62,7 +88,8 @@ namespace JobNear.JobPosterDashboardUserControl
                 "Business Website: " + business_website + "\n" +
                 "Business Address: " + business_address + "\n" +
                 "Country: " + business_country + "\n" +
-                "Postal Code: " + postal_code);            
+                "Postal Code: " + postal_code + "\n" +
+                "Business Logo: " + business_logo_picturebox.Tag);            
             }
             else
             {
