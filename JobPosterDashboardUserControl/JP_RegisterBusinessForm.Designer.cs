@@ -46,7 +46,6 @@
             this.business_address_textbox = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.country_combobox = new System.Windows.Forms.ComboBox();
             this.postal_code_textbox = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
@@ -62,6 +61,7 @@
             this.register_button = new System.Windows.Forms.Button();
             this.save_draft_button = new System.Windows.Forms.Button();
             this.clear_draft_button = new System.Windows.Forms.Button();
+            this.country_textbox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.document_table)).BeginInit();
             this.SuspendLayout();
             // 
@@ -284,66 +284,6 @@
             this.label12.TabIndex = 14;
             this.label12.Text = "Business Address";
             // 
-            // country_combobox
-            // 
-            this.country_combobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.country_combobox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.country_combobox.FormattingEnabled = true;
-            this.country_combobox.Items.AddRange(new object[] {
-            "Afghanistan",
-            "Armenia",
-            "Azerbaijan",
-            "Bahrain",
-            "Bangladesh",
-            "Bhutan",
-            "Brunei",
-            "Cambodia",
-            "China",
-            "Cyprus",
-            "Georgia",
-            "India",
-            "Indonesia",
-            "Iran",
-            "Iraq",
-            "Israel",
-            "Japan",
-            "Jordan",
-            "Kazakhstan",
-            "Kuwait",
-            "Kyrgyzstan",
-            "Laos",
-            "Lebanon",
-            "Malaysia",
-            "Maldives",
-            "Mongolia",
-            "Myanmar (Burma)",
-            "Nepal",
-            "North Korea",
-            "Oman",
-            "Pakistan",
-            "Palestine",
-            "Philippines",
-            "Qatar",
-            "Saudi Arabia",
-            "Singapore",
-            "South Korea",
-            "Sri Lanka",
-            "Syria",
-            "Taiwan",
-            "Tajikistan",
-            "Thailand",
-            "Timor-Leste (East Timor)",
-            "Turkey",
-            "Turkmenistan",
-            "United Arab Emirates (UAE)",
-            "Uzbekistan",
-            "Vietnam",
-            "Yemen"});
-            this.country_combobox.Location = new System.Drawing.Point(113, 690);
-            this.country_combobox.Name = "country_combobox";
-            this.country_combobox.Size = new System.Drawing.Size(360, 24);
-            this.country_combobox.TabIndex = 20;
-            // 
             // postal_code_textbox
             // 
             this.postal_code_textbox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -484,11 +424,23 @@
             this.clear_draft_button.UseVisualStyleBackColor = false;
             this.clear_draft_button.Click += new System.EventHandler(this.clear_draft_button_Click);
             // 
+            // country_textbox
+            // 
+            this.country_textbox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.country_textbox.Enabled = false;
+            this.country_textbox.Font = new System.Drawing.Font("Microsoft YaHei UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.country_textbox.Location = new System.Drawing.Point(113, 689);
+            this.country_textbox.Name = "country_textbox";
+            this.country_textbox.Size = new System.Drawing.Size(279, 24);
+            this.country_textbox.TabIndex = 30;
+            this.country_textbox.Text = "Philippines";
+            // 
             // JP_RegisterBusinessForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
+            this.Controls.Add(this.country_textbox);
             this.Controls.Add(this.clear_draft_button);
             this.Controls.Add(this.save_draft_button);
             this.Controls.Add(this.register_button);
@@ -498,7 +450,6 @@
             this.Controls.Add(this.label16);
             this.Controls.Add(this.postal_code_textbox);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.country_combobox);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.business_address_textbox);
             this.Controls.Add(this.label11);
@@ -518,7 +469,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "JP_RegisterBusinessForm";
-            this.Size = new System.Drawing.Size(980, 705);
+            this.Size = new System.Drawing.Size(963, 705);
             ((System.ComponentModel.ISupportInitialize)(this.document_table)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -545,7 +496,6 @@
         private System.Windows.Forms.TextBox business_address_textbox;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.ComboBox country_combobox;
         private System.Windows.Forms.TextBox postal_code_textbox;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label16;
@@ -561,5 +511,6 @@
         private System.Windows.Forms.Button register_button;
         private System.Windows.Forms.Button save_draft_button;
         private System.Windows.Forms.Button clear_draft_button;
+        private System.Windows.Forms.TextBox country_textbox;
     }
 }

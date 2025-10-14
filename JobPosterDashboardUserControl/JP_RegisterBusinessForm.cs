@@ -27,7 +27,6 @@ namespace JobNear.JobPosterDashboardUserControl
             business_contact_textbox.Clear();
             business_website_textbox.Clear();
             business_address_textbox.Clear();
-            country_combobox.SelectedIndex = -1;
             postal_code_textbox.Clear();
         }
 
@@ -39,7 +38,7 @@ namespace JobNear.JobPosterDashboardUserControl
 
         private void register_button_Click(object sender, EventArgs e)
         {
-            String email_pattern = @"^[a-zA-Z0-9_.]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,}$";          
+            String email_pattern = @"^[a-zA-Z0-9_.]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,}$"; 
 
             business_name = business_name_textbox.Text.ToString();
             business_industry = business_industry_combobox.SelectedItem.ToString();
@@ -48,7 +47,7 @@ namespace JobNear.JobPosterDashboardUserControl
             business_contact = business_contact_textbox.Text.ToString();
             business_website = business_website_textbox.Text.ToString();
             business_address = business_address_textbox.Text.ToString();
-            business_country = country_combobox.SelectedItem.ToString();
+            business_country = country_textbox.Text.ToString();
             postal_code = postal_code_textbox.Text.ToString();
 
             if (Regex.IsMatch(business_email_address, email_pattern))
