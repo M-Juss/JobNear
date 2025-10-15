@@ -27,16 +27,18 @@ namespace JobNear.JobSeekerDashboardUserControl
         {
             var seeker = await MongoDbServices.UserNotification
                 .Find(x => x.NotificationId == Session.CurrentUserId)
-                .ToListAsync(); 
-
-            if (seeker != null)
+                .ToListAsync();
+            Console.WriteLine(seeker.Count);
+            if (seeker.Count > 0)
             {
+                notificationManager = new NotificationFlowManager(sidebar_panel);
                 foreach (var notif in seeker)
                 {
-                    notificationManager = new NotificationFlowManager(sidebar_panel);
                     notificationManager.AddNotification(notif.Key, notif.HeaderMessage, notif.Remarks, notif.Type, notif.Date);
                 }
             }
+
+
         }
 
         private void sidebar_panel_Paint(object sender, PaintEventArgs e)

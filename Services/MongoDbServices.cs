@@ -88,6 +88,35 @@ namespace JobNear.Services
 
                     Console.WriteLine($"\n id: {Session.CurrentUserId} \n email: {Session.CurrentEmail} \n lat: {Session.CurrentLatitude} \n lon: {Session.CurrentLongitude}");
 
+                    var userNotif = await MongoDbServices.UserNotification
+                        .Find(x => x.NotificationId == Session.CurrentUserId)
+                        .ToListAsync();
+
+                    Console.WriteLine($"Found {userNotif.Count} notifications for user {Session.CurrentUserId}");
+
+                    if (userNotif.Count == 0)
+                    {
+                        Console.WriteLine("pasok");
+                        string key = "System";
+                        string headerMessage = "Welcome to JobNear! Complete your profile to get started.";
+                        string remarks = "You must need to make your profile verify for you to browse job.";
+                        string type = "Info";
+                        DateTime date = DateTime.Now;
+
+                        var systemNotif = new UserNotificationModel
+                        {
+                            NotificationId = Session.CurrentUserId,
+                            Key = key,
+                            HeaderMessage = headerMessage,
+                            Remarks = remarks,
+                            Type = type,
+                            Date = date,
+                        };
+
+                        await MongoDbServices.UserNotification.InsertOneAsync(systemNotif);
+                        MessageBox.Show("System Info inserted successfully");
+                    }
+
                     MessageBox.Show("Login successful", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     FormsController.FormLoad(new JobSeekerDashboardForm(), app_panel);
                 }
@@ -116,17 +145,20 @@ namespace JobNear.Services
                     FormsController.FormLoad(new JobPosterSignupForm(), app_panel);
                 }
 
-                else if (user == "admin") { 
+                else if (user == "admin")
+                {
                     var admin = await AdminAccount
                         .Find(x => x.Email == email)
                         .FirstOrDefaultAsync();
 
-                    if (admin == null) {
+                    if (admin == null)
+                    {
                         MessageBox.Show("Email not found", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
 
-                    if (admin.Password != password) {
+                    if (admin.Password != password)
+                    {
                         MessageBox.Show("Incorrect password", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
@@ -142,6 +174,7 @@ namespace JobNear.Services
                 {
                     MessageBox.Show("Unknown user type", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+                
             }
             catch (Exception ex)
             {

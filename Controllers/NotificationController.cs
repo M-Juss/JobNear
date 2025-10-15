@@ -51,7 +51,7 @@ namespace JobNear.Controllers
             headerLabel.Font = new Font("Poppins", 9, FontStyle.Regular);
             headerLabel.ForeColor = Color.FromArgb(60, 60, 60);
             headerLabel.Location = new Point(65, 28);
-            headerLabel.Size = new Size(480, 20);
+            headerLabel.Size = new Size(600, 20);
             headerLabel.BackColor = Color.Transparent;
 
             // Remarks label
@@ -60,7 +60,7 @@ namespace JobNear.Controllers
             remarksLabel.Font = new Font("Poppins", 8.5f, FontStyle.Italic);
             remarksLabel.ForeColor = Color.FromArgb(100, 100, 100);
             remarksLabel.Location = new Point(65, 48);
-            remarksLabel.Size = new Size(480, 18);
+            remarksLabel.Size = new Size(600, 18);
             remarksLabel.BackColor = Color.Transparent;
             remarksLabel.AutoEllipsis = true;
 

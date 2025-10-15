@@ -325,6 +325,11 @@ namespace JobNear.JobSeekerDashboardUserControl
             }
 
         }
+
+        private void sidebar_panel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
 
