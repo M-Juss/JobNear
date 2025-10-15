@@ -1,4 +1,7 @@
 ﻿using JobNear.Controllers;
+using JobNear.Models;
+using JobNear.Services;
+using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,11 +20,23 @@ namespace JobNear.JobSeekerDashboardUserControl
         public JS_Notifications()
         {
             InitializeComponent();
-            // Initialize with your existing notification panel
-            notificationManager = new NotificationFlowManager(sidebar_panel);
+            LoadUserNotif();
+        }
 
-            // Load some sample notifications
-            notificationManager.LoadSampleNotifications();
+        private async void LoadUserNotif()
+        {
+            var seeker = await MongoDbServices.UserNotification
+                .Find(x => x.NotificationId == Session.CurrentUserId)
+                .ToListAsync();
+            Console.WriteLine(seeker.Count);
+            if (seeker.Count > 0)
+            {
+                notificationManager = new NotificationFlowManager(sidebar_panel);
+                foreach (var notif in seeker)
+                {
+                    notificationManager.AddNotification(notif.Key, notif.HeaderMessage, notif.Remarks, notif.Type, notif.Date);
+                }
+            }
 
 
         }

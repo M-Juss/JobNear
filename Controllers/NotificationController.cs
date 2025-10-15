@@ -11,15 +11,15 @@ namespace JobNear.Controllers
 {
     public class NotificationController : UserControl
     {
-        public NotificationController(string senderName, string message, string type, DateTime date)
+        public NotificationController(string senderName, string headerMessage, string remarks, string type, DateTime date)
         {
-            SetupNotificationBox(senderName, message, type, date);
+            SetupNotificationBox(senderName, headerMessage, remarks, type, date);
         }
 
-        private void SetupNotificationBox(string senderName, string message, string type, DateTime date)
+        private void SetupNotificationBox(string senderName, string headerMessage, string remarks, string type, DateTime date)
         {
             // Set size - FlowLayoutPanel will handle positioning
-            this.Size = new Size(980, 70);
+            this.Size = new Size(980, 90); // slightly taller to fit remarks
             this.BackColor = Color.White;
             this.BorderStyle = BorderStyle.FixedSingle;
             this.Margin = new Padding(5, 3, 5, 3); // Small margins for spacing
@@ -42,25 +42,35 @@ namespace JobNear.Controllers
             senderLabel.Font = new Font("Poppins", 10, FontStyle.Bold);
             senderLabel.ForeColor = Color.Black;
             senderLabel.Location = new Point(65, 8);
-            senderLabel.Size = new Size(150, 20);
+            senderLabel.Size = new Size(200, 20);
             senderLabel.BackColor = Color.Transparent;
 
-            // Message label
-            Label messageLabel = new Label();
-            messageLabel.Text = message;
-            messageLabel.Font = new Font("Poppins", 9, FontStyle.Regular);
-            messageLabel.ForeColor = Color.FromArgb(60, 60, 60);
-            messageLabel.Location = new Point(65, 28);
-            messageLabel.Size = new Size(480, 20);
-            messageLabel.BackColor = Color.Transparent;
+            // Header message label
+            Label headerLabel = new Label();
+            headerLabel.Text = headerMessage;
+            headerLabel.Font = new Font("Poppins", 9, FontStyle.Regular);
+            headerLabel.ForeColor = Color.FromArgb(60, 60, 60);
+            headerLabel.Location = new Point(65, 28);
+            headerLabel.Size = new Size(600, 20);
+            headerLabel.BackColor = Color.Transparent;
+
+            // Remarks label
+            Label remarksLabel = new Label();
+            remarksLabel.Text = remarks;
+            remarksLabel.Font = new Font("Poppins", 8.5f, FontStyle.Italic);
+            remarksLabel.ForeColor = Color.FromArgb(100, 100, 100);
+            remarksLabel.Location = new Point(65, 48);
+            remarksLabel.Size = new Size(600, 18);
+            remarksLabel.BackColor = Color.Transparent;
+            remarksLabel.AutoEllipsis = true;
 
             // Date label
             Label dateLabel = new Label();
             dateLabel.Text = FormatTimeAgo(date);
             dateLabel.Font = new Font("Poppins", 8, FontStyle.Regular);
             dateLabel.ForeColor = Color.Gray;
-            dateLabel.Location = new Point(65, 48);
-            dateLabel.Size = new Size(100, 15);
+            dateLabel.Location = new Point(65, 68);
+            dateLabel.Size = new Size(120, 15);
             dateLabel.BackColor = Color.Transparent;
 
             // Hover effects
@@ -68,8 +78,9 @@ namespace JobNear.Controllers
             this.MouseLeave += (s, e) => this.BackColor = Color.White;
 
             // Add all controls
-            this.Controls.AddRange(new Control[] { avatarPanel, senderLabel, messageLabel, dateLabel });
+            this.Controls.AddRange(new Control[] { avatarPanel, senderLabel, headerLabel, remarksLabel, dateLabel });
         }
+
 
         private void DrawIcon(Graphics g, string type)
         {
@@ -133,133 +144,117 @@ namespace JobNear.Controllers
 
         private void CreateFlowLayoutPanel(Panel container)
         {
-            // Create FlowLayoutPanel inside your existing panel
+
             flowPanel = new FlowLayoutPanel();
             flowPanel.Dock = DockStyle.Fill;
-            flowPanel.FlowDirection = FlowDirection.TopDown; // Top to bottom
-            flowPanel.WrapContents = false; // Don't wrap to next column
-            flowPanel.AutoScroll = true; // Enable scrolling
-            flowPanel.BackColor = Color.FromArgb(46, 204, 113); // Your green background
+            flowPanel.FlowDirection = FlowDirection.TopDown;
+            flowPanel.WrapContents = false;
+            flowPanel.AutoScroll = true;
+            flowPanel.BackColor = Color.WhiteSmoke;
             flowPanel.Padding = new Padding(10);
 
-            // Add FlowLayoutPanel to your existing panel
             container.Controls.Clear();
             container.Controls.Add(flowPanel);
         }
 
         // Add a new notification (will automatically position at top)
-        public void AddNotification(string senderName, string message, string type = "Info", DateTime? date = null)
+        public void AddNotification(string senderName, string headerMessage, string remarks, string type = "Info", DateTime? date = null)
         {
             DateTime notificationDate = date ?? DateTime.Now;
-            NotificationController notification = new NotificationController(senderName, message, type, notificationDate);
+            NotificationController notification = new NotificationController(senderName, headerMessage, remarks, type, notificationDate);
 
             // Insert at the top (index 0) so newest notifications appear first
             flowPanel.Controls.Add(notification);
             flowPanel.Controls.SetChildIndex(notification, 0);
 
-            // Auto-scroll to top to show the newest notification
+
             flowPanel.ScrollControlIntoView(notification);
         }
 
-        // Add verification notification
-        public void AddVerificationNotification(string applicantName, bool isVerified)
-        {
-            string message = isVerified
-                ? $"Congratulations {applicantName}! Your profile has been successfully verified."
-                : $"Hello {applicantName}, your profile verification was not approved. Please review and resubmit.";
-
-            string type = isVerified ? "Success" : "Error";
-            AddNotification("Admin", message, type);
-        }
-
-        // Clear all notifications
         public void ClearAllNotifications()
         {
             flowPanel.Controls.Clear();
         }
 
-        // Get count of notifications
         public int GetNotificationCount()
         {
             return flowPanel.Controls.Count;
         }
 
-        // Load sample notifications for testing
-        public void LoadSampleNotifications()
+        //    // Load sample notifications for testing
+        //    public void LoadSampleNotifications()
+        //    {
+        //        List<NewNotification> list = new List<NewNotification>();
+        //        list.Add(new NewNotification
+        //        {
+        //            Key = "Admin",
+        //            Message = "Your profile has been verified successfully!",
+        //            Type = "Success",
+        //            Date = DateTime.Now.AddMinutes(-5)
+        //        });
+        //        list.Add(new NewNotification
+        //        {
+        //            Key = "Admin",
+        //            Message = "Please update your contact information.",
+        //            Type = "Warning",
+        //            Date = DateTime.Now.AddMinutes(-15)
+        //        });
+        //        list.Add(new NewNotification
+        //        {
+        //            Key = "System",
+        //            Message = "Welcome to JobNear! Complete your profile to get started.",
+        //            Type = "Info",
+        //            Date = DateTime.Now.AddHours(-1)
+        //        });
+        //        list.Add(new NewNotification
+        //        {
+        //            Key = "Admin",
+        //            Message = "Your document upload failed. Please try again.",
+        //            Type = "Error",
+        //            Date = DateTime.Now.AddHours(-3)
+        //        });
+        //        list.Add(new NewNotification
+        //        {
+        //            Key = "Admin",
+        //            Message = "Your profile has been verified successfully!",
+        //            Type = "Success",
+        //            Date = DateTime.Now.AddMinutes(-5)
+        //        });
+        //        list.Add(new NewNotification
+        //        {
+        //            Key = "Admin",
+        //            Message = "Please update your contact information.",
+        //            Type = "Warning",
+        //            Date = DateTime.Now.AddMinutes(-15)
+        //        });
+        //        list.Add(new NewNotification
+        //        {
+        //            Key = "System",
+        //            Message = "Welcome to JobNear! Complete your profile to get started.",
+        //            Type = "Info",
+        //            Date = DateTime.Now.AddHours(-1)
+        //        });
+        //        list.Add(new NewNotification
+        //        {
+        //            Key = "Admin",
+        //            Message = "Your document upload failed. Please try again.",
+        //            Type = "Error",
+        //            Date = DateTime.Now.AddHours(-3)
+        //        });
+
+        //        foreach (var notif in list)
+        //        {
+        //            AddNotification(notif.Key, notif.Message, notif.Type, notif.Date);
+        //        }
+        //    }
+
+        //}
+        public class NewNotification
         {
-            List<NewNotification> list = new List<NewNotification>();
-            list.Add(new NewNotification
-            {
-                Key = "Admin",
-                Message = "Your profile has been verified successfully!",
-                Type = "Success",
-                Date = DateTime.Now.AddMinutes(-5)
-            });
-            list.Add(new NewNotification
-            {
-                Key = "Admin",
-                Message = "Please update your contact information.",
-                Type = "Warning",
-                Date = DateTime.Now.AddMinutes(-15)
-            });
-            list.Add(new NewNotification
-            {
-                Key = "System",
-                Message = "Welcome to JobNear! Complete your profile to get started.",
-                Type = "Info",
-                Date = DateTime.Now.AddHours(-1)
-            });
-            list.Add(new NewNotification
-            {
-                Key = "Admin",
-                Message = "Your document upload failed. Please try again.",
-                Type = "Error",
-                Date = DateTime.Now.AddHours(-3)
-            });
-            list.Add(new NewNotification
-            {
-                Key = "Admin",
-                Message = "Your profile has been verified successfully!",
-                Type = "Success",
-                Date = DateTime.Now.AddMinutes(-5)
-            });
-            list.Add(new NewNotification
-            {
-                Key = "Admin",
-                Message = "Please update your contact information.",
-                Type = "Warning",
-                Date = DateTime.Now.AddMinutes(-15)
-            });
-            list.Add(new NewNotification
-            {
-                Key = "System",
-                Message = "Welcome to JobNear! Complete your profile to get started.",
-                Type = "Info",
-                Date = DateTime.Now.AddHours(-1)
-            });
-            list.Add(new NewNotification
-            {
-                Key = "Admin",
-                Message = "Your document upload failed. Please try again.",
-                Type = "Error",
-                Date = DateTime.Now.AddHours(-3)
-            });
-
-            foreach (var notif in list)
-            {
-                AddNotification(notif.Key, notif.Message, notif.Type, notif.Date);
-            }
+            public string Key { get; set; }
+            public string Message { get; set; }
+            public string Type { get; set; }
+            public DateTime Date { get; set; }
         }
-
-    }
-    public class NewNotification
-    {
-        public string Key { get; set; }
-        public string Message { get; set; }
-        public string Type { get; set; }
-        public DateTime Date { get; set; }
-
-
-
     }
 }

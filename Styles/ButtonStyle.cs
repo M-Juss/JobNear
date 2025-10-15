@@ -37,7 +37,7 @@ namespace JobNear.Styles
         {
             btn.FlatStyle = FlatStyle.Flat;
             btn.FlatAppearance.BorderSize = 0;
-            btn.BackColor = ColorTranslator.FromHtml(hexColor);
+            btn.BackColor = ColorTranslator.FromHtml("#3B82F6");
             btn.ForeColor = Color.White;
             btn.Font = new Font("Poppins", 11, FontStyle.Bold);
             btn.Height = 45;

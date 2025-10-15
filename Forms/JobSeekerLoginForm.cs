@@ -10,6 +10,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using JobNear.Controller;
 using JobNear.Services;
+using JobNear.Controllers;
+using MongoDB.Driver;
+using JobNear.Models;
 
 namespace JobNear.Forms
 {
@@ -46,14 +49,17 @@ namespace JobNear.Forms
             password_input.UseSystemPasswordChar = !password_checkbox.Checked;
         }
 
-        private async void login_button_Click(object sender, EventArgs e)
-        {
-            if (string.IsNullOrEmpty(email_input.Text) || string.IsNullOrEmpty(password_input.Text))
-            {
-                MessageBox.Show("Please fill all fields", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-            await MongoDbServices.LoginJobNearAccountAsync("jobseeker", email_input.Text, password_input.Text, app_panel);
+private async void login_button_Click(object sender, EventArgs e)
+{
+    if (string.IsNullOrEmpty(email_input.Text) || string.IsNullOrEmpty(password_input.Text))
+    {
+        MessageBox.Show("Please fill all fields", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        return;
+    }
+
+    await MongoDbServices.LoginJobNearAccountAsync("jobseeker", email_input.Text, password_input.Text, app_panel);
+
         }
+
     }
 }

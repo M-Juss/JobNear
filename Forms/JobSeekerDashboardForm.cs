@@ -104,8 +104,9 @@ namespace JobNear.Forms
             js_jobList.Dock = DockStyle.Fill;
         }
 
-        private void notification_button_Click(object sender, EventArgs e)
+        private async void notification_button_Click(object sender, EventArgs e)
         {
+
             hideInactiveSubMenu();
             sidebar_panel.Controls.Clear();
             sidebar_panel.Controls.Add(js_notification);

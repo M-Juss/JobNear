@@ -12,10 +12,10 @@ namespace JobNear.Styles
 {
     public class FlowLayoutStyles
     {
-        public static void AddFileItem(string filePath, FlowLayoutPanel docu_flowlayout)
+        public static void AddFileItem(string filePath, FlowLayoutPanel docu_flowlayout, int width)
         {
             Panel filePanel = new Panel();
-            filePanel.Width = 765;
+            filePanel.Width = width;
             filePanel.Height = 50;
             filePanel.BackColor = Color.White;
             filePanel.Margin = new Padding(0, 0, 0, 2);
@@ -125,21 +125,18 @@ namespace JobNear.Styles
             docu_flowlayout.Controls.Add(filePanel);
         }
 
-        public static void AddSupportingDocumentToFlow(SupportingDocument doc, FlowLayoutPanel docu_flowlayout)
+        public static void AddSupportingDocumentToFlow(SupportingDocument doc, FlowLayoutPanel docu_flowlayout, int width)
         {
             Panel filePanel = new Panel();
-            filePanel.Width = 765;
+            filePanel.Width = width;
             filePanel.Height = 50;
             filePanel.BackColor = Color.White;
             filePanel.Margin = new Padding(0, 0, 0, 2);
             filePanel.Padding = new Padding(10);
             filePanel.BorderStyle = BorderStyle.None;
 
-            PictureBox picIcon = new PictureBox();
-            picIcon.Width = 30;
-            picIcon.Height = 30;
-            picIcon.SizeMode = PictureBoxSizeMode.StretchImage;
-            picIcon.Location = new Point(10, 10);
+            // ✅ Keep original document reference (important for updating later)
+            filePanel.Tag = doc;
 
             filePanel.Paint += (s, e) =>
             {
@@ -150,14 +147,20 @@ namespace JobNear.Styles
                     Color.LightGray, 1, ButtonBorderStyle.Solid);
             };
 
-            // Choose icon based on extension
+            PictureBox picIcon = new PictureBox();
+            picIcon.Width = 30;
+            picIcon.Height = 30;
+            picIcon.SizeMode = PictureBoxSizeMode.StretchImage;
+            picIcon.Location = new Point(10, 10);
+
             try
             {
+                // Just to get system icon
                 string tempFile = Path.Combine(Path.GetTempPath(), doc.FileName);
-                File.WriteAllBytes(tempFile, doc.FileContent); // write temporarily just to extract icon
+                File.WriteAllBytes(tempFile, doc.FileContent);
                 Icon sysIcon = Icon.ExtractAssociatedIcon(tempFile);
                 picIcon.Image = sysIcon?.ToBitmap() ?? SystemIcons.Application.ToBitmap();
-                File.Delete(tempFile); // cleanup
+                File.Delete(tempFile);
             }
             catch
             {
@@ -178,7 +181,7 @@ namespace JobNear.Styles
             Button btnPreview = new Button();
             btnPreview.Width = 30;
             btnPreview.Height = 30;
-            btnPreview.Location = new Point(680, 10);
+            btnPreview.Location = new Point(width - 105, 10);
             btnPreview.FlatStyle = FlatStyle.Flat;
             btnPreview.FlatAppearance.BorderSize = 0;
             btnPreview.BackColor = Color.Transparent;
@@ -188,10 +191,8 @@ namespace JobNear.Styles
             btnPreview.Cursor = Cursors.Hand;
             btnPreview.Click += (s, e) =>
             {
-                // Save to temp and open
                 string tempPath = Path.Combine(Path.GetTempPath(), doc.FileName);
                 File.WriteAllBytes(tempPath, doc.FileContent);
-
                 System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo()
                 {
                     FileName = tempPath,
@@ -203,7 +204,7 @@ namespace JobNear.Styles
             Button btnDelete = new Button();
             btnDelete.Width = 30;
             btnDelete.Height = 30;
-            btnDelete.Location = new Point(720, 10);
+            btnDelete.Location = new Point(width - 65, 10);
             btnDelete.FlatStyle = FlatStyle.Flat;
             btnDelete.FlatAppearance.BorderSize = 0;
             btnDelete.BackColor = Color.Transparent;
@@ -219,7 +220,6 @@ namespace JobNear.Styles
                 if (confirm == DialogResult.Yes)
                 {
                     filePanel.Dispose();
-                    // ❗ you can also remove from DB here if needed
                 }
             };
 
@@ -230,7 +230,5 @@ namespace JobNear.Styles
 
             docu_flowlayout.Controls.Add(filePanel);
         }
-
-
     }
 }

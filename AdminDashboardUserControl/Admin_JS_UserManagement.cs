@@ -1,5 +1,9 @@
-﻿using JobNear.Models;
+﻿using JobNear.Controller;
+using JobNear.Controllers;
+using JobNear.JobSeekerDashboardUserControl;
+using JobNear.Models;
 using JobNear.Services;
+using JobNear.Styles;
 using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
@@ -19,7 +23,12 @@ namespace JobNear.AdminDashboardUserControl
         public Admin_JS_UserManagement()
         {
             InitializeComponent();
+            status_combo.SelectedIndex = 0;
+
             status_combo.TextChanged += StatusChanged;
+
+            TableStyles.UserTables(seeker_table);
+
             seeker_table.Columns.Add("Username", "Username");
             seeker_table.Columns.Add("Fullname", "Full Name");
             seeker_table.Columns.Add("Email", "Email");
@@ -27,48 +36,43 @@ namespace JobNear.AdminDashboardUserControl
             seeker_table.Columns.Add("Age", "Age");
             seeker_table.Columns.Add("Sex", "Sex");
             seeker_table.Columns.Add("Status", "Status");
-            seeker_table.Columns.Add("Action", "Action");
 
-            seeker_table.Dock = DockStyle.Fill;
-            seeker_table.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            seeker_table.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-            seeker_table.RowHeadersVisible = false;
+            var actionButton = new DataGridViewButtonColumn();
+            actionButton.Name = "Action";
+            actionButton.HeaderText = "Action";
+            actionButton.Text = ">";
+            actionButton.UseColumnTextForButtonValue = true; 
+            actionButton.FlatStyle = FlatStyle.Flat;
+            actionButton.Width = 60;
+            actionButton.DefaultCellStyle.Font = new Font("Poppins", 12, FontStyle.Bold);
+            seeker_table.Columns.Add(actionButton);
 
-            // Background and border
-            seeker_table.BackgroundColor = Color.White;
-            seeker_table.BorderStyle = BorderStyle.None;
-            seeker_table.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
-            seeker_table.GridColor = Color.LightGray;
+            //InitialTableValue();
 
-            // Header style
-            seeker_table.EnableHeadersVisualStyles = false;
-            seeker_table.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            seeker_table.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(240, 240, 240);
-            seeker_table.ColumnHeadersDefaultCellStyle.ForeColor = Color.Black;
-            seeker_table.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI Semibold", 10, FontStyle.Bold);
-            seeker_table.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            seeker_table.ColumnHeadersHeight = 35;
-            seeker_table.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-
-            // Row style
-            seeker_table.DefaultCellStyle.BackColor = Color.White;
-            seeker_table.DefaultCellStyle.ForeColor = Color.Black;
-            seeker_table.DefaultCellStyle.SelectionBackColor = Color.FromArgb(60, 120, 216);
-            seeker_table.DefaultCellStyle.SelectionForeColor = Color.White;
-            seeker_table.DefaultCellStyle.Font = new Font("Segoe UI", 10);
-
-            // Alternating row color (for modern look)
-            seeker_table.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(248, 248, 248);
-
-            // Rounded corners (optional: only works visually if placed in panel with padding)
-            seeker_table.DefaultCellStyle.Padding = new Padding(6, 6, 6, 6);
+            search_input.Text = "Search";
+            search_input.ForeColor = Color.Gray;
+            
         }
 
-        private void Admin_JS_UserManagement_Load(object sender, EventArgs e)
-        {
 
+        private async void InitialTableValue() {
+            var filterPending = Builders<JobSeekerAccountModel>.Filter.Eq(x => x.Status, "pending");
+
+            var pendingAccounts = await MongoDbServices.JobSeekerAccount
+                .Find(filterPending)
+                .ToListAsync();
+
+            if (pendingAccounts != null)
+            {
+                pendingAccounts.ForEach(account => {
+
+                    string fullname = $"{account.Lastname}, {account.Firstname} {account.Middlename}";
+
+                    seeker_table.Rows.Add(account.Username, fullname, account.Email, account.Phone, account.Age, account.Sex, account.Status);
+
+                });
+            }
         }
-
         private async void StatusChanged(object sender, EventArgs e)
         {
             string response = status_combo.Text.ToLower();
@@ -76,6 +80,8 @@ namespace JobNear.AdminDashboardUserControl
             switch (response)
             {
                 case "pending":
+                    seeker_table.Rows.Clear();
+
                     var filterPending = Builders<JobSeekerAccountModel>.Filter.Eq(x => x.Status, "pending");
 
                     var pendingAccounts = await MongoDbServices.JobSeekerAccount
@@ -95,6 +101,7 @@ namespace JobNear.AdminDashboardUserControl
                     break;
 
                 case "verified":
+                    seeker_table.Rows.Clear();
                     var filterVerified = Builders<JobSeekerAccountModel>.Filter.Eq(x => x.Status, "verified");
 
                     var verifiedAccount = await MongoDbServices.JobSeekerAccount
@@ -115,6 +122,7 @@ namespace JobNear.AdminDashboardUserControl
                     break;
 
                 case "incomplete":
+                    seeker_table.Rows.Clear();
                     var filterIncomplete = Builders<JobSeekerAccountModel>.Filter.Eq(x => x.Status, "incomplete");
 
                     var incompleteAccount = await MongoDbServices.JobSeekerAccount
@@ -136,6 +144,7 @@ namespace JobNear.AdminDashboardUserControl
                     break;
 
                 case "rejected":
+                    seeker_table.Rows.Clear();
                     var filterRejected = Builders<JobSeekerAccountModel>.Filter.Eq(x => x.Status, "rejected");
 
                     var rejectedAccount = await MongoDbServices.JobSeekerAccount
@@ -155,6 +164,7 @@ namespace JobNear.AdminDashboardUserControl
                     break;
 
                 case "all":
+                    seeker_table.Rows.Clear();
                     var submmitedAccount = Builders<JobSeekerAccountModel>.Filter.Eq(x => x.IsDraft, false);
 
                     var allAccount = await MongoDbServices.JobSeekerAccount
@@ -183,11 +193,26 @@ namespace JobNear.AdminDashboardUserControl
         private void seeker_table_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+            if (e.RowIndex >= 0 && e.ColumnIndex == seeker_table.Columns["Action"].Index)
+            {
+                string email = seeker_table.Rows[e.RowIndex].Cells["Email"].Value.ToString();
+
+                JS_ViewInformation viewInformation = new JS_ViewInformation(email);
+                sidebar_panel.Controls.Clear();
+                sidebar_panel.Controls.Add(viewInformation);
+                viewInformation.Dock = DockStyle.Fill;
+            }
         }
 
         private void status_combo_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void search_input_MouseClick(object sender, MouseEventArgs e)
+        {
+            search_input.Text = "";
+            search_input.ForeColor = Color.Gray;
         }
     }
 }

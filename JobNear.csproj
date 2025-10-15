@@ -205,6 +205,12 @@
     <Compile Include="AdminDashboardUserControl\Admin_SystemSettings.Designer.cs">
       <DependentUpon>Admin_SystemSettings.cs</DependentUpon>
     </Compile>
+    <Compile Include="AdminDashboardUserControl\JS_ViewInformation.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AdminDashboardUserControl\JS_ViewInformation.Designer.cs">
+      <DependentUpon>JS_ViewInformation.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\FormsController.cs" />
     <Compile Include="Controllers\MapController.cs" />
     <Compile Include="Controllers\NotificationController.cs">
@@ -300,6 +306,7 @@
     <Compile Include="Models\JobPosterBusinessModel.cs" />
     <Compile Include="Models\JobPosterJobPostingModel.cs" />
     <Compile Include="Models\JobSeekerAccountModel.cs" />
+    <Compile Include="Models\UserNotificationModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -315,6 +322,7 @@
     <Compile Include="Controllers\TextBoxValidatorController.cs" />
     <Compile Include="Styles\FlowLayoutStyles.cs" />
     <Compile Include="Styles\PanelStyles.cs" />
+    <Compile Include="Styles\TableStyles.cs" />
     <EmbeddedResource Include="AdminDashboardUserControl\Admin_Dashboard.resx">
       <DependentUpon>Admin_Dashboard.cs</DependentUpon>
     </EmbeddedResource>
@@ -326,6 +334,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AdminDashboardUserControl\Admin_SystemSettings.resx">
       <DependentUpon>Admin_SystemSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminDashboardUserControl\JS_ViewInformation.resx">
+      <DependentUpon>JS_ViewInformation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\AdminDashboardForm.resx">
       <DependentUpon>AdminDashboardForm.cs</DependentUpon>
