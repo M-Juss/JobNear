@@ -1,4 +1,5 @@
 ﻿using JobNear.Forms;
+using JobNear.Styles;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,6 +19,13 @@ namespace JobNear.JobPosterDashboardUserControl
         {
             InitializeComponent();
             JP_parent_form = parent_form;
+
+            PanelStyles.RoundedPanel(panel1, 20, Color.White);
+        }
+
+        private void JP_Dashboard_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
