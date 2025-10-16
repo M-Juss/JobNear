@@ -1,4 +1,5 @@
 ﻿using JobNear.JobPosterDashboardUserControl;
+using JobNear.Styles;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -23,6 +24,14 @@ namespace JobNear.Forms
         public JobPosterDashboardForm()
         {
             InitializeComponent();
+
+            ButtonStyle.SidebarButton(jobnear_button, "#3B82F6");
+            ButtonStyle.SidebarButton(dashboard_button, "#3B82F6");
+            ButtonStyle.SidebarButton(business_button, "#3B82F6");
+            ButtonStyle.SidebarButton(view_business_button, "#3B82F6");
+            ButtonStyle.SidebarButton(notification_button, "#3B82F6");
+            ButtonStyle.SidebarButton(log_out_button, "#3B82F6");
+
 
             register_business_panel = new JP_RegisterBusinessForm(this);
             post_job_form_panel = new JP_PostJobForm(this);
@@ -88,6 +97,16 @@ namespace JobNear.Forms
             panel_to_show.Visible = true;
         }
 
-        
+        private void JP_sidebar_panel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void JP_main_panel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+
     }
 }
