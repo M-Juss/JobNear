@@ -136,7 +136,6 @@
             // 
             // close_image
             // 
-            this.close_image.Image = global::JobNear.Properties.Resources.close;
             this.close_image.Location = new System.Drawing.Point(1193, 4);
             this.close_image.Name = "close_image";
             this.close_image.Size = new System.Drawing.Size(33, 32);
