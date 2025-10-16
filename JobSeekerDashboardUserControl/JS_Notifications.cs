@@ -31,7 +31,7 @@ namespace JobNear.JobSeekerDashboardUserControl
             Console.WriteLine(seeker.Count);
             if (seeker.Count > 0)
             {
-                notificationManager = new NotificationFlowManager(sidebar_panel);
+                notificationManager = new NotificationFlowManager(notif_panel);
                 foreach (var notif in seeker)
                 {
                     notificationManager.AddNotification(notif.Key, notif.HeaderMessage, notif.Remarks, notif.Type, notif.Date);

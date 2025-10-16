@@ -229,6 +229,12 @@
     <Compile Include="Forms\ForgotPasswordForm.Designer.cs">
       <DependentUpon>ForgotPasswordForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\JobPosterDashboardForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\JobPosterDashboardForm.Designer.cs">
+      <DependentUpon>JobPosterDashboardForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\JobNearAdminForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -270,6 +276,48 @@
     </Compile>
     <Compile Include="Forms\JobSeekerSignupForm.Designer.cs">
       <DependentUpon>JobSeekerSignupForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="JobPosterDashboardUserControl\JP_RegisterBusinessForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="JobPosterDashboardUserControl\JP_RegisterBusinessForm.Designer.cs">
+      <DependentUpon>JP_RegisterBusinessForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="JobPosterDashboardUserControl\JP_Business.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="JobPosterDashboardUserControl\JP_Business.Designer.cs">
+      <DependentUpon>JP_Business.cs</DependentUpon>
+    </Compile>
+    <Compile Include="JobPosterDashboardUserControl\JP_PostJobForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="JobPosterDashboardUserControl\JP_PostJobForm.Designer.cs">
+      <DependentUpon>JP_PostJobForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="JobPosterDashboardUserControl\JP_Notifications.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="JobPosterDashboardUserControl\JP_Notifications.Designer.cs">
+      <DependentUpon>JP_Notifications.cs</DependentUpon>
+    </Compile>
+    <Compile Include="JobPosterDashboardUserControl\JP_Dashboard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="JobPosterDashboardUserControl\JP_Dashboard.Designer.cs">
+      <DependentUpon>JP_Dashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="JobPosterDashboardUserControl\JP_MyBusiness.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="JobPosterDashboardUserControl\JP_MyBusiness.Designer.cs">
+      <DependentUpon>JP_MyBusiness.cs</DependentUpon>
+    </Compile>
+    <Compile Include="JobPosterDashboardUserControl\JP_BusinessDetails.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="JobPosterDashboardUserControl\JP_BusinessDetails.Designer.cs">
+      <DependentUpon>JP_BusinessDetails.cs</DependentUpon>
     </Compile>
     <Compile Include="JobSeekerDashboardUserControl\JS_Dashboard.cs">
       <SubType>UserControl</SubType>
@@ -350,6 +398,9 @@
     <EmbeddedResource Include="Forms\JobNearUserForm.resx">
       <DependentUpon>JobNearUserForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\JobPosterDashboardForm.resx">
+      <DependentUpon>JobPosterDashboardForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\JobPosterLoginForm.resx">
       <DependentUpon>JobPosterLoginForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -364,6 +415,27 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\JobSeekerSignupForm.resx">
       <DependentUpon>JobSeekerSignupForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JobPosterDashboardUserControl\JP_Business.resx">
+      <DependentUpon>JP_Business.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JobPosterDashboardUserControl\JP_BusinessDetails.resx">
+      <DependentUpon>JP_BusinessDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JobPosterDashboardUserControl\JP_Dashboard.resx">
+      <DependentUpon>JP_Dashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JobPosterDashboardUserControl\JP_MyBusiness.resx">
+      <DependentUpon>JP_MyBusiness.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JobPosterDashboardUserControl\JP_RegisterBusinessForm.resx">
+      <DependentUpon>JP_RegisterBusinessForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JobPosterDashboardUserControl\JP_PostJobForm.resx">
+      <DependentUpon>JP_PostJobForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JobPosterDashboardUserControl\JP_Notifications.resx">
+      <DependentUpon>JP_Notifications.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="JobSeekerDashboardUserControl\JS_Dashboard.resx">
       <DependentUpon>JS_Dashboard.cs</DependentUpon>
@@ -408,18 +480,17 @@
     <None Include="Resources\JobNearDashboardLogo.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\default-profile.png" />
+    <None Include="Resources\search-interface-symbol-removebg-preview.png" />
   </ItemGroup>
   <ItemGroup>
-    <Analyzer Include="packages\AWSSDK.SecurityToken.3.7.100.14\analyzers\dotnet\cs\AWSSDK.SecurityToken.CodeAnalysis.dll" />
+    <None Include="Resources\Screenshot_2025-09-23_165627-removebg-preview.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\close.png" />
-    <Content Include="Resources\deleteIcon.png" />
-    <Content Include="Resources\eyeIcon.png" />
-    <Content Include="Resources\folderIcon.png" />
+    <None Include="Resources\Screenshot_2025-09-23_165627-removebg-preview1.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\Screenshot_2025-09-23_165841-removebg-preview.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

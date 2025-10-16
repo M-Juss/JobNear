@@ -35,7 +35,7 @@
             // 
             // sidebar_panel
             // 
-            this.sidebar_panel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(186)))), ((int)(((byte)(131)))));
+            this.sidebar_panel.BackColor = System.Drawing.Color.WhiteSmoke;
             this.sidebar_panel.Controls.Add(this.label1);
             this.sidebar_panel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.sidebar_panel.Location = new System.Drawing.Point(0, 0);
@@ -47,7 +47,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Poppins", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.Location = new System.Drawing.Point(448, 320);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(147, 62);
