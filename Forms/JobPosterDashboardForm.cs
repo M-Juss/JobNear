@@ -1,4 +1,5 @@
-﻿using JobNear.JobPosterDashboardUserControl;
+﻿using JobNear.Controllers;
+using JobNear.JobPosterDashboardUserControl;
 using JobNear.Styles;
 using System;
 using System.Collections.Generic;
@@ -107,6 +108,9 @@ namespace JobNear.Forms
 
         }
 
-
+        private void log_out_button_Click(object sender, EventArgs e)
+        {
+            UserController.LogoutUser();
+        }
     }
 }
