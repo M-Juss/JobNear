@@ -28,5 +28,10 @@ namespace JobNear.JobPosterDashboardUserControl
         {
             JP_parent_form.ShowPanel(JP_parent_form.my_business_panel);
         }
+
+        private void edit_button_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
