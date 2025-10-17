@@ -96,7 +96,6 @@ namespace JobNear.Services
 
                     if (userNotif.Count == 0)
                     {
-                        Console.WriteLine("pasok");
                         string key = "System";
                         string headerMessage = "Welcome to JobNear! Complete your profile to get started.";
                         string remarks = "You must need to make your profile verify for you to browse job.";
@@ -114,7 +113,6 @@ namespace JobNear.Services
                         };
 
                         await MongoDbServices.UserNotification.InsertOneAsync(systemNotif);
-                        MessageBox.Show("System Info inserted successfully");
                     }
 
                     MessageBox.Show("Login successful", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -141,8 +139,38 @@ namespace JobNear.Services
                     Session.CurrentUserId = poster.Id;
                     Session.CurrentEmail = poster.Email;
 
+                    Console.WriteLine($"\n id: {Session.CurrentUserId} \n email: {Session.CurrentEmail}");
+
+
+                    var userNotif = await MongoDbServices.UserNotification
+                        .Find(x => x.NotificationId == Session.CurrentUserId)
+                        .ToListAsync();
+
+                    Console.WriteLine($"Found {userNotif.Count} notifications for user {Session.CurrentUserId}");
+
+                    if (userNotif.Count == 0)
+                    {
+                        string key = "System";
+                        string headerMessage = "Welcome to JobNear! Register your business to start posting jobs.";
+                        string remarks = "Add and verify your business so job seekers can discover your listings and apply easily.";
+                        string type = "Info";
+                        DateTime date = DateTime.Now;
+
+                        var systemNotif = new UserNotificationModel
+                        {
+                            NotificationId = Session.CurrentUserId,
+                            Key = key,
+                            HeaderMessage = headerMessage,
+                            Remarks = remarks,
+                            Type = type,
+                            Date = date,
+                        };
+
+                        await MongoDbServices.UserNotification.InsertOneAsync(systemNotif);
+                    }
+
                     MessageBox.Show("Login successful", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    FormsController.FormLoad(new JobPosterSignupForm(), app_panel);
+                    FormsController.FormLoad(new JobPosterDashboardForm(), app_panel);
                 }
 
                 else if (user == "admin")

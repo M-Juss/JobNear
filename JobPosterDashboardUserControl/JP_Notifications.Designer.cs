@@ -33,18 +33,20 @@
             // 
             // notif_panel
             // 
-            this.notif_panel.Location = new System.Drawing.Point(41, 46);
+            this.notif_panel.Location = new System.Drawing.Point(4, 57);
+            this.notif_panel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.notif_panel.Name = "notif_panel";
-            this.notif_panel.Size = new System.Drawing.Size(949, 613);
+            this.notif_panel.Size = new System.Drawing.Size(1367, 754);
             this.notif_panel.TabIndex = 1;
             // 
             // JP_Notifications
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.notif_panel);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "JP_Notifications";
-            this.Size = new System.Drawing.Size(1031, 705);
+            this.Size = new System.Drawing.Size(1375, 868);
             this.Load += new System.EventHandler(this.JP_Notifications_Load);
             this.ResumeLayout(false);
 

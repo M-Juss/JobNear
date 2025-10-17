@@ -24,5 +24,10 @@ namespace JobNear.JobPosterDashboardUserControl
         {
             JP_parent_form.ShowPanel(JP_parent_form.business_details_panel);
         }
+
+        private void mybusiness_flowlayoutpanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

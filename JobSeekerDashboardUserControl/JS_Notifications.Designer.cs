@@ -39,25 +39,28 @@
             this.sidebar_panel.Controls.Add(this.notif_panel);
             this.sidebar_panel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.sidebar_panel.Location = new System.Drawing.Point(0, 0);
+            this.sidebar_panel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.sidebar_panel.Name = "sidebar_panel";
-            this.sidebar_panel.Size = new System.Drawing.Size(1031, 705);
+            this.sidebar_panel.Size = new System.Drawing.Size(1375, 868);
             this.sidebar_panel.TabIndex = 4;
             this.sidebar_panel.Paint += new System.Windows.Forms.PaintEventHandler(this.sidebar_panel_Paint);
             // 
             // notif_panel
             // 
-            this.notif_panel.Location = new System.Drawing.Point(40, 53);
+            this.notif_panel.Location = new System.Drawing.Point(4, 65);
+            this.notif_panel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.notif_panel.Name = "notif_panel";
-            this.notif_panel.Size = new System.Drawing.Size(949, 613);
+            this.notif_panel.Size = new System.Drawing.Size(1367, 754);
             this.notif_panel.TabIndex = 0;
             // 
             // JS_Notifications
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.sidebar_panel);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "JS_Notifications";
-            this.Size = new System.Drawing.Size(1031, 705);
+            this.Size = new System.Drawing.Size(1375, 868);
             this.sidebar_panel.ResumeLayout(false);
             this.ResumeLayout(false);
 

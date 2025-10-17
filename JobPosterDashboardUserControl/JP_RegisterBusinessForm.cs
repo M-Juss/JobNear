@@ -114,7 +114,7 @@ namespace JobNear.JobPosterDashboardUserControl
             ButtonStyle.RoundedButton(attach_file, 25, "#FFFFFF");
             ButtonStyle.RoundedButton(draft_button, 25, "#FFFFFF");
             ButtonStyle.RoundedButton(review_button, 25, "#FFFFFF");
-            ButtonStyle.RoundedButton(upload_button, 25, "#3B82F6");
+            ButtonStyle.RoundedButton(upload_button, 25, "#FFFFFF");
 
             image_flowlayout.FlowDirection = FlowDirection.TopDown;
             image_flowlayout.WrapContents = false;

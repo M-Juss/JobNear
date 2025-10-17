@@ -132,12 +132,12 @@ namespace JobNear.JobSeekerDashboardUserControl
 
         private void review_button_Click(object sender, EventArgs e)
         {
-            UpdateProfileData(false, "pending");
+            UpdateProfileData(false, "Pending");
         }
 
         private void draft_button_Click(object sender, EventArgs e)
         {
-            UpdateProfileData(true, "incomplete");
+            UpdateProfileData(true, "Incomplete");
         }
 
         public async void UpdateProfileData(bool isDraft, string status)
