@@ -29,5 +29,10 @@ namespace JobNear.JobPosterDashboardUserControl
         {
 
         }
+
+        private void JP_MyBusiness_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

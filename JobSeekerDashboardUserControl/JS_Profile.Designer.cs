@@ -113,9 +113,9 @@
             // 
             this.edit_btn.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.edit_btn.ForeColor = System.Drawing.Color.White;
-            this.edit_btn.Location = new System.Drawing.Point(922, 16);
+            this.edit_btn.Location = new System.Drawing.Point(921, 16);
             this.edit_btn.Name = "edit_btn";
-            this.edit_btn.Size = new System.Drawing.Size(94, 33);
+            this.edit_btn.Size = new System.Drawing.Size(94, 32);
             this.edit_btn.TabIndex = 53;
             this.edit_btn.Text = "Edit";
             this.edit_btn.UseVisualStyleBackColor = true;
@@ -146,7 +146,7 @@
             // review_button
             // 
             this.review_button.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.review_button.Location = new System.Drawing.Point(854, 654);
+            this.review_button.Location = new System.Drawing.Point(854, 656);
             this.review_button.Name = "review_button";
             this.review_button.Size = new System.Drawing.Size(161, 36);
             this.review_button.TabIndex = 51;
@@ -157,7 +157,7 @@
             // draft_button
             // 
             this.draft_button.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.draft_button.Location = new System.Drawing.Point(723, 654);
+            this.draft_button.Location = new System.Drawing.Point(723, 656);
             this.draft_button.Name = "draft_button";
             this.draft_button.Size = new System.Drawing.Size(125, 36);
             this.draft_button.TabIndex = 50;
