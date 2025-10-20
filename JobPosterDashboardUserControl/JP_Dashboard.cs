@@ -14,11 +14,9 @@ namespace JobNear.JobPosterDashboardUserControl
 {
     public partial class JP_Dashboard : UserControl
     {
-        private JobPosterDashboardForm JP_parent_form;
-        public JP_Dashboard(JobPosterDashboardForm parent_form)
+        public JP_Dashboard()
         {
             InitializeComponent();
-            JP_parent_form = parent_form;
 
             PanelStyles.RoundedPanel(panel1, 20, Color.White);
         }

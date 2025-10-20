@@ -228,10 +228,10 @@ namespace JobNear.Styles
             docu_flowlayout.Controls.Add(filePanel);
         }
 
-        public static void AddPendingBusiness(string businessName, string businessaddress, string businessDescription, FlowLayoutPanel file_flowlayout) {
+        public static void AddPendingBusiness(string businessName, string businessDescription, string businessaddress, FlowLayoutPanel file_flowlayout) {
             Panel businessPanel = new Panel();
-            businessPanel.Height = 200;
-            businessPanel.Width = file_flowlayout.Width - 40;
+            businessPanel.Height = 180;
+            businessPanel.Width = file_flowlayout.Width - 38;
             businessPanel.Margin = new Padding(10, 10, 10, 10);
             businessPanel.BackColor = Color.WhiteSmoke;
             businessPanel.BorderStyle = BorderStyle.None;
@@ -253,7 +253,7 @@ namespace JobNear.Styles
             descriptionLabel.Width = 605;
             descriptionLabel.Height = 80;
             descriptionLabel.BorderStyle = BorderStyle.None;
-            descriptionLabel.Location = new Point(40, 75);
+            descriptionLabel.Location = new Point(40, 30);
             descriptionLabel.TextAlign = ContentAlignment.MiddleLeft;
             descriptionLabel.Font = new Font("Poppins", 10, FontStyle.Regular);
             descriptionLabel.ForeColor = Color.Black;
@@ -265,12 +265,15 @@ namespace JobNear.Styles
             addresLabel.Width = 605;
             addresLabel.Height = 20;
             addresLabel.BorderStyle = BorderStyle.None;
-            addresLabel.Location = new Point(40, 170);
+            addresLabel.Location = new Point(40, 150);
             addresLabel.TextAlign = ContentAlignment.MiddleLeft;
             addresLabel.Font = new Font("Poppins", 9, FontStyle.Regular);
             addresLabel.ForeColor = Color.Gray;
 
-
+            businessPanel.Click += (s, e) =>
+            {
+                MessageBox.Show($"Business: {businessName}\nDescription: {businessDescription}\nAddress: {businessaddress}", "Business Details", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            };
 
             businessPanel.Controls.Add(nameLabel);
             businessPanel.Controls.Add(addresLabel);

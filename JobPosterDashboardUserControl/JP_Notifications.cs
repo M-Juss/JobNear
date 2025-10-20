@@ -13,11 +13,9 @@ namespace JobNear.JobPosterDashboardUserControl
 {
     public partial class JP_Notifications : UserControl
     {
-        private JobPosterDashboardForm JP_parent_form;
-        public JP_Notifications(JobPosterDashboardForm parent_form)
+        public JP_Notifications()
         {
             InitializeComponent();
-            JP_parent_form = parent_form;
         }
 
         private void JP_Notifications_Load(object sender, EventArgs e)

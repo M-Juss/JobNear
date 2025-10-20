@@ -107,10 +107,9 @@ namespace JobNear.JobPosterDashboardUserControl
         //        }
         //    }
         //}
-        public JP_RegisterBusinessForm(JobPosterDashboardForm parent_form)
+        public JP_RegisterBusinessForm()
         {
             InitializeComponent();
-            JP_parent_form = parent_form;
             ButtonStyle.RoundedButton(attach_file, 25, "#FFFFFF");
             ButtonStyle.RoundedButton(draft_button, 25, "#FFFFFF");
             ButtonStyle.RoundedButton(review_button, 25, "#FFFFFF");

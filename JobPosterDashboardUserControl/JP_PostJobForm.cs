@@ -13,20 +13,14 @@ namespace JobNear.JobPosterDashboardUserControl
 {
     public partial class JP_PostJobForm : UserControl
     {
-        private JobPosterDashboardForm JP_parent_form;
-        private String job_title, job_address, employment_type, work_model, minimum_qualifications, 
-                        preferred_qualifications, about_job, responsibilities;
 
-        private void JP_PostJobForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        public JP_PostJobForm(Forms.JobPosterDashboardForm parent_form)
+        public JP_PostJobForm()
         {
             InitializeComponent();
-            JP_parent_form = parent_form;
         }
+
+
+
 
         //private void min_qualification_richbox_TextChanged(object sender, EventArgs e)
         //{

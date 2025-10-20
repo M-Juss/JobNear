@@ -36,9 +36,9 @@
             // mybusiness_flowlayout
             // 
             this.mybusiness_flowlayout.AutoScroll = true;
-            this.mybusiness_flowlayout.Location = new System.Drawing.Point(33, 38);
+            this.mybusiness_flowlayout.Location = new System.Drawing.Point(35, 38);
             this.mybusiness_flowlayout.Name = "mybusiness_flowlayout";
-            this.mybusiness_flowlayout.Size = new System.Drawing.Size(959, 630);
+            this.mybusiness_flowlayout.Size = new System.Drawing.Size(957, 630);
             this.mybusiness_flowlayout.TabIndex = 0;
             // 
             // my_business_panel
@@ -49,6 +49,7 @@
             this.my_business_panel.Name = "my_business_panel";
             this.my_business_panel.Size = new System.Drawing.Size(1031, 705);
             this.my_business_panel.TabIndex = 1;
+            this.my_business_panel.Paint += new System.Windows.Forms.PaintEventHandler(this.my_business_panel_Paint);
             // 
             // JP_MyBusiness
             // 

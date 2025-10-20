@@ -14,7 +14,7 @@ namespace JobNear.JobPosterDashboardUserControl
     public partial class JP_BusinessDetails : UserControl
     {
         //private JobPosterDashboardForm JP_parent_form;
-        public JP_BusinessDetails(JobPosterDashboardForm parent_form)
+        public JP_BusinessDetails()
         {
             InitializeComponent();
             //JP_parent_form = parent_form;
@@ -30,6 +30,11 @@ namespace JobNear.JobPosterDashboardUserControl
         }
 
         private void edit_button_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void JP_BusinessDetails_Load(object sender, EventArgs e)
         {
 
         }

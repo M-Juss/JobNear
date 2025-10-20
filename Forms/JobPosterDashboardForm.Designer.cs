@@ -35,7 +35,7 @@
             this.business_button = new System.Windows.Forms.Button();
             this.dashboard_button = new System.Windows.Forms.Button();
             this.jobnear_button = new System.Windows.Forms.Button();
-            this.JP_main_panel = new System.Windows.Forms.Panel();
+            this.sidebar_panel = new System.Windows.Forms.Panel();
             this.JP_sidebar_panel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,7 +53,6 @@
             this.JP_sidebar_panel.Name = "JP_sidebar_panel";
             this.JP_sidebar_panel.Size = new System.Drawing.Size(200, 705);
             this.JP_sidebar_panel.TabIndex = 0;
-            this.JP_sidebar_panel.Paint += new System.Windows.Forms.PaintEventHandler(this.JP_sidebar_panel_Paint);
             // 
             // notification_button
             // 
@@ -131,21 +130,20 @@
             this.jobnear_button.TabIndex = 0;
             this.jobnear_button.UseVisualStyleBackColor = true;
             // 
-            // JP_main_panel
+            // sidebar_panel
             // 
-            this.JP_main_panel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.JP_main_panel.Location = new System.Drawing.Point(200, 0);
-            this.JP_main_panel.Name = "JP_main_panel";
-            this.JP_main_panel.Size = new System.Drawing.Size(1031, 705);
-            this.JP_main_panel.TabIndex = 1;
-            this.JP_main_panel.Paint += new System.Windows.Forms.PaintEventHandler(this.JP_main_panel_Paint);
+            this.sidebar_panel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.sidebar_panel.Location = new System.Drawing.Point(200, 0);
+            this.sidebar_panel.Name = "sidebar_panel";
+            this.sidebar_panel.Size = new System.Drawing.Size(1031, 705);
+            this.sidebar_panel.TabIndex = 1;
             // 
             // JobPosterDashboardForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1231, 705);
-            this.Controls.Add(this.JP_main_panel);
+            this.Controls.Add(this.sidebar_panel);
             this.Controls.Add(this.JP_sidebar_panel);
             this.Name = "JobPosterDashboardForm";
             this.Text = "Job Poster";
@@ -158,7 +156,7 @@
         #endregion
 
         private System.Windows.Forms.Panel JP_sidebar_panel;
-        private System.Windows.Forms.Panel JP_main_panel;
+        private System.Windows.Forms.Panel sidebar_panel;
         private System.Windows.Forms.Button view_business_button;
         private System.Windows.Forms.Button business_button;
         private System.Windows.Forms.Button dashboard_button;

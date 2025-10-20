@@ -283,12 +283,6 @@
     <Compile Include="JobPosterDashboardUserControl\JP_RegisterBusinessForm.Designer.cs">
       <DependentUpon>JP_RegisterBusinessForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="JobPosterDashboardUserControl\JP_Business.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="JobPosterDashboardUserControl\JP_Business.Designer.cs">
-      <DependentUpon>JP_Business.cs</DependentUpon>
-    </Compile>
     <Compile Include="JobPosterDashboardUserControl\JP_PostJobForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -415,9 +409,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\JobSeekerSignupForm.resx">
       <DependentUpon>JobSeekerSignupForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="JobPosterDashboardUserControl\JP_Business.resx">
-      <DependentUpon>JP_Business.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="JobPosterDashboardUserControl\JP_BusinessDetails.resx">
       <DependentUpon>JP_BusinessDetails.cs</DependentUpon>
