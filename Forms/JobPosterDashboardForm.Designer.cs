@@ -149,6 +149,7 @@
             this.Controls.Add(this.JP_sidebar_panel);
             this.Name = "JobPosterDashboardForm";
             this.Text = "Job Poster";
+            this.Load += new System.EventHandler(this.JobPosterDashboardForm_Load);
             this.JP_sidebar_panel.ResumeLayout(false);
             this.ResumeLayout(false);
 

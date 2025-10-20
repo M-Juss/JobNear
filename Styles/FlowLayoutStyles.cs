@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Serialization;
 
 namespace JobNear.Styles
 {
@@ -135,7 +136,6 @@ namespace JobNear.Styles
             filePanel.Padding = new Padding(10);
             filePanel.BorderStyle = BorderStyle.None;
 
-            // ✅ Keep original document reference (important for updating later)
             filePanel.Tag = doc;
 
             filePanel.Paint += (s, e) =>
@@ -155,7 +155,6 @@ namespace JobNear.Styles
 
             try
             {
-                // Just to get system icon
                 string tempFile = Path.Combine(Path.GetTempPath(), doc.FileName);
                 File.WriteAllBytes(tempFile, doc.FileContent);
                 Icon sysIcon = Icon.ExtractAssociatedIcon(tempFile);
@@ -177,7 +176,6 @@ namespace JobNear.Styles
             lbl.Font = new Font("Poppins", 12, FontStyle.Regular);
             lbl.ForeColor = Color.Black;
 
-            // 👁 Preview button
             Button btnPreview = new Button();
             btnPreview.Width = 30;
             btnPreview.Height = 30;
@@ -200,7 +198,6 @@ namespace JobNear.Styles
                 });
             };
 
-            // 🗑 Delete button
             Button btnDelete = new Button();
             btnDelete.Width = 30;
             btnDelete.Height = 30;
@@ -229,6 +226,57 @@ namespace JobNear.Styles
             filePanel.Controls.Add(btnDelete);
 
             docu_flowlayout.Controls.Add(filePanel);
+        }
+
+        public static void AddPendingBusiness(string businessName, string businessaddress, string businessDescription, FlowLayoutPanel file_flowlayout) {
+            Panel businessPanel = new Panel();
+            businessPanel.Height = 200;
+            businessPanel.Width = file_flowlayout.Width - 40;
+            businessPanel.Margin = new Padding(10, 10, 10, 10);
+            businessPanel.BackColor = Color.WhiteSmoke;
+            businessPanel.BorderStyle = BorderStyle.None;
+
+            Label nameLabel = new Label();
+            nameLabel.AutoSize = false;
+            nameLabel.Text = businessName;
+            nameLabel.Width = 605;
+            nameLabel.Height = 50;
+            nameLabel.BorderStyle = BorderStyle.None;
+            nameLabel.Location = new Point(40, 10);
+            nameLabel.TextAlign = ContentAlignment.MiddleLeft;
+            nameLabel.Font = new Font("Poppins", 22, FontStyle.Bold);
+            nameLabel.ForeColor = Color.Black;
+
+            Label descriptionLabel = new Label();
+            descriptionLabel.AutoSize = false;
+            descriptionLabel.Text = businessDescription;
+            descriptionLabel.Width = 605;
+            descriptionLabel.Height = 80;
+            descriptionLabel.BorderStyle = BorderStyle.None;
+            descriptionLabel.Location = new Point(40, 75);
+            descriptionLabel.TextAlign = ContentAlignment.MiddleLeft;
+            descriptionLabel.Font = new Font("Poppins", 10, FontStyle.Regular);
+            descriptionLabel.ForeColor = Color.Black;
+
+
+            Label addresLabel = new Label();
+            addresLabel.AutoSize = false;
+            addresLabel.Text = businessaddress;
+            addresLabel.Width = 605;
+            addresLabel.Height = 20;
+            addresLabel.BorderStyle = BorderStyle.None;
+            addresLabel.Location = new Point(40, 170);
+            addresLabel.TextAlign = ContentAlignment.MiddleLeft;
+            addresLabel.Font = new Font("Poppins", 9, FontStyle.Regular);
+            addresLabel.ForeColor = Color.Gray;
+
+
+
+            businessPanel.Controls.Add(nameLabel);
+            businessPanel.Controls.Add(addresLabel);
+            businessPanel.Controls.Add(descriptionLabel);
+
+            file_flowlayout.Controls.Add(businessPanel);
         }
     }
 }
