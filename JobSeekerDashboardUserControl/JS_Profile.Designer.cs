@@ -131,6 +131,7 @@
             this.status_label.Size = new System.Drawing.Size(105, 28);
             this.status_label.TabIndex = 0;
             this.status_label.Text = "Status";
+            this.status_label.Click += new System.EventHandler(this.status_label_Click);
             // 
             // image_flowlayout
             // 

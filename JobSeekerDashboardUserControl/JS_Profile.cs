@@ -330,6 +330,11 @@ namespace JobNear.JobSeekerDashboardUserControl
         {
 
         }
+
+        private void status_label_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

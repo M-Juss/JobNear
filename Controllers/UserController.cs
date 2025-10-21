@@ -33,22 +33,22 @@ namespace JobNear.Controllers
 
                 case "pending":
                     status_label.Text = "Pending";
-                    PanelStyles.StyleRoundedLabel(status_label, 10, Color.Orange, Color.Black);
+                    PanelStyles.StyleRoundedLabel(status_label, 10, Color.Orange, Color.White);
                     break;
 
                 case "incomplete":
                     status_label.Text = "Incomplete";
-                    PanelStyles.StyleRoundedLabel(status_label, 10, Color.Black, Color.LightGray);
+                    PanelStyles.StyleRoundedLabel(status_label, 10, Color.Black, Color.White);
 
                     break;
 
                 case "rejected":
                     status_label.Text = "Rejected";
-                    PanelStyles.StyleRoundedLabel(status_label, 10, Color.White, Color.Red);
+                    PanelStyles.StyleRoundedLabel(status_label, 10, Color.Red, Color.White);
                     break;
 
                 default:
-                    PanelStyles.StyleRoundedLabel(status_label, 10, Color.Black, Color.LightGray);
+                    PanelStyles.StyleRoundedLabel(status_label, 10, Color.Black, Color.White);
                     break;
             }
         }

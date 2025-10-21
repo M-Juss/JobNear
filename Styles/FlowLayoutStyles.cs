@@ -1,13 +1,12 @@
-﻿using JobNear.Models;
+﻿
+using JobNear.Controllers;
+using JobNear.Models;
 using System;
-using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Xml.Serialization;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using Button = System.Windows.Forms.Button;
 
 namespace JobNear.Styles
 {
@@ -228,9 +227,9 @@ namespace JobNear.Styles
             docu_flowlayout.Controls.Add(filePanel);
         }
 
-        public static void AddPendingBusiness(string businessName, string businessDescription, string businessaddress, FlowLayoutPanel file_flowlayout) {
+        public static void AddPendingBusiness(string businessName, string businessDescription, string businessaddress, string businessStatus , FlowLayoutPanel file_flowlayout) {
             Panel businessPanel = new Panel();
-            businessPanel.Height = 180;
+            businessPanel.Height = 150;
             businessPanel.Width = file_flowlayout.Width - 38;
             businessPanel.Margin = new Padding(10, 10, 10, 10);
             businessPanel.BackColor = Color.WhiteSmoke;
@@ -239,23 +238,36 @@ namespace JobNear.Styles
             Label nameLabel = new Label();
             nameLabel.AutoSize = false;
             nameLabel.Text = businessName;
-            nameLabel.Width = 605;
+            nameLabel.Width = 550;
             nameLabel.Height = 50;
+            nameLabel.AutoEllipsis = true;
             nameLabel.BorderStyle = BorderStyle.None;
             nameLabel.Location = new Point(40, 10);
             nameLabel.TextAlign = ContentAlignment.MiddleLeft;
             nameLabel.Font = new Font("Poppins", 22, FontStyle.Bold);
             nameLabel.ForeColor = Color.Black;
 
+
+            Label statusLabel = new Label();
+            statusLabel.AutoSize = true;
+            statusLabel.Text = businessName;
+            statusLabel.Height = 25;
+            statusLabel.BorderStyle = BorderStyle.None;
+            statusLabel.Location = new Point(780, 10);
+            statusLabel.TextAlign = ContentAlignment.MiddleLeft;
+            statusLabel.Font = new Font("Poppins", 12, FontStyle.Bold);
+
+            UserController.UpdateAccountStatus(statusLabel, businessStatus);
+
             Label descriptionLabel = new Label();
             descriptionLabel.AutoSize = false;
             descriptionLabel.Text = businessDescription;
-            descriptionLabel.Width = 605;
-            descriptionLabel.Height = 80;
+            descriptionLabel.Width = 700;
+            descriptionLabel.Height = 55;
             descriptionLabel.BorderStyle = BorderStyle.None;
-            descriptionLabel.Location = new Point(40, 30);
-            descriptionLabel.TextAlign = ContentAlignment.MiddleLeft;
-            descriptionLabel.Font = new Font("Poppins", 10, FontStyle.Regular);
+            descriptionLabel.Location = new Point(40, 57);
+            descriptionLabel.TextAlign = ContentAlignment.TopLeft;
+            descriptionLabel.Font = new Font("Poppins", 11, FontStyle.Regular);
             descriptionLabel.ForeColor = Color.Black;
 
 
@@ -265,7 +277,7 @@ namespace JobNear.Styles
             addresLabel.Width = 605;
             addresLabel.Height = 20;
             addresLabel.BorderStyle = BorderStyle.None;
-            addresLabel.Location = new Point(40, 150);
+            addresLabel.Location = new Point(40, 120);
             addresLabel.TextAlign = ContentAlignment.MiddleLeft;
             addresLabel.Font = new Font("Poppins", 9, FontStyle.Regular);
             addresLabel.ForeColor = Color.Gray;
@@ -278,6 +290,9 @@ namespace JobNear.Styles
             businessPanel.Controls.Add(nameLabel);
             businessPanel.Controls.Add(addresLabel);
             businessPanel.Controls.Add(descriptionLabel);
+            businessPanel.Controls.Add(statusLabel);
+
+            PanelStyles.RoundedPanel(businessPanel, 20, Color.White);
 
             file_flowlayout.Controls.Add(businessPanel);
         }
