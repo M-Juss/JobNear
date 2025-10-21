@@ -36,16 +36,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.company_logo_picturebox = new System.Windows.Forms.PictureBox();
             this.post_job_button = new System.Windows.Forms.Button();
-            this.job_list_flowlayoutpanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.Job_panel = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.back_button = new System.Windows.Forms.Button();
+            this.joblist_flowlayout = new System.Windows.Forms.FlowLayoutPanel();
+            this.sidebar_panel = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.business_panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.company_logo_picturebox)).BeginInit();
-            this.job_list_flowlayoutpanel.SuspendLayout();
-            this.Job_panel.SuspendLayout();
+            this.sidebar_panel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // business_panel
@@ -56,14 +53,16 @@
             this.business_panel.Controls.Add(this.label2);
             this.business_panel.Controls.Add(this.label1);
             this.business_panel.Controls.Add(this.company_logo_picturebox);
-            this.business_panel.Location = new System.Drawing.Point(94, 76);
+            this.business_panel.Location = new System.Drawing.Point(121, 44);
             this.business_panel.Name = "business_panel";
-            this.business_panel.Size = new System.Drawing.Size(812, 223);
+            this.business_panel.Size = new System.Drawing.Size(800, 223);
             this.business_panel.TabIndex = 0;
             // 
             // edit_button
             // 
-            this.edit_button.Location = new System.Drawing.Point(722, 16);
+            this.edit_button.Font = new System.Drawing.Font("Poppins SemiBold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.edit_button.ForeColor = System.Drawing.Color.White;
+            this.edit_button.Location = new System.Drawing.Point(711, 15);
             this.edit_button.Name = "edit_button";
             this.edit_button.Size = new System.Drawing.Size(75, 28);
             this.edit_button.TabIndex = 6;
@@ -74,7 +73,7 @@
             // label3
             // 
             this.label3.Font = new System.Drawing.Font("Microsoft YaHei UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(203, 123);
+            this.label3.Location = new System.Drawing.Point(203, 69);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(583, 81);
             this.label3.TabIndex = 5;
@@ -84,7 +83,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft YaHei UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(202, 87);
+            this.label2.Location = new System.Drawing.Point(202, 161);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(155, 26);
             this.label2.TabIndex = 4;
@@ -94,7 +93,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft YaHei UI", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(201, 29);
+            this.label1.Location = new System.Drawing.Point(201, 33);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(210, 36);
             this.label1.TabIndex = 3;
@@ -102,8 +101,9 @@
             // 
             // company_logo_picturebox
             // 
+            this.company_logo_picturebox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.company_logo_picturebox.Image = global::JobNear.Properties.Resources.JobnearLogo;
-            this.company_logo_picturebox.Location = new System.Drawing.Point(35, 40);
+            this.company_logo_picturebox.Location = new System.Drawing.Point(34, 37);
             this.company_logo_picturebox.Name = "company_logo_picturebox";
             this.company_logo_picturebox.Size = new System.Drawing.Size(150, 150);
             this.company_logo_picturebox.TabIndex = 0;
@@ -116,89 +116,57 @@
             this.post_job_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.post_job_button.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.post_job_button.ForeColor = System.Drawing.SystemColors.Control;
-            this.post_job_button.Location = new System.Drawing.Point(413, 338);
+            this.post_job_button.Location = new System.Drawing.Point(430, 289);
             this.post_job_button.Name = "post_job_button";
             this.post_job_button.Size = new System.Drawing.Size(166, 51);
             this.post_job_button.TabIndex = 1;
             this.post_job_button.Text = "Post a Job";
             this.post_job_button.UseVisualStyleBackColor = false;
-            this.post_job_button.Click += new System.EventHandler(this.post_job_button_Click);
             // 
-            // job_list_flowlayoutpanel
+            // joblist_flowlayout
             // 
-            this.job_list_flowlayoutpanel.Controls.Add(this.Job_panel);
-            this.job_list_flowlayoutpanel.Location = new System.Drawing.Point(94, 411);
-            this.job_list_flowlayoutpanel.Name = "job_list_flowlayoutpanel";
-            this.job_list_flowlayoutpanel.Size = new System.Drawing.Size(812, 409);
-            this.job_list_flowlayoutpanel.TabIndex = 2;
+            this.joblist_flowlayout.Location = new System.Drawing.Point(114, 362);
+            this.joblist_flowlayout.Name = "joblist_flowlayout";
+            this.joblist_flowlayout.Size = new System.Drawing.Size(812, 309);
+            this.joblist_flowlayout.TabIndex = 2;
             // 
-            // Job_panel
+            // sidebar_panel
             // 
-            this.Job_panel.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.Job_panel.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.Job_panel.Controls.Add(this.label4);
-            this.Job_panel.Controls.Add(this.label5);
-            this.Job_panel.Controls.Add(this.label6);
-            this.Job_panel.Location = new System.Drawing.Point(5, 10);
-            this.Job_panel.Margin = new System.Windows.Forms.Padding(5, 10, 3, 10);
-            this.Job_panel.Name = "Job_panel";
-            this.Job_panel.Size = new System.Drawing.Size(792, 150);
-            this.Job_panel.TabIndex = 1;
+            this.sidebar_panel.Controls.Add(this.pictureBox1);
+            this.sidebar_panel.Controls.Add(this.joblist_flowlayout);
+            this.sidebar_panel.Controls.Add(this.business_panel);
+            this.sidebar_panel.Controls.Add(this.post_job_button);
+            this.sidebar_panel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.sidebar_panel.Location = new System.Drawing.Point(0, 0);
+            this.sidebar_panel.Name = "sidebar_panel";
+            this.sidebar_panel.Size = new System.Drawing.Size(1031, 705);
+            this.sidebar_panel.TabIndex = 4;
             // 
-            // label4
+            // pictureBox1
             // 
-            this.label4.Font = new System.Drawing.Font("Microsoft YaHei UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(26, 83);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(532, 50);
-            this.label4.TabIndex = 2;
-            this.label4.Text = resources.GetString("label4.Text");
-            // 
-            // label5
-            // 
-            this.label5.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(26, 50);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(395, 26);
-            this.label5.TabIndex = 1;
-            this.label5.Text = "Job Location | Work Model | Exployment Type";
-            // 
-            // label6
-            // 
-            this.label6.Font = new System.Drawing.Font("Microsoft YaHei UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(24, 10);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(328, 36);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "Job Position";
-            // 
-            // back_button
-            // 
-            this.back_button.Location = new System.Drawing.Point(25, 25);
-            this.back_button.Name = "back_button";
-            this.back_button.Size = new System.Drawing.Size(68, 34);
-            this.back_button.TabIndex = 3;
-            this.back_button.Text = "Back";
-            this.back_button.UseVisualStyleBackColor = true;
-            this.back_button.Click += new System.EventHandler(this.back_button_Click);
+            this.pictureBox1.Image = global::JobNear.Properties.Resources.left_arrow;
+            this.pictureBox1.Location = new System.Drawing.Point(22, 18);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox1.TabIndex = 4;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // JP_BusinessDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.Controls.Add(this.back_button);
-            this.Controls.Add(this.job_list_flowlayoutpanel);
-            this.Controls.Add(this.post_job_button);
-            this.Controls.Add(this.business_panel);
+            this.Controls.Add(this.sidebar_panel);
             this.Name = "JP_BusinessDetails";
-            this.Size = new System.Drawing.Size(964, 705);
-            this.Load += new System.EventHandler(this.JP_BusinessDetails_Load);
+            this.Size = new System.Drawing.Size(1031, 705);
             this.business_panel.ResumeLayout(false);
             this.business_panel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.company_logo_picturebox)).EndInit();
-            this.job_list_flowlayoutpanel.ResumeLayout(false);
-            this.Job_panel.ResumeLayout(false);
+            this.sidebar_panel.ResumeLayout(false);
+            this.sidebar_panel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -212,11 +180,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button post_job_button;
-        private System.Windows.Forms.FlowLayoutPanel job_list_flowlayoutpanel;
-        private System.Windows.Forms.Panel Job_panel;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button back_button;
+        private System.Windows.Forms.FlowLayoutPanel joblist_flowlayout;
+        private System.Windows.Forms.Panel sidebar_panel;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

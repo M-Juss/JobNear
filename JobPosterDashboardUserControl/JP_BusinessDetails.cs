@@ -1,32 +1,26 @@
-﻿using JobNear.Forms;
+﻿using JobNear.Styles;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace JobNear.JobPosterDashboardUserControl
 {
     public partial class JP_BusinessDetails : UserControl
     {
-        //private JobPosterDashboardForm JP_parent_form;
         public JP_BusinessDetails()
         {
             InitializeComponent();
-            //JP_parent_form = parent_form;
-        }
-        private void post_job_button_Click(object sender, EventArgs e)
-        {
-            //JP_parent_form.ShowPanel(JP_parent_form.post_job_form_panel);          
-        }
+            FlowLayoutStyles.AddPostJob("Senior Developer", "Fully In Office", "Full Time", "Lorem ipsum dolor sit amet. Eum consequatur itaque et quibusdam voluptatem et aspernatur explicabo. Sit eaque possimus ut repellat enim et temporibus natus ut saepe nihil et iusto odit aut animi sunt cum necessitatibus incidunt. ", joblist_flowlayout);
+            FlowLayoutStyles.AddPostJob("Junior Developer", "Hybrid", "Part Time", "Lorem ipsum dolor sit amet. Eum consequatur itaque et quibusdam voluptatem et aspernatur explicabo. Sit eaque possimus ut repellat enim et temporibus natus ut saepe nihil et iusto odit aut animi sunt cum necessitatibus incidunt. ", joblist_flowlayout);
+            FlowLayoutStyles.AddPostJob("Intern Developer", "Fullt Remote", "Part Time", "Lorem ipsum dolor sit amet. Eum consequatur itaque et quibusdam voluptatem et aspernatur explicabo. Sit eaque possimus ut repellat enim et temporibus natus ut saepe nihil et iusto odit aut animi sunt cum necessitatibus incidunt.", joblist_flowlayout);
 
-        private void back_button_Click(object sender, EventArgs e)
-        {
-            //JP_parent_form.ShowPanel(JP_parent_form.my_business_panel);
+            PanelStyles.RoundedPanel(business_panel, 20, Color.White);
+            ButtonStyle.RoundedButton(edit_button, 20, "#3B82F6");
+
+            joblist_flowlayout.FlowDirection = FlowDirection.TopDown;
+            joblist_flowlayout.WrapContents = false;
+            joblist_flowlayout.AutoScroll = true;
+
         }
 
         private void edit_button_Click(object sender, EventArgs e)
@@ -34,9 +28,12 @@ namespace JobNear.JobPosterDashboardUserControl
 
         }
 
-        private void JP_BusinessDetails_Load(object sender, EventArgs e)
+        private void pictureBox1_Click(object sender, EventArgs e)
         {
-
+            JobPosterDashboardUserControl.JP_MyBusiness jp_myBusiness = new JobPosterDashboardUserControl.JP_MyBusiness();
+            sidebar_panel.Controls.Clear();
+            sidebar_panel.Controls.Add(jp_myBusiness);
+            sidebar_panel.Dock = DockStyle.Fill;
         }
     }
 }

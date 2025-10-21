@@ -5,6 +5,7 @@ using System;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
+using System.Xml;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using Button = System.Windows.Forms.Button;
 
@@ -227,7 +228,7 @@ namespace JobNear.Styles
             docu_flowlayout.Controls.Add(filePanel);
         }
 
-        public static void AddPendingBusiness(string businessName, string businessDescription, string businessaddress, string businessStatus , FlowLayoutPanel file_flowlayout) {
+        public static void AddPendingBusiness(string businessName, string businessDescription, string businessaddress, string businessStatus , FlowLayoutPanel file_flowlayout, Panel my_business_panel) {
             Panel businessPanel = new Panel();
             businessPanel.Height = 150;
             businessPanel.Width = file_flowlayout.Width - 38;
@@ -250,7 +251,7 @@ namespace JobNear.Styles
 
             Label statusLabel = new Label();
             statusLabel.AutoSize = true;
-            statusLabel.Text = businessName;
+            statusLabel.AutoEllipsis = true;
             statusLabel.Height = 25;
             statusLabel.BorderStyle = BorderStyle.None;
             statusLabel.Location = new Point(780, 10);
@@ -284,6 +285,13 @@ namespace JobNear.Styles
 
             businessPanel.Click += (s, e) =>
             {
+                JobPosterDashboardUserControl.JP_BusinessDetails jp_businessDeets = new JobPosterDashboardUserControl.JP_BusinessDetails();
+
+
+                my_business_panel.Controls.Clear();
+                my_business_panel.Controls.Add(jp_businessDeets);
+                jp_businessDeets.Dock = DockStyle.Fill;
+
                 MessageBox.Show($"Business: {businessName}\nDescription: {businessDescription}\nAddress: {businessaddress}", "Business Details", MessageBoxButtons.OK, MessageBoxIcon.Information);
             };
 
@@ -295,6 +303,58 @@ namespace JobNear.Styles
             PanelStyles.RoundedPanel(businessPanel, 20, Color.White);
 
             file_flowlayout.Controls.Add(businessPanel);
+        }
+
+        public static void AddPostJob(string job_postion, string work_model, string employment_type, string job_description, FlowLayoutPanel joblist_flowlayout)
+        {
+            Panel postJobPanel = new Panel();
+            postJobPanel.AutoSize = false;
+            postJobPanel.Height = 150;
+            postJobPanel.Width = 780;
+            postJobPanel.Margin = new Padding(0, 10, 0, 10);
+            postJobPanel.BackColor = Color.WhiteSmoke;
+            postJobPanel.BorderStyle = BorderStyle.None;
+
+            Label jobPosition = new Label();
+            jobPosition.AutoSize = false;
+            jobPosition.Text = job_postion;
+            jobPosition.Width = 700;
+            jobPosition.Height = 30;
+            jobPosition.AutoEllipsis = true;
+            jobPosition.BorderStyle = BorderStyle.None;
+            jobPosition.Location = new Point(40, 10);
+            jobPosition.Font = new Font("Poppins", 16, FontStyle.Bold);
+            jobPosition.ForeColor = Color.Black;
+
+            Label jobInfo= new Label();
+            jobInfo.AutoSize = false;
+            jobInfo.Text = $" {work_model} | {employment_type}";
+            jobInfo.Width = 700;
+            jobInfo.AutoEllipsis = true;
+            jobInfo.BorderStyle = BorderStyle.None;
+            jobInfo.Location = new Point(40, 40);
+            jobInfo.Font = new Font("Poppins", 12, FontStyle.Regular);
+            jobInfo.ForeColor = Color.Black;
+
+            Label jobDescription = new Label();
+            jobDescription.AutoSize = false;
+            jobDescription.Text = job_description;
+            jobDescription.Width = 700;
+            jobDescription.Height = 70;
+            jobDescription.AutoEllipsis = true;
+            jobDescription.BorderStyle = BorderStyle.None;
+            jobDescription.TextAlign = ContentAlignment.TopLeft;
+            jobDescription.Location = new Point(45, 70);
+            jobDescription.Font = new Font("Poppins", 9, FontStyle.Regular);
+            jobDescription.ForeColor = Color.Gray;
+
+            PanelStyles.RoundedPanel(postJobPanel, 20, Color.White);
+            postJobPanel.Controls.Add(jobPosition);
+            postJobPanel.Controls.Add(jobInfo);
+            postJobPanel.Controls.Add(jobDescription);
+
+            joblist_flowlayout.Controls.Add(postJobPanel);
+
         }
     }
 }
