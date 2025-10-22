@@ -15,15 +15,23 @@ namespace JobNear.Models
         public string Id { get; set; }
 
         public string BusinessName { get; set; }
-        public string BusinessAddress { get; set; }
-        public string BusinessContact { get; set; }
-        public string BusinessEmail { get; set; }
-        public byte[] BusinessLogo { get; set; }
-        public string BusinessDescription { get; set; }
         public string BusinessIndustry { get; set; }
+        public string BusinessDescription { get; set; }
+        public string BusinessAddress { get; set; }
+        public double Latitude { get; set; }
+        public double Longitude { get; set; }
+        public string BusinessEmail { get; set; }
+        public string BusinessContact { get; set; }
+        public byte[] BusinessLogo { get; set; }
         public string BusinessSite { get; set; }
         public string BusinessDocument { get; set; }
         public Boolean isDraft { get; set; } = true;
-        public bool IsVerified { get; set; } = false;
+        public String Status { get; set; }
+    }
+
+    public class BusinessDocument
+    {
+        public string FileName { get; set; }
+        public byte[] FileContent { get; set; }
     }
 }
