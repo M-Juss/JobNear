@@ -122,6 +122,7 @@
             this.post_job_button.TabIndex = 1;
             this.post_job_button.Text = "Post a Job";
             this.post_job_button.UseVisualStyleBackColor = false;
+            this.post_job_button.Click += new System.EventHandler(this.post_job_button_Click);
             // 
             // joblist_flowlayout
             // 
