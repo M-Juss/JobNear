@@ -186,19 +186,16 @@ namespace JobNear.JobSeekerDashboardUserControl
                 }
             }
 
-            // 🧾 Gather all supporting documents (both new and old)
             List<SupportingDocument> supportingDocuments = new List<SupportingDocument>();
 
             foreach (Control ctrl in image_flowlayout.Controls)
             {
                 if (ctrl is Panel panel)
                 {
-                    // ✅ Old document (from database)
                     if (panel.Tag is SupportingDocument existingDoc)
                     {
                         supportingDocuments.Add(existingDoc);
                     }
-                    // ✅ New uploaded file
                     else if (panel.Tag is string filePath && File.Exists(filePath))
                     {
                         supportingDocuments.Add(new SupportingDocument

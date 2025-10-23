@@ -1,4 +1,5 @@
 ﻿using JobNear.Forms;
+using JobNear.Services;
 using JobNear.Styles;
 using System;
 using System.Collections.Generic;
@@ -18,12 +19,108 @@ namespace JobNear.JobPosterDashboardUserControl
     public partial class JP_RegisterBusinessForm : UserControl
     {
         OpenFileDialog ofd = new OpenFileDialog();
-        private JobPosterDashboardForm JP_parent_form;
-        private String business_logo, business_name, business_industry, business_description, business_email_address,
-                        business_contact, business_website, business_address, business_country, postal_code;
+        private Timer debounceTimer;
+        private Dictionary<string, (double lat, double lon)> suggestionData = new Dictionary<string, (double lat, double lon)>();
+
+        private double selectedLat;
+        private double selectedLon;
+
+        private GeoaptifyAutocompeteAPIServices geoServices = new GeoaptifyAutocompeteAPIServices();
+
+        public JP_RegisterBusinessForm()
+        {
+            InitializeComponent();
+            ButtonStyle.RoundedButton(attach_file, 25, "#FFFFFF");
+            ButtonStyle.RoundedButton(draft_button, 25, "#FFFFFF");
+            ButtonStyle.RoundedButton(review_button, 25, "#FFFFFF");
+            ButtonStyle.RoundedButton(upload_button, 25, "#FFFFFF");
+
+            image_flowlayout.FlowDirection = FlowDirection.TopDown;
+            image_flowlayout.WrapContents = false;
+            image_flowlayout.AutoScroll = true;
+
+            debounceTimer = new Timer();
+            debounceTimer.Interval = 300;
+            debounceTimer.Tick += DebounceTimer_Tick;
+
+            address_input.Leave += Address_input_Leave;
+            address_input.TextChanged += Address_input_TextChanged;
+
+        }
+
+        private async void DebounceTimer_Tick(object sender, EventArgs e)
+        {
+            debounceTimer.Stop();
+
+            suggestionData = await geoServices.GetSuggestionsAsync(address_input.Text);
+            geoServices.ApplyAutoComplete(address_input, suggestionData);
+        }
+
+        private void Address_input_Leave(object sender, EventArgs e)
+        {
+            if (suggestionData != null && suggestionData.ContainsKey(address_input.Text))
+            {
+                var coords = suggestionData[address_input.Text];
+                selectedLat = coords.lat;
+                selectedLon = coords.lon;
+            }
+            else
+            {
+                selectedLat = 0;
+                selectedLon = 0;
+            }
+        }
+        private void Address_input_TextChanged(object sender, EventArgs e)
+        {
+            debounceTimer.Stop();
+            debounceTimer.Start();
+        }
 
         private void review_button_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private async void UpdateBusinessDetails(bool isDraft, string status)
+        {
+            TextBoxValidatorController.ValidateEmail(email_input);
+            TextBoxValidatorController.ValidatePhoneNumber(phone_input);
+            TextBoxValidatorController.AllowOnlyNumbers(phone_input);
+
+            if (string.IsNullOrEmpty(name_input.Text) || string.IsNullOrEmpty(industry_input.Text) ||
+                string.IsNullOrEmpty(description_richbox.Text) || string.IsNullOrEmpty(address_input.Text) ||
+                string.IsNullOrEmpty(email_input.Text) || string.IsNullOrEmpty(phone_input.Text) ||
+                string.IsNullOrEmpty(website_input.Text))
+            {
+                MessageBox.Show("Please fill all fields", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (profile_picture.Image == null)
+            {
+                MessageBox.Show("Please upload a profile picture", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (image_flowlayout.Controls.Count == 0)
+            {
+                MessageBox.Show("Please attach at least one supporting document", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (selectedLat == 0 && selectedLon == 0)
+            {
+                var result = await geoServices.GetSuggestionsAsync(address_input.Text);
+                if (result.Any())
+                {
+                    var firstEntry = result.First();
+                    selectedLat = firstEntry.Value.lat;
+                    selectedLon = firstEntry.Value.lon;
+                }
+                else
+                {
+                    MessageBox.Show("Could not determine location for this address. Coordinates set to 0,0.",
+                                    "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
 
         }
 
@@ -69,91 +166,5 @@ namespace JobNear.JobPosterDashboardUserControl
 
         }
 
-        //private void clear_draft_button_Click(object sender, EventArgs e)
-        //{
-        //    if (business_logo_picturebox.Image != null)
-        //    {
-        //        business_logo_picturebox.Image = null;
-        //        business_logo_picturebox.Tag = null;
-        //    }
-        //    business_name_textbox.Clear();
-        //    business_industry_combobox.SelectedIndex = -1;
-        //    business_description_richbox.Clear();
-        //    business_email_address_textbox.Clear();
-        //    business_contact_textbox.Clear();
-        //    business_website_textbox.Clear();
-        //    business_address_textbox.Clear();
-        //    postal_code_textbox.Clear();
-        //}
-        //private void business_logo_picturebox_Click(object sender, EventArgs e)
-        //{
-        //    using (OpenFileDialog select_business_logo = new OpenFileDialog())
-        //    {
-        //        select_business_logo.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.gif;*.bmp|All Files|*.*";
-        //        select_business_logo.Title = "Select an image";
-
-        //        if (select_business_logo.ShowDialog() == DialogResult.OK)
-        //        {
-        //            try
-        //            {
-        //                business_logo_picturebox.Image = Image.FromFile(select_business_logo.FileName);
-        //                business_logo_picturebox.Tag = select_business_logo.FileName;
-        //                business_logo_picturebox.SizeMode = PictureBoxSizeMode.Zoom;
-        //            }
-        //            catch (Exception exc)
-        //            {
-        //                Console.WriteLine(exc.Message);
-        //            }
-        //        }
-        //    }
-        //}
-        public JP_RegisterBusinessForm()
-        {
-            InitializeComponent();
-            ButtonStyle.RoundedButton(attach_file, 25, "#FFFFFF");
-            ButtonStyle.RoundedButton(draft_button, 25, "#FFFFFF");
-            ButtonStyle.RoundedButton(review_button, 25, "#FFFFFF");
-            ButtonStyle.RoundedButton(upload_button, 25, "#FFFFFF");
-
-            image_flowlayout.FlowDirection = FlowDirection.TopDown;
-            image_flowlayout.WrapContents = false;
-            image_flowlayout.AutoScroll = true;
-
-        }
-
-        //private void register_button_Click(object sender, EventArgs e)
-        //{
-        //    String email_pattern = @"^[a-zA-Z0-9_.]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,}$"; 
-
-        //    business_name = business_name_textbox.Text.ToString();
-        //    business_industry = business_industry_combobox.SelectedItem.ToString();
-        //    business_description = business_description_richbox.Text.ToString();
-        //    business_email_address = business_email_address_textbox.Text.ToString();           
-        //    business_contact = business_contact_textbox.Text.ToString();
-        //    business_website = business_website_textbox.Text.ToString();
-        //    business_address = business_address_textbox.Text.ToString();
-        //    business_country = country_textbox.Text.ToString();
-        //    postal_code = postal_code_textbox.Text.ToString();
-
-        //    if (Regex.IsMatch(business_email_address, email_pattern))
-        //    {
-        //        MessageBox.Show("Valid email address!");
-
-        //        Console.WriteLine("Business Name: " + business_name + "\n" +
-        //        "Business Industry: " + business_industry + "\n" +
-        //        "Business Description: " + business_description + "\n" +
-        //        "Business Email Address: " + business_email_address + "\n" +
-        //        "Business Contact Number: " + business_contact + "\n" +
-        //        "Business Website: " + business_website + "\n" +
-        //        "Business Address: " + business_address + "\n" +
-        //        "Country: " + business_country + "\n" +
-        //        "Postal Code: " + postal_code + "\n" +
-        //        "Business Logo: " + business_logo_picturebox.Tag);            
-        //    }
-        //    else
-        //    {
-        //        MessageBox.Show("Invalid email address");
-        //    }         
-        //}
     }
 }
