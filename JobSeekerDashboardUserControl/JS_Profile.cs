@@ -169,7 +169,6 @@ namespace JobNear.JobSeekerDashboardUserControl
                 return;
             }
 
-            // 🧭 Ensure we have coordinates
             if (selectedLat == 0 && selectedLon == 0)
             {
                 var result = await geoServices.GetSuggestionsAsync(address_input.Text);

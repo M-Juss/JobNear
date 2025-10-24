@@ -71,6 +71,7 @@
             this.post_button.TabIndex = 87;
             this.post_button.Text = "Post";
             this.post_button.UseVisualStyleBackColor = true;
+            this.post_button.Click += new System.EventHandler(this.post_button_Click);
             // 
             // cancel_button
             // 
@@ -315,7 +316,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "JP_PostJobForm";
-            this.Size = new System.Drawing.Size(1031, 705);
+            this.Size = new System.Drawing.Size(1014, 705);
             this.ResumeLayout(false);
             this.PerformLayout();
 

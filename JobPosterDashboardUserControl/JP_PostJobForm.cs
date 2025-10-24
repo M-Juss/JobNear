@@ -29,6 +29,28 @@ namespace JobNear.JobPosterDashboardUserControl
 
         }
 
+        private void post_button_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(title_input.Text) || string.IsNullOrEmpty(address_input.Text) ||
+                string.IsNullOrEmpty(min_qualification_richbox.Text) || string.IsNullOrEmpty(about_job_richbox.Text) ||
+                string.IsNullOrEmpty(responsibilities_richbox.Text) || string.IsNullOrEmpty(preferred_qualification_richbox.Text))
+            {
+                MessageBox.Show("Please fill all fields", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (!part_time_checkbox.Checked && !full_time_checkbox.Checked)
+            { 
+                MessageBox.Show("Please select at least one employment type", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (!fully_remote_radiobtn.Checked && !fully_office_radiobtn.Checked && !hybrid_radiobtn.Checked) { 
+                MessageBox.Show("Please select a work model", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+        }
+
 
 
 
