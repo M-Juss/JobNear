@@ -19,7 +19,8 @@ namespace JobNear
             Application.Run(new JobNearUserForm());
 
             // October 25, 2025
-            // [] Insert RegisterBusiness
+            // [/] Insert RegisterBusiness
+            // [] May business details dynamic
             // [] Insert PostJob
         }
     }

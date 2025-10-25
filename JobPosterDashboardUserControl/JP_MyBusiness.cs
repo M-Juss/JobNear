@@ -43,6 +43,7 @@ namespace JobNear.JobPosterDashboardUserControl
                     businessDetails.ForEach(business =>
                     {
                         FlowLayoutStyles.AddPendingBusiness(
+                            business.BusinessId,
                             business.BusinessName,
                             business.BusinessDescription,
                             business.BusinessAddress,

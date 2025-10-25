@@ -28,12 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(JP_BusinessDetails));
             this.business_panel = new System.Windows.Forms.Panel();
             this.edit_button = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.description_label = new System.Windows.Forms.Label();
+            this.address_label = new System.Windows.Forms.Label();
+            this.name_label = new System.Windows.Forms.Label();
             this.company_logo_picturebox = new System.Windows.Forms.PictureBox();
             this.post_job_button = new System.Windows.Forms.Button();
             this.joblist_flowlayout = new System.Windows.Forms.FlowLayoutPanel();
@@ -49,9 +48,9 @@
             // 
             this.business_panel.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.business_panel.Controls.Add(this.edit_button);
-            this.business_panel.Controls.Add(this.label3);
-            this.business_panel.Controls.Add(this.label2);
-            this.business_panel.Controls.Add(this.label1);
+            this.business_panel.Controls.Add(this.description_label);
+            this.business_panel.Controls.Add(this.address_label);
+            this.business_panel.Controls.Add(this.name_label);
             this.business_panel.Controls.Add(this.company_logo_picturebox);
             this.business_panel.Location = new System.Drawing.Point(121, 44);
             this.business_panel.Name = "business_panel";
@@ -62,7 +61,7 @@
             // 
             this.edit_button.Font = new System.Drawing.Font("Poppins SemiBold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.edit_button.ForeColor = System.Drawing.Color.White;
-            this.edit_button.Location = new System.Drawing.Point(711, 15);
+            this.edit_button.Location = new System.Drawing.Point(711, 13);
             this.edit_button.Name = "edit_button";
             this.edit_button.Size = new System.Drawing.Size(75, 28);
             this.edit_button.TabIndex = 6;
@@ -70,39 +69,38 @@
             this.edit_button.UseVisualStyleBackColor = true;
             this.edit_button.Click += new System.EventHandler(this.edit_button_Click);
             // 
-            // label3
+            // description_label
             // 
-            this.label3.Font = new System.Drawing.Font("Microsoft YaHei UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(203, 69);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(583, 81);
-            this.label3.TabIndex = 5;
-            this.label3.Text = resources.GetString("label3.Text");
+            this.description_label.AutoEllipsis = true;
+            this.description_label.Font = new System.Drawing.Font("Microsoft YaHei UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.description_label.Location = new System.Drawing.Point(203, 73);
+            this.description_label.Name = "description_label";
+            this.description_label.Size = new System.Drawing.Size(500, 81);
+            this.description_label.TabIndex = 5;
             // 
-            // label2
+            // address_label
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft YaHei UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(202, 161);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(155, 26);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "123 Street City";
+            this.address_label.AutoEllipsis = true;
+            this.address_label.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.address_label.ForeColor = System.Drawing.Color.Gray;
+            this.address_label.Location = new System.Drawing.Point(203, 165);
+            this.address_label.Name = "address_label";
+            this.address_label.Size = new System.Drawing.Size(500, 22);
+            this.address_label.TabIndex = 4;
             // 
-            // label1
+            // name_label
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft YaHei UI", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(201, 33);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(210, 36);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "ABC Company";
+            this.name_label.AllowDrop = true;
+            this.name_label.AutoEllipsis = true;
+            this.name_label.Font = new System.Drawing.Font("Microsoft YaHei UI", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.name_label.Location = new System.Drawing.Point(201, 33);
+            this.name_label.Name = "name_label";
+            this.name_label.Size = new System.Drawing.Size(502, 36);
+            this.name_label.TabIndex = 3;
             // 
             // company_logo_picturebox
             // 
             this.company_logo_picturebox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.company_logo_picturebox.Image = global::JobNear.Properties.Resources.JobnearLogo;
             this.company_logo_picturebox.Location = new System.Drawing.Point(34, 37);
             this.company_logo_picturebox.Name = "company_logo_picturebox";
             this.company_logo_picturebox.Size = new System.Drawing.Size(150, 150);
@@ -142,6 +140,7 @@
             this.sidebar_panel.Name = "sidebar_panel";
             this.sidebar_panel.Size = new System.Drawing.Size(1031, 705);
             this.sidebar_panel.TabIndex = 4;
+            this.sidebar_panel.Paint += new System.Windows.Forms.PaintEventHandler(this.sidebar_panel_Paint);
             // 
             // pictureBox1
             // 
@@ -163,7 +162,6 @@
             this.Name = "JP_BusinessDetails";
             this.Size = new System.Drawing.Size(1031, 705);
             this.business_panel.ResumeLayout(false);
-            this.business_panel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.company_logo_picturebox)).EndInit();
             this.sidebar_panel.ResumeLayout(false);
             this.sidebar_panel.PerformLayout();
@@ -177,9 +175,9 @@
         private System.Windows.Forms.Panel business_panel;
         private System.Windows.Forms.PictureBox company_logo_picturebox;
         private System.Windows.Forms.Button edit_button;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label description_label;
+        private System.Windows.Forms.Label address_label;
+        private System.Windows.Forms.Label name_label;
         private System.Windows.Forms.Button post_job_button;
         private System.Windows.Forms.FlowLayoutPanel joblist_flowlayout;
         private System.Windows.Forms.Panel sidebar_panel;

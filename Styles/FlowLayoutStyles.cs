@@ -228,10 +228,10 @@ namespace JobNear.Styles
             docu_flowlayout.Controls.Add(filePanel);
         }
 
-        public static void AddPendingBusiness(string businessName, string businessDescription, string businessaddress, string businessStatus , FlowLayoutPanel file_flowlayout, Panel my_business_panel) {
+        public static void AddPendingBusiness(string businessID, string businessName, string businessDescription, string businessaddress, string businessStatus , FlowLayoutPanel file_flowlayout, Panel my_business_panel) {
             Panel businessPanel = new Panel();
             businessPanel.Height = 150;
-            businessPanel.Width = file_flowlayout.Width - 38;
+            businessPanel.Width = file_flowlayout.Width - 20;
             businessPanel.Margin = new Padding(10, 10, 10, 10);
             businessPanel.BackColor = Color.WhiteSmoke;
             businessPanel.BorderStyle = BorderStyle.None;
@@ -254,7 +254,7 @@ namespace JobNear.Styles
             statusLabel.AutoEllipsis = true;
             statusLabel.Height = 25;
             statusLabel.BorderStyle = BorderStyle.None;
-            statusLabel.Location = new Point(780, 10);
+            statusLabel.Location = new Point(800, 20);
             statusLabel.TextAlign = ContentAlignment.MiddleLeft;
             statusLabel.Font = new Font("Poppins", 12, FontStyle.Bold);
 
@@ -262,7 +262,7 @@ namespace JobNear.Styles
 
             Label descriptionLabel = new Label();
             descriptionLabel.AutoSize = false;
-            descriptionLabel.Text = businessDescription;
+            descriptionLabel.Text = $"  {businessDescription}";
             descriptionLabel.Width = 700;
             descriptionLabel.Height = 55;
             descriptionLabel.BorderStyle = BorderStyle.None;
@@ -285,7 +285,7 @@ namespace JobNear.Styles
 
             businessPanel.Click += (s, e) =>
             {
-                JobPosterDashboardUserControl.JP_BusinessDetails jp_businessDeets = new JobPosterDashboardUserControl.JP_BusinessDetails();
+                JobPosterDashboardUserControl.JP_BusinessDetails jp_businessDeets = new JobPosterDashboardUserControl.JP_BusinessDetails(businessID);
 
 
                 my_business_panel.Controls.Clear();
