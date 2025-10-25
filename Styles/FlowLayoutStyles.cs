@@ -287,12 +287,9 @@ namespace JobNear.Styles
             {
                 JobPosterDashboardUserControl.JP_BusinessDetails jp_businessDeets = new JobPosterDashboardUserControl.JP_BusinessDetails(businessID);
 
-
                 my_business_panel.Controls.Clear();
                 my_business_panel.Controls.Add(jp_businessDeets);
                 jp_businessDeets.Dock = DockStyle.Fill;
-
-                MessageBox.Show($"Business: {businessName}\nDescription: {businessDescription}\nAddress: {businessaddress}", "Business Details", MessageBoxButtons.OK, MessageBoxIcon.Information);
             };
 
             businessPanel.Controls.Add(nameLabel);

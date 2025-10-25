@@ -80,7 +80,7 @@
             this.cancel_button.Name = "cancel_button";
             this.cancel_button.Size = new System.Drawing.Size(104, 36);
             this.cancel_button.TabIndex = 86;
-            this.cancel_button.Text = "Cancel";
+            this.cancel_button.Text = "Draft";
             this.cancel_button.UseVisualStyleBackColor = true;
             // 
             // responsibilities_richbox
@@ -316,7 +316,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "JP_PostJobForm";
-            this.Size = new System.Drawing.Size(1014, 705);
+            this.Size = new System.Drawing.Size(997, 705);
             this.ResumeLayout(false);
             this.PerformLayout();
 
