@@ -264,6 +264,38 @@ namespace JobNear.Services
             }
         }
 
+        public static async Task<bool> InsertBusinessApplicationAsync(string id, string name, string industry, string description, string email, string phone, string website, string address, double lat, double lon, byte[] profile, List<SupportingDocument> docu, bool isDraft, string status)
+        {
+            try
+            {
+                var newBusiness = new JobPosterBusinessModel
+                {
+                    BusinessId = id,
+                    BusinessName = name,
+                    BusinessIndustry = industry,
+                    BusinessDescription = description,
+                    BusinessAddress = address,
+                    Latitude = lat,
+                    Longitude = lon,
+                    BusinessEmail = email,
+                    BusinessContact = phone,
+                    BusinessLogo = profile,
+                    BusinessSite = website,
+                    SupportingDocuments = docu,
+                    isDraft = isDraft,
+                    Status = status
+                };
+
+                await JobPosterBusiness.InsertOneAsync(newBusiness);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error occurred while submitting business application: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+
         public static async Task<bool> UpdateJobSeekerProfileAsync(string id, string email, string phone, string lastname, string firstname, string middlename, string sex, string birthdate, short age, string address, double lat, double lon, byte[] profile, List<SupportingDocument> docu, bool isDraft, string status)
         {
             try

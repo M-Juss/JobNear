@@ -13,7 +13,7 @@ namespace JobNear.Models
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
         public string Id { get; set; }
-
+        public string BusinessId { get; set; }
         public string BusinessName { get; set; }
         public string BusinessIndustry { get; set; }
         public string BusinessDescription { get; set; }
@@ -24,14 +24,9 @@ namespace JobNear.Models
         public string BusinessContact { get; set; }
         public byte[] BusinessLogo { get; set; }
         public string BusinessSite { get; set; }
-        public string BusinessDocument { get; set; }
-        public Boolean isDraft { get; set; } = true;
+        public List<SupportingDocument> SupportingDocuments { get; set; }
+        public Boolean isDraft { get; set; }
         public String Status { get; set; }
     }
 
-    public class BusinessDocument
-    {
-        public string FileName { get; set; }
-        public byte[] FileContent { get; set; }
-    }
 }

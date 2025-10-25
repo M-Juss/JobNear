@@ -1,4 +1,6 @@
 ﻿using JobNear.Forms;
+using JobNear.JobSeekerDashboardUserControl;
+using JobNear.Models;
 using JobNear.Services;
 using JobNear.Styles;
 using System;
@@ -78,10 +80,10 @@ namespace JobNear.JobPosterDashboardUserControl
 
         private void review_button_Click(object sender, EventArgs e)
         {
-
+            InsertBusinessDetails(false, "pending");
         }
 
-        private async void UpdateBusinessDetails(bool isDraft, string status)
+        private async void InsertBusinessDetails(bool isDraft, string status)
         {
             TextBoxValidatorController.ValidateEmail(email_input);
             TextBoxValidatorController.ValidatePhoneNumber(phone_input);
@@ -89,8 +91,7 @@ namespace JobNear.JobPosterDashboardUserControl
 
             if (string.IsNullOrEmpty(name_input.Text) || string.IsNullOrEmpty(industry_input.Text) ||
                 string.IsNullOrEmpty(description_richbox.Text) || string.IsNullOrEmpty(address_input.Text) ||
-                string.IsNullOrEmpty(email_input.Text) || string.IsNullOrEmpty(phone_input.Text) ||
-                string.IsNullOrEmpty(website_input.Text))
+                string.IsNullOrEmpty(email_input.Text) || string.IsNullOrEmpty(phone_input.Text))
             {
                 MessageBox.Show("Please fill all fields", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -122,6 +123,74 @@ namespace JobNear.JobPosterDashboardUserControl
                 }
             }
 
+                List<SupportingDocument> supportingDocuments = new List<SupportingDocument>();
+
+                foreach (Control ctrl in image_flowlayout.Controls)
+                {
+                    if (ctrl is Panel panel)
+                    {
+                        if (panel.Tag is SupportingDocument existingDoc)
+                        {
+                            supportingDocuments.Add(existingDoc);
+                        }
+                        else if (panel.Tag is string filePath && File.Exists(filePath))
+                        {
+                            supportingDocuments.Add(new SupportingDocument
+                            {
+                                FileName = Path.GetFileName(filePath),
+                                FileContent = File.ReadAllBytes(filePath)
+                            });
+                        }
+                    }
+                }
+
+                byte[] imageResponse = ConvertDataTypeServices.ConvertImageToBytes(profile_picture.Image);
+
+                bool response = await MongoDbServices.InsertBusinessApplicationAsync(
+                    Session.CurrentUserId,
+                    name_input.Text,
+                    industry_input.Text,
+                    description_richbox.Text,
+                    email_input.Text,
+                    phone_input.Text,
+                    website_input.Text,
+                    address_input.Text,
+                    selectedLat,
+                    selectedLon,
+                    imageResponse,
+                    supportingDocuments,
+                    isDraft,
+                    status
+                    );
+
+                if (response)
+                {
+                    string res = MessageBox.Show(
+                        isDraft ? "Business inserted successfully as a draft" : "Business registered successfully and ready for review",
+                        "Success",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information
+                    ).ToString();
+
+                    if (res == "OK")
+                    {
+                        name_input.Clear();
+                        industry_input.SelectedIndex = -1;
+                        description_richbox.Clear();
+                        address_input.Clear();
+                        email_input.Clear();
+                        phone_input.Clear();
+                        website_input.Clear();
+                        profile_picture.Image = null;
+                        image_flowlayout.Controls.Clear();
+
+                    }
+                    else return;
+                }
+                else
+                {
+                    MessageBox.Show("Failed to register business. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
         }
 
         private void upload_button_Click(object sender, EventArgs e)

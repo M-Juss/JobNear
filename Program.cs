@@ -16,7 +16,11 @@ namespace JobNear
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new JobPosterDashboardForm());
+            Application.Run(new JobNearUserForm());
+
+            // October 25, 2025
+            // [] Insert RegisterBusiness
+            // [] Insert PostJob
         }
     }
 }
