@@ -51,6 +51,7 @@
             this.my_business_panel.Name = "my_business_panel";
             this.my_business_panel.Size = new System.Drawing.Size(1031, 705);
             this.my_business_panel.TabIndex = 1;
+            this.my_business_panel.Paint += new System.Windows.Forms.PaintEventHandler(this.my_business_panel_Paint);
             // 
             // label1
             // 

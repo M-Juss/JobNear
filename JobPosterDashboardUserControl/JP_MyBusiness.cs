@@ -58,7 +58,12 @@ namespace JobNear.JobPosterDashboardUserControl
             }
 
             }
+
+        private void my_business_panel_Paint(object sender, PaintEventArgs e)
+        {
+
         }
+    }
 
         
     }

@@ -37,8 +37,6 @@ namespace JobNear.JobSeekerDashboardUserControl
                     notificationManager.AddNotification(notif.Key, notif.HeaderMessage, notif.Remarks, notif.Type, notif.Date);
                 }
             }
-
-
         }
 
         private void sidebar_panel_Paint(object sender, PaintEventArgs e)
