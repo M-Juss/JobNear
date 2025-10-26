@@ -17,6 +17,9 @@ namespace JobNear.JobPosterDashboardUserControl
         public JP_PostJobForm()
         {
             InitializeComponent();
+            payment_combo.Text = "Select Payment Type";
+            paymenttype_label.Text = "";
+
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -48,6 +51,33 @@ namespace JobNear.JobPosterDashboardUserControl
             if (!fully_remote_radiobtn.Checked && !fully_office_radiobtn.Checked && !hybrid_radiobtn.Checked) { 
                 MessageBox.Show("Please select a work model", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
+            }
+        }
+
+        private void JP_PostJobForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void status_combo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void payment_combo_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            if (payment_combo.SelectedIndex == 0)
+            {
+                paymenttype_label.Text = "Salary Per Month";
+                monthly_input.Visible = true;
+                hourly_input.Visible = false;
+            }
+            else if (payment_combo.SelectedIndex == 1)
+            {
+                paymenttype_label.Text = "Rate Per Hour";
+                hourly_input.Visible = true;
+                monthly_input.Visible = false;
+
             }
         }
 

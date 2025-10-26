@@ -51,12 +51,19 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.status_combo = new System.Windows.Forms.ComboBox();
+            this.monthly_input = new System.Windows.Forms.TextBox();
+            this.payment_combo = new System.Windows.Forms.ComboBox();
+            this.paymenttype_label = new System.Windows.Forms.Label();
+            this.hourly_input = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.SystemColors.Control;
-            this.panel4.Location = new System.Drawing.Point(94, 872);
+            this.panel4.Location = new System.Drawing.Point(94, 950);
             this.panel4.Margin = new System.Windows.Forms.Padding(0);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(787, 1);
@@ -65,7 +72,7 @@
             // post_button
             // 
             this.post_button.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.post_button.Location = new System.Drawing.Point(878, 807);
+            this.post_button.Location = new System.Drawing.Point(878, 885);
             this.post_button.Name = "post_button";
             this.post_button.Size = new System.Drawing.Size(109, 36);
             this.post_button.TabIndex = 87;
@@ -76,11 +83,11 @@
             // cancel_button
             // 
             this.cancel_button.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cancel_button.Location = new System.Drawing.Point(768, 807);
+            this.cancel_button.Location = new System.Drawing.Point(768, 885);
             this.cancel_button.Name = "cancel_button";
             this.cancel_button.Size = new System.Drawing.Size(104, 36);
             this.cancel_button.TabIndex = 86;
-            this.cancel_button.Text = "Draft";
+            this.cancel_button.Text = "Cancel";
             this.cancel_button.UseVisualStyleBackColor = true;
             // 
             // responsibilities_richbox
@@ -287,11 +294,91 @@
             this.label1.TabIndex = 66;
             this.label1.Text = "Job Position / Title";
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Poppins SemiBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(68, 789);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(155, 34);
+            this.label10.TabIndex = 89;
+            this.label10.Text = "Payment Type";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Poppins SemiBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(638, 789);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(77, 34);
+            this.label11.TabIndex = 90;
+            this.label11.Text = "Status";
+            // 
+            // status_combo
+            // 
+            this.status_combo.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.status_combo.FormattingEnabled = true;
+            this.status_combo.Items.AddRange(new object[] {
+            "Active",
+            "Closed",
+            "Withdrawn"});
+            this.status_combo.Location = new System.Drawing.Point(644, 824);
+            this.status_combo.Name = "status_combo";
+            this.status_combo.Size = new System.Drawing.Size(270, 30);
+            this.status_combo.TabIndex = 100;
+            this.status_combo.SelectedIndexChanged += new System.EventHandler(this.status_combo_SelectedIndexChanged);
+            // 
+            // monthly_input
+            // 
+            this.monthly_input.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.monthly_input.Location = new System.Drawing.Point(334, 824);
+            this.monthly_input.Name = "monthly_input";
+            this.monthly_input.Size = new System.Drawing.Size(276, 31);
+            this.monthly_input.TabIndex = 103;
+            // 
+            // payment_combo
+            // 
+            this.payment_combo.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.payment_combo.FormattingEnabled = true;
+            this.payment_combo.Items.AddRange(new object[] {
+            "Monthly Salary",
+            "Hourly Rate "});
+            this.payment_combo.Location = new System.Drawing.Point(72, 825);
+            this.payment_combo.Name = "payment_combo";
+            this.payment_combo.Size = new System.Drawing.Size(225, 30);
+            this.payment_combo.TabIndex = 105;
+            this.payment_combo.SelectedIndexChanged += new System.EventHandler(this.payment_combo_SelectedIndexChanged_1);
+            // 
+            // paymenttype_label
+            // 
+            this.paymenttype_label.AutoSize = true;
+            this.paymenttype_label.Font = new System.Drawing.Font("Poppins SemiBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.paymenttype_label.Location = new System.Drawing.Point(328, 789);
+            this.paymenttype_label.Name = "paymenttype_label";
+            this.paymenttype_label.Size = new System.Drawing.Size(185, 34);
+            this.paymenttype_label.TabIndex = 106;
+            this.paymenttype_label.Text = "Salary per month";
+            // 
+            // hourly_input
+            // 
+            this.hourly_input.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.hourly_input.Location = new System.Drawing.Point(334, 824);
+            this.hourly_input.Name = "hourly_input";
+            this.hourly_input.Size = new System.Drawing.Size(276, 31);
+            this.hourly_input.TabIndex = 107;
+            // 
             // JP_PostJobForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
+            this.Controls.Add(this.hourly_input);
+            this.Controls.Add(this.paymenttype_label);
+            this.Controls.Add(this.payment_combo);
+            this.Controls.Add(this.monthly_input);
+            this.Controls.Add(this.status_combo);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.post_button);
             this.Controls.Add(this.cancel_button);
@@ -316,7 +403,8 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "JP_PostJobForm";
-            this.Size = new System.Drawing.Size(997, 705);
+            this.Size = new System.Drawing.Size(980, 688);
+            this.Load += new System.EventHandler(this.JP_PostJobForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -347,5 +435,12 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.ComboBox status_combo;
+        private System.Windows.Forms.TextBox monthly_input;
+        private System.Windows.Forms.ComboBox payment_combo;
+        private System.Windows.Forms.Label paymenttype_label;
+        private System.Windows.Forms.TextBox hourly_input;
     }
 }
