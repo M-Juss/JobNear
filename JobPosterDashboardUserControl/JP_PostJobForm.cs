@@ -36,7 +36,8 @@ namespace JobNear.JobPosterDashboardUserControl
         {
             if (string.IsNullOrEmpty(title_input.Text) || string.IsNullOrEmpty(address_input.Text) ||
                 string.IsNullOrEmpty(min_qualification_richbox.Text) || string.IsNullOrEmpty(about_job_richbox.Text) ||
-                string.IsNullOrEmpty(responsibilities_richbox.Text) || string.IsNullOrEmpty(preferred_qualification_richbox.Text))
+                string.IsNullOrEmpty(responsibilities_richbox.Text) || string.IsNullOrEmpty(preferred_qualification_richbox.Text) ||
+                string.IsNullOrEmpty(payment_combo.Text))
             {
                 MessageBox.Show("Please fill all fields", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -52,6 +53,16 @@ namespace JobNear.JobPosterDashboardUserControl
                 MessageBox.Show("Please select a work model", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+
+            //if (payment_combo.SelectedIndex == 0)
+            //{
+
+            //}
+            //else if(payment_combo.SelectedIndex == 1) 
+            //{
+            
+            //}
+            //else MessageBox.Show("Please select a valid payment type", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
         private void JP_PostJobForm_Load(object sender, EventArgs e)

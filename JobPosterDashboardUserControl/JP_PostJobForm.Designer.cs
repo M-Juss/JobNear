@@ -403,7 +403,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "JP_PostJobForm";
-            this.Size = new System.Drawing.Size(980, 688);
+            this.Size = new System.Drawing.Size(997, 705);
             this.Load += new System.EventHandler(this.JP_PostJobForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
