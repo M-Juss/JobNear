@@ -296,17 +296,6 @@ namespace JobNear.Services
             }
         }
 
-        public static async Task<bool> InsertJobPostingAsync(string id, string title, string address, string employmentType, string workModel, string minQual, string prefQual, string aboutJob, string responsibilities, string paymentType, string monthlySalary, string hourlyRate, string status) {
-            try
-            {
-                return true;
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show("");
-                return false;
-            }
-        }
 
 
         public static async Task<bool> UpdateJobSeekerProfileAsync(string id, string email, string phone, string lastname, string firstname, string middlename, string sex, string birthdate, short age, string address, double lat, double lon, byte[] profile, List<SupportingDocument> docu, bool isDraft, string status)

@@ -12,6 +12,7 @@ namespace JobNear.JobPosterDashboardUserControl
         public JP_BusinessDetails(string businessId)
         {
             InitializeComponent();
+            Console.WriteLine(businessId);
             LoadSelectedBusiness(businessId);
             FlowLayoutStyles.AddPostJob("Senior Developer", "Fully In Office", "Full Time", "Lorem ipsum dolor sit amet. Eum consequatur itaque et quibusdam voluptatem et aspernatur explicabo. Sit eaque possimus ut repellat enim et temporibus natus ut saepe nihil et iusto odit aut animi sunt cum necessitatibus incidunt. ", joblist_flowlayout);
             FlowLayoutStyles.AddPostJob("Junior Developer", "Hybrid", "Part Time", "Lorem ipsum dolor sit amet. Eum consequatur itaque et quibusdam voluptatem et aspernatur explicabo. Sit eaque possimus ut repellat enim et temporibus natus ut saepe nihil et iusto odit aut animi sunt cum necessitatibus incidunt. ", joblist_flowlayout);
@@ -37,7 +38,7 @@ namespace JobNear.JobPosterDashboardUserControl
         private async void LoadSelectedBusiness(string businessId)
         {
             var businessDetails = await MongoDbServices.JobPosterBusiness
-                .Find(x => x.BusinessId == businessId)
+                .Find(x => x.Id == businessId)
                 .FirstOrDefaultAsync();
 
             if (businessDetails != null) {
@@ -59,7 +60,7 @@ namespace JobNear.JobPosterDashboardUserControl
         private void post_job_button_Click(object sender, EventArgs e)
         {
 
-            JobPosterDashboardUserControl.JP_PostJobForm jp_postJob = new JobPosterDashboardUserControl.JP_PostJobForm(Session.CurrentBusinessSelected);
+            JobPosterDashboardUserControl.JP_PostJobForm jp_postJob = new JobPosterDashboardUserControl.JP_PostJobForm(Session.CurrentBusinessSelected, sidebar_panel);
             sidebar_panel.Controls.Clear();
             sidebar_panel.Controls.Add(jp_postJob);
             sidebar_panel.Dock = DockStyle.Fill;

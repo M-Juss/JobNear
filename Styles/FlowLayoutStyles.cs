@@ -293,11 +293,10 @@ namespace JobNear.Styles
 
                 if (setSpecificBusiness != null) {
 
-                    Session.CurrentBusinessSelected = setSpecificBusiness.Id;
+                    string selectedBusinessID = setSpecificBusiness.Id;
+                    Session.CurrentBusinessSelected = selectedBusinessID;
 
-                    Console.WriteLine(Session.CurrentBusinessSelected);
-                    JobPosterDashboardUserControl.JP_BusinessDetails jp_businessDeets = new JobPosterDashboardUserControl.JP_BusinessDetails(businessID);
-
+                    JobPosterDashboardUserControl.JP_BusinessDetails jp_businessDeets = new JobPosterDashboardUserControl.JP_BusinessDetails(selectedBusinessID);
                     my_business_panel.Controls.Clear();
                     my_business_panel.Controls.Add(jp_businessDeets);
                     jp_businessDeets.Dock = DockStyle.Fill;
