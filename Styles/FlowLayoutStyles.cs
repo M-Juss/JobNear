@@ -5,9 +5,11 @@ using System;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
+using JobNear.Services;
 using System.Xml;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using Button = System.Windows.Forms.Button;
+using MongoDB.Driver;
 
 namespace JobNear.Styles
 {
@@ -283,13 +285,24 @@ namespace JobNear.Styles
             addresLabel.Font = new Font("Poppins", 9, FontStyle.Regular);
             addresLabel.ForeColor = Color.Gray;
 
-            businessPanel.Click += (s, e) =>
+            businessPanel.Click += async (s, e) =>
             {
-                JobPosterDashboardUserControl.JP_BusinessDetails jp_businessDeets = new JobPosterDashboardUserControl.JP_BusinessDetails(businessID);
+                var setSpecificBusiness = await MongoDbServices.JobPosterBusiness
+                    .Find(x => x.BusinessId == businessID)
+                    .FirstOrDefaultAsync();
 
-                my_business_panel.Controls.Clear();
-                my_business_panel.Controls.Add(jp_businessDeets);
-                jp_businessDeets.Dock = DockStyle.Fill;
+                if (setSpecificBusiness != null) {
+
+                    Session.CurrentBusinessSelected = setSpecificBusiness.Id;
+
+                    Console.WriteLine(Session.CurrentBusinessSelected);
+                    JobPosterDashboardUserControl.JP_BusinessDetails jp_businessDeets = new JobPosterDashboardUserControl.JP_BusinessDetails(businessID);
+
+                    my_business_panel.Controls.Clear();
+                    my_business_panel.Controls.Add(jp_businessDeets);
+                    jp_businessDeets.Dock = DockStyle.Fill;
+                }
+
             };
 
             businessPanel.Controls.Add(nameLabel);

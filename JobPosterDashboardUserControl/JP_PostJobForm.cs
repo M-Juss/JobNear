@@ -14,7 +14,7 @@ namespace JobNear.JobPosterDashboardUserControl
     public partial class JP_PostJobForm : UserControl
     {
 
-        public JP_PostJobForm()
+        public JP_PostJobForm(string businessSelected)
         {
             InitializeComponent();
             payment_combo.Text = "Select Payment Type";
@@ -49,20 +49,156 @@ namespace JobNear.JobPosterDashboardUserControl
                 return;
             }
 
-            if (!fully_remote_radiobtn.Checked && !fully_office_radiobtn.Checked && !hybrid_radiobtn.Checked) { 
+            if (!fully_remote_radiobtn.Checked && !fully_office_radiobtn.Checked && !hybrid_radiobtn.Checked) {
+
                 MessageBox.Show("Please select a work model", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            //if (payment_combo.SelectedIndex == 0)
-            //{
 
-            //}
-            //else if(payment_combo.SelectedIndex == 1) 
-            //{
-            
-            //}
-            //else MessageBox.Show("Please select a valid payment type", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            if (payment_combo.SelectedIndex == 0) // payment type = Monthly Salary
+            {
+                if (full_time_checkbox.Checked && part_time_checkbox.Checked)
+                {
+                    if (fully_office_radiobtn.Checked)
+                    {
+                        string payment = "Monthly Salary";
+                        string employment_type = $"{full_time_checkbox.Text} | {part_time_checkbox.Text}";
+                        string work_model = "Fully Office";
+
+                    }
+                    else if (fully_remote_radiobtn.Checked) 
+                    {
+                        string payment = "Monthly Salary";
+                        string employment_type = $"{full_time_checkbox.Text} | {part_time_checkbox.Text}";
+                        string work_model = "Fully Remote";
+                    } 
+                    else if (hybrid_radiobtn.Checked) 
+                    {
+                        string payment = "Monthly Salary";
+                        string employment_type = $"{full_time_checkbox.Text} | {part_time_checkbox.Text}";
+                        string work_model = "Fully Remote";
+                    }
+
+                }
+                else if (full_time_checkbox.Checked && !part_time_checkbox.Checked)
+                {
+                    if (fully_office_radiobtn.Checked)
+                    {
+                        string payment = "Monthly Salary";
+                        string employment_type = $"{full_time_checkbox.Text}";
+                        string work_model = "Fully Office";
+
+                    }
+                    else if (fully_remote_radiobtn.Checked)
+                    {
+                        string payment = "Monthly Salary";
+                        string employment_type = $"{full_time_checkbox.Text}";
+                        string work_model = "Fully Remote";
+                    }
+                    else if (hybrid_radiobtn.Checked)
+                    {
+                        string payment = "Monthly Salary";
+                        string employment_type = $"{full_time_checkbox.Text}";
+                        string work_model = "Hybrid";
+                    }
+                }
+                else if (!full_time_checkbox.Checked && part_time_checkbox.Checked) 
+                {
+                    if (fully_office_radiobtn.Checked)
+                    {
+                        string payment = "Monthly Salary";
+                        string employment_type = $"{part_time_checkbox.Text}";
+                        string work_model = "Fully Office";
+
+                    }
+                    else if (fully_remote_radiobtn.Checked)
+                    {
+                        string payment = "Monthly Salary";
+                        string employment_type = $"{part_time_checkbox.Text}";
+                        string work_model = "Fully Remote";
+                    }
+                    else if (hybrid_radiobtn.Checked)
+                    {
+                        string payment = "Monthly Salary";
+                        string employment_type = $"{part_time_checkbox.Text}";
+                        string work_model = "Hybrid";
+                    }
+
+                }
+            }
+            else if (payment_combo.SelectedIndex == 1)
+            {
+                if (full_time_checkbox.Checked && part_time_checkbox.Checked)
+                {
+                    if (fully_office_radiobtn.Checked)
+                    {
+                        string payment = "Hourly Salary";
+                        string employment_type = $"{full_time_checkbox.Text} | {part_time_checkbox.Text}";
+                        string work_model = "Fully Office";
+
+                    }
+                    else if (fully_remote_radiobtn.Checked)
+                    {
+                        string payment = "Hourly Salary";
+                        string employment_type = $"{full_time_checkbox.Text} | {part_time_checkbox.Text}";
+                        string work_model = "Fully Remote";
+                    }
+                    else if (hybrid_radiobtn.Checked)
+                    {
+                        string payment = "Hourly Salary";
+                        string employment_type = $"{full_time_checkbox.Text} | {part_time_checkbox.Text}";
+                        string work_model = "Fully Remote";
+                    }
+
+                }
+                else if (full_time_checkbox.Checked && !part_time_checkbox.Checked)
+                {
+                    if (fully_office_radiobtn.Checked)
+                    {
+                        string payment = "Hourly Salary";
+                        string employment_type = $"{full_time_checkbox.Text}";
+                        string work_model = "Fully Office";
+
+                    }
+                    else if (fully_remote_radiobtn.Checked)
+                    {
+                        string payment = "Hourly Salary";
+                        string employment_type = $"{full_time_checkbox.Text}";
+                        string work_model = "Fully Remote";
+                    }
+                    else if (hybrid_radiobtn.Checked)
+                    {
+                        string payment = "Hourly Salary";
+                        string employment_type = $"{full_time_checkbox.Text}";
+                        string work_model = "Hybrid";
+                    }
+                }
+                else if (!full_time_checkbox.Checked && part_time_checkbox.Checked)
+                {
+                    if (fully_office_radiobtn.Checked)
+                    {
+                        string payment = "Hourly Salary";
+                        string employment_type = $"{part_time_checkbox.Text}";
+                        string work_model = "Fully Office";
+
+                    }
+                    else if (fully_remote_radiobtn.Checked)
+                    {
+                        string payment = "Hourly Salary";
+                        string employment_type = $"{part_time_checkbox.Text}";
+                        string work_model = "Fully Remote";
+                    }
+                    else if (hybrid_radiobtn.Checked)
+                    {
+                        string payment = "Hourly Salary";
+                        string employment_type = $"{part_time_checkbox.Text}";
+                        string work_model = "Hybrid";
+                    }
+
+                }
+            }
+            else MessageBox.Show("Please select a valid payment type", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
         private void JP_PostJobForm_Load(object sender, EventArgs e)

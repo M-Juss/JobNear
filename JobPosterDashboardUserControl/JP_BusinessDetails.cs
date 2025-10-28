@@ -58,7 +58,8 @@ namespace JobNear.JobPosterDashboardUserControl
 
         private void post_job_button_Click(object sender, EventArgs e)
         {
-            JobPosterDashboardUserControl.JP_PostJobForm jp_postJob = new JobPosterDashboardUserControl.JP_PostJobForm();
+
+            JobPosterDashboardUserControl.JP_PostJobForm jp_postJob = new JobPosterDashboardUserControl.JP_PostJobForm(Session.CurrentBusinessSelected);
             sidebar_panel.Controls.Clear();
             sidebar_panel.Controls.Add(jp_postJob);
             sidebar_panel.Dock = DockStyle.Fill;

@@ -13,6 +13,7 @@ namespace JobNear
         public static double CurrentLatitude { get; set; }
         public static double CurrentLongitude { get; set; }
         public static string CurrentProfileStatus { get; set; }
+        public static string CurrentBusinessSelected { get; set; }
 
     }
 }
