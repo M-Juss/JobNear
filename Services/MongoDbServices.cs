@@ -296,7 +296,35 @@ namespace JobNear.Services
             }
         }
 
+        public static async Task<bool> InsertJobPostingAsync(string id, string title, string employmentType, string workModel, string minQual, string prefQual, string aboutJob, string responsibilities, string paymentType, double monthlySalary, double hourlyRate, string status)
+        {
+            try
+            {
+                var newJobPosting = new JobPosterJobPostingModel
+                {
+                    BusinessId = id,
+                    JobPosition = title,
+                    JobEmploymentType = employmentType,
+                    JobWorkModel = workModel,
+                    JobMinimumQualification = minQual,
+                    JobPreferredQualification = prefQual,
+                    JobAbout = aboutJob,
+                    JobResponsibilities = responsibilities,
+                    JobPaymentType = paymentType,
+                    JobMonthlyRate = monthlySalary,
+                    JobHourlyRate = hourlyRate,
+                    JobStatus = status
+                };
 
+                await JobPosterJobPosting.InsertOneAsync(newJobPosting);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error occurred while submitting job posting: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
 
         public static async Task<bool> UpdateJobSeekerProfileAsync(string id, string email, string phone, string lastname, string firstname, string middlename, string sex, string birthdate, short age, string address, double lat, double lon, byte[] profile, List<SupportingDocument> docu, bool isDraft, string status)
         {
