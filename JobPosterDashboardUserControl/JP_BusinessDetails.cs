@@ -14,6 +14,7 @@ namespace JobNear.JobPosterDashboardUserControl
             InitializeComponent();
             Console.WriteLine(businessId);
             LoadSelectedBusiness(businessId);
+            LoadPostedJobs(businessId);
             FlowLayoutStyles.AddPostJob("Senior Developer", "Fully In Office", "Full Time", "Lorem ipsum dolor sit amet. Eum consequatur itaque et quibusdam voluptatem et aspernatur explicabo. Sit eaque possimus ut repellat enim et temporibus natus ut saepe nihil et iusto odit aut animi sunt cum necessitatibus incidunt. ", joblist_flowlayout);
             FlowLayoutStyles.AddPostJob("Junior Developer", "Hybrid", "Part Time", "Lorem ipsum dolor sit amet. Eum consequatur itaque et quibusdam voluptatem et aspernatur explicabo. Sit eaque possimus ut repellat enim et temporibus natus ut saepe nihil et iusto odit aut animi sunt cum necessitatibus incidunt. ", joblist_flowlayout);
             FlowLayoutStyles.AddPostJob("Intern Developer", "Fullt Remote", "Part Time", "Lorem ipsum dolor sit amet. Eum consequatur itaque et quibusdam voluptatem et aspernatur explicabo. Sit eaque possimus ut repellat enim et temporibus natus ut saepe nihil et iusto odit aut animi sunt cum necessitatibus incidunt.", joblist_flowlayout);
@@ -47,6 +48,27 @@ namespace JobNear.JobPosterDashboardUserControl
                 description_label.Text = businessDetails.BusinessDescription;
                 address_label.Text = businessDetails.BusinessAddress;
 
+            }
+        }
+
+        private async void LoadPostedJobs(string businessId)
+        {
+            var postedJobs = await MongoDbServices.JobPosterJobPosting
+                .Find(x => x.BusinessId == businessId)
+                .ToListAsync();
+
+            if (postedJobs != null)
+            {
+                postedJobs.ForEach(job =>
+                {
+                    FlowLayoutStyles.AddPostJob(
+                        job.JobPosition,
+                        job.JobWorkModel,
+                        job.JobEmploymentType,
+                        job.JobAbout,
+                        joblist_flowlayout
+                    );
+                });
             }
         }
         private void pictureBox1_Click(object sender, EventArgs e)
