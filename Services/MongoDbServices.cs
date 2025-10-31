@@ -238,12 +238,13 @@ namespace JobNear.Services
             }
         }
 
-        public static async Task<bool> InsertJobPosterAccountAsync(string phone, string email, string password)
+        public static async Task<bool> InsertJobPosterAccountAsync(string username, string email, string phone,  string password)
         {
             try
             {
                 var newAccount = new JobPosterAccountModel
                 {
+                    Username = username,
                     Phone = phone,
                     Email = email,
                     Password = password
