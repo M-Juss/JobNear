@@ -114,7 +114,6 @@
             this.status_combo.Name = "status_combo";
             this.status_combo.Size = new System.Drawing.Size(160, 38);
             this.status_combo.TabIndex = 4;
-            this.status_combo.SelectedIndexChanged += new System.EventHandler(this.status_combo_SelectedIndexChanged);
             // 
             // label2
             // 

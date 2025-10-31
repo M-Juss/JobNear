@@ -191,6 +191,7 @@ namespace JobNear.Services
                         return;
                     }
 
+                    Session.CurrentUserType = "admin";
                     Session.CurrentUserId = admin.Id;
                     Session.CurrentEmail = admin.Email;
 

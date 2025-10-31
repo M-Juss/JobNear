@@ -8,6 +8,7 @@ namespace JobNear
 {
     public class Session
     {
+        public static string CurrentUserType { get; set; }
         public static string CurrentUserId { get; set; }
         public static string CurrentEmail { get; set; }
         public static double CurrentLatitude { get; set; }

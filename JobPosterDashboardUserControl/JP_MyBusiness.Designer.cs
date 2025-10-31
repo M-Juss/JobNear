@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.mybusiness_flowlayout = new System.Windows.Forms.FlowLayoutPanel();
-            this.my_business_panel = new System.Windows.Forms.Panel();
+            this.sidebar_panel = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.my_business_panel.SuspendLayout();
+            this.sidebar_panel.SuspendLayout();
             this.SuspendLayout();
             // 
             // mybusiness_flowlayout
@@ -42,16 +42,16 @@
             this.mybusiness_flowlayout.Size = new System.Drawing.Size(957, 587);
             this.mybusiness_flowlayout.TabIndex = 0;
             // 
-            // my_business_panel
+            // sidebar_panel
             // 
-            this.my_business_panel.Controls.Add(this.label1);
-            this.my_business_panel.Controls.Add(this.mybusiness_flowlayout);
-            this.my_business_panel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.my_business_panel.Location = new System.Drawing.Point(0, 0);
-            this.my_business_panel.Name = "my_business_panel";
-            this.my_business_panel.Size = new System.Drawing.Size(1031, 705);
-            this.my_business_panel.TabIndex = 1;
-            this.my_business_panel.Paint += new System.Windows.Forms.PaintEventHandler(this.my_business_panel_Paint);
+            this.sidebar_panel.Controls.Add(this.label1);
+            this.sidebar_panel.Controls.Add(this.mybusiness_flowlayout);
+            this.sidebar_panel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.sidebar_panel.Location = new System.Drawing.Point(0, 0);
+            this.sidebar_panel.Name = "sidebar_panel";
+            this.sidebar_panel.Size = new System.Drawing.Size(1031, 705);
+            this.sidebar_panel.TabIndex = 1;
+            this.sidebar_panel.Paint += new System.Windows.Forms.PaintEventHandler(this.my_business_panel_Paint);
             // 
             // label1
             // 
@@ -68,11 +68,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.my_business_panel);
+            this.Controls.Add(this.sidebar_panel);
             this.Name = "JP_MyBusiness";
             this.Size = new System.Drawing.Size(1031, 705);
-            this.my_business_panel.ResumeLayout(false);
-            this.my_business_panel.PerformLayout();
+            this.sidebar_panel.ResumeLayout(false);
+            this.sidebar_panel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -80,7 +80,7 @@
         #endregion
 
         private System.Windows.Forms.FlowLayoutPanel mybusiness_flowlayout;
-        private System.Windows.Forms.Panel my_business_panel;
+        private System.Windows.Forms.Panel sidebar_panel;
         private System.Windows.Forms.Label label1;
     }
 }

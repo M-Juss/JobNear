@@ -42,14 +42,14 @@ namespace JobNear.JobPosterDashboardUserControl
                 {
                     businessDetails.ForEach(business =>
                     {
-                        FlowLayoutStyles.AddPendingBusiness(
+                        FlowLayoutStyles.AddMyBusiness(
                             business.BusinessId,
                             business.BusinessName,
                             business.BusinessDescription,
                             business.BusinessAddress,
                             business.Status,
                             mybusiness_flowlayout,
-                            my_business_panel
+                            sidebar_panel
                         );
                     });
                 }

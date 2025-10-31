@@ -230,7 +230,7 @@ namespace JobNear.Styles
             docu_flowlayout.Controls.Add(filePanel);
         }
 
-        public static void AddPendingBusiness(string businessID, string businessName, string businessDescription, string businessaddress, string businessStatus , FlowLayoutPanel file_flowlayout, Panel my_business_panel) {
+        public static void AddMyBusiness(string businessID, string businessName, string businessDescription, string businessaddress, string businessStatus , FlowLayoutPanel file_flowlayout, Panel my_business_panel) {
             Panel businessPanel = new Panel();
             businessPanel.Height = 150;
             businessPanel.Width = file_flowlayout.Width - 20;
@@ -246,7 +246,7 @@ namespace JobNear.Styles
             nameLabel.AutoEllipsis = true;
             nameLabel.BorderStyle = BorderStyle.None;
             nameLabel.Location = new Point(40, 10);
-            nameLabel.TextAlign = ContentAlignment.MiddleLeft;
+            nameLabel.TextAlign = ContentAlignment.TopLeft;
             nameLabel.Font = new Font("Poppins", 22, FontStyle.Bold);
             nameLabel.ForeColor = Color.Black;
 
@@ -264,7 +264,7 @@ namespace JobNear.Styles
 
             Label descriptionLabel = new Label();
             descriptionLabel.AutoSize = false;
-            descriptionLabel.Text = $"  {businessDescription}";
+            descriptionLabel.Text = $"{businessDescription}";
             descriptionLabel.Width = 700;
             descriptionLabel.Height = 55;
             descriptionLabel.BorderStyle = BorderStyle.None;
@@ -287,20 +287,29 @@ namespace JobNear.Styles
 
             businessPanel.Click += async (s, e) =>
             {
-                var setSpecificBusiness = await MongoDbServices.JobPosterBusiness
+
+                if (Session.CurrentUserType == "admin")
+                {
+
+                }
+                else {
+                    var setSpecificBusiness = await MongoDbServices.JobPosterBusiness
                     .Find(x => x.BusinessId == businessID)
                     .FirstOrDefaultAsync();
 
-                if (setSpecificBusiness != null) {
+                    if (setSpecificBusiness != null)
+                    {
 
-                    string selectedBusinessID = setSpecificBusiness.Id;
-                    Session.CurrentBusinessSelected = selectedBusinessID;
+                        string selectedBusinessID = setSpecificBusiness.Id;
+                        Session.CurrentBusinessSelected = selectedBusinessID;
 
-                    JobPosterDashboardUserControl.JP_BusinessDetails jp_businessDeets = new JobPosterDashboardUserControl.JP_BusinessDetails(selectedBusinessID);
-                    my_business_panel.Controls.Clear();
-                    my_business_panel.Controls.Add(jp_businessDeets);
-                    jp_businessDeets.Dock = DockStyle.Fill;
+                        JobPosterDashboardUserControl.JP_BusinessDetails jp_businessDeets = new JobPosterDashboardUserControl.JP_BusinessDetails(selectedBusinessID);
+                        my_business_panel.Controls.Clear();
+                        my_business_panel.Controls.Add(jp_businessDeets);
+                        jp_businessDeets.Dock = DockStyle.Fill;
+                    }
                 }
+
 
             };
 
