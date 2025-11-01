@@ -32,10 +32,8 @@ namespace JobNear.JobPosterDashboardUserControl
         {
             try
             {
-                var filter = Builders<JobPosterBusinessModel>.Filter.Eq(x => x.BusinessId, Session.CurrentUserId);
-
                 var businessDetails = await MongoDbServices.JobPosterBusiness
-                    .Find(filter)
+                    .Find(x => x.BusinessId == Session.CurrentUserId)
                     .ToListAsync();
 
                 if (businessDetails != null)
@@ -43,7 +41,7 @@ namespace JobNear.JobPosterDashboardUserControl
                     businessDetails.ForEach(business =>
                     {
                         FlowLayoutStyles.AddMyBusiness(
-                            business.BusinessId,
+                            business.Id,
                             business.BusinessName,
                             business.BusinessDescription,
                             business.BusinessAddress,

@@ -1,6 +1,6 @@
 ﻿namespace JobNear.AdminDashboardUserControl
 {
-    partial class JS_ViewInformation
+    partial class JP_ViewBusinessDetails
     {
         /// <summary> 
         /// Required designer variable.
@@ -34,17 +34,15 @@
             this.status_combo = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
             this.image_flowlayout = new System.Windows.Forms.FlowLayoutPanel();
-            this.username_label = new System.Windows.Forms.Label();
+            this.name_label = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lng_input = new System.Windows.Forms.TextBox();
             this.lat_input = new System.Windows.Forms.TextBox();
             this.address_input = new System.Windows.Forms.TextBox();
             this.phone_input = new System.Windows.Forms.TextBox();
             this.email_input = new System.Windows.Forms.TextBox();
-            this.birthdate_input = new System.Windows.Forms.TextBox();
-            this.sex_input = new System.Windows.Forms.TextBox();
-            this.age_input = new System.Windows.Forms.TextBox();
-            this.fullname_input = new System.Windows.Forms.TextBox();
+            this.website_input = new System.Windows.Forms.TextBox();
+            this.industry_input = new System.Windows.Forms.TextBox();
             this.remarks_richtext = new System.Windows.Forms.RichTextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -53,33 +51,32 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.profile_picture = new System.Windows.Forms.PictureBox();
+            this.description_richbox = new System.Windows.Forms.RichTextBox();
             this.sidebar_panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.profile_picture)).BeginInit();
             this.SuspendLayout();
             // 
             // sidebar_panel
             // 
+            this.sidebar_panel.Controls.Add(this.description_richbox);
             this.sidebar_panel.Controls.Add(this.cancel_button);
             this.sidebar_panel.Controls.Add(this.submit_button);
             this.sidebar_panel.Controls.Add(this.status_combo);
             this.sidebar_panel.Controls.Add(this.label12);
             this.sidebar_panel.Controls.Add(this.image_flowlayout);
-            this.sidebar_panel.Controls.Add(this.username_label);
+            this.sidebar_panel.Controls.Add(this.name_label);
             this.sidebar_panel.Controls.Add(this.panel1);
             this.sidebar_panel.Controls.Add(this.lng_input);
             this.sidebar_panel.Controls.Add(this.lat_input);
             this.sidebar_panel.Controls.Add(this.address_input);
             this.sidebar_panel.Controls.Add(this.phone_input);
             this.sidebar_panel.Controls.Add(this.email_input);
-            this.sidebar_panel.Controls.Add(this.birthdate_input);
-            this.sidebar_panel.Controls.Add(this.sex_input);
-            this.sidebar_panel.Controls.Add(this.age_input);
-            this.sidebar_panel.Controls.Add(this.fullname_input);
+            this.sidebar_panel.Controls.Add(this.website_input);
+            this.sidebar_panel.Controls.Add(this.industry_input);
             this.sidebar_panel.Controls.Add(this.remarks_richtext);
             this.sidebar_panel.Controls.Add(this.label11);
             this.sidebar_panel.Controls.Add(this.label10);
@@ -88,7 +85,6 @@
             this.sidebar_panel.Controls.Add(this.label7);
             this.sidebar_panel.Controls.Add(this.label6);
             this.sidebar_panel.Controls.Add(this.label5);
-            this.sidebar_panel.Controls.Add(this.label4);
             this.sidebar_panel.Controls.Add(this.label3);
             this.sidebar_panel.Controls.Add(this.label2);
             this.sidebar_panel.Controls.Add(this.label1);
@@ -97,7 +93,7 @@
             this.sidebar_panel.Location = new System.Drawing.Point(0, 0);
             this.sidebar_panel.Name = "sidebar_panel";
             this.sidebar_panel.Size = new System.Drawing.Size(1031, 705);
-            this.sidebar_panel.TabIndex = 73;
+            this.sidebar_panel.TabIndex = 74;
             this.sidebar_panel.Paint += new System.Windows.Forms.PaintEventHandler(this.sidebar_panel_Paint);
             // 
             // cancel_button
@@ -109,7 +105,6 @@
             this.cancel_button.TabIndex = 101;
             this.cancel_button.Text = "Cancel";
             this.cancel_button.UseVisualStyleBackColor = true;
-            this.cancel_button.Click += new System.EventHandler(this.cancel_button_Click);
             // 
             // submit_button
             // 
@@ -120,7 +115,6 @@
             this.submit_button.TabIndex = 100;
             this.submit_button.Text = "Submit";
             this.submit_button.UseVisualStyleBackColor = true;
-            this.submit_button.Click += new System.EventHandler(this.submit_button_Click);
             // 
             // status_combo
             // 
@@ -143,9 +137,9 @@
             this.label12.Location = new System.Drawing.Point(77, 342);
             this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(206, 28);
+            this.label12.Size = new System.Drawing.Size(293, 28);
             this.label12.TabIndex = 98;
-            this.label12.Text = "Supporting Documents:";
+            this.label12.Text = "Business Credentials / Certificates";
             // 
             // image_flowlayout
             // 
@@ -155,16 +149,15 @@
             this.image_flowlayout.Size = new System.Drawing.Size(869, 116);
             this.image_flowlayout.TabIndex = 97;
             // 
-            // username_label
+            // name_label
             // 
-            this.username_label.AutoSize = true;
-            this.username_label.Font = new System.Drawing.Font("Poppins SemiBold", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.username_label.Location = new System.Drawing.Point(75, 16);
-            this.username_label.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.username_label.Name = "username_label";
-            this.username_label.Size = new System.Drawing.Size(134, 39);
-            this.username_label.TabIndex = 96;
-            this.username_label.Text = "Username";
+            this.name_label.AutoSize = true;
+            this.name_label.Font = new System.Drawing.Font("Poppins SemiBold", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.name_label.Location = new System.Drawing.Point(75, 16);
+            this.name_label.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.name_label.Name = "name_label";
+            this.name_label.Size = new System.Drawing.Size(0, 39);
+            this.name_label.TabIndex = 96;
             // 
             // panel1
             // 
@@ -220,41 +213,23 @@
             this.email_input.Size = new System.Drawing.Size(300, 28);
             this.email_input.TabIndex = 90;
             // 
-            // birthdate_input
+            // website_input
             // 
-            this.birthdate_input.Font = new System.Drawing.Font("Poppins", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.birthdate_input.Location = new System.Drawing.Point(82, 297);
-            this.birthdate_input.Margin = new System.Windows.Forms.Padding(2);
-            this.birthdate_input.Name = "birthdate_input";
-            this.birthdate_input.Size = new System.Drawing.Size(299, 28);
-            this.birthdate_input.TabIndex = 89;
+            this.website_input.Font = new System.Drawing.Font("Poppins", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.website_input.Location = new System.Drawing.Point(82, 159);
+            this.website_input.Margin = new System.Windows.Forms.Padding(2);
+            this.website_input.Name = "website_input";
+            this.website_input.Size = new System.Drawing.Size(299, 28);
+            this.website_input.TabIndex = 87;
             // 
-            // sex_input
+            // industry_input
             // 
-            this.sex_input.Font = new System.Drawing.Font("Poppins", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sex_input.Location = new System.Drawing.Point(82, 227);
-            this.sex_input.Margin = new System.Windows.Forms.Padding(2);
-            this.sex_input.Name = "sex_input";
-            this.sex_input.Size = new System.Drawing.Size(299, 28);
-            this.sex_input.TabIndex = 88;
-            // 
-            // age_input
-            // 
-            this.age_input.Font = new System.Drawing.Font("Poppins", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.age_input.Location = new System.Drawing.Point(82, 159);
-            this.age_input.Margin = new System.Windows.Forms.Padding(2);
-            this.age_input.Name = "age_input";
-            this.age_input.Size = new System.Drawing.Size(299, 28);
-            this.age_input.TabIndex = 87;
-            // 
-            // fullname_input
-            // 
-            this.fullname_input.Font = new System.Drawing.Font("Poppins", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fullname_input.Location = new System.Drawing.Point(82, 98);
-            this.fullname_input.Margin = new System.Windows.Forms.Padding(2);
-            this.fullname_input.Name = "fullname_input";
-            this.fullname_input.Size = new System.Drawing.Size(299, 28);
-            this.fullname_input.TabIndex = 86;
+            this.industry_input.Font = new System.Drawing.Font("Poppins", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.industry_input.Location = new System.Drawing.Point(82, 98);
+            this.industry_input.Margin = new System.Windows.Forms.Padding(2);
+            this.industry_input.Name = "industry_input";
+            this.industry_input.Size = new System.Drawing.Size(299, 28);
+            this.industry_input.TabIndex = 86;
             // 
             // remarks_richtext
             // 
@@ -342,17 +317,6 @@
             this.label5.TabIndex = 78;
             this.label5.Text = "Phone:";
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(78, 265);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(91, 28);
-            this.label4.TabIndex = 77;
-            this.label4.Text = "Birthdate:";
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -360,9 +324,9 @@
             this.label3.Location = new System.Drawing.Point(78, 195);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(45, 28);
+            this.label3.Size = new System.Drawing.Size(185, 28);
             this.label3.TabIndex = 76;
-            this.label3.Text = "Sex:";
+            this.label3.Text = "Business Description:";
             // 
             // label2
             // 
@@ -371,9 +335,9 @@
             this.label2.Location = new System.Drawing.Point(78, 128);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(48, 28);
+            this.label2.Size = new System.Drawing.Size(187, 28);
             this.label2.TabIndex = 75;
-            this.label2.Text = "Age:";
+            this.label2.Text = "Business Website URL";
             // 
             // label1
             // 
@@ -382,9 +346,9 @@
             this.label1.Location = new System.Drawing.Point(78, 67);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(92, 28);
+            this.label1.Size = new System.Drawing.Size(161, 28);
             this.label1.TabIndex = 74;
-            this.label1.Text = "Fullname:";
+            this.label1.Text = "Business Industry:";
             // 
             // profile_picture
             // 
@@ -397,14 +361,22 @@
             this.profile_picture.TabIndex = 73;
             this.profile_picture.TabStop = false;
             // 
-            // JS_ViewInformation
+            // description_richbox
+            // 
+            this.description_richbox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.description_richbox.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.description_richbox.Location = new System.Drawing.Point(78, 229);
+            this.description_richbox.Name = "description_richbox";
+            this.description_richbox.Size = new System.Drawing.Size(304, 96);
+            this.description_richbox.TabIndex = 102;
+            this.description_richbox.Text = "";
+            // 
+            // JP_ViewBusinessDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.Controls.Add(this.sidebar_panel);
-            this.Margin = new System.Windows.Forms.Padding(2);
-            this.Name = "JS_ViewInformation";
+            this.Name = "JP_ViewBusinessDetails";
             this.Size = new System.Drawing.Size(1031, 705);
             this.sidebar_panel.ResumeLayout(false);
             this.sidebar_panel.PerformLayout();
@@ -416,21 +388,20 @@
         #endregion
 
         private System.Windows.Forms.Panel sidebar_panel;
+        private System.Windows.Forms.Button cancel_button;
         private System.Windows.Forms.Button submit_button;
         private System.Windows.Forms.ComboBox status_combo;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.FlowLayoutPanel image_flowlayout;
-        private System.Windows.Forms.Label username_label;
+        private System.Windows.Forms.Label name_label;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox lng_input;
         private System.Windows.Forms.TextBox lat_input;
         private System.Windows.Forms.TextBox address_input;
         private System.Windows.Forms.TextBox phone_input;
         private System.Windows.Forms.TextBox email_input;
-        private System.Windows.Forms.TextBox birthdate_input;
-        private System.Windows.Forms.TextBox sex_input;
-        private System.Windows.Forms.TextBox age_input;
-        private System.Windows.Forms.TextBox fullname_input;
+        private System.Windows.Forms.TextBox website_input;
+        private System.Windows.Forms.TextBox industry_input;
         private System.Windows.Forms.RichTextBox remarks_richtext;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
@@ -439,11 +410,10 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox profile_picture;
-        private System.Windows.Forms.Button cancel_button;
+        private System.Windows.Forms.RichTextBox description_richbox;
     }
 }

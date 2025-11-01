@@ -230,7 +230,7 @@ namespace JobNear.Styles
             docu_flowlayout.Controls.Add(filePanel);
         }
 
-        public static void AddMyBusiness(string businessID, string businessName, string businessDescription, string businessaddress, string businessStatus , FlowLayoutPanel file_flowlayout, Panel my_business_panel) {
+        public static void AddMyBusiness(string businessSpecificId, string businessName, string businessDescription, string businessaddress, string businessStatus , FlowLayoutPanel file_flowlayout, Panel my_business_panel) {
             Panel businessPanel = new Panel();
             businessPanel.Height = 150;
             businessPanel.Width = file_flowlayout.Width - 20;
@@ -285,29 +285,24 @@ namespace JobNear.Styles
             addresLabel.Font = new Font("Poppins", 9, FontStyle.Regular);
             addresLabel.ForeColor = Color.Gray;
 
-            businessPanel.Click += async (s, e) =>
+            businessPanel.Click +=  (s, e) =>
             {
+                Session.CurrentBusinessSelected = businessSpecificId;
 
                 if (Session.CurrentUserType == "admin")
                 {
-
+                    AdminDashboardUserControl.JP_ViewBusinessDetails businessDetails = new AdminDashboardUserControl.JP_ViewBusinessDetails(Session.CurrentBusinessSelected);
+                    my_business_panel.Controls.Clear();
+                    my_business_panel.Controls.Add(businessDetails);
+                    businessDetails.Dock = DockStyle.Fill;
                 }
+
                 else {
-                    var setSpecificBusiness = await MongoDbServices.JobPosterBusiness
-                    .Find(x => x.BusinessId == businessID)
-                    .FirstOrDefaultAsync();
-
-                    if (setSpecificBusiness != null)
-                    {
-
-                        string selectedBusinessID = setSpecificBusiness.Id;
-                        Session.CurrentBusinessSelected = selectedBusinessID;
-
-                        JobPosterDashboardUserControl.JP_BusinessDetails jp_businessDeets = new JobPosterDashboardUserControl.JP_BusinessDetails(selectedBusinessID);
+                        JobPosterDashboardUserControl.JP_BusinessDetails jp_businessDeets = new JobPosterDashboardUserControl.JP_BusinessDetails(Session.CurrentBusinessSelected);
                         my_business_panel.Controls.Clear();
                         my_business_panel.Controls.Add(jp_businessDeets);
                         jp_businessDeets.Dock = DockStyle.Fill;
-                    }
+
                 }
 
 

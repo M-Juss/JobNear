@@ -205,6 +205,12 @@
     <Compile Include="AdminDashboardUserControl\Admin_SystemSettings.Designer.cs">
       <DependentUpon>Admin_SystemSettings.cs</DependentUpon>
     </Compile>
+    <Compile Include="AdminDashboardUserControl\JP_ViewBusinessDetails.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AdminDashboardUserControl\JP_ViewBusinessDetails.Designer.cs">
+      <DependentUpon>JP_ViewBusinessDetails.cs</DependentUpon>
+    </Compile>
     <Compile Include="AdminDashboardUserControl\JP_ViewInformation.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -382,6 +388,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AdminDashboardUserControl\Admin_SystemSettings.resx">
       <DependentUpon>Admin_SystemSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminDashboardUserControl\JP_ViewBusinessDetails.resx">
+      <DependentUpon>JP_ViewBusinessDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AdminDashboardUserControl\JP_ViewInformation.resx">
       <DependentUpon>JP_ViewInformation.cs</DependentUpon>

@@ -181,5 +181,10 @@ namespace JobNear.AdminDashboardUserControl
                 else MessageBox.Show("User not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }   
         }
+
+        private void sidebar_panel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
