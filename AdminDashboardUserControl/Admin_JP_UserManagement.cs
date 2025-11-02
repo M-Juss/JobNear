@@ -1,12 +1,6 @@
 ﻿using JobNear.Styles;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using JobNear.Services;
 using MongoDB.Driver;
@@ -62,12 +56,6 @@ namespace JobNear.AdminDashboardUserControl
 
         }
 
-        private void Admin_JP_UserManagement_Load(object sender, EventArgs e)
-        {
-
-        }
-
-
         private void seeker_table_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0 && e.ColumnIndex == seeker_table.Columns["Action"].Index)
@@ -81,9 +69,5 @@ namespace JobNear.AdminDashboardUserControl
             }
         }
 
-        private void sidebar_panel_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
     }
 }

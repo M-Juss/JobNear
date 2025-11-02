@@ -1,14 +1,6 @@
 ﻿using JobNear.Forms;
-using JobNear.JobSeekerDashboardUserControl;
 using JobNear.Services;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace JobNear.JobPosterDashboardUserControl
@@ -129,11 +121,6 @@ namespace JobNear.JobPosterDashboardUserControl
 
             MessageBox.Show($"Payment: {payment}\nEmployment Type: {employment_type}\nWork Model: {work_model}",
                             "Job Posted", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
-
-        private void sidebar_panel_Paint(object sender, PaintEventArgs e)
-        {
-
         }
 
         private void payment_combo_SelectedIndexChanged(object sender, EventArgs e)

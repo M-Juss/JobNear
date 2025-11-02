@@ -33,7 +33,7 @@ namespace JobNear.AdminDashboardUserControl
                     getUserBusinesses.ForEach(business =>
                     {
                         FlowLayoutStyles.AddMyBusiness(
-                            business.BusinessId,
+                            business.Id,
                             business.BusinessName,
                             business.BusinessDescription,
                             business.BusinessAddress,

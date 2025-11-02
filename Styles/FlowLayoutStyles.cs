@@ -304,8 +304,6 @@ namespace JobNear.Styles
                         jp_businessDeets.Dock = DockStyle.Fill;
 
                 }
-
-
             };
 
             businessPanel.Controls.Add(nameLabel);
