@@ -28,13 +28,14 @@ namespace JobNear.JobPosterDashboardUserControl
             joblist_flowlayout.WrapContents = false;
             joblist_flowlayout.AutoScroll = true;
 
-            edit_button.Click  += async  (s, e) =>
+            edit_button.Click += (s, e) =>
             {
-                
+                JP_RegisterBusinessForm jp_registerform = new JP_RegisterBusinessForm(businessId);
+                sidebar_panel.Controls.Clear();
+                sidebar_panel.Controls.Add(jp_registerform);
+                jp_registerform.Dock = DockStyle.Fill;
+
             };
-
-
-
         }
         private async void LoadSelectedBusiness(string businessId)
         {

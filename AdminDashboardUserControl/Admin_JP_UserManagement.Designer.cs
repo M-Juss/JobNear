@@ -48,7 +48,6 @@
             this.sidebar_panel.Name = "sidebar_panel";
             this.sidebar_panel.Size = new System.Drawing.Size(1031, 705);
             this.sidebar_panel.TabIndex = 0;
-            this.sidebar_panel.Paint += new System.Windows.Forms.PaintEventHandler(this.sidebar_panel_Paint);
             // 
             // search_input
             // 
@@ -97,7 +96,6 @@
             this.Controls.Add(this.sidebar_panel);
             this.Name = "Admin_JP_UserManagement";
             this.Size = new System.Drawing.Size(1031, 705);
-            this.Load += new System.EventHandler(this.Admin_JP_UserManagement_Load);
             this.sidebar_panel.ResumeLayout(false);
             this.sidebar_panel.PerformLayout();
             this.table_panel.ResumeLayout(false);

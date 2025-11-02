@@ -1,20 +1,13 @@
-﻿using JobNear.Forms;
-using JobNear.JobSeekerDashboardUserControl;
-using JobNear.Models;
+﻿using JobNear.Models;
 using JobNear.Services;
 using JobNear.Styles;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using MongoDB.Driver;
 
 namespace JobNear.JobPosterDashboardUserControl
 {
@@ -49,6 +42,28 @@ namespace JobNear.JobPosterDashboardUserControl
             address_input.TextChanged += Address_input_TextChanged;
 
         }
+
+        public JP_RegisterBusinessForm(string businessId)
+        {
+            InitializeComponent();
+            ButtonStyle.RoundedButton(attach_file, 25, "#FFFFFF");
+            ButtonStyle.RoundedButton(draft_button, 25, "#FFFFFF");
+            ButtonStyle.RoundedButton(review_button, 25, "#FFFFFF");
+            ButtonStyle.RoundedButton(upload_button, 25, "#FFFFFF");
+
+            image_flowlayout.FlowDirection = FlowDirection.TopDown;
+            image_flowlayout.WrapContents = false;
+            image_flowlayout.AutoScroll = true;
+
+            debounceTimer = new Timer();
+            debounceTimer.Interval = 300;
+            debounceTimer.Tick += DebounceTimer_Tick;
+
+            address_input.Leave += Address_input_Leave;
+            address_input.TextChanged += Address_input_TextChanged;
+
+
+        } 
 
         private async void DebounceTimer_Tick(object sender, EventArgs e)
         {
@@ -230,6 +245,20 @@ namespace JobNear.JobPosterDashboardUserControl
             }
         }
 
+        private async void LoadEditBusinessDetails(string businessId)
+        {
+            try {
+                var businessDetails = await MongoDbServices.JobPosterBusiness
+                    .Find(x => x.Id == businessId)
+                    .FirstOrDefaultAsync();
+
+
+            } catch (Exception ex)
+            {
+                MessageBox.Show("Error loading business details: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }   
+
+        }
         private void JP_RegisterBusinessForm_Load(object sender, EventArgs e)
         {
 
