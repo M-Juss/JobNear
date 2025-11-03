@@ -62,6 +62,7 @@ namespace JobNear.JobPosterDashboardUserControl
             address_input.Leave += Address_input_Leave;
             address_input.TextChanged += Address_input_TextChanged;
 
+            LoadEditBusinessDetails(businessId);
 
         } 
 
@@ -240,7 +241,7 @@ namespace JobNear.JobPosterDashboardUserControl
                     string destPath = Path.Combine(savePath, fileName);
                     File.Copy(filePath, destPath, true);
 
-                    FlowLayoutStyles.AddFileItem(destPath, image_flowlayout, 785);
+                    FlowLayoutStyles.AddFileItem(destPath, image_flowlayout, 726);
                 }
             }
         }
@@ -248,10 +249,30 @@ namespace JobNear.JobPosterDashboardUserControl
         private async void LoadEditBusinessDetails(string businessId)
         {
             try {
+                header_label.Text = "Edit Business Details";
+
                 var businessDetails = await MongoDbServices.JobPosterBusiness
                     .Find(x => x.Id == businessId)
                     .FirstOrDefaultAsync();
 
+                if (businessDetails != null) { 
+                    name_input.Text = businessDetails.BusinessName;
+                    industry_input.Text = businessDetails.BusinessIndustry;
+                    description_richbox.Text = businessDetails.BusinessDescription;
+                    address_input.Text = businessDetails.BusinessAddress;
+                    email_input.Text = businessDetails.BusinessEmail;
+                    phone_input.Text = businessDetails.BusinessContact;
+                    website_input.Text = businessDetails.BusinessSite;
+                    profile_picture.Image = ConvertDataTypeServices.ConvertBytesToImage(businessDetails.BusinessLogo);
+
+                    if (businessDetails.SupportingDocuments != null)
+                    {
+                        foreach (var doc in businessDetails.SupportingDocuments)
+                        {
+                            FlowLayoutStyles.AddSupportingDocumentToFlow(doc, image_flowlayout, 726);
+                        }
+                    }
+                }
 
             } catch (Exception ex)
             {

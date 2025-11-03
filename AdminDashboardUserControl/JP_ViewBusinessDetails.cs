@@ -42,7 +42,7 @@ namespace JobNear.AdminDashboardUserControl
                     {
                         foreach (var doc in businessDetails.SupportingDocuments)
                         {
-                            FlowLayoutStyles.AddSupportingDocumentToFlow(doc, image_flowlayout, 869);
+                            FlowLayoutStyles.AddSupportingDocumentToFlow(doc, image_flowlayout, 865);
                         }
                     }
 

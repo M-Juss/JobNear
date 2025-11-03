@@ -45,7 +45,7 @@
             this.address_input = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
+            this.header_label = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.attach_file = new System.Windows.Forms.Button();
@@ -268,15 +268,15 @@
             this.label16.TabIndex = 23;
             this.label16.Text = "Business Credentials / Certificates";
             // 
-            // label14
+            // header_label
             // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Poppins", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(-1, 0);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(316, 56);
-            this.label14.TabIndex = 32;
-            this.label14.Text = "Register Business";
+            this.header_label.AutoSize = true;
+            this.header_label.Font = new System.Drawing.Font("Poppins", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.header_label.Location = new System.Drawing.Point(-1, 0);
+            this.header_label.Name = "header_label";
+            this.header_label.Size = new System.Drawing.Size(316, 56);
+            this.header_label.TabIndex = 32;
+            this.header_label.Text = "Register Business";
             // 
             // panel1
             // 
@@ -395,7 +395,7 @@
             this.Controls.Add(this.attach_file);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.label14);
+            this.Controls.Add(this.header_label);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.address_input);
             this.Controls.Add(this.label11);
@@ -441,7 +441,7 @@
         private System.Windows.Forms.TextBox address_input;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label header_label;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button attach_file;

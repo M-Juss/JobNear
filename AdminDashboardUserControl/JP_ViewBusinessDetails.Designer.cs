@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.sidebar_panel = new System.Windows.Forms.Panel();
+            this.description_richbox = new System.Windows.Forms.RichTextBox();
             this.cancel_button = new System.Windows.Forms.Button();
             this.submit_button = new System.Windows.Forms.Button();
             this.status_combo = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.image_flowlayout = new System.Windows.Forms.FlowLayoutPanel();
             this.name_label = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lng_input = new System.Windows.Forms.TextBox();
@@ -55,7 +55,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.profile_picture = new System.Windows.Forms.PictureBox();
-            this.description_richbox = new System.Windows.Forms.RichTextBox();
+            this.image_flowlayout = new System.Windows.Forms.FlowLayoutPanel();
             this.sidebar_panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.profile_picture)).BeginInit();
             this.SuspendLayout();
@@ -95,6 +95,16 @@
             this.sidebar_panel.Size = new System.Drawing.Size(1031, 705);
             this.sidebar_panel.TabIndex = 74;
             this.sidebar_panel.Paint += new System.Windows.Forms.PaintEventHandler(this.sidebar_panel_Paint);
+            // 
+            // description_richbox
+            // 
+            this.description_richbox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.description_richbox.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.description_richbox.Location = new System.Drawing.Point(78, 229);
+            this.description_richbox.Name = "description_richbox";
+            this.description_richbox.Size = new System.Drawing.Size(304, 96);
+            this.description_richbox.TabIndex = 102;
+            this.description_richbox.Text = "";
             // 
             // cancel_button
             // 
@@ -140,14 +150,6 @@
             this.label12.Size = new System.Drawing.Size(293, 28);
             this.label12.TabIndex = 98;
             this.label12.Text = "Business Credentials / Certificates";
-            // 
-            // image_flowlayout
-            // 
-            this.image_flowlayout.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.image_flowlayout.Location = new System.Drawing.Point(83, 373);
-            this.image_flowlayout.Name = "image_flowlayout";
-            this.image_flowlayout.Size = new System.Drawing.Size(869, 116);
-            this.image_flowlayout.TabIndex = 97;
             // 
             // name_label
             // 
@@ -361,15 +363,13 @@
             this.profile_picture.TabIndex = 73;
             this.profile_picture.TabStop = false;
             // 
-            // description_richbox
+            // image_flowlayout
             // 
-            this.description_richbox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.description_richbox.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.description_richbox.Location = new System.Drawing.Point(78, 229);
-            this.description_richbox.Name = "description_richbox";
-            this.description_richbox.Size = new System.Drawing.Size(304, 96);
-            this.description_richbox.TabIndex = 102;
-            this.description_richbox.Text = "";
+            this.image_flowlayout.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.image_flowlayout.Location = new System.Drawing.Point(83, 373);
+            this.image_flowlayout.Name = "image_flowlayout";
+            this.image_flowlayout.Size = new System.Drawing.Size(869, 116);
+            this.image_flowlayout.TabIndex = 97;
             // 
             // JP_ViewBusinessDetails
             // 
@@ -392,7 +392,6 @@
         private System.Windows.Forms.Button submit_button;
         private System.Windows.Forms.ComboBox status_combo;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.FlowLayoutPanel image_flowlayout;
         private System.Windows.Forms.Label name_label;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox lng_input;
@@ -415,5 +414,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox profile_picture;
         private System.Windows.Forms.RichTextBox description_richbox;
+        private System.Windows.Forms.FlowLayoutPanel image_flowlayout;
     }
 }
