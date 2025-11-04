@@ -341,8 +341,8 @@ namespace JobNear.Styles
             jobStatus.Width = 100;
             jobStatus.Height = 25;
             jobStatus.BorderStyle = BorderStyle.None;
-            jobStatus.Location = new Point(joblist_flowlayout.Width - 250, 10);
-            jobStatus.TextAlign = ContentAlignment.MiddleLeft;
+            jobStatus.Location = new Point(joblist_flowlayout.Width - 250, 14);
+            jobStatus.TextAlign = ContentAlignment.MiddleCenter;
             jobStatus.Font = new Font("Poppins", 12, FontStyle.Bold);
             
             UserController.SetJobPostStatus(jobStatus, job_status);
@@ -369,12 +369,24 @@ namespace JobNear.Styles
             jobDescription.Font = new Font("Poppins", 9, FontStyle.Regular);
             jobDescription.ForeColor = Color.Gray;
 
+            Button jobEditPost = new Button();
+            jobEditPost.Text = "Edit";
+            jobEditPost.AutoSize = false;
+            jobEditPost.Width = 55;
+            jobEditPost.Height = 25;
+            jobEditPost.TextAlign = ContentAlignment.TopCenter;
+            jobEditPost.Location = new Point(joblist_flowlayout.Width - 125, 14);
+            jobEditPost.Font = new Font("Poppins", 10, FontStyle.Bold);
+            jobEditPost.ForeColor = Color.White;
+
+            ButtonStyle.RoundedButton(jobEditPost, 5, "#3B82F6");
             PanelStyles.RoundedPanel(postJobPanel, 20, Color.White);
             
             postJobPanel.Controls.Add(jobPosition);
             postJobPanel.Controls.Add(jobInfo);
             postJobPanel.Controls.Add(jobDescription);
             postJobPanel.Controls.Add(jobStatus);
+            postJobPanel.Controls.Add(jobEditPost);
 
             joblist_flowlayout.Controls.Add(postJobPanel);
 
