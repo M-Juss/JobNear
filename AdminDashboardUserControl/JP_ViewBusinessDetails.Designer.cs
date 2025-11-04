@@ -34,6 +34,7 @@
             this.submit_button = new System.Windows.Forms.Button();
             this.status_combo = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
+            this.image_flowlayout = new System.Windows.Forms.FlowLayoutPanel();
             this.name_label = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lng_input = new System.Windows.Forms.TextBox();
@@ -55,7 +56,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.profile_picture = new System.Windows.Forms.PictureBox();
-            this.image_flowlayout = new System.Windows.Forms.FlowLayoutPanel();
             this.sidebar_panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.profile_picture)).BeginInit();
             this.SuspendLayout();
@@ -115,6 +115,7 @@
             this.cancel_button.TabIndex = 101;
             this.cancel_button.Text = "Cancel";
             this.cancel_button.UseVisualStyleBackColor = true;
+            this.cancel_button.Click += new System.EventHandler(this.cancel_button_Click);
             // 
             // submit_button
             // 
@@ -150,6 +151,14 @@
             this.label12.Size = new System.Drawing.Size(293, 28);
             this.label12.TabIndex = 98;
             this.label12.Text = "Business Credentials / Certificates";
+            // 
+            // image_flowlayout
+            // 
+            this.image_flowlayout.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.image_flowlayout.Location = new System.Drawing.Point(83, 373);
+            this.image_flowlayout.Name = "image_flowlayout";
+            this.image_flowlayout.Size = new System.Drawing.Size(869, 116);
+            this.image_flowlayout.TabIndex = 97;
             // 
             // name_label
             // 
@@ -362,14 +371,6 @@
             this.profile_picture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.profile_picture.TabIndex = 73;
             this.profile_picture.TabStop = false;
-            // 
-            // image_flowlayout
-            // 
-            this.image_flowlayout.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.image_flowlayout.Location = new System.Drawing.Point(83, 373);
-            this.image_flowlayout.Name = "image_flowlayout";
-            this.image_flowlayout.Size = new System.Drawing.Size(869, 116);
-            this.image_flowlayout.TabIndex = 97;
             // 
             // JP_ViewBusinessDetails
             // 

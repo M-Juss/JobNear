@@ -3,6 +3,7 @@ using System.Windows.Forms;
 using JobNear.Services;
 using MongoDB.Driver;
 using JobNear.Styles;
+using System;
 
 namespace JobNear.AdminDashboardUserControl
 {
@@ -50,6 +51,14 @@ namespace JobNear.AdminDashboardUserControl
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void pictureBox1_Click(object sender, System.EventArgs e)
+        {
+            AdminDashboardUserControl.Admin_JP_UserManagement admin_JP_UserManagement = new AdminDashboardUserControl.Admin_JP_UserManagement();
+            sidebar_panel.Controls.Clear();
+            sidebar_panel.Controls.Add(admin_JP_UserManagement);
+            admin_JP_UserManagement.Dock = DockStyle.Fill;
         }
     }
 }

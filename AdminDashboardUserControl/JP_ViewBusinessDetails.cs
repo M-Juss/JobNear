@@ -12,7 +12,6 @@ namespace JobNear.AdminDashboardUserControl
         public JP_ViewBusinessDetails(string id)
         {
             InitializeComponent();
-
             LoadSelectedBusiness(id);
         }
 
@@ -57,6 +56,15 @@ namespace JobNear.AdminDashboardUserControl
         private void sidebar_panel_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void cancel_button_Click(object sender, EventArgs e)
+        {
+
+            JP_ViewInformation viewInfo = new JP_ViewInformation(Session.CurrentJobPosterSelected);
+            sidebar_panel.Controls.Clear();
+            sidebar_panel.Controls.Add(viewInfo);
+            viewInfo.Dock = DockStyle.Fill;
         }
     }
 }

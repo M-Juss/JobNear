@@ -26,7 +26,7 @@ namespace JobNear.JobPosterDashboardUserControl
         {
             InitializeComponent();
             ButtonStyle.RoundedButton(attach_file, 25, "#FFFFFF");
-            ButtonStyle.RoundedButton(draft_button, 25, "#FFFFFF");
+            ButtonStyle.RoundedButton(cancel_button, 25, "#FFFFFF");
             ButtonStyle.RoundedButton(review_button, 25, "#FFFFFF");
             ButtonStyle.RoundedButton(upload_button, 25, "#FFFFFF");
 
@@ -41,13 +41,14 @@ namespace JobNear.JobPosterDashboardUserControl
             address_input.Leave += Address_input_Leave;
             address_input.TextChanged += Address_input_TextChanged;
 
+            cancel_button.Visible = false;
         }
 
         public JP_RegisterBusinessForm(string businessId)
         {
             InitializeComponent();
             ButtonStyle.RoundedButton(attach_file, 25, "#FFFFFF");
-            ButtonStyle.RoundedButton(draft_button, 25, "#FFFFFF");
+            ButtonStyle.RoundedButton(cancel_button, 25, "#FFFFFF");
             ButtonStyle.RoundedButton(review_button, 25, "#FFFFFF");
             ButtonStyle.RoundedButton(upload_button, 25, "#FFFFFF");
 
@@ -285,5 +286,12 @@ namespace JobNear.JobPosterDashboardUserControl
 
         }
 
+        private void cancel_button_Click_1(object sender, EventArgs e)
+        {
+            JobPosterDashboardUserControl.JP_BusinessDetails jp_businessDeets = new JobPosterDashboardUserControl.JP_BusinessDetails(Session.CurrentBusinessSelected);
+            sidebar_panel.Controls.Clear();
+            sidebar_panel.Controls.Add(jp_businessDeets);
+            jp_businessDeets.Dock = DockStyle.Fill;
+        }
     }
 }

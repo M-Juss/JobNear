@@ -29,18 +29,21 @@
         private void InitializeComponent()
         {
             this.sidebar_panel = new System.Windows.Forms.Panel();
+            this.phone_input = new System.Windows.Forms.TextBox();
+            this.mybusiness_flowlayout = new System.Windows.Forms.FlowLayoutPanel();
             this.username_label = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.email_input = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.mybusiness_flowlayout = new System.Windows.Forms.FlowLayoutPanel();
-            this.phone_input = new System.Windows.Forms.TextBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.sidebar_panel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // sidebar_panel
             // 
+            this.sidebar_panel.Controls.Add(this.pictureBox1);
             this.sidebar_panel.Controls.Add(this.phone_input);
             this.sidebar_panel.Controls.Add(this.mybusiness_flowlayout);
             this.sidebar_panel.Controls.Add(this.username_label);
@@ -55,11 +58,28 @@
             this.sidebar_panel.TabIndex = 0;
             this.sidebar_panel.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
+            // phone_input
+            // 
+            this.phone_input.Font = new System.Drawing.Font("Poppins", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.phone_input.Location = new System.Drawing.Point(531, 115);
+            this.phone_input.Margin = new System.Windows.Forms.Padding(2);
+            this.phone_input.Name = "phone_input";
+            this.phone_input.Size = new System.Drawing.Size(460, 28);
+            this.phone_input.TabIndex = 104;
+            // 
+            // mybusiness_flowlayout
+            // 
+            this.mybusiness_flowlayout.AutoScroll = true;
+            this.mybusiness_flowlayout.Location = new System.Drawing.Point(37, 167);
+            this.mybusiness_flowlayout.Name = "mybusiness_flowlayout";
+            this.mybusiness_flowlayout.Size = new System.Drawing.Size(957, 500);
+            this.mybusiness_flowlayout.TabIndex = 103;
+            // 
             // username_label
             // 
             this.username_label.AutoSize = true;
             this.username_label.Font = new System.Drawing.Font("Poppins SemiBold", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.username_label.Location = new System.Drawing.Point(28, 22);
+            this.username_label.Location = new System.Drawing.Point(28, 33);
             this.username_label.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.username_label.Name = "username_label";
             this.username_label.Size = new System.Drawing.Size(134, 39);
@@ -69,7 +89,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.DimGray;
-            this.panel2.Location = new System.Drawing.Point(36, 61);
+            this.panel2.Location = new System.Drawing.Point(36, 72);
             this.panel2.Margin = new System.Windows.Forms.Padding(0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(955, 1);
@@ -78,7 +98,7 @@
             // email_input
             // 
             this.email_input.Font = new System.Drawing.Font("Poppins", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.email_input.Location = new System.Drawing.Point(35, 104);
+            this.email_input.Location = new System.Drawing.Point(35, 115);
             this.email_input.Margin = new System.Windows.Forms.Padding(2);
             this.email_input.Name = "email_input";
             this.email_input.Size = new System.Drawing.Size(460, 28);
@@ -88,7 +108,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(30, 73);
+            this.label9.Location = new System.Drawing.Point(30, 84);
             this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(132, 28);
@@ -99,29 +119,23 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(526, 73);
+            this.label1.Location = new System.Drawing.Point(526, 84);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(139, 28);
             this.label1.TabIndex = 97;
             this.label1.Text = "Phone Number:";
             // 
-            // mybusiness_flowlayout
+            // pictureBox1
             // 
-            this.mybusiness_flowlayout.AutoScroll = true;
-            this.mybusiness_flowlayout.Location = new System.Drawing.Point(37, 167);
-            this.mybusiness_flowlayout.Name = "mybusiness_flowlayout";
-            this.mybusiness_flowlayout.Size = new System.Drawing.Size(957, 500);
-            this.mybusiness_flowlayout.TabIndex = 103;
-            // 
-            // phone_input
-            // 
-            this.phone_input.Font = new System.Drawing.Font("Poppins", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.phone_input.Location = new System.Drawing.Point(531, 104);
-            this.phone_input.Margin = new System.Windows.Forms.Padding(2);
-            this.phone_input.Name = "phone_input";
-            this.phone_input.Size = new System.Drawing.Size(460, 28);
-            this.phone_input.TabIndex = 104;
+            this.pictureBox1.Image = global::JobNear.Properties.Resources.left_arrow;
+            this.pictureBox1.Location = new System.Drawing.Point(13, 6);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox1.TabIndex = 105;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // JP_ViewInformation
             // 
@@ -132,6 +146,7 @@
             this.Size = new System.Drawing.Size(1031, 705);
             this.sidebar_panel.ResumeLayout(false);
             this.sidebar_panel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -146,5 +161,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox phone_input;
         private System.Windows.Forms.FlowLayoutPanel mybusiness_flowlayout;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

@@ -62,6 +62,8 @@ namespace JobNear.AdminDashboardUserControl
             {
                 string email = seeker_table.Rows[e.RowIndex].Cells["Email"].Value.ToString();
 
+                Session.CurrentJobPosterSelected = email;
+
                 JP_ViewInformation viewInformation = new JP_ViewInformation(email);
                 sidebar_panel.Controls.Clear();
                 sidebar_panel.Controls.Add(viewInformation);
@@ -69,5 +71,9 @@ namespace JobNear.AdminDashboardUserControl
             }
         }
 
+        private void sidebar_panel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
