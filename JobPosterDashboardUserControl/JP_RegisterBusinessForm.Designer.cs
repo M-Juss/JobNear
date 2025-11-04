@@ -64,6 +64,7 @@
             // sidebar_panel
             // 
             this.sidebar_panel.AutoScroll = true;
+            this.sidebar_panel.BackColor = System.Drawing.Color.WhiteSmoke;
             this.sidebar_panel.Controls.Add(this.panel4);
             this.sidebar_panel.Controls.Add(this.upload_button);
             this.sidebar_panel.Controls.Add(this.review_button);
