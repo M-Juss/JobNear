@@ -260,7 +260,7 @@ namespace JobNear.Styles
             statusLabel.TextAlign = ContentAlignment.MiddleLeft;
             statusLabel.Font = new Font("Poppins", 12, FontStyle.Bold);
 
-            UserController.UpdateAccountStatus(statusLabel, businessStatus);
+            UserController.SetSeekerAndBusinesStatus(statusLabel, businessStatus);
 
             Label descriptionLabel = new Label();
             descriptionLabel.AutoSize = false;
@@ -316,7 +316,7 @@ namespace JobNear.Styles
             file_flowlayout.Controls.Add(businessPanel);
         }
 
-        public static void AddPostJob(string job_postion, string work_model, string employment_type, string job_description, FlowLayoutPanel joblist_flowlayout)
+        public static void AddPostJob(string job_postion, string work_model, string employment_type, string job_description, string job_status, FlowLayoutPanel joblist_flowlayout)
         {
             Panel postJobPanel = new Panel();
             postJobPanel.AutoSize = false;
@@ -329,13 +329,23 @@ namespace JobNear.Styles
             Label jobPosition = new Label();
             jobPosition.AutoSize = false;
             jobPosition.Text = job_postion;
-            jobPosition.Width = 700;
+            jobPosition.Width = 500;
             jobPosition.Height = 30;
-            jobPosition.AutoEllipsis = true;
             jobPosition.BorderStyle = BorderStyle.None;
             jobPosition.Location = new Point(40, 10);
             jobPosition.Font = new Font("Poppins", 16, FontStyle.Bold);
             jobPosition.ForeColor = Color.Black;
+
+            Label jobStatus = new Label();
+            jobStatus.AutoSize = false;
+            jobStatus.Width = 100;
+            jobStatus.Height = 25;
+            jobStatus.BorderStyle = BorderStyle.None;
+            jobStatus.Location = new Point(joblist_flowlayout.Width - 250, 10);
+            jobStatus.TextAlign = ContentAlignment.MiddleLeft;
+            jobStatus.Font = new Font("Poppins", 12, FontStyle.Bold);
+            
+            UserController.SetJobPostStatus(jobStatus, job_status);
 
             Label jobInfo= new Label();
             jobInfo.AutoSize = false;
@@ -360,9 +370,11 @@ namespace JobNear.Styles
             jobDescription.ForeColor = Color.Gray;
 
             PanelStyles.RoundedPanel(postJobPanel, 20, Color.White);
+            
             postJobPanel.Controls.Add(jobPosition);
             postJobPanel.Controls.Add(jobInfo);
             postJobPanel.Controls.Add(jobDescription);
+            postJobPanel.Controls.Add(jobStatus);
 
             joblist_flowlayout.Controls.Add(postJobPanel);
 

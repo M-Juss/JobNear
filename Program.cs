@@ -18,10 +18,11 @@ namespace JobNear
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new JobNearUserForm());
 
-            // October 25, 2025
-            // [/] Insert RegisterBusiness
-            // [] May business details dynamic
-            // [] Insert PostJob
+            // To-do November 4, 2025:
+            // [] Back Navigation when viewing job poster registered business in Admin Form
+            // [] Back Navigation when viewing posts job of a specific registered business in Admin Form
+            // [] Back Navigation when editing registered business in Job Poster Form 
+            // [] Put Status label and edit button in each post jobs in Job Poster Form
         }
     }
 }

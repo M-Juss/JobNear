@@ -21,7 +21,7 @@ namespace JobNear.Controllers
             else return;
         }
 
-        public static void UpdateAccountStatus(Label status_label, string status)
+        public static void SetSeekerAndBusinesStatus(Label status_label, string status)
         {
 
             switch (status.ToLower())
@@ -48,6 +48,30 @@ namespace JobNear.Controllers
                     break;
 
                 default:
+                    status_label.Text = "Unknown";
+                    PanelStyles.StyleRoundedLabel(status_label, 10, Color.Black, Color.White);
+                    break;
+            }
+        }
+
+        public static void SetJobPostStatus(Label status_label, string status)
+        {
+            switch (status.ToLower())
+            {
+                case "active":
+                    status_label.Text = "Active";
+                    PanelStyles.StyleRoundedLabel(status_label, 10, Color.Green, Color.White);
+                    break;
+                case "closed":
+                    status_label.Text = "Closed";
+                    PanelStyles.StyleRoundedLabel(status_label, 10, Color.Red, Color.White);
+                    break;
+                case "withdrawn":
+                    status_label.Text = "Withdrawn";
+                    PanelStyles.StyleRoundedLabel(status_label, 10, Color.Orange, Color.White);
+                    break;
+                default:
+                    status_label.Text = "Unknown";
                     PanelStyles.StyleRoundedLabel(status_label, 10, Color.Black, Color.White);
                     break;
             }

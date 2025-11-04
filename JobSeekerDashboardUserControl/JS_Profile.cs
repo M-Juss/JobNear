@@ -276,7 +276,7 @@ namespace JobNear.JobSeekerDashboardUserControl
                     }
                 }
 
-                UserController.UpdateAccountStatus(status_label, seeker.Status);
+                UserController.SetSeekerAndBusinesStatus(status_label, seeker.Status);
             }
         }
 

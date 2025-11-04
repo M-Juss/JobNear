@@ -16,9 +16,9 @@ namespace JobNear.JobPosterDashboardUserControl
             LoadSelectedBusiness(businessId);
             LoadPostedJobs(businessId);
 
-            FlowLayoutStyles.AddPostJob("Senior Developer", "Fully In Office", "Full Time", "Lorem ipsum dolor sit amet. Eum consequatur itaque et quibusdam voluptatem et aspernatur explicabo. Sit eaque possimus ut repellat enim et temporibus natus ut saepe nihil et iusto odit aut animi sunt cum necessitatibus incidunt. ", joblist_flowlayout);
-            FlowLayoutStyles.AddPostJob("Junior Developer", "Hybrid", "Part Time", "Lorem ipsum dolor sit amet. Eum consequatur itaque et quibusdam voluptatem et aspernatur explicabo. Sit eaque possimus ut repellat enim et temporibus natus ut saepe nihil et iusto odit aut animi sunt cum necessitatibus incidunt. ", joblist_flowlayout);
-            FlowLayoutStyles.AddPostJob("Intern Developer", "Fullt Remote", "Part Time", "Lorem ipsum dolor sit amet. Eum consequatur itaque et quibusdam voluptatem et aspernatur explicabo. Sit eaque possimus ut repellat enim et temporibus natus ut saepe nihil et iusto odit aut animi sunt cum necessitatibus incidunt.", joblist_flowlayout);
+            FlowLayoutStyles.AddPostJob("Senior Developer", "Fully In Office", "Full Time", "Lorem ipsum dolor sit amet. Eum consequatur itaque et quibusdam voluptatem et aspernatur explicabo. Sit eaque possimus ut repellat enim et temporibus natus ut saepe nihil et iusto odit aut animi sunt cum necessitatibus incidunt. ", "ACtive", joblist_flowlayout);
+            FlowLayoutStyles.AddPostJob("Junior Developer", "Hybrid", "Part Time", "Lorem ipsum dolor sit amet. Eum consequatur itaque et quibusdam voluptatem et aspernatur explicabo. Sit eaque possimus ut repellat enim et temporibus natus ut saepe nihil et iusto odit aut animi sunt cum necessitatibus incidunt. ","Closed", joblist_flowlayout);
+            FlowLayoutStyles.AddPostJob("Intern Developer", "Fullt Remote", "Part Time", "Lorem ipsum dolor sit amet. Eum consequatur itaque et quibusdam voluptatem et aspernatur explicabo. Sit eaque possimus ut repellat enim et temporibus natus ut saepe nihil et iusto odit aut animi sunt cum necessitatibus incidunt.","Withdrawn" , joblist_flowlayout);
 
             PanelStyles.RoundedPanel(business_panel, 20, Color.White);
             ButtonStyle.RoundedButton(edit_button, 10, "#3B82F6");
@@ -66,6 +66,7 @@ namespace JobNear.JobPosterDashboardUserControl
                         job.JobWorkModel,
                         job.JobEmploymentType,
                         job.JobAbout,
+                        job.JobStatus,
                         joblist_flowlayout
                     );
                 });
