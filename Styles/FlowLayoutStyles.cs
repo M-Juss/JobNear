@@ -382,6 +382,11 @@ namespace JobNear.Styles
             jobEditPost.Click += (s, e) =>
             {
                 string mode = "edit";
+                Session.CurrentPostJobFormMode = mode;
+                Session.CurrentPostedJobSelected = job_id;
+
+                Console.WriteLine(Session.CurrentPostedJobSelected);
+
                 JobPosterDashboardUserControl.JP_PostJobForm editJobForm = new JobPosterDashboardUserControl.JP_PostJobForm(mode, job_id);
                 sidebar_panel.Controls.Clear();
                 sidebar_panel.Controls.Add(editJobForm);

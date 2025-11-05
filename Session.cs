@@ -15,6 +15,7 @@ namespace JobNear
         public static double CurrentLongitude { get; set; }
         public static string CurrentBusinessSelected { get; set; }
         public static string CurrentJobPosterSelected { get; set; }
-
+        public static string CurrentPostedJobSelected { get; set; }
+        public static string CurrentPostJobFormMode { get; set; }
     }
 }

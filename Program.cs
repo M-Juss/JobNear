@@ -25,7 +25,8 @@ namespace JobNear
             // [/] Put Status label and edit button in each post jobs in Job Poster Form
 
             // To-do November 5, 2025:
-            // [] Posts Jobs edit button function
+            // [/] Posts Jobs edit button function
+            // [] Add Update Functionality
         }
     }
 }

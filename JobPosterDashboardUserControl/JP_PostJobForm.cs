@@ -41,6 +41,14 @@ namespace JobNear.JobPosterDashboardUserControl
                 about_job_richbox.Text = jobDetails.JobAbout;
                 responsibilities_richbox.Text = jobDetails.JobResponsibilities;
                 payment_combo.Text = jobDetails.JobPaymentType;
+                if (jobDetails.JobPaymentType == "Monthly Salary")
+                {
+                    payment_combo.SelectedIndex = 0;
+                }
+                else if (jobDetails.JobPaymentType == "Hourly Salary")
+                {
+                    payment_combo.SelectedIndex = 1;
+                }
                 status_combo.Text = jobDetails.JobStatus;
                 if (jobDetails.JobEmploymentType.Contains("Full-Time"))
                     full_time_checkbox.Checked = true;
@@ -128,50 +136,92 @@ namespace JobNear.JobPosterDashboardUserControl
                 double hourlyrate = hourly_input.Visible ? Convert.ToDouble(hourly_input.Text.Trim()) : 0;
                 string stat = status_combo.SelectedItem.ToString();
 
-
-                bool response = await MongoDbServices.InsertJobPostingAsync(
-                    Session.CurrentBusinessSelected, 
-                    position, 
-                    emptype, 
-                    workmodel, 
-                    minqualification, 
-                    preferredqualification, 
-                    aboutjob, 
-                    responsibilities, 
+                if (Session.CurrentPostJobFormMode == "insert")
+                {
+                    bool response = await MongoDbServices.InsertJobPostingAsync(
+                    Session.CurrentBusinessSelected,
+                    position,
+                    emptype,
+                    workmodel,
+                    minqualification,
+                    preferredqualification,
+                    aboutjob,
+                    responsibilities,
                     paytype,
-                    monthlysalary, 
-                    hourlyrate, 
+                    monthlysalary,
+                    hourlyrate,
                     stat
                     );
 
-                if (response)
-                {
-                    string result = MessageBox.Show("Job posted successfully!",
-                        "Success",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Information
-                    ).ToString();
 
-                    if (result == "OK")
+                    if (response)
                     {
-                        sidebar_panel.Controls.Clear();
-                        JP_BusinessDetails profile = new JP_BusinessDetails(Session.CurrentBusinessSelected);
-                        profile.Dock = DockStyle.Fill;
-                        sidebar_panel.Controls.Add(profile);
+                            string result = MessageBox.Show("Job posted successfully!",
+                                "Success",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Information
+                            ).ToString();
+
+                            if (result == "OK")
+                            {
+                                sidebar_panel.Controls.Clear();
+                                JP_BusinessDetails profile = new JP_BusinessDetails(Session.CurrentBusinessSelected);
+                                profile.Dock = DockStyle.Fill;
+                                sidebar_panel.Controls.Add(profile);
+                            }
+                    }
+                    else
+                    {
+                      MessageBox.Show("Failed to update profile. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
-                else
-                {
-                    MessageBox.Show("Failed to update profile. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                else if (Session.CurrentPostJobFormMode == "edit") {
+
+                    bool response = await MongoDbServices.UpdatePostedJobAsync(
+                        Session.CurrentPostedJobSelected,
+                        position,
+                        emptype,
+                        workmodel,
+                        minqualification,
+                        preferredqualification,
+                        aboutjob,
+                        responsibilities,
+                        paytype,
+                        monthlysalary,
+                        hourlyrate,
+                        stat
+                        );
+
+                    if (response)
+                    {
+                        string result = MessageBox.Show("Job updated successfully!",
+                                    "Success",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Information
+                                ).ToString();
+
+                         if (result == "OK")
+                         {
+                            sidebar_panel.Controls.Clear();
+                            JP_BusinessDetails profile = new JP_BusinessDetails(Session.CurrentBusinessSelected);
+                            profile.Dock = DockStyle.Fill;
+                            sidebar_panel.Controls.Add(profile);
+                         }
+                    }
+                    else
+                    {
+                       MessageBox.Show("Failed to update profile. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
+
+
             }
             catch (Exception ex) {
                 MessageBox.Show("An error occurred while posting the job: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            MessageBox.Show($"Payment: {payment}\nEmployment Type: {employment_type}\nWork Model: {work_model}",
-                            "Job Posted", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void payment_combo_SelectedIndexChanged(object sender, EventArgs e)

@@ -328,6 +328,36 @@ namespace JobNear.Services
             }
         }
 
+        public static async Task<bool> UpdatePostedJobAsync(string id, string title, string employmentType, string workModel, string minQual, string prefQual, string aboutJob, string responsibilities, string paymentType, double monthlySalary, double hourlyRate, string status)
+        {
+            try
+            {
+                var postedJob = Builders<JobPosterJobPostingModel>.Filter.Eq(x => x.Id, id);
+
+                var update = Builders<JobPosterJobPostingModel>.Update
+                    .Set(x => x.JobPosition, title)
+                    .Set(x => x.JobEmploymentType, employmentType)
+                    .Set(x => x.JobWorkModel, workModel)
+                    .Set(x => x.JobMinimumQualification, minQual)
+                    .Set(x => x.JobPreferredQualification, prefQual)
+                    .Set(x => x.JobAbout, aboutJob)
+                    .Set(x => x.JobResponsibilities, responsibilities)
+                    .Set(x => x.JobPaymentType, paymentType)
+                    .Set(x => x.JobMonthlyRate, monthlySalary)
+                    .Set(x => x.JobHourlyRate, hourlyRate)
+                    .Set(x => x.JobStatus, status);
+
+                await JobPosterJobPosting.UpdateOneAsync(postedJob, update);
+
+                return true;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error occurred while updating posted job: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
         public static async Task<bool> UpdateJobSeekerProfileAsync(string id, string email, string phone, string lastname, string firstname, string middlename, string sex, string birthdate, short age, string address, double lat, double lon, byte[] profile, List<SupportingDocument> docu, bool isDraft, string status)
         {
             try
