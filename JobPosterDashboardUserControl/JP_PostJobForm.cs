@@ -1,6 +1,8 @@
 ﻿using JobNear.Forms;
 using JobNear.Services;
+using MongoDB.Driver;
 using System;
+using System.Security.Cryptography;
 using System.Windows.Forms;
 
 namespace JobNear.JobPosterDashboardUserControl
@@ -16,7 +18,56 @@ namespace JobNear.JobPosterDashboardUserControl
             
         }
 
+        public  JP_PostJobForm(string mode, string id)
+        {
+            InitializeComponent();
+            payment_combo.Text = "Select Payment Type";
 
+            LoadPostedJobDetails(id);
+        }
+
+
+        public async void LoadPostedJobDetails(string jobId)
+        {
+            var jobDetails = await MongoDbServices.JobPosterJobPosting
+                .Find(x => x.Id == jobId)
+                .FirstOrDefaultAsync();
+
+            if (jobDetails != null)
+            {
+                title_input.Text = jobDetails.JobPosition;
+                min_qualification_richbox.Text = jobDetails.JobMinimumQualification;
+                preferred_qualification_richbox.Text = jobDetails.JobPreferredQualification;
+                about_job_richbox.Text = jobDetails.JobAbout;
+                responsibilities_richbox.Text = jobDetails.JobResponsibilities;
+                payment_combo.Text = jobDetails.JobPaymentType;
+                status_combo.Text = jobDetails.JobStatus;
+                if (jobDetails.JobEmploymentType.Contains("Full-Time"))
+                    full_time_checkbox.Checked = true;
+                if (jobDetails.JobEmploymentType.Contains("Part-Time"))
+                    part_time_checkbox.Checked = true;
+                if (jobDetails.JobWorkModel == "Fully Office")
+                    fully_office_radiobtn.Checked = true;
+                else if (jobDetails.JobWorkModel == "Fully Remote")
+                    fully_remote_radiobtn.Checked = true;
+                else if (jobDetails.JobWorkModel == "Hybrid")
+                    hybrid_radiobtn.Checked = true;
+                if (jobDetails.JobPaymentType == "Monthly Salary")
+                {
+                    paymenttype_label.Text = "Salary Per Month";
+                    monthly_input.Text = jobDetails.JobMonthlyRate.ToString();
+                    monthly_input.Visible = true;
+                    hourly_input.Visible = false;
+                }
+                else if (jobDetails.JobPaymentType == "Hourly Salary")
+                {
+                    paymenttype_label.Text = "Rate Per Hour";
+                    hourly_input.Text = jobDetails.JobHourlyRate.ToString();
+                    hourly_input.Visible = true;
+                    monthly_input.Visible = false;
+                }
+            }
+        }
         private async void post_button_Click_1(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(title_input.Text) || string.IsNullOrEmpty(min_qualification_richbox.Text) || 
@@ -146,6 +197,11 @@ namespace JobNear.JobPosterDashboardUserControl
             sidebar_panel.Controls.Clear();
             sidebar_panel.Controls.Add(jp_businessDetails);
             sidebar_panel.Dock = DockStyle.Fill;
+        }
+
+        private void sidebar_panel_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

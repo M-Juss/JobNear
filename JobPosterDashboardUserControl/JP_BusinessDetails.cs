@@ -16,9 +16,9 @@ namespace JobNear.JobPosterDashboardUserControl
             LoadSelectedBusiness(businessId);
             LoadPostedJobs(businessId);
 
-            FlowLayoutStyles.AddPostJob("Senior Developer", "Fully In Office", "Full Time", "Lorem ipsum dolor sit amet. Eum consequatur itaque et quibusdam voluptatem et aspernatur explicabo. Sit eaque possimus ut repellat enim et temporibus natus ut saepe nihil et iusto odit aut animi sunt cum necessitatibus incidunt. ", "ACtive", joblist_flowlayout);
-            FlowLayoutStyles.AddPostJob("Junior Developer", "Hybrid", "Part Time", "Lorem ipsum dolor sit amet. Eum consequatur itaque et quibusdam voluptatem et aspernatur explicabo. Sit eaque possimus ut repellat enim et temporibus natus ut saepe nihil et iusto odit aut animi sunt cum necessitatibus incidunt. ","Closed", joblist_flowlayout);
-            FlowLayoutStyles.AddPostJob("Intern Developer", "Fullt Remote", "Part Time", "Lorem ipsum dolor sit amet. Eum consequatur itaque et quibusdam voluptatem et aspernatur explicabo. Sit eaque possimus ut repellat enim et temporibus natus ut saepe nihil et iusto odit aut animi sunt cum necessitatibus incidunt.","Withdrawn" , joblist_flowlayout);
+            FlowLayoutStyles.AddPostJob("412412412412", "Senior Developer", "Fully In Office", "Full Time", "Lorem ipsum dolor sit amet. Eum consequatur itaque et quibusdam voluptatem et aspernatur explicabo. Sit eaque possimus ut repellat enim et temporibus natus ut saepe nihil et iusto odit aut animi sunt cum necessitatibus incidunt. ", "ACtive", joblist_flowlayout, sidebar_panel);
+            FlowLayoutStyles.AddPostJob("sgfsdg2wrt2342", "Junior Developer", "Hybrid", "Part Time", "Lorem ipsum dolor sit amet. Eum consequatur itaque et quibusdam voluptatem et aspernatur explicabo. Sit eaque possimus ut repellat enim et temporibus natus ut saepe nihil et iusto odit aut animi sunt cum necessitatibus incidunt. ","Closed", joblist_flowlayout, sidebar_panel);
+            FlowLayoutStyles.AddPostJob("23432fsfr23rsf", "Intern Developer", "Fullt Remote", "Part Time", "Lorem ipsum dolor sit amet. Eum consequatur itaque et quibusdam voluptatem et aspernatur explicabo. Sit eaque possimus ut repellat enim et temporibus natus ut saepe nihil et iusto odit aut animi sunt cum necessitatibus incidunt.","Withdrawn" , joblist_flowlayout, sidebar_panel);
 
             PanelStyles.RoundedPanel(business_panel, 20, Color.White);
             ButtonStyle.RoundedButton(edit_button, 10, "#3B82F6");
@@ -62,12 +62,14 @@ namespace JobNear.JobPosterDashboardUserControl
                 postedJobs.ForEach(job =>
                 {
                     FlowLayoutStyles.AddPostJob(
+                        job.Id,
                         job.JobPosition,
                         job.JobWorkModel,
                         job.JobEmploymentType,
                         job.JobAbout,
                         job.JobStatus,
-                        joblist_flowlayout
+                        joblist_flowlayout,
+                        sidebar_panel
                     );
                 });
             }

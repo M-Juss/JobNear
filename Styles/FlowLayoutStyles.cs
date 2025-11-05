@@ -316,7 +316,7 @@ namespace JobNear.Styles
             file_flowlayout.Controls.Add(businessPanel);
         }
 
-        public static void AddPostJob(string job_postion, string work_model, string employment_type, string job_description, string job_status, FlowLayoutPanel joblist_flowlayout)
+        public static void AddPostJob(string job_id, string job_postion, string work_model, string employment_type, string job_description, string job_status, FlowLayoutPanel joblist_flowlayout, Panel sidebar_panel)
         {
             Panel postJobPanel = new Panel();
             postJobPanel.AutoSize = false;
@@ -378,6 +378,15 @@ namespace JobNear.Styles
             jobEditPost.Location = new Point(joblist_flowlayout.Width - 125, 14);
             jobEditPost.Font = new Font("Poppins", 10, FontStyle.Bold);
             jobEditPost.ForeColor = Color.White;
+
+            jobEditPost.Click += (s, e) =>
+            {
+                string mode = "edit";
+                JobPosterDashboardUserControl.JP_PostJobForm editJobForm = new JobPosterDashboardUserControl.JP_PostJobForm(mode, job_id);
+                sidebar_panel.Controls.Clear();
+                sidebar_panel.Controls.Add(editJobForm);
+                editJobForm.Dock = DockStyle.Fill;
+            };
 
             ButtonStyle.RoundedButton(jobEditPost, 5, "#3B82F6");
             PanelStyles.RoundedPanel(postJobPanel, 20, Color.White);
