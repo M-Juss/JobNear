@@ -83,7 +83,7 @@ namespace JobNear.AdminDashboardUserControl
                 case "pending":
                     seeker_table.Rows.Clear();
 
-                    var filterPending = Builders<JobSeekerAccountModel>.Filter.Eq(x => x.Status, "pending");
+                    var filterPending = Builders<JobSeekerAccountModel>.Filter.Eq(x => x.Status, "Pending");
 
                     var pendingAccounts = await MongoDbServices.JobSeekerAccount
                         .Find(filterPending)
@@ -103,7 +103,7 @@ namespace JobNear.AdminDashboardUserControl
 
                 case "verified":
                     seeker_table.Rows.Clear();
-                    var filterVerified = Builders<JobSeekerAccountModel>.Filter.Eq(x => x.Status, "verified");
+                    var filterVerified = Builders<JobSeekerAccountModel>.Filter.Eq(x => x.Status, "Verified");
 
                     var verifiedAccount = await MongoDbServices.JobSeekerAccount
                         .Find(filterVerified)
@@ -124,7 +124,7 @@ namespace JobNear.AdminDashboardUserControl
 
                 case "incomplete":
                     seeker_table.Rows.Clear();
-                    var filterIncomplete = Builders<JobSeekerAccountModel>.Filter.Eq(x => x.Status, "incomplete");
+                    var filterIncomplete = Builders<JobSeekerAccountModel>.Filter.Eq(x => x.Status, "Incomplete");
 
                     var incompleteAccount = await MongoDbServices.JobSeekerAccount
                         .Find(filterIncomplete)
@@ -146,7 +146,7 @@ namespace JobNear.AdminDashboardUserControl
 
                 case "rejected":
                     seeker_table.Rows.Clear();
-                    var filterRejected = Builders<JobSeekerAccountModel>.Filter.Eq(x => x.Status, "rejected");
+                    var filterRejected = Builders<JobSeekerAccountModel>.Filter.Eq(x => x.Status, "Rejected");
 
                     var rejectedAccount = await MongoDbServices.JobSeekerAccount
                         .Find(filterRejected)

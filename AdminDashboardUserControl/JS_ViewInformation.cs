@@ -51,7 +51,7 @@ namespace JobNear.AdminDashboardUserControl
                 if (specificUser.SupportingDocuments != null) { 
                     foreach (var doc in specificUser.SupportingDocuments)
                     {
-                        FlowLayoutStyles.AddSupportingDocumentToFlow(doc, image_flowlayout, 869);
+                        FlowLayoutStyles.AddSupportingDocumentToFlow(doc, image_flowlayout, 851);
                     }
                 }
 

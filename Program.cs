@@ -26,7 +26,9 @@ namespace JobNear
 
             // To-do November 5, 2025:
             // [/] Posts Jobs edit button function
-            // [] Add Update Functionality
+            // [/] Add Update Functionality
+
+            // To-do
         }
     }
 }
