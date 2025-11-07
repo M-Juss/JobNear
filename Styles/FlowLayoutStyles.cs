@@ -359,6 +359,7 @@ namespace JobNear.Styles
 
             Label jobDescription = new Label();
             jobDescription.AutoSize = false;
+            jobDescription.AutoEllipsis = true;
             jobDescription.Text = job_description;
             jobDescription.Width = 700;
             jobDescription.Height = 70;
@@ -406,8 +407,79 @@ namespace JobNear.Styles
 
         }
 
-        public static void LoadActivePostedJob(string job_id, string job_postion, string work_model, string employment_type, string job_description, string job_status, string job_address, FlowLayoutPanel joblist_flowlayout, Panel sidebar_panel) { 
-            
+        public static void LoadActivePostedJob(string job_id, string job_postion, string work_model, string employment_type, string job_description, string job_status, string job_address, FlowLayoutPanel joblist_flowlayout, Panel sidebar_panel) {
+            Panel postJobPanel = new Panel();
+            postJobPanel.Height = 150;
+            postJobPanel.Width = joblist_flowlayout.Width - 20;
+            postJobPanel.Margin = new Padding(10, 10, 10, 10);
+            postJobPanel.BackColor = Color.WhiteSmoke;
+            postJobPanel.BorderStyle = BorderStyle.None;
+
+            Label jobPosition = new Label();
+            jobPosition.AutoSize = false;
+            jobPosition.Text = job_postion;
+            jobPosition.Width = 500;
+            jobPosition.Height = 30;
+            jobPosition.BorderStyle = BorderStyle.None;
+            jobPosition.Location = new Point(40, 10);
+            jobPosition.Font = new Font("Poppins", 16, FontStyle.Bold);
+            jobPosition.ForeColor = Color.Black;
+
+            Label jobStatus = new Label();
+            jobStatus.AutoSize = false;
+            jobStatus.Width = 100;
+            jobStatus.Height = 25;
+            jobStatus.BorderStyle = BorderStyle.None;
+            jobStatus.Location = new Point(joblist_flowlayout.Width - 185   , 14);
+            jobStatus.TextAlign = ContentAlignment.MiddleCenter;
+            jobStatus.Font = new Font("Poppins", 12, FontStyle.Bold);
+
+            UserController.SetJobPostStatus(jobStatus, job_status);
+
+            Label jobInfo = new Label();
+            jobInfo.AutoSize = false;
+            jobInfo.Text = $" {work_model} | {employment_type}";
+            jobInfo.Width = 700;
+            jobInfo.AutoEllipsis = true;
+            jobInfo.BorderStyle = BorderStyle.None;
+            jobInfo.Location = new Point(39, 40);
+            jobInfo.Font = new Font("Poppins", 12, FontStyle.Regular);
+            jobInfo.ForeColor = Color.Black;
+
+            Label jobDescription = new Label();
+            jobDescription.AutoSize = false;
+            jobDescription.AutoEllipsis = true;
+            jobDescription.Text = job_description;
+            jobDescription.Width = 700;
+            jobDescription.Height = 50;
+            jobDescription.AutoEllipsis = true;
+            jobDescription.BorderStyle = BorderStyle.FixedSingle;
+            jobDescription.TextAlign = ContentAlignment.TopLeft;
+            jobDescription.Location = new Point(43, 70);
+            jobDescription.Font = new Font("Poppins", 10, FontStyle.Regular);
+            jobDescription.ForeColor = Color.Gray;
+
+            Label jobAddress = new Label();
+            jobAddress.AutoSize = false;
+            jobAddress.Text = job_address;
+            jobAddress.Width = 605;
+            jobAddress.Height = 20;
+            jobAddress.BorderStyle = BorderStyle.None;
+            jobAddress.Location = new Point(45, 117);
+            jobAddress.TextAlign = ContentAlignment.TopLeft;
+            jobAddress.Font = new Font("Poppins", 9, FontStyle.Regular);
+            jobAddress.ForeColor = Color.Gray;
+
+            PanelStyles.RoundedPanel(postJobPanel, 20, Color.White);
+
+            postJobPanel.Controls.Add(jobPosition);
+            postJobPanel.Controls.Add(jobInfo);
+            postJobPanel.Controls.Add(jobDescription);
+            postJobPanel.Controls.Add(jobStatus);
+            postJobPanel.Controls.Add(jobAddress);
+
+            joblist_flowlayout.Controls.Add(postJobPanel);
+
         }
     }
 }
