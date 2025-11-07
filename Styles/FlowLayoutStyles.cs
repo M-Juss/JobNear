@@ -405,5 +405,9 @@ namespace JobNear.Styles
             joblist_flowlayout.Controls.Add(postJobPanel);
 
         }
+
+        public static void LoadActivePostedJob(string job_id, string job_postion, string work_model, string employment_type, string job_description, string job_status, string job_address, FlowLayoutPanel joblist_flowlayout, Panel sidebar_panel) { 
+            
+        }
     }
 }

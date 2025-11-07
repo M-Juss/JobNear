@@ -136,10 +136,15 @@ namespace JobNear.JobPosterDashboardUserControl
                 double hourlyrate = hourly_input.Visible ? Convert.ToDouble(hourly_input.Text.Trim()) : 0;
                 string stat = status_combo.SelectedItem.ToString();
 
+                var getBusinessAddress = await MongoDbServices.JobPosterBusiness
+                    .Find(x => x.Id == Session.CurrentBusinessSelected)
+                    .FirstOrDefaultAsync();
+
                 if (Session.CurrentPostJobFormMode == "insert")
                 {
                     bool response = await MongoDbServices.InsertJobPostingAsync(
                     Session.CurrentBusinessSelected,
+                    getBusinessAddress.BusinessAddress,
                     position,
                     emptype,
                     workmodel,

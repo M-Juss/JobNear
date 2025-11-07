@@ -47,7 +47,7 @@ namespace JobNear.JobPosterDashboardUserControl
                 if (businessDetails != null) {
                     if (!businessDetails.Status.Equals("Verified"))
                     {
-                        MessageBox.Show("Business must be Verified to post a job!");
+                        MessageBox.Show("Business must be Verified to post a job!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
                     else
@@ -112,6 +112,11 @@ namespace JobNear.JobPosterDashboardUserControl
 
 
         private void sidebar_panel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void post_job_button_Click(object sender, EventArgs e)
         {
 
         }

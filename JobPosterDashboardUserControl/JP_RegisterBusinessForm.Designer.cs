@@ -127,6 +127,7 @@
             this.review_button.TabIndex = 83;
             this.review_button.Text = "Submit for review";
             this.review_button.UseVisualStyleBackColor = true;
+            this.review_button.Click += new System.EventHandler(this.review_button_Click_1);
             // 
             // cancel_button
             // 

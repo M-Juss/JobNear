@@ -293,5 +293,10 @@ namespace JobNear.JobPosterDashboardUserControl
             sidebar_panel.Controls.Add(jp_businessDeets);
             jp_businessDeets.Dock = DockStyle.Fill;
         }
+
+        private void review_button_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }

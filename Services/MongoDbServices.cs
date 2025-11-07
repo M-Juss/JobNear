@@ -298,13 +298,14 @@ namespace JobNear.Services
             }
         }
 
-        public static async Task<bool> InsertJobPostingAsync(string id, string title, string employmentType, string workModel, string minQual, string prefQual, string aboutJob, string responsibilities, string paymentType, double monthlySalary, double hourlyRate, string status)
+        public static async Task<bool> InsertJobPostingAsync(string id, string address, string title, string employmentType, string workModel, string minQual, string prefQual, string aboutJob, string responsibilities, string paymentType, double monthlySalary, double hourlyRate, string status)
         {
             try
             {
                 var newJobPosting = new JobPosterJobPostingModel
                 {
                     BusinessId = id,
+                    JobAddress = address,
                     JobPosition = title,
                     JobEmploymentType = employmentType,
                     JobWorkModel = workModel,
