@@ -15,7 +15,9 @@ namespace JobNear.JobPosterDashboardUserControl
             InitializeComponent();
             payment_combo.Text = "Select Payment Type";
             paymenttype_label.Text = "";
-            
+            TextBoxValidatorController.AllowOnlyNumbers(hourly_input);
+            TextBoxValidatorController.AllowOnlyNumbers(monthly_input);
+
         }
 
         public  JP_PostJobForm(string mode, string id)
@@ -24,6 +26,9 @@ namespace JobNear.JobPosterDashboardUserControl
             payment_combo.Text = "Select Payment Type";
 
             LoadPostedJobDetails(id);
+
+            TextBoxValidatorController.AllowOnlyNumbers(hourly_input);
+            TextBoxValidatorController.AllowOnlyNumbers(monthly_input);
         }
 
 
