@@ -277,7 +277,7 @@ namespace JobNear.Services
                     BusinessIndustry = industry,
                     BusinessDescription = description,
                     BusinessAddress = address,
-                    BusinessLatitude = lat,
+                    BusinessLatitude = lat, 
                     BusinessLongitude = lon,
                     BusinessEmail = email,
                     BusinessContact = phone,

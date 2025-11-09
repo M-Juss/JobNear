@@ -66,5 +66,10 @@ namespace JobNear.AdminDashboardUserControl
             sidebar_panel.Controls.Add(viewInfo);
             viewInfo.Dock = DockStyle.Fill;
         }
+
+        private void submit_button_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

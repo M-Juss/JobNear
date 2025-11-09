@@ -15,38 +15,46 @@ namespace JobNear.JobSeekerDashboardUserControl
 
             MapController.InitializeMap(map_panel, Session.CurrentLatitude, Session.CurrentLongitude);
 
+            LoadBusinessInMap();
             // Example data (this would normally come from your DB)
-            var businesses = new List<(double lat, double lng, string name)>
-                {
-                    (14.6995, 120.8842, "Manila Business #1"),
-                    (14.6760, 121.0437, "Quezon City Business #2"),
-                    (14.5547, 121.0244, "Makati Business #3")
-                };
+            //var businesses = new List<(double lat, double lng, string name)>
+            //    {
+            //        (14.6995, 120.8842, "Manila Business #1"),
+            //        (14.6760, 121.0437, "Quezon City Business #2"),
+            //        (14.5547, 121.0244, "Makati Business #3")
+            //    };
 
-            // Add all markers
-            foreach (var business in businesses)
-            {
-                MapController.AddBusinessMarker(business.lat, business.lng, business.name);
-            }
+            //// Add all markers
+            //foreach (var business in businesses)
+            //{
+            //    MapController.AddBusinessMarker(business.lat, business.lng, business.name);
+            //}
 
         }
 
         private async void LoadBusinessInMap() { 
+
             var businesses = await MongoDbServices.JobPosterBusiness
                 .Find(x => x.Status == "Verified")
                 .ToListAsync();
 
-            if (businesses != null) { 
-                businesses.ForEach(business => {
+            if (businesses != null) {
 
-                    string toolTipText = $"{business.BusinessName}\n {business.BusinessAddress} \n ";
+                foreach (var business in businesses) {
+
+                    var businessActiveJobs = await MongoDbServices.JobPosterJobPosting
+                        .CountDocumentsAsync(x => x.BusinessId == business.Id);
+                        
+                    string toolTipText = $"{business.BusinessName}\n{business.BusinessAddress}\n{businessActiveJobs} Active Jobs ";
 
                     MapController.AddBusinessMarker(
                         business.BusinessLatitude,
                         business.BusinessLongitude,
                         toolTipText
                     );
-                });
+                }
+
+                    
             }
         }
 

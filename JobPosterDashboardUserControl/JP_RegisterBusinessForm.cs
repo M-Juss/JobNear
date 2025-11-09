@@ -95,11 +95,6 @@ namespace JobNear.JobPosterDashboardUserControl
             debounceTimer.Start();
         }
 
-        private void review_button_Click(object sender, EventArgs e)
-        {
-            InsertBusinessDetails(false, "pending");
-        }
-
         private async void InsertBusinessDetails(bool isDraft, string status)
         {
             TextBoxValidatorController.ValidateEmail(email_input);
@@ -210,43 +205,6 @@ namespace JobNear.JobPosterDashboardUserControl
                 }
         }
 
-        private void upload_button_Click(object sender, EventArgs e)
-        {
-            ofd.Filter = "Image Files (*.jpg;*.jpeg;*.png)|*.jpg;*.jpeg;*.png";
-            if (ofd.ShowDialog() == DialogResult.OK)
-            {
-                profile_picture.Image = Image.FromFile(ofd.FileName);
-            }
-            else
-            {
-                MessageBox.Show("No file selected.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void attach_file_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog ofd = new OpenFileDialog();
-            ofd.Multiselect = true;
-            ofd.Filter = "All Files|*.*";
-
-            if (ofd.ShowDialog() == DialogResult.OK)
-            {
-                foreach (string filePath in ofd.FileNames)
-                {
-                    string fileName = Path.GetFileName(filePath);
-
-                    string savePath = Path.Combine(Application.StartupPath, "SupportingDocs");
-                    if (!Directory.Exists(savePath))
-                        Directory.CreateDirectory(savePath);
-
-                    string destPath = Path.Combine(savePath, fileName);
-                    File.Copy(filePath, destPath, true);
-
-                    FlowLayoutStyles.AddFileItem(destPath, image_flowlayout, 726);
-                }
-            }
-        }
-
         private async void LoadEditBusinessDetails(string businessId)
         {
             try {
@@ -296,7 +254,49 @@ namespace JobNear.JobPosterDashboardUserControl
 
         private void review_button_Click_1(object sender, EventArgs e)
         {
+            InsertBusinessDetails(false, "pending");
+        }
 
+        private void sidebar_panel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void upload_button_Click_1(object sender, EventArgs e)
+        {
+            ofd.Filter = "Image Files (*.jpg;*.jpeg;*.png)|*.jpg;*.jpeg;*.png";
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                profile_picture.Image = Image.FromFile(ofd.FileName);
+            }
+            else
+            {
+                MessageBox.Show("No file selected.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void attach_file_Click_1(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Multiselect = true;
+            ofd.Filter = "All Files|*.*";
+
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                foreach (string filePath in ofd.FileNames)
+                {
+                    string fileName = Path.GetFileName(filePath);
+
+                    string savePath = Path.Combine(Application.StartupPath, "SupportingDocs");
+                    if (!Directory.Exists(savePath))
+                        Directory.CreateDirectory(savePath);
+
+                    string destPath = Path.Combine(savePath, fileName);
+                    File.Copy(filePath, destPath, true);
+
+                    FlowLayoutStyles.AddFileItem(destPath, image_flowlayout, 726);
+                }
+            }
         }
     }
 }

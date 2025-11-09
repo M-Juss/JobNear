@@ -98,6 +98,7 @@
             this.sidebar_panel.Name = "sidebar_panel";
             this.sidebar_panel.Size = new System.Drawing.Size(1031, 705);
             this.sidebar_panel.TabIndex = 0;
+            this.sidebar_panel.Paint += new System.Windows.Forms.PaintEventHandler(this.sidebar_panel_Paint);
             // 
             // panel4
             // 
@@ -117,6 +118,7 @@
             this.upload_button.TabIndex = 84;
             this.upload_button.Text = "Upload picture here";
             this.upload_button.UseVisualStyleBackColor = true;
+            this.upload_button.Click += new System.EventHandler(this.upload_button_Click_1);
             // 
             // review_button
             // 
@@ -181,6 +183,7 @@
             this.attach_file.TabIndex = 77;
             this.attach_file.Text = "Attach files that will help us verify your details and contact information";
             this.attach_file.UseVisualStyleBackColor = false;
+            this.attach_file.Click += new System.EventHandler(this.attach_file_Click_1);
             // 
             // panel2
             // 
