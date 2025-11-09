@@ -1,15 +1,8 @@
-﻿using GMap.NET;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using System.Windows.Forms;
 using JobNear.Controllers;
-
+using MongoDB.Driver;
+using JobNear.Services;
 
 namespace JobNear.JobSeekerDashboardUserControl
 {
@@ -36,7 +29,25 @@ namespace JobNear.JobSeekerDashboardUserControl
                 MapController.AddBusinessMarker(business.lat, business.lng, business.name);
             }
 
+        }
 
+        private async void LoadBusinessInMap() { 
+            var businesses = await MongoDbServices.JobPosterBusiness
+                .Find(x => x.Status == "Verified")
+                .ToListAsync();
+
+            if (businesses != null) { 
+                businesses.ForEach(business => {
+
+                    string toolTipText = $"{business.BusinessName}\n {business.BusinessAddress} \n ";
+
+                    MapController.AddBusinessMarker(
+                        business.BusinessLatitude,
+                        business.BusinessLongitude,
+                        toolTipText
+                    );
+                });
+            }
         }
 
         private void map_panel_Paint(object sender, PaintEventArgs e)

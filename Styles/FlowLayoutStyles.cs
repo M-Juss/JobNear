@@ -430,7 +430,7 @@ namespace JobNear.Styles
             jobStatus.Width = 100;
             jobStatus.Height = 25;
             jobStatus.BorderStyle = BorderStyle.None;
-            jobStatus.Location = new Point(joblist_flowlayout.Width - 185   , 14);
+            jobStatus.Location = new Point(joblist_flowlayout.Width - 180   , 14);
             jobStatus.TextAlign = ContentAlignment.MiddleCenter;
             jobStatus.Font = new Font("Poppins", 12, FontStyle.Bold);
 

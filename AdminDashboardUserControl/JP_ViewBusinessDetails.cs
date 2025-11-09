@@ -31,8 +31,8 @@ namespace JobNear.AdminDashboardUserControl
                     email_input.Text = businessDetails.BusinessEmail;
                     phone_input.Text = businessDetails.BusinessContact;
                     address_input.Text = businessDetails.BusinessAddress;
-                    lng_input.Text = businessDetails.Longitude.ToString();
-                    lat_input.Text = businessDetails.Latitude.ToString();
+                    lng_input.Text = businessDetails.BusinessLongitude.ToString();
+                    lat_input.Text = businessDetails.BusinessLatitude.ToString();
 
                     profile_picture.Image = ConvertDataTypeServices.ConvertBytesToImage(businessDetails.BusinessLogo);
 
