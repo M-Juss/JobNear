@@ -96,7 +96,7 @@ namespace JobNear.AdminDashboardUserControl
 
                                 var verifyNotif = new UserNotificationModel
                                 {
-                                    NotificationId = business.Id,
+                                    NotificationId = business.BusinessId,
                                     Key = key,
                                     HeaderMessage = verifyMessage,
                                     Type = verifyType,
@@ -114,7 +114,7 @@ namespace JobNear.AdminDashboardUserControl
 
                                 var pendingNotif = new UserNotificationModel
                                 {
-                                    NotificationId = business.Id,
+                                    NotificationId = business.BusinessId,
                                     Key = key,
                                     HeaderMessage = pendingMessage,
                                     Type = pendingType,
@@ -132,7 +132,7 @@ namespace JobNear.AdminDashboardUserControl
 
                                 var incNotif = new UserNotificationModel
                                 {
-                                    NotificationId = business.Id,
+                                    NotificationId = business.BusinessId,
                                     Key = key,
                                     HeaderMessage = incMessage,
                                     Type = incType,
@@ -149,7 +149,7 @@ namespace JobNear.AdminDashboardUserControl
 
                                 var rejectedNotif = new UserNotificationModel
                                 {
-                                    NotificationId = business.Id,
+                                    NotificationId = business.BusinessId,
                                     Key = key,
                                     HeaderMessage = rejectedMessage,
                                     Type = rejectedType,

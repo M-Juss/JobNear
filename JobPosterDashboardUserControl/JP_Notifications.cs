@@ -29,7 +29,9 @@ namespace JobNear.JobPosterDashboardUserControl
             var poster = await MongoDbServices.UserNotification
                 .Find(x => x.NotificationId == Session.CurrentUserId)
                 .ToListAsync();
+
             Console.WriteLine(poster.Count);
+
             if (poster.Count > 0)
             {
                 notificationManager = new NotificationFlowManager(notif_panel);
