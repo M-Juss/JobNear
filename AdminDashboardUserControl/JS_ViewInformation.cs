@@ -170,13 +170,14 @@ namespace JobNear.AdminDashboardUserControl
                             .Set(x => x.Status, status);
 
                         await MongoDbServices.JobSeekerAccount.UpdateOneAsync(getUser, updateUser);
+                        MessageBox.Show("User status and notification have been updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        sidebar_panel.Controls.Clear();
+                        sidebar_panel.Controls.Add(new Admin_JS_UserManagement());
+                        sidebar_panel.Dock = DockStyle.Fill;
+
                     }
                     else MessageBox.Show("User not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-                    MessageBox.Show("User status and notification have been updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    sidebar_panel.Controls.Clear();
-                    sidebar_panel.Controls.Add(new Admin_JS_UserManagement());
-                    sidebar_panel.Dock = DockStyle.Fill;
                 }
                 else MessageBox.Show("User not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }   
