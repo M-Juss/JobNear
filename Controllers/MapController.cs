@@ -61,11 +61,10 @@ namespace JobNear.Controllers
             {
                 ToolTipText = tooltipText,
                 ToolTipMode = MarkerTooltipMode.OnMouseOver,
-                Tag = businessSpecificId
+                Tag = businessSpecificId,
             };
 
             markersOverlay.Markers.Add(marker);
-
 
             gmap.OnMarkerClick -= Gmap_OnMarkerClick;
             gmap.OnMarkerClick += Gmap_OnMarkerClick;
@@ -76,11 +75,11 @@ namespace JobNear.Controllers
             if (item.Tag != null)
             {
                 string businessId = item.Tag.ToString();
-                string name = item.ToolTipText.Split('\n')[0]; // get name from tooltip
-                MessageBox.Show($"You clicked on: {name}\nBusiness ID: {businessId}", "Business Clicked");
 
-                // 🔹 You can instead trigger a form, user control, or info panel here:
-                // ShowBusinessDetails(businessId);
+                JobSeekerDashboardUserControl.JS_ViewBusiness view = new JobSeekerDashboardUserControl.JS_ViewBusiness(businessId);
+                Session.CurrentSidebarPanel.Controls.Clear();   
+                Session.CurrentSidebarPanel.Controls.Add(view);
+                view.Dock = DockStyle.Fill;
             }
             else
             {

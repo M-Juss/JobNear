@@ -29,7 +29,11 @@ namespace JobNear
             // [/] Add Update Functionality
 
             // To-do November 10, 2025
-            // [] add functionality to submit review in Admin form
+            // [/] add functionality to submit review in Admin form
+
+            // To-do November 11, 2025
+            // [] Business Marker clik in Job Browse shoudl show the Business Info and Active Posted Jobs of a specific of business
+            // [] Make a template form of the Posted Active Job for the seeker to see
         }
     }
 }

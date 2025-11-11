@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace JobNear
 {
     public class Session
     {
+        public static Panel CurrentSidebarPanel { get; set; }
         public static string CurrentUserType { get; set; }
         public static string CurrentUserId { get; set; }
         public static string CurrentEmail { get; set; }
