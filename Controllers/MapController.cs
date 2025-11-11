@@ -42,7 +42,7 @@ namespace JobNear.Controllers
 
         }
 
-        public static void AddBusinessMarker(double lat, double lng, string tooltipText)
+        public static void AddBusinessMarker(double lat, double lng, string tooltipText, string businessSpecificId)
         {
 
             GMapOverlay markersOverlay;
@@ -60,12 +60,33 @@ namespace JobNear.Controllers
             )
             {
                 ToolTipText = tooltipText,
-                ToolTipMode = MarkerTooltipMode.OnMouseOver
+                ToolTipMode = MarkerTooltipMode.OnMouseOver,
+                Tag = businessSpecificId
             };
 
             markersOverlay.Markers.Add(marker);
-        }
 
+
+            gmap.OnMarkerClick -= Gmap_OnMarkerClick;
+            gmap.OnMarkerClick += Gmap_OnMarkerClick;
+        }
+        public static void Gmap_OnMarkerClick(GMapMarker item, MouseEventArgs e)
+        {
+            // Check if it’s a business marker (not the user)
+            if (item.Tag != null)
+            {
+                string businessId = item.Tag.ToString();
+                string name = item.ToolTipText.Split('\n')[0]; // get name from tooltip
+                MessageBox.Show($"You clicked on: {name}\nBusiness ID: {businessId}", "Business Clicked");
+
+                // 🔹 You can instead trigger a form, user control, or info panel here:
+                // ShowBusinessDetails(businessId);
+            }
+            else
+            {
+                MessageBox.Show("This is your location!", "User Marker");
+            }
+        }
         public static void AddUserMarker(double lat, double lng, string tooltipText)
         {
             GMapOverlay markersOverlay;
@@ -84,8 +105,8 @@ namespace JobNear.Controllers
                 ToolTipMode = MarkerTooltipMode.OnMouseOver
             };
             markersOverlay.Markers.Add(marker);
-        }
 
+        }
 
 
         public static Bitmap GetBusinessIcon()

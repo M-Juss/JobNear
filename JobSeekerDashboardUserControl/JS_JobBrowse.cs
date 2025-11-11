@@ -50,7 +50,8 @@ namespace JobNear.JobSeekerDashboardUserControl
                     MapController.AddBusinessMarker(
                         business.BusinessLatitude,
                         business.BusinessLongitude,
-                        toolTipText
+                        toolTipText,
+                        business.Id
                     );
                 }
 
