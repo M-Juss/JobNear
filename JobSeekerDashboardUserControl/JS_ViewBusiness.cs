@@ -1,6 +1,8 @@
-﻿using JobNear.Services;
+﻿using JobNear.Models;
+using JobNear.Services;
+using JobNear.Styles;
 using MongoDB.Driver;
-using JobNear.Models;
+using System;
 using System.Windows.Forms;
 
 namespace JobNear.JobSeekerDashboardUserControl
@@ -11,6 +13,7 @@ namespace JobNear.JobSeekerDashboardUserControl
         {
             InitializeComponent();
             LoadSelectedBusiness(businessSpecificId);
+            LoadActiveJobPosted(businessSpecificId);
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -30,6 +33,40 @@ namespace JobNear.JobSeekerDashboardUserControl
                 name_label.Text = businessDetails.BusinessName;
                 description_label.Text = businessDetails.BusinessDescription;
                 footer_label.Text = $"{businessDetails.BusinessAddress} | {businessDetails.BusinessEmail} | {businessDetails.BusinessContact}";
+            }
+        }
+
+        // Consult arnel regarding to displaying all job posted or js the actives only?
+        private async void LoadActiveJobPosted(string businessId)
+        {
+            try
+            {
+                var getBusiness = await MongoDbServices.JobPosterBusiness
+                    .Find(x => x.Id == businessId)
+                    .FirstOrDefaultAsync();
+
+                if (getBusiness != null) { 
+                    var getActiveJobs = await MongoDbServices.JobPosterJobPosting
+                        .Find(x => x.BusinessId == getBusiness.Id &&  x.JobStatus == "Active")
+                        .ToListAsync();
+
+                    getActiveJobs.ForEach(job => {
+                        FlowLayoutStyles.AddPostJob(
+                            job.Id,
+                            job.JobPosition,
+                            job.JobWorkModel,
+                            job.JobEmploymentType,
+                            job.JobAbout,
+                            job.JobStatus,
+                            joblist_flowlayout,
+                            sidebar_panel
+                        );
+                    });
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

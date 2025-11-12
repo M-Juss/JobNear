@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.sidebar_panel = new System.Windows.Forms.Panel();
             this.joblist_flowlayout = new System.Windows.Forms.FlowLayoutPanel();
             this.business_panel = new System.Windows.Forms.Panel();
             this.edit_button = new System.Windows.Forms.Button();
@@ -36,22 +36,22 @@
             this.footer_label = new System.Windows.Forms.Label();
             this.name_label = new System.Windows.Forms.Label();
             this.company_logo_picturebox = new System.Windows.Forms.PictureBox();
-            this.panel1.SuspendLayout();
+            this.sidebar_panel.SuspendLayout();
             this.business_panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.company_logo_picturebox)).BeginInit();
             this.SuspendLayout();
             // 
-            // panel1
+            // sidebar_panel
             // 
-            this.panel1.Controls.Add(this.joblist_flowlayout);
-            this.panel1.Controls.Add(this.business_panel);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1031, 705);
-            this.panel1.TabIndex = 0;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            this.sidebar_panel.Controls.Add(this.joblist_flowlayout);
+            this.sidebar_panel.Controls.Add(this.business_panel);
+            this.sidebar_panel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.sidebar_panel.Location = new System.Drawing.Point(0, 0);
+            this.sidebar_panel.Margin = new System.Windows.Forms.Padding(2);
+            this.sidebar_panel.Name = "sidebar_panel";
+            this.sidebar_panel.Size = new System.Drawing.Size(1031, 705);
+            this.sidebar_panel.TabIndex = 0;
+            this.sidebar_panel.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // joblist_flowlayout
             // 
@@ -126,11 +126,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Controls.Add(this.sidebar_panel);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "JS_ViewBusiness";
             this.Size = new System.Drawing.Size(1031, 705);
-            this.panel1.ResumeLayout(false);
+            this.sidebar_panel.ResumeLayout(false);
             this.business_panel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.company_logo_picturebox)).EndInit();
             this.ResumeLayout(false);
@@ -139,7 +139,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel sidebar_panel;
         private System.Windows.Forms.Panel business_panel;
         private System.Windows.Forms.Button edit_button;
         private System.Windows.Forms.Label description_label;

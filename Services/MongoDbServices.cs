@@ -77,6 +77,7 @@ namespace JobNear.Services
                         return;
                     }
 
+                    Session.CurrentUserType = "seeker";
                     Session.CurrentUserId = seeker.Id;
                     Session.CurrentEmail = seeker.Email;
 
@@ -136,6 +137,7 @@ namespace JobNear.Services
                         return;
                     }
 
+                    Session.CurrentUserType = "poster";
                     Session.CurrentUserId = poster.Id;
                     Session.CurrentEmail = poster.Email;
 
