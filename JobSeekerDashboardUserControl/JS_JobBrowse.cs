@@ -46,9 +46,9 @@ namespace JobNear.JobSeekerDashboardUserControl
                 foreach (var business in businesses) {
 
                     var businessActiveJobs = await MongoDbServices.JobPosterJobPosting
-                        .CountDocumentsAsync(x => x.BusinessId == business.Id);
+                        .CountDocumentsAsync(x => x.JobStatus == "Active");
                         
-                    string toolTipText = $"{business.BusinessName}\n{business.BusinessAddress}\n{businessActiveJobs} Active Jobs ";
+                    string toolTipText = $"\n{business.BusinessName}\n{business.BusinessAddress}\n{businessActiveJobs} Active Jobs ";
 
                     MapController.AddBusinessMarker(
                         business.BusinessLatitude,

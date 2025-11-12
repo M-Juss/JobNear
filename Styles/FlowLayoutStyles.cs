@@ -341,7 +341,7 @@ namespace JobNear.Styles
             jobStatus.Width = 100;
             jobStatus.Height = 25;
             jobStatus.BorderStyle = BorderStyle.None;
-            jobStatus.Location = new Point(joblist_flowlayout.Width - 250, 14);
+            jobStatus.Location = new Point(joblist_flowlayout.Width - 175, 14);
             jobStatus.TextAlign = ContentAlignment.MiddleCenter;
             jobStatus.Font = new Font("Poppins", 12, FontStyle.Bold);
             
@@ -361,7 +361,7 @@ namespace JobNear.Styles
             jobDescription.AutoSize = false;
             jobDescription.AutoEllipsis = true;
             jobDescription.Text = job_description;
-            jobDescription.Width = 700;
+            jobDescription.Width = 795;
             jobDescription.Height = 70;
             jobDescription.AutoEllipsis = true;
             jobDescription.BorderStyle = BorderStyle.None;
@@ -376,23 +376,27 @@ namespace JobNear.Styles
             jobEditPost.Width = 55;
             jobEditPost.Height = 25;
             jobEditPost.TextAlign = ContentAlignment.TopCenter;
-            jobEditPost.Location = new Point(joblist_flowlayout.Width - 125, 14);
+            jobEditPost.Location = new Point(joblist_flowlayout.Width - 250, 14);
             jobEditPost.Font = new Font("Poppins", 10, FontStyle.Bold);
             jobEditPost.ForeColor = Color.White;
 
-            jobEditPost.Click += (s, e) =>
-            {
-                string mode = "edit";
-                Session.CurrentPostJobFormMode = mode;
-                Session.CurrentPostedJobSelected = job_id;
+            if (Session.CurrentUserType == "poster") {
+                jobEditPost.Click += (s, e) =>
+                {
+                    string mode = "edit";
+                    Session.CurrentPostJobFormMode = mode;
+                    Session.CurrentPostedJobSelected = job_id;
 
-                Console.WriteLine(Session.CurrentPostedJobSelected);
+                    Console.WriteLine(Session.CurrentPostedJobSelected);
 
-                JobPosterDashboardUserControl.JP_PostJobForm editJobForm = new JobPosterDashboardUserControl.JP_PostJobForm(mode, job_id);
-                sidebar_panel.Controls.Clear();
-                sidebar_panel.Controls.Add(editJobForm);
-                editJobForm.Dock = DockStyle.Fill;
-            };
+                    JobPosterDashboardUserControl.JP_PostJobForm editJobForm = new JobPosterDashboardUserControl.JP_PostJobForm(mode, job_id);
+                    sidebar_panel.Controls.Clear();
+                    sidebar_panel.Controls.Add(editJobForm);
+                    editJobForm.Dock = DockStyle.Fill;
+                };
+            } else jobEditPost.Visible = false;
+
+
 
             ButtonStyle.RoundedButton(jobEditPost, 5, "#3B82F6");
             PanelStyles.RoundedPanel(postJobPanel, 20, Color.White);
@@ -453,7 +457,7 @@ namespace JobNear.Styles
             jobDescription.Width = 700;
             jobDescription.Height = 50;
             jobDescription.AutoEllipsis = true;
-            jobDescription.BorderStyle = BorderStyle.FixedSingle;
+            jobDescription.BorderStyle = BorderStyle.None;
             jobDescription.TextAlign = ContentAlignment.TopLeft;
             jobDescription.Location = new Point(43, 70);
             jobDescription.Font = new Font("Poppins", 10, FontStyle.Regular);
