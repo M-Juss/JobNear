@@ -31,7 +31,6 @@
             this.sidebar_panel = new System.Windows.Forms.Panel();
             this.joblist_flowlayout = new System.Windows.Forms.FlowLayoutPanel();
             this.business_panel = new System.Windows.Forms.Panel();
-            this.edit_button = new System.Windows.Forms.Button();
             this.description_label = new System.Windows.Forms.Label();
             this.footer_label = new System.Windows.Forms.Label();
             this.name_label = new System.Windows.Forms.Label();
@@ -63,7 +62,6 @@
             // business_panel
             // 
             this.business_panel.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.business_panel.Controls.Add(this.edit_button);
             this.business_panel.Controls.Add(this.description_label);
             this.business_panel.Controls.Add(this.footer_label);
             this.business_panel.Controls.Add(this.name_label);
@@ -72,17 +70,6 @@
             this.business_panel.Name = "business_panel";
             this.business_panel.Size = new System.Drawing.Size(800, 223);
             this.business_panel.TabIndex = 1;
-            // 
-            // edit_button
-            // 
-            this.edit_button.Font = new System.Drawing.Font("Poppins SemiBold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.edit_button.ForeColor = System.Drawing.Color.White;
-            this.edit_button.Location = new System.Drawing.Point(711, 13);
-            this.edit_button.Name = "edit_button";
-            this.edit_button.Size = new System.Drawing.Size(75, 28);
-            this.edit_button.TabIndex = 6;
-            this.edit_button.Text = "Edit";
-            this.edit_button.UseVisualStyleBackColor = true;
             // 
             // description_label
             // 
@@ -141,7 +128,6 @@
 
         private System.Windows.Forms.Panel sidebar_panel;
         private System.Windows.Forms.Panel business_panel;
-        private System.Windows.Forms.Button edit_button;
         private System.Windows.Forms.Label description_label;
         private System.Windows.Forms.Label footer_label;
         private System.Windows.Forms.Label name_label;

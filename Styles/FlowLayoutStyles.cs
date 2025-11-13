@@ -476,6 +476,15 @@ namespace JobNear.Styles
 
             PanelStyles.RoundedPanel(postJobPanel, 20, Color.White);
 
+            postJobPanel.Click += (s, e) =>
+            {
+                Session.CurrentPostedJobSelected = job_id;
+                JobSeekerDashboardUserControl.JS_ViewJobList activeJobDetails = new JobSeekerDashboardUserControl.JS_ViewJobList(Session.CurrentPostedJobSelected);
+                sidebar_panel.Controls.Clear();
+                sidebar_panel.Controls.Add(activeJobDetails);
+                activeJobDetails.Dock = DockStyle.Fill;
+            };  
+
             postJobPanel.Controls.Add(jobPosition);
             postJobPanel.Controls.Add(jobInfo);
             postJobPanel.Controls.Add(jobDescription);
