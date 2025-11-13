@@ -3,6 +3,7 @@ using JobNear.Services;
 using JobNear.Styles;
 using MongoDB.Driver;
 using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace JobNear.JobSeekerDashboardUserControl
@@ -12,6 +13,8 @@ namespace JobNear.JobSeekerDashboardUserControl
         public JS_ViewBusiness(string businessSpecificId)
         {
             InitializeComponent();
+            PanelStyles.RoundedPanel(business_panel, 20, Color.White);
+
             LoadSelectedBusiness(businessSpecificId);
             LoadActiveJobPosted(businessSpecificId);
         }
@@ -45,12 +48,14 @@ namespace JobNear.JobSeekerDashboardUserControl
                     .Find(x => x.Id == businessId)
                     .FirstOrDefaultAsync();
 
-                if (getBusiness != null) { 
+                if (getBusiness != null)
+                {
                     var getActiveJobs = await MongoDbServices.JobPosterJobPosting
-                        .Find(x => x.BusinessId == getBusiness.Id &&  x.JobStatus == "Active")
+                        .Find(x => x.BusinessId == getBusiness.Id && x.JobStatus == "Active")
                         .ToListAsync();
 
-                    getActiveJobs.ForEach(job => {
+                    getActiveJobs.ForEach(job =>
+                    {
                         FlowLayoutStyles.AddPostJob(
                             job.Id,
                             job.JobPosition,
