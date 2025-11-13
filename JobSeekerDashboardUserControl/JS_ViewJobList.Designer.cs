@@ -57,6 +57,7 @@
             // panel1
             // 
             this.panel1.AutoScroll = true;
+            this.panel1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.panel1.Controls.Add(this.job_panel);
             this.panel1.Controls.Add(this.business_panel);
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -67,6 +68,7 @@
             // 
             // job_panel
             // 
+            this.job_panel.BackColor = System.Drawing.Color.White;
             this.job_panel.Controls.Add(this.minimum_label);
             this.job_panel.Controls.Add(this.label9);
             this.job_panel.Controls.Add(this.preffered_label);
@@ -98,7 +100,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Poppins SemiBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(492, 258);
+            this.label9.Location = new System.Drawing.Point(497, 258);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(203, 34);
             this.label9.TabIndex = 16;
@@ -117,7 +119,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Poppins SemiBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(491, 91);
+            this.label11.Location = new System.Drawing.Point(496, 91);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(201, 34);
             this.label11.TabIndex = 14;
@@ -136,7 +138,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Poppins SemiBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(41, 258);
+            this.label7.Location = new System.Drawing.Point(46, 258);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(164, 34);
             this.label7.TabIndex = 12;
@@ -155,7 +157,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Poppins SemiBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(40, 91);
+            this.label4.Location = new System.Drawing.Point(45, 91);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(157, 34);
             this.label4.TabIndex = 10;
@@ -190,6 +192,7 @@
             this.jobinfo_label.Size = new System.Drawing.Size(82, 28);
             this.jobinfo_label.TabIndex = 7;
             this.jobinfo_label.Text = "Job Infos";
+            this.jobinfo_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // status_label
             // 
@@ -210,6 +213,7 @@
             this.jobtitle_label.Size = new System.Drawing.Size(742, 56);
             this.jobtitle_label.TabIndex = 5;
             this.jobtitle_label.Text = "Job Title";
+            this.jobtitle_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // business_panel
             // 
@@ -226,8 +230,7 @@
             // description_label
             // 
             this.description_label.AutoEllipsis = true;
-            this.description_label.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.description_label.Font = new System.Drawing.Font("Microsoft YaHei UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.description_label.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.description_label.Location = new System.Drawing.Point(268, 67);
             this.description_label.Name = "description_label";
             this.description_label.Size = new System.Drawing.Size(660, 104);
@@ -236,8 +239,7 @@
             // footer_label
             // 
             this.footer_label.AutoEllipsis = true;
-            this.footer_label.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.footer_label.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.footer_label.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.footer_label.ForeColor = System.Drawing.Color.Gray;
             this.footer_label.Location = new System.Drawing.Point(268, 184);
             this.footer_label.Name = "footer_label";
@@ -248,8 +250,7 @@
             // 
             this.name_label.AllowDrop = true;
             this.name_label.AutoEllipsis = true;
-            this.name_label.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.name_label.Font = new System.Drawing.Font("Microsoft YaHei UI", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.name_label.Font = new System.Drawing.Font("Poppins", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.name_label.Location = new System.Drawing.Point(268, 17);
             this.name_label.Name = "name_label";
             this.name_label.Size = new System.Drawing.Size(660, 36);

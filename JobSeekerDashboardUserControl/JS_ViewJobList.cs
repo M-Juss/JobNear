@@ -23,8 +23,10 @@ namespace JobNear.JobSeekerDashboardUserControl
             InitializeComponent();
             PanelStyles.RoundedPanel(business_panel, 20, Color.White);
             PanelStyles.RoundedPanel(job_panel, 20, Color.White);
-            LoadJobDetails(id);
 
+            LoadJobDetails(id);
+            LoadBusinessDetails(id);
+;
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)  
@@ -37,6 +39,29 @@ namespace JobNear.JobSeekerDashboardUserControl
 
         }
 
+        public async void LoadBusinessDetails(string businessId)
+        {
+
+            var job = await MongoDbServices.JobPosterJobPosting
+                .Find(x => x.Id == businessId)
+                .FirstOrDefaultAsync();
+
+            if (job != null) {
+                var businessDetails = await MongoDbServices.JobPosterBusiness
+                    .Find(x => x.Id == job.BusinessId)
+                    .FirstOrDefaultAsync();
+
+                if (businessDetails != null)
+                {
+                    company_logo_picturebox.Image = ConvertDataTypeServices.ConvertBytesToImage(businessDetails.BusinessLogo);
+                    name_label.Text = businessDetails.BusinessName;
+                    description_label.Text = businessDetails.BusinessDescription;
+                    footer_label.Text = businessDetails.BusinessAddress;
+                }
+            } 
+
+
+        }
         public async void LoadJobDetails(string jobId)
         {
             var job = await MongoDbServices.JobPosterJobPosting
@@ -50,16 +75,13 @@ namespace JobNear.JobSeekerDashboardUserControl
                 responsibilities_label.Text = job.JobResponsibilities;
                 preffered_label.Text = job.JobPreferredQualification;
                 minimum_label.Text = job.JobMinimumQualification;
-                status_label.Text = job.JobStatus;
+                status_label.Text = job.JobStatus;  
 
                 if (job.JobHourlyRate == 0) {
                     rate_label.Text = $"Monthly Salary: ₱{job.JobMonthlyRate}";
                 } else rate_label.Text = $"Hourly Rate: ₱{job.JobHourlyRate}";
 
                 UserController.SetJobPostStatus(status_label, job.JobStatus);
-
-                
-
             }
         }
     }
