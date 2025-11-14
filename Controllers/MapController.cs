@@ -36,10 +36,47 @@ namespace JobNear.Controllers
 
             AddUserMarker(lat, lng, "ME");
 
+            gmap.CanDragMap = false;
+            gmap.MouseWheelZoomEnabled = false;
+            gmap.IgnoreMarkerOnMouseWheel = true;
+            gmap.Enabled = false;
+
             gmap.MinZoom = 1;
             gmap.MaxZoom = 20;
-            gmap.Zoom = 15; // ~5km radius
+            gmap.Zoom = 16; // ~5km radius
 
+        }
+
+        public static void GetZoomLevel(string distance) {
+            switch (distance.ToLower()) { 
+                case "1 km":
+                    gmap.Zoom = 16;
+                    break;
+                case "5 km":
+                    gmap.Zoom = 14;
+                    break;
+                case "10 km":
+                    gmap.Zoom = 13;
+                    break;
+                case "20 km":
+                    gmap.Zoom = 12;
+                    break;
+                case "50 km":
+                    gmap.Zoom = 11;
+                    break;
+                case "100 km":
+                    gmap.Zoom = 10;
+                    break;
+                case "free navigation":
+                    gmap.CanDragMap = true;
+                    gmap.MouseWheelZoomEnabled = true;
+                    gmap.IgnoreMarkerOnMouseWheel = false;
+                    gmap.Enabled = true;
+                    break;
+                default:
+                    gmap.Zoom = 16;
+                    break; 
+            }
         }
 
         public static void AddBusinessMarker(double lat, double lng, string tooltipText, string businessSpecificId)

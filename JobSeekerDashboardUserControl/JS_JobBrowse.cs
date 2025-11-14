@@ -71,5 +71,11 @@ namespace JobNear.JobSeekerDashboardUserControl
         {
 
         }
+
+        private void distance_combo_SelectedIndexChanged(object sender, System.EventArgs e)
+        {
+            string selectedDistance = distance_combo.SelectedItem.ToString();
+            MapController.GetZoomLevel(selectedDistance);
+        }
     }
 }
