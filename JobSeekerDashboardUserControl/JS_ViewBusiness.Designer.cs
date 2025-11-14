@@ -29,19 +29,22 @@
         private void InitializeComponent()
         {
             this.sidebar_panel = new System.Windows.Forms.Panel();
-            this.joblist_flowlayout = new System.Windows.Forms.FlowLayoutPanel();
             this.business_panel = new System.Windows.Forms.Panel();
             this.description_label = new System.Windows.Forms.Label();
             this.footer_label = new System.Windows.Forms.Label();
             this.name_label = new System.Windows.Forms.Label();
             this.company_logo_picturebox = new System.Windows.Forms.PictureBox();
+            this.joblist_flowlayout = new System.Windows.Forms.FlowLayoutPanel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.sidebar_panel.SuspendLayout();
             this.business_panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.company_logo_picturebox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // sidebar_panel
             // 
+            this.sidebar_panel.Controls.Add(this.pictureBox1);
             this.sidebar_panel.Controls.Add(this.business_panel);
             this.sidebar_panel.Controls.Add(this.joblist_flowlayout);
             this.sidebar_panel.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -51,13 +54,6 @@
             this.sidebar_panel.Size = new System.Drawing.Size(1031, 705);
             this.sidebar_panel.TabIndex = 0;
             this.sidebar_panel.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
-            // 
-            // joblist_flowlayout
-            // 
-            this.joblist_flowlayout.Location = new System.Drawing.Point(15, 265);
-            this.joblist_flowlayout.Name = "joblist_flowlayout";
-            this.joblist_flowlayout.Size = new System.Drawing.Size(1000, 419);
-            this.joblist_flowlayout.TabIndex = 3;
             // 
             // business_panel
             // 
@@ -112,6 +108,24 @@
             this.company_logo_picturebox.TabIndex = 0;
             this.company_logo_picturebox.TabStop = false;
             // 
+            // joblist_flowlayout
+            // 
+            this.joblist_flowlayout.Location = new System.Drawing.Point(15, 265);
+            this.joblist_flowlayout.Name = "joblist_flowlayout";
+            this.joblist_flowlayout.Size = new System.Drawing.Size(1000, 419);
+            this.joblist_flowlayout.TabIndex = 3;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::JobNear.Properties.Resources.left_arrow;
+            this.pictureBox1.Location = new System.Drawing.Point(15, 5);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox1.TabIndex = 8;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
             // JS_ViewBusiness
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -121,8 +135,10 @@
             this.Name = "JS_ViewBusiness";
             this.Size = new System.Drawing.Size(1031, 705);
             this.sidebar_panel.ResumeLayout(false);
+            this.sidebar_panel.PerformLayout();
             this.business_panel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.company_logo_picturebox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -136,5 +152,6 @@
         private System.Windows.Forms.Label footer_label;
         private System.Windows.Forms.Label name_label;
         private System.Windows.Forms.PictureBox company_logo_picturebox;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

@@ -28,7 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.sidebar_panel = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.job_panel = new System.Windows.Forms.Panel();
             this.minimum_label = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -48,26 +49,36 @@
             this.footer_label = new System.Windows.Forms.Label();
             this.name_label = new System.Windows.Forms.Label();
             this.company_logo_picturebox = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.panel1.SuspendLayout();
+            this.sidebar_panel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.job_panel.SuspendLayout();
             this.business_panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.company_logo_picturebox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // panel1
+            // sidebar_panel
             // 
-            this.panel1.AutoScroll = true;
-            this.panel1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Controls.Add(this.job_panel);
-            this.panel1.Controls.Add(this.business_panel);
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1031, 705);
-            this.panel1.TabIndex = 0;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            this.sidebar_panel.AutoScroll = true;
+            this.sidebar_panel.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.sidebar_panel.Controls.Add(this.pictureBox1);
+            this.sidebar_panel.Controls.Add(this.job_panel);
+            this.sidebar_panel.Controls.Add(this.business_panel);
+            this.sidebar_panel.Location = new System.Drawing.Point(0, 0);
+            this.sidebar_panel.Name = "sidebar_panel";
+            this.sidebar_panel.Size = new System.Drawing.Size(1031, 705);
+            this.sidebar_panel.TabIndex = 0;
+            this.sidebar_panel.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::JobNear.Properties.Resources.left_arrow;
+            this.pictureBox1.Location = new System.Drawing.Point(15, 7);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox1.TabIndex = 7;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // job_panel
             // 
@@ -271,38 +282,28 @@
             this.company_logo_picturebox.TabIndex = 0;
             this.company_logo_picturebox.TabStop = false;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::JobNear.Properties.Resources.left_arrow;
-            this.pictureBox1.Location = new System.Drawing.Point(15, 7);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(24, 24);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox1.TabIndex = 7;
-            this.pictureBox1.TabStop = false;
-            // 
             // JS_ViewJobList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.sidebar_panel);
             this.Name = "JS_ViewJobList";
             this.Size = new System.Drawing.Size(1031, 705);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.sidebar_panel.ResumeLayout(false);
+            this.sidebar_panel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.job_panel.ResumeLayout(false);
             this.job_panel.PerformLayout();
             this.business_panel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.company_logo_picturebox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel sidebar_panel;
         private System.Windows.Forms.Label jobtitle_label;
         private System.Windows.Forms.Panel business_panel;
         private System.Windows.Forms.Label description_label;

@@ -84,5 +84,12 @@ namespace JobNear.JobSeekerDashboardUserControl
                 UserController.SetJobPostStatus(status_label, job.JobStatus);
             }
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            sidebar_panel.Controls.Clear();
+            sidebar_panel.Controls.Add(new JS_JobList());
+            new JS_JobList().Dock = DockStyle.Fill;
+        }
     }
 }

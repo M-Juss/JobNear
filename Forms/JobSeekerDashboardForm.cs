@@ -36,9 +36,13 @@ namespace JobNear.Forms
             ButtonStyle.SidebarButton(notification_button, "#3B82F6");
             ButtonStyle.SidebarButton(logout_button, "#3B82F6");
 
+            Session.CurrentSidebarPanel = sidebar_panel;
+
+
             sidebar_panel.Controls.Clear();
             sidebar_panel.Controls.Add(js_dashboard);
             js_dashboard.Dock = DockStyle.Fill;
+
 
         }
 

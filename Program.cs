@@ -32,8 +32,13 @@ namespace JobNear
             // [/] add functionality to submit review in Admin form
 
             // To-do November 11, 2025
-            // [] Business Marker clik in Job Browse shoudl show the Business Info and Active Posted Jobs of a specific of business
-            // [] Make a template form of the Posted Active Job for the seeker to see
+            // [/] Business Marker clik in Job Browse shoudl show the Business Info and Active Posted Jobs of a specific of business
+            // [/] Make a template form of the Posted Active Job for the seeker to see
+
+            // To-do November 14, 2025
+            // [] Back naviagtion when clicking specific joblist in JobList side button
+            // [] Back Navigation when clicking business in Joob Browse, Panel should go back to the map
+            // [] Back Navigation whcn click specific business inthe the business details in Job Browse 
         }
     }
 }

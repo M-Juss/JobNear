@@ -154,7 +154,7 @@
             // 
             // sidebar_panel
             // 
-            this.sidebar_panel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(186)))), ((int)(((byte)(131)))));
+            this.sidebar_panel.BackColor = System.Drawing.Color.WhiteSmoke;
             this.sidebar_panel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.sidebar_panel.Location = new System.Drawing.Point(200, 0);
             this.sidebar_panel.Name = "sidebar_panel";

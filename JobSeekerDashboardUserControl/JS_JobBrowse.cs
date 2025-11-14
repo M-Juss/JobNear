@@ -17,7 +17,7 @@ namespace JobNear.JobSeekerDashboardUserControl
 
             LoadBusinessInMap();
 
-            Session.CurrentSidebarPanel = sidebar_panel;
+            
 
             // Example data (this would normally come from your DB)
             //var businesses = new List<(double lat, double lng, string name)>

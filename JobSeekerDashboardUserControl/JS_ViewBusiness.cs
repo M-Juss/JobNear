@@ -74,5 +74,13 @@ namespace JobNear.JobSeekerDashboardUserControl
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            JS_JobBrowse js_JobBrowse = new JS_JobBrowse();
+            sidebar_panel.Controls.Clear();
+            sidebar_panel.Controls.Add(js_JobBrowse);
+            js_JobBrowse.Dock = DockStyle.Fill;
+        }
     }
 }
