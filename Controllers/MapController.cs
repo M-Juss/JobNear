@@ -75,7 +75,7 @@ namespace JobNear.Controllers
             if (item.Tag != null)
             {
                 string businessId = item.Tag.ToString();
-
+                Session.CurrentBusinessSelected = businessId;
                 JobSeekerDashboardUserControl.JS_ViewBusiness view = new JobSeekerDashboardUserControl.JS_ViewBusiness(businessId);
                 Session.CurrentSidebarPanel.Controls.Clear();   
                 Session.CurrentSidebarPanel.Controls.Add(view);

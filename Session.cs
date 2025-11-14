@@ -9,7 +9,6 @@ namespace JobNear
 {
     public class Session
     {
-        public static Panel CurrentSidebarPanel { get; set; }
         public static string CurrentUserType { get; set; }
         public static string CurrentUserId { get; set; }
         public static string CurrentEmail { get; set; }
@@ -19,5 +18,7 @@ namespace JobNear
         public static string CurrentJobPosterSelected { get; set; }
         public static string CurrentPostedJobSelected { get; set; }
         public static string CurrentPostJobFormMode { get; set; }
+        public static Panel CurrentSidebarPanel { get; set; }
+        public static string CurrentSeekJobSelected { get; set; }
     }
 }

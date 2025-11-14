@@ -87,9 +87,19 @@ namespace JobNear.JobSeekerDashboardUserControl
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            sidebar_panel.Controls.Clear();
-            sidebar_panel.Controls.Add(new JS_JobList());
-            new JS_JobList().Dock = DockStyle.Fill;
+            if (Session.CurrentSeekJobSelected == "joblist")
+            {
+                sidebar_panel.Controls.Clear();
+                sidebar_panel.Controls.Add(new JS_JobList());
+                new JS_JobList().Dock = DockStyle.Fill;
+            }
+            else if(Session.CurrentSeekJobSelected == "jobbrowse") {
+                JS_ViewBusiness jS_ViewBusiness = new JS_ViewBusiness(Session.CurrentBusinessSelected);
+                sidebar_panel.Controls.Clear();
+                sidebar_panel.Controls.Add(jS_ViewBusiness);
+                jS_ViewBusiness.Dock = DockStyle.Fill;
+            }
+
         }
     }
 }

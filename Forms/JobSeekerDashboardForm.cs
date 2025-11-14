@@ -88,11 +88,10 @@ namespace JobNear.Forms
 
         private void job_browsing_sub_button_Click(object sender, EventArgs e)
         {
-            //hideInactiveSubMenu();
-            // ETO ADD
             sidebar_panel.Controls.Clear();
             sidebar_panel.Controls.Add(js_jobBrowsing);
             js_jobBrowsing.Dock = DockStyle.Fill;
+            Session.CurrentSeekJobSelected = "jobbrowse";
         }
 
         private void profile_button_Click(object sender, EventArgs e)
@@ -108,9 +107,11 @@ namespace JobNear.Forms
             sidebar_panel.Controls.Clear();
             sidebar_panel.Controls.Add(js_jobList);
             js_jobList.Dock = DockStyle.Fill;
+
+            Session.CurrentSeekJobSelected = "joblist";
         }
 
-        private async void notification_button_Click(object sender, EventArgs e)
+        private void notification_button_Click(object sender, EventArgs e)
         {
 
             hideInactiveSubMenu();
