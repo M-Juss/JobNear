@@ -1,4 +1,5 @@
-﻿using System;
+﻿using JobNear.Styles;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,10 +16,20 @@ namespace JobNear.AdminDashboardUserControl
         public Admin_Dashboard()
         {
             InitializeComponent();
+            PanelStyles.RoundedPanel(panel1, 20, Color.White);
+            PanelStyles.RoundedPanel(panel2, 20, Color.White);
+            PanelStyles.RoundedPanel(panel3, 20, Color.White);
+            PanelStyles.RoundedPanel(panel4, 20, Color.White);
+            PanelStyles.RoundedPanel(panel5, 20, Color.White);
         }
         
 
         private void Admin_Dashboard_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
         {
 
         }

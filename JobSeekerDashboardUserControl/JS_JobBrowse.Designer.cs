@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.sidebar_panel = new System.Windows.Forms.Panel();
-            this.map_panel = new System.Windows.Forms.Panel();
             this.distance_combo = new System.Windows.Forms.ComboBox();
+            this.map_panel = new System.Windows.Forms.Panel();
             this.sidebar_panel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -46,14 +46,6 @@
             this.sidebar_panel.TabIndex = 4;
             this.sidebar_panel.Paint += new System.Windows.Forms.PaintEventHandler(this.sidebar_panel_Paint);
             // 
-            // map_panel
-            // 
-            this.map_panel.Location = new System.Drawing.Point(35, 53);
-            this.map_panel.Name = "map_panel";
-            this.map_panel.Size = new System.Drawing.Size(956, 616);
-            this.map_panel.TabIndex = 0;
-            this.map_panel.Paint += new System.Windows.Forms.PaintEventHandler(this.map_panel_Paint);
-            // 
             // distance_combo
             // 
             this.distance_combo.Font = new System.Drawing.Font("Poppins", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -67,9 +59,17 @@
             "Free Navigation"});
             this.distance_combo.Location = new System.Drawing.Point(35, 5);
             this.distance_combo.Name = "distance_combo";
-            this.distance_combo.Size = new System.Drawing.Size(121, 42);
+            this.distance_combo.Size = new System.Drawing.Size(287, 42);
             this.distance_combo.TabIndex = 0;
             this.distance_combo.SelectedIndexChanged += new System.EventHandler(this.distance_combo_SelectedIndexChanged);
+            // 
+            // map_panel
+            // 
+            this.map_panel.Location = new System.Drawing.Point(35, 53);
+            this.map_panel.Name = "map_panel";
+            this.map_panel.Size = new System.Drawing.Size(956, 616);
+            this.map_panel.TabIndex = 0;
+            this.map_panel.Paint += new System.Windows.Forms.PaintEventHandler(this.map_panel_Paint);
             // 
             // JS_JobBrowse
             // 

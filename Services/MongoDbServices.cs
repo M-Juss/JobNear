@@ -125,81 +125,98 @@ namespace JobNear.Services
                         .Find(x => x.Email == email)
                         .FirstOrDefaultAsync();
 
-                    if (poster == null)
-                    {
-                        MessageBox.Show("Email not found", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
-                    }
-
-                    if (poster.Password != password)
-                    {
-                        MessageBox.Show("Incorrect password", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
-                    }
-
-                    Session.CurrentUserType = "poster";
-                    Session.CurrentUserId = poster.Id;
-                    Session.CurrentEmail = poster.Email;
-
-                    Console.WriteLine($"\n id: {Session.CurrentUserId} \n email: {Session.CurrentEmail}");
-
-
-                    var userNotif = await MongoDbServices.UserNotification
-                        .Find(x => x.NotificationId == Session.CurrentUserId)
-                        .ToListAsync();
-
-                    Console.WriteLine($"Found {userNotif.Count} notifications for user {Session.CurrentUserId}");
-
-                    if (userNotif.Count == 0)
-                    {
-                        string key = "System";
-                        string headerMessage = "Welcome to JobNear! Register your business to start posting jobs.";
-                        string remarks = "Add and verify your business so job seekers can discover your listings and apply easily.";
-                        string type = "Info";
-                        DateTime date = DateTime.Now;
-
-                        var systemNotif = new UserNotificationModel
+                    if (poster != null) {
+                        if (poster.Email != email)
                         {
-                            NotificationId = Session.CurrentUserId,
-                            Key = key,
-                            HeaderMessage = headerMessage,
-                            Remarks = remarks,
-                            Type = type,
-                            Date = date,
-                        };
+                            MessageBox.Show("Email not found", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
 
-                        await MongoDbServices.UserNotification.InsertOneAsync(systemNotif);
+                        if (poster.Password != password)
+                        {
+                            MessageBox.Show("Incorrect password", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+
+                        Session.CurrentUserType = "poster";
+                        Session.CurrentUserId = poster.Id;
+                        Session.CurrentEmail = poster.Email;
+
+                        Console.WriteLine($"\n id: {Session.CurrentUserId} \n email: {Session.CurrentEmail}");
+
+
+                        var userNotif = await MongoDbServices.UserNotification
+                            .Find(x => x.NotificationId == Session.CurrentUserId)
+                            .ToListAsync();
+
+                        Console.WriteLine($"Found {userNotif.Count} notifications for user {Session.CurrentUserId}");
+
+                        if (userNotif.Count == 0)
+                        {
+                            string key = "System";
+                            string headerMessage = "Welcome to JobNear! Register your business to start posting jobs.";
+                            string remarks = "Add and verify your business so job seekers can discover your listings and apply easily.";
+                            string type = "Info";
+                            DateTime date = DateTime.Now;
+
+                            var systemNotif = new UserNotificationModel
+                            {
+                                NotificationId = Session.CurrentUserId,
+                                Key = key,
+                                HeaderMessage = headerMessage,
+                                Remarks = remarks,
+                                Type = type,
+                                Date = date,
+                            };
+
+                            await MongoDbServices.UserNotification.InsertOneAsync(systemNotif);
+                        }
+
+                        MessageBox.Show("Login successful", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        FormsController.FormLoad(new JobPosterDashboardForm(), app_panel);
                     }
-
-                    MessageBox.Show("Login successful", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    FormsController.FormLoad(new JobPosterDashboardForm(), app_panel);
                 }
 
+                // Admin or Super Admin Login
                 else if (user == "admin")
                 {
-                    var admin = await AdminAccount
+                    string superAdminEmail = "sa_jobnear@gmail.com";
+                    string superAdminPassword = "jobnearSuperAdmin";
+                    if (email == superAdminEmail && password == superAdminPassword) {
+
+                        Session.CurrentUserType = "super_admin";
+                        Session.CurrentEmail = superAdminEmail;
+
+                        MessageBox.Show("Login successful", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        FormsController.FormLoad(new AdminDashboardForm(), app_panel);
+                    }
+                    else {
+                        var admin = await AdminAccount
                         .Find(x => x.Email == email)
                         .FirstOrDefaultAsync();
 
-                    if (admin == null)
-                    {
-                        MessageBox.Show("Email not found", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
+                        if (admin != null)
+                        {
+                            if (admin.Email == email)
+                            {
+                                MessageBox.Show("Email not found", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                return;
+                            }
+
+                            if (admin.Password != password)
+                            {
+                                MessageBox.Show("Incorrect password", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                return;
+                            }
+
+                            Session.CurrentUserType = "admin";
+                            Session.CurrentUserId = admin.Id;
+                            Session.CurrentEmail = admin.Email;
+
+                            MessageBox.Show("Login successful", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            FormsController.FormLoad(new AdminDashboardForm(), app_panel);
+                        }
                     }
-
-                    if (admin.Password != password)
-                    {
-                        MessageBox.Show("Incorrect password", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
-                    }
-
-                    Session.CurrentUserType = "admin";
-                    Session.CurrentUserId = admin.Id;
-                    Session.CurrentEmail = admin.Email;
-
-                    MessageBox.Show("Login successful", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    FormsController.FormLoad(new AdminDashboardForm(), app_panel);
-
                 }
                 else
                 {
