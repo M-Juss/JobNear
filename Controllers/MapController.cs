@@ -39,7 +39,7 @@ namespace JobNear.Controllers
             gmap.CanDragMap = false;
             gmap.MouseWheelZoomEnabled = false;
             gmap.IgnoreMarkerOnMouseWheel = true;
-            gmap.Enabled = false;
+           
 
             gmap.MinZoom = 1;
             gmap.MaxZoom = 20;
@@ -71,7 +71,6 @@ namespace JobNear.Controllers
                     gmap.CanDragMap = true;
                     gmap.MouseWheelZoomEnabled = true;
                     gmap.IgnoreMarkerOnMouseWheel = false;
-                    gmap.Enabled = true;
                     break;
                 default:
                     gmap.Zoom = 16;

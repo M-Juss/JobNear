@@ -16,20 +16,15 @@ namespace JobNear.AdminDashboardUserControl
         public Admin_Dashboard()
         {
             InitializeComponent();
-            PanelStyles.RoundedPanel(panel1, 20, Color.White);
-            PanelStyles.RoundedPanel(panel2, 20, Color.White);
-            PanelStyles.RoundedPanel(panel3, 20, Color.White);
-            PanelStyles.RoundedPanel(panel4, 20, Color.White);
-            PanelStyles.RoundedPanel(panel5, 20, Color.White);
+            PanelStyles.RoundedPanel(seekers_panel, 20, Color.White);
+            PanelStyles.RoundedPanel(seekers_panel, 20, Color.White);
+            PanelStyles.RoundedPanel(active_panel, 20, Color.White);
+            PanelStyles.RoundedPanel(verified_panel, 20, Color.White);
+            PanelStyles.RoundedPanel(pending_panel, 20, Color.White);
         }
         
 
-        private void Admin_Dashboard_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
+        private void sidebar_panel_Paint(object sender, PaintEventArgs e)
         {
 
         }

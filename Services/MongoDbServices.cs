@@ -65,59 +65,62 @@ namespace JobNear.Services
                         .Find(x => x.Email == email)
                         .FirstOrDefaultAsync();
 
-                    if (seeker == null)
+                    if(seeker != null)
                     {
-                        MessageBox.Show("Email not found", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
-                    }
-
-                    if (seeker.Password != password)
-                    {
-                        MessageBox.Show("Incorrect password", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
-                    }
-
-                    Session.CurrentUserType = "seeker";
-                    Session.CurrentUserId = seeker.Id;
-                    Session.CurrentEmail = seeker.Email;
-
-                    if (seeker.Latitude != 0 && seeker.Longitude != 0)
-                    {
-                        Session.CurrentLatitude = seeker.Latitude;
-                        Session.CurrentLongitude = seeker.Longitude;
-                    }
-
-                    Console.WriteLine($"\n id: {Session.CurrentUserId} \n email: {Session.CurrentEmail} \n lat: {Session.CurrentLatitude} \n lon: {Session.CurrentLongitude}");
-
-                    var userNotif = await MongoDbServices.UserNotification
-                        .Find(x => x.NotificationId == Session.CurrentUserId)
-                        .ToListAsync();
-
-                    Console.WriteLine($"Found {userNotif.Count} notifications for user {Session.CurrentUserId}");
-
-                    if (userNotif.Count == 0)
-                    {
-                        string key = "System";
-                        string headerMessage = "Welcome to JobNear! Complete your profile to get started.";
-                        string remarks = "You must need to make your profile verify for you to browse job.";
-                        string type = "Info";
-                        DateTime date = DateTime.Now;
-
-                        var systemNotif = new UserNotificationModel
+                        if (seeker == null)
                         {
-                            NotificationId = Session.CurrentUserId,
-                            Key = key,
-                            HeaderMessage = headerMessage,
-                            Remarks = remarks,
-                            Type = type,
-                            Date = date,
-                        };
+                            MessageBox.Show("Email not found", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
 
-                        await MongoDbServices.UserNotification.InsertOneAsync(systemNotif);
-                    }
+                        if (seeker.Password != password)
+                        {
+                            MessageBox.Show("Incorrect password", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
 
-                    MessageBox.Show("Login successful", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    FormsController.FormLoad(new JobSeekerDashboardForm(), app_panel);
+                        Session.CurrentUserType = "seeker";
+                        Session.CurrentUserId = seeker.Id;
+                        Session.CurrentEmail = seeker.Email;
+
+                        if (seeker.Latitude != 0 && seeker.Longitude != 0)
+                        {
+                            Session.CurrentLatitude = seeker.Latitude;
+                            Session.CurrentLongitude = seeker.Longitude;
+                        }
+
+                        Console.WriteLine($"\n id: {Session.CurrentUserId} \n email: {Session.CurrentEmail} \n lat: {Session.CurrentLatitude} \n lon: {Session.CurrentLongitude}");
+
+                        var userNotif = await MongoDbServices.UserNotification
+                            .Find(x => x.NotificationId == Session.CurrentUserId)
+                            .ToListAsync();
+
+                        Console.WriteLine($"Found {userNotif.Count} notifications for user {Session.CurrentUserId}");
+
+                        if (userNotif.Count == 0)
+                        {
+                            string key = "System";
+                            string headerMessage = "Welcome to JobNear! Complete your profile to get started.";
+                            string remarks = "You must need to make your profile verify for you to browse job.";
+                            string type = "Info";
+                            DateTime date = DateTime.Now;
+
+                            var systemNotif = new UserNotificationModel
+                            {
+                                NotificationId = Session.CurrentUserId,
+                                Key = key,
+                                HeaderMessage = headerMessage,
+                                Remarks = remarks,
+                                Type = type,
+                                Date = date,
+                            };
+
+                            await MongoDbServices.UserNotification.InsertOneAsync(systemNotif);
+                        }
+
+                        MessageBox.Show("Login successful", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        FormsController.FormLoad(new JobSeekerDashboardForm(), app_panel);
+                    } else MessageBox.Show("User not found", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else if (user == "jobposter")
                 {
@@ -174,7 +177,7 @@ namespace JobNear.Services
 
                         MessageBox.Show("Login successful", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         FormsController.FormLoad(new JobPosterDashboardForm(), app_panel);
-                    }
+                    } else MessageBox.Show("User not found", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
                 // Admin or Super Admin Login
@@ -182,7 +185,8 @@ namespace JobNear.Services
                 {
                     string superAdminEmail = "sa_jobnear@gmail.com";
                     string superAdminPassword = "jobnearSuperAdmin";
-                    if (email == superAdminEmail && password == superAdminPassword) {
+                    if (email == superAdminEmail && password == superAdminPassword)
+                    {
 
                         Session.CurrentUserType = "super_admin";
                         Session.CurrentEmail = superAdminEmail;
@@ -190,14 +194,15 @@ namespace JobNear.Services
                         MessageBox.Show("Login successful", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         FormsController.FormLoad(new AdminDashboardForm(), app_panel);
                     }
-                    else {
+                    else
+                    {
                         var admin = await AdminAccount
                         .Find(x => x.Email == email)
                         .FirstOrDefaultAsync();
 
                         if (admin != null)
                         {
-                            if (admin.Email == email)
+                            if (admin.Email != email)
                             {
                                 MessageBox.Show("Email not found", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 return;
@@ -215,14 +220,13 @@ namespace JobNear.Services
 
                             MessageBox.Show("Login successful", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             FormsController.FormLoad(new AdminDashboardForm(), app_panel);
-                        }
-                    }
+                        } else MessageBox.Show("User not found", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    //}
                 }
                 else
                 {
                     MessageBox.Show("Unknown user type", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                
             }
             catch (Exception ex)
             {
