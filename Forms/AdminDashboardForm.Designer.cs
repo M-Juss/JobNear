@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.afda = new System.Windows.Forms.Button();
+            this.reports_button = new System.Windows.Forms.Button();
             this.subUserManagement = new System.Windows.Forms.Panel();
             this.jobposters_button = new System.Windows.Forms.Button();
             this.jobseekers_button = new System.Windows.Forms.Button();
@@ -46,6 +48,8 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(58)))), ((int)(((byte)(138)))));
             this.panel1.Controls.Add(this.settings_button);
+            this.panel1.Controls.Add(this.afda);
+            this.panel1.Controls.Add(this.reports_button);
             this.panel1.Controls.Add(this.subUserManagement);
             this.panel1.Controls.Add(this.logout_button);
             this.panel1.Controls.Add(this.user_button);
@@ -56,6 +60,29 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(200, 705);
             this.panel1.TabIndex = 0;
+            // 
+            // afda
+            // 
+            this.afda.Dock = System.Windows.Forms.DockStyle.Top;
+            this.afda.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.afda.Location = new System.Drawing.Point(0, 280);
+            this.afda.Name = "afda";
+            this.afda.Size = new System.Drawing.Size(200, 45);
+            this.afda.TabIndex = 7;
+            this.afda.Text = "Test";
+            this.afda.UseVisualStyleBackColor = true;
+            // 
+            // reports_button
+            // 
+            this.reports_button.Dock = System.Windows.Forms.DockStyle.Top;
+            this.reports_button.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.reports_button.Location = new System.Drawing.Point(0, 235);
+            this.reports_button.Name = "reports_button";
+            this.reports_button.Size = new System.Drawing.Size(200, 45);
+            this.reports_button.TabIndex = 6;
+            this.reports_button.Text = "Reports";
+            this.reports_button.UseVisualStyleBackColor = true;
+            this.reports_button.Click += new System.EventHandler(this.reports_button_Click);
             // 
             // subUserManagement
             // 
@@ -149,10 +176,10 @@
             // 
             this.settings_button.Dock = System.Windows.Forms.DockStyle.Top;
             this.settings_button.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.settings_button.Location = new System.Drawing.Point(0, 235);
+            this.settings_button.Location = new System.Drawing.Point(0, 325);
             this.settings_button.Name = "settings_button";
             this.settings_button.Size = new System.Drawing.Size(200, 45);
-            this.settings_button.TabIndex = 6;
+            this.settings_button.TabIndex = 8;
             this.settings_button.Text = "System Settings";
             this.settings_button.UseVisualStyleBackColor = true;
             this.settings_button.Click += new System.EventHandler(this.settings_button_Click);
@@ -185,6 +212,8 @@
         private System.Windows.Forms.Panel subUserManagement;
         private System.Windows.Forms.Button jobposters_button;
         private System.Windows.Forms.Button jobseekers_button;
+        private System.Windows.Forms.Button reports_button;
+        private System.Windows.Forms.Button afda;
         private System.Windows.Forms.Button settings_button;
     }
 }

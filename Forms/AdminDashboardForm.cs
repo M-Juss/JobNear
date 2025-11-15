@@ -19,6 +19,7 @@ namespace JobNear.Forms
         AdminDashboardUserControl.Admin_JS_UserManagement admin_Jobseeker = new AdminDashboardUserControl.Admin_JS_UserManagement();
         AdminDashboardUserControl.Admin_JP_UserManagement admin_Jobposter = new AdminDashboardUserControl.Admin_JP_UserManagement();
         AdminDashboardUserControl.Admin_SystemSettings admin_Settings = new AdminDashboardUserControl.Admin_SystemSettings();
+        AdminDashboardUserControl.Admin_ReportsAndComplaints admin_Reports = new AdminDashboardUserControl.Admin_ReportsAndComplaints();
         public AdminDashboardForm()
         {
             InitializeComponent();
@@ -28,7 +29,7 @@ namespace JobNear.Forms
             ButtonStyle.SidebarButton(jobnear_button, "#3B82F6");
             ButtonStyle.SidebarButton(dashboard_button, "#3B82F6");
             ButtonStyle.SidebarButton(user_button, "#3B82F6");
-            ButtonStyle.SidebarButton(settings_button, "#3B82F6");
+            ButtonStyle.SidebarButton(reports_button, "#3B82F6");
             ButtonStyle.SidebarButton(logout_button, "#3B82F6");
             ButtonStyle.SidebarButton(jobseekers_button, "#3B82F6");
             ButtonStyle.SidebarButton(jobposters_button, "#3B82F6");
@@ -58,14 +59,6 @@ namespace JobNear.Forms
         }
 
 
-        private void settings_button_Click(object sender, EventArgs e)
-        {
-            sidebar_panel.Controls.Clear();
-            sidebar_panel.Controls.Add(admin_Settings);
-            admin_Settings.Dock = DockStyle.Fill;
-            hideInactiveSubMenu();
-        }
-
         private void logout_button_Click(object sender, EventArgs e)
         {
             UserController.LogoutUser();
@@ -83,6 +76,22 @@ namespace JobNear.Forms
             sidebar_panel.Controls.Clear();
             sidebar_panel.Controls.Add(admin_Jobposter);
             admin_Jobposter.Dock = DockStyle.Fill;
+        }
+
+        private void settings_button_Click(object sender, EventArgs e)
+        {
+            sidebar_panel.Controls.Clear();
+            sidebar_panel.Controls.Add(admin_Settings);
+            admin_Settings.Dock = DockStyle.Fill;
+            hideInactiveSubMenu();
+        }
+
+        private void reports_button_Click(object sender, EventArgs e)
+        {
+            sidebar_panel.Controls.Clear();
+            sidebar_panel.Controls.Add(admin_Reports);
+            admin_Reports.Dock = DockStyle.Fill;
+            hideInactiveSubMenu();
         }
     }
 }

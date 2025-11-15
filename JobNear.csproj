@@ -213,6 +213,12 @@
     <Compile Include="AdminDashboardUserControl\Admin_JS_UserManagement.Designer.cs">
       <DependentUpon>Admin_JS_UserManagement.cs</DependentUpon>
     </Compile>
+    <Compile Include="AdminDashboardUserControl\Admin_ReportsAndComplaints.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AdminDashboardUserControl\Admin_ReportsAndComplaints.Designer.cs">
+      <DependentUpon>Admin_ReportsAndComplaints.cs</DependentUpon>
+    </Compile>
     <Compile Include="AdminDashboardUserControl\Admin_SystemSettings.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -411,6 +417,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AdminDashboardUserControl\Admin_JS_UserManagement.resx">
       <DependentUpon>Admin_JS_UserManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminDashboardUserControl\Admin_ReportsAndComplaints.resx">
+      <DependentUpon>Admin_ReportsAndComplaints.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AdminDashboardUserControl\Admin_SystemSettings.resx">
       <DependentUpon>Admin_SystemSettings.cs</DependentUpon>
