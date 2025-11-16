@@ -29,7 +29,11 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.afda = new System.Windows.Forms.Button();
+            this.subSystemSettings = new System.Windows.Forms.Panel();
+            this.controlSite_button = new System.Windows.Forms.Button();
+            this.verificationReq_button = new System.Windows.Forms.Button();
+            this.manageAdmin_button = new System.Windows.Forms.Button();
+            this.settings_button = new System.Windows.Forms.Button();
             this.reports_button = new System.Windows.Forms.Button();
             this.subUserManagement = new System.Windows.Forms.Panel();
             this.jobposters_button = new System.Windows.Forms.Button();
@@ -39,16 +43,16 @@
             this.dashboard_button = new System.Windows.Forms.Button();
             this.jobnear_button = new System.Windows.Forms.Button();
             this.sidebar_panel = new System.Windows.Forms.Panel();
-            this.settings_button = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
+            this.subSystemSettings.SuspendLayout();
             this.subUserManagement.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(58)))), ((int)(((byte)(138)))));
+            this.panel1.Controls.Add(this.subSystemSettings);
             this.panel1.Controls.Add(this.settings_button);
-            this.panel1.Controls.Add(this.afda);
             this.panel1.Controls.Add(this.reports_button);
             this.panel1.Controls.Add(this.subUserManagement);
             this.panel1.Controls.Add(this.logout_button);
@@ -61,16 +65,65 @@
             this.panel1.Size = new System.Drawing.Size(200, 705);
             this.panel1.TabIndex = 0;
             // 
-            // afda
+            // subSystemSettings
             // 
-            this.afda.Dock = System.Windows.Forms.DockStyle.Top;
-            this.afda.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.afda.Location = new System.Drawing.Point(0, 280);
-            this.afda.Name = "afda";
-            this.afda.Size = new System.Drawing.Size(200, 45);
-            this.afda.TabIndex = 7;
-            this.afda.Text = "Test";
-            this.afda.UseVisualStyleBackColor = true;
+            this.subSystemSettings.Controls.Add(this.controlSite_button);
+            this.subSystemSettings.Controls.Add(this.verificationReq_button);
+            this.subSystemSettings.Controls.Add(this.manageAdmin_button);
+            this.subSystemSettings.Dock = System.Windows.Forms.DockStyle.Top;
+            this.subSystemSettings.Location = new System.Drawing.Point(0, 325);
+            this.subSystemSettings.Name = "subSystemSettings";
+            this.subSystemSettings.Size = new System.Drawing.Size(200, 132);
+            this.subSystemSettings.TabIndex = 9;
+            // 
+            // controlSite_button
+            // 
+            this.controlSite_button.Dock = System.Windows.Forms.DockStyle.Top;
+            this.controlSite_button.Font = new System.Drawing.Font("Poppins SemiBold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.controlSite_button.Location = new System.Drawing.Point(0, 79);
+            this.controlSite_button.Name = "controlSite_button";
+            this.controlSite_button.Size = new System.Drawing.Size(200, 40);
+            this.controlSite_button.TabIndex = 5;
+            this.controlSite_button.Text = "      Control Site Settings";
+            this.controlSite_button.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.controlSite_button.UseVisualStyleBackColor = true;
+            // 
+            // verificationReq_button
+            // 
+            this.verificationReq_button.Dock = System.Windows.Forms.DockStyle.Top;
+            this.verificationReq_button.Font = new System.Drawing.Font("Poppins SemiBold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.verificationReq_button.Location = new System.Drawing.Point(0, 39);
+            this.verificationReq_button.Name = "verificationReq_button";
+            this.verificationReq_button.Size = new System.Drawing.Size(200, 40);
+            this.verificationReq_button.TabIndex = 4;
+            this.verificationReq_button.Text = "      Verify Requirement";
+            this.verificationReq_button.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.verificationReq_button.UseVisualStyleBackColor = true;
+            // 
+            // manageAdmin_button
+            // 
+            this.manageAdmin_button.Dock = System.Windows.Forms.DockStyle.Top;
+            this.manageAdmin_button.Font = new System.Drawing.Font("Poppins SemiBold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.manageAdmin_button.Location = new System.Drawing.Point(0, 0);
+            this.manageAdmin_button.Name = "manageAdmin_button";
+            this.manageAdmin_button.Size = new System.Drawing.Size(200, 39);
+            this.manageAdmin_button.TabIndex = 3;
+            this.manageAdmin_button.Text = "      Manage Admin";
+            this.manageAdmin_button.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.manageAdmin_button.UseVisualStyleBackColor = true;
+            // 
+            // settings_button
+            // 
+            this.settings_button.Dock = System.Windows.Forms.DockStyle.Top;
+            this.settings_button.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.settings_button.Location = new System.Drawing.Point(0, 280);
+            this.settings_button.Name = "settings_button";
+            this.settings_button.Size = new System.Drawing.Size(200, 45);
+            this.settings_button.TabIndex = 8;
+            this.settings_button.Text = "System Settings";
+            this.settings_button.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.settings_button.UseVisualStyleBackColor = true;
+            this.settings_button.Click += new System.EventHandler(this.settings_button_Click);
             // 
             // reports_button
             // 
@@ -80,7 +133,8 @@
             this.reports_button.Name = "reports_button";
             this.reports_button.Size = new System.Drawing.Size(200, 45);
             this.reports_button.TabIndex = 6;
-            this.reports_button.Text = "Reports";
+            this.reports_button.Text = "User Reports";
+            this.reports_button.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.reports_button.UseVisualStyleBackColor = true;
             this.reports_button.Click += new System.EventHandler(this.reports_button_Click);
             // 
@@ -97,24 +151,26 @@
             // jobposters_button
             // 
             this.jobposters_button.Dock = System.Windows.Forms.DockStyle.Top;
-            this.jobposters_button.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.jobposters_button.Font = new System.Drawing.Font("Poppins SemiBold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.jobposters_button.Location = new System.Drawing.Point(0, 45);
             this.jobposters_button.Name = "jobposters_button";
             this.jobposters_button.Size = new System.Drawing.Size(200, 40);
             this.jobposters_button.TabIndex = 4;
-            this.jobposters_button.Text = "          Job Posters";
+            this.jobposters_button.Text = "      Job Posters";
+            this.jobposters_button.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.jobposters_button.UseVisualStyleBackColor = true;
             this.jobposters_button.Click += new System.EventHandler(this.jobposters_button_Click);
             // 
             // jobseekers_button
             // 
             this.jobseekers_button.Dock = System.Windows.Forms.DockStyle.Top;
-            this.jobseekers_button.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.jobseekers_button.Font = new System.Drawing.Font("Poppins SemiBold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.jobseekers_button.Location = new System.Drawing.Point(0, 0);
             this.jobseekers_button.Name = "jobseekers_button";
             this.jobseekers_button.Size = new System.Drawing.Size(200, 45);
             this.jobseekers_button.TabIndex = 3;
-            this.jobseekers_button.Text = "          Job Seekers";
+            this.jobseekers_button.Text = "      Job Seekers";
+            this.jobseekers_button.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.jobseekers_button.UseVisualStyleBackColor = true;
             this.jobseekers_button.Click += new System.EventHandler(this.jobseekers_button_Click);
             // 
@@ -139,6 +195,7 @@
             this.user_button.Size = new System.Drawing.Size(200, 45);
             this.user_button.TabIndex = 2;
             this.user_button.Text = "User Management";
+            this.user_button.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.user_button.UseVisualStyleBackColor = true;
             this.user_button.Click += new System.EventHandler(this.user_button_Click);
             // 
@@ -151,6 +208,7 @@
             this.dashboard_button.Size = new System.Drawing.Size(200, 45);
             this.dashboard_button.TabIndex = 1;
             this.dashboard_button.Text = "Dashboard";
+            this.dashboard_button.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.dashboard_button.UseVisualStyleBackColor = true;
             this.dashboard_button.Click += new System.EventHandler(this.dashboard_button_Click);
             // 
@@ -171,18 +229,7 @@
             this.sidebar_panel.Name = "sidebar_panel";
             this.sidebar_panel.Size = new System.Drawing.Size(1031, 705);
             this.sidebar_panel.TabIndex = 1;
-            // 
-            // settings_button
-            // 
-            this.settings_button.Dock = System.Windows.Forms.DockStyle.Top;
-            this.settings_button.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.settings_button.Location = new System.Drawing.Point(0, 325);
-            this.settings_button.Name = "settings_button";
-            this.settings_button.Size = new System.Drawing.Size(200, 45);
-            this.settings_button.TabIndex = 8;
-            this.settings_button.Text = "System Settings";
-            this.settings_button.UseVisualStyleBackColor = true;
-            this.settings_button.Click += new System.EventHandler(this.settings_button_Click);
+            this.sidebar_panel.Paint += new System.Windows.Forms.PaintEventHandler(this.sidebar_panel_Paint);
             // 
             // AdminDashboardForm
             // 
@@ -196,6 +243,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AdminDashboard";
             this.panel1.ResumeLayout(false);
+            this.subSystemSettings.ResumeLayout(false);
             this.subUserManagement.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -213,7 +261,10 @@
         private System.Windows.Forms.Button jobposters_button;
         private System.Windows.Forms.Button jobseekers_button;
         private System.Windows.Forms.Button reports_button;
-        private System.Windows.Forms.Button afda;
         private System.Windows.Forms.Button settings_button;
+        private System.Windows.Forms.Panel subSystemSettings;
+        private System.Windows.Forms.Button verificationReq_button;
+        private System.Windows.Forms.Button manageAdmin_button;
+        private System.Windows.Forms.Button controlSite_button;
     }
 }

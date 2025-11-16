@@ -33,17 +33,23 @@ namespace JobNear.Forms
             ButtonStyle.SidebarButton(logout_button, "#3B82F6");
             ButtonStyle.SidebarButton(jobseekers_button, "#3B82F6");
             ButtonStyle.SidebarButton(jobposters_button, "#3B82F6");
+            ButtonStyle.SidebarButton(settings_button, "#3B82F6");
+            ButtonStyle.SidebarButton(manageAdmin_button, "#3B82F6");
+            ButtonStyle.SidebarButton(verificationReq_button, "#3B82F6");
+            ButtonStyle.SidebarButton(controlSite_button, "#3B82F6");
 
             sidebar_panel.Controls.Clear();
             sidebar_panel.Controls.Add(admin_Dashboard);
             admin_Dashboard.Dock = DockStyle.Fill;
 
             subUserManagement.Visible = false;
+            subSystemSettings.Visible = false;
         }
 
         private void hideInactiveSubMenu()
         {
             subUserManagement.Visible = false;
+            subSystemSettings.Visible = false;
         }
         private void dashboard_button_Click(object sender, EventArgs e)
         {
@@ -80,10 +86,11 @@ namespace JobNear.Forms
 
         private void settings_button_Click(object sender, EventArgs e)
         {
-            sidebar_panel.Controls.Clear();
-            sidebar_panel.Controls.Add(admin_Settings);
-            admin_Settings.Dock = DockStyle.Fill;
-            hideInactiveSubMenu();
+            subSystemSettings.Visible = !subSystemSettings.Visible;
+            //sidebar_panel.Controls.Clear();
+            //sidebar_panel.Controls.Add(admin_Settings);
+            //admin_Settings.Dock = DockStyle.Fill;
+            //hideInactiveSubMenu();
         }
 
         private void reports_button_Click(object sender, EventArgs e)
@@ -93,5 +100,11 @@ namespace JobNear.Forms
             admin_Reports.Dock = DockStyle.Fill;
             hideInactiveSubMenu();
         }
+
+        private void sidebar_panel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
     }
 }

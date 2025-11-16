@@ -49,8 +49,8 @@
             this.registered_panel = new System.Windows.Forms.Panel();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.pieChart1 = new LiveCharts.WinForms.PieChart();
             this.cartesianChart1 = new LiveCharts.WinForms.CartesianChart();
+            this.pieChart1 = new LiveCharts.WinForms.PieChart();
             this.sidebar_panel.SuspendLayout();
             this.graph_panel.SuspendLayout();
             this.stats_panel.SuspendLayout();
@@ -294,14 +294,6 @@
             this.label11.TabIndex = 4;
             this.label11.Text = "Number of Registered Business";
             // 
-            // pieChart1
-            // 
-            this.pieChart1.Location = new System.Drawing.Point(56, 18);
-            this.pieChart1.Name = "pieChart1";
-            this.pieChart1.Size = new System.Drawing.Size(375, 287);
-            this.pieChart1.TabIndex = 0;
-            this.pieChart1.Text = "pieChart1";
-            // 
             // cartesianChart1
             // 
             this.cartesianChart1.Location = new System.Drawing.Point(502, 29);
@@ -309,6 +301,14 @@
             this.cartesianChart1.Size = new System.Drawing.Size(439, 275);
             this.cartesianChart1.TabIndex = 1;
             this.cartesianChart1.Text = "cartesianChart1";
+            // 
+            // pieChart1
+            // 
+            this.pieChart1.Location = new System.Drawing.Point(56, 18);
+            this.pieChart1.Name = "pieChart1";
+            this.pieChart1.Size = new System.Drawing.Size(375, 287);
+            this.pieChart1.TabIndex = 0;
+            this.pieChart1.Text = "pieChart1";
             // 
             // Admin_Dashboard
             // 

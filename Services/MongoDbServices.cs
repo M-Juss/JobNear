@@ -221,7 +221,7 @@ namespace JobNear.Services
                             MessageBox.Show("Login successful", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             FormsController.FormLoad(new AdminDashboardForm(), app_panel);
                         } else MessageBox.Show("User not found", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    //}
+                    }
                 }
                 else
                 {

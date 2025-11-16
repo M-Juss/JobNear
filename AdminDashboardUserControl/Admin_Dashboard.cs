@@ -16,11 +16,13 @@ namespace JobNear.AdminDashboardUserControl
         public Admin_Dashboard()
         {
             InitializeComponent();
+            PanelStyles.RoundedPanel(registered_panel, 20, Color.White);
             PanelStyles.RoundedPanel(seekers_panel, 20, Color.White);
             PanelStyles.RoundedPanel(seekers_panel, 20, Color.White);
             PanelStyles.RoundedPanel(active_panel, 20, Color.White);
             PanelStyles.RoundedPanel(verified_panel, 20, Color.White);
             PanelStyles.RoundedPanel(pending_panel, 20, Color.White);
+            PanelStyles.RoundedPanel(complaints_panel, 20, Color.White);
         }
         
 
