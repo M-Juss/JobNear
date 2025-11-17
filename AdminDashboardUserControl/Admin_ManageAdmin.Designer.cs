@@ -29,34 +29,36 @@
         private void InitializeComponent()
         {
             this.sidebar_panel = new System.Windows.Forms.Panel();
-            this.seeker_table = new System.Windows.Forms.DataGridView();
-            this.info_panel = new System.Windows.Forms.Panel();
-            this.username_input = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.Username = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.password_input = new System.Windows.Forms.TextBox();
-            this.confirm_input = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.name_input = new System.Windows.Forms.TextBox();
-            this.role_combo = new System.Windows.Forms.ComboBox();
-            this.label5 = new System.Windows.Forms.Label();
+            this.info_panel = new System.Windows.Forms.Panel();
+            this.clear_button = new System.Windows.Forms.Button();
+            this.submit_button = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.status_combo = new System.Windows.Forms.ComboBox();
-            this.submit_button = new System.Windows.Forms.Button();
-            this.clear_button = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.role_combo = new System.Windows.Forms.ComboBox();
+            this.name_input = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.confirm_input = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.password_input = new System.Windows.Forms.TextBox();
+            this.email_input = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.lbl = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.admin_table = new System.Windows.Forms.DataGridView();
             this.sidebar_panel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.seeker_table)).BeginInit();
             this.info_panel.SuspendLayout();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.admin_table)).BeginInit();
             this.SuspendLayout();
             // 
             // sidebar_panel
             // 
             this.sidebar_panel.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.sidebar_panel.Controls.Add(this.panel1);
             this.sidebar_panel.Controls.Add(this.label1);
             this.sidebar_panel.Controls.Add(this.info_panel);
-            this.sidebar_panel.Controls.Add(this.seeker_table);
             this.sidebar_panel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.sidebar_panel.Location = new System.Drawing.Point(0, 0);
             this.sidebar_panel.Name = "sidebar_panel";
@@ -64,17 +66,16 @@
             this.sidebar_panel.TabIndex = 0;
             this.sidebar_panel.Paint += new System.Windows.Forms.PaintEventHandler(this.sidebar_panel_Paint);
             // 
-            // seeker_table
+            // label1
             // 
-            this.seeker_table.AllowUserToAddRows = false;
-            this.seeker_table.AllowUserToDeleteRows = false;
-            this.seeker_table.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.seeker_table.Location = new System.Drawing.Point(29, 389);
-            this.seeker_table.Name = "seeker_table";
-            this.seeker_table.ReadOnly = true;
-            this.seeker_table.RowHeadersWidth = 51;
-            this.seeker_table.Size = new System.Drawing.Size(973, 292);
-            this.seeker_table.TabIndex = 4;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Poppins SemiBold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.label1.Location = new System.Drawing.Point(22, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(269, 42);
+            this.label1.TabIndex = 26;
+            this.label1.Text = "Account Information";
             // 
             // info_panel
             // 
@@ -89,63 +90,101 @@
             this.info_panel.Controls.Add(this.confirm_input);
             this.info_panel.Controls.Add(this.label2);
             this.info_panel.Controls.Add(this.password_input);
-            this.info_panel.Controls.Add(this.username_input);
+            this.info_panel.Controls.Add(this.email_input);
             this.info_panel.Controls.Add(this.label3);
-            this.info_panel.Controls.Add(this.Username);
+            this.info_panel.Controls.Add(this.lbl);
             this.info_panel.Location = new System.Drawing.Point(29, 54);
             this.info_panel.Name = "info_panel";
             this.info_panel.Size = new System.Drawing.Size(973, 315);
             this.info_panel.TabIndex = 5;
             // 
-            // username_input
+            // clear_button
             // 
-            this.username_input.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.username_input.Location = new System.Drawing.Point(48, 48);
-            this.username_input.Name = "username_input";
-            this.username_input.Size = new System.Drawing.Size(417, 31);
-            this.username_input.TabIndex = 25;
+            this.clear_button.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.clear_button.ForeColor = System.Drawing.Color.White;
+            this.clear_button.Location = new System.Drawing.Point(698, 263);
+            this.clear_button.Name = "clear_button";
+            this.clear_button.Size = new System.Drawing.Size(106, 32);
+            this.clear_button.TabIndex = 47;
+            this.clear_button.Text = "Clear";
+            this.clear_button.UseVisualStyleBackColor = true;
             // 
-            // label3
+            // submit_button
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label3.Location = new System.Drawing.Point(43, 97);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(88, 28);
-            this.label3.TabIndex = 23;
-            this.label3.Text = "Password";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
+            this.submit_button.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.submit_button.ForeColor = System.Drawing.Color.White;
+            this.submit_button.Location = new System.Drawing.Point(819, 263);
+            this.submit_button.Name = "submit_button";
+            this.submit_button.Size = new System.Drawing.Size(105, 32);
+            this.submit_button.TabIndex = 46;
+            this.submit_button.Text = "Submit";
+            this.submit_button.UseVisualStyleBackColor = true;
+            this.submit_button.Click += new System.EventHandler(this.submit_button_Click);
             // 
-            // Username
+            // label6
             // 
-            this.Username.AutoSize = true;
-            this.Username.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Username.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.Username.Location = new System.Drawing.Point(43, 17);
-            this.Username.Name = "Username";
-            this.Username.Size = new System.Drawing.Size(97, 28);
-            this.Username.TabIndex = 22;
-            this.Username.Text = "Username:";
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label6.Location = new System.Drawing.Point(502, 178);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(65, 28);
+            this.label6.TabIndex = 34;
+            this.label6.Text = "Status:";
             // 
-            // label1
+            // status_combo
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Poppins SemiBold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.label1.Location = new System.Drawing.Point(22, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(269, 42);
-            this.label1.TabIndex = 26;
-            this.label1.Text = "Account Information";
+            this.status_combo.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.status_combo.FormattingEnabled = true;
+            this.status_combo.Items.AddRange(new object[] {
+            "Active ",
+            "Inactive"});
+            this.status_combo.Location = new System.Drawing.Point(507, 209);
+            this.status_combo.Name = "status_combo";
+            this.status_combo.Size = new System.Drawing.Size(417, 31);
+            this.status_combo.TabIndex = 33;
             // 
-            // password_input
+            // label5
             // 
-            this.password_input.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.password_input.Location = new System.Drawing.Point(48, 128);
-            this.password_input.Name = "password_input";
-            this.password_input.Size = new System.Drawing.Size(417, 31);
-            this.password_input.TabIndex = 26;
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label5.Location = new System.Drawing.Point(502, 97);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(49, 28);
+            this.label5.TabIndex = 32;
+            this.label5.Text = "Role:";
+            // 
+            // role_combo
+            // 
+            this.role_combo.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.role_combo.FormattingEnabled = true;
+            this.role_combo.Items.AddRange(new object[] {
+            "Admin",
+            "Super Admin"});
+            this.role_combo.Location = new System.Drawing.Point(507, 128);
+            this.role_combo.Name = "role_combo";
+            this.role_combo.Size = new System.Drawing.Size(417, 31);
+            this.role_combo.TabIndex = 31;
+            // 
+            // name_input
+            // 
+            this.name_input.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.name_input.Location = new System.Drawing.Point(507, 48);
+            this.name_input.Name = "name_input";
+            this.name_input.Size = new System.Drawing.Size(417, 31);
+            this.name_input.TabIndex = 30;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.label4.Location = new System.Drawing.Point(502, 17);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(88, 28);
+            this.label4.TabIndex = 29;
+            this.label4.Text = "Fullname:";
             // 
             // confirm_input
             // 
@@ -166,86 +205,65 @@
             this.label2.TabIndex = 27;
             this.label2.Text = "Confirm Password";
             // 
-            // label4
+            // password_input
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.label4.Location = new System.Drawing.Point(502, 17);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(88, 28);
-            this.label4.TabIndex = 29;
-            this.label4.Text = "Fullname:";
+            this.password_input.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.password_input.Location = new System.Drawing.Point(48, 128);
+            this.password_input.Name = "password_input";
+            this.password_input.Size = new System.Drawing.Size(417, 31);
+            this.password_input.TabIndex = 26;
             // 
-            // name_input
+            // email_input
             // 
-            this.name_input.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.name_input.Location = new System.Drawing.Point(507, 48);
-            this.name_input.Name = "name_input";
-            this.name_input.Size = new System.Drawing.Size(417, 31);
-            this.name_input.TabIndex = 30;
+            this.email_input.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.email_input.Location = new System.Drawing.Point(48, 48);
+            this.email_input.Name = "email_input";
+            this.email_input.Size = new System.Drawing.Size(417, 31);
+            this.email_input.TabIndex = 25;
             // 
-            // role_combo
+            // label3
             // 
-            this.role_combo.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.role_combo.FormattingEnabled = true;
-            this.role_combo.Location = new System.Drawing.Point(507, 128);
-            this.role_combo.Name = "role_combo";
-            this.role_combo.Size = new System.Drawing.Size(417, 31);
-            this.role_combo.TabIndex = 31;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label3.Location = new System.Drawing.Point(43, 97);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(88, 28);
+            this.label3.TabIndex = 23;
+            this.label3.Text = "Password";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
-            // label5
+            // lbl
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label5.Location = new System.Drawing.Point(502, 97);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(49, 28);
-            this.label5.TabIndex = 32;
-            this.label5.Text = "Role:";
+            this.lbl.AutoSize = true;
+            this.lbl.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.lbl.Location = new System.Drawing.Point(43, 17);
+            this.lbl.Name = "lbl";
+            this.lbl.Size = new System.Drawing.Size(55, 28);
+            this.lbl.TabIndex = 22;
+            this.lbl.Text = "Email";
             // 
-            // label6
+            // panel1
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label6.Location = new System.Drawing.Point(502, 178);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(65, 28);
-            this.label6.TabIndex = 34;
-            this.label6.Text = "Status:";
+            this.panel1.Controls.Add(this.admin_table);
+            this.panel1.Location = new System.Drawing.Point(29, 399);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(973, 279);
+            this.panel1.TabIndex = 27;
             // 
-            // status_combo
+            // admin_table
             // 
-            this.status_combo.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.status_combo.FormattingEnabled = true;
-            this.status_combo.Location = new System.Drawing.Point(507, 209);
-            this.status_combo.Name = "status_combo";
-            this.status_combo.Size = new System.Drawing.Size(417, 31);
-            this.status_combo.TabIndex = 33;
-            // 
-            // submit_button
-            // 
-            this.submit_button.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.submit_button.ForeColor = System.Drawing.Color.White;
-            this.submit_button.Location = new System.Drawing.Point(819, 263);
-            this.submit_button.Name = "submit_button";
-            this.submit_button.Size = new System.Drawing.Size(105, 32);
-            this.submit_button.TabIndex = 46;
-            this.submit_button.Text = "Submit";
-            this.submit_button.UseVisualStyleBackColor = true;
-            // 
-            // clear_button
-            // 
-            this.clear_button.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.clear_button.ForeColor = System.Drawing.Color.White;
-            this.clear_button.Location = new System.Drawing.Point(698, 263);
-            this.clear_button.Name = "clear_button";
-            this.clear_button.Size = new System.Drawing.Size(106, 32);
-            this.clear_button.TabIndex = 47;
-            this.clear_button.Text = "Clear";
-            this.clear_button.UseVisualStyleBackColor = true;
+            this.admin_table.AllowUserToAddRows = false;
+            this.admin_table.AllowUserToDeleteRows = false;
+            this.admin_table.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.admin_table.Location = new System.Drawing.Point(3, 3);
+            this.admin_table.Name = "admin_table";
+            this.admin_table.ReadOnly = true;
+            this.admin_table.RowHeadersWidth = 51;
+            this.admin_table.Size = new System.Drawing.Size(967, 273);
+            this.admin_table.TabIndex = 5;
+            this.admin_table.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.admin_table_CellContentClick);
             // 
             // Admin_ManageAdmin
             // 
@@ -256,9 +274,10 @@
             this.Size = new System.Drawing.Size(1031, 705);
             this.sidebar_panel.ResumeLayout(false);
             this.sidebar_panel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.seeker_table)).EndInit();
             this.info_panel.ResumeLayout(false);
             this.info_panel.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.admin_table)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -267,11 +286,10 @@
 
         private System.Windows.Forms.Panel sidebar_panel;
         private System.Windows.Forms.Panel info_panel;
-        private System.Windows.Forms.DataGridView seeker_table;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox username_input;
+        private System.Windows.Forms.TextBox email_input;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label Username;
+        private System.Windows.Forms.Label lbl;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox confirm_input;
         private System.Windows.Forms.Label label2;
@@ -283,5 +301,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button clear_button;
         private System.Windows.Forms.Button submit_button;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.DataGridView admin_table;
     }
 }

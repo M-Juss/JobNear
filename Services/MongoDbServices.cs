@@ -352,6 +352,35 @@ namespace JobNear.Services
             }
         }
 
+        public static async Task<bool> InsertAdminAccountAsync(string email, string password, string fullname, string role, string status)
+        {
+            try
+            {
+                var newAccount = new AdminAccountModel
+                {
+                    Email = email,
+                    Password = password,
+                    Fullname = fullname,
+                    Role = role,
+                    Status = status
+
+                };
+                await AdminAccount.InsertOneAsync(newAccount);
+                return true;
+
+            }
+            catch (MongoWriteException ex) when (ex.WriteError.Category == ServerErrorCategory.DuplicateKey)
+            {
+                MessageBox.Show("Email already exists. Please use a different email.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error occurred while creating account: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+
         public static async Task<bool> UpdatePostedJobAsync(string id, string title, string employmentType, string workModel, string minQual, string prefQual, string aboutJob, string responsibilities, string paymentType, double monthlySalary, double hourlyRate, string status)
         {
             try
@@ -440,30 +469,7 @@ namespace JobNear.Services
             return onReview;
         }
 
-        public static async Task<bool> InsertAdminAccountAsync(string email, string password)
-        {
-            try
-            {
-                var newAccount = new AdminAccountModel
-                {
-                    Email = email,
-                    Password = password
-                };
-                await AdminAccount.InsertOneAsync(newAccount);
-                return true;
 
-            }
-            catch (MongoWriteException ex) when (ex.WriteError.Category == ServerErrorCategory.DuplicateKey)
-            {
-                MessageBox.Show("Email already exists. Please use a different email.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error occurred while creating account: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-        }
 
     }
 }

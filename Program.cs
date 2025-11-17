@@ -16,7 +16,7 @@ namespace JobNear
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new JobNearUserForm());
+            Application.Run(new AdminDashboardForm());
 
             // To-do November 4, 2025:
             // [/] Back Navigation when viewing job poster registered business in Admin Form
