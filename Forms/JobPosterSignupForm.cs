@@ -88,5 +88,10 @@ namespace JobNear.Forms
         {
 
         }
+
+        private void password_input_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

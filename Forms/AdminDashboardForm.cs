@@ -18,7 +18,7 @@ namespace JobNear.Forms
         AdminDashboardUserControl.Admin_Dashboard admin_Dashboard = new AdminDashboardUserControl.Admin_Dashboard();
         AdminDashboardUserControl.Admin_JS_UserManagement admin_Jobseeker = new AdminDashboardUserControl.Admin_JS_UserManagement();
         AdminDashboardUserControl.Admin_JP_UserManagement admin_Jobposter = new AdminDashboardUserControl.Admin_JP_UserManagement();
-        AdminDashboardUserControl.Admin_SystemSettings admin_Settings = new AdminDashboardUserControl.Admin_SystemSettings();
+        AdminDashboardUserControl.Admin_ManageAdmin admin_Manage = new AdminDashboardUserControl.Admin_ManageAdmin();
         AdminDashboardUserControl.Admin_ReportsAndComplaints admin_Reports = new AdminDashboardUserControl.Admin_ReportsAndComplaints();
         public AdminDashboardForm()
         {
@@ -87,10 +87,6 @@ namespace JobNear.Forms
         private void settings_button_Click(object sender, EventArgs e)
         {
             subSystemSettings.Visible = !subSystemSettings.Visible;
-            //sidebar_panel.Controls.Clear();
-            //sidebar_panel.Controls.Add(admin_Settings);
-            //admin_Settings.Dock = DockStyle.Fill;
-            //hideInactiveSubMenu();
         }
 
         private void reports_button_Click(object sender, EventArgs e)
@@ -106,5 +102,12 @@ namespace JobNear.Forms
 
         }
 
+        private void manageAdmin_button_Click(object sender, EventArgs e)
+        {
+            sidebar_panel.Controls.Clear();
+            sidebar_panel.Controls.Add(admin_Manage);
+            admin_Manage.Dock = DockStyle.Fill;
+
+        }
     }
 }

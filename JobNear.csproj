@@ -219,11 +219,11 @@
     <Compile Include="AdminDashboardUserControl\Admin_ReportsAndComplaints.Designer.cs">
       <DependentUpon>Admin_ReportsAndComplaints.cs</DependentUpon>
     </Compile>
-    <Compile Include="AdminDashboardUserControl\Admin_SystemSettings.cs">
+    <Compile Include="AdminDashboardUserControl\Admin_ManageAdmin.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="AdminDashboardUserControl\Admin_SystemSettings.Designer.cs">
-      <DependentUpon>Admin_SystemSettings.cs</DependentUpon>
+    <Compile Include="AdminDashboardUserControl\Admin_ManageAdmin.Designer.cs">
+      <DependentUpon>Admin_ManageAdmin.cs</DependentUpon>
     </Compile>
     <Compile Include="AdminDashboardUserControl\JP_ViewBusinessDetails.cs">
       <SubType>UserControl</SubType>
@@ -421,8 +421,8 @@
     <EmbeddedResource Include="AdminDashboardUserControl\Admin_ReportsAndComplaints.resx">
       <DependentUpon>Admin_ReportsAndComplaints.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AdminDashboardUserControl\Admin_SystemSettings.resx">
-      <DependentUpon>Admin_SystemSettings.cs</DependentUpon>
+    <EmbeddedResource Include="AdminDashboardUserControl\Admin_ManageAdmin.resx">
+      <DependentUpon>Admin_ManageAdmin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AdminDashboardUserControl\JP_ViewBusinessDetails.resx">
       <DependentUpon>JP_ViewBusinessDetails.cs</DependentUpon>

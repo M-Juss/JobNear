@@ -38,7 +38,7 @@
             this.login_button = new System.Windows.Forms.Button();
             this.password_input = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.Username = new System.Windows.Forms.Label();
             this.app_panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.back_button)).BeginInit();
             this.panel2.SuspendLayout();
@@ -78,7 +78,7 @@
             this.panel2.Controls.Add(this.login_button);
             this.panel2.Controls.Add(this.password_input);
             this.panel2.Controls.Add(this.label3);
-            this.panel2.Controls.Add(this.label1);
+            this.panel2.Controls.Add(this.Username);
             this.panel2.Location = new System.Drawing.Point(387, 80);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(468, 529);
@@ -156,16 +156,16 @@
             this.label3.TabIndex = 14;
             this.label3.Text = "Password";
             // 
-            // label1
+            // Username
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.label1.Location = new System.Drawing.Point(91, 226);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(55, 28);
-            this.label1.TabIndex = 10;
-            this.label1.Text = "Email";
+            this.Username.AutoSize = true;
+            this.Username.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Username.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.Username.Location = new System.Drawing.Point(91, 226);
+            this.Username.Name = "Username";
+            this.Username.Size = new System.Drawing.Size(55, 28);
+            this.Username.TabIndex = 10;
+            this.Username.Text = "Email";
             // 
             // JobNearAdminForm_
             // 
@@ -197,7 +197,7 @@
         private System.Windows.Forms.Button login_button;
         private System.Windows.Forms.TextBox password_input;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label Username;
         private System.Windows.Forms.PictureBox back_button;
         private System.Windows.Forms.TextBox email_input;
         private System.Windows.Forms.CheckBox password_checkbox;

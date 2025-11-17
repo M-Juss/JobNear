@@ -111,6 +111,7 @@
             this.manageAdmin_button.Text = "      Manage Admin";
             this.manageAdmin_button.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.manageAdmin_button.UseVisualStyleBackColor = true;
+            this.manageAdmin_button.Click += new System.EventHandler(this.manageAdmin_button_Click);
             // 
             // settings_button
             // 
