@@ -20,5 +20,6 @@ namespace JobNear
         public static string CurrentPostJobFormMode { get; set; }
         public static Panel CurrentSidebarPanel { get; set; }
         public static string CurrentSeekJobSelected { get; set; }
+        public static string CurrentAdminSelected { get; set; }
     }
 }

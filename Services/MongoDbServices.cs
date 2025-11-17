@@ -446,6 +446,29 @@ namespace JobNear.Services
             }
         }
 
+        public static async Task<bool> UpdateAdminAccountAsync(string id, string email, string password, string fullname, string role, string status) {
+            try
+            {
+                var adminAccount = Builders<AdminAccountModel>.Filter.Eq(x => x.Id, id);
+
+                var update = Builders<AdminAccountModel>.Update
+                    .Set(x => x.Email, email)
+                    .Set(x => x.Password, password)
+                    .Set(x => x.Fullname, fullname)
+                    .Set(x => x.Role, role)
+                    .Set(x => x.Status, status);
+
+                await AdminAccount.UpdateOneAsync(adminAccount, update);
+                return true;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error occurred while updating admin account: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        
+        }
         public static async Task<JobSeekerAccountModel> LoadCurrentSeekerData() { 
 
             var filter = Builders<JobSeekerAccountModel>.Filter.Eq(x => x.Id, Session.CurrentUserId);

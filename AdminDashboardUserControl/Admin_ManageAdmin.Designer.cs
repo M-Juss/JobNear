@@ -47,6 +47,7 @@
             this.lbl = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.admin_table = new System.Windows.Forms.DataGridView();
+            this.update_button = new System.Windows.Forms.Button();
             this.sidebar_panel.SuspendLayout();
             this.info_panel.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -79,6 +80,7 @@
             // 
             // info_panel
             // 
+            this.info_panel.Controls.Add(this.update_button);
             this.info_panel.Controls.Add(this.clear_button);
             this.info_panel.Controls.Add(this.submit_button);
             this.info_panel.Controls.Add(this.label6);
@@ -108,6 +110,7 @@
             this.clear_button.TabIndex = 47;
             this.clear_button.Text = "Clear";
             this.clear_button.UseVisualStyleBackColor = true;
+            this.clear_button.Click += new System.EventHandler(this.clear_button_Click);
             // 
             // submit_button
             // 
@@ -137,7 +140,7 @@
             this.status_combo.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.status_combo.FormattingEnabled = true;
             this.status_combo.Items.AddRange(new object[] {
-            "Active ",
+            "Active",
             "Inactive"});
             this.status_combo.Location = new System.Drawing.Point(507, 209);
             this.status_combo.Name = "status_combo";
@@ -231,7 +234,6 @@
             this.label3.Size = new System.Drawing.Size(88, 28);
             this.label3.TabIndex = 23;
             this.label3.Text = "Password";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // lbl
             // 
@@ -264,6 +266,18 @@
             this.admin_table.Size = new System.Drawing.Size(967, 273);
             this.admin_table.TabIndex = 5;
             this.admin_table.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.admin_table_CellContentClick);
+            // 
+            // update_button
+            // 
+            this.update_button.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.update_button.ForeColor = System.Drawing.Color.White;
+            this.update_button.Location = new System.Drawing.Point(819, 263);
+            this.update_button.Name = "update_button";
+            this.update_button.Size = new System.Drawing.Size(105, 32);
+            this.update_button.TabIndex = 48;
+            this.update_button.Text = "Update";
+            this.update_button.UseVisualStyleBackColor = true;
+            this.update_button.Click += new System.EventHandler(this.update_button_Click);
             // 
             // Admin_ManageAdmin
             // 
@@ -303,5 +317,6 @@
         private System.Windows.Forms.Button submit_button;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DataGridView admin_table;
+        private System.Windows.Forms.Button update_button;
     }
 }

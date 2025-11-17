@@ -23,42 +23,11 @@ namespace JobNear.AdminDashboardUserControl
             PanelStyles.RoundedPanel(info_panel, 20, Color.White);
             ButtonStyle.RoundedButton(submit_button, 25, "#3B82F6");
             ButtonStyle.RoundedButton(clear_button, 25, "#3B82F6");
+            ButtonStyle.RoundedButton(update_button, 25, "#3B82F6");
 
-            TableStyles.UserTables(admin_table);
-
-            admin_table.Columns.Add("Fullname", "Fullname");
-            admin_table.Columns.Add("Email", "Email");
-            admin_table.Columns.Add("Role", "Role");
-            admin_table.Columns.Add("Status", "Status");
-
-            var update = new DataGridViewButtonColumn();
-            update.Name = "Update";
-            update.HeaderText = "Action";
-            update.Text = "Update";
-            update.UseColumnTextForButtonValue = true;
-            update.FlatStyle = FlatStyle.Flat;
-            update.Width = 60;
-            update.DefaultCellStyle.Font = new Font("Poppins", 12, FontStyle.Bold);
-
-            admin_table.Columns.Add(update);
-
-            var delete = new DataGridViewButtonColumn();
-            delete.Text = "Delete";
-            delete.UseColumnTextForButtonValue = true;
-            delete.FlatStyle = FlatStyle.Flat;
-            delete.Width = 60;
-            delete.DefaultCellStyle.Font = new Font("Poppins", 12, FontStyle.Bold);
-            
-
-
-            admin_table.Columns.Add(delete);
-
+            InitializeTable();
             LoadAdminAccounts();
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
+            ShowSubmitButton();
 
         }
 
@@ -68,6 +37,8 @@ namespace JobNear.AdminDashboardUserControl
         }
         private async void LoadAdminAccounts()
         {
+            admin_table.Rows.Clear();
+
             var adminAccounts = await MongoDbServices.AdminAccount
                 .Find(_ => true)
                 .ToListAsync();
@@ -111,16 +82,10 @@ namespace JobNear.AdminDashboardUserControl
                                 MessageBoxIcon.Information
                             ).ToString();
 
-                            if (res == "OK")
-                            {
-                                email_input.Clear();
-                                password_input.Clear();
-                                confirm_input.Clear();
-                                name_input.Clear();
-                                role_combo.SelectedIndex = -1;
-                                status_combo.SelectedIndex = -1;
-
-                            }
+                        if (res == "OK") {
+                            ClearForm(); 
+                            LoadAdminAccounts();
+                        } 
                         }
                 }
             }
@@ -144,6 +109,10 @@ namespace JobNear.AdminDashboardUserControl
                     status_combo.SelectedItem = adminDetails.Status;
                     password_input.Text = adminDetails.Password;
                     confirm_input.Text = adminDetails.Password;
+
+                    Session.CurrentAdminSelected = adminDetails.Id;
+
+                    ShowUpdateButton();
                 }
             }
 
@@ -173,5 +142,104 @@ namespace JobNear.AdminDashboardUserControl
                 }
             }
         }
+
+        private async void update_button_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(email_input.Text) || string.IsNullOrEmpty(password_input.Text) || string.IsNullOrEmpty(confirm_input.Text)
+                || string.IsNullOrEmpty(name_input.Text) || role_combo.SelectedIndex == -1 || status_combo.SelectedIndex == -1)
+            {
+                MessageBox.Show("Please fill all fields", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                if (password_input.Text != confirm_input.Text)
+                {
+                    MessageBox.Show("Passwords do not match", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    bool response = await MongoDbServices.UpdateAdminAccountAsync(Session.CurrentAdminSelected, email_input.Text, password_input.Text, name_input.Text,
+                        role_combo.SelectedItem.ToString(), status_combo.SelectedItem.ToString());
+
+                    if (response)
+                    {
+                        string res = MessageBox.Show(
+                            "Admin account udpated successfully and ready for review",
+                            "Success",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Information
+                        ).ToString();
+
+                        if (res == "OK")
+                        {
+                            ClearForm();
+                            LoadAdminAccounts();
+                            ShowSubmitButton();
+
+                            Session.CurrentAdminSelected = null;
+
+                        }
+                    }
+                }
+            }
+        }
+        private void InitializeTable() {
+            TableStyles.UserTables(admin_table);
+
+            admin_table.Columns.Add("Fullname", "Fullname");
+            admin_table.Columns.Add("Email", "Email");
+            admin_table.Columns.Add("Role", "Role");
+            admin_table.Columns.Add("Status", "Status");
+
+            var update = new DataGridViewButtonColumn();
+            update.Name = "Update";
+            update.HeaderText = "Action";
+            update.Text = "Update";
+            update.UseColumnTextForButtonValue = true;
+            update.FlatStyle = FlatStyle.Flat;
+            update.Width = 60;
+            update.DefaultCellStyle.Font = new Font("Poppins", 12, FontStyle.Bold);
+
+            admin_table.Columns.Add(update);
+
+            var delete = new DataGridViewButtonColumn();
+            delete.Name = "Delete";
+            delete.Text = "Delete";
+            delete.UseColumnTextForButtonValue = true;
+            delete.FlatStyle = FlatStyle.Flat;
+            delete.Width = 60;
+            delete.DefaultCellStyle.Font = new Font("Poppins", 12, FontStyle.Bold);
+
+            admin_table.Columns.Add(delete);
+        }
+        private void ShowSubmitButton()
+        {
+            submit_button.Visible = true;
+            update_button.Visible = false;
+        }
+
+        private void ShowUpdateButton()
+        {
+            submit_button.Visible = false;
+            update_button.Visible = true;
+        }
+        private void clear_button_Click(object sender, EventArgs e)
+        {
+            ClearForm();
+
+            submit_button.Visible = true;
+        }
+
+        private void ClearForm()
+        {
+            email_input.Clear();
+            password_input.Clear();
+            confirm_input.Clear();
+            name_input.Clear();
+            role_combo.SelectedIndex = -1;
+            status_combo.SelectedIndex = -1;
+        }
+
+
     }
 }
