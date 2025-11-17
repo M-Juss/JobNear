@@ -228,6 +228,7 @@
             // submit_button
             // 
             this.submit_button.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.submit_button.ForeColor = System.Drawing.Color.White;
             this.submit_button.Location = new System.Drawing.Point(819, 263);
             this.submit_button.Name = "submit_button";
             this.submit_button.Size = new System.Drawing.Size(105, 32);
@@ -238,6 +239,7 @@
             // clear_button
             // 
             this.clear_button.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.clear_button.ForeColor = System.Drawing.Color.White;
             this.clear_button.Location = new System.Drawing.Point(698, 263);
             this.clear_button.Name = "clear_button";
             this.clear_button.Size = new System.Drawing.Size(106, 32);

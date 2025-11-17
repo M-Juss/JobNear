@@ -1,12 +1,77 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Drawing;
+using System.Drawing.Drawing2D;
+using System.Windows.Forms;
 
 namespace JobNear.Styles
 {
-    internal class TextboxStyles
+    public class TextboxStyles
     {
+        public static void RoundedTextBoxShadow(TextBox txt, int radius, string bgHex, int shadowSize)
+        {
+            Control parent = txt.Parent;
+
+            // --- Shadow Panel (bigger than textbox) ---
+            Panel shadow = new Panel();
+            shadow.BackColor = Color.Transparent;
+            shadow.Size = new Size(txt.Width + shadowSize * 2, txt.Height + shadowSize * 2);
+            shadow.Location = new Point(txt.Left - shadowSize, txt.Top - shadowSize);
+
+            shadow.Paint += (s, e) =>
+            {
+                Graphics g = e.Graphics;
+                g.SmoothingMode = SmoothingMode.AntiAlias;
+
+                // Draw MANY layers to simulate a blur
+                for (int i = shadowSize; i > 0; i--)
+                {
+                    int alpha = (int)(20 * (i / (float)shadowSize)); // softer outer alpha
+                    using (Pen p = new Pen(Color.FromArgb(alpha, 0, 0, 0), i * 2))
+                    {
+                        g.DrawPath(p, Rounded(shadow.Width - i, shadow.Height - i, radius + i));
+                    }
+                }
+            };
+
+            // --- Main Container Panel (rounded) ---
+            Panel container = new Panel();
+            container.Size = txt.Size;
+            container.Location = txt.Location;
+            container.BackColor = ColorTranslator.FromHtml(bgHex);
+
+            container.Paint += (s, e) =>
+            {
+                Graphics g = e.Graphics;
+                g.SmoothingMode = SmoothingMode.AntiAlias;
+                container.Region = new Region(Rounded(container.Width, container.Height, radius));
+            };
+
+            // --- Style the textbox ---
+            txt.BorderStyle = BorderStyle.None;
+            txt.Location = new Point(12, 8);
+            txt.Width = container.Width - 24;
+
+            // --- Add controls ---
+            parent.Controls.Add(shadow);
+            parent.Controls.Add(container);
+            container.Controls.Add(txt);
+
+            shadow.SendToBack();
+            container.BringToFront();
+            txt.BringToFront();
+        }
+
+        private static GraphicsPath Rounded(int w, int h, int r)
+        {
+            GraphicsPath path = new GraphicsPath();
+            int d = r * 2;
+
+            path.StartFigure();
+            path.AddArc(0, 0, d, d, 180, 90);
+            path.AddArc(w - d, 0, d, d, 270, 90);
+            path.AddArc(w - d, h - d, d, d, 0, 90);
+            path.AddArc(0, h - d, d, d, 90, 90);
+            path.CloseFigure();
+            return path;
+        }
     }
 }

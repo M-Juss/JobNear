@@ -409,6 +409,7 @@
     <Compile Include="Styles\FlowLayoutStyles.cs" />
     <Compile Include="Styles\PanelStyles.cs" />
     <Compile Include="Styles\TableStyles.cs" />
+    <Compile Include="Styles\TextboxStyles.cs" />
     <EmbeddedResource Include="AdminDashboardUserControl\Admin_Dashboard.resx">
       <DependentUpon>Admin_Dashboard.cs</DependentUpon>
     </EmbeddedResource>

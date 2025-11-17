@@ -57,6 +57,7 @@
             this.app_panel.Name = "app_panel";
             this.app_panel.Size = new System.Drawing.Size(1231, 705);
             this.app_panel.TabIndex = 0;
+            this.app_panel.Paint += new System.Windows.Forms.PaintEventHandler(this.app_panel_Paint);
             // 
             // back_button
             // 
@@ -126,8 +127,9 @@
             // 
             this.email_input.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.email_input.Location = new System.Drawing.Point(102, 230);
+            this.email_input.Multiline = true;
             this.email_input.Name = "email_input";
-            this.email_input.Size = new System.Drawing.Size(277, 31);
+            this.email_input.Size = new System.Drawing.Size(277, 41);
             this.email_input.TabIndex = 22;
             // 
             // forgot_label
