@@ -364,7 +364,7 @@ namespace JobNear.Styles
             jobDescription.Width = joblist_flowlayout.Width - 112;
             jobDescription.Height = 70;
             jobDescription.AutoEllipsis = true;
-            jobDescription.BorderStyle = BorderStyle.FixedSingle;
+            jobDescription.BorderStyle = BorderStyle.None;
             jobDescription.TextAlign = ContentAlignment.TopLeft;
             jobDescription.Location = new Point(45, 70);
             jobDescription.Font = new Font("Poppins", 9, FontStyle.Regular);
