@@ -31,22 +31,22 @@
             this.app_panel = new System.Windows.Forms.Panel();
             this.back_button = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.username_input = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.password_checkbox = new System.Windows.Forms.CheckBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.email_input = new System.Windows.Forms.TextBox();
-            this.confirm_input = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.login_label = new System.Windows.Forms.Label();
             this.register_button = new System.Windows.Forms.Button();
-            this.password_input = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.phone_input = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.username_input = new System.Windows.Forms.TextBox();
+            this.email_input = new System.Windows.Forms.TextBox();
+            this.phone_input = new System.Windows.Forms.TextBox();
+            this.password_input = new System.Windows.Forms.TextBox();
+            this.confirm_input = new System.Windows.Forms.TextBox();
             this.app_panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.back_button)).BeginInit();
             this.panel2.SuspendLayout();
@@ -63,6 +63,7 @@
             this.app_panel.Name = "app_panel";
             this.app_panel.Size = new System.Drawing.Size(1231, 705);
             this.app_panel.TabIndex = 0;
+            this.app_panel.Paint += new System.Windows.Forms.PaintEventHandler(this.app_panel_Paint);
             // 
             // back_button
             // 
@@ -78,51 +79,45 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel2.Controls.Add(this.confirm_input);
+            this.panel2.Controls.Add(this.password_input);
+            this.panel2.Controls.Add(this.phone_input);
+            this.panel2.Controls.Add(this.email_input);
             this.panel2.Controls.Add(this.username_input);
             this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.password_checkbox);
             this.panel2.Controls.Add(this.label7);
             this.panel2.Controls.Add(this.label8);
             this.panel2.Controls.Add(this.label5);
-            this.panel2.Controls.Add(this.email_input);
-            this.panel2.Controls.Add(this.confirm_input);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.login_label);
             this.panel2.Controls.Add(this.register_button);
-            this.panel2.Controls.Add(this.password_input);
             this.panel2.Controls.Add(this.label3);
-            this.panel2.Controls.Add(this.phone_input);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Location = new System.Drawing.Point(387, 40);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(468, 626);
+            this.panel2.Size = new System.Drawing.Size(468, 653);
             this.panel2.TabIndex = 20;
-            // 
-            // username_input
-            // 
-            this.username_input.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.username_input.Location = new System.Drawing.Point(98, 163);
-            this.username_input.Name = "username_input";
-            this.username_input.Size = new System.Drawing.Size(277, 31);
-            this.username_input.TabIndex = 38;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.label6.Location = new System.Drawing.Point(94, 132);
+            this.label6.Location = new System.Drawing.Point(102, 149);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(94, 28);
             this.label6.TabIndex = 37;
             this.label6.Text = "Username";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // password_checkbox
             // 
             this.password_checkbox.AutoSize = true;
             this.password_checkbox.Font = new System.Drawing.Font("Poppins", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.password_checkbox.Location = new System.Drawing.Point(98, 483);
+            this.password_checkbox.Location = new System.Drawing.Point(103, 524);
             this.password_checkbox.Name = "password_checkbox";
             this.password_checkbox.Size = new System.Drawing.Size(112, 23);
             this.password_checkbox.TabIndex = 36;
@@ -135,18 +130,19 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Poppins SemiBold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(58)))), ((int)(((byte)(138)))));
-            this.label7.Location = new System.Drawing.Point(146, 82);
+            this.label7.Location = new System.Drawing.Point(146, 97);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(191, 37);
             this.label7.TabIndex = 31;
             this.label7.Text = "let’s build yours!";
+            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Poppins SemiBold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(58)))), ((int)(((byte)(138)))));
-            this.label8.Location = new System.Drawing.Point(52, 54);
+            this.label8.Location = new System.Drawing.Point(52, 69);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(373, 37);
             this.label8.TabIndex = 30;
@@ -157,45 +153,30 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Poppins", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(155, 11);
+            this.label5.Location = new System.Drawing.Point(155, 20);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(166, 48);
             this.label5.TabIndex = 29;
             this.label5.Text = "Job Poster";
-            // 
-            // email_input
-            // 
-            this.email_input.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.email_input.Location = new System.Drawing.Point(98, 228);
-            this.email_input.Name = "email_input";
-            this.email_input.Size = new System.Drawing.Size(277, 31);
-            this.email_input.TabIndex = 23;
-            this.email_input.TextChanged += new System.EventHandler(this.email_input_TextChanged);
-            // 
-            // confirm_input
-            // 
-            this.confirm_input.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.confirm_input.Location = new System.Drawing.Point(98, 446);
-            this.confirm_input.Name = "confirm_input";
-            this.confirm_input.Size = new System.Drawing.Size(277, 31);
-            this.confirm_input.TabIndex = 22;
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label4.Location = new System.Drawing.Point(93, 414);
+            this.label4.Location = new System.Drawing.Point(102, 449);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(155, 28);
             this.label4.TabIndex = 21;
             this.label4.Text = "Confirm Password";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // login_label
             // 
             this.login_label.AutoSize = true;
             this.login_label.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.login_label.Location = new System.Drawing.Point(125, 576);
+            this.login_label.Location = new System.Drawing.Point(125, 610);
             this.login_label.Name = "login_label";
             this.login_label.Size = new System.Drawing.Size(222, 22);
             this.login_label.TabIndex = 17;
@@ -207,7 +188,7 @@
             this.register_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.register_button.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.register_button.ForeColor = System.Drawing.Color.White;
-            this.register_button.Location = new System.Drawing.Point(98, 525);
+            this.register_button.Location = new System.Drawing.Point(98, 559);
             this.register_button.Name = "register_button";
             this.register_button.Size = new System.Drawing.Size(277, 42);
             this.register_button.TabIndex = 16;
@@ -215,40 +196,24 @@
             this.register_button.UseVisualStyleBackColor = false;
             this.register_button.Click += new System.EventHandler(this.register_button_Click);
             // 
-            // password_input
-            // 
-            this.password_input.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.password_input.Location = new System.Drawing.Point(98, 370);
-            this.password_input.Name = "password_input";
-            this.password_input.Size = new System.Drawing.Size(277, 31);
-            this.password_input.TabIndex = 15;
-            this.password_input.TextChanged += new System.EventHandler(this.password_input_TextChanged);
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label3.Location = new System.Drawing.Point(93, 340);
+            this.label3.Location = new System.Drawing.Point(102, 374);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(88, 28);
             this.label3.TabIndex = 14;
             this.label3.Text = "Password";
-            // 
-            // phone_input
-            // 
-            this.phone_input.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.phone_input.Location = new System.Drawing.Point(98, 297);
-            this.phone_input.Name = "phone_input";
-            this.phone_input.Size = new System.Drawing.Size(277, 31);
-            this.phone_input.TabIndex = 13;
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label2.Location = new System.Drawing.Point(93, 266);
+            this.label2.Location = new System.Drawing.Point(102, 299);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(129, 28);
             this.label2.TabIndex = 12;
@@ -261,11 +226,62 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.label1.Location = new System.Drawing.Point(93, 197);
+            this.label1.Location = new System.Drawing.Point(102, 224);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(55, 28);
             this.label1.TabIndex = 10;
             this.label1.Text = "Email";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // username_input
+            // 
+            this.username_input.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.username_input.Location = new System.Drawing.Point(99, 179);
+            this.username_input.Multiline = true;
+            this.username_input.Name = "username_input";
+            this.username_input.Size = new System.Drawing.Size(277, 41);
+            this.username_input.TabIndex = 38;
+            this.username_input.TextChanged += new System.EventHandler(this.username_input_TextChanged);
+            // 
+            // email_input
+            // 
+            this.email_input.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.email_input.Location = new System.Drawing.Point(99, 254);
+            this.email_input.Multiline = true;
+            this.email_input.Name = "email_input";
+            this.email_input.Size = new System.Drawing.Size(277, 41);
+            this.email_input.TabIndex = 39;
+            this.email_input.TextChanged += new System.EventHandler(this.email_input_TextChanged_1);
+            // 
+            // phone_input
+            // 
+            this.phone_input.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.phone_input.Location = new System.Drawing.Point(99, 330);
+            this.phone_input.Multiline = true;
+            this.phone_input.Name = "phone_input";
+            this.phone_input.Size = new System.Drawing.Size(277, 41);
+            this.phone_input.TabIndex = 40;
+            this.phone_input.TextChanged += new System.EventHandler(this.phone_input_TextChanged);
+            // 
+            // password_input
+            // 
+            this.password_input.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.password_input.Location = new System.Drawing.Point(99, 404);
+            this.password_input.Multiline = true;
+            this.password_input.Name = "password_input";
+            this.password_input.Size = new System.Drawing.Size(277, 41);
+            this.password_input.TabIndex = 41;
+            this.password_input.TextChanged += new System.EventHandler(this.password_input_TextChanged_1);
+            // 
+            // confirm_input
+            // 
+            this.confirm_input.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.confirm_input.Location = new System.Drawing.Point(99, 480);
+            this.confirm_input.Multiline = true;
+            this.confirm_input.Name = "confirm_input";
+            this.confirm_input.Size = new System.Drawing.Size(277, 41);
+            this.confirm_input.TabIndex = 42;
+            this.confirm_input.TextChanged += new System.EventHandler(this.confirm_input_TextChanged);
             // 
             // JobPosterSignupForm
             // 
@@ -292,21 +308,21 @@
         private System.Windows.Forms.Panel app_panel;
         private System.Windows.Forms.Label login_label;
         private System.Windows.Forms.Button register_button;
-        private System.Windows.Forms.TextBox password_input;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox phone_input;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.TextBox confirm_input;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.PictureBox back_button;
-        private System.Windows.Forms.TextBox email_input;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.CheckBox password_checkbox;
-        private System.Windows.Forms.TextBox username_input;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox confirm_input;
+        private System.Windows.Forms.TextBox password_input;
+        private System.Windows.Forms.TextBox phone_input;
+        private System.Windows.Forms.TextBox email_input;
+        private System.Windows.Forms.TextBox username_input;
     }
 }

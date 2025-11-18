@@ -19,6 +19,18 @@ namespace JobNear.Forms
         {
             InitializeComponent();
             ButtonStyle.RoundedButton(register_button, 40, "#10B981");
+
+
+
+            TextboxStyles.RoundedTextBoxShadow(username_input, 10, "#FFFFFF", 1);
+            TextboxStyles.RoundedTextBoxShadow(phone_input, 10, "#FFFFFF", 1);
+            TextboxStyles.RoundedTextBoxShadow(email_input, 10, "#FFFFFF", 1);
+            TextboxStyles.RoundedTextBoxShadow(password_input, 10, "#FFFFFF", 1);
+            TextboxStyles.RoundedTextBoxShadow(confirm_input, 10, "#FFFFFF", 1);
+
+
+
+
         }
 
         private void JobSeekerSignupForm_Load(object sender, EventArgs e)
@@ -67,6 +79,11 @@ namespace JobNear.Forms
         {
             password_input.UseSystemPasswordChar = !password_checkbox.Checked;
             confirm_input.UseSystemPasswordChar = !password_checkbox.Checked;
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

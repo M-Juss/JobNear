@@ -18,13 +18,25 @@ namespace JobNear.Forms
         public JobPosterSignupForm()
         {
             InitializeComponent();
+
+
+            ButtonStyle.RoundedButton(register_button, 40, "#10B981");
+            TextBoxValidatorController.SetPassword(password_input);
+            TextBoxValidatorController.SetPassword(confirm_input);
+
+            TextboxStyles.RoundedTextBoxShadow(username_input, 10, "#FFFFFF", 1);
+            TextboxStyles.RoundedTextBoxShadow(email_input, 10, "#FFFFFF", 1);
+            TextboxStyles.RoundedTextBoxShadow(phone_input, 10, "#FFFFFF", 1);
+            TextboxStyles.RoundedTextBoxShadow(password_input, 10, "#FFFFFF", 1);
+            TextboxStyles.RoundedTextBoxShadow(confirm_input, 10, "#FFFFFF", 1);
+
+
+
         }
 
         private void JobPosterLoginForm_Load(object sender, EventArgs e)
         {
-            ButtonStyle.RoundedButton(register_button, 40, "#10B981");
-            TextBoxValidatorController.SetPassword(password_input);
-            TextBoxValidatorController.SetPassword(confirm_input);
+          
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -90,6 +102,71 @@ namespace JobNear.Forms
         }
 
         private void password_input_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void username_input_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void app_panel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void email_input_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void phone_input_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void password_input_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void confirm_input_TextChanged(object sender, EventArgs e)
         {
 
         }

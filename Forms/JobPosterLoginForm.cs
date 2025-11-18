@@ -18,6 +18,9 @@ namespace JobNear.Forms
         public JobPosterLoginForm()
         {
             InitializeComponent();
+
+            TextboxStyles.RoundedTextBoxShadow(email_input, 10, "#FFFFFF", 1);
+            TextboxStyles.RoundedTextBoxShadow(password_input, 10, "#FFFFFF", 1);
         }
 
         private void JobPosterLoginForm_Load(object sender, EventArgs e)
@@ -57,6 +60,11 @@ namespace JobNear.Forms
                 MessageBox.Show("Please fill all fields", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             await MongoDbServices.LoginJobNearAccountAsync("jobposter", email_input.Text, password_input.Text, app_panel);
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

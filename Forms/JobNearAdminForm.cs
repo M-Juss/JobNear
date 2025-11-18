@@ -20,6 +20,9 @@ namespace JobNear.Forms
             InitializeComponent();
             ButtonStyle.RoundedButton(login_button, 40, "#10B981");
             TextBoxValidatorController.SetPassword(password_input);
+
+            TextboxStyles.RoundedTextBoxShadow(email_input, 10, "#FFFFFF", 1);
+            TextboxStyles.RoundedTextBoxShadow(password_input, 10, "#FFFFFF", 1);
         }
 
         private void JobNearAdminForm__Load(object sender, EventArgs e)
@@ -54,5 +57,9 @@ namespace JobNear.Forms
 
         }
 
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

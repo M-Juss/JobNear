@@ -19,6 +19,10 @@ namespace JobNear.Forms
             InitializeComponent();
             ButtonStyle.RoundedButton(changepass_button, 30, "#3B82F6");
 
+            TextboxStyles.RoundedTextBoxShadow(email_input, 10, "#FFFFFF", 1);
+            TextboxStyles.RoundedTextBoxShadow(newpass_input, 10, "#FFFFFF", 1);
+            TextboxStyles.RoundedTextBoxShadow(confirmnewpass_input, 10, "#FFFFFF", 1);
+
         }
 
         private void ForgotPasswordForm_Load(object sender, EventArgs e)
@@ -32,6 +36,11 @@ namespace JobNear.Forms
         }
 
         private void changepass_button_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
         {
 
         }
