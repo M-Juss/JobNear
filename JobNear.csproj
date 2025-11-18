@@ -375,6 +375,12 @@
     <Compile Include="JobSeekerDashboardUserControl\JS_Profile.Designer.cs">
       <DependentUpon>JS_Profile.cs</DependentUpon>
     </Compile>
+    <Compile Include="JobSeekerDashboardUserControl\JS_ReportBusiness.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="JobSeekerDashboardUserControl\JS_ReportBusiness.Designer.cs">
+      <DependentUpon>JS_ReportBusiness.cs</DependentUpon>
+    </Compile>
     <Compile Include="JobSeekerDashboardUserControl\JS_ViewBusiness.cs">
       <SubType>UserControl</SubType>
     </Compile>

@@ -76,7 +76,7 @@
             this.business_panel.Controls.Add(this.footer_label);
             this.business_panel.Controls.Add(this.name_label);
             this.business_panel.Controls.Add(this.company_logo_picturebox);
-            this.business_panel.Location = new System.Drawing.Point(20, 53);
+            this.business_panel.Location = new System.Drawing.Point(20, 62);
             this.business_panel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.business_panel.Name = "business_panel";
             this.business_panel.Size = new System.Drawing.Size(1333, 260);
@@ -129,18 +129,18 @@
             // 
             // joblist_flowlayout
             // 
-            this.joblist_flowlayout.Location = new System.Drawing.Point(20, 337);
+            this.joblist_flowlayout.Location = new System.Drawing.Point(20, 330);
             this.joblist_flowlayout.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.joblist_flowlayout.Name = "joblist_flowlayout";
-            this.joblist_flowlayout.Size = new System.Drawing.Size(1333, 505);
+            this.joblist_flowlayout.Size = new System.Drawing.Size(1333, 512);
             this.joblist_flowlayout.TabIndex = 3;
             // 
             // report_label
             // 
             this.report_label.Font = new System.Drawing.Font("Poppins SemiBold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.report_label.Location = new System.Drawing.Point(1163, 9);
+            this.report_label.Location = new System.Drawing.Point(1163, 15);
             this.report_label.Name = "report_label";
-            this.report_label.Size = new System.Drawing.Size(190, 30);
+            this.report_label.Size = new System.Drawing.Size(190, 35);
             this.report_label.TabIndex = 9;
             this.report_label.Text = "Report an Issue";
             this.report_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
