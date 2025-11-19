@@ -398,6 +398,7 @@
     <Compile Include="Models\JobPosterBusinessModel.cs" />
     <Compile Include="Models\JobPosterJobPostingModel.cs" />
     <Compile Include="Models\JobSeekerAccountModel.cs" />
+    <Compile Include="Models\RepostBusinessModel.cs" />
     <Compile Include="Models\UserNotificationModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -502,6 +503,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="JobSeekerDashboardUserControl\JS_Profile.resx">
       <DependentUpon>JS_Profile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JobSeekerDashboardUserControl\JS_ReportBusiness.resx">
+      <DependentUpon>JS_ReportBusiness.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="JobSeekerDashboardUserControl\JS_ViewBusiness.resx">
       <DependentUpon>JS_ViewBusiness.cs</DependentUpon>

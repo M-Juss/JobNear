@@ -84,5 +84,13 @@ namespace JobNear.JobSeekerDashboardUserControl
             sidebar_panel.Controls.Add(js_JobBrowse);
             js_JobBrowse.Dock = DockStyle.Fill;
         }
+
+        private void report_label_Click(object sender, EventArgs e)
+        {
+            JS_ReportBusiness report = new JS_ReportBusiness(Session.CurrentBusinessSelected);
+            sidebar_panel.Controls.Clear();
+            sidebar_panel.Controls.Add(report);
+            report.Dock = DockStyle.Fill; 
+        }
     }
 }
