@@ -398,7 +398,7 @@
     <Compile Include="Models\JobPosterBusinessModel.cs" />
     <Compile Include="Models\JobPosterJobPostingModel.cs" />
     <Compile Include="Models\JobSeekerAccountModel.cs" />
-    <Compile Include="Models\RepostBusinessModel.cs" />
+    <Compile Include="Models\ReportBusinessModel.cs" />
     <Compile Include="Models\UserNotificationModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

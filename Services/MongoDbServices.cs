@@ -5,6 +5,7 @@ using JobNear.Models;
 using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Reflection;
 using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
@@ -53,6 +54,8 @@ namespace JobNear.Services
 
         public static IMongoCollection<UserNotificationModel> UserNotification =>
             _database.GetCollection<UserNotificationModel>("UserNotifications");
+        public static IMongoCollection<ReportBusinessModel> ReportBusiness =>
+            _database.GetCollection<ReportBusinessModel>("ReportBusinesses");
 
 
         public static async Task LoginJobNearAccountAsync(string user, string email, string password, Panel app_panel)
@@ -380,7 +383,33 @@ namespace JobNear.Services
                 return false;
             }
         }
+        public static async Task<bool> InsertReportAsync(string seekerId, string businessId, string subject, string description, List<SupportingDocument> docu) {
+            try
+            {
+                var newReport = new ReportBusinessModel
+                {
+                    Complainant = seekerId,
+                    Complainee = businessId,
+                    Subject = subject,
+                    Description = description,
+                    SupportingDocuments = docu
 
+                };
+                await ReportBusiness.InsertOneAsync(newReport);
+                return true;
+
+            }
+            catch (MongoWriteException ex) when (ex.WriteError.Category == ServerErrorCategory.DuplicateKey)
+            {
+                MessageBox.Show("Email already exists. Please use a different email.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error occurred while creating report: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
         public static async Task<bool> UpdatePostedJobAsync(string id, string title, string employmentType, string workModel, string minQual, string prefQual, string aboutJob, string responsibilities, string paymentType, double monthlySalary, double hourlyRate, string status)
         {
             try

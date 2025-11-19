@@ -4,6 +4,7 @@ using JobNear.Styles;
 using MongoDB.Driver;
 using System;
 using System.Drawing;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace JobNear.JobSeekerDashboardUserControl
@@ -85,12 +86,33 @@ namespace JobNear.JobSeekerDashboardUserControl
             js_JobBrowse.Dock = DockStyle.Fill;
         }
 
-        private void report_label_Click(object sender, EventArgs e)
+
+        private async void report_label_Click(object sender, EventArgs e)
         {
-            JS_ReportBusiness report = new JS_ReportBusiness(Session.CurrentBusinessSelected);
-            sidebar_panel.Controls.Clear();
-            sidebar_panel.Controls.Add(report);
-            report.Dock = DockStyle.Fill; 
+
+            var report = await MongoDbServices.ReportBusiness
+                .Find(x => x.Complainant == Session.CurrentUserId && x.Complainee == Session.CurrentBusinessSelected)
+                .FirstOrDefaultAsync();
+
+            if (report != null)
+            {
+                if (report.Status == "Pending")
+                {
+                    MessageBox.Show(
+                    "Your report has already been submitted and is currently pending review. Please wait for updates.",
+                    "Report Pending",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information
+                );
+                    return;
+                }
+            }
+            else {
+                JS_ReportBusiness reportBusiness = new JS_ReportBusiness(Session.CurrentBusinessSelected);
+                sidebar_panel.Controls.Clear();
+                sidebar_panel.Controls.Add(reportBusiness);
+                reportBusiness.Dock = DockStyle.Fill;
+            }
         }
     }
 }

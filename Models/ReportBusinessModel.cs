@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 namespace JobNear.Models
 {
-    public class RepostBusinessModel
+    public class ReportBusinessModel
     {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
@@ -14,6 +14,7 @@ namespace JobNear.Models
         public string Subject { get; set; }
         public string Description { get; set; }
         public List<SupportingDocument> SupportingDocuments { get; set; }
+        public string Status { get; set; } = "Pending";
         public DateTime DateCreated { get; set; } = DateTime.Now;
     }
 }
