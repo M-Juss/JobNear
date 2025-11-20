@@ -35,7 +35,6 @@ namespace JobNear.JobPosterDashboardUserControl
                 sidebar_panel.Controls.Clear();
                 sidebar_panel.Controls.Add(jp_registerform);
                 jp_registerform.Dock = DockStyle.Fill;
-
             };
 
             post_job_button.Click += async (s, e) =>

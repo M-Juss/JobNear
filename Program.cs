@@ -40,6 +40,9 @@ namespace JobNear
             // [/] Back Navigation when clicking business in Joob Browse, Panel should go back to the map
             // [/] Back Navigation whcn click specific business inthe the business details in Job Browse 
             // [/] Map can now naviage base on radius 
+
+            // To-do November 21, 2025
+            // [] Update Function in RegisterBusinessForm
         }
     }
 }

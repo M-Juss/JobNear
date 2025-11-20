@@ -283,7 +283,7 @@ namespace JobNear.Services
             }
         }
 
-        public static async Task<bool> InsertBusinessApplicationAsync(string id, string name, string industry, string description, string email, string phone, string website, string address, double lat, double lon, byte[] profile, List<SupportingDocument> docu, bool isDraft, string status)
+        public static async Task<bool> InsertBusinessApplicationAsync(string id, string name, string industry, string description, string email, string phone, string website, string address, double lat, double lon, byte[] profile, List<SupportingDocument> docu, string status)
         {
             try
             {
@@ -301,7 +301,6 @@ namespace JobNear.Services
                     BusinessLogo = profile,
                     BusinessSite = website,
                     SupportingDocuments = docu,
-                    isDraft = isDraft,
                     Status = status
                 };
 
@@ -462,6 +461,33 @@ namespace JobNear.Services
             catch (Exception ex)
             {
                 MessageBox.Show($"Error occurred while updating profile: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+        public static async Task<bool> UpdateBusinessAsync(string id, string name, string industry, string description, string email, string phone, string website, string address, double lat, double lon, byte[] profile, List<SupportingDocument> docu, string status)
+        {
+            try
+            {
+                var business = Builders<JobPosterBusinessModel>.Filter.Eq(x => x.Id, id);
+                var update = Builders<JobPosterBusinessModel>.Update
+                    .Set(x => x.BusinessName, name)
+                    .Set(x => x.BusinessIndustry, industry)
+                    .Set(x => x.BusinessDescription, description)
+                    .Set(x => x.BusinessAddress, address)
+                    .Set(x => x.BusinessLatitude, lat)
+                    .Set(x => x.BusinessLongitude, lon)
+                    .Set(x => x.BusinessEmail, email)
+                    .Set(x => x.BusinessContact, phone)
+                    .Set(x => x.BusinessLogo, profile)
+                    .Set(x => x.BusinessSite, website)
+                    .Set(x => x.SupportingDocuments, docu)
+                    .Set(x => x.Status, status);
+                await JobPosterBusiness.UpdateOneAsync(business, update);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error occurred while updating business: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
         }

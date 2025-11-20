@@ -1,13 +1,14 @@
 ﻿using JobNear.Models;
 using JobNear.Services;
 using JobNear.Styles;
+using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
-using MongoDB.Driver;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace JobNear.JobPosterDashboardUserControl
 {
@@ -25,48 +26,58 @@ namespace JobNear.JobPosterDashboardUserControl
         public JP_RegisterBusinessForm()
         {
             InitializeComponent();
-            ButtonStyle.RoundedButton(attach_file, 25, "#FFFFFF");
-            ButtonStyle.RoundedButton(cancel_button, 25, "#FFFFFF");
-            ButtonStyle.RoundedButton(review_button, 25, "#FFFFFF");
-            ButtonStyle.RoundedButton(upload_button, 25, "#FFFFFF");
-
-            image_flowlayout.FlowDirection = FlowDirection.TopDown;
-            image_flowlayout.WrapContents = false;
-            image_flowlayout.AutoScroll = true;
-
-            debounceTimer = new Timer();
-            debounceTimer.Interval = 300;
-            debounceTimer.Tick += DebounceTimer_Tick;
-
-            address_input.Leave += Address_input_Leave;
-            address_input.TextChanged += Address_input_TextChanged;
+            SetUpRegisterBusinessForm();
 
             cancel_button.Visible = false;
+            update_button.Visible = false;
         }
 
         public JP_RegisterBusinessForm(string businessId)
         {
             InitializeComponent();
-            ButtonStyle.RoundedButton(attach_file, 25, "#FFFFFF");
-            ButtonStyle.RoundedButton(cancel_button, 25, "#FFFFFF");
-            ButtonStyle.RoundedButton(review_button, 25, "#FFFFFF");
-            ButtonStyle.RoundedButton(upload_button, 25, "#FFFFFF");
-
-            image_flowlayout.FlowDirection = FlowDirection.TopDown;
-            image_flowlayout.WrapContents = false;
-            image_flowlayout.AutoScroll = true;
-
-            debounceTimer = new Timer();
-            debounceTimer.Interval = 300;
-            debounceTimer.Tick += DebounceTimer_Tick;
-
-            address_input.Leave += Address_input_Leave;
-            address_input.TextChanged += Address_input_TextChanged;
+            SetUpRegisterBusinessForm(); 
 
             LoadEditBusinessDetails(businessId);
+            review_button.Visible = false;
 
-        } 
+        }
+        private async void LoadEditBusinessDetails(string businessId)
+        {
+            try
+            {
+                header_label.Text = "Edit Business Details";
 
+                var businessDetails = await MongoDbServices.JobPosterBusiness
+                    .Find(x => x.Id == businessId)
+                    .FirstOrDefaultAsync();
+
+                if (businessDetails != null)
+                {
+                    name_input.Text = businessDetails.BusinessName;
+                    industry_input.Text = businessDetails.BusinessIndustry;
+                    description_richbox.Text = businessDetails.BusinessDescription;
+                    address_input.Text = businessDetails.BusinessAddress;
+                    email_input.Text = businessDetails.BusinessEmail;
+                    phone_input.Text = businessDetails.BusinessContact;
+                    website_input.Text = businessDetails.BusinessSite;
+                    profile_picture.Image = ConvertDataTypeServices.ConvertBytesToImage(businessDetails.BusinessLogo);
+
+                    if (businessDetails.SupportingDocuments != null)
+                    {
+                        foreach (var doc in businessDetails.SupportingDocuments)
+                        {
+                            FlowLayoutStyles.AddSupportingDocumentToFlow(doc, image_flowlayout, 726);
+                        }
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading business details: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
         private async void DebounceTimer_Tick(object sender, EventArgs e)
         {
             debounceTimer.Stop();
@@ -95,7 +106,7 @@ namespace JobNear.JobPosterDashboardUserControl
             debounceTimer.Start();
         }
 
-        private async void InsertBusinessDetails(bool isDraft, string status)
+        private async void InsertBusinessDetails(string status)
         {
             TextBoxValidatorController.ValidateEmail(email_input);
             TextBoxValidatorController.ValidatePhoneNumber(phone_input);
@@ -171,14 +182,13 @@ namespace JobNear.JobPosterDashboardUserControl
                     selectedLon,
                     imageResponse,
                     supportingDocuments,
-                    isDraft,
                     status
                     );
 
                 if (response)
                 {
                     string res = MessageBox.Show(
-                        isDraft ? "Business inserted successfully as a draft" : "Business registered successfully and ready for review",
+                        "Business registered successfully and ready for review",
                         "Success",
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Information
@@ -205,63 +215,123 @@ namespace JobNear.JobPosterDashboardUserControl
                 }
         }
 
-        private async void LoadEditBusinessDetails(string businessId)
-        {
-            try {
-                header_label.Text = "Edit Business Details";
+        private async void UpdateBusinessDetails(string status) {
+            TextBoxValidatorController.ValidateEmail(email_input);
+            TextBoxValidatorController.ValidatePhoneNumber(phone_input);
+            TextBoxValidatorController.AllowOnlyNumbers(phone_input);
 
-                var businessDetails = await MongoDbServices.JobPosterBusiness
-                    .Find(x => x.Id == businessId)
-                    .FirstOrDefaultAsync();
+            if (string.IsNullOrEmpty(name_input.Text) || string.IsNullOrEmpty(industry_input.Text) ||
+                string.IsNullOrEmpty(description_richbox.Text) || string.IsNullOrEmpty(address_input.Text) ||
+                string.IsNullOrEmpty(email_input.Text) || string.IsNullOrEmpty(phone_input.Text))
+            {
+                MessageBox.Show("Please fill all fields", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (profile_picture.Image == null)
+            {
+                MessageBox.Show("Please upload a profile picture", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (image_flowlayout.Controls.Count == 0)
+            {
+                MessageBox.Show("Please attach at least one supporting document", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
-                if (businessDetails != null) { 
-                    name_input.Text = businessDetails.BusinessName;
-                    industry_input.Text = businessDetails.BusinessIndustry;
-                    description_richbox.Text = businessDetails.BusinessDescription;
-                    address_input.Text = businessDetails.BusinessAddress;
-                    email_input.Text = businessDetails.BusinessEmail;
-                    phone_input.Text = businessDetails.BusinessContact;
-                    website_input.Text = businessDetails.BusinessSite;
-                    profile_picture.Image = ConvertDataTypeServices.ConvertBytesToImage(businessDetails.BusinessLogo);
+            if (selectedLat == 0 && selectedLon == 0)
+            {
+                var result = await geoServices.GetSuggestionsAsync(address_input.Text);
+                if (result.Any())
+                {
+                    var firstEntry = result.First();
+                    selectedLat = firstEntry.Value.lat;
+                    selectedLon = firstEntry.Value.lon;
+                }
+                else
+                {
+                    MessageBox.Show("Could not determine location for this address. Coordinates set to 0,0.",
+                                    "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
 
-                    if (businessDetails.SupportingDocuments != null)
+            List<SupportingDocument> supportingDocuments = new List<SupportingDocument>();
+
+            foreach (Control ctrl in image_flowlayout.Controls)
+            {
+                if (ctrl is Panel panel)
+                {
+                    if (panel.Tag is SupportingDocument existingDoc)
                     {
-                        foreach (var doc in businessDetails.SupportingDocuments)
+                        supportingDocuments.Add(existingDoc);
+                    }
+                    else if (panel.Tag is string filePath && File.Exists(filePath))
+                    {
+                        supportingDocuments.Add(new SupportingDocument
                         {
-                            FlowLayoutStyles.AddSupportingDocumentToFlow(doc, image_flowlayout, 726);
-                        }
+                            FileName = Path.GetFileName(filePath),
+                            FileContent = File.ReadAllBytes(filePath)
+                        });
                     }
                 }
+            }
 
-            } catch (Exception ex)
+            byte[] imageResponse = ConvertDataTypeServices.ConvertImageToBytes(profile_picture.Image);
+
+            bool response = await MongoDbServices.UpdateBusinessAsync(
+                Session.CurrentUserId,
+                name_input.Text,
+                industry_input.Text,
+                description_richbox.Text,
+                email_input.Text,
+                phone_input.Text,
+                website_input.Text,
+                address_input.Text,
+                selectedLat,
+                selectedLon,
+                imageResponse,
+                supportingDocuments,
+                status
+                );
+
+                if (response)
             {
-                MessageBox.Show("Error loading business details: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }   
+                string res = MessageBox.Show(
+                    "Business registered successfully and ready for review",
+                    "Success",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information
+                ).ToString();
 
-        }
-        private void JP_RegisterBusinessForm_Load(object sender, EventArgs e)
-        {
+                if (res == "OK")
+                {
+                    name_input.Clear();
+                    industry_input.SelectedIndex = -1;
+                    description_richbox.Clear();
+                    address_input.Clear();
+                    email_input.Clear();
+                    phone_input.Clear();
+                    website_input.Clear();
+                    profile_picture.Image = null;
+                    image_flowlayout.Controls.Clear();
 
-        }
-
-        private void cancel_button_Click_1(object sender, EventArgs e)
-        {
-            JobPosterDashboardUserControl.JP_BusinessDetails jp_businessDeets = new JobPosterDashboardUserControl.JP_BusinessDetails(Session.CurrentBusinessSelected);
-            sidebar_panel.Controls.Clear();
-            sidebar_panel.Controls.Add(jp_businessDeets);
-            jp_businessDeets.Dock = DockStyle.Fill;
+                }
+                else return;
+            }
+            else
+            {
+                MessageBox.Show("Failed to register business. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void review_button_Click_1(object sender, EventArgs e)
         {
-            InsertBusinessDetails(false, "pending");
+            InsertBusinessDetails("pending");
         }
 
-        private void sidebar_panel_Paint(object sender, PaintEventArgs e)
+        private void update_button_Click(object sender, EventArgs e)
         {
-
+            UpdateBusinessDetails("Pending");
         }
-
         private void upload_button_Click_1(object sender, EventArgs e)
         {
             ofd.Filter = "Image Files (*.jpg;*.jpeg;*.png)|*.jpg;*.jpeg;*.png";
@@ -274,7 +344,25 @@ namespace JobNear.JobPosterDashboardUserControl
                 MessageBox.Show("No file selected.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        private void SetUpRegisterBusinessForm()
+        {
+            ButtonStyle.RoundedButton(attach_file, 25, "#FFFFFF");
+            ButtonStyle.RoundedButton(cancel_button, 25, "#FFFFFF");
+            ButtonStyle.RoundedButton(review_button, 25, "#FFFFFF");
+            ButtonStyle.RoundedButton(upload_button, 25, "#FFFFFF");
+            ButtonStyle.RoundedButton(update_button, 25, "#FFFFFF");
 
+            image_flowlayout.FlowDirection = FlowDirection.TopDown;
+            image_flowlayout.WrapContents = false;
+            image_flowlayout.AutoScroll = true;
+
+            debounceTimer = new Timer();
+            debounceTimer.Interval = 300;
+            debounceTimer.Tick += DebounceTimer_Tick;
+
+            address_input.Leave += Address_input_Leave;
+            address_input.TextChanged += Address_input_TextChanged;
+        }
         private void attach_file_Click_1(object sender, EventArgs e)
         {
             OpenFileDialog ofd = new OpenFileDialog();
@@ -297,6 +385,13 @@ namespace JobNear.JobPosterDashboardUserControl
                     FlowLayoutStyles.AddFileItem(destPath, image_flowlayout, 726);
                 }
             }
+        }
+        private void cancel_button_Click_1(object sender, EventArgs e)
+        {
+            JobPosterDashboardUserControl.JP_BusinessDetails jp_businessDeets = new JobPosterDashboardUserControl.JP_BusinessDetails(Session.CurrentBusinessSelected);
+            sidebar_panel.Controls.Clear();
+            sidebar_panel.Controls.Add(jp_businessDeets);
+            jp_businessDeets.Dock = DockStyle.Fill;
         }
     }
 }

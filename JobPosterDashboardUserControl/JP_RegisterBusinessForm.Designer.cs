@@ -57,6 +57,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.update_button = new System.Windows.Forms.Button();
             this.sidebar_panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.profile_picture)).BeginInit();
             this.SuspendLayout();
@@ -65,6 +66,7 @@
             // 
             this.sidebar_panel.AutoScroll = true;
             this.sidebar_panel.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.sidebar_panel.Controls.Add(this.update_button);
             this.sidebar_panel.Controls.Add(this.panel4);
             this.sidebar_panel.Controls.Add(this.upload_button);
             this.sidebar_panel.Controls.Add(this.review_button);
@@ -422,6 +424,17 @@
             this.label1.TabIndex = 57;
             this.label1.Text = "Business Information";
             // 
+            // update_button
+            // 
+            this.update_button.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.update_button.Location = new System.Drawing.Point(823, 879);
+            this.update_button.Name = "update_button";
+            this.update_button.Size = new System.Drawing.Size(161, 36);
+            this.update_button.TabIndex = 85;
+            this.update_button.Text = "Update Business";
+            this.update_button.UseVisualStyleBackColor = true;
+            this.update_button.Click += new System.EventHandler(this.update_button_Click);
+            // 
             // JP_RegisterBusinessForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -469,5 +482,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button update_button;
     }
 }

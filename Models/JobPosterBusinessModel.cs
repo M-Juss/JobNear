@@ -25,7 +25,6 @@ namespace JobNear.Models
         public byte[] BusinessLogo { get; set; }
         public string BusinessSite { get; set; }
         public List<SupportingDocument> SupportingDocuments { get; set; }
-        public Boolean isDraft { get; set; }
         public String Status { get; set; }
     }
 
