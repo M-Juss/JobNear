@@ -96,10 +96,10 @@ namespace JobNear.JobSeekerDashboardUserControl
 
             if (report != null)
             {
-                if (report.Status == "Pending")
+                if (report.Status == "Active")
                 {
                     MessageBox.Show(
-                    "Your report has already been submitted and is currently pending review. Please wait for updates.",
+                    "Your report has already been submitted and is currently waiting for review. Please wait for updates.",
                     "Report Pending",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information

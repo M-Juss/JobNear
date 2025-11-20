@@ -29,8 +29,11 @@
         private void InitializeComponent()
         {
             this.sidebar_panel = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.admin_table = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.info_panel = new System.Windows.Forms.Panel();
+            this.update_button = new System.Windows.Forms.Button();
             this.clear_button = new System.Windows.Forms.Button();
             this.submit_button = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
@@ -45,13 +48,10 @@
             this.email_input = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.lbl = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.admin_table = new System.Windows.Forms.DataGridView();
-            this.update_button = new System.Windows.Forms.Button();
             this.sidebar_panel.SuspendLayout();
-            this.info_panel.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.admin_table)).BeginInit();
+            this.info_panel.SuspendLayout();
             this.SuspendLayout();
             // 
             // sidebar_panel
@@ -67,6 +67,27 @@
             this.sidebar_panel.TabIndex = 0;
             this.sidebar_panel.Paint += new System.Windows.Forms.PaintEventHandler(this.sidebar_panel_Paint);
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.admin_table);
+            this.panel1.Location = new System.Drawing.Point(29, 399);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(973, 279);
+            this.panel1.TabIndex = 27;
+            // 
+            // admin_table
+            // 
+            this.admin_table.AllowUserToAddRows = false;
+            this.admin_table.AllowUserToDeleteRows = false;
+            this.admin_table.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.admin_table.Location = new System.Drawing.Point(3, 3);
+            this.admin_table.Name = "admin_table";
+            this.admin_table.ReadOnly = true;
+            this.admin_table.RowHeadersWidth = 51;
+            this.admin_table.Size = new System.Drawing.Size(967, 273);
+            this.admin_table.TabIndex = 5;
+            this.admin_table.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.admin_table_CellContentClick);
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -80,7 +101,6 @@
             // 
             // info_panel
             // 
-            this.info_panel.Controls.Add(this.update_button);
             this.info_panel.Controls.Add(this.clear_button);
             this.info_panel.Controls.Add(this.submit_button);
             this.info_panel.Controls.Add(this.label6);
@@ -95,10 +115,23 @@
             this.info_panel.Controls.Add(this.email_input);
             this.info_panel.Controls.Add(this.label3);
             this.info_panel.Controls.Add(this.lbl);
+            this.info_panel.Controls.Add(this.update_button);
             this.info_panel.Location = new System.Drawing.Point(29, 54);
             this.info_panel.Name = "info_panel";
             this.info_panel.Size = new System.Drawing.Size(973, 315);
             this.info_panel.TabIndex = 5;
+            // 
+            // update_button
+            // 
+            this.update_button.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.update_button.ForeColor = System.Drawing.Color.White;
+            this.update_button.Location = new System.Drawing.Point(819, 263);
+            this.update_button.Name = "update_button";
+            this.update_button.Size = new System.Drawing.Size(105, 32);
+            this.update_button.TabIndex = 48;
+            this.update_button.Text = "Update";
+            this.update_button.UseVisualStyleBackColor = true;
+            this.update_button.Click += new System.EventHandler(this.update_button_Click);
             // 
             // clear_button
             // 
@@ -246,39 +279,6 @@
             this.lbl.TabIndex = 22;
             this.lbl.Text = "Email";
             // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.admin_table);
-            this.panel1.Location = new System.Drawing.Point(29, 399);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(973, 279);
-            this.panel1.TabIndex = 27;
-            // 
-            // admin_table
-            // 
-            this.admin_table.AllowUserToAddRows = false;
-            this.admin_table.AllowUserToDeleteRows = false;
-            this.admin_table.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.admin_table.Location = new System.Drawing.Point(3, 3);
-            this.admin_table.Name = "admin_table";
-            this.admin_table.ReadOnly = true;
-            this.admin_table.RowHeadersWidth = 51;
-            this.admin_table.Size = new System.Drawing.Size(967, 273);
-            this.admin_table.TabIndex = 5;
-            this.admin_table.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.admin_table_CellContentClick);
-            // 
-            // update_button
-            // 
-            this.update_button.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.update_button.ForeColor = System.Drawing.Color.White;
-            this.update_button.Location = new System.Drawing.Point(819, 263);
-            this.update_button.Name = "update_button";
-            this.update_button.Size = new System.Drawing.Size(105, 32);
-            this.update_button.TabIndex = 48;
-            this.update_button.Text = "Update";
-            this.update_button.UseVisualStyleBackColor = true;
-            this.update_button.Click += new System.EventHandler(this.update_button_Click);
-            // 
             // Admin_ManageAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -288,10 +288,10 @@
             this.Size = new System.Drawing.Size(1031, 705);
             this.sidebar_panel.ResumeLayout(false);
             this.sidebar_panel.PerformLayout();
-            this.info_panel.ResumeLayout(false);
-            this.info_panel.PerformLayout();
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.admin_table)).EndInit();
+            this.info_panel.ResumeLayout(false);
+            this.info_panel.PerformLayout();
             this.ResumeLayout(false);
 
         }

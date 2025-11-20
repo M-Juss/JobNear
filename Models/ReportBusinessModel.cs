@@ -14,7 +14,7 @@ namespace JobNear.Models
         public string Subject { get; set; }
         public string Description { get; set; }
         public List<SupportingDocument> SupportingDocuments { get; set; }
-        public string Status { get; set; } = "Pending";
+        public string Status { get; set; } = "Active";
         public DateTime DateCreated { get; set; } = DateTime.Now;
     }
 }
