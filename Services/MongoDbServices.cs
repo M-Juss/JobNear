@@ -186,19 +186,6 @@ namespace JobNear.Services
                 // Admin or Super Admin Login
                 else if (user == "admin")
                 {
-                    string superAdminEmail = "sa_jobnear@gmail.com";
-                    string superAdminPassword = "jobnearSuperAdmin";
-                    if (email == superAdminEmail && password == superAdminPassword)
-                    {
-
-                        Session.CurrentUserType = "super_admin";
-                        Session.CurrentEmail = superAdminEmail;
-
-                        MessageBox.Show("Login successful", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        FormsController.FormLoad(new AdminDashboardForm(), app_panel);
-                    }
-                    else
-                    {
                         var admin = await AdminAccount
                         .Find(x => x.Email == email)
                         .FirstOrDefaultAsync();
@@ -216,8 +203,13 @@ namespace JobNear.Services
                                 MessageBox.Show("Incorrect password", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 return;
                             }
+                        if (admin.Status != "Active")
+                        {
+                            MessageBox.Show("Account is inactive. Please contact support.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
 
-                            Session.CurrentUserType = "admin";
+                        Session.CurrentUserType = "admin";
                             Session.CurrentUserId = admin.Id;
                             Session.CurrentEmail = admin.Email;
 
@@ -225,7 +217,6 @@ namespace JobNear.Services
                             FormsController.FormLoad(new AdminDashboardForm(), app_panel);
                         } else MessageBox.Show("User not found", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-                }
                 else
                 {
                     MessageBox.Show("Unknown user type", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);

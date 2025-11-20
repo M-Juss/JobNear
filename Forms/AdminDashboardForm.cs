@@ -6,10 +6,12 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MongoDB.Driver;
 using System.Windows.Forms;
 using JobNear.Styles;
 using JobNear.Controllers;
 using JobNear.Controller;
+using JobNear.Services;
 
 namespace JobNear.Forms
 {
@@ -23,6 +25,7 @@ namespace JobNear.Forms
         public AdminDashboardForm()
         {
             InitializeComponent();
+            CheckIfSuperAdminOrAdmin();
 
             hideInactiveSubMenu();
 
@@ -44,6 +47,31 @@ namespace JobNear.Forms
 
             subUserManagement.Visible = false;
             subSystemSettings.Visible = false;
+        }
+        private async void CheckIfSuperAdminOrAdmin()
+        {
+            try
+            {
+                var admin = await MongoDbServices.AdminAccount
+                    .Find(x => x.Email == Session.CurrentEmail)
+                    .FirstOrDefaultAsync();
+                if (admin != null)
+                {
+                    if (admin.Role == "Super Admin")
+                    {
+                        manageAdmin_button.Visible = true;
+                    }
+                    else
+                    {
+                        manageAdmin_button.Visible = false;
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error checking admin role: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void hideInactiveSubMenu()
