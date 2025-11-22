@@ -251,6 +251,7 @@ namespace JobNear.JobPosterDashboardUserControl
                 {
                     MessageBox.Show("Could not determine location for this address. Coordinates set to 0,0.",
                                     "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
                 }
             }
 

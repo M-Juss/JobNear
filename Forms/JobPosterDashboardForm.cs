@@ -16,11 +16,7 @@ namespace JobNear.Forms
 {
     public partial class JobPosterDashboardForm : Form
     {
-        JobPosterDashboardUserControl.JP_MyBusiness jp_myBusiness = new JobPosterDashboardUserControl.JP_MyBusiness();
-        JobPosterDashboardUserControl.JP_Notifications jp_notifications = new JobPosterDashboardUserControl.JP_Notifications();
-        JobPosterDashboardUserControl.JP_Dashboard jp_dashboard = new JobPosterDashboardUserControl.JP_Dashboard();
-        JobPosterDashboardUserControl.JP_RegisterBusinessForm jp_register = new JobPosterDashboardUserControl.JP_RegisterBusinessForm();
-
+        JobPosterDashboardUserControl.JP_Dashboard jp_dashboard;
         public JobPosterDashboardForm()
         {
             InitializeComponent();
@@ -39,6 +35,7 @@ namespace JobNear.Forms
 
         private void business_button_Click(object sender, EventArgs e)
         {
+            JobPosterDashboardUserControl.JP_RegisterBusinessForm jp_register = new JobPosterDashboardUserControl.JP_RegisterBusinessForm();
             sidebar_panel.Controls.Clear();
             sidebar_panel.Controls.Add(jp_register);
             jp_register.Dock = DockStyle.Fill;
@@ -46,6 +43,7 @@ namespace JobNear.Forms
 
         private void view_business_button_Click(object sender, EventArgs e)
         {
+            JobPosterDashboardUserControl.JP_MyBusiness jp_myBusiness = new JobPosterDashboardUserControl.JP_MyBusiness();  
             sidebar_panel.Controls.Clear();
             sidebar_panel.Controls.Add(jp_myBusiness);
             jp_myBusiness.Dock = DockStyle.Fill;
@@ -53,6 +51,7 @@ namespace JobNear.Forms
 
         private void notification_button_Click(object sender, EventArgs e)
         {
+            JobPosterDashboardUserControl.JP_Notifications jp_notifications = new JobPosterDashboardUserControl.JP_Notifications();
             sidebar_panel.Controls.Clear();
             sidebar_panel.Controls.Add(jp_notifications);
             jp_notifications.Dock = DockStyle.Fill;

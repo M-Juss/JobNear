@@ -100,7 +100,6 @@
             this.sidebar_panel.Name = "sidebar_panel";
             this.sidebar_panel.Size = new System.Drawing.Size(1031, 705);
             this.sidebar_panel.TabIndex = 0;
-            this.sidebar_panel.Paint += new System.Windows.Forms.PaintEventHandler(this.sidebar_panel_Paint);
             // 
             // panel4
             // 
@@ -443,7 +442,6 @@
             this.Controls.Add(this.sidebar_panel);
             this.Name = "JP_RegisterBusinessForm";
             this.Size = new System.Drawing.Size(1031, 705);
-            this.Load += new System.EventHandler(this.JP_RegisterBusinessForm_Load);
             this.sidebar_panel.ResumeLayout(false);
             this.sidebar_panel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.profile_picture)).EndInit();
