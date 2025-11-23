@@ -169,13 +169,36 @@ namespace JobNear.AdminDashboardUserControl
 
                         if (getbusiness != null)
                         {
-                            var updateDef = Builders<JobPosterBusinessModel>.Update
-                                .Set(x => x.Status, status_combo.Text);
+                            if (status == "Verified") // verified business and set BusinessOnReview to false in job posts
+                            {
+                                var updateVerified = Builders<JobPosterBusinessModel>.Update
+                                    .Set(x => x.Status, status);
 
-                            await MongoDbServices.JobPosterBusiness.UpdateOneAsync(getbusiness, updateDef);
+                                await MongoDbServices.JobPosterBusiness.UpdateOneAsync(getbusiness, updateVerified);
 
-                        MessageBox.Show($"{business.BusinessName} {status_combo.Text} status updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                var checkJobPosts = await MongoDbServices.JobPosterJobPosting
+                                    .Find(x => x.BusinessId == Session.CurrentBusinessSelected)
+                                    .ToListAsync();
 
+                                if (checkJobPosts != null && checkJobPosts.Count > 0)
+                                {
+                                    foreach (var jobPost in checkJobPosts)
+                                    {
+                                        var updateJobPost = Builders<JobPosterJobPostingModel>.Update
+                                            .Set(x => x.IsBusinessOnReview, false);
+                                        var jobPostFilter = Builders<JobPosterJobPostingModel>.Filter.Eq(x => x.Id, jobPost.Id);
+                                        await MongoDbServices.JobPosterJobPosting.UpdateOneAsync(jobPostFilter, updateJobPost);
+                                    }
+                                }
+                            }
+                            else {
+                                var updateDef = Builders<JobPosterBusinessModel>.Update
+                                    .Set(x => x.Status, status);
+
+                                await MongoDbServices.JobPosterBusiness.UpdateOneAsync(getbusiness, updateDef);
+                            }
+
+                            MessageBox.Show($"{business.BusinessName} {status} status updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             sidebar_panel.Controls.Clear();
                             sidebar_panel.Controls.Add(new Admin_JP_UserManagement());
                             sidebar_panel.Dock = DockStyle.Fill;

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.sidebar_panel = new System.Windows.Forms.Panel();
+            this.update_button = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.upload_button = new System.Windows.Forms.Button();
             this.review_button = new System.Windows.Forms.Button();
@@ -57,7 +58,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.update_button = new System.Windows.Forms.Button();
             this.sidebar_panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.profile_picture)).BeginInit();
             this.SuspendLayout();
@@ -66,7 +66,6 @@
             // 
             this.sidebar_panel.AutoScroll = true;
             this.sidebar_panel.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.sidebar_panel.Controls.Add(this.update_button);
             this.sidebar_panel.Controls.Add(this.panel4);
             this.sidebar_panel.Controls.Add(this.upload_button);
             this.sidebar_panel.Controls.Add(this.review_button);
@@ -95,11 +94,23 @@
             this.sidebar_panel.Controls.Add(this.label3);
             this.sidebar_panel.Controls.Add(this.label2);
             this.sidebar_panel.Controls.Add(this.label1);
+            this.sidebar_panel.Controls.Add(this.update_button);
             this.sidebar_panel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.sidebar_panel.Location = new System.Drawing.Point(0, 0);
             this.sidebar_panel.Name = "sidebar_panel";
             this.sidebar_panel.Size = new System.Drawing.Size(1031, 705);
             this.sidebar_panel.TabIndex = 0;
+            // 
+            // update_button
+            // 
+            this.update_button.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.update_button.Location = new System.Drawing.Point(823, 879);
+            this.update_button.Name = "update_button";
+            this.update_button.Size = new System.Drawing.Size(161, 36);
+            this.update_button.TabIndex = 85;
+            this.update_button.Text = "Update Business";
+            this.update_button.UseVisualStyleBackColor = true;
+            this.update_button.Click += new System.EventHandler(this.update_button_Click);
             // 
             // panel4
             // 
@@ -422,17 +433,6 @@
             this.label1.Size = new System.Drawing.Size(220, 34);
             this.label1.TabIndex = 57;
             this.label1.Text = "Business Information";
-            // 
-            // update_button
-            // 
-            this.update_button.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.update_button.Location = new System.Drawing.Point(823, 879);
-            this.update_button.Name = "update_button";
-            this.update_button.Size = new System.Drawing.Size(161, 36);
-            this.update_button.TabIndex = 85;
-            this.update_button.Text = "Update Business";
-            this.update_button.UseVisualStyleBackColor = true;
-            this.update_button.Click += new System.EventHandler(this.update_button_Click);
             // 
             // JP_RegisterBusinessForm
             // 

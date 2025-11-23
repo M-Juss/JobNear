@@ -28,5 +28,6 @@ namespace JobNear.Models
         public double JobMonthlyRate { get; set; }
         public double JobHourlyRate { get; set; }
         public string JobStatus { get; set; }
+        public bool IsBusinessOnReview { get; set; } = true;
     }
 }
