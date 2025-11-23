@@ -115,9 +115,5 @@ namespace JobNear.JobPosterDashboardUserControl
 
         }
 
-        private void post_job_button_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

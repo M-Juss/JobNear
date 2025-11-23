@@ -1,5 +1,7 @@
 ﻿using JobNear.Controllers;
 using JobNear.JobPosterDashboardUserControl;
+using JobNear.JobPosterDashboardUserControl;
+using JobNear.JobSeekerDashboardUserControl;
 using JobNear.Styles;
 using System;
 using System.Collections.Generic;
@@ -10,7 +12,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using JobNear.JobPosterDashboardUserControl;
 
 namespace JobNear.Forms
 {
@@ -28,6 +29,7 @@ namespace JobNear.Forms
             ButtonStyle.SidebarButton(notification_button, "#3B82F6");
             ButtonStyle.SidebarButton(log_out_button, "#3B82F6");
 
+            jp_dashboard = new JobPosterDashboardUserControl.JP_Dashboard();
             sidebar_panel.Controls.Clear();
             sidebar_panel.Controls.Add(jp_dashboard);
             jp_dashboard.Dock = DockStyle.Fill;
@@ -59,6 +61,7 @@ namespace JobNear.Forms
 
         private void dashboard_button_Click(object sender, EventArgs e)
         {
+            jp_dashboard = new JobPosterDashboardUserControl.JP_Dashboard();
             sidebar_panel.Controls.Clear();
             sidebar_panel.Controls.Add(jp_dashboard);
             jp_dashboard.Dock = DockStyle.Fill;

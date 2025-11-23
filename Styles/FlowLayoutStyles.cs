@@ -288,6 +288,7 @@ namespace JobNear.Styles
             businessPanel.Click +=  (s, e) =>
             {
                 Session.CurrentBusinessSelected = businessSpecificId;
+                Session.CurrentBusinessSelectedStatus = businessStatus;
 
                 if (Session.CurrentUserType == "admin")
                 {
@@ -298,10 +299,10 @@ namespace JobNear.Styles
                 }
 
                 else {
-                        JobPosterDashboardUserControl.JP_BusinessDetails jp_businessDeets = new JobPosterDashboardUserControl.JP_BusinessDetails(Session.CurrentBusinessSelected);
-                        my_business_panel.Controls.Clear();
-                        my_business_panel.Controls.Add(jp_businessDeets);
-                        jp_businessDeets.Dock = DockStyle.Fill;
+                    JobPosterDashboardUserControl.JP_BusinessDetails jp_businessDeets = new JobPosterDashboardUserControl.JP_BusinessDetails(Session.CurrentBusinessSelected);
+                    my_business_panel.Controls.Clear();
+                    my_business_panel.Controls.Add(jp_businessDeets);
+                    jp_businessDeets.Dock = DockStyle.Fill;
 
                 }
             };
@@ -384,6 +385,12 @@ namespace JobNear.Styles
             {
                 jobEditPost.Click += (s, e) =>
                 {
+                    if(Session.CurrentBusinessSelectedStatus != "Verified")
+                    {
+                        MessageBox.Show("Business must be Verified to edit a job post!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+
                     string mode = "edit";
                     Session.CurrentPostJobFormMode = mode;
                     Session.CurrentPostedJobSelected = job_id;
