@@ -279,7 +279,7 @@ namespace JobNear.JobPosterDashboardUserControl
             byte[] imageResponse = ConvertDataTypeServices.ConvertImageToBytes(profile_picture.Image);
 
             bool response = await MongoDbServices.UpdateBusinessAsync(
-                Session.CurrentUserId,
+                Session.CurrentBusinessSelected,
                 name_input.Text,
                 industry_input.Text,
                 description_richbox.Text,
@@ -297,7 +297,7 @@ namespace JobNear.JobPosterDashboardUserControl
                 if (response)
             {
                 string res = MessageBox.Show(
-                    "Business registered successfully and ready for review",
+                    "Business updated successfully and ready for review",
                     "Success",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information
@@ -305,15 +305,10 @@ namespace JobNear.JobPosterDashboardUserControl
 
                 if (res == "OK")
                 {
-                    name_input.Clear();
-                    industry_input.SelectedIndex = -1;
-                    description_richbox.Clear();
-                    address_input.Clear();
-                    email_input.Clear();
-                    phone_input.Clear();
-                    website_input.Clear();
-                    profile_picture.Image = null;
-                    image_flowlayout.Controls.Clear();
+                    JobPosterDashboardUserControl.JP_MyBusiness jp_myBusiness = new JobPosterDashboardUserControl.JP_MyBusiness();
+                    sidebar_panel.Controls.Clear();
+                    sidebar_panel.Controls.Add(jp_myBusiness);
+                    jp_myBusiness.Dock = DockStyle.Fill;
 
                 }
                 else return;

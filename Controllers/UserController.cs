@@ -70,6 +70,10 @@ namespace JobNear.Controllers
                     status_label.Text = "Withdrawn";
                     PanelStyles.StyleRoundedLabel(status_label, 10, Color.Orange, Color.White);
                     break;
+                case "on review":
+                    status_label.Text = "On Review";
+                    PanelStyles.StyleRoundedLabel(status_label, 10, Color.Orange, Color.Orange);
+                    break;
                 default:
                     status_label.Text = "Unknown";
                     PanelStyles.StyleRoundedLabel(status_label, 10, Color.Black, Color.White);

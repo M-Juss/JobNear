@@ -482,6 +482,7 @@ namespace JobNear.Services
                     .Set(x => x.BusinessSite, website)
                     .Set(x => x.SupportingDocuments, docu)
                     .Set(x => x.Status, status);
+
                 await JobPosterBusiness.UpdateOneAsync(business, update);
                 return true;
             }

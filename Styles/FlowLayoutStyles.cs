@@ -345,8 +345,17 @@ namespace JobNear.Styles
             jobStatus.Location = new Point(joblist_flowlayout.Width - 170, 14);
             jobStatus.TextAlign = ContentAlignment.MiddleCenter;
             jobStatus.Font = new Font("Poppins", 12, FontStyle.Bold);
-            
-            UserController.SetJobPostStatus(jobStatus, job_status);
+
+            if (Session.CurrentBusinessSelectedStatus != "Verified")
+            {
+                string onRev = jobStatus.Text = "On Review";
+                UserController.SetJobPostStatus(jobStatus, onRev);
+            }
+            else
+            {
+
+                UserController.SetJobPostStatus(jobStatus, job_status);
+            }
 
             Label jobInfo= new Label();
             jobInfo.AutoSize = false;
@@ -459,7 +468,6 @@ namespace JobNear.Styles
             jobStatus.TextAlign = ContentAlignment.MiddleCenter;
             jobStatus.Font = new Font("Poppins", 12, FontStyle.Bold);
 
-            UserController.SetJobPostStatus(jobStatus, job_status);
 
             Label jobInfo = new Label();
             jobInfo.AutoSize = false;
