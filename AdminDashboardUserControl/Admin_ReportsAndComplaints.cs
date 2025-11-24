@@ -3,10 +3,7 @@ using JobNear.Services;
 using JobNear.Styles;
 using MongoDB.Driver;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.ComponentModel.Composition.Primitives;
-using System.Data;
+using JobNear.AdminDashboardUserControl;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -28,10 +25,15 @@ namespace JobNear.AdminDashboardUserControl
 
             reports_table.Columns.Add("Subject", "Subject");
             reports_table.Columns.Add("Complainant", "Complainant");
+            reports_table.Columns.Add("ComplainantId", "ComplainantId");
             reports_table.Columns.Add("Complainee", "Complainee");
+            reports_table.Columns.Add("ComplaineeId", "ComplaineeId");
             reports_table.Columns.Add("Date Filed", "Date Filed");
             reports_table.Columns.Add("Status", "Status");
             reports_table.Columns.Add("ReportId", "ReportId");
+
+            reports_table.Columns["ComplainantId"].Visible = false;
+            reports_table.Columns["ComplaineeId"].Visible = false;
             reports_table.Columns["ReportId"].Visible = false;
 
             var actionButton = new DataGridViewButtonColumn();
@@ -77,7 +79,9 @@ namespace JobNear.AdminDashboardUserControl
                                     reports_table.Rows.Add(
                                         active.Subject,
                                         complainantName,
+                                        getUser.Id,
                                         complaineeName,
+                                        getBusiness.Id,
                                         active.DateCreated.ToString("MM/dd/yyyy"),
                                         active.Status,
                                         active.Id
@@ -210,6 +214,22 @@ namespace JobNear.AdminDashboardUserControl
         }
 
         private void reports_table_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.ColumnIndex == reports_table.Columns["Action"].Index)
+            {
+                string complainantId = reports_table.Rows[e.RowIndex].Cells["ComplainantId"].Value.ToString();
+                string complaineeId = reports_table.Rows[e.RowIndex].Cells["ComplaineeId"].Value.ToString();
+                string reportId = reports_table.Rows[e.RowIndex].Cells["ReportId"].Value.ToString();
+
+
+                Admin_ViewReportDetails viewReportInformation = new Admin_ViewReportDetails(complainantId, complaineeId, reportId);
+                sidebar_panel.Controls.Clear();
+                sidebar_panel.Controls.Add(viewReportInformation);
+                viewReportInformation.Dock = DockStyle.Fill;
+            }
+        }
+
+        private void sidebar_panel_Paint(object sender, PaintEventArgs e)
         {
 
         }

@@ -43,9 +43,10 @@
             // table_panel
             // 
             this.table_panel.Controls.Add(this.seeker_table);
-            this.table_panel.Location = new System.Drawing.Point(22, 130);
+            this.table_panel.Location = new System.Drawing.Point(29, 160);
+            this.table_panel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.table_panel.Name = "table_panel";
-            this.table_panel.Size = new System.Drawing.Size(976, 552);
+            this.table_panel.Size = new System.Drawing.Size(1301, 679);
             this.table_panel.TabIndex = 6;
             // 
             // seeker_table
@@ -53,11 +54,12 @@
             this.seeker_table.AllowUserToAddRows = false;
             this.seeker_table.AllowUserToDeleteRows = false;
             this.seeker_table.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.seeker_table.Location = new System.Drawing.Point(3, 3);
+            this.seeker_table.Location = new System.Drawing.Point(4, 4);
+            this.seeker_table.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.seeker_table.Name = "seeker_table";
             this.seeker_table.ReadOnly = true;
             this.seeker_table.RowHeadersWidth = 51;
-            this.seeker_table.Size = new System.Drawing.Size(973, 535);
+            this.seeker_table.Size = new System.Drawing.Size(1297, 658);
             this.seeker_table.TabIndex = 3;
             this.seeker_table.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.seeker_table_CellContentClick);
             // 
@@ -71,18 +73,19 @@
             this.sidebar_panel.Controls.Add(this.label2);
             this.sidebar_panel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.sidebar_panel.Location = new System.Drawing.Point(0, 0);
+            this.sidebar_panel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.sidebar_panel.Name = "sidebar_panel";
-            this.sidebar_panel.Size = new System.Drawing.Size(1031, 705);
+            this.sidebar_panel.Size = new System.Drawing.Size(1375, 868);
             this.sidebar_panel.TabIndex = 7;
             this.sidebar_panel.Paint += new System.Windows.Forms.PaintEventHandler(this.sidebar_panel_Paint);
             // 
             // search_input
             // 
             this.search_input.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.search_input.Location = new System.Drawing.Point(22, 90);
-            this.search_input.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.search_input.Location = new System.Drawing.Point(29, 111);
+            this.search_input.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.search_input.Name = "search_input";
-            this.search_input.Size = new System.Drawing.Size(611, 31);
+            this.search_input.Size = new System.Drawing.Size(813, 37);
             this.search_input.TabIndex = 7;
             this.search_input.MouseClick += new System.Windows.Forms.MouseEventHandler(this.search_input_MouseClick);
             // 
@@ -90,11 +93,13 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Poppins", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(16, 0);
+            this.label1.Location = new System.Drawing.Point(21, 0);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(513, 56);
+            this.label1.Size = new System.Drawing.Size(635, 70);
             this.label1.TabIndex = 2;
             this.label1.Text = "JobSeeker User Management";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // status_combo
             // 
@@ -107,28 +112,31 @@
             "Pending",
             "Incomplete",
             "All"});
-            this.status_combo.Location = new System.Drawing.Point(878, 89);
+            this.status_combo.Location = new System.Drawing.Point(1171, 110);
+            this.status_combo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.status_combo.Name = "status_combo";
-            this.status_combo.Size = new System.Drawing.Size(121, 33);
+            this.status_combo.Size = new System.Drawing.Size(160, 38);
             this.status_combo.TabIndex = 4;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(751, 93);
+            this.label2.Location = new System.Drawing.Point(1001, 114);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(130, 28);
+            this.label2.Size = new System.Drawing.Size(161, 36);
             this.label2.TabIndex = 5;
             this.label2.Text = "Filter by status:";
             // 
             // Admin_JS_UserManagement
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.sidebar_panel);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Admin_JS_UserManagement";
-            this.Size = new System.Drawing.Size(1031, 705);
+            this.Size = new System.Drawing.Size(1375, 868);
             this.table_panel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.seeker_table)).EndInit();
             this.sidebar_panel.ResumeLayout(false);
