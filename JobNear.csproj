@@ -225,6 +225,12 @@
     <Compile Include="AdminDashboardUserControl\Admin_ManageAdmin.Designer.cs">
       <DependentUpon>Admin_ManageAdmin.cs</DependentUpon>
     </Compile>
+    <Compile Include="AdminDashboardUserControl\Admin_ViewReportDetails.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AdminDashboardUserControl\Admin_ViewReportDetails.Designer.cs">
+      <DependentUpon>Admin_ViewReportDetails.cs</DependentUpon>
+    </Compile>
     <Compile Include="AdminDashboardUserControl\JP_ViewBusinessDetails.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -431,6 +437,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AdminDashboardUserControl\Admin_ManageAdmin.resx">
       <DependentUpon>Admin_ManageAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminDashboardUserControl\Admin_ViewReportDetails.resx">
+      <DependentUpon>Admin_ViewReportDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AdminDashboardUserControl\JP_ViewBusinessDetails.resx">
       <DependentUpon>JP_ViewBusinessDetails.cs</DependentUpon>

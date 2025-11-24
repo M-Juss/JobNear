@@ -23,15 +23,6 @@ namespace JobNear.AdminDashboardUserControl
             LoadTable();
         }
 
-        private void Admin_ReportsAndComplaints_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private async void reports_table_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
         private void LoadTable() {
             TableStyles.UserTables(reports_table);
 
@@ -53,17 +44,6 @@ namespace JobNear.AdminDashboardUserControl
             actionButton.DefaultCellStyle.Font = new Font("Poppins", 12, FontStyle.Bold);
 
             reports_table.Columns.Add(actionButton);
-        }
-        private async void InitializeTableValue() {
-            try
-            {
-
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
         }
 
         private async void status_combo_SelectedIndexChanged(object sender, EventArgs e)
@@ -222,6 +202,16 @@ namespace JobNear.AdminDashboardUserControl
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void Admin_ReportsAndComplaints_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void reports_table_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

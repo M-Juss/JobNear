@@ -72,13 +72,13 @@ namespace JobNear.Controllers
                     break;
                 case "on review":
                     status_label.Text = "On Review";
-                    PanelStyles.StyleRoundedLabel(status_label, 10, Color.Orange, Color.Orange);
+                    PanelStyles.StyleRoundedLabel(status_label, 10, Color.Orange, Color.White);
                     break;
                 default:
                     status_label.Text = "Unknown";
                     PanelStyles.StyleRoundedLabel(status_label, 10, Color.Black, Color.White);
                     break;
-            }
+            }   
         }
     }
 }

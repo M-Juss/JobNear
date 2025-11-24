@@ -70,6 +70,7 @@
             this.reports_table.RowHeadersWidth = 51;
             this.reports_table.Size = new System.Drawing.Size(973, 587);
             this.reports_table.TabIndex = 5;
+            this.reports_table.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.reports_table_CellContentClick);
             // 
             // Admin_ReportsAndComplaints
             // 

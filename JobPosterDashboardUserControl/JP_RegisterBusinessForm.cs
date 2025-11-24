@@ -295,7 +295,24 @@ namespace JobNear.JobPosterDashboardUserControl
                 );
 
                 if (response)
-            {
+                {
+                var checkJobPosts = await MongoDbServices.JobPosterJobPosting
+                    .Find(x => x.BusinessId == Session.CurrentBusinessSelected)
+                    .ToListAsync();
+
+                if (checkJobPosts != null && checkJobPosts.Count > 0)
+                {
+                    foreach (var jobPost in checkJobPosts)
+                    {
+                        var jobPostFilter = Builders<JobPosterJobPostingModel>.Filter.Eq(x => x.Id, jobPost.Id);
+
+                        var updateJobPost = Builders<JobPosterJobPostingModel>.Update
+                            .Set(x => x.IsBusinessOnReview, true);
+
+                        await MongoDbServices.JobPosterJobPosting.UpdateOneAsync(jobPostFilter, updateJobPost);
+                    }
+                }
+
                 string res = MessageBox.Show(
                     "Business updated successfully and ready for review",
                     "Success",
@@ -311,11 +328,16 @@ namespace JobNear.JobPosterDashboardUserControl
                     jp_myBusiness.Dock = DockStyle.Fill;
 
                 }
-                else return;
+                else
+                {
+                    MessageBox.Show("Failed to update business. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
             }
             else
             {
                 MessageBox.Show("Failed to register business. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
         }
 
