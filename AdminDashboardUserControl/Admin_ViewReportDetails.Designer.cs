@@ -29,10 +29,13 @@
         private void InitializeComponent()
         {
             this.sidebar_panel = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.complainant_panel = new System.Windows.Forms.Panel();
-            this.complainee_panel = new System.Windows.Forms.Panel();
+            this.complainee_lbl = new System.Windows.Forms.Label();
+            this.complainant_lbl = new System.Windows.Forms.Label();
             this.details_panel = new System.Windows.Forms.Panel();
+            this.description_lbl = new System.Windows.Forms.Label();
+            this.subject_lbl = new System.Windows.Forms.Label();
+            this.cancel_button = new System.Windows.Forms.Button();
+            this.submit_button = new System.Windows.Forms.Button();
             this.remarks_richtext = new System.Windows.Forms.RichTextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -41,36 +44,33 @@
             this.image_flowlayout = new System.Windows.Forms.FlowLayoutPanel();
             this.label2 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.cancel_button = new System.Windows.Forms.Button();
-            this.submit_button = new System.Windows.Forms.Button();
-            this.complainant_lbl = new System.Windows.Forms.Label();
-            this.complainee_lbl = new System.Windows.Forms.Label();
-            this.complainant_picture = new System.Windows.Forms.PictureBox();
-            this.subject_lbl = new System.Windows.Forms.Label();
-            this.description_lbl = new System.Windows.Forms.Label();
-            this.complainee_picture = new System.Windows.Forms.PictureBox();
-            this.complainant_name = new System.Windows.Forms.Label();
-            this.complainant_email = new System.Windows.Forms.Label();
-            this.complainant_phone = new System.Windows.Forms.Label();
-            this.complainee_name = new System.Windows.Forms.Label();
-            this.complainee_email = new System.Windows.Forms.Label();
+            this.complainee_panel = new System.Windows.Forms.Panel();
             this.complainee_phone = new System.Windows.Forms.Label();
+            this.complainee_email = new System.Windows.Forms.Label();
+            this.complainee_name = new System.Windows.Forms.Label();
+            this.complainee_picture = new System.Windows.Forms.PictureBox();
+            this.complainant_panel = new System.Windows.Forms.Panel();
+            this.complainant_phone = new System.Windows.Forms.Label();
+            this.complainant_email = new System.Windows.Forms.Label();
+            this.complainant_name = new System.Windows.Forms.Label();
+            this.complainant_picture = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.sidebar_panel.SuspendLayout();
-            this.complainant_panel.SuspendLayout();
-            this.complainee_panel.SuspendLayout();
             this.details_panel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.complainant_picture)).BeginInit();
+            this.complainee_panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.complainee_picture)).BeginInit();
+            this.complainant_panel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.complainant_picture)).BeginInit();
             this.SuspendLayout();
             // 
             // sidebar_panel
             // 
-            this.sidebar_panel.Controls.Add(this.complainee_lbl);
-            this.sidebar_panel.Controls.Add(this.complainant_lbl);
             this.sidebar_panel.Controls.Add(this.details_panel);
             this.sidebar_panel.Controls.Add(this.complainee_panel);
             this.sidebar_panel.Controls.Add(this.complainant_panel);
             this.sidebar_panel.Controls.Add(this.label1);
+            this.sidebar_panel.Controls.Add(this.complainant_lbl);
+            this.sidebar_panel.Controls.Add(this.complainee_lbl);
             this.sidebar_panel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.sidebar_panel.Location = new System.Drawing.Point(0, 0);
             this.sidebar_panel.Name = "sidebar_panel";
@@ -78,37 +78,25 @@
             this.sidebar_panel.TabIndex = 0;
             this.sidebar_panel.Paint += new System.Windows.Forms.PaintEventHandler(this.sidebar_panel_Paint);
             // 
-            // label1
+            // complainee_lbl
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Poppins", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(-2, -3);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(216, 48);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Report Details";
+            this.complainee_lbl.AutoSize = true;
+            this.complainee_lbl.Font = new System.Drawing.Font("Poppins SemiBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.complainee_lbl.Location = new System.Drawing.Point(539, 49);
+            this.complainee_lbl.Name = "complainee_lbl";
+            this.complainee_lbl.Size = new System.Drawing.Size(135, 34);
+            this.complainee_lbl.TabIndex = 110;
+            this.complainee_lbl.Text = "Complainee";
             // 
-            // complainant_panel
+            // complainant_lbl
             // 
-            this.complainant_panel.Controls.Add(this.complainant_phone);
-            this.complainant_panel.Controls.Add(this.complainant_email);
-            this.complainant_panel.Controls.Add(this.complainant_name);
-            this.complainant_panel.Controls.Add(this.complainant_picture);
-            this.complainant_panel.Location = new System.Drawing.Point(34, 81);
-            this.complainant_panel.Name = "complainant_panel";
-            this.complainant_panel.Size = new System.Drawing.Size(459, 140);
-            this.complainant_panel.TabIndex = 4;
-            // 
-            // complainee_panel
-            // 
-            this.complainee_panel.Controls.Add(this.complainee_phone);
-            this.complainee_panel.Controls.Add(this.complainee_email);
-            this.complainee_panel.Controls.Add(this.complainee_name);
-            this.complainee_panel.Controls.Add(this.complainee_picture);
-            this.complainee_panel.Location = new System.Drawing.Point(536, 81);
-            this.complainee_panel.Name = "complainee_panel";
-            this.complainee_panel.Size = new System.Drawing.Size(459, 140);
-            this.complainee_panel.TabIndex = 5;
+            this.complainant_lbl.AutoSize = true;
+            this.complainant_lbl.Font = new System.Drawing.Font("Poppins SemiBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.complainant_lbl.Location = new System.Drawing.Point(37, 49);
+            this.complainant_lbl.Name = "complainant_lbl";
+            this.complainant_lbl.Size = new System.Drawing.Size(144, 34);
+            this.complainant_lbl.TabIndex = 0;
+            this.complainant_lbl.Text = "Complainant";
             // 
             // details_panel
             // 
@@ -129,8 +117,47 @@
             this.details_panel.Size = new System.Drawing.Size(960, 447);
             this.details_panel.TabIndex = 109;
             // 
+            // description_lbl
+            // 
+            this.description_lbl.AutoEllipsis = true;
+            this.description_lbl.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.description_lbl.Location = new System.Drawing.Point(120, 37);
+            this.description_lbl.Name = "description_lbl";
+            this.description_lbl.Size = new System.Drawing.Size(827, 85);
+            this.description_lbl.TabIndex = 117;
+            // 
+            // subject_lbl
+            // 
+            this.subject_lbl.AutoEllipsis = true;
+            this.subject_lbl.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.subject_lbl.Location = new System.Drawing.Point(120, 4);
+            this.subject_lbl.Name = "subject_lbl";
+            this.subject_lbl.Size = new System.Drawing.Size(827, 28);
+            this.subject_lbl.TabIndex = 0;
+            // 
+            // cancel_button
+            // 
+            this.cancel_button.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cancel_button.Location = new System.Drawing.Point(675, 399);
+            this.cancel_button.Name = "cancel_button";
+            this.cancel_button.Size = new System.Drawing.Size(127, 36);
+            this.cancel_button.TabIndex = 116;
+            this.cancel_button.Text = "Cancel";
+            this.cancel_button.UseVisualStyleBackColor = true;
+            // 
+            // submit_button
+            // 
+            this.submit_button.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.submit_button.Location = new System.Drawing.Point(820, 399);
+            this.submit_button.Name = "submit_button";
+            this.submit_button.Size = new System.Drawing.Size(127, 36);
+            this.submit_button.TabIndex = 115;
+            this.submit_button.Text = "Submit";
+            this.submit_button.UseVisualStyleBackColor = true;
+            // 
             // remarks_richtext
             // 
+            this.remarks_richtext.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.remarks_richtext.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.remarks_richtext.Location = new System.Drawing.Point(336, 307);
             this.remarks_richtext.Margin = new System.Windows.Forms.Padding(2);
@@ -216,76 +243,43 @@
             this.label9.TabIndex = 107;
             this.label9.Text = "Subject:";
             // 
-            // cancel_button
+            // complainee_panel
             // 
-            this.cancel_button.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cancel_button.Location = new System.Drawing.Point(675, 399);
-            this.cancel_button.Name = "cancel_button";
-            this.cancel_button.Size = new System.Drawing.Size(127, 36);
-            this.cancel_button.TabIndex = 116;
-            this.cancel_button.Text = "Cancel";
-            this.cancel_button.UseVisualStyleBackColor = true;
+            this.complainee_panel.Controls.Add(this.complainee_phone);
+            this.complainee_panel.Controls.Add(this.complainee_email);
+            this.complainee_panel.Controls.Add(this.complainee_name);
+            this.complainee_panel.Controls.Add(this.complainee_picture);
+            this.complainee_panel.Location = new System.Drawing.Point(536, 81);
+            this.complainee_panel.Name = "complainee_panel";
+            this.complainee_panel.Size = new System.Drawing.Size(459, 140);
+            this.complainee_panel.TabIndex = 5;
             // 
-            // submit_button
+            // complainee_phone
             // 
-            this.submit_button.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.submit_button.Location = new System.Drawing.Point(820, 399);
-            this.submit_button.Name = "submit_button";
-            this.submit_button.Size = new System.Drawing.Size(127, 36);
-            this.submit_button.TabIndex = 115;
-            this.submit_button.Text = "Submit";
-            this.submit_button.UseVisualStyleBackColor = true;
+            this.complainee_phone.AutoEllipsis = true;
+            this.complainee_phone.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.complainee_phone.Location = new System.Drawing.Point(160, 99);
+            this.complainee_phone.Name = "complainee_phone";
+            this.complainee_phone.Size = new System.Drawing.Size(285, 31);
+            this.complainee_phone.TabIndex = 81;
             // 
-            // complainant_lbl
+            // complainee_email
             // 
-            this.complainant_lbl.AutoSize = true;
-            this.complainant_lbl.Font = new System.Drawing.Font("Poppins SemiBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.complainant_lbl.Location = new System.Drawing.Point(37, 46);
-            this.complainant_lbl.Name = "complainant_lbl";
-            this.complainant_lbl.Size = new System.Drawing.Size(144, 34);
-            this.complainant_lbl.TabIndex = 0;
-            this.complainant_lbl.Text = "Complainant";
+            this.complainee_email.AutoEllipsis = true;
+            this.complainee_email.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.complainee_email.Location = new System.Drawing.Point(161, 54);
+            this.complainee_email.Name = "complainee_email";
+            this.complainee_email.Size = new System.Drawing.Size(285, 31);
+            this.complainee_email.TabIndex = 80;
             // 
-            // complainee_lbl
+            // complainee_name
             // 
-            this.complainee_lbl.AutoSize = true;
-            this.complainee_lbl.Font = new System.Drawing.Font("Poppins SemiBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.complainee_lbl.Location = new System.Drawing.Point(539, 46);
-            this.complainee_lbl.Name = "complainee_lbl";
-            this.complainee_lbl.Size = new System.Drawing.Size(135, 34);
-            this.complainee_lbl.TabIndex = 110;
-            this.complainee_lbl.Text = "Complainee";
-            // 
-            // complainant_picture
-            // 
-            this.complainant_picture.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.complainant_picture.Image = global::JobNear.Properties.Resources.default_profile;
-            this.complainant_picture.Location = new System.Drawing.Point(13, 10);
-            this.complainant_picture.Name = "complainant_picture";
-            this.complainant_picture.Size = new System.Drawing.Size(141, 120);
-            this.complainant_picture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.complainant_picture.TabIndex = 74;
-            this.complainant_picture.TabStop = false;
-            // 
-            // subject_lbl
-            // 
-            this.subject_lbl.AutoEllipsis = true;
-            this.subject_lbl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.subject_lbl.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.subject_lbl.Location = new System.Drawing.Point(120, 4);
-            this.subject_lbl.Name = "subject_lbl";
-            this.subject_lbl.Size = new System.Drawing.Size(827, 28);
-            this.subject_lbl.TabIndex = 0;
-            // 
-            // description_lbl
-            // 
-            this.description_lbl.AutoEllipsis = true;
-            this.description_lbl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.description_lbl.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.description_lbl.Location = new System.Drawing.Point(120, 37);
-            this.description_lbl.Name = "description_lbl";
-            this.description_lbl.Size = new System.Drawing.Size(827, 85);
-            this.description_lbl.TabIndex = 117;
+            this.complainee_name.AutoEllipsis = true;
+            this.complainee_name.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.complainee_name.Location = new System.Drawing.Point(161, 10);
+            this.complainee_name.Name = "complainee_name";
+            this.complainee_name.Size = new System.Drawing.Size(285, 31);
+            this.complainee_name.TabIndex = 79;
             // 
             // complainee_picture
             // 
@@ -298,59 +292,64 @@
             this.complainee_picture.TabIndex = 75;
             this.complainee_picture.TabStop = false;
             // 
-            // complainant_name
+            // complainant_panel
             // 
-            this.complainant_name.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.complainant_name.Location = new System.Drawing.Point(160, 10);
-            this.complainant_name.Name = "complainant_name";
-            this.complainant_name.Size = new System.Drawing.Size(285, 31);
-            this.complainant_name.TabIndex = 76;
-            this.complainant_name.Text = "label6";
-            // 
-            // complainant_email
-            // 
-            this.complainant_email.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.complainant_email.Location = new System.Drawing.Point(160, 54);
-            this.complainant_email.Name = "complainant_email";
-            this.complainant_email.Size = new System.Drawing.Size(285, 31);
-            this.complainant_email.TabIndex = 77;
-            this.complainant_email.Text = "label6";
+            this.complainant_panel.Controls.Add(this.complainant_phone);
+            this.complainant_panel.Controls.Add(this.complainant_email);
+            this.complainant_panel.Controls.Add(this.complainant_name);
+            this.complainant_panel.Controls.Add(this.complainant_picture);
+            this.complainant_panel.Location = new System.Drawing.Point(34, 81);
+            this.complainant_panel.Name = "complainant_panel";
+            this.complainant_panel.Size = new System.Drawing.Size(459, 140);
+            this.complainant_panel.TabIndex = 4;
             // 
             // complainant_phone
             // 
-            this.complainant_phone.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.complainant_phone.AutoEllipsis = true;
+            this.complainant_phone.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.complainant_phone.Location = new System.Drawing.Point(160, 99);
             this.complainant_phone.Name = "complainant_phone";
             this.complainant_phone.Size = new System.Drawing.Size(285, 31);
             this.complainant_phone.TabIndex = 78;
-            this.complainant_phone.Text = "label6";
             // 
-            // complainee_name
+            // complainant_email
             // 
-            this.complainee_name.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.complainee_name.Location = new System.Drawing.Point(161, 10);
-            this.complainee_name.Name = "complainee_name";
-            this.complainee_name.Size = new System.Drawing.Size(285, 31);
-            this.complainee_name.TabIndex = 79;
-            this.complainee_name.Text = "label6";
+            this.complainant_email.AutoEllipsis = true;
+            this.complainant_email.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.complainant_email.Location = new System.Drawing.Point(160, 54);
+            this.complainant_email.Name = "complainant_email";
+            this.complainant_email.Size = new System.Drawing.Size(285, 31);
+            this.complainant_email.TabIndex = 77;
             // 
-            // complainee_email
+            // complainant_name
             // 
-            this.complainee_email.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.complainee_email.Location = new System.Drawing.Point(161, 54);
-            this.complainee_email.Name = "complainee_email";
-            this.complainee_email.Size = new System.Drawing.Size(285, 31);
-            this.complainee_email.TabIndex = 80;
-            this.complainee_email.Text = "label6";
+            this.complainant_name.AutoEllipsis = true;
+            this.complainant_name.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.complainant_name.Location = new System.Drawing.Point(160, 10);
+            this.complainant_name.Name = "complainant_name";
+            this.complainant_name.Size = new System.Drawing.Size(285, 31);
+            this.complainant_name.TabIndex = 76;
             // 
-            // complainee_phone
+            // complainant_picture
             // 
-            this.complainee_phone.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.complainee_phone.Location = new System.Drawing.Point(160, 99);
-            this.complainee_phone.Name = "complainee_phone";
-            this.complainee_phone.Size = new System.Drawing.Size(285, 31);
-            this.complainee_phone.TabIndex = 81;
-            this.complainee_phone.Text = "label6";
+            this.complainant_picture.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.complainant_picture.Image = global::JobNear.Properties.Resources.default_profile;
+            this.complainant_picture.Location = new System.Drawing.Point(13, 10);
+            this.complainant_picture.Name = "complainant_picture";
+            this.complainant_picture.Size = new System.Drawing.Size(141, 120);
+            this.complainant_picture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.complainant_picture.TabIndex = 74;
+            this.complainant_picture.TabStop = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Poppins", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(-2, -3);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(216, 48);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Report Details";
             // 
             // Admin_ViewReportDetails
             // 
@@ -361,12 +360,12 @@
             this.Size = new System.Drawing.Size(1031, 705);
             this.sidebar_panel.ResumeLayout(false);
             this.sidebar_panel.PerformLayout();
-            this.complainant_panel.ResumeLayout(false);
-            this.complainee_panel.ResumeLayout(false);
             this.details_panel.ResumeLayout(false);
             this.details_panel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.complainant_picture)).EndInit();
+            this.complainee_panel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.complainee_picture)).EndInit();
+            this.complainant_panel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.complainant_picture)).EndInit();
             this.ResumeLayout(false);
 
         }

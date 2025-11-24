@@ -1,13 +1,8 @@
-﻿using JobNear.Models;
-using JobNear.Services;
+﻿using JobNear.Services;
 using JobNear.Styles;
 using MongoDB.Driver;
 using System;
-using JobNear.AdminDashboardUserControl;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace JobNear.AdminDashboardUserControl
@@ -18,6 +13,8 @@ namespace JobNear.AdminDashboardUserControl
         {
             InitializeComponent();
             LoadTable();
+            status_combo.SelectedIndex = 0;
+
         }
 
         private void LoadTable() {
@@ -48,21 +45,39 @@ namespace JobNear.AdminDashboardUserControl
             reports_table.Columns.Add(actionButton);
         }
 
-        private async void status_combo_SelectedIndexChanged(object sender, EventArgs e)
+        private void reports_table_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.ColumnIndex == reports_table.Columns["Action"].Index)
+            {
+                string complainantId = reports_table.Rows[e.RowIndex].Cells["ComplainantId"].Value.ToString();
+                string complaineeId = reports_table.Rows[e.RowIndex].Cells["ComplaineeId"].Value.ToString();
+                string reportId = reports_table.Rows[e.RowIndex].Cells["ReportId"].Value.ToString();
+
+
+                Admin_ViewReportDetails viewReportInformation = new Admin_ViewReportDetails(complainantId, complaineeId, reportId);
+                sidebar_panel.Controls.Clear();
+                sidebar_panel.Controls.Add(viewReportInformation);
+                viewReportInformation.Dock = DockStyle.Fill;
+            }
+        }
+
+        private async void status_combo_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             try
             {
                 string response = status_combo.Text.ToLower();
 
-                switch (response) {
+                switch (response)
+                {
                     case "active":
                         reports_table.Rows.Clear();
                         var activeReports = await MongoDbServices.ReportBusiness
                             .Find(x => x.Status == "Active")
                             .ToListAsync();
 
-                        if (activeReports != null) {
-                            foreach(var active in activeReports)
+                        if (activeReports != null)
+                        {
+                            foreach (var active in activeReports)
                             {
                                 var getUser = await MongoDbServices.JobSeekerAccount
                                     .Find(x => x.Id == active.Complainant)
@@ -72,7 +87,8 @@ namespace JobNear.AdminDashboardUserControl
                                     .Find(x => x.Id == active.Complainee)
                                     .FirstOrDefaultAsync();
 
-                                if (getUser != null && getBusiness != null) { 
+                                if (getUser != null && getBusiness != null)
+                                {
                                     string complainantName = $"{getUser.Firstname} {getUser.Lastname}";
                                     string complaineeName = getBusiness.BusinessName;
 
@@ -113,11 +129,12 @@ namespace JobNear.AdminDashboardUserControl
                                 {
                                     string complainantName = $"{getUser.Firstname} {getUser.Lastname}";
                                     string complaineeName = getBusiness.BusinessName;
-
                                     reports_table.Rows.Add(
                                         resolved.Subject,
                                         complainantName,
+                                        getUser.Id,
                                         complaineeName,
+                                        getBusiness.Id,
                                         resolved.DateCreated.ToString("MM/dd/yyyy"),
                                         resolved.Status,
                                         resolved.Id
@@ -153,7 +170,9 @@ namespace JobNear.AdminDashboardUserControl
                                     reports_table.Rows.Add(
                                         closed.Subject,
                                         complainantName,
+                                        getUser.Id,
                                         complaineeName,
+                                        getBusiness.Id,
                                         closed.DateCreated.ToString("MM/dd/yyyy"),
                                         closed.Status,
                                         closed.Id
@@ -189,7 +208,9 @@ namespace JobNear.AdminDashboardUserControl
                                     reports_table.Rows.Add(
                                         all.Subject,
                                         complainantName,
+                                        getUser.Id,
                                         complaineeName,
+                                        getBusiness.Id,
                                         all.DateCreated.ToString("MM/dd/yyyy"),
                                         all.Status,
                                         all.Id
@@ -198,7 +219,8 @@ namespace JobNear.AdminDashboardUserControl
                             }
                         }
                         break;
-                    default: MessageBox.Show("Please select a valid status.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    default:
+                        MessageBox.Show("Please select a valid status.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         break;
                 }
             }
@@ -206,32 +228,6 @@ namespace JobNear.AdminDashboardUserControl
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-
-        private void Admin_ReportsAndComplaints_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void reports_table_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0 && e.ColumnIndex == reports_table.Columns["Action"].Index)
-            {
-                string complainantId = reports_table.Rows[e.RowIndex].Cells["ComplainantId"].Value.ToString();
-                string complaineeId = reports_table.Rows[e.RowIndex].Cells["ComplaineeId"].Value.ToString();
-                string reportId = reports_table.Rows[e.RowIndex].Cells["ReportId"].Value.ToString();
-
-
-                Admin_ViewReportDetails viewReportInformation = new Admin_ViewReportDetails(complainantId, complaineeId, reportId);
-                sidebar_panel.Controls.Clear();
-                sidebar_panel.Controls.Add(viewReportInformation);
-                viewReportInformation.Dock = DockStyle.Fill;
-            }
-        }
-
-        private void sidebar_panel_Paint(object sender, PaintEventArgs e)
-        {
-
         }
     }
 }

@@ -15,12 +15,8 @@ namespace JobNear.AdminDashboardUserControl
         public Admin_ViewReportDetails(string complainantId, string complaineeId, string reportId)
         {
             InitializeComponent();
-            PanelStyles.StyleRoundedLabel(complainant_lbl, 5, Color.Green, Color.White);
-            PanelStyles.StyleRoundedLabel(complainee_lbl, 5, Color.Orange, Color.White);
-            PanelStyles.RoundedPanel(complainant_panel, 15, Color.WhiteSmoke, Color.LightGray);
-            PanelStyles.RoundedPanel(complainee_panel, 15, Color.WhiteSmoke, Color.LightGray);
-            PanelStyles.RoundedPanel(details_panel, 15, Color.WhiteSmoke, Color.LightGray);
-
+            DesignPanels();
+            LoadReportDetails(complainantId, complaineeId, reportId);
         }
 
         private void sidebar_panel_Paint(object sender, PaintEventArgs e)
@@ -48,20 +44,39 @@ namespace JobNear.AdminDashboardUserControl
                     complainee_name.Text = getReportedBusiness.BusinessName;
                     complainee_email.Text = getReportedBusiness.BusinessEmail;
                     complainee_phone.Text = getReportedBusiness.BusinessContact;
-                }
+                } else MessageBox.Show("Error loading user or business details.");
 
                 var getReportDetails = await MongoDbServices.ReportBusiness.Find(x => x.Id == reportId).FirstOrDefaultAsync();
 
+                if (getReportDetails != null)
+                {
+                    subject_lbl.Text = getReportDetails.Subject;
+                    description_lbl.Text = getReportDetails.Description;
 
+                    if (getReportDetails.SupportingDocuments != null)
+                    {
+                        foreach (var doc in getReportDetails.SupportingDocuments)
+                        {
+                            FlowLayoutStyles.AddSupportingDocumentToFlow(doc, image_flowlayout, 865);
+                        }
+                    }
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error loading report details: " + ex.Message);
             }
         }
-        private void label6_Click(object sender, EventArgs e)
-        {
+        private void DesignPanels() {
+            PanelStyles.StyleRoundedLabel(complainant_lbl, 5, Color.Green, Color.White);
+            PanelStyles.StyleRoundedLabel(complainee_lbl, 5, Color.Orange, Color.White);
+            PanelStyles.RoundedPanel(complainant_panel, 1, Color.WhiteSmoke, Color.LightGray);
+            PanelStyles.RoundedPanel(complainee_panel, 1, Color.WhiteSmoke, Color.LightGray);
+            PanelStyles.RoundedPanel(details_panel, 15, Color.WhiteSmoke, Color.LightGray);
 
+            //ButtonStyle.RoundedButton(cancel_button, 25, "#3B82F6");
+            //ButtonStyle.RoundedButton(submit_button, 25, "#3B82F6");
         }
+
     }
 }

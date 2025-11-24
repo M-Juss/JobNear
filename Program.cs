@@ -42,7 +42,14 @@ namespace JobNear
             // [/] Map can now naviage base on radius 
 
             // To-do November 21, 2025
-            // [] Update Function in RegisterBusinessForm
+            // [/] Update Function in RegisterBusinessForm
+
+            // To-do November 25, 2025
+            // [] if Report  status is Resolved, send notif to the jobposter about the closing of their business 
+            // [] if Report Statis is Closed , send notif to the jobposter about the report attempt and notif to the jobseekr about their closing of their report
+            // [] Closed Business the business is not visible in the Job Browse Map and Job List Job posts are on Review and it cant be updated anymore
+            // [] Dashboard Analytics for Admin Form
+
         }
     }
 }
