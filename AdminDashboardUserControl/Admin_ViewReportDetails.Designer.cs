@@ -29,15 +29,11 @@
         private void InitializeComponent()
         {
             this.sidebar_panel = new System.Windows.Forms.Panel();
-            this.complainee_lbl = new System.Windows.Forms.Label();
-            this.complainant_lbl = new System.Windows.Forms.Label();
             this.details_panel = new System.Windows.Forms.Panel();
             this.description_lbl = new System.Windows.Forms.Label();
             this.subject_lbl = new System.Windows.Forms.Label();
             this.cancel_button = new System.Windows.Forms.Button();
             this.submit_button = new System.Windows.Forms.Button();
-            this.remarks_richtext = new System.Windows.Forms.RichTextBox();
-            this.label11 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.status_combo = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -55,6 +51,8 @@
             this.complainant_name = new System.Windows.Forms.Label();
             this.complainant_picture = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.complainant_lbl = new System.Windows.Forms.Label();
+            this.complainee_lbl = new System.Windows.Forms.Label();
             this.sidebar_panel.SuspendLayout();
             this.details_panel.SuspendLayout();
             this.complainee_panel.SuspendLayout();
@@ -78,34 +76,12 @@
             this.sidebar_panel.TabIndex = 0;
             this.sidebar_panel.Paint += new System.Windows.Forms.PaintEventHandler(this.sidebar_panel_Paint);
             // 
-            // complainee_lbl
-            // 
-            this.complainee_lbl.AutoSize = true;
-            this.complainee_lbl.Font = new System.Drawing.Font("Poppins SemiBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.complainee_lbl.Location = new System.Drawing.Point(539, 49);
-            this.complainee_lbl.Name = "complainee_lbl";
-            this.complainee_lbl.Size = new System.Drawing.Size(135, 34);
-            this.complainee_lbl.TabIndex = 110;
-            this.complainee_lbl.Text = "Complainee";
-            // 
-            // complainant_lbl
-            // 
-            this.complainant_lbl.AutoSize = true;
-            this.complainant_lbl.Font = new System.Drawing.Font("Poppins SemiBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.complainant_lbl.Location = new System.Drawing.Point(37, 49);
-            this.complainant_lbl.Name = "complainant_lbl";
-            this.complainant_lbl.Size = new System.Drawing.Size(144, 34);
-            this.complainant_lbl.TabIndex = 0;
-            this.complainant_lbl.Text = "Complainant";
-            // 
             // details_panel
             // 
             this.details_panel.Controls.Add(this.description_lbl);
             this.details_panel.Controls.Add(this.subject_lbl);
             this.details_panel.Controls.Add(this.cancel_button);
             this.details_panel.Controls.Add(this.submit_button);
-            this.details_panel.Controls.Add(this.remarks_richtext);
-            this.details_panel.Controls.Add(this.label11);
             this.details_panel.Controls.Add(this.label4);
             this.details_panel.Controls.Add(this.status_combo);
             this.details_panel.Controls.Add(this.label3);
@@ -121,9 +97,9 @@
             // 
             this.description_lbl.AutoEllipsis = true;
             this.description_lbl.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.description_lbl.Location = new System.Drawing.Point(120, 37);
+            this.description_lbl.Location = new System.Drawing.Point(120, 45);
             this.description_lbl.Name = "description_lbl";
-            this.description_lbl.Size = new System.Drawing.Size(827, 85);
+            this.description_lbl.Size = new System.Drawing.Size(827, 100);
             this.description_lbl.TabIndex = 117;
             // 
             // subject_lbl
@@ -144,6 +120,7 @@
             this.cancel_button.TabIndex = 116;
             this.cancel_button.Text = "Cancel";
             this.cancel_button.UseVisualStyleBackColor = true;
+            this.cancel_button.Click += new System.EventHandler(this.cancel_button_Click);
             // 
             // submit_button
             // 
@@ -154,34 +131,13 @@
             this.submit_button.TabIndex = 115;
             this.submit_button.Text = "Submit";
             this.submit_button.UseVisualStyleBackColor = true;
-            // 
-            // remarks_richtext
-            // 
-            this.remarks_richtext.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.remarks_richtext.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.remarks_richtext.Location = new System.Drawing.Point(336, 307);
-            this.remarks_richtext.Margin = new System.Windows.Forms.Padding(2);
-            this.remarks_richtext.Name = "remarks_richtext";
-            this.remarks_richtext.Size = new System.Drawing.Size(611, 77);
-            this.remarks_richtext.TabIndex = 114;
-            this.remarks_richtext.Text = "";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(331, 279);
-            this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(88, 28);
-            this.label11.TabIndex = 113;
-            this.label11.Text = "Remarks:";
+            this.submit_button.Click += new System.EventHandler(this.submit_button_Click);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(7, 279);
+            this.label4.Location = new System.Drawing.Point(7, 308);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(99, 28);
@@ -194,10 +150,9 @@
             this.status_combo.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.status_combo.FormattingEnabled = true;
             this.status_combo.Items.AddRange(new object[] {
-            "Active",
-            "Resolved",
-            "Closed"});
-            this.status_combo.Location = new System.Drawing.Point(12, 307);
+            "Valid",
+            "Invalid"});
+            this.status_combo.Location = new System.Drawing.Point(111, 308);
             this.status_combo.Name = "status_combo";
             this.status_combo.Size = new System.Drawing.Size(299, 34);
             this.status_combo.TabIndex = 111;
@@ -206,7 +161,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(7, 122);
+            this.label3.Location = new System.Drawing.Point(7, 150);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(206, 28);
@@ -216,7 +171,7 @@
             // image_flowlayout
             // 
             this.image_flowlayout.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.image_flowlayout.Location = new System.Drawing.Point(12, 153);
+            this.image_flowlayout.Location = new System.Drawing.Point(12, 181);
             this.image_flowlayout.Name = "image_flowlayout";
             this.image_flowlayout.Size = new System.Drawing.Size(935, 116);
             this.image_flowlayout.TabIndex = 109;
@@ -225,7 +180,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(7, 37);
+            this.label2.Location = new System.Drawing.Point(7, 45);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(108, 28);
@@ -351,6 +306,26 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "Report Details";
             // 
+            // complainant_lbl
+            // 
+            this.complainant_lbl.AutoSize = true;
+            this.complainant_lbl.Font = new System.Drawing.Font("Poppins SemiBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.complainant_lbl.Location = new System.Drawing.Point(37, 49);
+            this.complainant_lbl.Name = "complainant_lbl";
+            this.complainant_lbl.Size = new System.Drawing.Size(144, 34);
+            this.complainant_lbl.TabIndex = 0;
+            this.complainant_lbl.Text = "Complainant";
+            // 
+            // complainee_lbl
+            // 
+            this.complainee_lbl.AutoSize = true;
+            this.complainee_lbl.Font = new System.Drawing.Font("Poppins SemiBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.complainee_lbl.Location = new System.Drawing.Point(539, 49);
+            this.complainee_lbl.Name = "complainee_lbl";
+            this.complainee_lbl.Size = new System.Drawing.Size(135, 34);
+            this.complainee_lbl.TabIndex = 110;
+            this.complainee_lbl.Text = "Complainee";
+            // 
             // Admin_ViewReportDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -380,8 +355,6 @@
         private System.Windows.Forms.Panel details_panel;
         private System.Windows.Forms.Button cancel_button;
         private System.Windows.Forms.Button submit_button;
-        private System.Windows.Forms.RichTextBox remarks_richtext;
-        private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox status_combo;
         private System.Windows.Forms.Label label3;

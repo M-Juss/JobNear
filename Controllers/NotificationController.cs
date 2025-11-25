@@ -11,75 +11,99 @@ namespace JobNear.Controllers
 {
     public class NotificationController : UserControl
     {
-        public NotificationController(string senderName, string headerMessage, string remarks, string type, DateTime date)
+        public NotificationController(string senderName, string headerMessage, string remarks, string type, DateTime date, string warningCount)
         {
-            SetupNotificationBox(senderName, headerMessage, remarks, type, date);
+            SetupNotificationBox(senderName, headerMessage, remarks, type, date, warningCount);
         }
 
-        private void SetupNotificationBox(string senderName, string headerMessage, string remarks, string type, DateTime date)
+        private void SetupNotificationBox(string senderName, string headerMessage, string remarks, string type, DateTime date, string warningCount)
         {
-            // Set size - FlowLayoutPanel will handle positioning
-            this.Size = new Size(980, 90); // slightly taller to fit remarks
+            this.Size = new Size(980, 130);
             this.BackColor = Color.White;
             this.BorderStyle = BorderStyle.FixedSingle;
-            this.Margin = new Padding(5, 3, 5, 3); // Small margins for spacing
+            this.Margin = new Padding(5, 3, 5, 3);
 
-            // Avatar circle
+            // Avatar Panel (Left)
             Panel avatarPanel = new Panel();
             avatarPanel.Size = new Size(45, 45);
             avatarPanel.Location = new Point(10, 12);
             avatarPanel.BackColor = GetNotificationColor(type);
 
-            // Make circular
             GraphicsPath path = new GraphicsPath();
             path.AddEllipse(0, 0, 45, 45);
             avatarPanel.Region = new Region(path);
             avatarPanel.Paint += (s, e) => DrawIcon(e.Graphics, type);
 
-            // Sender name label
+
+            // === WARNING INDICATOR PANEL (Top Right) ===
+            Panel warningIndicator = new Panel();
+            warningIndicator.Size = new Size(18, 18);
+            warningIndicator.Location = new Point(this.Width - 28, 8); // top right corner
+
+            warningIndicator.BackColor = GetWarningColor(warningCount);
+
+            // Make it circular
+            GraphicsPath circlePath = new GraphicsPath();
+            circlePath.AddEllipse(0, 0, 18, 18);
+            warningIndicator.Region = new Region(circlePath);
+            // ============================================
+
+
             Label senderLabel = new Label();
             senderLabel.Text = senderName;
             senderLabel.Font = new Font("Poppins", 10, FontStyle.Bold);
             senderLabel.ForeColor = Color.Black;
             senderLabel.Location = new Point(65, 8);
-            senderLabel.Size = new Size(200, 20);
-            senderLabel.BackColor = Color.Transparent;
+            senderLabel.Size = new Size(200, 25);
 
-            // Header message label
             Label headerLabel = new Label();
             headerLabel.Text = headerMessage;
             headerLabel.Font = new Font("Poppins", 9, FontStyle.Regular);
             headerLabel.ForeColor = Color.FromArgb(60, 60, 60);
-            headerLabel.Location = new Point(65, 28);
+            headerLabel.Location = new Point(65, 36);
             headerLabel.Size = new Size(600, 20);
-            headerLabel.BackColor = Color.Transparent;
 
-            // Remarks label
             Label remarksLabel = new Label();
             remarksLabel.Text = remarks;
             remarksLabel.Font = new Font("Poppins", 8.5f, FontStyle.Italic);
             remarksLabel.ForeColor = Color.FromArgb(100, 100, 100);
-            remarksLabel.Location = new Point(65, 48);
-            remarksLabel.Size = new Size(600, 18);
-            remarksLabel.BackColor = Color.Transparent;
+            remarksLabel.Location = new Point(65, 60);
+            remarksLabel.Size = new Size(800, 35);
             remarksLabel.AutoEllipsis = true;
 
-            // Date label
             Label dateLabel = new Label();
             dateLabel.Text = FormatTimeAgo(date);
             dateLabel.Font = new Font("Poppins", 8, FontStyle.Regular);
             dateLabel.ForeColor = Color.Gray;
-            dateLabel.Location = new Point(65, 68);
+            dateLabel.Location = new Point(65, 100);
             dateLabel.Size = new Size(120, 15);
-            dateLabel.BackColor = Color.Transparent;
 
             // Hover effects
             this.MouseEnter += (s, e) => this.BackColor = Color.FromArgb(248, 249, 250);
             this.MouseLeave += (s, e) => this.BackColor = Color.White;
 
-            // Add all controls
-            this.Controls.AddRange(new Control[] { avatarPanel, senderLabel, headerLabel, remarksLabel, dateLabel });
+            this.Controls.AddRange(new Control[]
+            {
+        avatarPanel,
+        senderLabel,
+        headerLabel,
+        remarksLabel,
+        dateLabel,
+        warningIndicator   // ADD THE INDICATOR
+            });
         }
+
+        private Color GetWarningColor(string warningCount)
+        {
+            switch (warningCount)
+            {
+                case "1": return Color.Gold;         // Yellow
+                case "2": return Color.Orange;       // Orange
+                case "3": return Color.Red;          // Red
+                default: return Color.Transparent;  // No warning
+            }
+        }
+
 
 
         private void DrawIcon(Graphics g, string type)
@@ -132,7 +156,7 @@ namespace JobNear.Controllers
         }
     }
 
-    // FlowLayout notification manager
+
     public class NotificationFlowManager
     {
         private FlowLayoutPanel flowPanel;
@@ -158,10 +182,10 @@ namespace JobNear.Controllers
         }
 
         // Add a new notification (will automatically position at top)
-        public void AddNotification(string senderName, string headerMessage, string remarks, string type = "Info", DateTime? date = null)
+        public void AddNotification(string senderName, string headerMessage, string remarks, string type = "Info", DateTime? date = null, string warningCount = null)
         {
             DateTime notificationDate = date ?? DateTime.Now;
-            NotificationController notification = new NotificationController(senderName, headerMessage, remarks, type, notificationDate);
+            NotificationController notification = new NotificationController(senderName, headerMessage, remarks, type, notificationDate, warningCount);
 
             // Insert at the top (index 0) so newest notifications appear first
             flowPanel.Controls.Add(notification);

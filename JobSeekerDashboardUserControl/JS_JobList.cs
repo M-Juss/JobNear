@@ -19,7 +19,7 @@ namespace JobNear.JobSeekerDashboardUserControl
         {
 
             var jobs = await MongoDbServices.JobPosterJobPosting
-                .Find(x => x.JobStatus == "Active")
+                .Find(x => x.JobStatus == "Active" && x.IsBusinessOnReview == false)
                 .ToListAsync();
 
             if (jobs != null)

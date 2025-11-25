@@ -26,6 +26,7 @@ namespace JobNear.Models
         public string BusinessSite { get; set; }
         public List<SupportingDocument> SupportingDocuments { get; set; }
         public string Status { get; set; }
+        public byte WarningCount { get; set; } = 0;
     }
 
 }

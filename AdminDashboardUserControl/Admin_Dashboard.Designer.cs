@@ -28,29 +28,31 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.sidebar_panel = new System.Windows.Forms.Panel();
             this.graph_panel = new System.Windows.Forms.Panel();
             this.stats_panel = new System.Windows.Forms.Panel();
             this.complaints_panel = new System.Windows.Forms.Panel();
-            this.label9 = new System.Windows.Forms.Label();
+            this.complaints_lbl = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.active_panel = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
+            this.jobs_lbl = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.seekers_panel = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.seeker_lbl = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.pending_panel = new System.Windows.Forms.Panel();
-            this.label7 = new System.Windows.Forms.Label();
+            this.pendingSeekers_lbl = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.verified_panel = new System.Windows.Forms.Panel();
-            this.label5 = new System.Windows.Forms.Label();
+            this.pendingBusiness_lbl = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.registered_panel = new System.Windows.Forms.Panel();
-            this.label12 = new System.Windows.Forms.Label();
+            this.business_lbl = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.cartesianChart1 = new LiveCharts.WinForms.CartesianChart();
-            this.pieChart1 = new LiveCharts.WinForms.PieChart();
+            this.chartApplicantsEmployers = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.sidebar_panel.SuspendLayout();
             this.graph_panel.SuspendLayout();
             this.stats_panel.SuspendLayout();
@@ -60,6 +62,7 @@
             this.pending_panel.SuspendLayout();
             this.verified_panel.SuspendLayout();
             this.registered_panel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chartApplicantsEmployers)).BeginInit();
             this.SuspendLayout();
             // 
             // sidebar_panel
@@ -76,11 +79,10 @@
             // 
             // graph_panel
             // 
-            this.graph_panel.Controls.Add(this.cartesianChart1);
-            this.graph_panel.Controls.Add(this.pieChart1);
+            this.graph_panel.Controls.Add(this.chartApplicantsEmployers);
             this.graph_panel.Location = new System.Drawing.Point(24, 349);
             this.graph_panel.Name = "graph_panel";
-            this.graph_panel.Size = new System.Drawing.Size(978, 331);
+            this.graph_panel.Size = new System.Drawing.Size(979, 328);
             this.graph_panel.TabIndex = 1;
             // 
             // stats_panel
@@ -100,23 +102,23 @@
             // 
             this.complaints_panel.BackColor = System.Drawing.Color.White;
             this.complaints_panel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.complaints_panel.Controls.Add(this.label9);
+            this.complaints_panel.Controls.Add(this.complaints_lbl);
             this.complaints_panel.Controls.Add(this.label10);
-            this.complaints_panel.Location = new System.Drawing.Point(645, 148);
+            this.complaints_panel.Location = new System.Drawing.Point(665, 148);
             this.complaints_panel.Name = "complaints_panel";
             this.complaints_panel.Size = new System.Drawing.Size(280, 117);
             this.complaints_panel.TabIndex = 17;
             // 
-            // label9
+            // complaints_lbl
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Poppins SemiBold", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.DimGray;
-            this.label9.Location = new System.Drawing.Point(6, 32);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(145, 84);
-            this.label9.TabIndex = 11;
-            this.label9.Text = "1000";
+            this.complaints_lbl.AutoSize = true;
+            this.complaints_lbl.Font = new System.Drawing.Font("Poppins SemiBold", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.complaints_lbl.ForeColor = System.Drawing.Color.DimGray;
+            this.complaints_lbl.Location = new System.Drawing.Point(6, 32);
+            this.complaints_lbl.Name = "complaints_lbl";
+            this.complaints_lbl.Size = new System.Drawing.Size(145, 84);
+            this.complaints_lbl.TabIndex = 11;
+            this.complaints_lbl.Text = "1000";
             // 
             // label10
             // 
@@ -133,23 +135,23 @@
             // 
             this.active_panel.BackColor = System.Drawing.Color.White;
             this.active_panel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.active_panel.Controls.Add(this.label3);
+            this.active_panel.Controls.Add(this.jobs_lbl);
             this.active_panel.Controls.Add(this.label4);
-            this.active_panel.Location = new System.Drawing.Point(645, 16);
+            this.active_panel.Location = new System.Drawing.Point(665, 16);
             this.active_panel.Name = "active_panel";
             this.active_panel.Size = new System.Drawing.Size(280, 117);
             this.active_panel.TabIndex = 15;
             // 
-            // label3
+            // jobs_lbl
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Poppins SemiBold", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.DimGray;
-            this.label3.Location = new System.Drawing.Point(6, 32);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(145, 84);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "1000";
+            this.jobs_lbl.AutoSize = true;
+            this.jobs_lbl.Font = new System.Drawing.Font("Poppins SemiBold", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.jobs_lbl.ForeColor = System.Drawing.Color.DimGray;
+            this.jobs_lbl.Location = new System.Drawing.Point(6, 32);
+            this.jobs_lbl.Name = "jobs_lbl";
+            this.jobs_lbl.Size = new System.Drawing.Size(145, 84);
+            this.jobs_lbl.TabIndex = 5;
+            this.jobs_lbl.Text = "1000";
             // 
             // label4
             // 
@@ -166,23 +168,23 @@
             // 
             this.seekers_panel.BackColor = System.Drawing.Color.White;
             this.seekers_panel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.seekers_panel.Controls.Add(this.label1);
+            this.seekers_panel.Controls.Add(this.seeker_lbl);
             this.seekers_panel.Controls.Add(this.label2);
             this.seekers_panel.Location = new System.Drawing.Point(350, 16);
             this.seekers_panel.Name = "seekers_panel";
             this.seekers_panel.Size = new System.Drawing.Size(280, 117);
             this.seekers_panel.TabIndex = 14;
             // 
-            // label1
+            // seeker_lbl
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Poppins SemiBold", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.DimGray;
-            this.label1.Location = new System.Drawing.Point(6, 32);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(145, 84);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "1000";
+            this.seeker_lbl.AutoSize = true;
+            this.seeker_lbl.Font = new System.Drawing.Font("Poppins SemiBold", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.seeker_lbl.ForeColor = System.Drawing.Color.DimGray;
+            this.seeker_lbl.Location = new System.Drawing.Point(6, 32);
+            this.seeker_lbl.Name = "seeker_lbl";
+            this.seeker_lbl.Size = new System.Drawing.Size(145, 84);
+            this.seeker_lbl.TabIndex = 5;
+            this.seeker_lbl.Text = "1000";
             // 
             // label2
             // 
@@ -199,23 +201,23 @@
             // 
             this.pending_panel.BackColor = System.Drawing.Color.White;
             this.pending_panel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pending_panel.Controls.Add(this.label7);
+            this.pending_panel.Controls.Add(this.pendingSeekers_lbl);
             this.pending_panel.Controls.Add(this.label8);
             this.pending_panel.Location = new System.Drawing.Point(350, 148);
             this.pending_panel.Name = "pending_panel";
             this.pending_panel.Size = new System.Drawing.Size(280, 117);
             this.pending_panel.TabIndex = 16;
             // 
-            // label7
+            // pendingSeekers_lbl
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Poppins SemiBold", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.DimGray;
-            this.label7.Location = new System.Drawing.Point(6, 32);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(145, 84);
-            this.label7.TabIndex = 9;
-            this.label7.Text = "1000";
+            this.pendingSeekers_lbl.AutoSize = true;
+            this.pendingSeekers_lbl.Font = new System.Drawing.Font("Poppins SemiBold", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pendingSeekers_lbl.ForeColor = System.Drawing.Color.DimGray;
+            this.pendingSeekers_lbl.Location = new System.Drawing.Point(6, 32);
+            this.pendingSeekers_lbl.Name = "pendingSeekers_lbl";
+            this.pendingSeekers_lbl.Size = new System.Drawing.Size(145, 84);
+            this.pendingSeekers_lbl.TabIndex = 9;
+            this.pendingSeekers_lbl.Text = "1000";
             // 
             // label8
             // 
@@ -224,31 +226,31 @@
             this.label8.ForeColor = System.Drawing.Color.DimGray;
             this.label8.Location = new System.Drawing.Point(15, 11);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(236, 26);
+            this.label8.Size = new System.Drawing.Size(255, 26);
             this.label8.TabIndex = 8;
-            this.label8.Text = "Numebr of Pending Accounts";
+            this.label8.Text = "Number of Pending Job Seekers";
             // 
             // verified_panel
             // 
             this.verified_panel.BackColor = System.Drawing.Color.White;
             this.verified_panel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.verified_panel.Controls.Add(this.label5);
+            this.verified_panel.Controls.Add(this.pendingBusiness_lbl);
             this.verified_panel.Controls.Add(this.label6);
-            this.verified_panel.Location = new System.Drawing.Point(55, 148);
+            this.verified_panel.Location = new System.Drawing.Point(35, 148);
             this.verified_panel.Name = "verified_panel";
             this.verified_panel.Size = new System.Drawing.Size(280, 117);
             this.verified_panel.TabIndex = 17;
             // 
-            // label5
+            // pendingBusiness_lbl
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Poppins SemiBold", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.DimGray;
-            this.label5.Location = new System.Drawing.Point(6, 32);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(145, 84);
-            this.label5.TabIndex = 7;
-            this.label5.Text = "1000";
+            this.pendingBusiness_lbl.AutoSize = true;
+            this.pendingBusiness_lbl.Font = new System.Drawing.Font("Poppins SemiBold", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pendingBusiness_lbl.ForeColor = System.Drawing.Color.DimGray;
+            this.pendingBusiness_lbl.Location = new System.Drawing.Point(6, 32);
+            this.pendingBusiness_lbl.Name = "pendingBusiness_lbl";
+            this.pendingBusiness_lbl.Size = new System.Drawing.Size(145, 84);
+            this.pendingBusiness_lbl.TabIndex = 7;
+            this.pendingBusiness_lbl.Text = "1000";
             // 
             // label6
             // 
@@ -257,31 +259,31 @@
             this.label6.ForeColor = System.Drawing.Color.DimGray;
             this.label6.Location = new System.Drawing.Point(15, 11);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(232, 26);
+            this.label6.Size = new System.Drawing.Size(230, 26);
             this.label6.TabIndex = 6;
-            this.label6.Text = "Number of Verified Accounts";
+            this.label6.Text = "Number of Pending Business";
             // 
             // registered_panel
             // 
             this.registered_panel.BackColor = System.Drawing.Color.White;
             this.registered_panel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.registered_panel.Controls.Add(this.label12);
+            this.registered_panel.Controls.Add(this.business_lbl);
             this.registered_panel.Controls.Add(this.label11);
-            this.registered_panel.Location = new System.Drawing.Point(55, 16);
+            this.registered_panel.Location = new System.Drawing.Point(34, 16);
             this.registered_panel.Name = "registered_panel";
             this.registered_panel.Size = new System.Drawing.Size(280, 117);
             this.registered_panel.TabIndex = 13;
             // 
-            // label12
+            // business_lbl
             // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Poppins SemiBold", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.Color.DimGray;
-            this.label12.Location = new System.Drawing.Point(6, 32);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(145, 84);
-            this.label12.TabIndex = 5;
-            this.label12.Text = "1000";
+            this.business_lbl.AutoSize = true;
+            this.business_lbl.Font = new System.Drawing.Font("Poppins SemiBold", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.business_lbl.ForeColor = System.Drawing.Color.DimGray;
+            this.business_lbl.Location = new System.Drawing.Point(6, 32);
+            this.business_lbl.Name = "business_lbl";
+            this.business_lbl.Size = new System.Drawing.Size(145, 84);
+            this.business_lbl.TabIndex = 5;
+            this.business_lbl.Text = "1000";
             // 
             // label11
             // 
@@ -290,25 +292,25 @@
             this.label11.ForeColor = System.Drawing.Color.DimGray;
             this.label11.Location = new System.Drawing.Point(15, 11);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(249, 26);
+            this.label11.Size = new System.Drawing.Size(226, 26);
             this.label11.TabIndex = 4;
-            this.label11.Text = "Number of Registered Business";
+            this.label11.Text = "Number of Verified Business";
             // 
-            // cartesianChart1
+            // chartApplicantsEmployers
             // 
-            this.cartesianChart1.Location = new System.Drawing.Point(502, 29);
-            this.cartesianChart1.Name = "cartesianChart1";
-            this.cartesianChart1.Size = new System.Drawing.Size(439, 275);
-            this.cartesianChart1.TabIndex = 1;
-            this.cartesianChart1.Text = "cartesianChart1";
-            // 
-            // pieChart1
-            // 
-            this.pieChart1.Location = new System.Drawing.Point(56, 18);
-            this.pieChart1.Name = "pieChart1";
-            this.pieChart1.Size = new System.Drawing.Size(375, 287);
-            this.pieChart1.TabIndex = 0;
-            this.pieChart1.Text = "pieChart1";
+            chartArea1.Name = "ChartArea1";
+            this.chartApplicantsEmployers.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chartApplicantsEmployers.Legends.Add(legend1);
+            this.chartApplicantsEmployers.Location = new System.Drawing.Point(34, 17);
+            this.chartApplicantsEmployers.Name = "chartApplicantsEmployers";
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chartApplicantsEmployers.Series.Add(series1);
+            this.chartApplicantsEmployers.Size = new System.Drawing.Size(911, 295);
+            this.chartApplicantsEmployers.TabIndex = 2;
+            this.chartApplicantsEmployers.Text = "chart1";
             // 
             // Admin_Dashboard
             // 
@@ -332,6 +334,7 @@
             this.verified_panel.PerformLayout();
             this.registered_panel.ResumeLayout(false);
             this.registered_panel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chartApplicantsEmployers)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -344,22 +347,21 @@
         private System.Windows.Forms.Panel pending_panel;
         private System.Windows.Forms.Panel verified_panel;
         private System.Windows.Forms.Panel registered_panel;
-        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label business_lbl;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Panel seekers_panel;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label seeker_lbl;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel complaints_panel;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label complaints_lbl;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Panel active_panel;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label jobs_lbl;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label pendingSeekers_lbl;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label pendingBusiness_lbl;
         private System.Windows.Forms.Label label6;
-        private LiveCharts.WinForms.CartesianChart cartesianChart1;
-        private LiveCharts.WinForms.PieChart pieChart1;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartApplicantsEmployers;
     }
 }

@@ -50,6 +50,11 @@ namespace JobNear
             // [] Closed Business the business is not visible in the Job Browse Map and Job List Job posts are on Review and it cant be updated anymore
             // [] Dashboard Analytics for Admin Form
 
+            // after seekr submit a repot it will notify the jp
+            // valid / invalid 
+            // valid > send notif to jp give warning count. on the third warnign business will terminate > send nur report has benn taken an action
+            // invalid > send notif to seeker
+
         }
     }
 }

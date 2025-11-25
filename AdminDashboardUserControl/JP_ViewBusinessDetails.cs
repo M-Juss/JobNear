@@ -105,7 +105,7 @@ namespace JobNear.AdminDashboardUserControl
                                 };
 
                                 await MongoDbServices.UserNotification.InsertOneAsync(verifyNotif);
-                                 Console.WriteLine("Verified inserted");
+
                                 break;
 
                             case "pending":
