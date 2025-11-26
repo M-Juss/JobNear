@@ -77,5 +77,10 @@ namespace JobNear.Forms
         {
 
         }
+
+        private void sidebar_panel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

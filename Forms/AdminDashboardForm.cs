@@ -81,10 +81,11 @@ namespace JobNear.Forms
         }
         private void dashboard_button_Click(object sender, EventArgs e)
         {
+            hideInactiveSubMenu();
             sidebar_panel.Controls.Clear();
             sidebar_panel.Controls.Add(admin_Dashboard);
             admin_Dashboard.Dock = DockStyle.Fill;
-            hideInactiveSubMenu();
+            
         }
 
         private void user_button_Click(object sender, EventArgs e)
@@ -119,10 +120,11 @@ namespace JobNear.Forms
 
         private void reports_button_Click(object sender, EventArgs e)
         {
+            hideInactiveSubMenu();
             sidebar_panel.Controls.Clear();
             sidebar_panel.Controls.Add(admin_Reports);
             admin_Reports.Dock = DockStyle.Fill;
-            hideInactiveSubMenu();
+            
         }
 
         private void sidebar_panel_Paint(object sender, PaintEventArgs e)

@@ -48,6 +48,7 @@
             // 
             // distance_combo
             // 
+            this.distance_combo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.distance_combo.Font = new System.Drawing.Font("Poppins", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.distance_combo.FormattingEnabled = true;
             this.distance_combo.Items.AddRange(new object[] {

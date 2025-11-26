@@ -17,11 +17,7 @@ namespace JobNear.Forms
 {
     public partial class JobSeekerDashboardForm : Form
     {
-        JobSeekerDashboardUserControl.JS_Dashboard js_dashboard = new JobSeekerDashboardUserControl.JS_Dashboard();
-        JobSeekerDashboardUserControl.JS_Profile js_profile = new JobSeekerDashboardUserControl.JS_Profile();
-        JobSeekerDashboardUserControl.JS_JobBrowse js_jobBrowsing = new JobSeekerDashboardUserControl.JS_JobBrowse();
-        JobSeekerDashboardUserControl.JS_JobList js_jobList = new JobSeekerDashboardUserControl.JS_JobList();
-        JobSeekerDashboardUserControl.JS_Notifications js_notification = new JobSeekerDashboardUserControl.JS_Notifications();
+
         public JobSeekerDashboardForm()
         {
             InitializeComponent();
@@ -38,7 +34,7 @@ namespace JobNear.Forms
 
             Session.CurrentSidebarPanel = sidebar_panel;
 
-
+            JobSeekerDashboardUserControl.JS_Dashboard js_dashboard = new JobSeekerDashboardUserControl.JS_Dashboard();
             sidebar_panel.Controls.Clear();
             sidebar_panel.Controls.Add(js_dashboard);
             js_dashboard.Dock = DockStyle.Fill;
@@ -87,6 +83,7 @@ namespace JobNear.Forms
 
         private void job_browsing_sub_button_Click(object sender, EventArgs e)
         {
+            JobSeekerDashboardUserControl.JS_JobBrowse js_jobBrowsing = new JobSeekerDashboardUserControl.JS_JobBrowse();
             sidebar_panel.Controls.Clear();
             sidebar_panel.Controls.Add(js_jobBrowsing);
             js_jobBrowsing.Dock = DockStyle.Fill;
@@ -95,6 +92,8 @@ namespace JobNear.Forms
 
         private void profile_button_Click(object sender, EventArgs e)
         {
+
+            JobSeekerDashboardUserControl.JS_Profile js_profile = new JobSeekerDashboardUserControl.JS_Profile();
             hideInactiveSubMenu();
             sidebar_panel.Controls.Clear();
             sidebar_panel.Controls.Add(js_profile);
@@ -103,6 +102,7 @@ namespace JobNear.Forms
 
         private void joblist_sub_button_Click(object sender, EventArgs e)
         {
+            JobSeekerDashboardUserControl.JS_JobList js_jobList = new JobSeekerDashboardUserControl.JS_JobList();
             sidebar_panel.Controls.Clear();
             sidebar_panel.Controls.Add(js_jobList);
             js_jobList.Dock = DockStyle.Fill;
@@ -112,7 +112,7 @@ namespace JobNear.Forms
 
         private void notification_button_Click(object sender, EventArgs e)
         {
-
+            JobSeekerDashboardUserControl.JS_Notifications js_notification = new JobSeekerDashboardUserControl.JS_Notifications();
             hideInactiveSubMenu();
             sidebar_panel.Controls.Clear();
             sidebar_panel.Controls.Add(js_notification);
@@ -121,6 +121,8 @@ namespace JobNear.Forms
 
         private void jobnear_button_Click(object sender, EventArgs e)
         {
+            JobSeekerDashboardUserControl.JS_Notifications js_notification = new JobSeekerDashboardUserControl.JS_Notifications();
+            JobSeekerDashboardUserControl.JS_Dashboard js_dashboard = new JobSeekerDashboardUserControl.JS_Dashboard();
             sidebar_panel.Controls.Clear();
             sidebar_panel.Controls.Add(js_dashboard);
             js_dashboard.Dock = DockStyle.Fill;
