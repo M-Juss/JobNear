@@ -33,9 +33,9 @@
             // 
             // notif_panel
             // 
-            this.notif_panel.Location = new System.Drawing.Point(3, 46);
+            this.notif_panel.Location = new System.Drawing.Point(3, 53);
             this.notif_panel.Name = "notif_panel";
-            this.notif_panel.Size = new System.Drawing.Size(1025, 613);
+            this.notif_panel.Size = new System.Drawing.Size(1025, 640);
             this.notif_panel.TabIndex = 1;
             // 
             // JP_Notifications

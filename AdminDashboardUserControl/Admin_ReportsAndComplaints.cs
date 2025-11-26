@@ -53,6 +53,7 @@ namespace JobNear.AdminDashboardUserControl
                 string complaineeId = reports_table.Rows[e.RowIndex].Cells["ComplaineeId"].Value.ToString();
                 string reportId = reports_table.Rows[e.RowIndex].Cells["ReportId"].Value.ToString();
 
+                Session.CurrentReportSelected = reportId;
 
                 Admin_ViewReportDetails viewReportInformation = new Admin_ViewReportDetails(complainantId, complaineeId, reportId);
                 sidebar_panel.Controls.Clear();
@@ -228,6 +229,11 @@ namespace JobNear.AdminDashboardUserControl
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void sidebar_panel_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

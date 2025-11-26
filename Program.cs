@@ -45,15 +45,11 @@ namespace JobNear
             // [/] Update Function in RegisterBusinessForm
 
             // To-do November 25, 2025
-            // [] if Report  status is Resolved, send notif to the jobposter about the closing of their business 
-            // [] if Report Statis is Closed , send notif to the jobposter about the report attempt and notif to the jobseekr about their closing of their report
-            // [] Closed Business the business is not visible in the Job Browse Map and Job List Job posts are on Review and it cant be updated anymore
-            // [] Dashboard Analytics for Admin Form
 
-            // after seekr submit a repot it will notify the jp
-            // valid / invalid 
-            // valid > send notif to jp give warning count. on the third warnign business will terminate > send nur report has benn taken an action
-            // invalid > send notif to seeker
+            // [/] after seekr submit a repot it will notify the admin
+            // [/] valid / invalid 
+            // [/] valid > send notif to jp give warning count. on the third warnign business will terminate > send nur report has benn taken an action
+            // [/] invalid > send notif to seeker
 
         }
     }

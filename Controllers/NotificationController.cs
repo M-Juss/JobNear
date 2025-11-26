@@ -1,4 +1,5 @@
-﻿using System;
+﻿using JobNear.Styles;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Drawing2D;
@@ -18,14 +19,14 @@ namespace JobNear.Controllers
 
         private void SetupNotificationBox(string senderName, string headerMessage, string remarks, string type, DateTime date, string warningCount)
         {
-            this.Size = new Size(980, 130);
+
+            this.Size = new Size(980, 140);
             this.BackColor = Color.White;
-            this.BorderStyle = BorderStyle.FixedSingle;
-            this.Margin = new Padding(5, 3, 5, 3);
+            this.Margin = new Padding(5, 5, 5, 10);
 
             Panel avatarPanel = new Panel();
             avatarPanel.Size = new Size(45, 45);
-            avatarPanel.Location = new Point(10, 12);
+            avatarPanel.Location = new Point(10, 45);
             avatarPanel.BackColor = GetNotificationColor(type);
 
             GraphicsPath path = new GraphicsPath();
@@ -61,14 +62,15 @@ namespace JobNear.Controllers
             remarksLabel.Font = new Font("Poppins", 8.5f, FontStyle.Italic);
             remarksLabel.ForeColor = Color.FromArgb(100, 100, 100);
             remarksLabel.Location = new Point(65, 60);
-            remarksLabel.Size = new Size(800, 35);
-            remarksLabel.AutoEllipsis = true;
+            remarksLabel.Size = new Size(830, 50);
+            remarksLabel.AutoEllipsis = false;
+            remarksLabel.AutoSize = false;
 
             Label dateLabel = new Label();
             dateLabel.Text = FormatTimeAgo(date);
             dateLabel.Font = new Font("Poppins", 8);
             dateLabel.ForeColor = Color.Gray;
-            dateLabel.Location = new Point(65, 100);
+            dateLabel.Location = new Point(65, 115);
             dateLabel.Size = new Size(120, 15);
 
             this.MouseEnter += (s, e) => this.BackColor = Color.FromArgb(248, 249, 250);

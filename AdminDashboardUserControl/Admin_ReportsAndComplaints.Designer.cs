@@ -43,10 +43,11 @@
             this.sidebar_panel.Controls.Add(this.status_combo);
             this.sidebar_panel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.sidebar_panel.Location = new System.Drawing.Point(0, 0);
-            this.sidebar_panel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.sidebar_panel.Margin = new System.Windows.Forms.Padding(2);
             this.sidebar_panel.Name = "sidebar_panel";
             this.sidebar_panel.Size = new System.Drawing.Size(1031, 705);
             this.sidebar_panel.TabIndex = 0;
+            this.sidebar_panel.Paint += new System.Windows.Forms.PaintEventHandler(this.sidebar_panel_Paint);
             // 
             // panel1
             // 

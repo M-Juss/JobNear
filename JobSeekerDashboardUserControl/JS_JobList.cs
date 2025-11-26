@@ -24,7 +24,6 @@ namespace JobNear.JobSeekerDashboardUserControl
 
             if (jobs != null)
             {
-
                 jobs.ForEach(job =>
                 {
                     FlowLayoutStyles.LoadActivePostedJob(

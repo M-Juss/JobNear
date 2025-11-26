@@ -107,12 +107,12 @@ namespace JobNear.JobSeekerDashboardUserControl
                 );
                     return;
                 }
-            }
-            else {
-                JS_ReportBusiness reportBusiness = new JS_ReportBusiness(Session.CurrentBusinessSelected);
-                sidebar_panel.Controls.Clear();
-                sidebar_panel.Controls.Add(reportBusiness);
-                reportBusiness.Dock = DockStyle.Fill;
+                else {
+                    JS_ReportBusiness reportBusiness = new JS_ReportBusiness(Session.CurrentBusinessSelected);
+                    sidebar_panel.Controls.Clear();
+                    sidebar_panel.Controls.Add(reportBusiness);
+                    reportBusiness.Dock = DockStyle.Fill;
+                }
             }
         }
     }

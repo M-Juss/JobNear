@@ -22,6 +22,7 @@ namespace JobNear.AdminDashboardUserControl
         {
             try
             {
+
                 var getUser = await MongoDbServices.JobSeekerAccount
                     .Find(x => x.Id == complainantId).FirstOrDefaultAsync();
 
@@ -122,6 +123,11 @@ namespace JobNear.AdminDashboardUserControl
                             WarningCount = 3
                         };
                         await MongoDbServices.UserNotification.InsertOneAsync(terminationNotif);
+
+                        await MongoDbServices.JobPosterBusiness.DeleteOneAsync(
+                            x => x.Id == complainee.Id);
+                        BackToAdminTable();
+                        return;
                     }
                     else
                     {
@@ -144,6 +150,16 @@ namespace JobNear.AdminDashboardUserControl
                     await MongoDbServices.JobPosterBusiness.UpdateOneAsync(
                         x => x.Id == complainee.Id,
                         updateWarning);
+
+                    var updateReportStatus = Builders<ReportBusinessModel>.Update
+                        .Set(x => x.Status, "Closed");
+
+                    await MongoDbServices.ReportBusiness.UpdateOneAsync(
+                        x => x.Id == Session.CurrentReportSelected,
+                        updateReportStatus);
+
+                    MessageBox.Show("Report status updated to closed and notifications are both sent to specified complainant and complainee.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    BackToAdminTable();
                 }
             }
             else if (status == "Invalid")
@@ -164,21 +180,31 @@ namespace JobNear.AdminDashboardUserControl
                     };
 
                     await MongoDbServices.UserNotification.InsertOneAsync(invalidNotif);
+
+                    var updateReportStatus = Builders<ReportBusinessModel>.Update
+                        .Set(x => x.Status, "Closed");
+
+                    await MongoDbServices.ReportBusiness.UpdateOneAsync(
+                        x => x.Id == Session.CurrentReportSelected,
+                        updateReportStatus);
+
+                    MessageBox.Show("Report status updated to closed and notifications are both sent to specified complainant and complainee.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    BackToAdminTable();
                 }
             }
         }
 
         private void cancel_button_Click(object sender, EventArgs e)
         {
+            BackToAdminTable();
+        }
+
+        private void BackToAdminTable()
+        {
             Admin_ReportsAndComplaints rnc = new Admin_ReportsAndComplaints();
             sidebar_panel.Controls.Clear();
             sidebar_panel.Controls.Add(rnc);
             rnc.Dock = DockStyle.Fill;
-        }
-
-        private void sidebar_panel_Paint(object sender, PaintEventArgs e)
-        {
-
         }
     }
 }

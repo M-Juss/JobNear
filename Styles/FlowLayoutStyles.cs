@@ -467,6 +467,7 @@ namespace JobNear.Styles
             jobStatus.TextAlign = ContentAlignment.MiddleCenter;
             jobStatus.Font = new Font("Poppins", 12, FontStyle.Bold);
 
+            UserController.SetJobPostStatus(jobStatus, job_status);
 
             Label jobInfo = new Label();
             jobInfo.AutoSize = false;

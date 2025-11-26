@@ -22,5 +22,6 @@ namespace JobNear
         public static Panel CurrentSidebarPanel { get; set; }
         public static string CurrentSeekJobSelected { get; set; }
         public static string CurrentAdminSelected { get; set; }
+        public static string CurrentReportSelected { get; set; }
     }
 }
