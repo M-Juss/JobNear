@@ -11,11 +11,20 @@ namespace JobNear.AdminDashboardUserControl
 {
     public partial class Admin_ViewReportDetails : UserControl
     {
-        public Admin_ViewReportDetails(string complainantId, string complaineeId, string reportId)
+        public Admin_ViewReportDetails(string complainantId, string complaineeId, string reportId, string status)
         {
             InitializeComponent();
             DesignPanels();
             LoadReportDetails(complainantId, complaineeId, reportId);
+            back_button.Visible = false;
+            if (status == "Closed")
+            {
+                stat_lbl.Visible = false;
+                status_combo.Visible = false;
+                cancel_button.Visible = false;
+                submit_button.Visible = false;
+                back_button.Visible = true;
+            }
         }
 
         private async void LoadReportDetails(string complainantId, string complaineeId, string reportId)
@@ -75,9 +84,9 @@ namespace JobNear.AdminDashboardUserControl
         {
             PanelStyles.StyleRoundedLabel(complainant_lbl, 5, Color.Green, Color.White);
             PanelStyles.StyleRoundedLabel(complainee_lbl, 5, Color.Orange, Color.White);
-            PanelStyles.RoundedPanel(complainant_panel, 1, Color.WhiteSmoke, Color.LightGray);
-            PanelStyles.RoundedPanel(complainee_panel, 1, Color.WhiteSmoke, Color.LightGray);
-            PanelStyles.RoundedPanel(details_panel, 15, Color.WhiteSmoke, Color.LightGray);
+            PanelStyles.RoundedPanel(complainant_panel, 5, Color.White, Color.LightGray);
+            PanelStyles.RoundedPanel(complainee_panel, 5, Color.White, Color.LightGray);
+            PanelStyles.RoundedPanel(details_panel, 15, Color.White, Color.LightGray);
         }
 
         private async void submit_button_Click(object sender, EventArgs e)
@@ -200,6 +209,19 @@ namespace JobNear.AdminDashboardUserControl
         }
 
         private void BackToAdminTable()
+        {
+            Admin_ReportsAndComplaints rnc = new Admin_ReportsAndComplaints();
+            sidebar_panel.Controls.Clear();
+            sidebar_panel.Controls.Add(rnc);
+            rnc.Dock = DockStyle.Fill;
+        }
+
+        private void sidebar_panel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void back_button_Click(object sender, EventArgs e)
         {
             Admin_ReportsAndComplaints rnc = new Admin_ReportsAndComplaints();
             sidebar_panel.Controls.Clear();

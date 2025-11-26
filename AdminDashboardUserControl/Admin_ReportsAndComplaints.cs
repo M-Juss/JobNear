@@ -52,10 +52,12 @@ namespace JobNear.AdminDashboardUserControl
                 string complainantId = reports_table.Rows[e.RowIndex].Cells["ComplainantId"].Value.ToString();
                 string complaineeId = reports_table.Rows[e.RowIndex].Cells["ComplaineeId"].Value.ToString();
                 string reportId = reports_table.Rows[e.RowIndex].Cells["ReportId"].Value.ToString();
+                string status = reports_table.Rows[e.RowIndex].Cells["Status"].Value.ToString();
 
                 Session.CurrentReportSelected = reportId;
 
-                Admin_ViewReportDetails viewReportInformation = new Admin_ViewReportDetails(complainantId, complaineeId, reportId);
+
+                Admin_ViewReportDetails viewReportInformation = new Admin_ViewReportDetails(complainantId, complaineeId, reportId, status);
                 sidebar_panel.Controls.Clear();
                 sidebar_panel.Controls.Add(viewReportInformation);
                 viewReportInformation.Dock = DockStyle.Fill;
@@ -107,48 +109,10 @@ namespace JobNear.AdminDashboardUserControl
                             }
                         }
                         break;
-
-                    case "resolved":
-                        reports_table.Rows.Clear();
-                        var resolvedReports = await MongoDbServices.ReportBusiness
-                            .Find(x => x.Status == "Resolved")
-                            .ToListAsync();
-
-                        if (resolvedReports != null)
-                        {
-                            foreach (var resolved in resolvedReports)
-                            {
-                                var getUser = await MongoDbServices.JobSeekerAccount
-                                    .Find(x => x.Id == resolved.Complainant)
-                                    .FirstOrDefaultAsync();
-
-                                var getBusiness = await MongoDbServices.JobPosterBusiness
-                                    .Find(x => x.Id == resolved.Complainee)
-                                    .FirstOrDefaultAsync();
-
-                                if (getUser != null && getBusiness != null)
-                                {
-                                    string complainantName = $"{getUser.Firstname} {getUser.Lastname}";
-                                    string complaineeName = getBusiness.BusinessName;
-                                    reports_table.Rows.Add(
-                                        resolved.Subject,
-                                        complainantName,
-                                        getUser.Id,
-                                        complaineeName,
-                                        getBusiness.Id,
-                                        resolved.DateCreated.ToString("MM/dd/yyyy"),
-                                        resolved.Status,
-                                        resolved.Id
-                                    );
-                                }
-                            }
-                        }
-                        break;
-
                     case "closed":
                         reports_table.Rows.Clear();
                         var closedReports = await MongoDbServices.ReportBusiness
-                             .Find(x => x.Status == "Resolved")
+                             .Find(x => x.Status == "Closed")
                              .ToListAsync();
 
                         if (closedReports != null)

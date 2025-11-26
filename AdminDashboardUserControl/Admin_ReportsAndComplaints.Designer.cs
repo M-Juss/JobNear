@@ -77,7 +77,6 @@
             this.status_combo.FormattingEnabled = true;
             this.status_combo.Items.AddRange(new object[] {
             "Active",
-            "Resolved",
             "Closed",
             "All"});
             this.status_combo.Location = new System.Drawing.Point(877, 33);

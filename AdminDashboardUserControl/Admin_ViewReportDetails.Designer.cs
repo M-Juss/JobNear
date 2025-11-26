@@ -34,7 +34,7 @@
             this.subject_lbl = new System.Windows.Forms.Label();
             this.cancel_button = new System.Windows.Forms.Button();
             this.submit_button = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
+            this.stat_lbl = new System.Windows.Forms.Label();
             this.status_combo = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.image_flowlayout = new System.Windows.Forms.FlowLayoutPanel();
@@ -53,6 +53,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.complainant_lbl = new System.Windows.Forms.Label();
             this.complainee_lbl = new System.Windows.Forms.Label();
+            this.back_button = new System.Windows.Forms.Button();
             this.sidebar_panel.SuspendLayout();
             this.details_panel.SuspendLayout();
             this.complainee_panel.SuspendLayout();
@@ -75,6 +76,7 @@
             this.sidebar_panel.Name = "sidebar_panel";
             this.sidebar_panel.Size = new System.Drawing.Size(1031, 705);
             this.sidebar_panel.TabIndex = 0;
+            this.sidebar_panel.Paint += new System.Windows.Forms.PaintEventHandler(this.sidebar_panel_Paint);
             // 
             // details_panel
             // 
@@ -83,12 +85,13 @@
             this.details_panel.Controls.Add(this.subject_lbl);
             this.details_panel.Controls.Add(this.cancel_button);
             this.details_panel.Controls.Add(this.submit_button);
-            this.details_panel.Controls.Add(this.label4);
+            this.details_panel.Controls.Add(this.stat_lbl);
             this.details_panel.Controls.Add(this.status_combo);
             this.details_panel.Controls.Add(this.label3);
             this.details_panel.Controls.Add(this.image_flowlayout);
             this.details_panel.Controls.Add(this.label2);
             this.details_panel.Controls.Add(this.label9);
+            this.details_panel.Controls.Add(this.back_button);
             this.details_panel.Location = new System.Drawing.Point(35, 236);
             this.details_panel.Name = "details_panel";
             this.details_panel.Size = new System.Drawing.Size(960, 447);
@@ -134,16 +137,16 @@
             this.submit_button.UseVisualStyleBackColor = true;
             this.submit_button.Click += new System.EventHandler(this.submit_button_Click);
             // 
-            // label4
+            // stat_lbl
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(7, 308);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(99, 28);
-            this.label4.TabIndex = 112;
-            this.label4.Text = "Set Status:";
+            this.stat_lbl.AutoSize = true;
+            this.stat_lbl.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.stat_lbl.Location = new System.Drawing.Point(7, 308);
+            this.stat_lbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.stat_lbl.Name = "stat_lbl";
+            this.stat_lbl.Size = new System.Drawing.Size(99, 28);
+            this.stat_lbl.TabIndex = 112;
+            this.stat_lbl.Text = "Set Status:";
             // 
             // status_combo
             // 
@@ -329,6 +332,17 @@
             this.complainee_lbl.Text = "Complainee";
             this.complainee_lbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // back_button
+            // 
+            this.back_button.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.back_button.Location = new System.Drawing.Point(820, 399);
+            this.back_button.Name = "back_button";
+            this.back_button.Size = new System.Drawing.Size(127, 36);
+            this.back_button.TabIndex = 118;
+            this.back_button.Text = "Back";
+            this.back_button.UseVisualStyleBackColor = true;
+            this.back_button.Click += new System.EventHandler(this.back_button_Click);
+            // 
             // Admin_ViewReportDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -358,7 +372,7 @@
         private System.Windows.Forms.Panel details_panel;
         private System.Windows.Forms.Button cancel_button;
         private System.Windows.Forms.Button submit_button;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label stat_lbl;
         private System.Windows.Forms.ComboBox status_combo;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.FlowLayoutPanel image_flowlayout;
@@ -375,5 +389,6 @@
         private System.Windows.Forms.Label complainee_name;
         private System.Windows.Forms.Label complainant_phone;
         private System.Windows.Forms.Label complainant_email;
+        private System.Windows.Forms.Button back_button;
     }
 }
