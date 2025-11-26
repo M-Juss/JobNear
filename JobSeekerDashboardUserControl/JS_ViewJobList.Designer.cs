@@ -64,15 +64,17 @@
             this.sidebar_panel.Controls.Add(this.job_panel);
             this.sidebar_panel.Controls.Add(this.business_panel);
             this.sidebar_panel.Location = new System.Drawing.Point(0, 0);
+            this.sidebar_panel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.sidebar_panel.Name = "sidebar_panel";
-            this.sidebar_panel.Size = new System.Drawing.Size(1031, 705);
+            this.sidebar_panel.Size = new System.Drawing.Size(1375, 868);
             this.sidebar_panel.TabIndex = 0;
             this.sidebar_panel.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::JobNear.Properties.Resources.left_arrow;
-            this.pictureBox1.Location = new System.Drawing.Point(15, 7);
+            this.pictureBox1.Location = new System.Drawing.Point(20, 9);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(24, 24);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -96,27 +98,30 @@
             this.job_panel.Controls.Add(this.jobinfo_label);
             this.job_panel.Controls.Add(this.status_label);
             this.job_panel.Controls.Add(this.jobtitle_label);
-            this.job_panel.Location = new System.Drawing.Point(15, 256);
+            this.job_panel.Location = new System.Drawing.Point(20, 315);
+            this.job_panel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.job_panel.Name = "job_panel";
-            this.job_panel.Size = new System.Drawing.Size(1000, 435);
+            this.job_panel.Size = new System.Drawing.Size(1333, 535);
             this.job_panel.TabIndex = 6;
             // 
             // minimum_label
             // 
             this.minimum_label.AutoEllipsis = true;
             this.minimum_label.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.minimum_label.Location = new System.Drawing.Point(514, 286);
+            this.minimum_label.Location = new System.Drawing.Point(685, 352);
+            this.minimum_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.minimum_label.Name = "minimum_label";
-            this.minimum_label.Size = new System.Drawing.Size(431, 131);
+            this.minimum_label.Size = new System.Drawing.Size(575, 161);
             this.minimum_label.TabIndex = 17;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Poppins SemiBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(512, 258);
+            this.label9.Location = new System.Drawing.Point(683, 318);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(203, 34);
+            this.label9.Size = new System.Drawing.Size(257, 42);
             this.label9.TabIndex = 16;
             this.label9.Text = "Minimum Qualities:";
             // 
@@ -124,18 +129,20 @@
             // 
             this.preffered_label.AutoEllipsis = true;
             this.preffered_label.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.preffered_label.Location = new System.Drawing.Point(513, 119);
+            this.preffered_label.Location = new System.Drawing.Point(684, 146);
+            this.preffered_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.preffered_label.Name = "preffered_label";
-            this.preffered_label.Size = new System.Drawing.Size(432, 131);
+            this.preffered_label.Size = new System.Drawing.Size(576, 161);
             this.preffered_label.TabIndex = 15;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Poppins SemiBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(511, 91);
+            this.label11.Location = new System.Drawing.Point(681, 112);
+            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(201, 34);
+            this.label11.Size = new System.Drawing.Size(251, 42);
             this.label11.TabIndex = 14;
             this.label11.Text = "Preffered Qualities:";
             // 
@@ -143,18 +150,20 @@
             // 
             this.responsibilities_label.AutoEllipsis = true;
             this.responsibilities_label.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.responsibilities_label.Location = new System.Drawing.Point(63, 286);
+            this.responsibilities_label.Location = new System.Drawing.Point(84, 352);
+            this.responsibilities_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.responsibilities_label.Name = "responsibilities_label";
-            this.responsibilities_label.Size = new System.Drawing.Size(431, 131);
+            this.responsibilities_label.Size = new System.Drawing.Size(575, 161);
             this.responsibilities_label.TabIndex = 13;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Poppins SemiBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(61, 258);
+            this.label7.Location = new System.Drawing.Point(81, 318);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(164, 34);
+            this.label7.Size = new System.Drawing.Size(209, 42);
             this.label7.TabIndex = 12;
             this.label7.Text = "Responsibilities";
             // 
@@ -162,18 +171,20 @@
             // 
             this.about_label.AutoEllipsis = true;
             this.about_label.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.about_label.Location = new System.Drawing.Point(62, 119);
+            this.about_label.Location = new System.Drawing.Point(83, 146);
+            this.about_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.about_label.Name = "about_label";
-            this.about_label.Size = new System.Drawing.Size(432, 131);
+            this.about_label.Size = new System.Drawing.Size(576, 161);
             this.about_label.TabIndex = 11;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Poppins SemiBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(60, 91);
+            this.label4.Location = new System.Drawing.Point(80, 112);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(157, 34);
+            this.label4.Size = new System.Drawing.Size(194, 42);
             this.label4.TabIndex = 10;
             this.label4.Text = "About the Job:";
             this.label4.Click += new System.EventHandler(this.label4_Click);
@@ -181,18 +192,19 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.DimGray;
-            this.panel2.Location = new System.Drawing.Point(60, 84);
+            this.panel2.Location = new System.Drawing.Point(80, 103);
             this.panel2.Margin = new System.Windows.Forms.Padding(0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(885, 1);
+            this.panel2.Size = new System.Drawing.Size(1180, 1);
             this.panel2.TabIndex = 9;
             // 
             // rate_label
             // 
             this.rate_label.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rate_label.Location = new System.Drawing.Point(703, 54);
+            this.rate_label.Location = new System.Drawing.Point(937, 66);
+            this.rate_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.rate_label.Name = "rate_label";
-            this.rate_label.Size = new System.Drawing.Size(240, 28);
+            this.rate_label.Size = new System.Drawing.Size(320, 34);
             this.rate_label.TabIndex = 8;
             this.rate_label.Text = "Salary";
             this.rate_label.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -201,9 +213,10 @@
             // 
             this.jobinfo_label.AutoSize = true;
             this.jobinfo_label.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.jobinfo_label.Location = new System.Drawing.Point(57, 54);
+            this.jobinfo_label.Location = new System.Drawing.Point(76, 66);
+            this.jobinfo_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.jobinfo_label.Name = "jobinfo_label";
-            this.jobinfo_label.Size = new System.Drawing.Size(82, 28);
+            this.jobinfo_label.Size = new System.Drawing.Size(106, 36);
             this.jobinfo_label.TabIndex = 7;
             this.jobinfo_label.Text = "Job Infos";
             this.jobinfo_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -212,19 +225,21 @@
             // 
             this.status_label.AutoSize = true;
             this.status_label.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.status_label.Location = new System.Drawing.Point(838, 21);
+            this.status_label.Location = new System.Drawing.Point(1117, 26);
+            this.status_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.status_label.Name = "status_label";
-            this.status_label.Padding = new System.Windows.Forms.Padding(20, 0, 20, 0);
-            this.status_label.Size = new System.Drawing.Size(105, 28);
+            this.status_label.Padding = new System.Windows.Forms.Padding(27, 0, 27, 0);
+            this.status_label.Size = new System.Drawing.Size(135, 36);
             this.status_label.TabIndex = 6;
             this.status_label.Text = "Status";
             // 
             // jobtitle_label
             // 
             this.jobtitle_label.Font = new System.Drawing.Font("Poppins SemiBold", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.jobtitle_label.Location = new System.Drawing.Point(50, 7);
+            this.jobtitle_label.Location = new System.Drawing.Point(67, 9);
+            this.jobtitle_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.jobtitle_label.Name = "jobtitle_label";
-            this.jobtitle_label.Size = new System.Drawing.Size(742, 56);
+            this.jobtitle_label.Size = new System.Drawing.Size(989, 69);
             this.jobtitle_label.TabIndex = 5;
             this.jobtitle_label.Text = "Job Title";
             this.jobtitle_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -236,60 +251,63 @@
             this.business_panel.Controls.Add(this.footer_label);
             this.business_panel.Controls.Add(this.name_label);
             this.business_panel.Controls.Add(this.company_logo_picturebox);
-            this.business_panel.Location = new System.Drawing.Point(15, 35);
+            this.business_panel.Location = new System.Drawing.Point(20, 43);
+            this.business_panel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.business_panel.Name = "business_panel";
-            this.business_panel.Size = new System.Drawing.Size(1000, 211);
+            this.business_panel.Size = new System.Drawing.Size(1333, 260);
             this.business_panel.TabIndex = 4;
             // 
             // description_label
             // 
             this.description_label.AutoEllipsis = true;
-            this.description_label.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.description_label.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.description_label.Location = new System.Drawing.Point(274, 60);
+            this.description_label.Location = new System.Drawing.Point(365, 74);
+            this.description_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.description_label.Name = "description_label";
-            this.description_label.Size = new System.Drawing.Size(660, 104);
+            this.description_label.Size = new System.Drawing.Size(879, 128);
             this.description_label.TabIndex = 5;
             // 
             // footer_label
             // 
             this.footer_label.AutoEllipsis = true;
-            this.footer_label.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.footer_label.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.footer_label.ForeColor = System.Drawing.Color.Gray;
-            this.footer_label.Location = new System.Drawing.Point(274, 171);
+            this.footer_label.Location = new System.Drawing.Point(365, 210);
+            this.footer_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.footer_label.Name = "footer_label";
-            this.footer_label.Size = new System.Drawing.Size(660, 22);
+            this.footer_label.Size = new System.Drawing.Size(879, 27);
             this.footer_label.TabIndex = 4;
             // 
             // name_label
             // 
             this.name_label.AllowDrop = true;
             this.name_label.AutoEllipsis = true;
-            this.name_label.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.name_label.Font = new System.Drawing.Font("Poppins", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.name_label.Location = new System.Drawing.Point(274, 17);
+            this.name_label.Location = new System.Drawing.Point(365, 21);
+            this.name_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.name_label.Name = "name_label";
-            this.name_label.Size = new System.Drawing.Size(660, 36);
+            this.name_label.Size = new System.Drawing.Size(879, 44);
             this.name_label.TabIndex = 3;
             // 
             // company_logo_picturebox
             // 
             this.company_logo_picturebox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.company_logo_picturebox.Location = new System.Drawing.Point(62, 17);
+            this.company_logo_picturebox.Location = new System.Drawing.Point(83, 21);
+            this.company_logo_picturebox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.company_logo_picturebox.Name = "company_logo_picturebox";
-            this.company_logo_picturebox.Size = new System.Drawing.Size(190, 176);
+            this.company_logo_picturebox.Size = new System.Drawing.Size(253, 216);
             this.company_logo_picturebox.TabIndex = 0;
             this.company_logo_picturebox.TabStop = false;
             // 
             // JS_ViewJobList
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.Controls.Add(this.sidebar_panel);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "JS_ViewJobList";
-            this.Size = new System.Drawing.Size(1031, 705);
+            this.Size = new System.Drawing.Size(1375, 868);
             this.sidebar_panel.ResumeLayout(false);
             this.sidebar_panel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

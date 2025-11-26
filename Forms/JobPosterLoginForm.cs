@@ -19,6 +19,7 @@ namespace JobNear.Forms
         {
             InitializeComponent();
 
+            PanelStyles.RoundedPanel(panel, 20, Color.White);
             TextboxStyles.RoundedTextBoxShadow(email_input, 10, "#FFFFFF", 1);
             TextboxStyles.RoundedTextBoxShadow(password_input, 10, "#FFFFFF", 1);
         }

@@ -4,8 +4,6 @@ using JobNear.Styles;
 using MongoDB.Driver;
 using System;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -20,20 +18,18 @@ namespace JobNear.AdminDashboardUserControl
             LoadReportDetails(complainantId, complaineeId, reportId);
         }
 
-        private void sidebar_panel_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private async void LoadReportDetails(string complainantId, string complaineeId, string reportId)
         {
             try
             {
-                var getUser = await MongoDbServices.JobSeekerAccount.Find(x => x.Id == complainantId).FirstOrDefaultAsync();
+                var getUser = await MongoDbServices.JobSeekerAccount
+                    .Find(x => x.Id == complainantId).FirstOrDefaultAsync();
 
-                var getReportedBusiness = await MongoDbServices.JobPosterBusiness.Find(x => x.Id == complaineeId).FirstOrDefaultAsync();
+                var getReportedBusiness = await MongoDbServices.JobPosterBusiness
+                    .Find(x => x.Id == complaineeId).FirstOrDefaultAsync();
 
-                if (getUser != null && getReportedBusiness != null) {
+                if (getUser != null && getReportedBusiness != null)
+                {
                     string userName = $"{getUser.Firstname} {getUser.Middlename} {getUser.Lastname}";
 
                     complainant_picture.Image = ConvertDataTypeServices.ConvertBytesToImage(getUser.ProfilePicture);
@@ -45,9 +41,14 @@ namespace JobNear.AdminDashboardUserControl
                     complainee_name.Text = getReportedBusiness.BusinessName;
                     complainee_email.Text = getReportedBusiness.BusinessEmail;
                     complainee_phone.Text = getReportedBusiness.BusinessContact;
-                } else MessageBox.Show("Error loading user or business details.");
+                }
+                else
+                {
+                    MessageBox.Show("Error loading user or business details.");
+                }
 
-                var getReportDetails = await MongoDbServices.ReportBusiness.Find(x => x.Id == reportId).FirstOrDefaultAsync();
+                var getReportDetails = await MongoDbServices.ReportBusiness
+                    .Find(x => x.Id == reportId).FirstOrDefaultAsync();
 
                 if (getReportDetails != null)
                 {
@@ -68,27 +69,25 @@ namespace JobNear.AdminDashboardUserControl
                 MessageBox.Show("Error loading report details: " + ex.Message);
             }
         }
-        private void DesignPanels() {
+
+        private void DesignPanels()
+        {
             PanelStyles.StyleRoundedLabel(complainant_lbl, 5, Color.Green, Color.White);
             PanelStyles.StyleRoundedLabel(complainee_lbl, 5, Color.Orange, Color.White);
             PanelStyles.RoundedPanel(complainant_panel, 1, Color.WhiteSmoke, Color.LightGray);
             PanelStyles.RoundedPanel(complainee_panel, 1, Color.WhiteSmoke, Color.LightGray);
             PanelStyles.RoundedPanel(details_panel, 15, Color.WhiteSmoke, Color.LightGray);
-
-            //ButtonStyle.RoundedButton(cancel_button, 25, "#3B82F6");
-            //ButtonStyle.RoundedButton(submit_button, 25, "#3B82F6");
         }
 
         private async void submit_button_Click(object sender, EventArgs e)
         {
             string status = status_combo.SelectedItem.ToString();
+
             var complainant = await MongoDbServices.JobSeekerAccount
-                .Find(x => x.Email == complainant_email.Text)
-                .FirstOrDefaultAsync();
+                .Find(x => x.Email == complainant_email.Text).FirstOrDefaultAsync();
 
             var complainee = await MongoDbServices.JobPosterBusiness
-                .Find(x => x.BusinessEmail == complainee_email.Text)
-                .FirstOrDefaultAsync();
+                .Find(x => x.BusinessEmail == complainee_email.Text).FirstOrDefaultAsync();
 
             if (status == "Valid")
             {
@@ -118,8 +117,9 @@ namespace JobNear.AdminDashboardUserControl
                             Key = key,
                             HeaderMessage = "Account Termination Notice",
                             Type = "warning",
-                            Remarks = $"You business {complainee.BusinessName} had 3 validated warnings for policy violations. As per platform rules, your business account will now be subject to termination procedures.",
-                            Date = date
+                            Remarks = $"Your business {complainee.BusinessName} received 3 warnings and is subject to termination.",
+                            Date = date,
+                            WarningCount = 3
                         };
                         await MongoDbServices.UserNotification.InsertOneAsync(terminationNotif);
                     }
@@ -132,7 +132,8 @@ namespace JobNear.AdminDashboardUserControl
                             HeaderMessage = $"Warning {warningCount}: Policy Violation Notice",
                             Type = "warning",
                             Remarks = $"A complaint filed against your business {complainee.BusinessName} has been validated. Please address this matter promptly. Accumulating 3 warnings will result in temporary account termination.",
-                            Date = date
+                            Date = date,
+                            WarningCount = (byte?)warningCount
                         };
                         await MongoDbServices.UserNotification.InsertOneAsync(warningNotif);
                     }
@@ -145,7 +146,6 @@ namespace JobNear.AdminDashboardUserControl
                         updateWarning);
                 }
             }
-
             else if (status == "Invalid")
             {
                 if (complainant != null && complainee != null)
@@ -159,7 +159,7 @@ namespace JobNear.AdminDashboardUserControl
                         Key = key,
                         HeaderMessage = "Your complaint has been reviewed.",
                         Type = "info",
-                        Remarks = "After careful evaluation, we found that the submitted complaint does not meet the criteria for a valid case. No action has been taken. If you believe this is an error, you may submit additional details.",
+                        Remarks = "After careful evaluation, we found that the submitted complaint does not meet the criteria for a valid case. No action has been taken. You may submit additional details if needed.",
                         Date = date
                     };
 
@@ -174,6 +174,11 @@ namespace JobNear.AdminDashboardUserControl
             sidebar_panel.Controls.Clear();
             sidebar_panel.Controls.Add(rnc);
             rnc.Dock = DockStyle.Fill;
+        }
+
+        private void sidebar_panel_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

@@ -23,7 +23,6 @@ namespace JobNear.Controllers
             this.BorderStyle = BorderStyle.FixedSingle;
             this.Margin = new Padding(5, 3, 5, 3);
 
-            // Avatar Panel (Left)
             Panel avatarPanel = new Panel();
             avatarPanel.Size = new Size(45, 45);
             avatarPanel.Location = new Point(10, 12);
@@ -34,20 +33,14 @@ namespace JobNear.Controllers
             avatarPanel.Region = new Region(path);
             avatarPanel.Paint += (s, e) => DrawIcon(e.Graphics, type);
 
-
-            // === WARNING INDICATOR PANEL (Top Right) ===
             Panel warningIndicator = new Panel();
             warningIndicator.Size = new Size(18, 18);
-            warningIndicator.Location = new Point(this.Width - 28, 8); // top right corner
-
+            warningIndicator.Location = new Point(this.Width - 28, 8);
             warningIndicator.BackColor = GetWarningColor(warningCount);
 
-            // Make it circular
             GraphicsPath circlePath = new GraphicsPath();
             circlePath.AddEllipse(0, 0, 18, 18);
             warningIndicator.Region = new Region(circlePath);
-            // ============================================
-
 
             Label senderLabel = new Label();
             senderLabel.Text = senderName;
@@ -58,7 +51,7 @@ namespace JobNear.Controllers
 
             Label headerLabel = new Label();
             headerLabel.Text = headerMessage;
-            headerLabel.Font = new Font("Poppins", 9, FontStyle.Regular);
+            headerLabel.Font = new Font("Poppins", 9);
             headerLabel.ForeColor = Color.FromArgb(60, 60, 60);
             headerLabel.Location = new Point(65, 36);
             headerLabel.Size = new Size(600, 20);
@@ -73,23 +66,22 @@ namespace JobNear.Controllers
 
             Label dateLabel = new Label();
             dateLabel.Text = FormatTimeAgo(date);
-            dateLabel.Font = new Font("Poppins", 8, FontStyle.Regular);
+            dateLabel.Font = new Font("Poppins", 8);
             dateLabel.ForeColor = Color.Gray;
             dateLabel.Location = new Point(65, 100);
             dateLabel.Size = new Size(120, 15);
 
-            // Hover effects
             this.MouseEnter += (s, e) => this.BackColor = Color.FromArgb(248, 249, 250);
             this.MouseLeave += (s, e) => this.BackColor = Color.White;
 
             this.Controls.AddRange(new Control[]
             {
-        avatarPanel,
-        senderLabel,
-        headerLabel,
-        remarksLabel,
-        dateLabel,
-        warningIndicator   // ADD THE INDICATOR
+                avatarPanel,
+                senderLabel,
+                headerLabel,
+                remarksLabel,
+                dateLabel,
+                warningIndicator
             });
         }
 
@@ -97,14 +89,12 @@ namespace JobNear.Controllers
         {
             switch (warningCount)
             {
-                case "1": return Color.Gold;         // Yellow
-                case "2": return Color.Orange;       // Orange
-                case "3": return Color.Red;          // Red
-                default: return Color.Transparent;  // No warning
+                case "1": return Color.Gold;
+                case "2": return Color.Orange;
+                case "3": return Color.Red;
+                default: return Color.Transparent;
             }
         }
-
-
 
         private void DrawIcon(Graphics g, string type)
         {
@@ -115,9 +105,7 @@ namespace JobNear.Controllers
             using (SolidBrush brush = new SolidBrush(Color.White))
             {
                 SizeF size = g.MeasureString(icon, iconFont);
-                float x = (45 - size.Width) / 2;
-                float y = (45 - size.Height) / 2;
-                g.DrawString(icon, iconFont, brush, x, y);
+                g.DrawString(icon, iconFont, brush, (45 - size.Width) / 2, (45 - size.Height) / 2);
             }
         }
 
@@ -157,6 +145,7 @@ namespace JobNear.Controllers
     }
 
 
+
     public class NotificationFlowManager
     {
         private FlowLayoutPanel flowPanel;
@@ -168,7 +157,6 @@ namespace JobNear.Controllers
 
         private void CreateFlowLayoutPanel(Panel container)
         {
-
             flowPanel = new FlowLayoutPanel();
             flowPanel.Dock = DockStyle.Fill;
             flowPanel.FlowDirection = FlowDirection.TopDown;
@@ -181,16 +169,16 @@ namespace JobNear.Controllers
             container.Controls.Add(flowPanel);
         }
 
-        // Add a new notification (will automatically position at top)
-        public void AddNotification(string senderName, string headerMessage, string remarks, string type = "Info", DateTime? date = null, string warningCount = null)
+        public void AddNotification(string senderName, string headerMessage, string remarks,
+            string type = "Info", DateTime? date = null, string warningCount = null)
         {
             DateTime notificationDate = date ?? DateTime.Now;
-            NotificationController notification = new NotificationController(senderName, headerMessage, remarks, type, notificationDate, warningCount);
 
-            // Insert at the top (index 0) so newest notifications appear first
+            NotificationController notification =
+                new NotificationController(senderName, headerMessage, remarks, type, notificationDate, warningCount);
+
             flowPanel.Controls.Add(notification);
             flowPanel.Controls.SetChildIndex(notification, 0);
-
 
             flowPanel.ScrollControlIntoView(notification);
         }

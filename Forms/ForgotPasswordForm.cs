@@ -19,6 +19,7 @@ namespace JobNear.Forms
             InitializeComponent();
             ButtonStyle.RoundedButton(changepass_button, 30, "#3B82F6");
 
+            PanelStyles.RoundedPanel(panel, 20, Color.White);
             TextboxStyles.RoundedTextBoxShadow(email_input, 10, "#FFFFFF", 1);
             TextboxStyles.RoundedTextBoxShadow(newpass_input, 10, "#FFFFFF", 1);
             TextboxStyles.RoundedTextBoxShadow(confirmnewpass_input, 10, "#FFFFFF", 1);
@@ -41,6 +42,11 @@ namespace JobNear.Forms
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void app_panel_Paint(object sender, PaintEventArgs e)
         {
 
         }

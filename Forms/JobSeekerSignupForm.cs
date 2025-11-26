@@ -20,7 +20,7 @@ namespace JobNear.Forms
             InitializeComponent();
             ButtonStyle.RoundedButton(register_button, 40, "#10B981");
 
-
+            PanelStyles.RoundedPanel(panel, 20, Color.White);
 
             TextboxStyles.RoundedTextBoxShadow(username_input, 10, "#FFFFFF", 1);
             TextboxStyles.RoundedTextBoxShadow(phone_input, 10, "#FFFFFF", 1);
@@ -82,6 +82,11 @@ namespace JobNear.Forms
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void app_panel_Paint(object sender, PaintEventArgs e)
         {
 
         }

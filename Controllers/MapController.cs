@@ -107,11 +107,13 @@ namespace JobNear.Controllers
         }
         public static void Gmap_OnMarkerClick(GMapMarker item, MouseEventArgs e)
         {
-            // Check if it’s a business marker (not the user)
+            
             if (item.Tag != null)
             {
                 string businessId = item.Tag.ToString();
                 Session.CurrentBusinessSelected = businessId;
+                Session.CurrentBusinessSelectedStatus = "Verified";
+
                 JobSeekerDashboardUserControl.JS_ViewBusiness view = new JobSeekerDashboardUserControl.JS_ViewBusiness(businessId);
                 Session.CurrentSidebarPanel.Controls.Clear();   
                 Session.CurrentSidebarPanel.Controls.Add(view);

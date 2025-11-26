@@ -24,6 +24,7 @@ namespace JobNear.Forms
             TextBoxValidatorController.SetPassword(password_input);
             TextBoxValidatorController.SetPassword(confirm_input);
 
+            PanelStyles.RoundedPanel(panel, 20, Color.White);
             TextboxStyles.RoundedTextBoxShadow(username_input, 10, "#FFFFFF", 1);
             TextboxStyles.RoundedTextBoxShadow(email_input, 10, "#FFFFFF", 1);
             TextboxStyles.RoundedTextBoxShadow(phone_input, 10, "#FFFFFF", 1);

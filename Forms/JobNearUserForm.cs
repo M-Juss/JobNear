@@ -18,13 +18,15 @@ namespace JobNear.Forms
         public JobNearUserForm()
         {
             InitializeComponent();
+            PanelStyles.RoundedPanel(panel, 20, Color.White);
+            ButtonStyle.RoundedButton(js_button, 50, "#3B82F6");
+            ButtonStyle.RoundedButton(jp_button, 50, "#3B82F6");
+            ButtonStyle.RoundedButton(admin_button, 50, "#10B981");
         }
 
         private void JobNearUser_Load(object sender, EventArgs e)
         {
-            ButtonStyle.RoundedButton(js_button, 50, "#3B82F6");
-            ButtonStyle.RoundedButton(jp_button, 50, "#3B82F6");
-            ButtonStyle.RoundedButton(admin_button, 50, "#10B981");
+
         }
 
         private void js_button_Click(object sender, EventArgs e)
@@ -47,6 +49,11 @@ namespace JobNear.Forms
         private void close_image_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void app_panel_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

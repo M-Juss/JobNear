@@ -352,8 +352,7 @@ namespace JobNear.Styles
                 UserController.SetJobPostStatus(jobStatus, onRev);
             }
             else
-            {
-
+            { 
                 UserController.SetJobPostStatus(jobStatus, job_status);
             }
 

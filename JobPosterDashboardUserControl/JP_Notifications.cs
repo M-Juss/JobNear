@@ -37,7 +37,7 @@ namespace JobNear.JobPosterDashboardUserControl
                 notificationManager = new NotificationFlowManager(notif_panel);
                 foreach (var notif in poster)
                 {
-                    notificationManager.AddNotification(notif.Key, notif.HeaderMessage, notif.Remarks, notif.Type, notif.Date);
+                    notificationManager.AddNotification(notif.Key, notif.HeaderMessage, notif.Remarks, notif.Type, notif.Date, notif.WarningCount?.ToString());
                 }
             }
         }
