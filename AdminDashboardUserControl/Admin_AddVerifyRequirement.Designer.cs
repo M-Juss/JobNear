@@ -41,6 +41,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.sidebar_panel.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -56,6 +58,8 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.comboBox1);
+            this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.cancel_button);
             this.panel2.Controls.Add(this.add_button);
             this.panel2.Controls.Add(this.image_flowlayout);
@@ -125,7 +129,7 @@
             "Optional"});
             this.type_combo.Location = new System.Drawing.Point(26, 355);
             this.type_combo.Name = "type_combo";
-            this.type_combo.Size = new System.Drawing.Size(660, 33);
+            this.type_combo.Size = new System.Drawing.Size(324, 33);
             this.type_combo.TabIndex = 28;
             // 
             // description_input
@@ -185,6 +189,29 @@
             this.label1.TabIndex = 12;
             this.label1.Text = "Add Requirements";
             // 
+            // comboBox1
+            // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.Font = new System.Drawing.Font("Poppins", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "For Job Seeker",
+            "For Job Poster"});
+            this.comboBox1.Location = new System.Drawing.Point(362, 355);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(324, 33);
+            this.comboBox1.TabIndex = 102;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(357, 324);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(92, 28);
+            this.label5.TabIndex = 101;
+            this.label5.Text = "User Type";
+            // 
             // Admin_AddVerifyRequirement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -215,5 +242,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label5;
     }
 }
