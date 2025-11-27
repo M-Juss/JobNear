@@ -34,14 +34,14 @@
             this.add_button = new System.Windows.Forms.Button();
             this.image_flowlayout = new System.Windows.Forms.FlowLayoutPanel();
             this.attach_file = new System.Windows.Forms.Button();
-            this.type_combo = new System.Windows.Forms.ComboBox();
+            this.requirement_combo = new System.Windows.Forms.ComboBox();
             this.description_input = new System.Windows.Forms.TextBox();
             this.name_input = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.user_combo = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.sidebar_panel.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -58,13 +58,13 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.comboBox1);
+            this.panel2.Controls.Add(this.user_combo);
             this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.cancel_button);
             this.panel2.Controls.Add(this.add_button);
             this.panel2.Controls.Add(this.image_flowlayout);
             this.panel2.Controls.Add(this.attach_file);
-            this.panel2.Controls.Add(this.type_combo);
+            this.panel2.Controls.Add(this.requirement_combo);
             this.panel2.Controls.Add(this.description_input);
             this.panel2.Controls.Add(this.name_input);
             this.panel2.Controls.Add(this.label4);
@@ -98,6 +98,7 @@
             this.add_button.TabIndex = 99;
             this.add_button.Text = "Add";
             this.add_button.UseVisualStyleBackColor = true;
+            this.add_button.Click += new System.EventHandler(this.add_button_Click);
             // 
             // image_flowlayout
             // 
@@ -119,18 +120,18 @@
             this.attach_file.UseVisualStyleBackColor = false;
             this.attach_file.Click += new System.EventHandler(this.attach_file_Click);
             // 
-            // type_combo
+            // requirement_combo
             // 
-            this.type_combo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.type_combo.Font = new System.Drawing.Font("Poppins", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.type_combo.FormattingEnabled = true;
-            this.type_combo.Items.AddRange(new object[] {
+            this.requirement_combo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.requirement_combo.Font = new System.Drawing.Font("Poppins", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.requirement_combo.FormattingEnabled = true;
+            this.requirement_combo.Items.AddRange(new object[] {
             "Required",
             "Optional"});
-            this.type_combo.Location = new System.Drawing.Point(26, 355);
-            this.type_combo.Name = "type_combo";
-            this.type_combo.Size = new System.Drawing.Size(324, 33);
-            this.type_combo.TabIndex = 28;
+            this.requirement_combo.Location = new System.Drawing.Point(26, 355);
+            this.requirement_combo.Name = "requirement_combo";
+            this.requirement_combo.Size = new System.Drawing.Size(324, 33);
+            this.requirement_combo.TabIndex = 28;
             // 
             // description_input
             // 
@@ -189,18 +190,18 @@
             this.label1.TabIndex = 12;
             this.label1.Text = "Add Requirements";
             // 
-            // comboBox1
+            // user_combo
             // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.Font = new System.Drawing.Font("Poppins", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.user_combo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.user_combo.Font = new System.Drawing.Font("Poppins", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.user_combo.FormattingEnabled = true;
+            this.user_combo.Items.AddRange(new object[] {
             "For Job Seeker",
             "For Job Poster"});
-            this.comboBox1.Location = new System.Drawing.Point(362, 355);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(324, 33);
-            this.comboBox1.TabIndex = 102;
+            this.user_combo.Location = new System.Drawing.Point(362, 355);
+            this.user_combo.Name = "user_combo";
+            this.user_combo.Size = new System.Drawing.Size(324, 33);
+            this.user_combo.TabIndex = 102;
             // 
             // label5
             // 
@@ -235,14 +236,14 @@
         private System.Windows.Forms.Button add_button;
         private System.Windows.Forms.FlowLayoutPanel image_flowlayout;
         private System.Windows.Forms.Button attach_file;
-        private System.Windows.Forms.ComboBox type_combo;
+        private System.Windows.Forms.ComboBox requirement_combo;
         private System.Windows.Forms.TextBox description_input;
         private System.Windows.Forms.TextBox name_input;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox user_combo;
         private System.Windows.Forms.Label label5;
     }
 }

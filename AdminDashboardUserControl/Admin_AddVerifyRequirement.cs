@@ -1,4 +1,6 @@
-﻿using JobNear.Styles;
+﻿using JobNear.Models;
+using JobNear.Services;
+using JobNear.Styles;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -53,6 +55,66 @@ namespace JobNear.AdminDashboardUserControl
 
                     FlowLayoutStyles.AddFileItem(destPath, image_flowlayout, 640);
                 }
+            }
+        }
+
+        private async void add_button_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(name_input.Text) ||
+                string.IsNullOrWhiteSpace(description_input.Text) ||
+                requirement_combo.SelectedItem == null ||
+                user_combo.SelectedItem == null)
+            {
+                MessageBox.Show("Please fill in all required fields.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (image_flowlayout.Controls.Count == 0)
+            {
+                MessageBox.Show("Please attach at least one supporting document", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            List<SupportingDocument> supportingDocuments = new List<SupportingDocument>();
+
+            foreach (Control ctrl in image_flowlayout.Controls)
+            {
+                if (ctrl is Panel panel)
+                {
+                    if (panel.Tag is SupportingDocument existingDoc)
+                    {
+                        supportingDocuments.Add(existingDoc);
+                    }
+                    else if (panel.Tag is string filePath && File.Exists(filePath))
+                    {
+                        supportingDocuments.Add(new SupportingDocument
+                        {
+                            FileName = Path.GetFileName(filePath),
+                            FileContent = File.ReadAllBytes(filePath)
+                        });
+                    }
+                }
+            }
+
+            bool result = await MongoDbServices.InsertVerificationRequirement(
+                name_input.Text.Trim(),
+                description_input.Text.Trim(),
+                requirement_combo.SelectedItem.ToString(),
+                user_combo.SelectedItem.ToString(),
+                supportingDocuments);
+
+            if (result)
+            {
+                MessageBox.Show("Verification requirement added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Admin_VerifyRequirement admin_VerifyRequirement = new Admin_VerifyRequirement();
+                sidebar_panel.Controls.Clear();
+                sidebar_panel.Controls.Add(admin_VerifyRequirement);
+                admin_VerifyRequirement.Dock = DockStyle.Fill;
+            }
+            else
+            {
+                MessageBox.Show("Failed to add verification requirement. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
         }
     }

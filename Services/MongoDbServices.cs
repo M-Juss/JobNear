@@ -56,6 +56,8 @@ namespace JobNear.Services
             _database.GetCollection<UserNotificationModel>("UserNotifications");
         public static IMongoCollection<ReportBusinessModel> ReportBusiness =>
             _database.GetCollection<ReportBusinessModel>("ReportBusinesses");
+        public static IMongoCollection<RequirementGuideModel> RequirementGuide =>
+            _database.GetCollection<RequirementGuideModel>("RequirementsGuide");
 
 
         public static async Task LoginJobNearAccountAsync(string user, string email, string password, Panel app_panel)
@@ -397,6 +399,29 @@ namespace JobNear.Services
             catch (Exception ex)
             {
                 MessageBox.Show($"Error occurred while creating report: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+        public static async Task<bool> InsertVerificationRequirement(string documentName, string documentDescription, string requirementType, string userType, List<SupportingDocument> docu)
+        {
+            try
+            {
+                var newDocu = new RequirementGuideModel
+                {
+                    DocumentName = documentName,
+                    DocumentDescription = documentDescription,
+                    RequirementType = requirementType,
+                    UserType = userType,
+                    SupportingDocuments = docu
+
+                };
+                await RequirementGuide.InsertOneAsync(newDocu);
+                return true;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error occurred while adding document: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
         }
