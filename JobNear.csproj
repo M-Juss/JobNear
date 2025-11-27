@@ -202,6 +202,12 @@
     <Compile Include="AdminDashboardUserControl\Admin_AddVerifyRequirement.Designer.cs">
       <DependentUpon>Admin_AddVerifyRequirement.cs</DependentUpon>
     </Compile>
+    <Compile Include="AdminDashboardUserControl\Admin_ControlSiteSettings.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AdminDashboardUserControl\Admin_ControlSiteSettings.Designer.cs">
+      <DependentUpon>Admin_ControlSiteSettings.cs</DependentUpon>
+    </Compile>
     <Compile Include="AdminDashboardUserControl\Admin_Dashboard.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -439,6 +445,9 @@
     <Compile Include="Styles\TextboxStyles.cs" />
     <EmbeddedResource Include="AdminDashboardUserControl\Admin_AddVerifyRequirement.resx">
       <DependentUpon>Admin_AddVerifyRequirement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminDashboardUserControl\Admin_ControlSiteSettings.resx">
+      <DependentUpon>Admin_ControlSiteSettings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AdminDashboardUserControl\Admin_Dashboard.resx">
       <DependentUpon>Admin_Dashboard.cs</DependentUpon>

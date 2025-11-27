@@ -36,6 +36,11 @@ namespace JobNear.AdminDashboardUserControl
 
         private void attach_file_Click(object sender, EventArgs e)
         {
+            if (image_flowlayout.Controls.Count > 1) { 
+                MessageBox.Show("You can only attach one file at a time.", "Attachment Limit", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             OpenFileDialog ofd = new OpenFileDialog();
             ofd.Multiselect = true;
             ofd.Filter = "All Files|*.*";
