@@ -196,6 +196,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminDashboardUserControl\Admin_AddVerifyRequirement.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AdminDashboardUserControl\Admin_AddVerifyRequirement.Designer.cs">
+      <DependentUpon>Admin_AddVerifyRequirement.cs</DependentUpon>
+    </Compile>
     <Compile Include="AdminDashboardUserControl\Admin_Dashboard.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -225,6 +231,12 @@
     </Compile>
     <Compile Include="AdminDashboardUserControl\Admin_ManageAdmin.Designer.cs">
       <DependentUpon>Admin_ManageAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminDashboardUserControl\Admin_VerifyRequirement.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AdminDashboardUserControl\Admin_VerifyRequirement.Designer.cs">
+      <DependentUpon>Admin_VerifyRequirement.cs</DependentUpon>
     </Compile>
     <Compile Include="AdminDashboardUserControl\Admin_ViewReportDetails.cs">
       <SubType>UserControl</SubType>
@@ -406,6 +418,7 @@
     <Compile Include="Models\JobPosterJobPostingModel.cs" />
     <Compile Include="Models\JobSeekerAccountModel.cs" />
     <Compile Include="Models\ReportBusinessModel.cs" />
+    <Compile Include="Models\RequirementGuideModel.cs" />
     <Compile Include="Models\UserNotificationModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -424,6 +437,9 @@
     <Compile Include="Styles\PanelStyles.cs" />
     <Compile Include="Styles\TableStyles.cs" />
     <Compile Include="Styles\TextboxStyles.cs" />
+    <EmbeddedResource Include="AdminDashboardUserControl\Admin_AddVerifyRequirement.resx">
+      <DependentUpon>Admin_AddVerifyRequirement.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AdminDashboardUserControl\Admin_Dashboard.resx">
       <DependentUpon>Admin_Dashboard.cs</DependentUpon>
     </EmbeddedResource>
@@ -438,6 +454,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AdminDashboardUserControl\Admin_ManageAdmin.resx">
       <DependentUpon>Admin_ManageAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminDashboardUserControl\Admin_VerifyRequirement.resx">
+      <DependentUpon>Admin_VerifyRequirement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AdminDashboardUserControl\Admin_ViewReportDetails.resx">
       <DependentUpon>Admin_ViewReportDetails.cs</DependentUpon>

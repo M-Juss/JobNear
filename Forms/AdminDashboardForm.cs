@@ -139,5 +139,13 @@ namespace JobNear.Forms
             admin_Manage.Dock = DockStyle.Fill;
 
         }
+
+        private void verificationReq_button_Click(object sender, EventArgs e)
+        {
+            AdminDashboardUserControl.Admin_VerifyRequirement admin_VerifyRequirement = new AdminDashboardUserControl.Admin_VerifyRequirement();
+            sidebar_panel.Controls.Clear();
+            sidebar_panel.Controls.Add(admin_VerifyRequirement);
+            admin_VerifyRequirement.Dock = DockStyle.Fill;
+        }
     }
 }
