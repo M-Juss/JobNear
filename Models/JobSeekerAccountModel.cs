@@ -31,7 +31,8 @@ namespace JobNear.Models
         public byte[] ProfilePicture { get; set; }
         public List<SupportingDocument> SupportingDocuments { get; set; }
         public Boolean IsDraft { get; set; } = true;
-        public String Status { get; set; }
+        public string Status { get; set; }
+        public DateTime DateCreated { get; set; } = DateTime.Now;
 
     }
     public class SupportingDocument {

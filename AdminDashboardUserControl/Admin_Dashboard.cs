@@ -20,7 +20,7 @@ namespace JobNear.AdminDashboardUserControl
             LoadDashboardData();
             SetupApplicantsEmployersChart();
         }
-        
+
         private void StylePanels()
         {
             PanelStyles.RoundedPanel(registered_panel, 20, Color.White);
@@ -40,7 +40,7 @@ namespace JobNear.AdminDashboardUserControl
                 var getVerifiedJobSeekersCount = await MongoDbServices.JobSeekerAccount.CountDocumentsAsync(x => x.Status == "Verified");
                 var getActiveJobPostsCount = await MongoDbServices.JobPosterJobPosting.CountDocumentsAsync(x => x.JobStatus == "Active" && x.IsBusinessOnReview == false);
 
-               
+
                 var getPendingBusinessesCount = await MongoDbServices.JobPosterBusiness.CountDocumentsAsync(x => x.Status == "Pending");
                 var getPendingJobSeekersCount = await MongoDbServices.JobSeekerAccount.CountDocumentsAsync(x => x.Status == "Pending");
                 var getActiveComplaintsCount = await MongoDbServices.ReportBusiness.CountDocumentsAsync(x => x.Status == "Active");
@@ -64,9 +64,9 @@ namespace JobNear.AdminDashboardUserControl
         {
 
         }
-        private void SetupApplicantsEmployersChart()
-        {
 
+        private async void SetupApplicantsEmployersChart()
+        {
             chartApplicantsEmployers.Series.Clear();
             chartApplicantsEmployers.ChartAreas.Clear();
             chartApplicantsEmployers.Titles.Clear();
@@ -75,26 +75,46 @@ namespace JobNear.AdminDashboardUserControl
             area.AxisX.Interval = 1;
             area.AxisX.Title = "Months";
             area.AxisY.Title = "Count";
-
             chartApplicantsEmployers.ChartAreas.Add(area);
 
-            Series applicantsSeries = new Series("Applicants");
-            applicantsSeries.ChartType = SeriesChartType.Column;
-            applicantsSeries.IsValueShownAsLabel = true;
-
-            Series employersSeries = new Series("Employers");
-            employersSeries.ChartType = SeriesChartType.Column;
-            employersSeries.IsValueShownAsLabel = true;
-
+            Series applicantsSeries = new Series("Applicants")
+            {
+                ChartType = SeriesChartType.Column,
+                IsValueShownAsLabel = true
+            };
+            Series employersSeries = new Series("Employers")
+            {
+                ChartType = SeriesChartType.Column,
+                IsValueShownAsLabel = true
+            };
             chartApplicantsEmployers.Series.Add(applicantsSeries);
             chartApplicantsEmployers.Series.Add(employersSeries);
 
             string[] months = { "Jan", "Feb", "Mar", "Apr", "May", "Jun",
                         "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" };
 
-            int[] applicantCounts = { 150, 200, 180, 220, 260, 300, 310, 280, 240, 230, 210, 190 };
-            int[] employerCounts = { 40, 50, 45, 60, 70, 80, 75, 65, 55, 58, 52, 48 };
+            int[] applicantCounts = new int[12];
+            int[] employerCounts = new int[12];
 
+            // Fetch all JobSeekers and JobPosters from MongoDB
+            var jobSeekers = await MongoDbServices.JobSeekerAccount.Find(_ => true).ToListAsync();
+            var jobPosters = await MongoDbServices.JobPosterAccount.Find(_ => true).ToListAsync();
+
+            // Count JobSeekers by month
+            foreach (var seeker in jobSeekers)
+            {
+                int monthIndex = seeker.DateCreated.Month - 1; // Month is 1-12
+                applicantCounts[monthIndex]++;
+            }
+
+            // Count JobPosters by month
+            foreach (var poster in jobPosters)
+            {
+                int monthIndex = poster.DateCreated.Month - 1;
+                employerCounts[monthIndex]++;
+            }
+
+            // Add points to chart
             for (int i = 0; i < months.Length; i++)
             {
                 chartApplicantsEmployers.Series["Applicants"].Points.AddXY(months[i], applicantCounts[i]);
@@ -105,3 +125,4 @@ namespace JobNear.AdminDashboardUserControl
         }
     }
 }
+
