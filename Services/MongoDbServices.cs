@@ -58,6 +58,8 @@ namespace JobNear.Services
             _database.GetCollection<ReportBusinessModel>("ReportBusinesses");
         public static IMongoCollection<RequirementGuideModel> RequirementGuide =>
             _database.GetCollection<RequirementGuideModel>("RequirementsGuide");
+        public static IMongoCollection<ControlSiteModel> ControlSite =>
+            _database.GetCollection<ControlSiteModel>("ControlSite");
 
 
         public static async Task LoginJobNearAccountAsync(string user, string email, string password, Panel app_panel)
@@ -422,6 +424,28 @@ namespace JobNear.Services
             catch (Exception ex)
             {
                 MessageBox.Show($"Error occurred while adding document: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+
+        public static async Task<bool> InsertControlSite(string maintenanceTitle, string maintenanceDescription, DateTime startDate, DateTime endDatem)
+        {
+            try
+            {
+                var newControl = new ControlSiteModel
+                {
+                    MaintenanceTitle = maintenanceTitle,
+                    MaintenanceDescription = maintenanceDescription,
+                    StartDate = startDate,
+                    EndDate = endDatem
+                };
+
+                await ControlSite.InsertOneAsync(newControl);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error occurred while adding control site: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
         }

@@ -1,12 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using JobNear.Services;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
+using MongoDB.Driver;
+using JobNear.Models;
 
 namespace JobNear.AdminDashboardUserControl
 {
@@ -15,11 +12,170 @@ namespace JobNear.AdminDashboardUserControl
         public Admin_ControlSiteSettings()
         {
             InitializeComponent();
+            activate_button.Enabled = false;
+            deactivate_button.Enabled = false;
         }
 
         private void sidebar_panel_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+        // after sending it needs to be reload first 
+        private async void send_button_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(name_input.Text) || string.IsNullOrEmpty(description_input.Text)
+                || string.IsNullOrEmpty(start_date.Text) || string.IsNullOrEmpty(end_date.Text)) {
+                MessageBox.Show("Please fill out all the fields.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            try
+            {
+                bool response = await MongoDbServices.InsertControlSite(
+                    name_input.Text.Trim(),
+                    description_input.Text.Trim(),
+                    start_date.Value,
+                    end_date.Value
+                );
+
+                if (response)
+                {
+
+                    var getControlInfo = await MongoDbServices.ControlSite
+                        .Find(x => x.MaintenanceTitle == name_input.Text.Trim())
+                        .FirstOrDefaultAsync();
+
+                    if (getControlInfo != null)
+                    {
+                        name_input.Text = getControlInfo.MaintenanceTitle;
+                        description_input.Text = getControlInfo.MaintenanceDescription;
+                        start_date.Value = getControlInfo.StartDate;
+                        end_date.Value = getControlInfo.EndDate;
+                    }
+
+
+                    var getAllSeeker = await MongoDbServices.JobSeekerAccount
+                        .Find(_ => true)
+                        .ToListAsync();
+
+                    var getAllPoster = await MongoDbServices.JobPosterAccount
+                        .Find(_ => true)
+                        .ToListAsync();
+
+                    if (getAllSeeker != null && getAllPoster != null)
+                    {
+
+                        string key = "Admin";
+                        DateTime date = DateTime.Now;
+                        string headerMessage = name_input.Text.Trim();
+                        string remarks = description_input.Text.Trim();
+                        string type = "info";
+
+
+                        getAllSeeker.ForEach(async seeker =>
+                        {
+                            var newNotifSeeker = new UserNotificationModel
+                            {
+                                NotificationId = seeker.Id,
+                                Key = key,
+                                HeaderMessage = headerMessage,
+                                Remarks = remarks,
+                                Type = type,
+                                Date = date,
+                            };
+
+                            await MongoDbServices.UserNotification.InsertOneAsync(newNotifSeeker);
+                        });
+
+                        getAllSeeker.ForEach(async poster =>
+                        {
+                            var newNotifPoster = new UserNotificationModel
+                            {
+                                NotificationId = poster.Id,
+                                Key = key,
+                                HeaderMessage = headerMessage,
+                                Remarks = remarks,
+                                Type = type,
+                                Date = date,
+                            };
+
+                            await MongoDbServices.UserNotification.InsertOneAsync(newNotifPoster);
+                        });
+
+                        MessageBox.Show("Notification sent successfully from both user!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+
+                    name_input.Enabled = false;
+                    description_input.Enabled = false;
+                    start_date.Enabled = false;
+                    end_date.Enabled = false;
+
+                    activate_button.Enabled = true;
+                    send_button.Visible = false;
+
+                }
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error sending notification", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void activate_button_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private async void revoke_button_Click(object sender, EventArgs e)
+        {
+            var confirm = MessageBox.Show("Are you sure you want to revoke the maintenance?",
+                "Confirm Revoke", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (confirm == DialogResult.No)
+                return;
+
+            await MongoDbServices.ControlSite.DeleteOneAsync(x => x.MaintenanceTitle == name_input.Text.Trim());
+
+            var getAllSeeker = await MongoDbServices.JobSeekerAccount.Find(_ => true).ToListAsync();
+            var getAllPoster = await MongoDbServices.JobPosterAccount.Find(_ => true).ToListAsync();
+
+            string key = "Admin";
+            DateTime date = DateTime.Now;
+            string headerMessage = $"{name_input.Text.Trim()} (Maintenance Revoked)";
+            string remarks = "The scheduled maintenance has been revoked. The system is now back to normal.";
+            string type = "info";
+
+            foreach (var seeker in getAllSeeker)
+            {
+                await MongoDbServices.UserNotification.InsertOneAsync(new UserNotificationModel
+                {
+                    NotificationId = seeker.Id,
+                    Key = key,
+                    HeaderMessage = headerMessage,
+                    Remarks = remarks,
+                    Type = type,
+                    Date = date
+                });
+            }
+
+            foreach (var poster in getAllPoster)
+            {
+                await MongoDbServices.UserNotification.InsertOneAsync(new UserNotificationModel
+                {
+                    NotificationId = poster.Id,
+                    Key = key,
+                    HeaderMessage = headerMessage,
+                    Remarks = remarks,
+                    Type = type,
+                    Date = date
+                });
+            }
+
+            MessageBox.Show("Revoke notification sent to all users!", "Success",
+                MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            activate_button.Enabled = false;
+            revoke_button.Visible = false;
         }
     }
 }

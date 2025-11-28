@@ -419,6 +419,7 @@
       <DependentUpon>JS_ViewJobList.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\AdminAccountModel.cs" />
+    <Compile Include="Models\ControlSiteModel.cs" />
     <Compile Include="Models\JobPosterAccountModel.cs" />
     <Compile Include="Models\JobPosterBusinessModel.cs" />
     <Compile Include="Models\JobPosterJobPostingModel.cs" />
