@@ -41,8 +41,8 @@
             this.logout_button = new System.Windows.Forms.Button();
             this.user_button = new System.Windows.Forms.Button();
             this.dashboard_button = new System.Windows.Forms.Button();
-            this.sidebar_panel = new System.Windows.Forms.Panel();
             this.jobnear_button = new System.Windows.Forms.Button();
+            this.sidebar_panel = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.subSystemSettings.SuspendLayout();
             this.subUserManagement.SuspendLayout();
@@ -87,6 +87,7 @@
             this.controlSite_button.Text = "      Control Site Settings";
             this.controlSite_button.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.controlSite_button.UseVisualStyleBackColor = true;
+            this.controlSite_button.Click += new System.EventHandler(this.controlSite_button_Click);
             // 
             // verificationReq_button
             // 
@@ -214,15 +215,6 @@
             this.dashboard_button.UseVisualStyleBackColor = true;
             this.dashboard_button.Click += new System.EventHandler(this.dashboard_button_Click);
             // 
-            // sidebar_panel
-            // 
-            this.sidebar_panel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.sidebar_panel.Location = new System.Drawing.Point(200, 0);
-            this.sidebar_panel.Name = "sidebar_panel";
-            this.sidebar_panel.Size = new System.Drawing.Size(1031, 705);
-            this.sidebar_panel.TabIndex = 1;
-            this.sidebar_panel.Paint += new System.Windows.Forms.PaintEventHandler(this.sidebar_panel_Paint);
-            // 
             // jobnear_button
             // 
             this.jobnear_button.Dock = System.Windows.Forms.DockStyle.Top;
@@ -232,6 +224,15 @@
             this.jobnear_button.Size = new System.Drawing.Size(200, 60);
             this.jobnear_button.TabIndex = 0;
             this.jobnear_button.UseVisualStyleBackColor = true;
+            // 
+            // sidebar_panel
+            // 
+            this.sidebar_panel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.sidebar_panel.Location = new System.Drawing.Point(200, 0);
+            this.sidebar_panel.Name = "sidebar_panel";
+            this.sidebar_panel.Size = new System.Drawing.Size(1031, 705);
+            this.sidebar_panel.TabIndex = 1;
+            this.sidebar_panel.Paint += new System.Windows.Forms.PaintEventHandler(this.sidebar_panel_Paint);
             // 
             // AdminDashboardForm
             // 

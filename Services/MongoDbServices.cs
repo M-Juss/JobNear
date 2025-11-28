@@ -58,8 +58,11 @@ namespace JobNear.Services
             _database.GetCollection<ReportBusinessModel>("ReportBusinesses");
         public static IMongoCollection<RequirementGuideModel> RequirementGuide =>
             _database.GetCollection<RequirementGuideModel>("RequirementsGuide");
-        public static IMongoCollection<ControlSiteModel> ControlSite =>
-            _database.GetCollection<ControlSiteModel>("ControlSite");
+        public static IMongoCollection<ControlSiteNotificationModel> ControlSiteNotification =>
+            _database.GetCollection<ControlSiteNotificationModel>("ControlSiteNotification");
+
+        public static IMongoCollection<ControlSiteMaintenanceModel> ControlSiteMaintenance =>
+            _database.GetCollection<ControlSiteMaintenanceModel>("ControlSiteMaintenance");
 
 
         public static async Task LoginJobNearAccountAsync(string user, string email, string password, Panel app_panel)
@@ -432,7 +435,7 @@ namespace JobNear.Services
         {
             try
             {
-                var newControl = new ControlSiteModel
+                var newControl = new ControlSiteNotificationModel
                 {
                     MaintenanceTitle = maintenanceTitle,
                     MaintenanceDescription = maintenanceDescription,
@@ -440,7 +443,7 @@ namespace JobNear.Services
                     EndDate = endDatem
                 };
 
-                await ControlSite.InsertOneAsync(newControl);
+                await ControlSiteNotification.InsertOneAsync(newControl);
                 return true;
             }
             catch (Exception ex)

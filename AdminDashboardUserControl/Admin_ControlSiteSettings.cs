@@ -16,6 +16,61 @@ namespace JobNear.AdminDashboardUserControl
             deactivate_button.Enabled = false;
         }
 
+        public Admin_ControlSiteSettings(string ControlId)
+        {
+            InitializeComponent();
+
+            LoadControlSiteData(ControlId);
+
+            ControlButtonsVisibility();
+        }
+
+        private async void LoadControlSiteData(string ControlId)
+        {
+            var controlSite = await MongoDbServices.ControlSiteNotification
+                .Find(x => x.Id == ControlId)
+                .FirstOrDefaultAsync();
+
+            if (controlSite != null)
+            {
+                name_input.Text = controlSite.MaintenanceTitle;
+                description_input.Text = controlSite.MaintenanceDescription;
+                start_date.Value = controlSite.StartDate;
+                end_date.Value = controlSite.EndDate;
+
+                name_input.Enabled = false;
+                description_input.Enabled = false;
+                start_date.Enabled = false;
+                end_date.Enabled = false;
+
+            }
+        }
+
+        private async void ControlButtonsVisibility()
+        {
+            var getMaintenance = await MongoDbServices.ControlSiteMaintenance
+                .Find(_ => true)
+                .FirstOrDefaultAsync();
+            if (getMaintenance != null)
+            {
+                if (getMaintenance.IsUnderMaintenance == true)
+                {
+                    send_button.Visible = false;
+                    revoke_button.Visible = false;
+                    activate_button.Enabled = false;
+                    deactivate_button.Enabled = true;
+                }
+                else
+                {
+                    send_button.Visible = false;
+                    revoke_button.Visible = true;
+                    
+                    activate_button.Enabled = true;
+                    deactivate_button.Enabled = false;
+                }
+            }
+        }
+
         private void sidebar_panel_Paint(object sender, PaintEventArgs e)
         {
 
@@ -40,18 +95,9 @@ namespace JobNear.AdminDashboardUserControl
                 if (response)
                 {
 
-                    var getControlInfo = await MongoDbServices.ControlSite
+                    var getControlInfo = await MongoDbServices.ControlSiteNotification
                         .Find(x => x.MaintenanceTitle == name_input.Text.Trim())
                         .FirstOrDefaultAsync();
-
-                    if (getControlInfo != null)
-                    {
-                        name_input.Text = getControlInfo.MaintenanceTitle;
-                        description_input.Text = getControlInfo.MaintenanceDescription;
-                        start_date.Value = getControlInfo.StartDate;
-                        end_date.Value = getControlInfo.EndDate;
-                    }
-
 
                     var getAllSeeker = await MongoDbServices.JobSeekerAccount
                         .Find(_ => true)
@@ -102,16 +148,17 @@ namespace JobNear.AdminDashboardUserControl
                         });
 
                         MessageBox.Show("Notification sent successfully from both user!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        if (getControlInfo != null)
+                        {
+                            Admin_ControlSiteSettings controlSiteSettings = new Admin_ControlSiteSettings(getControlInfo.Id);
+                            sidebar_panel.Controls.Clear();
+                            sidebar_panel.Controls.Add(controlSiteSettings);
+                            controlSiteSettings.Dock = DockStyle.Fill;
+
+                        }
+
                     }
-
-                    name_input.Enabled = false;
-                    description_input.Enabled = false;
-                    start_date.Enabled = false;
-                    end_date.Enabled = false;
-
-                    activate_button.Enabled = true;
-                    send_button.Visible = false;
-
                 }
             }
 
@@ -121,10 +168,7 @@ namespace JobNear.AdminDashboardUserControl
             }
         }
 
-        private void activate_button_Click(object sender, EventArgs e)
-        {
 
-        }
 
         private async void revoke_button_Click(object sender, EventArgs e)
         {
@@ -134,7 +178,7 @@ namespace JobNear.AdminDashboardUserControl
             if (confirm == DialogResult.No)
                 return;
 
-            await MongoDbServices.ControlSite.DeleteOneAsync(x => x.MaintenanceTitle == name_input.Text.Trim());
+            await MongoDbServices.ControlSiteNotification.DeleteOneAsync(x => x.MaintenanceTitle == name_input.Text.Trim());
 
             var getAllSeeker = await MongoDbServices.JobSeekerAccount.Find(_ => true).ToListAsync();
             var getAllPoster = await MongoDbServices.JobPosterAccount.Find(_ => true).ToListAsync();
@@ -174,8 +218,82 @@ namespace JobNear.AdminDashboardUserControl
             MessageBox.Show("Revoke notification sent to all users!", "Success",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            activate_button.Enabled = false;
-            revoke_button.Visible = false;
+            Admin_ControlSiteSettings controlSiteSettings = new Admin_ControlSiteSettings();
+            sidebar_panel.Controls.Clear();
+            sidebar_panel.Controls.Add(controlSiteSettings);
+            controlSiteSettings.Dock = DockStyle.Fill;
+
+        }
+        private async void activate_button_Click(object sender, EventArgs e)
+        {
+            var getMaintenance = await MongoDbServices.ControlSiteMaintenance
+                .Find(_ => true)
+                .FirstOrDefaultAsync();
+
+            if (getMaintenance != null)
+            {
+                if (getMaintenance.IsUnderMaintenance == true)
+                {
+                    MessageBox.Show("The site is already under maintenance.", "Information",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+
+                await MongoDbServices.ControlSiteMaintenance.UpdateOneAsync(
+                    Builders<ControlSiteMaintenanceModel>.Filter.Empty,
+                    Builders<ControlSiteMaintenanceModel>.Update.Set(x => x.IsUnderMaintenance, true)
+                );
+                MessageBox.Show("Site is now under maintenance.", "Success",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                var getControlInfo = await MongoDbServices.ControlSiteNotification
+                    .Find(x => x.MaintenanceTitle == name_input.Text.Trim())
+                    .FirstOrDefaultAsync();
+
+                if (getControlInfo != null)
+                {
+                    Admin_ControlSiteSettings controlSiteSettings = new Admin_ControlSiteSettings(getControlInfo.Id);
+                    sidebar_panel.Controls.Clear();
+                    sidebar_panel.Controls.Add(controlSiteSettings);
+                    controlSiteSettings.Dock = DockStyle.Fill;
+
+                }
+            }
+        }
+
+        private async void deactivate_button_Click(object sender, EventArgs e)
+        {
+            var getMaintenance = await MongoDbServices.ControlSiteMaintenance
+                .Find(_ => true)
+                .FirstOrDefaultAsync();
+
+            if (getMaintenance != null)
+            {
+                if (getMaintenance.IsUnderMaintenance == false)
+                {
+                    MessageBox.Show("The site is not under maintenance.", "Information",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+
+                await MongoDbServices.ControlSiteNotification.DeleteOneAsync(x => x.MaintenanceTitle == name_input.Text.Trim());
+
+                await MongoDbServices.ControlSiteMaintenance.UpdateOneAsync(
+                    Builders<ControlSiteMaintenanceModel>.Filter.Empty,
+                    Builders<ControlSiteMaintenanceModel>.Update.Set(x => x.IsUnderMaintenance, false)
+                );
+
+                MessageBox.Show("Site is no longer under maintenance.", "Success",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                Admin_ControlSiteSettings controlSiteSettings = new Admin_ControlSiteSettings();
+                sidebar_panel.Controls.Clear();
+                sidebar_panel.Controls.Add(controlSiteSettings);
+                controlSiteSettings.Dock = DockStyle.Fill;
+            }
+
+
+
         }
     }
 }

@@ -334,6 +334,12 @@
     <Compile Include="Forms\JobSeekerSignupForm.Designer.cs">
       <DependentUpon>JobSeekerSignupForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\MaintenanceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MaintenanceForm.Designer.cs">
+      <DependentUpon>MaintenanceForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="JobPosterDashboardUserControl\JP_RegisterBusinessForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -419,7 +425,8 @@
       <DependentUpon>JS_ViewJobList.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\AdminAccountModel.cs" />
-    <Compile Include="Models\ControlSiteModel.cs" />
+    <Compile Include="Models\ControlSiteMaintenanceModel.cs" />
+    <Compile Include="Models\ControlSiteNotificationModel.cs" />
     <Compile Include="Models\JobPosterAccountModel.cs" />
     <Compile Include="Models\JobPosterBusinessModel.cs" />
     <Compile Include="Models\JobPosterJobPostingModel.cs" />
@@ -509,6 +516,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\JobSeekerSignupForm.resx">
       <DependentUpon>JobSeekerSignupForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MaintenanceForm.resx">
+      <DependentUpon>MaintenanceForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="JobPosterDashboardUserControl\JP_BusinessDetails.resx">
       <DependentUpon>JP_BusinessDetails.cs</DependentUpon>

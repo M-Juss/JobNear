@@ -5,7 +5,7 @@ using MongoDB.Driver;
 
 namespace JobNear.Models
 {
-    public class ControlSiteModel
+    public class ControlSiteNotificationModel
     {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
@@ -14,6 +14,6 @@ namespace JobNear.Models
         public string MaintenanceDescription { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
-        public bool isRevoke { get; set; } = false;
+
     }
 }

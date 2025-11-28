@@ -147,5 +147,27 @@ namespace JobNear.Forms
             sidebar_panel.Controls.Add(admin_VerifyRequirement);
             admin_VerifyRequirement.Dock = DockStyle.Fill;
         }
+
+        private async void controlSite_button_Click(object sender, EventArgs e)
+        {
+            var getControlSite = await MongoDbServices.ControlSiteNotification
+                .Find(_ => true)
+                .FirstOrDefaultAsync();
+
+            if (getControlSite != null)
+            {
+                AdminDashboardUserControl.Admin_ControlSiteSettings admin_ControlSiteSettings = new AdminDashboardUserControl.Admin_ControlSiteSettings(getControlSite.Id);
+                sidebar_panel.Controls.Clear();
+                sidebar_panel.Controls.Add(admin_ControlSiteSettings);
+                admin_ControlSiteSettings.Dock = DockStyle.Fill;
+            }
+            else {
+                AdminDashboardUserControl.Admin_ControlSiteSettings admin_ControlSiteSettings = new AdminDashboardUserControl.Admin_ControlSiteSettings();
+                sidebar_panel.Controls.Clear();
+                sidebar_panel.Controls.Add(admin_ControlSiteSettings);
+                admin_ControlSiteSettings.Dock = DockStyle.Fill;
+            }
+
+        }
     }
 }
