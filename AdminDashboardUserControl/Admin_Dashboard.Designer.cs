@@ -33,6 +33,7 @@
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.sidebar_panel = new System.Windows.Forms.Panel();
             this.graph_panel = new System.Windows.Forms.Panel();
+            this.chartApplicantsEmployers = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.stats_panel = new System.Windows.Forms.Panel();
             this.complaints_panel = new System.Windows.Forms.Panel();
             this.complaints_lbl = new System.Windows.Forms.Label();
@@ -52,9 +53,10 @@
             this.registered_panel = new System.Windows.Forms.Panel();
             this.business_lbl = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.chartApplicantsEmployers = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.label1 = new System.Windows.Forms.Label();
             this.sidebar_panel.SuspendLayout();
             this.graph_panel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chartApplicantsEmployers)).BeginInit();
             this.stats_panel.SuspendLayout();
             this.complaints_panel.SuspendLayout();
             this.active_panel.SuspendLayout();
@@ -62,7 +64,6 @@
             this.pending_panel.SuspendLayout();
             this.verified_panel.SuspendLayout();
             this.registered_panel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chartApplicantsEmployers)).BeginInit();
             this.SuspendLayout();
             // 
             // sidebar_panel
@@ -70,6 +71,7 @@
             this.sidebar_panel.BackColor = System.Drawing.Color.WhiteSmoke;
             this.sidebar_panel.Controls.Add(this.graph_panel);
             this.sidebar_panel.Controls.Add(this.stats_panel);
+            this.sidebar_panel.Controls.Add(this.label1);
             this.sidebar_panel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.sidebar_panel.Location = new System.Drawing.Point(0, 0);
             this.sidebar_panel.Name = "sidebar_panel";
@@ -84,6 +86,22 @@
             this.graph_panel.Name = "graph_panel";
             this.graph_panel.Size = new System.Drawing.Size(979, 328);
             this.graph_panel.TabIndex = 1;
+            // 
+            // chartApplicantsEmployers
+            // 
+            chartArea1.Name = "ChartArea1";
+            this.chartApplicantsEmployers.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chartApplicantsEmployers.Legends.Add(legend1);
+            this.chartApplicantsEmployers.Location = new System.Drawing.Point(34, 17);
+            this.chartApplicantsEmployers.Name = "chartApplicantsEmployers";
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chartApplicantsEmployers.Series.Add(series1);
+            this.chartApplicantsEmployers.Size = new System.Drawing.Size(911, 295);
+            this.chartApplicantsEmployers.TabIndex = 2;
+            this.chartApplicantsEmployers.Text = "chart1";
             // 
             // stats_panel
             // 
@@ -296,21 +314,15 @@
             this.label11.TabIndex = 4;
             this.label11.Text = "Number of Verified Business";
             // 
-            // chartApplicantsEmployers
+            // label1
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chartApplicantsEmployers.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chartApplicantsEmployers.Legends.Add(legend1);
-            this.chartApplicantsEmployers.Location = new System.Drawing.Point(34, 17);
-            this.chartApplicantsEmployers.Name = "chartApplicantsEmployers";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chartApplicantsEmployers.Series.Add(series1);
-            this.chartApplicantsEmployers.Size = new System.Drawing.Size(911, 295);
-            this.chartApplicantsEmployers.TabIndex = 2;
-            this.chartApplicantsEmployers.Text = "chart1";
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Poppins", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(14, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(393, 56);
+            this.label1.TabIndex = 12;
+            this.label1.Text = "Insights and Analytics";
             // 
             // Admin_Dashboard
             // 
@@ -320,7 +332,9 @@
             this.Name = "Admin_Dashboard";
             this.Size = new System.Drawing.Size(1031, 705);
             this.sidebar_panel.ResumeLayout(false);
+            this.sidebar_panel.PerformLayout();
             this.graph_panel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.chartApplicantsEmployers)).EndInit();
             this.stats_panel.ResumeLayout(false);
             this.complaints_panel.ResumeLayout(false);
             this.complaints_panel.PerformLayout();
@@ -334,7 +348,6 @@
             this.verified_panel.PerformLayout();
             this.registered_panel.ResumeLayout(false);
             this.registered_panel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chartApplicantsEmployers)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -363,5 +376,6 @@
         private System.Windows.Forms.Label pendingBusiness_lbl;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DataVisualization.Charting.Chart chartApplicantsEmployers;
+        private System.Windows.Forms.Label label1;
     }
 }

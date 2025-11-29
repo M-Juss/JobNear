@@ -43,7 +43,6 @@ namespace JobNear.JobSeekerDashboardUserControl
             }
         }
 
-        // Consult arnel regarding to displaying all job posted or js the actives only?
         private async void LoadActiveJobPosted(string businessId)
         {
             try
@@ -80,14 +79,6 @@ namespace JobNear.JobSeekerDashboardUserControl
             }
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-            JS_JobBrowse js_JobBrowse = new JS_JobBrowse();
-            sidebar_panel.Controls.Clear();
-            sidebar_panel.Controls.Add(js_JobBrowse);
-            js_JobBrowse.Dock = DockStyle.Fill;
-        }
-
 
         private async void report_label_Click(object sender, EventArgs e)
         {
@@ -115,6 +106,14 @@ namespace JobNear.JobSeekerDashboardUserControl
                     reportBusiness.Dock = DockStyle.Fill;
                 }
             }
+        }
+
+        private void prev_lbl_Click(object sender, EventArgs e)
+        {
+            JS_JobBrowse js_JobBrowse = new JS_JobBrowse();
+            sidebar_panel.Controls.Clear();
+            sidebar_panel.Controls.Add(js_JobBrowse);
+            js_JobBrowse.Dock = DockStyle.Fill;
         }
     }
 }

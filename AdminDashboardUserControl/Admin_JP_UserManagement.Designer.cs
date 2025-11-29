@@ -65,9 +65,9 @@
             this.label1.Font = new System.Drawing.Font("Poppins", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(24, 11);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(504, 56);
+            this.label1.Size = new System.Drawing.Size(358, 56);
             this.label1.TabIndex = 11;
-            this.label1.Text = "JobPoster User Management";
+            this.label1.Text = "Manage Job Posters";
             // 
             // table_panel
             // 

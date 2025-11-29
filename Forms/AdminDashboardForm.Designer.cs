@@ -84,7 +84,7 @@
             this.controlSite_button.Name = "controlSite_button";
             this.controlSite_button.Size = new System.Drawing.Size(200, 40);
             this.controlSite_button.TabIndex = 5;
-            this.controlSite_button.Text = "      Control Site Settings";
+            this.controlSite_button.Text = "      🧭 Control Site";
             this.controlSite_button.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.controlSite_button.UseVisualStyleBackColor = true;
             this.controlSite_button.Click += new System.EventHandler(this.controlSite_button_Click);
@@ -97,7 +97,7 @@
             this.verificationReq_button.Name = "verificationReq_button";
             this.verificationReq_button.Size = new System.Drawing.Size(200, 40);
             this.verificationReq_button.TabIndex = 4;
-            this.verificationReq_button.Text = "      Verify Requirement";
+            this.verificationReq_button.Text = "      🔍 Verify Req.";
             this.verificationReq_button.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.verificationReq_button.UseVisualStyleBackColor = true;
             this.verificationReq_button.Click += new System.EventHandler(this.verificationReq_button_Click);
@@ -110,7 +110,7 @@
             this.manageAdmin_button.Name = "manageAdmin_button";
             this.manageAdmin_button.Size = new System.Drawing.Size(200, 39);
             this.manageAdmin_button.TabIndex = 3;
-            this.manageAdmin_button.Text = "      Manage Admin";
+            this.manageAdmin_button.Text = "      🛡️ Manage Admin";
             this.manageAdmin_button.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.manageAdmin_button.UseVisualStyleBackColor = true;
             this.manageAdmin_button.Click += new System.EventHandler(this.manageAdmin_button_Click);
@@ -123,7 +123,7 @@
             this.settings_button.Name = "settings_button";
             this.settings_button.Size = new System.Drawing.Size(200, 45);
             this.settings_button.TabIndex = 8;
-            this.settings_button.Text = "System Settings";
+            this.settings_button.Text = "⚙️ System Settings";
             this.settings_button.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.settings_button.UseVisualStyleBackColor = true;
             this.settings_button.Click += new System.EventHandler(this.settings_button_Click);
@@ -136,7 +136,7 @@
             this.reports_button.Name = "reports_button";
             this.reports_button.Size = new System.Drawing.Size(200, 45);
             this.reports_button.TabIndex = 6;
-            this.reports_button.Text = "User Reports";
+            this.reports_button.Text = "🕵️‍♂️ User Reports";
             this.reports_button.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.reports_button.UseVisualStyleBackColor = true;
             this.reports_button.Click += new System.EventHandler(this.reports_button_Click);
@@ -159,7 +159,7 @@
             this.jobposters_button.Name = "jobposters_button";
             this.jobposters_button.Size = new System.Drawing.Size(200, 40);
             this.jobposters_button.TabIndex = 4;
-            this.jobposters_button.Text = "      Job Posters";
+            this.jobposters_button.Text = "      📝 Job Posters";
             this.jobposters_button.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.jobposters_button.UseVisualStyleBackColor = true;
             this.jobposters_button.Click += new System.EventHandler(this.jobposters_button_Click);
@@ -172,7 +172,7 @@
             this.jobseekers_button.Name = "jobseekers_button";
             this.jobseekers_button.Size = new System.Drawing.Size(200, 45);
             this.jobseekers_button.TabIndex = 3;
-            this.jobseekers_button.Text = "      Job Seekers";
+            this.jobseekers_button.Text = "      💼 Job Seekers";
             this.jobseekers_button.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.jobseekers_button.UseVisualStyleBackColor = true;
             this.jobseekers_button.Click += new System.EventHandler(this.jobseekers_button_Click);
@@ -185,7 +185,7 @@
             this.logout_button.Name = "logout_button";
             this.logout_button.Size = new System.Drawing.Size(200, 60);
             this.logout_button.TabIndex = 3;
-            this.logout_button.Text = "Logout";
+            this.logout_button.Text = "↩️ Logout";
             this.logout_button.UseVisualStyleBackColor = true;
             this.logout_button.Click += new System.EventHandler(this.logout_button_Click);
             // 
@@ -197,7 +197,7 @@
             this.user_button.Name = "user_button";
             this.user_button.Size = new System.Drawing.Size(200, 45);
             this.user_button.TabIndex = 2;
-            this.user_button.Text = "User Management";
+            this.user_button.Text = "👥 User Management";
             this.user_button.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.user_button.UseVisualStyleBackColor = true;
             this.user_button.Click += new System.EventHandler(this.user_button_Click);
@@ -210,7 +210,7 @@
             this.dashboard_button.Name = "dashboard_button";
             this.dashboard_button.Size = new System.Drawing.Size(200, 45);
             this.dashboard_button.TabIndex = 1;
-            this.dashboard_button.Text = "Dashboard";
+            this.dashboard_button.Text = "📊 Dashboard";
             this.dashboard_button.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.dashboard_button.UseVisualStyleBackColor = true;
             this.dashboard_button.Click += new System.EventHandler(this.dashboard_button_Click);

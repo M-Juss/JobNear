@@ -90,5 +90,11 @@ private async void login_button_Click(object sender, EventArgs e)
         {
 
         }
+
+        private void prev_lbl_Click(object sender, EventArgs e)
+        {
+            FormsController.FormLoad(new JobNearUserForm(), app_panel);
+
+        }
     }
 }

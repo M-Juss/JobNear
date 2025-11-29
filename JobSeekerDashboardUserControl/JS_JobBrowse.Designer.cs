@@ -31,12 +31,16 @@
             this.sidebar_panel = new System.Windows.Forms.Panel();
             this.distance_combo = new System.Windows.Forms.ComboBox();
             this.map_panel = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.sidebar_panel.SuspendLayout();
             this.SuspendLayout();
             // 
             // sidebar_panel
             // 
             this.sidebar_panel.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.sidebar_panel.Controls.Add(this.label2);
+            this.sidebar_panel.Controls.Add(this.label1);
             this.sidebar_panel.Controls.Add(this.distance_combo);
             this.sidebar_panel.Controls.Add(this.map_panel);
             this.sidebar_panel.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -49,7 +53,7 @@
             // distance_combo
             // 
             this.distance_combo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.distance_combo.Font = new System.Drawing.Font("Poppins", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.distance_combo.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.distance_combo.FormattingEnabled = true;
             this.distance_combo.Items.AddRange(new object[] {
             "1 km",
@@ -58,19 +62,41 @@
             "20 km",
             "50 km",
             "Free Navigation"});
-            this.distance_combo.Location = new System.Drawing.Point(35, 5);
+            this.distance_combo.Location = new System.Drawing.Point(35, 73);
             this.distance_combo.Name = "distance_combo";
-            this.distance_combo.Size = new System.Drawing.Size(287, 42);
+            this.distance_combo.Size = new System.Drawing.Size(237, 34);
             this.distance_combo.TabIndex = 0;
             this.distance_combo.SelectedIndexChanged += new System.EventHandler(this.distance_combo_SelectedIndexChanged);
             // 
             // map_panel
             // 
-            this.map_panel.Location = new System.Drawing.Point(35, 53);
+            this.map_panel.Location = new System.Drawing.Point(3, 113);
             this.map_panel.Name = "map_panel";
-            this.map_panel.Size = new System.Drawing.Size(956, 616);
+            this.map_panel.Size = new System.Drawing.Size(1025, 589);
             this.map_panel.TabIndex = 0;
             this.map_panel.Paint += new System.Windows.Forms.PaintEventHandler(this.map_panel_Paint);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Poppins", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.DimGray;
+            this.label1.Location = new System.Drawing.Point(14, 10);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(444, 56);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "📍 Discover Jobs Near You";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Poppins SemiBold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.DimGray;
+            this.label2.Location = new System.Drawing.Point(278, 71);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(128, 37);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Map Scale";
             // 
             // JS_JobBrowse
             // 
@@ -80,6 +106,7 @@
             this.Name = "JS_JobBrowse";
             this.Size = new System.Drawing.Size(1031, 705);
             this.sidebar_panel.ResumeLayout(false);
+            this.sidebar_panel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -89,5 +116,7 @@
         private System.Windows.Forms.Panel sidebar_panel;
         private System.Windows.Forms.Panel map_panel;
         private System.Windows.Forms.ComboBox distance_combo;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }

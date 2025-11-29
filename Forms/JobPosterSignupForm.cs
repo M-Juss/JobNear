@@ -171,5 +171,10 @@ namespace JobNear.Forms
         {
 
         }
+
+        private void prev_lbl_Click(object sender, EventArgs e)
+        {
+            FormsController.FormLoad(new JobNearUserForm(), app_panel);
+        }
     }
 }

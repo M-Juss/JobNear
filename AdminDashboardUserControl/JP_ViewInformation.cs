@@ -55,7 +55,7 @@ namespace JobNear.AdminDashboardUserControl
 
         }
 
-        private void pictureBox1_Click(object sender, System.EventArgs e)
+        private void prev_lbl_Click(object sender, EventArgs e)
         {
             AdminDashboardUserControl.Admin_JP_UserManagement admin_JP_UserManagement = new AdminDashboardUserControl.Admin_JP_UserManagement();
             sidebar_panel.Controls.Clear();

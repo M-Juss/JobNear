@@ -32,6 +32,8 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.reports_table = new System.Windows.Forms.DataGridView();
             this.status_combo = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.sidebar_panel.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.reports_table)).BeginInit();
@@ -39,6 +41,8 @@
             // 
             // sidebar_panel
             // 
+            this.sidebar_panel.Controls.Add(this.label2);
+            this.sidebar_panel.Controls.Add(this.label1);
             this.sidebar_panel.Controls.Add(this.panel1);
             this.sidebar_panel.Controls.Add(this.status_combo);
             this.sidebar_panel.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -52,9 +56,9 @@
             // panel1
             // 
             this.panel1.Controls.Add(this.reports_table);
-            this.panel1.Location = new System.Drawing.Point(26, 80);
+            this.panel1.Location = new System.Drawing.Point(26, 101);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(978, 593);
+            this.panel1.Size = new System.Drawing.Size(978, 572);
             this.panel1.TabIndex = 8;
             // 
             // reports_table
@@ -62,11 +66,12 @@
             this.reports_table.AllowUserToAddRows = false;
             this.reports_table.AllowUserToDeleteRows = false;
             this.reports_table.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.reports_table.Location = new System.Drawing.Point(3, 3);
+            this.reports_table.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.reports_table.Location = new System.Drawing.Point(0, 0);
             this.reports_table.Name = "reports_table";
             this.reports_table.ReadOnly = true;
             this.reports_table.RowHeadersWidth = 51;
-            this.reports_table.Size = new System.Drawing.Size(973, 587);
+            this.reports_table.Size = new System.Drawing.Size(978, 572);
             this.reports_table.TabIndex = 5;
             this.reports_table.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.reports_table_CellContentClick_1);
             // 
@@ -79,11 +84,31 @@
             "Active",
             "Closed",
             "All"});
-            this.status_combo.Location = new System.Drawing.Point(877, 33);
+            this.status_combo.Location = new System.Drawing.Point(876, 60);
             this.status_combo.Name = "status_combo";
             this.status_combo.Size = new System.Drawing.Size(128, 33);
             this.status_combo.TabIndex = 7;
             this.status_combo.SelectedIndexChanged += new System.EventHandler(this.status_combo_SelectedIndexChanged_1);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Poppins", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(19, 10);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(368, 56);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "User Activity Reports";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(735, 65);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(135, 28);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "Filter by status:";
             // 
             // Admin_ReportsAndComplaints
             // 
@@ -93,6 +118,7 @@
             this.Name = "Admin_ReportsAndComplaints";
             this.Size = new System.Drawing.Size(1031, 705);
             this.sidebar_panel.ResumeLayout(false);
+            this.sidebar_panel.PerformLayout();
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.reports_table)).EndInit();
             this.ResumeLayout(false);
@@ -105,5 +131,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DataGridView reports_table;
         private System.Windows.Forms.ComboBox status_combo;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }

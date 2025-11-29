@@ -65,7 +65,7 @@
             this.notification_button.Name = "notification_button";
             this.notification_button.Size = new System.Drawing.Size(200, 60);
             this.notification_button.TabIndex = 6;
-            this.notification_button.Text = "Notifcations";
+            this.notification_button.Text = "🔔   Notifications";
             this.notification_button.UseVisualStyleBackColor = true;
             this.notification_button.Click += new System.EventHandler(this.notification_button_Click);
             // 
@@ -87,7 +87,7 @@
             this.job_browsing_sub_button.Name = "job_browsing_sub_button";
             this.job_browsing_sub_button.Size = new System.Drawing.Size(200, 40);
             this.job_browsing_sub_button.TabIndex = 1;
-            this.job_browsing_sub_button.Text = "          Job Browsing";
+            this.job_browsing_sub_button.Text = "          🗺️   Job Browsing";
             this.job_browsing_sub_button.UseVisualStyleBackColor = true;
             this.job_browsing_sub_button.Click += new System.EventHandler(this.job_browsing_sub_button_Click);
             // 
@@ -99,7 +99,7 @@
             this.joblist_sub_button.Name = "joblist_sub_button";
             this.joblist_sub_button.Size = new System.Drawing.Size(200, 47);
             this.joblist_sub_button.TabIndex = 0;
-            this.joblist_sub_button.Text = "          Job Lists";
+            this.joblist_sub_button.Text = "          📋   Job Lists";
             this.joblist_sub_button.UseVisualStyleBackColor = true;
             this.joblist_sub_button.Click += new System.EventHandler(this.joblist_sub_button_Click);
             // 
@@ -111,7 +111,7 @@
             this.logout_button.Name = "logout_button";
             this.logout_button.Size = new System.Drawing.Size(200, 60);
             this.logout_button.TabIndex = 4;
-            this.logout_button.Text = "Log Out";
+            this.logout_button.Text = "↩️  Log Out";
             this.logout_button.UseVisualStyleBackColor = true;
             this.logout_button.Click += new System.EventHandler(this.logout_button_Click);
             // 
@@ -123,7 +123,7 @@
             this.seekjob_button.Name = "seekjob_button";
             this.seekjob_button.Size = new System.Drawing.Size(200, 60);
             this.seekjob_button.TabIndex = 2;
-            this.seekjob_button.Text = "Seek Job";
+            this.seekjob_button.Text = "🔍   Seek Job";
             this.seekjob_button.UseVisualStyleBackColor = true;
             this.seekjob_button.Click += new System.EventHandler(this.seekjob_button_Click);
             // 
@@ -135,7 +135,7 @@
             this.profile_button.Name = "profile_button";
             this.profile_button.Size = new System.Drawing.Size(200, 60);
             this.profile_button.TabIndex = 1;
-            this.profile_button.Text = "Profile";
+            this.profile_button.Text = "🧑  ‍ Profile";
             this.profile_button.UseVisualStyleBackColor = true;
             this.profile_button.Click += new System.EventHandler(this.profile_button_Click);
             // 

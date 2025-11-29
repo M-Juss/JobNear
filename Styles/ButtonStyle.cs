@@ -9,8 +9,14 @@ using System.Windows.Forms;
 
 namespace JobNear.Styles
 {
-    public  class ButtonStyle
+    public class ButtonStyle
     {
+        // Track currently selected sidebar button
+        private static Button selectedSidebarButton = null;
+
+        // ============================================================
+        // Rounded Button
+        // ============================================================
         public static void RoundedButton(Button btn, int radius, string hexColor)
         {
             GraphicsPath path = new GraphicsPath();
@@ -32,7 +38,9 @@ namespace JobNear.Styles
             btn.FlatAppearance.MouseOverBackColor = ColorTranslator.FromHtml(hexColor);
         }
 
-
+        // ============================================================
+        // Sidebar Button (with persistent white border on click)
+        // ============================================================
         public static void SidebarButton(Button btn, string hexColor)
         {
             btn.FlatStyle = FlatStyle.Flat;
@@ -44,7 +52,35 @@ namespace JobNear.Styles
             btn.Cursor = Cursors.Hand;
             btn.Padding = new Padding(10, 0, 0, 0);
             btn.TextAlign = ContentAlignment.MiddleLeft;
-            btn.FlatAppearance.MouseOverBackColor = ControlPaint.Light(ColorTranslator.FromHtml(hexColor), 0.2f);
+
+            // Hover highlight
+            btn.FlatAppearance.MouseOverBackColor =
+                ControlPaint.Light(ColorTranslator.FromHtml(hexColor), 0.2f);
+
+            // Add click event to apply selected border
+            btn.Click += (s, e) =>
+            {
+                ApplySidebarSelected(btn);
+            };
+        }
+
+        // ============================================================
+        // Apply Selected Style (White Border)
+        // ============================================================
+        public static void ApplySidebarSelected(Button btn)
+        {
+            // Remove border from previously selected button
+            if (selectedSidebarButton != null)
+            {
+                selectedSidebarButton.FlatAppearance.BorderSize = 0;
+            }
+
+            // Apply 2px white border to clicked button
+            btn.FlatAppearance.BorderSize = 1;
+            btn.FlatAppearance.BorderColor = Color.WhiteSmoke;
+
+            // Store selected button
+            selectedSidebarButton = btn;
         }
     }
 }

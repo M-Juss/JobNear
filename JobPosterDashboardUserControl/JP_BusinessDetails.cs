@@ -82,6 +82,8 @@ namespace JobNear.JobPosterDashboardUserControl
                 address_label.Text = businessDetails.BusinessAddress;
                 status_lbl.Text = businessDetails.Status;
 
+                UserController.SetSeekerAndBusinesStatus(status_lbl, businessDetails.Status);
+
 
             }
         }
@@ -109,7 +111,9 @@ namespace JobNear.JobPosterDashboardUserControl
                 });
             }
         }
-        private void pictureBox1_Click(object sender, EventArgs e)
+
+
+        private void prev_lbl_Click(object sender, EventArgs e)
         {
             JobPosterDashboardUserControl.JP_MyBusiness jp_myBusiness = new JobPosterDashboardUserControl.JP_MyBusiness();
             sidebar_panel.Controls.Clear();
@@ -117,18 +121,7 @@ namespace JobNear.JobPosterDashboardUserControl
             sidebar_panel.Dock = DockStyle.Fill;
         }
 
-
         private void sidebar_panel_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void address_label_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void status_lbl_Click(object sender, EventArgs e)
         {
 
         }
