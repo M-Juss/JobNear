@@ -4,7 +4,8 @@ using System.Drawing;
 using System.Windows.Forms;
 using JobNear.Services;
 using MongoDB.Driver;
-using JobNear.Models;
+using JobNear.Controller;
+using JobNear.Controllers;
 
 namespace JobNear.JobPosterDashboardUserControl
 {
@@ -21,9 +22,13 @@ namespace JobNear.JobPosterDashboardUserControl
             FlowLayoutStyles.AddPostJob("sgfsdg2wrt2342", "Junior Developer", "Hybrid", "Part Time", "Lorem ipsum dolor sit amet. Eum consequatur itaque et quibusdam voluptatem et aspernatur explicabo. Sit eaque possimus ut repellat enim et temporibus natus ut saepe nihil et iusto odit aut animi sunt cum necessitatibus incidunt. ","Closed", joblist_flowlayout, sidebar_panel);
             FlowLayoutStyles.AddPostJob("23432fsfr23rsf", "Intern Developer", "Fullt Remote", "Part Time", "Lorem ipsum dolor sit amet. Eum consequatur itaque et quibusdam voluptatem et aspernatur explicabo. Sit eaque possimus ut repellat enim et temporibus natus ut saepe nihil et iusto odit aut animi sunt cum necessitatibus incidunt.","Withdrawn" , joblist_flowlayout, sidebar_panel);
 
+            
             PanelStyles.RoundedPanel(business_panel, 20, Color.White);
             ButtonStyle.RoundedButton(edit_button, 10, "#3B82F6");
             ButtonStyle.RoundedButton(post_job_button, 10, "#3B82F6");
+
+            UserController.SetSeekerAndBusinesStatus(status_lbl, status_lbl.Text);
+            PanelStyles.StyleRoundedLabel(status_lbl, 5);
 
             joblist_flowlayout.FlowDirection = FlowDirection.TopDown;
             joblist_flowlayout.WrapContents = false;
@@ -75,6 +80,9 @@ namespace JobNear.JobPosterDashboardUserControl
                 name_label.Text = businessDetails.BusinessName;
                 description_label.Text = businessDetails.BusinessDescription;
                 address_label.Text = businessDetails.BusinessAddress;
+                status_lbl.Text = businessDetails.Status;
+
+
             }
         }
 
@@ -115,5 +123,14 @@ namespace JobNear.JobPosterDashboardUserControl
 
         }
 
+        private void address_label_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void status_lbl_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

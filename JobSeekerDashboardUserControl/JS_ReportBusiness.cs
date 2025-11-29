@@ -4,8 +4,8 @@ using JobNear.Styles;
 using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace JobNear.JobSeekerDashboardUserControl
@@ -18,6 +18,10 @@ namespace JobNear.JobSeekerDashboardUserControl
             image_flowlayout.FlowDirection = FlowDirection.TopDown;
             image_flowlayout.WrapContents = false;
             image_flowlayout.AutoScroll = true;
+            PanelStyles.RoundedPanel(business_panel, 20, Color.White);
+            PanelStyles.RoundedPanel(info_panel, 20, Color.White);
+            TextboxStyles.RoundedTextBoxShadow(subject_input, 10, "#FFFFFF", 1);
+            TextboxStyles.RoundedTextBoxShadow(description_input, 10, "#FFFFFF", 1);
 
             LoadSelectedBusiness(businessSpecificId);
         }

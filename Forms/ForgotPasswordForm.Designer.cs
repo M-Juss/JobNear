@@ -53,7 +53,7 @@
             this.app_panel.Controls.Add(this.panel);
             this.app_panel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.app_panel.Location = new System.Drawing.Point(0, 0);
-            this.app_panel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.app_panel.Margin = new System.Windows.Forms.Padding(4);
             this.app_panel.Name = "app_panel";
             this.app_panel.Size = new System.Drawing.Size(1641, 868);
             this.app_panel.TabIndex = 1;
@@ -63,7 +63,7 @@
             // 
             this.back_button.Image = global::JobNear.Properties.Resources.left_arrow;
             this.back_button.Location = new System.Drawing.Point(7, 6);
-            this.back_button.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.back_button.Margin = new System.Windows.Forms.Padding(4);
             this.back_button.Name = "back_button";
             this.back_button.Size = new System.Drawing.Size(24, 24);
             this.back_button.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -84,41 +84,41 @@
             this.panel.Controls.Add(this.changepass_button);
             this.panel.Controls.Add(this.label3);
             this.panel.Controls.Add(this.label1);
-            this.panel.Location = new System.Drawing.Point(516, 98);
-            this.panel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel.Location = new System.Drawing.Point(516, 114);
+            this.panel.Margin = new System.Windows.Forms.Padding(4);
             this.panel.Name = "panel";
-            this.panel.Size = new System.Drawing.Size(624, 604);
+            this.panel.Size = new System.Drawing.Size(624, 638);
             this.panel.TabIndex = 23;
             this.panel.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // confirmnewpass_input
             // 
             this.confirmnewpass_input.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.confirmnewpass_input.Location = new System.Drawing.Point(131, 433);
-            this.confirmnewpass_input.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.confirmnewpass_input.Location = new System.Drawing.Point(112, 459);
+            this.confirmnewpass_input.Margin = new System.Windows.Forms.Padding(4);
             this.confirmnewpass_input.Multiline = true;
             this.confirmnewpass_input.Name = "confirmnewpass_input";
-            this.confirmnewpass_input.Size = new System.Drawing.Size(368, 50);
+            this.confirmnewpass_input.Size = new System.Drawing.Size(407, 50);
             this.confirmnewpass_input.TabIndex = 43;
             // 
             // newpass_input
             // 
             this.newpass_input.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.newpass_input.Location = new System.Drawing.Point(132, 342);
-            this.newpass_input.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.newpass_input.Location = new System.Drawing.Point(112, 356);
+            this.newpass_input.Margin = new System.Windows.Forms.Padding(4);
             this.newpass_input.Multiline = true;
             this.newpass_input.Name = "newpass_input";
-            this.newpass_input.Size = new System.Drawing.Size(368, 50);
+            this.newpass_input.Size = new System.Drawing.Size(407, 50);
             this.newpass_input.TabIndex = 42;
             // 
             // email_input
             // 
             this.email_input.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.email_input.Location = new System.Drawing.Point(131, 251);
-            this.email_input.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.email_input.Location = new System.Drawing.Point(112, 251);
+            this.email_input.Margin = new System.Windows.Forms.Padding(4);
             this.email_input.Multiline = true;
             this.email_input.Name = "email_input";
-            this.email_input.Size = new System.Drawing.Size(368, 50);
+            this.email_input.Size = new System.Drawing.Size(407, 50);
             this.email_input.TabIndex = 41;
             // 
             // label6
@@ -126,7 +126,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Poppins SemiBold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(58)))), ((int)(((byte)(138)))));
-            this.label6.Location = new System.Drawing.Point(157, 158);
+            this.label6.Location = new System.Drawing.Point(160, 138);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(305, 48);
@@ -138,7 +138,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Poppins SemiBold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(58)))), ((int)(((byte)(138)))));
-            this.label4.Location = new System.Drawing.Point(47, 121);
+            this.label4.Location = new System.Drawing.Point(52, 101);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(520, 48);
@@ -150,7 +150,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label2.Location = new System.Drawing.Point(136, 396);
+            this.label2.Location = new System.Drawing.Point(106, 419);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(244, 36);
@@ -161,7 +161,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Poppins", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(141, 58);
+            this.label5.Location = new System.Drawing.Point(144, 32);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(336, 60);
@@ -173,10 +173,10 @@
             this.changepass_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.changepass_button.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.changepass_button.ForeColor = System.Drawing.Color.White;
-            this.changepass_button.Location = new System.Drawing.Point(131, 512);
-            this.changepass_button.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.changepass_button.Location = new System.Drawing.Point(112, 542);
+            this.changepass_button.Margin = new System.Windows.Forms.Padding(4);
             this.changepass_button.Name = "changepass_button";
-            this.changepass_button.Size = new System.Drawing.Size(369, 52);
+            this.changepass_button.Size = new System.Drawing.Size(407, 52);
             this.changepass_button.TabIndex = 16;
             this.changepass_button.Text = "Change Password";
             this.changepass_button.UseVisualStyleBackColor = false;
@@ -187,7 +187,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label3.Location = new System.Drawing.Point(136, 305);
+            this.label3.Location = new System.Drawing.Point(106, 316);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(158, 36);
@@ -199,7 +199,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.label1.Location = new System.Drawing.Point(135, 213);
+            this.label1.Location = new System.Drawing.Point(106, 211);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(70, 36);
@@ -213,7 +213,7 @@
             this.ClientSize = new System.Drawing.Size(1641, 868);
             this.Controls.Add(this.app_panel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ForgotPasswordForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ForgotPasswordForm";

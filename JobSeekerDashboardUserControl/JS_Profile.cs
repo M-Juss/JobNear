@@ -48,6 +48,18 @@ namespace JobNear.JobSeekerDashboardUserControl
             ButtonStyle.RoundedButton(draft_button, 25, "#FFFFFF");
             ButtonStyle.RoundedButton(review_button, 25, "#FFFFFF");
             ButtonStyle.RoundedButton(edit_btn,25, "#3B82F6");
+            PanelStyles.RoundedPanel(personal_panel, 20, Color.White);
+            PanelStyles.RoundedPanel(address_panel, 20, Color.White);
+            PanelStyles.RoundedPanel(supporting_panel, 20, Color.White);
+            TextboxStyles.RoundedTextBoxShadow(email_input, 10, "#FFFFFF", 1);
+            TextboxStyles.RoundedTextBoxShadow(lastname_input, 10, "#FFFFFF", 1);
+            TextboxStyles.RoundedTextBoxShadow(firstname_input, 10, "#FFFFFF", 1);
+            TextboxStyles.RoundedTextBoxShadow(middlename_input, 10, "#FFFFFF", 1);
+            TextboxStyles.RoundedTextBoxShadow(age_input, 10, "#FFFFFF", 1);
+            TextboxStyles.RoundedTextBoxShadow(address_input, 10, "#FFFFFF", 1);
+            TextboxStyles.RoundedTextBoxShadow(email_input, 10, "#FFFFFF", 1);
+            TextboxStyles.RoundedTextBoxShadow(phone_input, 10, "#FFFFFF", 1);
+
 
             image_flowlayout.FlowDirection = FlowDirection.TopDown;
             image_flowlayout.WrapContents = false;
@@ -328,6 +340,11 @@ namespace JobNear.JobSeekerDashboardUserControl
         }
 
         private void status_label_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
         {
 
         }

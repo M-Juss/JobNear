@@ -60,7 +60,7 @@
             this.app_panel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.app_panel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.app_panel.Location = new System.Drawing.Point(0, 0);
-            this.app_panel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.app_panel.Margin = new System.Windows.Forms.Padding(4);
             this.app_panel.Name = "app_panel";
             this.app_panel.Size = new System.Drawing.Size(1641, 868);
             this.app_panel.TabIndex = 0;
@@ -70,7 +70,7 @@
             // 
             this.back_button.Image = global::JobNear.Properties.Resources.left_arrow;
             this.back_button.Location = new System.Drawing.Point(7, 6);
-            this.back_button.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.back_button.Margin = new System.Windows.Forms.Padding(4);
             this.back_button.Name = "back_button";
             this.back_button.Size = new System.Drawing.Size(24, 24);
             this.back_button.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -97,8 +97,8 @@
             this.panel.Controls.Add(this.label3);
             this.panel.Controls.Add(this.label2);
             this.panel.Controls.Add(this.label1);
-            this.panel.Location = new System.Drawing.Point(516, 49);
-            this.panel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel.Location = new System.Drawing.Point(516, 35);
+            this.panel.Margin = new System.Windows.Forms.Padding(4);
             this.panel.Name = "panel";
             this.panel.Size = new System.Drawing.Size(624, 804);
             this.panel.TabIndex = 20;
@@ -107,55 +107,55 @@
             // confirm_input
             // 
             this.confirm_input.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.confirm_input.Location = new System.Drawing.Point(132, 591);
-            this.confirm_input.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.confirm_input.Location = new System.Drawing.Point(114, 591);
+            this.confirm_input.Margin = new System.Windows.Forms.Padding(4);
             this.confirm_input.Multiline = true;
             this.confirm_input.Name = "confirm_input";
-            this.confirm_input.Size = new System.Drawing.Size(368, 50);
+            this.confirm_input.Size = new System.Drawing.Size(407, 50);
             this.confirm_input.TabIndex = 42;
             this.confirm_input.TextChanged += new System.EventHandler(this.confirm_input_TextChanged);
             // 
             // password_input
             // 
             this.password_input.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.password_input.Location = new System.Drawing.Point(132, 497);
-            this.password_input.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.password_input.Location = new System.Drawing.Point(114, 497);
+            this.password_input.Margin = new System.Windows.Forms.Padding(4);
             this.password_input.Multiline = true;
             this.password_input.Name = "password_input";
-            this.password_input.Size = new System.Drawing.Size(368, 50);
+            this.password_input.Size = new System.Drawing.Size(407, 50);
             this.password_input.TabIndex = 41;
             this.password_input.TextChanged += new System.EventHandler(this.password_input_TextChanged_1);
             // 
             // phone_input
             // 
             this.phone_input.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.phone_input.Location = new System.Drawing.Point(132, 406);
-            this.phone_input.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.phone_input.Location = new System.Drawing.Point(114, 406);
+            this.phone_input.Margin = new System.Windows.Forms.Padding(4);
             this.phone_input.Multiline = true;
             this.phone_input.Name = "phone_input";
-            this.phone_input.Size = new System.Drawing.Size(368, 50);
+            this.phone_input.Size = new System.Drawing.Size(407, 50);
             this.phone_input.TabIndex = 40;
             this.phone_input.TextChanged += new System.EventHandler(this.phone_input_TextChanged);
             // 
             // email_input
             // 
             this.email_input.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.email_input.Location = new System.Drawing.Point(132, 313);
-            this.email_input.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.email_input.Location = new System.Drawing.Point(114, 313);
+            this.email_input.Margin = new System.Windows.Forms.Padding(4);
             this.email_input.Multiline = true;
             this.email_input.Name = "email_input";
-            this.email_input.Size = new System.Drawing.Size(368, 50);
+            this.email_input.Size = new System.Drawing.Size(407, 50);
             this.email_input.TabIndex = 39;
             this.email_input.TextChanged += new System.EventHandler(this.email_input_TextChanged_1);
             // 
             // username_input
             // 
             this.username_input.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.username_input.Location = new System.Drawing.Point(132, 220);
-            this.username_input.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.username_input.Location = new System.Drawing.Point(114, 220);
+            this.username_input.Margin = new System.Windows.Forms.Padding(4);
             this.username_input.Multiline = true;
             this.username_input.Name = "username_input";
-            this.username_input.Size = new System.Drawing.Size(368, 50);
+            this.username_input.Size = new System.Drawing.Size(407, 50);
             this.username_input.TabIndex = 38;
             this.username_input.TextChanged += new System.EventHandler(this.username_input_TextChanged);
             // 
@@ -164,7 +164,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.label6.Location = new System.Drawing.Point(136, 183);
+            this.label6.Location = new System.Drawing.Point(118, 183);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(118, 36);
@@ -176,8 +176,8 @@
             // 
             this.password_checkbox.AutoSize = true;
             this.password_checkbox.Font = new System.Drawing.Font("Poppins", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.password_checkbox.Location = new System.Drawing.Point(137, 645);
-            this.password_checkbox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.password_checkbox.Location = new System.Drawing.Point(119, 645);
+            this.password_checkbox.Margin = new System.Windows.Forms.Padding(4);
             this.password_checkbox.Name = "password_checkbox";
             this.password_checkbox.Size = new System.Drawing.Size(140, 29);
             this.password_checkbox.TabIndex = 36;
@@ -190,7 +190,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Poppins SemiBold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(58)))), ((int)(((byte)(138)))));
-            this.label7.Location = new System.Drawing.Point(195, 119);
+            this.label7.Location = new System.Drawing.Point(195, 124);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(246, 48);
@@ -228,7 +228,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label4.Location = new System.Drawing.Point(136, 553);
+            this.label4.Location = new System.Drawing.Point(118, 553);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(197, 36);
@@ -253,10 +253,10 @@
             this.register_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.register_button.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.register_button.ForeColor = System.Drawing.Color.White;
-            this.register_button.Location = new System.Drawing.Point(131, 688);
-            this.register_button.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.register_button.Location = new System.Drawing.Point(113, 688);
+            this.register_button.Margin = new System.Windows.Forms.Padding(4);
             this.register_button.Name = "register_button";
-            this.register_button.Size = new System.Drawing.Size(369, 52);
+            this.register_button.Size = new System.Drawing.Size(408, 52);
             this.register_button.TabIndex = 16;
             this.register_button.Text = "Register";
             this.register_button.UseVisualStyleBackColor = false;
@@ -267,7 +267,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label3.Location = new System.Drawing.Point(136, 460);
+            this.label3.Location = new System.Drawing.Point(118, 460);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(111, 36);
@@ -280,7 +280,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label2.Location = new System.Drawing.Point(136, 368);
+            this.label2.Location = new System.Drawing.Point(118, 368);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(164, 36);
@@ -294,7 +294,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.label1.Location = new System.Drawing.Point(136, 276);
+            this.label1.Location = new System.Drawing.Point(118, 276);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(70, 36);
@@ -309,7 +309,7 @@
             this.ClientSize = new System.Drawing.Size(1641, 868);
             this.Controls.Add(this.app_panel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "JobPosterSignupForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "JobPosterLoginForm";

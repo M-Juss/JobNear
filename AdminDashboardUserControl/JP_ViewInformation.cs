@@ -13,6 +13,8 @@ namespace JobNear.AdminDashboardUserControl
         {
             InitializeComponent();
             LoadBusineses(email);
+            TextboxStyles.RoundedTextBoxShadow(email_input, 10, "#FFFFFF", 1);
+            TextboxStyles.RoundedTextBoxShadow(phone_input, 10, "#FFFFFF", 1);
         }
 
         private async void LoadBusineses(string email)

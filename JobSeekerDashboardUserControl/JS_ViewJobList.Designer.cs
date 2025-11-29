@@ -64,7 +64,7 @@
             this.sidebar_panel.Controls.Add(this.job_panel);
             this.sidebar_panel.Controls.Add(this.business_panel);
             this.sidebar_panel.Location = new System.Drawing.Point(0, 0);
-            this.sidebar_panel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.sidebar_panel.Margin = new System.Windows.Forms.Padding(4);
             this.sidebar_panel.Name = "sidebar_panel";
             this.sidebar_panel.Size = new System.Drawing.Size(1375, 868);
             this.sidebar_panel.TabIndex = 0;
@@ -74,7 +74,7 @@
             // 
             this.pictureBox1.Image = global::JobNear.Properties.Resources.left_arrow;
             this.pictureBox1.Location = new System.Drawing.Point(20, 9);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(24, 24);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -99,7 +99,7 @@
             this.job_panel.Controls.Add(this.status_label);
             this.job_panel.Controls.Add(this.jobtitle_label);
             this.job_panel.Location = new System.Drawing.Point(20, 315);
-            this.job_panel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.job_panel.Margin = new System.Windows.Forms.Padding(4);
             this.job_panel.Name = "job_panel";
             this.job_panel.Size = new System.Drawing.Size(1333, 535);
             this.job_panel.TabIndex = 6;
@@ -252,7 +252,7 @@
             this.business_panel.Controls.Add(this.name_label);
             this.business_panel.Controls.Add(this.company_logo_picturebox);
             this.business_panel.Location = new System.Drawing.Point(20, 43);
-            this.business_panel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.business_panel.Margin = new System.Windows.Forms.Padding(4);
             this.business_panel.Name = "business_panel";
             this.business_panel.Size = new System.Drawing.Size(1333, 260);
             this.business_panel.TabIndex = 4;
@@ -270,7 +270,7 @@
             // footer_label
             // 
             this.footer_label.AutoEllipsis = true;
-            this.footer_label.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.footer_label.Font = new System.Drawing.Font("Poppins", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.footer_label.ForeColor = System.Drawing.Color.Gray;
             this.footer_label.Location = new System.Drawing.Point(365, 210);
             this.footer_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -293,7 +293,7 @@
             // 
             this.company_logo_picturebox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.company_logo_picturebox.Location = new System.Drawing.Point(83, 21);
-            this.company_logo_picturebox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.company_logo_picturebox.Margin = new System.Windows.Forms.Padding(4);
             this.company_logo_picturebox.Name = "company_logo_picturebox";
             this.company_logo_picturebox.Size = new System.Drawing.Size(253, 216);
             this.company_logo_picturebox.TabIndex = 0;
@@ -305,7 +305,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.Controls.Add(this.sidebar_panel);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "JS_ViewJobList";
             this.Size = new System.Drawing.Size(1375, 868);
             this.sidebar_panel.ResumeLayout(false);

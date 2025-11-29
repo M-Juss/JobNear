@@ -1,7 +1,9 @@
 ﻿using JobNear.Forms;
 using JobNear.Services;
+using JobNear.Styles;
 using MongoDB.Driver;
 using System;
+using System.Drawing;
 using System.Security.Cryptography;
 using System.Windows.Forms;
 
@@ -17,6 +19,7 @@ namespace JobNear.JobPosterDashboardUserControl
             paymenttype_label.Text = "";
             TextBoxValidatorController.AllowOnlyNumbers(hourly_input);
             TextBoxValidatorController.AllowOnlyNumbers(monthly_input);
+            PanelStyles.RoundedPanel(job_panel, 20, Color.White);
 
         }
 
@@ -260,6 +263,36 @@ namespace JobNear.JobPosterDashboardUserControl
         }
 
         private void sidebar_panel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel4_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void paymenttype_label_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void hourly_input_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label11_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void status_combo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label10_Click(object sender, EventArgs e)
         {
 
         }

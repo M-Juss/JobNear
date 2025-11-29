@@ -19,6 +19,7 @@ namespace JobNear.JobSeekerDashboardUserControl
             LoadSelectedBusiness(businessSpecificId);
             LoadActiveJobPosted(businessSpecificId);
 
+            PanelStyles.RoundedPanel(business_panel, 20, Color.White);
             PanelStyles.StyleRoundedLabel(report_label, 10, Color.Red, Color.White);
         }
 

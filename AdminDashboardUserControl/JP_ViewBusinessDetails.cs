@@ -14,6 +14,19 @@ namespace JobNear.AdminDashboardUserControl
         {
             InitializeComponent();
             LoadSelectedBusiness(id);
+            TextboxStyles.RoundedTextBoxShadow(industry_input, 10, "#FFFFFF", 1);
+            TextboxStyles.RoundedTextBoxShadow(email_input, 10, "#FFFFFF", 1);
+            TextboxStyles.RoundedTextBoxShadow(website_input, 10, "#FFFFFF", 1);
+            TextboxStyles.RoundedTextBoxShadow(phone_input, 10, "#FFFFFF", 1);
+            TextboxStyles.RoundedTextBoxShadow(description_richbox, 10, "#FFFFFF", 1);
+            TextboxStyles.RoundedTextBoxShadow(address_input, 10, "#FFFFFF", 1);
+            TextboxStyles.RoundedTextBoxShadow(lat_input, 10, "#FFFFFF", 1);
+            TextboxStyles.RoundedTextBoxShadow(lng_input, 10, "#FFFFFF", 1);
+
+
+
+
+
         }
 
         private async void LoadSelectedBusiness(string businessId)

@@ -19,6 +19,7 @@ namespace JobNear.JobPosterDashboardUserControl
             InitializeComponent();
 
             PanelStyles.RoundedPanel(panel1, 20, Color.White);
+            PanelStyles.RoundedPanel(insturction_panel, 20, Color.White);
         }
 
         private void JP_Dashboard_Load(object sender, EventArgs e)

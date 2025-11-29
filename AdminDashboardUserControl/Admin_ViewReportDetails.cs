@@ -16,6 +16,8 @@ namespace JobNear.AdminDashboardUserControl
             InitializeComponent();
             DesignPanels();
             LoadReportDetails(complainantId, complaineeId, reportId);
+            TextboxStyles.RoundedTextBoxShadow(subject_lbl, 10, "#FFFFFF", 1);
+            TextboxStyles.RoundedTextBoxShadow(description_lbl, 10, "#FFFFFF", 1);
             back_button.Visible = false;
             if (status == "Closed")
             {

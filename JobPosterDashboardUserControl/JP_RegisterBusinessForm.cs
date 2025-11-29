@@ -27,6 +27,9 @@ namespace JobNear.JobPosterDashboardUserControl
         {
             InitializeComponent();
             SetUpRegisterBusinessForm();
+            PanelStyles.RoundedPanel(business_panel, 20, Color.White);
+            PanelStyles.RoundedPanel(address_panel, 20, Color.White);
+            PanelStyles.RoundedPanel(supporting_panel, 20, Color.White);
 
             cancel_button.Visible = false;
             update_button.Visible = false;
@@ -35,7 +38,10 @@ namespace JobNear.JobPosterDashboardUserControl
         public JP_RegisterBusinessForm(string businessId)
         {
             InitializeComponent();
-            SetUpRegisterBusinessForm(); 
+            SetUpRegisterBusinessForm();
+            PanelStyles.RoundedPanel(business_panel, 20, Color.White);
+            PanelStyles.RoundedPanel(address_panel, 20, Color.White);
+            PanelStyles.RoundedPanel(supporting_panel, 20, Color.White);
 
             LoadEditBusinessDetails(businessId);
             review_button.Visible = false;
@@ -410,6 +416,27 @@ namespace JobNear.JobPosterDashboardUserControl
             sidebar_panel.Controls.Clear();
             sidebar_panel.Controls.Add(jp_businessDeets);
             jp_businessDeets.Dock = DockStyle.Fill;
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+
+
+
+
+
+
+        }
+
+        private void description_richbox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void sidebar_panel_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

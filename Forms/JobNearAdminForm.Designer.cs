@@ -52,7 +52,7 @@
             this.app_panel.Controls.Add(this.panel);
             this.app_panel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.app_panel.Location = new System.Drawing.Point(0, 0);
-            this.app_panel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.app_panel.Margin = new System.Windows.Forms.Padding(4);
             this.app_panel.Name = "app_panel";
             this.app_panel.Size = new System.Drawing.Size(1641, 868);
             this.app_panel.TabIndex = 0;
@@ -62,7 +62,7 @@
             // 
             this.back_button.Image = global::JobNear.Properties.Resources.left_arrow;
             this.back_button.Location = new System.Drawing.Point(7, 6);
-            this.back_button.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.back_button.Margin = new System.Windows.Forms.Padding(4);
             this.back_button.Name = "back_button";
             this.back_button.Size = new System.Drawing.Size(24, 24);
             this.back_button.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -82,7 +82,7 @@
             this.panel.Controls.Add(this.label3);
             this.panel.Controls.Add(this.Username);
             this.panel.Location = new System.Drawing.Point(516, 98);
-            this.panel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel.Margin = new System.Windows.Forms.Padding(4);
             this.panel.Name = "panel";
             this.panel.Size = new System.Drawing.Size(624, 631);
             this.panel.TabIndex = 23;
@@ -91,29 +91,29 @@
             // password_input
             // 
             this.password_input.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.password_input.Location = new System.Drawing.Point(128, 409);
-            this.password_input.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.password_input.Location = new System.Drawing.Point(113, 398);
+            this.password_input.Margin = new System.Windows.Forms.Padding(4);
             this.password_input.Multiline = true;
             this.password_input.Name = "password_input";
-            this.password_input.Size = new System.Drawing.Size(368, 50);
+            this.password_input.Size = new System.Drawing.Size(407, 50);
             this.password_input.TabIndex = 41;
             // 
             // email_input
             // 
             this.email_input.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.email_input.Location = new System.Drawing.Point(128, 316);
-            this.email_input.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.email_input.Location = new System.Drawing.Point(113, 295);
+            this.email_input.Margin = new System.Windows.Forms.Padding(4);
             this.email_input.Multiline = true;
             this.email_input.Name = "email_input";
-            this.email_input.Size = new System.Drawing.Size(368, 50);
+            this.email_input.Size = new System.Drawing.Size(407, 50);
             this.email_input.TabIndex = 40;
             // 
             // password_checkbox
             // 
             this.password_checkbox.AutoSize = true;
             this.password_checkbox.Font = new System.Drawing.Font("Poppins", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.password_checkbox.Location = new System.Drawing.Point(132, 463);
-            this.password_checkbox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.password_checkbox.Location = new System.Drawing.Point(113, 463);
+            this.password_checkbox.Margin = new System.Windows.Forms.Padding(4);
             this.password_checkbox.Name = "password_checkbox";
             this.password_checkbox.Size = new System.Drawing.Size(140, 29);
             this.password_checkbox.TabIndex = 36;
@@ -124,8 +124,8 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::JobNear.Properties.Resources.JobnearLogo;
-            this.pictureBox1.Location = new System.Drawing.Point(217, 27);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Location = new System.Drawing.Point(226, 22);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(149, 154);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -136,7 +136,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Poppins SemiBold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(208, 220);
+            this.label5.Location = new System.Drawing.Point(200, 182);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(211, 48);
@@ -148,10 +148,10 @@
             this.login_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.login_button.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.login_button.ForeColor = System.Drawing.Color.White;
-            this.login_button.Location = new System.Drawing.Point(128, 500);
-            this.login_button.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.login_button.Location = new System.Drawing.Point(113, 511);
+            this.login_button.Margin = new System.Windows.Forms.Padding(4);
             this.login_button.Name = "login_button";
-            this.login_button.Size = new System.Drawing.Size(369, 52);
+            this.login_button.Size = new System.Drawing.Size(407, 52);
             this.login_button.TabIndex = 16;
             this.login_button.Text = "Log in";
             this.login_button.UseVisualStyleBackColor = false;
@@ -162,7 +162,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label3.Location = new System.Drawing.Point(132, 370);
+            this.label3.Location = new System.Drawing.Point(107, 358);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(111, 36);
@@ -174,7 +174,7 @@
             this.Username.AutoSize = true;
             this.Username.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Username.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.Username.Location = new System.Drawing.Point(132, 278);
+            this.Username.Location = new System.Drawing.Point(107, 255);
             this.Username.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Username.Name = "Username";
             this.Username.Size = new System.Drawing.Size(70, 36);
@@ -188,7 +188,7 @@
             this.ClientSize = new System.Drawing.Size(1641, 868);
             this.Controls.Add(this.app_panel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "JobNearAdminForm_";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "JobNearAdminForm_";

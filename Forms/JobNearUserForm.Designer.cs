@@ -50,7 +50,7 @@
             this.app_panel.Controls.Add(this.panel);
             this.app_panel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.app_panel.Location = new System.Drawing.Point(0, 0);
-            this.app_panel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.app_panel.Margin = new System.Windows.Forms.Padding(4);
             this.app_panel.Name = "app_panel";
             this.app_panel.Size = new System.Drawing.Size(1641, 868);
             this.app_panel.TabIndex = 0;
@@ -59,7 +59,7 @@
             // close_image
             // 
             this.close_image.Location = new System.Drawing.Point(1591, 5);
-            this.close_image.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.close_image.Margin = new System.Windows.Forms.Padding(4);
             this.close_image.Name = "close_image";
             this.close_image.Size = new System.Drawing.Size(44, 39);
             this.close_image.TabIndex = 2;
@@ -75,8 +75,8 @@
             this.panel.Controls.Add(this.admin_button);
             this.panel.Controls.Add(this.jp_button);
             this.panel.Controls.Add(this.js_button);
-            this.panel.Location = new System.Drawing.Point(516, 98);
-            this.panel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel.Location = new System.Drawing.Point(516, 108);
+            this.panel.Margin = new System.Windows.Forms.Padding(4);
             this.panel.Name = "panel";
             this.panel.Size = new System.Drawing.Size(624, 651);
             this.panel.TabIndex = 0;
@@ -85,7 +85,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Poppins", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(169, 263);
+            this.label5.Location = new System.Drawing.Point(177, 240);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(267, 48);
@@ -96,7 +96,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Poppins", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(117, 230);
+            this.label4.Location = new System.Drawing.Point(126, 207);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(379, 48);
@@ -106,8 +106,8 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::JobNear.Properties.Resources.JobnearLogo;
-            this.pictureBox1.Location = new System.Drawing.Point(216, 23);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Location = new System.Drawing.Point(231, 26);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(149, 154);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -118,10 +118,10 @@
             // 
             this.admin_button.Font = new System.Drawing.Font("Poppins SemiBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.admin_button.ForeColor = System.Drawing.Color.White;
-            this.admin_button.Location = new System.Drawing.Point(127, 532);
-            this.admin_button.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.admin_button.Location = new System.Drawing.Point(117, 520);
+            this.admin_button.Margin = new System.Windows.Forms.Padding(4);
             this.admin_button.Name = "admin_button";
-            this.admin_button.Size = new System.Drawing.Size(384, 66);
+            this.admin_button.Size = new System.Drawing.Size(398, 66);
             this.admin_button.TabIndex = 2;
             this.admin_button.Text = "Continue as Administrator";
             this.admin_button.UseVisualStyleBackColor = true;
@@ -131,10 +131,10 @@
             // 
             this.jp_button.Font = new System.Drawing.Font("Poppins SemiBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.jp_button.ForeColor = System.Drawing.Color.White;
-            this.jp_button.Location = new System.Drawing.Point(127, 434);
-            this.jp_button.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.jp_button.Location = new System.Drawing.Point(117, 422);
+            this.jp_button.Margin = new System.Windows.Forms.Padding(4);
             this.jp_button.Name = "jp_button";
-            this.jp_button.Size = new System.Drawing.Size(384, 66);
+            this.jp_button.Size = new System.Drawing.Size(398, 66);
             this.jp_button.TabIndex = 1;
             this.jp_button.Text = "Continue as Job Poster";
             this.jp_button.UseVisualStyleBackColor = true;
@@ -144,10 +144,10 @@
             // 
             this.js_button.Font = new System.Drawing.Font("Poppins SemiBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.js_button.ForeColor = System.Drawing.Color.White;
-            this.js_button.Location = new System.Drawing.Point(127, 336);
-            this.js_button.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.js_button.Location = new System.Drawing.Point(117, 324);
+            this.js_button.Margin = new System.Windows.Forms.Padding(4);
             this.js_button.Name = "js_button";
-            this.js_button.Size = new System.Drawing.Size(384, 66);
+            this.js_button.Size = new System.Drawing.Size(398, 66);
             this.js_button.TabIndex = 0;
             this.js_button.Text = "Continue as Job Seeker";
             this.js_button.UseVisualStyleBackColor = true;
@@ -160,7 +160,7 @@
             this.ClientSize = new System.Drawing.Size(1641, 868);
             this.Controls.Add(this.app_panel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "JobNearUserForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "JobNearUser";

@@ -3,13 +3,7 @@ using JobNear.Services;
 using JobNear.Styles;
 using MongoDB.Driver;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using JobNear.Controllers;
 using System.Windows.Forms;
 
 namespace JobNear.AdminDashboardUserControl
@@ -20,6 +14,17 @@ namespace JobNear.AdminDashboardUserControl
         {
             InitializeComponent();
             LoadSpecificUser(email);
+
+            TextboxStyles.RoundedTextBoxShadow(email_input, 10, "#FFFFFF", 1);
+            TextboxStyles.RoundedTextBoxShadow(fullname_input, 10, "#FFFFFF", 1);
+            TextboxStyles.RoundedTextBoxShadow(age_input, 10, "#FFFFFF", 1);
+            TextboxStyles.RoundedTextBoxShadow(phone_input, 10, "#FFFFFF", 1);
+            TextboxStyles.RoundedTextBoxShadow(birthdate_input, 10, "#FFFFFF", 1);
+            TextboxStyles.RoundedTextBoxShadow(sex_input, 10, "#FFFFFF", 1);
+            TextboxStyles.RoundedTextBoxShadow(address_input, 10, "#FFFFFF", 1);
+            TextboxStyles.RoundedTextBoxShadow(lat_input, 10, "#FFFFFF", 1);
+            TextboxStyles.RoundedTextBoxShadow(lng_input, 10, "#FFFFFF", 1);
+            TextboxStyles.RoundedTextBoxShadow(remarks_richtext, 10, "#FFFFFF", 1);
 
             image_flowlayout.FlowDirection = FlowDirection.TopDown;
             image_flowlayout.WrapContents = false;  
@@ -184,6 +189,16 @@ namespace JobNear.AdminDashboardUserControl
         }
 
         private void sidebar_panel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void email_input_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void remarks_richtext_TextChanged(object sender, EventArgs e)
         {
 
         }

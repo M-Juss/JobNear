@@ -18,6 +18,7 @@ namespace JobNear.JobSeekerDashboardUserControl
             InitializeComponent();
             PanelStyles.RoundedPanel(panel1, 20, Color.White);
             PanelStyles.RoundedPanel(panel2, 20, Color.White);
+            PanelStyles.RoundedPanel(instruction_panel, 20, Color.White);
         }
 
         private void label10_Click(object sender, EventArgs e)
