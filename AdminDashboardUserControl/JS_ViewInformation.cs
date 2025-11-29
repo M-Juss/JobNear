@@ -5,6 +5,7 @@ using MongoDB.Driver;
 using System;
 using JobNear.Controllers;
 using System.Windows.Forms;
+using System.Drawing;
 
 namespace JobNear.AdminDashboardUserControl
 {
@@ -14,17 +15,7 @@ namespace JobNear.AdminDashboardUserControl
         {
             InitializeComponent();
             LoadSpecificUser(email);
-
-            TextboxStyles.RoundedTextBoxShadow(email_input, 10, "#FFFFFF", 1);
-            TextboxStyles.RoundedTextBoxShadow(fullname_input, 10, "#FFFFFF", 1);
-            TextboxStyles.RoundedTextBoxShadow(age_input, 10, "#FFFFFF", 1);
-            TextboxStyles.RoundedTextBoxShadow(phone_input, 10, "#FFFFFF", 1);
-            TextboxStyles.RoundedTextBoxShadow(birthdate_input, 10, "#FFFFFF", 1);
-            TextboxStyles.RoundedTextBoxShadow(sex_input, 10, "#FFFFFF", 1);
-            TextboxStyles.RoundedTextBoxShadow(address_input, 10, "#FFFFFF", 1);
-            TextboxStyles.RoundedTextBoxShadow(lat_input, 10, "#FFFFFF", 1);
-            TextboxStyles.RoundedTextBoxShadow(lng_input, 10, "#FFFFFF", 1);
-            TextboxStyles.RoundedTextBoxShadow(remarks_richtext, 10, "#FFFFFF", 1);
+            PanelStyles.RoundedPanel(seeker_panel, 20, Color.White);
 
             image_flowlayout.FlowDirection = FlowDirection.TopDown;
             image_flowlayout.WrapContents = false;  
@@ -56,7 +47,7 @@ namespace JobNear.AdminDashboardUserControl
                 if (specificUser.SupportingDocuments != null) { 
                     foreach (var doc in specificUser.SupportingDocuments)
                     {
-                        FlowLayoutStyles.AddSupportingDocumentToFlow(doc, image_flowlayout, 851);
+                        FlowLayoutStyles.AddSupportingDocumentToFlow(doc, image_flowlayout, image_flowlayout.Width - 20, "No");
                     }
                 }
 

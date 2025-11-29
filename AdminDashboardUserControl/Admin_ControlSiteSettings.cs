@@ -1,9 +1,11 @@
-﻿using System;
+﻿using JobNear.Models;
 using JobNear.Services;
+using JobNear.Styles;
+using MongoDB.Driver;
+using System;
+using System.Drawing;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
-using MongoDB.Driver;
-using JobNear.Models;
 
 namespace JobNear.AdminDashboardUserControl
 {
@@ -12,6 +14,9 @@ namespace JobNear.AdminDashboardUserControl
         public Admin_ControlSiteSettings()
         {
             InitializeComponent();
+            TextboxStyles.RoundedTextBoxShadow(name_input, 10, "#FFFFFF", 1);
+            TextboxStyles.RoundedTextBoxShadow(description_input, 10, "#FFFFFF", 1);
+            PanelStyles.RoundedPanel(maintenance_panel, 20, Color.White);
             activate_button.Enabled = false;
             deactivate_button.Enabled = false;
         }
@@ -21,7 +26,9 @@ namespace JobNear.AdminDashboardUserControl
             InitializeComponent();
 
             LoadControlSiteData(ControlId);
-
+            TextboxStyles.RoundedTextBoxShadow(name_input, 10, "#FFFFFF", 1);
+            TextboxStyles.RoundedTextBoxShadow(description_input, 10, "#FFFFFF", 1);
+            PanelStyles.RoundedPanel(maintenance_panel, 20, Color.White);
             ControlButtonsVisibility();
         }
 

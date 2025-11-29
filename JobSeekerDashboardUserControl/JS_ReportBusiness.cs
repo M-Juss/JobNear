@@ -71,7 +71,7 @@ namespace JobNear.JobSeekerDashboardUserControl
                     string destPath = Path.Combine(savePath, fileName);
                     File.Copy(filePath, destPath, true);
 
-                    FlowLayoutStyles.AddFileItem(destPath, image_flowlayout, 767);
+                    FlowLayoutStyles.AddFileItem(destPath, image_flowlayout, image_flowlayout.Width - 20);
                 }
             }
         }

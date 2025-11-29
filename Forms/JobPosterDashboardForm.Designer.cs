@@ -63,7 +63,7 @@
             this.notification_button.Name = "notification_button";
             this.notification_button.Size = new System.Drawing.Size(200, 49);
             this.notification_button.TabIndex = 6;
-            this.notification_button.Text = "Notification";
+            this.notification_button.Text = "🔔   Notifications";
             this.notification_button.UseVisualStyleBackColor = false;
             this.notification_button.Click += new System.EventHandler(this.notification_button_Click);
             // 
@@ -73,11 +73,11 @@
             this.log_out_button.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.log_out_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.log_out_button.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.log_out_button.Location = new System.Drawing.Point(0, 671);
+            this.log_out_button.Location = new System.Drawing.Point(0, 665);
             this.log_out_button.Name = "log_out_button";
-            this.log_out_button.Size = new System.Drawing.Size(200, 34);
+            this.log_out_button.Size = new System.Drawing.Size(200, 40);
             this.log_out_button.TabIndex = 5;
-            this.log_out_button.Text = "Log Out";
+            this.log_out_button.Text = "↩️ Logout";
             this.log_out_button.UseVisualStyleBackColor = false;
             this.log_out_button.Click += new System.EventHandler(this.log_out_button_Click);
             // 
@@ -90,7 +90,8 @@
             this.view_business_button.Name = "view_business_button";
             this.view_business_button.Size = new System.Drawing.Size(200, 49);
             this.view_business_button.TabIndex = 4;
-            this.view_business_button.Text = "View Business";
+            this.view_business_button.Text = "🗂️   My Businesses";
+            this.view_business_button.UseCompatibleTextRendering = true;
             this.view_business_button.UseVisualStyleBackColor = false;
             this.view_business_button.Click += new System.EventHandler(this.view_business_button_Click);
             // 
@@ -103,7 +104,7 @@
             this.business_button.Name = "business_button";
             this.business_button.Size = new System.Drawing.Size(200, 49);
             this.business_button.TabIndex = 2;
-            this.business_button.Text = "Register Business";
+            this.business_button.Text = "🏢   Register Business";
             this.business_button.UseVisualStyleBackColor = false;
             this.business_button.Click += new System.EventHandler(this.business_button_Click);
             // 
@@ -116,7 +117,7 @@
             this.dashboard_button.Name = "dashboard_button";
             this.dashboard_button.Size = new System.Drawing.Size(200, 49);
             this.dashboard_button.TabIndex = 1;
-            this.dashboard_button.Text = "Dashboard";
+            this.dashboard_button.Text = "📊 Dashboard";
             this.dashboard_button.UseVisualStyleBackColor = false;
             this.dashboard_button.Click += new System.EventHandler(this.dashboard_button_Click);
             // 
@@ -129,6 +130,7 @@
             this.jobnear_button.Size = new System.Drawing.Size(200, 49);
             this.jobnear_button.TabIndex = 0;
             this.jobnear_button.UseVisualStyleBackColor = true;
+            this.jobnear_button.Click += new System.EventHandler(this.jobnear_button_Click);
             // 
             // sidebar_panel
             // 

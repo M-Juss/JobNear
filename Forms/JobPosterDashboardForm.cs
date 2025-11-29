@@ -82,5 +82,10 @@ namespace JobNear.Forms
         {
 
         }
+
+        private void jobnear_button_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

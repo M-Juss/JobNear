@@ -19,6 +19,9 @@ namespace JobNear.AdminDashboardUserControl
         public Admin_AddVerifyRequirement()
         {
             InitializeComponent();
+            TextboxStyles.RoundedTextBoxShadow(name_input, 10, "#FFFFFF", 1);
+            TextboxStyles.RoundedTextBoxShadow(description_input, 10, "#FFFFFF", 1);
+            PanelStyles.RoundedPanel(req_panel, 20, Color.White);
         }
 
         private void label4_Click(object sender, EventArgs e)
@@ -58,7 +61,7 @@ namespace JobNear.AdminDashboardUserControl
                     string destPath = Path.Combine(savePath, fileName);
                     File.Copy(filePath, destPath, true);
 
-                    FlowLayoutStyles.AddFileItem(destPath, image_flowlayout, 640);
+                    FlowLayoutStyles.AddFileItem(destPath, image_flowlayout, image_flowlayout.Width - 20);
                 }
             }
         }
@@ -121,6 +124,11 @@ namespace JobNear.AdminDashboardUserControl
                 MessageBox.Show("Failed to add verification requirement. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+        }
+
+        private void sidebar_panel_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

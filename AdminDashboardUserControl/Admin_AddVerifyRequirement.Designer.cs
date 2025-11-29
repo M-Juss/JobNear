@@ -29,7 +29,9 @@
         private void InitializeComponent()
         {
             this.sidebar_panel = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.req_panel = new System.Windows.Forms.Panel();
+            this.user_combo = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.cancel_button = new System.Windows.Forms.Button();
             this.add_button = new System.Windows.Forms.Button();
             this.image_flowlayout = new System.Windows.Forms.FlowLayoutPanel();
@@ -41,40 +43,62 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.user_combo = new System.Windows.Forms.ComboBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.sidebar_panel.SuspendLayout();
-            this.panel2.SuspendLayout();
+            this.req_panel.SuspendLayout();
             this.SuspendLayout();
             // 
             // sidebar_panel
             // 
-            this.sidebar_panel.Controls.Add(this.panel2);
+            this.sidebar_panel.Controls.Add(this.req_panel);
             this.sidebar_panel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.sidebar_panel.Location = new System.Drawing.Point(0, 0);
             this.sidebar_panel.Name = "sidebar_panel";
             this.sidebar_panel.Size = new System.Drawing.Size(1031, 705);
             this.sidebar_panel.TabIndex = 0;
+            this.sidebar_panel.Paint += new System.Windows.Forms.PaintEventHandler(this.sidebar_panel_Paint);
             // 
-            // panel2
+            // req_panel
             // 
-            this.panel2.Controls.Add(this.user_combo);
-            this.panel2.Controls.Add(this.label5);
-            this.panel2.Controls.Add(this.cancel_button);
-            this.panel2.Controls.Add(this.add_button);
-            this.panel2.Controls.Add(this.image_flowlayout);
-            this.panel2.Controls.Add(this.attach_file);
-            this.panel2.Controls.Add(this.requirement_combo);
-            this.panel2.Controls.Add(this.description_input);
-            this.panel2.Controls.Add(this.name_input);
-            this.panel2.Controls.Add(this.label4);
-            this.panel2.Controls.Add(this.label3);
-            this.panel2.Controls.Add(this.label2);
-            this.panel2.Controls.Add(this.label1);
-            this.panel2.Location = new System.Drawing.Point(157, 31);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(716, 642);
-            this.panel2.TabIndex = 1;
+            this.req_panel.Controls.Add(this.user_combo);
+            this.req_panel.Controls.Add(this.label5);
+            this.req_panel.Controls.Add(this.cancel_button);
+            this.req_panel.Controls.Add(this.add_button);
+            this.req_panel.Controls.Add(this.image_flowlayout);
+            this.req_panel.Controls.Add(this.attach_file);
+            this.req_panel.Controls.Add(this.requirement_combo);
+            this.req_panel.Controls.Add(this.description_input);
+            this.req_panel.Controls.Add(this.name_input);
+            this.req_panel.Controls.Add(this.label4);
+            this.req_panel.Controls.Add(this.label3);
+            this.req_panel.Controls.Add(this.label2);
+            this.req_panel.Controls.Add(this.label1);
+            this.req_panel.Location = new System.Drawing.Point(157, 31);
+            this.req_panel.Name = "req_panel";
+            this.req_panel.Size = new System.Drawing.Size(716, 642);
+            this.req_panel.TabIndex = 1;
+            // 
+            // user_combo
+            // 
+            this.user_combo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.user_combo.Font = new System.Drawing.Font("Poppins", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.user_combo.FormattingEnabled = true;
+            this.user_combo.Items.AddRange(new object[] {
+            "For Job Seeker",
+            "For Job Poster"});
+            this.user_combo.Location = new System.Drawing.Point(362, 355);
+            this.user_combo.Name = "user_combo";
+            this.user_combo.Size = new System.Drawing.Size(324, 33);
+            this.user_combo.TabIndex = 102;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(357, 324);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(92, 28);
+            this.label5.TabIndex = 101;
+            this.label5.Text = "User Type";
             // 
             // cancel_button
             // 
@@ -146,8 +170,9 @@
             // 
             this.name_input.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.name_input.Location = new System.Drawing.Point(26, 98);
+            this.name_input.Multiline = true;
             this.name_input.Name = "name_input";
-            this.name_input.Size = new System.Drawing.Size(660, 31);
+            this.name_input.Size = new System.Drawing.Size(660, 41);
             this.name_input.TabIndex = 26;
             // 
             // label4
@@ -190,29 +215,6 @@
             this.label1.TabIndex = 12;
             this.label1.Text = "Add Requirements";
             // 
-            // user_combo
-            // 
-            this.user_combo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.user_combo.Font = new System.Drawing.Font("Poppins", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.user_combo.FormattingEnabled = true;
-            this.user_combo.Items.AddRange(new object[] {
-            "For Job Seeker",
-            "For Job Poster"});
-            this.user_combo.Location = new System.Drawing.Point(362, 355);
-            this.user_combo.Name = "user_combo";
-            this.user_combo.Size = new System.Drawing.Size(324, 33);
-            this.user_combo.TabIndex = 102;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(357, 324);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(92, 28);
-            this.label5.TabIndex = 101;
-            this.label5.Text = "User Type";
-            // 
             // Admin_AddVerifyRequirement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -222,8 +224,8 @@
             this.Name = "Admin_AddVerifyRequirement";
             this.Size = new System.Drawing.Size(1031, 705);
             this.sidebar_panel.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            this.req_panel.ResumeLayout(false);
+            this.req_panel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -231,7 +233,7 @@
         #endregion
 
         private System.Windows.Forms.Panel sidebar_panel;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel req_panel;
         private System.Windows.Forms.Button cancel_button;
         private System.Windows.Forms.Button add_button;
         private System.Windows.Forms.FlowLayoutPanel image_flowlayout;

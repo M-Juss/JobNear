@@ -120,8 +120,10 @@
             this.attach_file.Name = "attach_file";
             this.attach_file.Size = new System.Drawing.Size(748, 138);
             this.attach_file.TabIndex = 48;
-            this.attach_file.Text = "Attach files that will help us verify your details and contact information";
+            this.attach_file.Text = "Attach the following files to verify your business. These are mandatory:\r\n> SEC\r\n" +
+    "> DTI\r\n> Barangay Permit";
             this.attach_file.UseVisualStyleBackColor = false;
+            this.attach_file.Click += new System.EventHandler(this.attach_file_Click);
             // 
             // address_panel
             // 

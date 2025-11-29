@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -24,6 +25,7 @@ namespace JobNear.AdminDashboardUserControl
             ButtonStyle.RoundedButton(submit_button, 25, "#3B82F6");
             ButtonStyle.RoundedButton(clear_button, 25, "#3B82F6");
             ButtonStyle.RoundedButton(update_button, 25, "#3B82F6");
+
 
             InitializeTable();
             LoadAdminAccounts();
@@ -184,6 +186,56 @@ namespace JobNear.AdminDashboardUserControl
             }
         }
         private void InitializeTable() {
+
+            admin_table.CellPainting += (s, e) =>
+            {
+                if (e.RowIndex < 0) return;
+
+                Rectangle rect = new Rectangle(e.CellBounds.X + 5, e.CellBounds.Y + 5,
+                                               e.CellBounds.Width - 10, e.CellBounds.Height - 10);
+
+                int radius = 12;
+
+                if (admin_table.Columns[e.ColumnIndex].Name == "Update" ||
+                    admin_table.Columns[e.ColumnIndex].Name == "Delete")
+                {
+                    e.PaintBackground(e.ClipBounds, true);
+
+                    using (GraphicsPath path = new GraphicsPath())
+                    {
+                        // Correct AddArc usage
+                        path.AddArc(rect.X, rect.Y, radius, radius, 180, 90);                // top-left
+                        path.AddArc(rect.Right - radius, rect.Y, radius, radius, 270, 90);  // top-right
+                        path.AddArc(rect.Right - radius, rect.Bottom - radius, radius, radius, 0, 90); // bottom-right
+                        path.AddArc(rect.X, rect.Bottom - radius, radius, radius, 90, 90);  // bottom-left
+                        path.CloseAllFigures();
+
+                        // Fill color
+                        Color fillColor = admin_table.Columns[e.ColumnIndex].Name == "Update"
+                                          ? ColorTranslator.FromHtml("#E0F0FF")
+                                          : ColorTranslator.FromHtml("#FEE0E0");
+
+                        using (SolidBrush brush = new SolidBrush(fillColor))
+                            e.Graphics.FillPath(brush, path);
+
+                        // Border color
+                        Color borderColor = admin_table.Columns[e.ColumnIndex].Name == "Update"
+                                            ? ColorTranslator.FromHtml("#A5C8F0")
+                                            : ColorTranslator.FromHtml("#F5A5A5");
+
+                        using (Pen pen = new Pen(borderColor, 1))
+                            e.Graphics.DrawPath(pen, path);
+
+                        // Draw text
+                        string text = admin_table.Columns[e.ColumnIndex].Name;
+                        TextRenderer.DrawText(e.Graphics, text, new Font("Poppins", 12, FontStyle.Regular),
+                                              rect, Color.Black,
+                                              TextFormatFlags.HorizontalCenter | TextFormatFlags.VerticalCenter);
+                    }
+
+                    e.Handled = true;
+                }
+            };
             TableStyles.UserTables(admin_table);
 
             admin_table.Columns.Add("Fullname", "Fullname");
@@ -198,7 +250,7 @@ namespace JobNear.AdminDashboardUserControl
             update.UseColumnTextForButtonValue = true;
             update.FlatStyle = FlatStyle.Flat;
             update.Width = 60;
-            update.DefaultCellStyle.Font = new Font("Poppins", 12, FontStyle.Bold);
+            update.DefaultCellStyle.Font = new Font("Poppins", 12, FontStyle.Regular);
 
             admin_table.Columns.Add(update);
 
@@ -208,7 +260,7 @@ namespace JobNear.AdminDashboardUserControl
             delete.UseColumnTextForButtonValue = true;
             delete.FlatStyle = FlatStyle.Flat;
             delete.Width = 60;
-            delete.DefaultCellStyle.Font = new Font("Poppins", 12, FontStyle.Bold);
+            delete.DefaultCellStyle.Font = new Font("Poppins", 12, FontStyle.Regular);
 
             admin_table.Columns.Add(delete);
         }

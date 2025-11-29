@@ -71,7 +71,7 @@
             // 
             // phone_input
             // 
-            this.phone_input.Enabled = false;
+            this.phone_input.Cursor = System.Windows.Forms.Cursors.No;
             this.phone_input.Font = new System.Drawing.Font("Poppins", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.phone_input.Location = new System.Drawing.Point(531, 115);
             this.phone_input.Margin = new System.Windows.Forms.Padding(2);
@@ -83,9 +83,9 @@
             // mybusiness_flowlayout
             // 
             this.mybusiness_flowlayout.AutoScroll = true;
-            this.mybusiness_flowlayout.Location = new System.Drawing.Point(37, 192);
+            this.mybusiness_flowlayout.Location = new System.Drawing.Point(21, 192);
             this.mybusiness_flowlayout.Name = "mybusiness_flowlayout";
-            this.mybusiness_flowlayout.Size = new System.Drawing.Size(957, 475);
+            this.mybusiness_flowlayout.Size = new System.Drawing.Size(980, 475);
             this.mybusiness_flowlayout.TabIndex = 103;
             // 
             // panel2
@@ -99,7 +99,7 @@
             // 
             // email_input
             // 
-            this.email_input.Enabled = false;
+            this.email_input.Cursor = System.Windows.Forms.Cursors.No;
             this.email_input.Font = new System.Drawing.Font("Poppins", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.email_input.Location = new System.Drawing.Point(35, 115);
             this.email_input.Margin = new System.Windows.Forms.Padding(2);

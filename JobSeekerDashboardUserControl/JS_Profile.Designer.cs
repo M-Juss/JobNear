@@ -460,10 +460,10 @@
             // status_label
             // 
             this.status_label.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.status_label.Location = new System.Drawing.Point(826, 72);
+            this.status_label.Location = new System.Drawing.Point(826, 70);
             this.status_label.Name = "status_label";
             this.status_label.Padding = new System.Windows.Forms.Padding(20, 0, 20, 0);
-            this.status_label.Size = new System.Drawing.Size(176, 23);
+            this.status_label.Size = new System.Drawing.Size(176, 33);
             this.status_label.TabIndex = 0;
             this.status_label.Text = "Status";
             this.status_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;

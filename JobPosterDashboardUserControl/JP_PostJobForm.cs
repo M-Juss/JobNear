@@ -20,6 +20,7 @@ namespace JobNear.JobPosterDashboardUserControl
             TextBoxValidatorController.AllowOnlyNumbers(hourly_input);
             TextBoxValidatorController.AllowOnlyNumbers(monthly_input);
             PanelStyles.RoundedPanel(job_panel, 20, Color.White);
+            PanelStyles.RoundedPanel(job_panel, 10, Color.White);
 
         }
 
@@ -32,6 +33,7 @@ namespace JobNear.JobPosterDashboardUserControl
 
             TextBoxValidatorController.AllowOnlyNumbers(hourly_input);
             TextBoxValidatorController.AllowOnlyNumbers(monthly_input);
+            PanelStyles.RoundedPanel(job_panel, 10, Color.White);
         }
 
 

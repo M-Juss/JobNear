@@ -100,7 +100,7 @@ namespace JobNear.JobSeekerDashboardUserControl
             if (seeker.SupportingDocuments != null)
             {
                 foreach (var doc in seeker.SupportingDocuments)
-                    FlowLayoutStyles.AddSupportingDocumentToFlow(doc, image_flowlayout, 767);
+                    FlowLayoutStyles.AddSupportingDocumentToFlow(doc, image_flowlayout, image_flowlayout.Width - 20);
             }
 
             UserController.SetSeekerAndBusinesStatus(status_label, seeker.Status);
@@ -161,7 +161,7 @@ namespace JobNear.JobSeekerDashboardUserControl
                     string dest = Path.Combine(saveDir, Path.GetFileName(file));
                     File.Copy(file, dest, true);
 
-                    FlowLayoutStyles.AddFileItem(dest, image_flowlayout, 767);
+                    FlowLayoutStyles.AddFileItem(dest, image_flowlayout, image_flowlayout.Width - 20);
                 }
             }
         }

@@ -387,29 +387,7 @@ namespace JobNear.JobPosterDashboardUserControl
             address_input.Leave += Address_input_Leave;
             address_input.TextChanged += Address_input_TextChanged;
         }
-        private void attach_file_Click_1(object sender, EventArgs e)
-        {
-            OpenFileDialog ofd = new OpenFileDialog();
-            ofd.Multiselect = true;
-            ofd.Filter = "All Files|*.*";
 
-            if (ofd.ShowDialog() == DialogResult.OK)
-            {
-                foreach (string filePath in ofd.FileNames)
-                {
-                    string fileName = Path.GetFileName(filePath);
-
-                    string savePath = Path.Combine(Application.StartupPath, "SupportingDocs");
-                    if (!Directory.Exists(savePath))
-                        Directory.CreateDirectory(savePath);
-
-                    string destPath = Path.Combine(savePath, fileName);
-                    File.Copy(filePath, destPath, true);
-
-                    FlowLayoutStyles.AddFileItem(destPath, image_flowlayout, 726);
-                }
-            }
-        }
         private void cancel_button_Click_1(object sender, EventArgs e)
         {
             JobPosterDashboardUserControl.JP_BusinessDetails jp_businessDeets = new JobPosterDashboardUserControl.JP_BusinessDetails(Session.CurrentBusinessSelected);
@@ -437,6 +415,30 @@ namespace JobNear.JobPosterDashboardUserControl
         private void sidebar_panel_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void attach_file_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Multiselect = true;
+            ofd.Filter = "All Files|*.*";
+
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                foreach (string filePath in ofd.FileNames)
+                {
+                    string fileName = Path.GetFileName(filePath);
+
+                    string savePath = Path.Combine(Application.StartupPath, "SupportingDocs");
+                    if (!Directory.Exists(savePath))
+                        Directory.CreateDirectory(savePath);
+
+                    string destPath = Path.Combine(savePath, fileName);
+                    File.Copy(filePath, destPath, true);
+
+                    FlowLayoutStyles.AddFileItem(destPath, image_flowlayout, image_flowlayout.Width - 20);
+                }
+            }
         }
     }
 }

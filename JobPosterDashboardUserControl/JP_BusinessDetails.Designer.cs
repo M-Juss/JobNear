@@ -134,10 +134,10 @@
             // 
             this.sidebar_panel.BackColor = System.Drawing.Color.WhiteSmoke;
             this.sidebar_panel.Controls.Add(this.prev_lbl);
-            this.sidebar_panel.Controls.Add(this.status_lbl);
             this.sidebar_panel.Controls.Add(this.joblist_flowlayout);
             this.sidebar_panel.Controls.Add(this.business_panel);
             this.sidebar_panel.Controls.Add(this.post_job_button);
+            this.sidebar_panel.Controls.Add(this.status_lbl);
             this.sidebar_panel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.sidebar_panel.Location = new System.Drawing.Point(0, 0);
             this.sidebar_panel.Name = "sidebar_panel";
@@ -160,9 +160,9 @@
             // status_lbl
             // 
             this.status_lbl.Font = new System.Drawing.Font("Poppins SemiBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.status_lbl.Location = new System.Drawing.Point(22, 52);
+            this.status_lbl.Location = new System.Drawing.Point(22, 49);
             this.status_lbl.Name = "status_lbl";
-            this.status_lbl.Size = new System.Drawing.Size(984, 28);
+            this.status_lbl.Size = new System.Drawing.Size(984, 37);
             this.status_lbl.TabIndex = 5;
             this.status_lbl.Text = "Complainant";
             this.status_lbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;

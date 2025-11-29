@@ -32,10 +32,10 @@
             this.search_input = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.table_panel = new System.Windows.Forms.Panel();
-            this.seeker_table = new System.Windows.Forms.DataGridView();
+            this.poster_table = new System.Windows.Forms.DataGridView();
             this.sidebar_panel.SuspendLayout();
             this.table_panel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.seeker_table)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.poster_table)).BeginInit();
             this.SuspendLayout();
             // 
             // sidebar_panel
@@ -48,7 +48,7 @@
             this.sidebar_panel.Name = "sidebar_panel";
             this.sidebar_panel.Size = new System.Drawing.Size(1031, 705);
             this.sidebar_panel.TabIndex = 0;
-            this.sidebar_panel.Paint += new System.Windows.Forms.PaintEventHandler(this.sidebar_panel_Paint);
+            this.sidebar_panel.Paint += new System.Windows.Forms.PaintEventHandler(this.sidebar_panel_Paint_1);
             // 
             // search_input
             // 
@@ -71,24 +71,24 @@
             // 
             // table_panel
             // 
-            this.table_panel.Controls.Add(this.seeker_table);
+            this.table_panel.Controls.Add(this.poster_table);
             this.table_panel.Location = new System.Drawing.Point(30, 141);
             this.table_panel.Name = "table_panel";
             this.table_panel.Size = new System.Drawing.Size(976, 552);
             this.table_panel.TabIndex = 12;
             // 
-            // seeker_table
+            // poster_table
             // 
-            this.seeker_table.AllowUserToAddRows = false;
-            this.seeker_table.AllowUserToDeleteRows = false;
-            this.seeker_table.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.seeker_table.Location = new System.Drawing.Point(3, 3);
-            this.seeker_table.Name = "seeker_table";
-            this.seeker_table.ReadOnly = true;
-            this.seeker_table.RowHeadersWidth = 51;
-            this.seeker_table.Size = new System.Drawing.Size(973, 535);
-            this.seeker_table.TabIndex = 3;
-            this.seeker_table.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.seeker_table_CellContentClick_1);
+            this.poster_table.AllowUserToAddRows = false;
+            this.poster_table.AllowUserToDeleteRows = false;
+            this.poster_table.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.poster_table.Location = new System.Drawing.Point(3, 3);
+            this.poster_table.Name = "poster_table";
+            this.poster_table.ReadOnly = true;
+            this.poster_table.RowHeadersWidth = 51;
+            this.poster_table.Size = new System.Drawing.Size(973, 535);
+            this.poster_table.TabIndex = 3;
+            this.poster_table.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.seeker_table_CellContentClick);
             // 
             // Admin_JP_UserManagement
             // 
@@ -100,7 +100,7 @@
             this.sidebar_panel.ResumeLayout(false);
             this.sidebar_panel.PerformLayout();
             this.table_panel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.seeker_table)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.poster_table)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -111,6 +111,6 @@
         private System.Windows.Forms.TextBox search_input;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel table_panel;
-        private System.Windows.Forms.DataGridView seeker_table;
+        private System.Windows.Forms.DataGridView poster_table;
     }
 }

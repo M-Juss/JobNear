@@ -15,27 +15,19 @@ namespace JobNear.Styles
 {
     public class FlowLayoutStyles
     {
-        public static void AddFileItem(string filePath, FlowLayoutPanel docu_flowlayout, int width)
+        public static void AddFileItem(string filePath, FlowLayoutPanel docu_flowlayout, int width, string canDelete = "Yes")
         {
             Panel filePanel = new Panel();
             filePanel.Width = width;
             filePanel.Height = 50;
             filePanel.BackColor = Color.White;
-            filePanel.Margin = new Padding(0, 0, 0, 2);
+            filePanel.Margin = new Padding(0, 5, 0, 5);
             filePanel.Padding = new Padding(10);
             filePanel.BorderStyle = BorderStyle.None;
 
-            // ✅ Save filePath inside Tag so we can retrieve it later
-            filePanel.Tag = filePath;
+            PanelStyles.RoundedPanel(filePanel, 10, Color.White);
 
-            filePanel.Paint += (s, e) =>
-            {
-                ControlPaint.DrawBorder(e.Graphics, filePanel.ClientRectangle,
-                    Color.LightGray, 1, ButtonBorderStyle.Solid,
-                    Color.LightGray, 1, ButtonBorderStyle.Solid,
-                    Color.LightGray, 1, ButtonBorderStyle.Solid,
-                    Color.LightGray, 1, ButtonBorderStyle.Solid);
-            };
+            filePanel.Tag = filePath;
 
             PictureBox picIcon = new PictureBox();
             picIcon.Width = 30;
@@ -76,7 +68,7 @@ namespace JobNear.Styles
             btnPreview.Cursor = Cursors.Hand;
             btnPreview.Click += (s, e) =>
             {
-                string fullPath = filePanel.Tag?.ToString(); // ✅ Use Tag
+                string fullPath = filePanel.Tag?.ToString();
                 if (File.Exists(fullPath))
                 {
                     System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo()
@@ -91,10 +83,11 @@ namespace JobNear.Styles
                 }
             };
 
+
             Button btnDelete = new Button();
             btnDelete.Width = 30;
             btnDelete.Height = 30;
-            btnDelete.Location = new Point(width - 65, 10);
+            btnDelete.Location = new Point(width - 55, 10);
             btnDelete.FlatStyle = FlatStyle.Flat;
             btnDelete.FlatAppearance.BorderSize = 0;
             btnDelete.BackColor = Color.Transparent;
@@ -102,23 +95,32 @@ namespace JobNear.Styles
             btnDelete.Font = new Font("Segoe UI Emoji", 13, FontStyle.Bold);
             btnDelete.ForeColor = Color.DimGray;
             btnDelete.Cursor = Cursors.Hand;
-            btnDelete.Click += (s, e) =>
+
+            if (canDelete == "No")
             {
-                string fullPath = filePanel.Tag?.ToString(); // ✅ Use Tag
-                string fileName = Path.GetFileName(fullPath);
-
-                var confirm = MessageBox.Show($"Delete {fileName}?", "Confirm Delete",
-                    MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-
-                if (confirm == DialogResult.Yes)
+                btnDelete.Visible = false;
+                btnDelete.Enabled = false;
+            }
+            else
+            {
+                btnDelete.Click += (s, e) =>
                 {
-                    if (File.Exists(fullPath))
+                    string fullPath = filePanel.Tag?.ToString();
+                    string fileName = Path.GetFileName(fullPath);
+
+                    var confirm = MessageBox.Show($"Delete {fileName}?", "Confirm Delete",
+                        MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                    if (confirm == DialogResult.Yes)
                     {
-                        File.Delete(fullPath);
+                        if (File.Exists(fullPath))
+                        {
+                            File.Delete(fullPath);
+                        }
+                        filePanel.Dispose();
                     }
-                    filePanel.Dispose();
-                }
-            };
+                };
+            }
 
             filePanel.Controls.Add(picIcon);
             filePanel.Controls.Add(lbl);
@@ -128,26 +130,20 @@ namespace JobNear.Styles
             docu_flowlayout.Controls.Add(filePanel);
         }
 
-        public static void AddSupportingDocumentToFlow(SupportingDocument doc, FlowLayoutPanel docu_flowlayout, int width)
+
+        public static void AddSupportingDocumentToFlow(SupportingDocument doc, FlowLayoutPanel docu_flowlayout, int width, string canDelete = "Yes")
         {
             Panel filePanel = new Panel();
             filePanel.Width = width;
             filePanel.Height = 50;
             filePanel.BackColor = Color.White;
-            filePanel.Margin = new Padding(0, 0, 0, 2);
+            filePanel.Margin = new Padding(0, 5, 0, 5);
             filePanel.Padding = new Padding(10);
             filePanel.BorderStyle = BorderStyle.None;
 
-            filePanel.Tag = doc;
+            PanelStyles.RoundedPanel(filePanel, 10, Color.White);
 
-            filePanel.Paint += (s, e) =>
-            {
-                ControlPaint.DrawBorder(e.Graphics, filePanel.ClientRectangle,
-                    Color.LightGray, 1, ButtonBorderStyle.Solid,
-                    Color.LightGray, 1, ButtonBorderStyle.Solid,
-                    Color.LightGray, 1, ButtonBorderStyle.Solid,
-                    Color.LightGray, 1, ButtonBorderStyle.Solid);
-            };
+            filePanel.Tag = doc;
 
             PictureBox picIcon = new PictureBox();
             picIcon.Width = 30;
@@ -159,8 +155,10 @@ namespace JobNear.Styles
             {
                 string tempFile = Path.Combine(Path.GetTempPath(), doc.FileName);
                 File.WriteAllBytes(tempFile, doc.FileContent);
+
                 Icon sysIcon = Icon.ExtractAssociatedIcon(tempFile);
                 picIcon.Image = sysIcon?.ToBitmap() ?? SystemIcons.Application.ToBitmap();
+
                 File.Delete(tempFile);
             }
             catch
@@ -193,6 +191,7 @@ namespace JobNear.Styles
             {
                 string tempPath = Path.Combine(Path.GetTempPath(), doc.FileName);
                 File.WriteAllBytes(tempPath, doc.FileContent);
+
                 System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo()
                 {
                     FileName = tempPath,
@@ -203,7 +202,7 @@ namespace JobNear.Styles
             Button btnDelete = new Button();
             btnDelete.Width = 30;
             btnDelete.Height = 30;
-            btnDelete.Location = new Point(width - 65, 10);
+            btnDelete.Location = new Point(width - 55, 10);
             btnDelete.FlatStyle = FlatStyle.Flat;
             btnDelete.FlatAppearance.BorderSize = 0;
             btnDelete.BackColor = Color.Transparent;
@@ -211,16 +210,25 @@ namespace JobNear.Styles
             btnDelete.Font = new Font("Segoe UI Emoji", 13, FontStyle.Bold);
             btnDelete.ForeColor = Color.DimGray;
             btnDelete.Cursor = Cursors.Hand;
-            btnDelete.Click += (s, e) =>
-            {
-                var confirm = MessageBox.Show($"Delete {doc.FileName}?", "Confirm Delete",
-                    MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
-                if (confirm == DialogResult.Yes)
+            if (canDelete == "No")
+            {
+                btnDelete.Visible = false;
+                btnDelete.Enabled = false;
+            }
+            else
+            {
+                btnDelete.Click += (s, e) =>
                 {
-                    filePanel.Dispose();
-                }
-            };
+                    var confirm = MessageBox.Show($"Delete {doc.FileName}?", "Confirm Delete",
+                        MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                    if (confirm == DialogResult.Yes)
+                    {
+                        filePanel.Dispose();
+                    }
+                };
+            }
 
             filePanel.Controls.Add(picIcon);
             filePanel.Controls.Add(lbl);
@@ -229,6 +237,7 @@ namespace JobNear.Styles
 
             docu_flowlayout.Controls.Add(filePanel);
         }
+
 
         public static void AddMyBusiness(string businessSpecificId, string businessName, string businessDescription, string businessaddress, string businessStatus , FlowLayoutPanel file_flowlayout, Panel my_business_panel) {
             Panel businessPanel = new Panel();

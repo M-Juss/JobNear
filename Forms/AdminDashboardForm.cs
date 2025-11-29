@@ -17,11 +17,6 @@ namespace JobNear.Forms
 {
     public partial class AdminDashboardForm : Form
     {
-        AdminDashboardUserControl.Admin_Dashboard admin_Dashboard = new AdminDashboardUserControl.Admin_Dashboard();
-        AdminDashboardUserControl.Admin_JS_UserManagement admin_Jobseeker = new AdminDashboardUserControl.Admin_JS_UserManagement();
-        AdminDashboardUserControl.Admin_JP_UserManagement admin_Jobposter = new AdminDashboardUserControl.Admin_JP_UserManagement();
-        AdminDashboardUserControl.Admin_ManageAdmin admin_Manage = new AdminDashboardUserControl.Admin_ManageAdmin();
-        AdminDashboardUserControl.Admin_ReportsAndComplaints admin_Reports = new AdminDashboardUserControl.Admin_ReportsAndComplaints();
         public AdminDashboardForm()
         {
             InitializeComponent();
@@ -41,6 +36,7 @@ namespace JobNear.Forms
             ButtonStyle.SidebarButton(verificationReq_button, "#3B82F6");
             ButtonStyle.SidebarButton(controlSite_button, "#3B82F6");
 
+            AdminDashboardUserControl.Admin_Dashboard admin_Dashboard = new AdminDashboardUserControl.Admin_Dashboard();
             sidebar_panel.Controls.Clear();
             sidebar_panel.Controls.Add(admin_Dashboard);
             admin_Dashboard.Dock = DockStyle.Fill;
@@ -82,6 +78,7 @@ namespace JobNear.Forms
         private void dashboard_button_Click(object sender, EventArgs e)
         {
             hideInactiveSubMenu();
+            AdminDashboardUserControl.Admin_Dashboard admin_Dashboard = new AdminDashboardUserControl.Admin_Dashboard();
             sidebar_panel.Controls.Clear();
             sidebar_panel.Controls.Add(admin_Dashboard);
             admin_Dashboard.Dock = DockStyle.Fill;
@@ -101,6 +98,7 @@ namespace JobNear.Forms
 
         private void jobseekers_button_Click(object sender, EventArgs e)
         {
+            AdminDashboardUserControl.Admin_JS_UserManagement admin_Jobseeker = new AdminDashboardUserControl.Admin_JS_UserManagement();
             sidebar_panel.Controls.Clear();
             sidebar_panel.Controls.Add(admin_Jobseeker);
             admin_Jobseeker.Dock = DockStyle.Fill;
@@ -108,6 +106,7 @@ namespace JobNear.Forms
 
         private void jobposters_button_Click(object sender, EventArgs e)
         {
+            AdminDashboardUserControl.Admin_JP_UserManagement admin_Jobposter = new AdminDashboardUserControl.Admin_JP_UserManagement();
             sidebar_panel.Controls.Clear();
             sidebar_panel.Controls.Add(admin_Jobposter);
             admin_Jobposter.Dock = DockStyle.Fill;
@@ -120,6 +119,7 @@ namespace JobNear.Forms
 
         private void reports_button_Click(object sender, EventArgs e)
         {
+            AdminDashboardUserControl.Admin_ReportsAndComplaints admin_Reports = new AdminDashboardUserControl.Admin_ReportsAndComplaints();
             hideInactiveSubMenu();
             sidebar_panel.Controls.Clear();
             sidebar_panel.Controls.Add(admin_Reports);
@@ -134,6 +134,7 @@ namespace JobNear.Forms
 
         private void manageAdmin_button_Click(object sender, EventArgs e)
         {
+            AdminDashboardUserControl.Admin_ManageAdmin admin_Manage = new AdminDashboardUserControl.Admin_ManageAdmin();
             sidebar_panel.Controls.Clear();
             sidebar_panel.Controls.Add(admin_Manage);
             admin_Manage.Dock = DockStyle.Fill;

@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,6 +24,62 @@ namespace JobNear.AdminDashboardUserControl
         public Admin_JS_UserManagement()
         {
             InitializeComponent();
+            SetUpJsPanel();
+        }
+
+        private void SetUpJsPanel() {
+
+            seeker_table.CellPainting += (s, e) =>
+            {
+                if (e.RowIndex >= 0 &&
+                    e.ColumnIndex == seeker_table.Columns["Action"].Index)
+                {
+                    e.PaintBackground(e.ClipBounds, true);
+
+                    Rectangle rect = new Rectangle(
+                        e.CellBounds.X + 10,
+                        e.CellBounds.Y + 5,
+                        e.CellBounds.Width - 20,
+                        e.CellBounds.Height - 10
+                    );
+
+                    int radius = 12;
+
+                    using (GraphicsPath path = new GraphicsPath())
+                    {
+                        path.AddArc(rect.X, rect.Y, radius, radius, 180, 90);
+                        path.AddArc(rect.Right - radius, rect.Y, radius, radius, 270, 90);
+                        path.AddArc(rect.Right - radius, rect.Bottom - radius, radius, radius, 0, 90);
+                        path.AddArc(rect.X, rect.Bottom - radius, radius, radius, 90, 90);
+                        path.CloseAllFigures();
+
+
+                        using (SolidBrush brush = new SolidBrush(ColorTranslator.FromHtml("#E0F0FF")))
+                        {
+                            e.Graphics.FillPath(brush, path);
+                        }
+
+
+                        using (Pen pen = new Pen(ColorTranslator.FromHtml("#A5C8F0"), 1))
+                        {
+                            e.Graphics.DrawPath(pen, path);
+                        }
+
+
+                        TextRenderer.DrawText(
+                            e.Graphics,
+                            "View",
+                            new Font("Poppins", 11, FontStyle.Regular),
+                            rect,
+                            Color.Black,
+                            TextFormatFlags.HorizontalCenter | TextFormatFlags.VerticalCenter
+                        );
+                    }
+
+                    e.Handled = true;
+                }
+            };
+
             status_combo.SelectedIndex = 0;
 
             status_combo.TextChanged += StatusChanged;
@@ -40,8 +97,8 @@ namespace JobNear.AdminDashboardUserControl
             var actionButton = new DataGridViewButtonColumn();
             actionButton.Name = "Action";
             actionButton.HeaderText = "Action";
-            actionButton.Text = ">";
-            actionButton.UseColumnTextForButtonValue = true; 
+            actionButton.Text = "View";
+            actionButton.UseColumnTextForButtonValue = true;
             actionButton.FlatStyle = FlatStyle.Flat;
             actionButton.Width = 60;
             actionButton.DefaultCellStyle.Font = new Font("Poppins", 12, FontStyle.Bold);
@@ -52,9 +109,7 @@ namespace JobNear.AdminDashboardUserControl
 
             search_input.Text = "Search";
             search_input.ForeColor = Color.Gray;
-            
         }
-
 
         private async void InitialTableValue() {
             var filterPending = Builders<JobSeekerAccountModel>.Filter.Eq(x => x.Status, "pending");

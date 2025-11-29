@@ -103,7 +103,6 @@
             this.job_panel.Controls.Add(this.about_job_richbox);
             this.job_panel.Controls.Add(this.min_qualification_richbox);
             this.job_panel.Controls.Add(this.title_input);
-            this.job_panel.Controls.Add(this.paymenttype_label);
             this.job_panel.Controls.Add(this.label1);
             this.job_panel.Controls.Add(this.payment_combo);
             this.job_panel.Controls.Add(this.label3);
@@ -125,6 +124,7 @@
             this.job_panel.Controls.Add(this.preferred_qualification_richbox);
             this.job_panel.Controls.Add(this.hourly_input);
             this.job_panel.Controls.Add(this.label6);
+            this.job_panel.Controls.Add(this.paymenttype_label);
             this.job_panel.Location = new System.Drawing.Point(44, 63);
             this.job_panel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.job_panel.Name = "job_panel";
@@ -164,7 +164,7 @@
             this.title_input.Location = new System.Drawing.Point(31, 54);
             this.title_input.Multiline = true;
             this.title_input.Name = "title_input";
-            this.title_input.Size = new System.Drawing.Size(867, 41);
+            this.title_input.Size = new System.Drawing.Size(867, 32);
             this.title_input.TabIndex = 112;
             // 
             // paymenttype_label
@@ -205,7 +205,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Poppins SemiBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(26, 102);
+            this.label3.Location = new System.Drawing.Point(26, 98);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(190, 34);
             this.label3.TabIndex = 110;
@@ -217,14 +217,14 @@
             this.monthly_input.Location = new System.Drawing.Point(320, 993);
             this.monthly_input.Multiline = true;
             this.monthly_input.Name = "monthly_input";
-            this.monthly_input.Size = new System.Drawing.Size(276, 41);
+            this.monthly_input.Size = new System.Drawing.Size(276, 36);
             this.monthly_input.TabIndex = 134;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Poppins SemiBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(355, 102);
+            this.label4.Location = new System.Drawing.Point(355, 98);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(205, 34);
             this.label4.TabIndex = 111;
@@ -248,7 +248,7 @@
             // 
             this.part_time_checkbox.AutoSize = true;
             this.part_time_checkbox.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.part_time_checkbox.Location = new System.Drawing.Point(33, 134);
+            this.part_time_checkbox.Location = new System.Drawing.Point(33, 130);
             this.part_time_checkbox.Name = "part_time_checkbox";
             this.part_time_checkbox.Size = new System.Drawing.Size(111, 32);
             this.part_time_checkbox.TabIndex = 114;
@@ -270,7 +270,7 @@
             // 
             this.full_time_checkbox.AutoSize = true;
             this.full_time_checkbox.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.full_time_checkbox.Location = new System.Drawing.Point(209, 134);
+            this.full_time_checkbox.Location = new System.Drawing.Point(209, 130);
             this.full_time_checkbox.Name = "full_time_checkbox";
             this.full_time_checkbox.Size = new System.Drawing.Size(105, 32);
             this.full_time_checkbox.TabIndex = 115;
@@ -292,7 +292,7 @@
             // 
             this.fully_remote_radiobtn.AutoSize = true;
             this.fully_remote_radiobtn.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fully_remote_radiobtn.Location = new System.Drawing.Point(361, 134);
+            this.fully_remote_radiobtn.Location = new System.Drawing.Point(361, 130);
             this.fully_remote_radiobtn.Name = "fully_remote_radiobtn";
             this.fully_remote_radiobtn.Size = new System.Drawing.Size(131, 32);
             this.fully_remote_radiobtn.TabIndex = 116;
@@ -304,7 +304,7 @@
             // 
             this.hybrid_radiobtn.AutoSize = true;
             this.hybrid_radiobtn.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.hybrid_radiobtn.Location = new System.Drawing.Point(721, 134);
+            this.hybrid_radiobtn.Location = new System.Drawing.Point(721, 130);
             this.hybrid_radiobtn.Name = "hybrid_radiobtn";
             this.hybrid_radiobtn.Size = new System.Drawing.Size(82, 32);
             this.hybrid_radiobtn.TabIndex = 117;
@@ -327,7 +327,7 @@
             // 
             this.fully_office_radiobtn.AutoSize = true;
             this.fully_office_radiobtn.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fully_office_radiobtn.Location = new System.Drawing.Point(539, 134);
+            this.fully_office_radiobtn.Location = new System.Drawing.Point(539, 130);
             this.fully_office_radiobtn.Name = "fully_office_radiobtn";
             this.fully_office_radiobtn.Size = new System.Drawing.Size(139, 32);
             this.fully_office_radiobtn.TabIndex = 118;
@@ -401,7 +401,7 @@
             this.hourly_input.Location = new System.Drawing.Point(320, 993);
             this.hourly_input.Multiline = true;
             this.hourly_input.Name = "hourly_input";
-            this.hourly_input.Size = new System.Drawing.Size(276, 41);
+            this.hourly_input.Size = new System.Drawing.Size(276, 36);
             this.hourly_input.TabIndex = 137;
             this.hourly_input.TextChanged += new System.EventHandler(this.hourly_input_TextChanged);
             // 

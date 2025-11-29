@@ -4,6 +4,7 @@ using JobNear.Styles;
 using MongoDB.Driver;
 using System;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.IO;
 using System.Windows.Forms;
 
@@ -17,6 +18,7 @@ namespace JobNear.AdminDashboardUserControl
             SetUpTable();
 
             status_combo.SelectedIndex = 0;
+
         }
 
         private void Admin_VerifyRequirement_Load(object sender, EventArgs e)
@@ -26,6 +28,59 @@ namespace JobNear.AdminDashboardUserControl
 
         private void SetUpTable()
         {
+
+            requirements_table.CellPainting += (s, e) =>
+            {
+                if (e.RowIndex < 0) return;
+
+                Rectangle rect = new Rectangle(e.CellBounds.X + 5, e.CellBounds.Y + 5,
+                                               e.CellBounds.Width - 10, e.CellBounds.Height - 10);
+
+                int radius = 12;
+
+                if (requirements_table.Columns[e.ColumnIndex].Name == "View" ||
+                    requirements_table.Columns[e.ColumnIndex].Name == "Delete")
+                {
+                    e.PaintBackground(e.ClipBounds, true);
+
+                    using (GraphicsPath path = new GraphicsPath())
+                    {
+                        // Correct AddArc usage
+                        path.AddArc(rect.X, rect.Y, radius, radius, 180, 90);                // top-left
+                        path.AddArc(rect.Right - radius, rect.Y, radius, radius, 270, 90);  // top-right
+                        path.AddArc(rect.Right - radius, rect.Bottom - radius, radius, radius, 0, 90); // bottom-right
+                        path.AddArc(rect.X, rect.Bottom - radius, radius, radius, 90, 90);  // bottom-left
+                        path.CloseAllFigures();
+
+                        // Fill color
+                        Color fillColor = requirements_table.Columns[e.ColumnIndex].Name == "View"
+                                          ? ColorTranslator.FromHtml("#E0F0FF")
+                                          : ColorTranslator.FromHtml("#FEE0E0");
+
+                        using (SolidBrush brush = new SolidBrush(fillColor))
+                            e.Graphics.FillPath(brush, path);
+
+                        // Border color
+                        Color borderColor = requirements_table.Columns[e.ColumnIndex].Name == "View"
+                                            ? ColorTranslator.FromHtml("#A5C8F0")
+                                            : ColorTranslator.FromHtml("#F5A5A5");
+
+                        using (Pen pen = new Pen(borderColor, 1))
+                            e.Graphics.DrawPath(pen, path);
+
+                        // Draw text
+                        string text = requirements_table.Columns[e.ColumnIndex].Name;
+                        TextRenderer.DrawText(e.Graphics, text, new Font("Poppins", 12, FontStyle.Regular),
+                                              rect, Color.Black,
+                                              TextFormatFlags.HorizontalCenter | TextFormatFlags.VerticalCenter);
+                    }
+
+                    e.Handled = true;
+                }
+            };
+
+
+
             TableStyles.UserTables(requirements_table);
 
             requirements_table.Columns.Add("Document Name", "Document Name");
@@ -41,20 +96,20 @@ namespace JobNear.AdminDashboardUserControl
             var viewButton = new DataGridViewButtonColumn();
             viewButton.Name = "View";
             viewButton.HeaderText = "Action";
-            viewButton.Text = "👁";
+            viewButton.Text = "View";
             viewButton.UseColumnTextForButtonValue = true;
             viewButton.FlatStyle = FlatStyle.Flat;
             viewButton.Width = 60;
-            viewButton.DefaultCellStyle.Font = new Font("Poppins", 12, FontStyle.Bold);
+            viewButton.DefaultCellStyle.Font = new Font("Poppins", 12, FontStyle.Regular);
 
             var deleteButton = new DataGridViewButtonColumn();
             deleteButton.Name = "Delete";
             deleteButton.HeaderText = "";
-            deleteButton.Text = "🗑";
+            deleteButton.Text = "Delete";
             deleteButton.UseColumnTextForButtonValue = true;
             deleteButton.FlatStyle = FlatStyle.Standard;
             deleteButton.Width = 60;
-            deleteButton.DefaultCellStyle.Font = new Font("Poppins", 12, FontStyle.Bold);
+            deleteButton.DefaultCellStyle.Font = new Font("Poppins", 12, FontStyle.Regular);
 
             requirements_table.Columns.Add(viewButton);
             requirements_table.Columns.Add(deleteButton);

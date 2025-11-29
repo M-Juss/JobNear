@@ -71,7 +71,7 @@ namespace JobNear.AdminDashboardUserControl
                     {
                         foreach (var doc in getReportDetails.SupportingDocuments)
                         {
-                            FlowLayoutStyles.AddSupportingDocumentToFlow(doc, image_flowlayout, 865);
+                            FlowLayoutStyles.AddSupportingDocumentToFlow(doc, image_flowlayout, image_flowlayout.Width - 20, "No");
                         }
                     }
                 }

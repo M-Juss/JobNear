@@ -3,6 +3,7 @@ using JobNear.Styles;
 using MongoDB.Driver;
 using System;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 
 namespace JobNear.AdminDashboardUserControl
@@ -12,12 +13,62 @@ namespace JobNear.AdminDashboardUserControl
         public Admin_ReportsAndComplaints()
         {
             InitializeComponent();
+
             LoadTable();
             status_combo.SelectedIndex = 0;
 
         }
 
         private void LoadTable() {
+
+
+            reports_table.CellPainting += (s, e) =>
+            {
+                if (e.RowIndex >= 0 &&
+                    e.ColumnIndex == reports_table.Columns["Action"].Index)
+                {
+                    e.PaintBackground(e.ClipBounds, true);
+
+                    Rectangle rect = new Rectangle(
+                        e.CellBounds.X + 10,
+                        e.CellBounds.Y + 5,
+                        e.CellBounds.Width - 20,
+                        e.CellBounds.Height - 10
+                    );
+
+                    int radius = 12;
+
+                    using (GraphicsPath path = new GraphicsPath())
+                    {
+                        path.AddArc(rect.X, rect.Y, radius, radius, 180, 90);
+                        path.AddArc(rect.Right - radius, rect.Y, radius, radius, 270, 90);
+                        path.AddArc(rect.Right - radius, rect.Bottom - radius, radius, radius, 0, 90);
+                        path.AddArc(rect.X, rect.Bottom - radius, radius, radius, 90, 90);
+                        path.CloseAllFigures();
+
+                        using (SolidBrush brush = new SolidBrush(ColorTranslator.FromHtml("#E0F0FF")))
+                        {
+                            e.Graphics.FillPath(brush, path);
+                        }
+
+                        using (Pen pen = new Pen(ColorTranslator.FromHtml("#A5C8F0"), 1))
+                        {
+                            e.Graphics.DrawPath(pen, path);
+                        }
+
+                        TextRenderer.DrawText(
+                            e.Graphics,
+                            "View",
+                            new Font("Poppins", 11, FontStyle.Regular),
+                            rect,
+                            Color.Black,
+                            TextFormatFlags.HorizontalCenter | TextFormatFlags.VerticalCenter
+                        );
+                    }
+
+                    e.Handled = true; 
+                }
+            };
             TableStyles.UserTables(reports_table);
 
             reports_table.Columns.Add("Subject", "Subject");

@@ -39,10 +39,10 @@
             // sidebar_panel
             // 
             this.sidebar_panel.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.sidebar_panel.Controls.Add(this.label2);
             this.sidebar_panel.Controls.Add(this.label1);
             this.sidebar_panel.Controls.Add(this.distance_combo);
             this.sidebar_panel.Controls.Add(this.map_panel);
+            this.sidebar_panel.Controls.Add(this.label2);
             this.sidebar_panel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.sidebar_panel.Location = new System.Drawing.Point(0, 0);
             this.sidebar_panel.Name = "sidebar_panel";
@@ -78,23 +78,22 @@
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Poppins", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.DimGray;
             this.label1.Location = new System.Drawing.Point(14, 10);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(444, 56);
+            this.label1.Size = new System.Drawing.Size(482, 56);
             this.label1.TabIndex = 3;
             this.label1.Text = "📍 Discover Jobs Near You";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Poppins SemiBold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Poppins SemiBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.DimGray;
-            this.label2.Location = new System.Drawing.Point(278, 71);
+            this.label2.Location = new System.Drawing.Point(272, 74);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(128, 37);
+            this.label2.Size = new System.Drawing.Size(116, 34);
             this.label2.TabIndex = 4;
             this.label2.Text = "Map Scale";
             // 

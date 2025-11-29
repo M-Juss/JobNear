@@ -23,7 +23,7 @@ namespace JobNear.JobPosterDashboardUserControl
             FlowLayoutStyles.AddPostJob("23432fsfr23rsf", "Intern Developer", "Fullt Remote", "Part Time", "Lorem ipsum dolor sit amet. Eum consequatur itaque et quibusdam voluptatem et aspernatur explicabo. Sit eaque possimus ut repellat enim et temporibus natus ut saepe nihil et iusto odit aut animi sunt cum necessitatibus incidunt.","Withdrawn" , joblist_flowlayout, sidebar_panel);
 
             
-            PanelStyles.RoundedPanel(business_panel, 20, Color.White);
+            PanelStyles.RoundedPanel(business_panel, 10, Color.White);
             ButtonStyle.RoundedButton(edit_button, 10, "#3B82F6");
             ButtonStyle.RoundedButton(post_job_button, 10, "#3B82F6");
 

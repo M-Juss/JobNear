@@ -29,32 +29,45 @@
         private void InitializeComponent()
         {
             this.notif_panel = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // notif_panel
             // 
-            this.notif_panel.Location = new System.Drawing.Point(4, 65);
-            this.notif_panel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.notif_panel.Location = new System.Drawing.Point(3, 64);
             this.notif_panel.Name = "notif_panel";
-            this.notif_panel.Size = new System.Drawing.Size(1367, 788);
+            this.notif_panel.Size = new System.Drawing.Size(1025, 629);
             this.notif_panel.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Poppins", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.DimGray;
+            this.label1.Location = new System.Drawing.Point(5, 5);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(300, 56);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Your Notification";
             // 
             // JP_Notifications
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.notif_panel);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "JP_Notifications";
-            this.Size = new System.Drawing.Size(1375, 868);
+            this.Size = new System.Drawing.Size(1031, 705);
             this.Load += new System.EventHandler(this.JP_Notifications_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.Panel notif_panel;
+        private System.Windows.Forms.Label label1;
     }
 }
