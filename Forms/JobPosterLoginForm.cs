@@ -20,9 +20,12 @@ namespace JobNear.Forms
             InitializeComponent();
 
             PanelStyles.RoundedPanel(panel, 20, Color.White);
-            TextboxStyles.RoundedTextBoxShadow(email_input, 10, "#FFFFFF", 1);
-            TextboxStyles.RoundedTextBoxShadow(password_input, 10, "#FFFFFF", 1);
             ButtonStyle.RoundedButton(login_button, 40, "#10B981");
+
+            TextboxStyles.RoundedTextBoxShadow(email_input, 10, "#FFFFFF", 1);
+            TextboxStyles.RoundedPasswordBox(password_input, 10, "#FFFFFF", 1);
+
+            password_input.UseSystemPasswordChar = true;
         }
 
         private void back_button_Click(object sender, EventArgs e)
@@ -37,7 +40,7 @@ namespace JobNear.Forms
 
         private void forgot_label_Click(object sender, EventArgs e)
         {
-            FormsController.FormLoad(new ForgotPasswordForm(), app_panel);
+            FormsController.FormLoad(new ForgotPasswordForm("jobposter"), app_panel);
         }
 
         private void app_panel_Paint(object sender, PaintEventArgs e)
@@ -47,7 +50,7 @@ namespace JobNear.Forms
 
         private void password_checkbox_CheckedChanged(object sender, EventArgs e)
         {
-            password_input.UseSystemPasswordChar = !password_checkbox.Checked;
+            //password_input.UseSystemPasswordChar = !password_checkbox.Checked;
         }
 
         private async void login_button_Click(object sender, EventArgs e)

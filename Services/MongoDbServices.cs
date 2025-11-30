@@ -77,6 +77,15 @@ namespace JobNear.Services
 
                     if(seeker != null)
                     {
+                        var maintenance = await ControlSiteMaintenance
+                            .Find(_ => true)
+                            .FirstOrDefaultAsync();
+
+                        if (maintenance.IsUnderMaintenance == true) { 
+                            MaintenanceForm maintenanceForm = new MaintenanceForm();
+                            maintenanceForm.ShowDialog();
+                        }
+
                         if (seeker == null)
                         {
                             MessageBox.Show("Email not found", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -139,6 +148,17 @@ namespace JobNear.Services
                         .FirstOrDefaultAsync();
 
                     if (poster != null) {
+
+                        var maintenance = await ControlSiteMaintenance
+                            .Find(_ => true)
+                            .FirstOrDefaultAsync();
+
+                        if (maintenance.IsUnderMaintenance == true)
+                        {
+                            MaintenanceForm maintenanceForm = new MaintenanceForm();
+                            maintenanceForm.ShowDialog();
+                        }
+
                         if (poster.Email != email)
                         {
                             MessageBox.Show("Email not found", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -449,6 +469,36 @@ namespace JobNear.Services
             catch (Exception ex)
             {
                 MessageBox.Show($"Error occurred while adding control site: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+
+        public static async Task<bool> UpdateUserAccount(string email, string password, string user)
+        {
+            try {
+                if (user == "jobpster")
+                {
+                    var posterAccount = Builders<JobPosterAccountModel>.Filter.Eq(x => x.Email, email);
+
+                    var update = Builders<JobPosterAccountModel>.Update
+                        .Set(x => x.Password, password);
+
+                    await JobPosterAccount.UpdateOneAsync(posterAccount, update);
+                    return true;
+                }
+                else if (user == "jobseeker") { 
+                    var seekerAccount = Builders<JobSeekerAccountModel>.Filter.Eq(x => x.Email, email);
+
+                    var update = Builders<JobSeekerAccountModel>.Update
+                        .Set(x => x.Password, password);
+
+                    await JobSeekerAccount.UpdateOneAsync(seekerAccount, update);
+                    return true;
+                }
+                return false;
+            } catch(Exception ex)
+            {
+                MessageBox.Show($"Error occurred while updating account: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
         }

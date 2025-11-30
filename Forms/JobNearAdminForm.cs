@@ -23,7 +23,9 @@ namespace JobNear.Forms
 
             PanelStyles.RoundedPanel(panel, 20, Color.White);
             TextboxStyles.RoundedTextBoxShadow(email_input, 10, "#FFFFFF", 1);
-            TextboxStyles.RoundedTextBoxShadow(password_input, 10, "#FFFFFF", 1);
+            TextboxStyles.RoundedPasswordBox(password_input, 10, "#FFFFFF", 1);
+
+            password_input.UseSystemPasswordChar = true;
         }
 
         private void JobNearAdminForm__Load(object sender, EventArgs e)

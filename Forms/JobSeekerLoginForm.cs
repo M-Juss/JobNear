@@ -24,15 +24,16 @@ namespace JobNear.Forms
             ButtonStyle.RoundedButton(login_button, 40, "#10B981");
 
             PanelStyles.RoundedPanel(panel, 20, Color.White);
+
             TextboxStyles.RoundedTextBoxShadow(email_input, 10, "#FFFFFF", 1);
-            TextboxStyles.RoundedTextBoxShadow(password_input, 10, "#FFFFFF", 1);
+            TextboxStyles.RoundedPasswordBox(password_input, 10, "#FFFFFF", 1);
+
+
+            password_input.UseSystemPasswordChar = true;
 
 
         }
-        private void JobSeekerLoginForm_Load(object sender, EventArgs e)
-        {
-            TextBoxValidatorController.SetPassword(password_input);
-        }
+
 
         private void back_button_Click(object sender, EventArgs e)
         {
@@ -46,48 +47,23 @@ namespace JobNear.Forms
 
         private void forgot_label_Click(object sender, EventArgs e)
         {
-            FormsController.FormLoad(new ForgotPasswordForm(), app_panel);
+            FormsController.FormLoad(new ForgotPasswordForm("jobseeker"), app_panel);
         }
 
         private void password_checkbox_CheckedChanged(object sender, EventArgs e)
         {
-            password_input.UseSystemPasswordChar = !password_checkbox.Checked;
+            //password_input.UseSystemPasswordChar = !password_checkbox.Checked;
         }
 
-private async void login_button_Click(object sender, EventArgs e)
-{
-    if (string.IsNullOrEmpty(email_input.Text) || string.IsNullOrEmpty(password_input.Text))
-    {
-        MessageBox.Show("Please fill all fields", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-        return;
-    }
-
-    await MongoDbServices.LoginJobNearAccountAsync("jobseeker", email_input.Text, password_input.Text, app_panel);
-
-        }
-
-        private void app_panel_Paint(object sender, PaintEventArgs e)
+        private async void login_button_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(email_input.Text) || string.IsNullOrEmpty(password_input.Text))
+            {
+                MessageBox.Show("Please fill all fields", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
-        }
-
-        private void email_input_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
+            await MongoDbServices.LoginJobNearAccountAsync("jobseeker", email_input.Text, password_input.Text, app_panel);
 
         }
 

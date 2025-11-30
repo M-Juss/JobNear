@@ -24,17 +24,10 @@ namespace JobNear.Forms
             ButtonStyle.RoundedButton(admin_button, 50, "#10B981");
         }
 
-        private void JobNearUser_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void js_button_Click(object sender, EventArgs e)
         {
             FormsController.FormLoad(new JobSeekerLoginForm(), app_panel);
         }
-
-
 
         private void jp_button_Click(object sender, EventArgs e)
         {
@@ -46,14 +39,9 @@ namespace JobNear.Forms
             FormsController.FormLoad(new JobNearAdminForm_(), app_panel);
         }
 
-        private void close_image_Click(object sender, EventArgs e)
+        private void label1_Click(object sender, EventArgs e)
         {
             Application.Exit();
-        }
-
-        private void app_panel_Paint(object sender, PaintEventArgs e)
-        {
-
         }
     }
 }

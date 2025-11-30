@@ -66,7 +66,6 @@
             this.sidebar_panel.Name = "sidebar_panel";
             this.sidebar_panel.Size = new System.Drawing.Size(1031, 705);
             this.sidebar_panel.TabIndex = 0;
-            this.sidebar_panel.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // prev_lbl
             // 
@@ -181,7 +180,6 @@
             this.label4.Size = new System.Drawing.Size(157, 34);
             this.label4.TabIndex = 10;
             this.label4.Text = "About the Job:";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // panel2
             // 
@@ -246,6 +244,7 @@
             this.business_panel.Name = "business_panel";
             this.business_panel.Size = new System.Drawing.Size(1000, 211);
             this.business_panel.TabIndex = 4;
+            this.business_panel.Click += new System.EventHandler(this.business_panel_Click);
             // 
             // description_label
             // 

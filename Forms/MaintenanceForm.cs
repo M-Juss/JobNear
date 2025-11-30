@@ -16,10 +16,10 @@ namespace JobNear.Forms
         public MaintenanceForm()
         {
             InitializeComponent();
-            ButtonStyle.RoundedButton(add_button, 10, "#10B981");
+            ButtonStyle.RoundedButton(close_button, 10, "#FF5E64");
         }
 
-        private void add_button_Click(object sender, EventArgs e)
+        private void close_button_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }

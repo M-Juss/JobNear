@@ -197,6 +197,7 @@
             this.business_panel.Name = "business_panel";
             this.business_panel.Size = new System.Drawing.Size(1000, 211);
             this.business_panel.TabIndex = 51;
+            this.business_panel.Click += new System.EventHandler(this.business_panel_Click);
             // 
             // description_label
             // 

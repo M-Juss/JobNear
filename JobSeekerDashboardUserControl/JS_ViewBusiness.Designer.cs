@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.sidebar_panel = new System.Windows.Forms.Panel();
+            this.prev_lbl = new System.Windows.Forms.Label();
             this.report_label = new System.Windows.Forms.Label();
             this.business_panel = new System.Windows.Forms.Panel();
             this.description_label = new System.Windows.Forms.Label();
             this.footer_label = new System.Windows.Forms.Label();
             this.name_label = new System.Windows.Forms.Label();
-            this.company_logo_picturebox = new System.Windows.Forms.PictureBox();
             this.joblist_flowlayout = new System.Windows.Forms.FlowLayoutPanel();
-            this.prev_lbl = new System.Windows.Forms.Label();
+            this.company_logo_picturebox = new System.Windows.Forms.PictureBox();
             this.sidebar_panel.SuspendLayout();
             this.business_panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.company_logo_picturebox)).BeginInit();
@@ -50,11 +50,22 @@
             this.sidebar_panel.Controls.Add(this.joblist_flowlayout);
             this.sidebar_panel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.sidebar_panel.Location = new System.Drawing.Point(0, 0);
-            this.sidebar_panel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.sidebar_panel.Margin = new System.Windows.Forms.Padding(2);
             this.sidebar_panel.Name = "sidebar_panel";
             this.sidebar_panel.Size = new System.Drawing.Size(1031, 705);
             this.sidebar_panel.TabIndex = 0;
-            this.sidebar_panel.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // prev_lbl
+            // 
+            this.prev_lbl.AutoSize = true;
+            this.prev_lbl.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.prev_lbl.Location = new System.Drawing.Point(35, 12);
+            this.prev_lbl.Name = "prev_lbl";
+            this.prev_lbl.Size = new System.Drawing.Size(102, 28);
+            this.prev_lbl.TabIndex = 19;
+            this.prev_lbl.Text = "◀️ Previous";
+            this.prev_lbl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.prev_lbl.Click += new System.EventHandler(this.prev_lbl_Click);
             // 
             // report_label
             // 
@@ -79,6 +90,7 @@
             this.business_panel.Name = "business_panel";
             this.business_panel.Size = new System.Drawing.Size(951, 211);
             this.business_panel.TabIndex = 5;
+            this.business_panel.Click += new System.EventHandler(this.business_panel_Click);
             // 
             // description_label
             // 
@@ -109,6 +121,13 @@
             this.name_label.Size = new System.Drawing.Size(660, 38);
             this.name_label.TabIndex = 3;
             // 
+            // joblist_flowlayout
+            // 
+            this.joblist_flowlayout.Location = new System.Drawing.Point(40, 268);
+            this.joblist_flowlayout.Name = "joblist_flowlayout";
+            this.joblist_flowlayout.Size = new System.Drawing.Size(975, 407);
+            this.joblist_flowlayout.TabIndex = 3;
+            // 
             // company_logo_picturebox
             // 
             this.company_logo_picturebox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -118,31 +137,12 @@
             this.company_logo_picturebox.TabIndex = 0;
             this.company_logo_picturebox.TabStop = false;
             // 
-            // joblist_flowlayout
-            // 
-            this.joblist_flowlayout.Location = new System.Drawing.Point(40, 268);
-            this.joblist_flowlayout.Name = "joblist_flowlayout";
-            this.joblist_flowlayout.Size = new System.Drawing.Size(975, 416);
-            this.joblist_flowlayout.TabIndex = 3;
-            // 
-            // prev_lbl
-            // 
-            this.prev_lbl.AutoSize = true;
-            this.prev_lbl.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.prev_lbl.Location = new System.Drawing.Point(35, 12);
-            this.prev_lbl.Name = "prev_lbl";
-            this.prev_lbl.Size = new System.Drawing.Size(102, 28);
-            this.prev_lbl.TabIndex = 19;
-            this.prev_lbl.Text = "◀️ Previous";
-            this.prev_lbl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.prev_lbl.Click += new System.EventHandler(this.prev_lbl_Click);
-            // 
             // JS_ViewBusiness
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.sidebar_panel);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "JS_ViewBusiness";
             this.Size = new System.Drawing.Size(1031, 705);
             this.sidebar_panel.ResumeLayout(false);

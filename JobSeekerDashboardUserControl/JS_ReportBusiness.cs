@@ -38,6 +38,7 @@ namespace JobNear.JobSeekerDashboardUserControl
 
             if (businessDetails != null)
             {
+                Session.CurrentBusinessSelected = businessDetails.Id;
                 company_logo_picturebox.Image = ConvertDataTypeServices.ConvertBytesToImage(businessDetails.BusinessLogo);
                 name_label.Text = businessDetails.BusinessName;
                 description_label.Text = businessDetails.BusinessDescription;
@@ -134,6 +135,14 @@ namespace JobNear.JobSeekerDashboardUserControl
             Session.CurrentSidebarPanel.Controls.Clear();
             Session.CurrentSidebarPanel.Controls.Add(view);
             view.Dock = DockStyle.Fill;
+        }
+
+        private void business_panel_Click(object sender, EventArgs e)
+        {
+            JS_ViewBusinessProfile jS_ViewBusinessProfile = new JS_ViewBusinessProfile("report");
+            sidebar_panel.Controls.Clear();
+            sidebar_panel.Controls.Add(jS_ViewBusinessProfile);
+            jS_ViewBusinessProfile.Dock = DockStyle.Fill;
         }
     }
 }

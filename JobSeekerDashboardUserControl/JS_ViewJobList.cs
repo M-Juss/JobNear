@@ -29,16 +29,6 @@ namespace JobNear.JobSeekerDashboardUserControl
 ;
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)  
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
         public async void LoadBusinessDetails(string businessId)
         {
 
@@ -53,6 +43,7 @@ namespace JobNear.JobSeekerDashboardUserControl
 
                 if (businessDetails != null)
                 {
+                    Session.CurrentBusinessSelected = businessDetails.Id;
                     company_logo_picturebox.Image = ConvertDataTypeServices.ConvertBytesToImage(businessDetails.BusinessLogo);
                     name_label.Text = businessDetails.BusinessName;
                     description_label.Text = businessDetails.BusinessDescription;
@@ -100,6 +91,15 @@ namespace JobNear.JobSeekerDashboardUserControl
                 sidebar_panel.Controls.Add(jS_ViewBusiness);
                 jS_ViewBusiness.Dock = DockStyle.Fill;
             }
+        }
+
+        private void business_panel_Click(object sender, EventArgs e)
+        {
+            JS_ViewBusinessProfile jS_ViewBusinessProfile = new JS_ViewBusinessProfile("joblist");
+            sidebar_panel.Controls.Clear();
+            sidebar_panel.Controls.Add(jS_ViewBusinessProfile);
+            jS_ViewBusinessProfile.Dock = DockStyle.Fill;
+
         }
     }
 }

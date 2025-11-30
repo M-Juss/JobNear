@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.app_panel = new System.Windows.Forms.Panel();
+            this.prev_lbl = new System.Windows.Forms.Label();
             this.panel = new System.Windows.Forms.Panel();
             this.password_input = new System.Windows.Forms.TextBox();
             this.email_input = new System.Windows.Forms.TextBox();
@@ -38,7 +39,6 @@
             this.login_button = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.Username = new System.Windows.Forms.Label();
-            this.prev_lbl = new System.Windows.Forms.Label();
             this.app_panel.SuspendLayout();
             this.panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -55,6 +55,18 @@
             this.app_panel.Size = new System.Drawing.Size(1231, 705);
             this.app_panel.TabIndex = 0;
             this.app_panel.Paint += new System.Windows.Forms.PaintEventHandler(this.app_panel_Paint);
+            // 
+            // prev_lbl
+            // 
+            this.prev_lbl.AutoSize = true;
+            this.prev_lbl.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.prev_lbl.Location = new System.Drawing.Point(12, 9);
+            this.prev_lbl.Name = "prev_lbl";
+            this.prev_lbl.Size = new System.Drawing.Size(102, 28);
+            this.prev_lbl.TabIndex = 107;
+            this.prev_lbl.Text = "◀️ Previous";
+            this.prev_lbl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.prev_lbl.Click += new System.EventHandler(this.prev_lbl_Click);
             // 
             // panel
             // 
@@ -157,18 +169,6 @@
             this.Username.Size = new System.Drawing.Size(55, 28);
             this.Username.TabIndex = 10;
             this.Username.Text = "Email";
-            // 
-            // prev_lbl
-            // 
-            this.prev_lbl.AutoSize = true;
-            this.prev_lbl.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.prev_lbl.Location = new System.Drawing.Point(12, 9);
-            this.prev_lbl.Name = "prev_lbl";
-            this.prev_lbl.Size = new System.Drawing.Size(102, 28);
-            this.prev_lbl.TabIndex = 107;
-            this.prev_lbl.Text = "◀️ Previous";
-            this.prev_lbl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.prev_lbl.Click += new System.EventHandler(this.prev_lbl_Click);
             // 
             // JobNearAdminForm_
             // 

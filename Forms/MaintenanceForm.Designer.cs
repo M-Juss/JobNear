@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.add_button = new System.Windows.Forms.Button();
+            this.close_button = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -40,32 +40,33 @@
             this.pictureBox1.Image = global::JobNear.Properties.Resources.maintenance_image;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1215, 666);
+            this.pictureBox1.Size = new System.Drawing.Size(1231, 705);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // add_button
+            // close_button
             // 
-            this.add_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(100)))), ((int)(((byte)(99)))));
-            this.add_button.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.add_button.ForeColor = System.Drawing.Color.White;
-            this.add_button.Location = new System.Drawing.Point(519, 581);
-            this.add_button.Name = "add_button";
-            this.add_button.Size = new System.Drawing.Size(177, 42);
-            this.add_button.TabIndex = 100;
-            this.add_button.Text = "Close";
-            this.add_button.UseVisualStyleBackColor = false;
-            this.add_button.Click += new System.EventHandler(this.add_button_Click);
+            this.close_button.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.close_button.ForeColor = System.Drawing.Color.White;
+            this.close_button.Location = new System.Drawing.Point(531, 620);
+            this.close_button.Name = "close_button";
+            this.close_button.Size = new System.Drawing.Size(164, 35);
+            this.close_button.TabIndex = 51;
+            this.close_button.Text = "Close";
+            this.close_button.UseVisualStyleBackColor = true;
+            this.close_button.Click += new System.EventHandler(this.close_button_Click);
             // 
             // MaintenanceForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1215, 666);
-            this.Controls.Add(this.add_button);
+            this.ClientSize = new System.Drawing.Size(1231, 705);
+            this.Controls.Add(this.close_button);
             this.Controls.Add(this.pictureBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MaintenanceForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MaintenanceForm";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -75,6 +76,6 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button add_button;
+        private System.Windows.Forms.Button close_button;
     }
 }

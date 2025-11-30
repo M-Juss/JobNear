@@ -21,16 +21,17 @@ namespace JobNear.Forms
 
 
             ButtonStyle.RoundedButton(register_button, 40, "#10B981");
-            TextBoxValidatorController.SetPassword(password_input);
-            TextBoxValidatorController.SetPassword(confirm_input);
 
             PanelStyles.RoundedPanel(panel, 20, Color.White);
             TextboxStyles.RoundedTextBoxShadow(username_input, 10, "#FFFFFF", 1);
             TextboxStyles.RoundedTextBoxShadow(email_input, 10, "#FFFFFF", 1);
             TextboxStyles.RoundedTextBoxShadow(phone_input, 10, "#FFFFFF", 1);
-            TextboxStyles.RoundedTextBoxShadow(password_input, 10, "#FFFFFF", 1);
-            TextboxStyles.RoundedTextBoxShadow(confirm_input, 10, "#FFFFFF", 1);
 
+            TextboxStyles.RoundedPasswordBox(password_input, 10, "#FFFFFF", 1);
+            TextboxStyles.RoundedPasswordBox(confirm_input, 10, "#FFFFFF", 1);
+
+            password_input.UseSystemPasswordChar = true;
+            confirm_input.UseSystemPasswordChar = true;
 
 
         }
@@ -93,8 +94,8 @@ namespace JobNear.Forms
 
         private void password_checkbox_CheckedChanged(object sender, EventArgs e)
         {
-            password_input.UseSystemPasswordChar = !password_checkbox.Checked;
-            confirm_input.UseSystemPasswordChar = !password_checkbox.Checked;
+            //password_input.UseSystemPasswordChar = !password_checkbox.Checked;
+            //confirm_input.UseSystemPasswordChar = !password_checkbox.Checked;
         }
 
         private void label8_Click(object sender, EventArgs e)
