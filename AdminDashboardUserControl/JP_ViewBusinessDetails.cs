@@ -1,10 +1,10 @@
-﻿using JobNear.Services;
+﻿using JobNear.Models;
+using JobNear.Services;
 using JobNear.Styles;
-using JobNear.Models;
 using MongoDB.Driver;
 using System;
-using System.Windows.Forms;
 using System.Drawing;
+using System.Windows.Forms;
 
 
 namespace JobNear.AdminDashboardUserControl
@@ -28,7 +28,8 @@ namespace JobNear.AdminDashboardUserControl
                     .Find(x => x.Id == businessId)
                     .FirstOrDefaultAsync();
 
-                if (businessDetails != null) { 
+                if (businessDetails != null)
+                {
                     name_label.Text = businessDetails.BusinessName;
                     industry_input.Text = businessDetails.BusinessIndustry;
                     website_input.Text = businessDetails.BusinessSite;
@@ -79,139 +80,140 @@ namespace JobNear.AdminDashboardUserControl
                 MessageBox.Show("Please select a status.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
-                {
+            {
                 string status = status_combo.Text.ToString();
 
                 var business = await MongoDbServices.JobPosterBusiness
                         .Find(x => x.Id == Session.CurrentBusinessSelected)
                         .FirstOrDefaultAsync();
 
-                    if (business != null)
+                if (business != null)
+                {
+                    string key = "Admin";
+                    DateTime date = DateTime.Now;
+                    string remarks = remarks_richtext.Text.ToString().ToLower();
+
+                    switch (status.ToLower())
                     {
-                        string key = "Admin";
-                        DateTime date = DateTime.Now;
-                        string remarks = remarks_richtext.Text.ToString().ToLower();
+                        case "verified":
+                            string verifyMessage = $"Your business {business.BusinessName} status has been updated to verified.";
+                            string verifyType = "Success";
 
-                        switch (status.ToLower())
-                        {
-                            case "verified":
-                                string verifyMessage = $"Your business {business.BusinessName} status has been updated to verified.";
-                                string verifyType = "Success";
-
-                                var verifyNotif = new UserNotificationModel
-                                {
-                                    NotificationId = business.BusinessId,
-                                    Key = key,
-                                    HeaderMessage = verifyMessage,
-                                    Type = verifyType,
-                                    Remarks = remarks,
-                                    Date = date
-                                };
-
-                                await MongoDbServices.UserNotification.InsertOneAsync(verifyNotif);
-
-                                break;
-
-                            case "pending":
-                                string pendingMessage = $"Your business {business.BusinessName} is currently pending for review. Please wait for confirmation.";
-                                string pendingType = "Info";
-
-                                var pendingNotif = new UserNotificationModel
-                                {
-                                    NotificationId = business.BusinessId,
-                                    Key = key,
-                                    HeaderMessage = pendingMessage,
-                                    Type = pendingType,
-                                    Remarks = remarks,
-                                    Date = date
-                                };
-
-                                await MongoDbServices.UserNotification.InsertOneAsync(pendingNotif);
-                                break;
-
-                            case "incomplete":
-                                string incMessage = $"Your business {business.BusinessName} information is incomplete. Please review and update.";
-                                string incType = "Warning";
-
-
-                                var incNotif = new UserNotificationModel
-                                {
-                                    NotificationId = business.BusinessId,
-                                    Key = key,
-                                    HeaderMessage = incMessage,
-                                    Type = incType,
-                                    Remarks = remarks,
-                                    Date = date
-                                };
-
-                                await MongoDbServices.UserNotification.InsertOneAsync(incNotif);
-                                break;
-
-                            case "rejected":
-                                string rejectedMessage = $"Your business {business.BusinessName} submission was not approved. Please review the requirements and resubmit.";
-                                string rejectedType = "Error";
-
-                                var rejectedNotif = new UserNotificationModel
-                                {
-                                    NotificationId = business.BusinessId,
-                                    Key = key,
-                                    HeaderMessage = rejectedMessage,
-                                    Type = rejectedType,
-                                    Remarks = remarks,
-                                    Date = date
-                                };
-
-                                await MongoDbServices.UserNotification.InsertOneAsync(rejectedNotif);
-                                break;
-
-                            default:
-                                MessageBox.Show("Please select a valid status.", "Invalid Status", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                                break;
-                        }
-
-                        var getbusiness = Builders<JobPosterBusinessModel>.Filter.Eq(x => x.Id, Session.CurrentBusinessSelected);
-
-                        if (getbusiness != null)
-                        {
-                            if (status == "Verified") // verified business and set BusinessOnReview to false in job posts
+                            var verifyNotif = new UserNotificationModel
                             {
-                                var updateVerified = Builders<JobPosterBusinessModel>.Update
-                                    .Set(x => x.Status, status);
+                                NotificationId = business.BusinessId,
+                                Key = key,
+                                HeaderMessage = verifyMessage,
+                                Type = verifyType,
+                                Remarks = remarks,
+                                Date = date
+                            };
 
-                                await MongoDbServices.JobPosterBusiness.UpdateOneAsync(getbusiness, updateVerified);
+                            await MongoDbServices.UserNotification.InsertOneAsync(verifyNotif);
 
-                                var checkJobPosts = await MongoDbServices.JobPosterJobPosting
-                                    .Find(x => x.BusinessId == Session.CurrentBusinessSelected)
-                                    .ToListAsync();
+                            break;
 
-                                if (checkJobPosts != null && checkJobPosts.Count > 0)
+                        case "pending":
+                            string pendingMessage = $"Your business {business.BusinessName} is currently pending for review. Please wait for confirmation.";
+                            string pendingType = "Info";
+
+                            var pendingNotif = new UserNotificationModel
+                            {
+                                NotificationId = business.BusinessId,
+                                Key = key,
+                                HeaderMessage = pendingMessage,
+                                Type = pendingType,
+                                Remarks = remarks,
+                                Date = date
+                            };
+
+                            await MongoDbServices.UserNotification.InsertOneAsync(pendingNotif);
+                            break;
+
+                        case "incomplete":
+                            string incMessage = $"Your business {business.BusinessName} information is incomplete. Please review and update.";
+                            string incType = "Warning";
+
+
+                            var incNotif = new UserNotificationModel
+                            {
+                                NotificationId = business.BusinessId,
+                                Key = key,
+                                HeaderMessage = incMessage,
+                                Type = incType,
+                                Remarks = remarks,
+                                Date = date
+                            };
+
+                            await MongoDbServices.UserNotification.InsertOneAsync(incNotif);
+                            break;
+
+                        case "rejected":
+                            string rejectedMessage = $"Your business {business.BusinessName} submission was not approved. Please review the requirements and resubmit.";
+                            string rejectedType = "Error";
+
+                            var rejectedNotif = new UserNotificationModel
+                            {
+                                NotificationId = business.BusinessId,
+                                Key = key,
+                                HeaderMessage = rejectedMessage,
+                                Type = rejectedType,
+                                Remarks = remarks,
+                                Date = date
+                            };
+
+                            await MongoDbServices.UserNotification.InsertOneAsync(rejectedNotif);
+                            break;
+
+                        default:
+                            MessageBox.Show("Please select a valid status.", "Invalid Status", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            break;
+                    }
+
+                    var getbusiness = Builders<JobPosterBusinessModel>.Filter.Eq(x => x.Id, Session.CurrentBusinessSelected);
+
+                    if (getbusiness != null)
+                    {
+                        if (status == "Verified") // verified business and set BusinessOnReview to false in job posts
+                        {
+                            var updateVerified = Builders<JobPosterBusinessModel>.Update
+                                .Set(x => x.Status, status);
+
+                            await MongoDbServices.JobPosterBusiness.UpdateOneAsync(getbusiness, updateVerified);
+
+                            var checkJobPosts = await MongoDbServices.JobPosterJobPosting
+                                .Find(x => x.BusinessId == Session.CurrentBusinessSelected)
+                                .ToListAsync();
+
+                            if (checkJobPosts != null && checkJobPosts.Count > 0)
+                            {
+                                foreach (var jobPost in checkJobPosts)
                                 {
-                                    foreach (var jobPost in checkJobPosts)
-                                    {
-                                        var updateJobPost = Builders<JobPosterJobPostingModel>.Update
-                                            .Set(x => x.IsBusinessOnReview, false);
-                                        var jobPostFilter = Builders<JobPosterJobPostingModel>.Filter.Eq(x => x.Id, jobPost.Id);
-                                        await MongoDbServices.JobPosterJobPosting.UpdateOneAsync(jobPostFilter, updateJobPost);
-                                    }
+                                    var updateJobPost = Builders<JobPosterJobPostingModel>.Update
+                                        .Set(x => x.IsBusinessOnReview, false);
+                                    var jobPostFilter = Builders<JobPosterJobPostingModel>.Filter.Eq(x => x.Id, jobPost.Id);
+                                    await MongoDbServices.JobPosterJobPosting.UpdateOneAsync(jobPostFilter, updateJobPost);
                                 }
                             }
-                            else {
-                                var updateDef = Builders<JobPosterBusinessModel>.Update
-                                    .Set(x => x.Status, status);
-
-                                await MongoDbServices.JobPosterBusiness.UpdateOneAsync(getbusiness, updateDef);
-                            }
-
-                            MessageBox.Show($"{business.BusinessName} {status} status updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            sidebar_panel.Controls.Clear();
-                            sidebar_panel.Controls.Add(new Admin_JP_UserManagement());
-                            sidebar_panel.Dock = DockStyle.Fill;
                         }
-                        else MessageBox.Show("Business not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        else
+                        {
+                            var updateDef = Builders<JobPosterBusinessModel>.Update
+                                .Set(x => x.Status, status);
 
+                            await MongoDbServices.JobPosterBusiness.UpdateOneAsync(getbusiness, updateDef);
+                        }
+
+                        MessageBox.Show($"{business.BusinessName} {status} status updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        sidebar_panel.Controls.Clear();
+                        sidebar_panel.Controls.Add(new Admin_JP_UserManagement());
+                        sidebar_panel.Dock = DockStyle.Fill;
                     }
                     else MessageBox.Show("Business not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
                 }
+                else MessageBox.Show("Business not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

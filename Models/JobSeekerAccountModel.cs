@@ -1,12 +1,7 @@
-﻿using Newtonsoft.Json.Converters;
+﻿using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MongoDB.Bson;
-using MongoDB.Bson.Serialization.Attributes;
 
 namespace JobNear.Models
 {
@@ -35,7 +30,8 @@ namespace JobNear.Models
         public DateTime DateCreated { get; set; } = DateTime.Now;
 
     }
-    public class SupportingDocument {
+    public class SupportingDocument
+    {
         public string FileName { get; set; }
         public byte[] FileContent { get; set; }
     }

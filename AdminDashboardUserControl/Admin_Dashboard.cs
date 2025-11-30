@@ -1,5 +1,4 @@
-﻿using JobNear.Models;
-using JobNear.Services;
+﻿using JobNear.Services;
 using JobNear.Styles;
 using MongoDB.Driver;
 using System;
@@ -59,10 +58,6 @@ namespace JobNear.AdminDashboardUserControl
             {
                 MessageBox.Show($"Error loading dashboard data: {ex.Message}");
             }
-        }
-        private void sidebar_panel_Paint(object sender, PaintEventArgs e)
-        {
-
         }
 
         private async void SetupApplicantsEmployersChart()

@@ -1,16 +1,11 @@
 ﻿using JobNear.Controller;
-using JobNear.Controllers;
 using JobNear.Forms;
 using JobNear.Models;
 using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Reflection;
-using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace JobNear.Services
 {
@@ -75,13 +70,14 @@ namespace JobNear.Services
                         .Find(x => x.Email == email)
                         .FirstOrDefaultAsync();
 
-                    if(seeker != null)
+                    if (seeker != null)
                     {
                         var maintenance = await ControlSiteMaintenance
                             .Find(_ => true)
                             .FirstOrDefaultAsync();
 
-                        if (maintenance.IsUnderMaintenance == true) { 
+                        if (maintenance.IsUnderMaintenance == true)
+                        {
                             MaintenanceForm maintenanceForm = new MaintenanceForm();
                             maintenanceForm.ShowDialog();
                         }
@@ -139,7 +135,8 @@ namespace JobNear.Services
 
                         MessageBox.Show("Login successful", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         FormsController.FormLoad(new JobSeekerDashboardForm(), app_panel);
-                    } else MessageBox.Show("User not found", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else MessageBox.Show("User not found", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else if (user == "jobposter")
                 {
@@ -147,7 +144,8 @@ namespace JobNear.Services
                         .Find(x => x.Email == email)
                         .FirstOrDefaultAsync();
 
-                    if (poster != null) {
+                    if (poster != null)
+                    {
 
                         var maintenance = await ControlSiteMaintenance
                             .Find(_ => true)
@@ -207,29 +205,30 @@ namespace JobNear.Services
 
                         MessageBox.Show("Login successful", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         FormsController.FormLoad(new JobPosterDashboardForm(), app_panel);
-                    } else MessageBox.Show("User not found", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else MessageBox.Show("User not found", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
                 // Admin or Super Admin Login
                 else if (user == "admin")
                 {
-                        var admin = await AdminAccount
-                        .Find(x => x.Email == email)
-                        .FirstOrDefaultAsync();
+                    var admin = await AdminAccount
+                    .Find(x => x.Email == email)
+                    .FirstOrDefaultAsync();
 
-                        if (admin != null)
+                    if (admin != null)
+                    {
+                        if (admin.Email != email)
                         {
-                            if (admin.Email != email)
-                            {
-                                MessageBox.Show("Email not found", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                return;
-                            }
+                            MessageBox.Show("Email not found", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
 
-                            if (admin.Password != password)
-                            {
-                                MessageBox.Show("Incorrect password", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                return;
-                            }
+                        if (admin.Password != password)
+                        {
+                            MessageBox.Show("Incorrect password", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
                         if (admin.Status != "Active")
                         {
                             MessageBox.Show("Account is inactive. Please contact support.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -237,13 +236,14 @@ namespace JobNear.Services
                         }
 
                         Session.CurrentUserType = "admin";
-                            Session.CurrentUserId = admin.Id;
-                            Session.CurrentEmail = admin.Email;
+                        Session.CurrentUserId = admin.Id;
+                        Session.CurrentEmail = admin.Email;
 
-                            MessageBox.Show("Login successful", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            FormsController.FormLoad(new AdminDashboardForm(), app_panel);
-                        } else MessageBox.Show("User not found", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Login successful", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        FormsController.FormLoad(new AdminDashboardForm(), app_panel);
                     }
+                    else MessageBox.Show("User not found", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
                 else
                 {
                     MessageBox.Show("Unknown user type", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -283,7 +283,7 @@ namespace JobNear.Services
             }
         }
 
-        public static async Task<bool> InsertJobPosterAccountAsync(string username, string email, string phone,  string password)
+        public static async Task<bool> InsertJobPosterAccountAsync(string username, string email, string phone, string password)
         {
             try
             {
@@ -321,7 +321,7 @@ namespace JobNear.Services
                     BusinessIndustry = industry,
                     BusinessDescription = description,
                     BusinessAddress = address,
-                    BusinessLatitude = lat, 
+                    BusinessLatitude = lat,
                     BusinessLongitude = lon,
                     BusinessEmail = email,
                     BusinessContact = phone,
@@ -400,7 +400,8 @@ namespace JobNear.Services
                 return false;
             }
         }
-        public static async Task<bool> InsertReportAsync(string seekerId, string businessId, string subject, string description, List<SupportingDocument> docu) {
+        public static async Task<bool> InsertReportAsync(string seekerId, string businessId, string subject, string description, List<SupportingDocument> docu)
+        {
             try
             {
                 var newReport = new ReportBusinessModel
@@ -475,7 +476,8 @@ namespace JobNear.Services
 
         public static async Task<bool> UpdateUserAccount(string email, string password, string user)
         {
-            try {
+            try
+            {
                 if (user == "jobpster")
                 {
                     var posterAccount = Builders<JobPosterAccountModel>.Filter.Eq(x => x.Email, email);
@@ -486,7 +488,8 @@ namespace JobNear.Services
                     await JobPosterAccount.UpdateOneAsync(posterAccount, update);
                     return true;
                 }
-                else if (user == "jobseeker") { 
+                else if (user == "jobseeker")
+                {
                     var seekerAccount = Builders<JobSeekerAccountModel>.Filter.Eq(x => x.Email, email);
 
                     var update = Builders<JobSeekerAccountModel>.Update
@@ -496,7 +499,8 @@ namespace JobNear.Services
                     return true;
                 }
                 return false;
-            } catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show($"Error occurred while updating account: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
@@ -595,7 +599,8 @@ namespace JobNear.Services
             }
         }
 
-        public static async Task<bool> UpdateAdminAccountAsync(string id, string email, string password, string fullname, string role, string status) {
+        public static async Task<bool> UpdateAdminAccountAsync(string id, string email, string password, string fullname, string role, string status)
+        {
             try
             {
                 var adminAccount = Builders<AdminAccountModel>.Filter.Eq(x => x.Id, id);
@@ -616,9 +621,10 @@ namespace JobNear.Services
                 MessageBox.Show($"Error occurred while updating admin account: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-        
+
         }
-        public static async Task<JobSeekerAccountModel> LoadCurrentSeekerData() { 
+        public static async Task<JobSeekerAccountModel> LoadCurrentSeekerData()
+        {
 
             var filter = Builders<JobSeekerAccountModel>.Filter.Eq(x => x.Id, Session.CurrentUserId);
 

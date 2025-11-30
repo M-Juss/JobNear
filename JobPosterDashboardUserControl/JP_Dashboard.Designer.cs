@@ -247,7 +247,6 @@
             this.Controls.Add(this.label1);
             this.Name = "JP_Dashboard";
             this.Size = new System.Drawing.Size(1031, 705);
-            this.Load += new System.EventHandler(this.JP_Dashboard_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.insturction_panel.ResumeLayout(false);

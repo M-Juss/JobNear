@@ -50,7 +50,6 @@
             this.sidebar_panel.Name = "sidebar_panel";
             this.sidebar_panel.Size = new System.Drawing.Size(1031, 705);
             this.sidebar_panel.TabIndex = 4;
-            this.sidebar_panel.Paint += new System.Windows.Forms.PaintEventHandler(this.sidebar_panel_Paint);
             // 
             // label1
             // 
@@ -86,7 +85,6 @@
             this.map_panel.Name = "map_panel";
             this.map_panel.Size = new System.Drawing.Size(1025, 589);
             this.map_panel.TabIndex = 0;
-            this.map_panel.Paint += new System.Windows.Forms.PaintEventHandler(this.map_panel_Paint);
             // 
             // label2
             // 

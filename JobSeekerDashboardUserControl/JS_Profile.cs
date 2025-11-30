@@ -1,20 +1,12 @@
-﻿using JobNear.AdminDashboardUserControl;
-using JobNear.Controllers;
-using JobNear.Forms;
+﻿using JobNear.Controllers;
 using JobNear.Models;
 using JobNear.Services;
 using JobNear.Styles;
-using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Net.Http;
-using System.Security.Cryptography;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -285,9 +277,7 @@ namespace JobNear.JobSeekerDashboardUserControl
                 MessageBox.Show("Attach at least one supporting document.");
                 return false;
             }
-
-            TextBoxValidatorController.ValidateEmail(email_input);
-            TextBoxValidatorController.ValidatePhoneNumber(phone_input);
+            TextBoxValidatorController.AllowOnlyNumbers(phone_input);
 
             var fields = new[]
             {

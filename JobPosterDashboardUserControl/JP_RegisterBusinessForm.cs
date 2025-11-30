@@ -8,7 +8,6 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace JobNear.JobPosterDashboardUserControl
 {
@@ -27,9 +26,6 @@ namespace JobNear.JobPosterDashboardUserControl
         {
             InitializeComponent();
             SetUpRegisterBusinessForm();
-            PanelStyles.RoundedPanel(business_panel, 20, Color.White);
-            PanelStyles.RoundedPanel(address_panel, 20, Color.White);
-            PanelStyles.RoundedPanel(supporting_panel, 20, Color.White);
 
             cancel_button.Visible = false;
             update_button.Visible = false;
@@ -39,14 +35,13 @@ namespace JobNear.JobPosterDashboardUserControl
         {
             InitializeComponent();
             SetUpRegisterBusinessForm();
-            PanelStyles.RoundedPanel(business_panel, 20, Color.White);
-            PanelStyles.RoundedPanel(address_panel, 20, Color.White);
-            PanelStyles.RoundedPanel(supporting_panel, 20, Color.White);
+
 
             LoadEditBusinessDetails(businessId);
             review_button.Visible = false;
 
         }
+
         private async void LoadEditBusinessDetails(string businessId)
         {
             try
@@ -114,8 +109,14 @@ namespace JobNear.JobPosterDashboardUserControl
 
         private async void InsertBusinessDetails(string status)
         {
-            TextBoxValidatorController.ValidateEmail(email_input);
-            TextBoxValidatorController.ValidatePhoneNumber(phone_input);
+            if (!TextBoxValidatorController.ValidateEmail(email_input))
+            {
+                return;
+            }
+            if (!TextBoxValidatorController.ValidatePhoneNumber(phone_input))
+            {
+                return;
+            }
             TextBoxValidatorController.AllowOnlyNumbers(phone_input);
 
             if (string.IsNullOrEmpty(name_input.Text) || string.IsNullOrEmpty(industry_input.Text) ||
@@ -152,76 +153,77 @@ namespace JobNear.JobPosterDashboardUserControl
                 }
             }
 
-                List<SupportingDocument> supportingDocuments = new List<SupportingDocument>();
+            List<SupportingDocument> supportingDocuments = new List<SupportingDocument>();
 
-                foreach (Control ctrl in image_flowlayout.Controls)
+            foreach (Control ctrl in image_flowlayout.Controls)
+            {
+                if (ctrl is Panel panel)
                 {
-                    if (ctrl is Panel panel)
+                    if (panel.Tag is SupportingDocument existingDoc)
                     {
-                        if (panel.Tag is SupportingDocument existingDoc)
+                        supportingDocuments.Add(existingDoc);
+                    }
+                    else if (panel.Tag is string filePath && File.Exists(filePath))
+                    {
+                        supportingDocuments.Add(new SupportingDocument
                         {
-                            supportingDocuments.Add(existingDoc);
-                        }
-                        else if (panel.Tag is string filePath && File.Exists(filePath))
-                        {
-                            supportingDocuments.Add(new SupportingDocument
-                            {
-                                FileName = Path.GetFileName(filePath),
-                                FileContent = File.ReadAllBytes(filePath)
-                            });
-                        }
+                            FileName = Path.GetFileName(filePath),
+                            FileContent = File.ReadAllBytes(filePath)
+                        });
                     }
                 }
+            }
 
-                byte[] imageResponse = ConvertDataTypeServices.ConvertImageToBytes(profile_picture.Image);
+            byte[] imageResponse = ConvertDataTypeServices.ConvertImageToBytes(profile_picture.Image);
 
-                bool response = await MongoDbServices.InsertBusinessApplicationAsync(
-                    Session.CurrentUserId,
-                    name_input.Text,
-                    industry_input.Text,
-                    description_richbox.Text,
-                    email_input.Text,
-                    phone_input.Text,
-                    website_input.Text,
-                    address_input.Text,
-                    selectedLat,
-                    selectedLon,
-                    imageResponse,
-                    supportingDocuments,
-                    status
-                    );
+            bool response = await MongoDbServices.InsertBusinessApplicationAsync(
+                Session.CurrentUserId,
+                name_input.Text,
+                industry_input.Text,
+                description_richbox.Text,
+                email_input.Text,
+                phone_input.Text,
+                website_input.Text,
+                address_input.Text,
+                selectedLat,
+                selectedLon,
+                imageResponse,
+                supportingDocuments,
+                status
+                );
 
-                if (response)
+            if (response)
+            {
+                string res = MessageBox.Show(
+                    "Business registered successfully and ready for review",
+                    "Success",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information
+                ).ToString();
+
+                if (res == "OK")
                 {
-                    string res = MessageBox.Show(
-                        "Business registered successfully and ready for review",
-                        "Success",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Information
-                    ).ToString();
+                    name_input.Clear();
+                    industry_input.SelectedIndex = -1;
+                    description_richbox.Clear();
+                    address_input.Clear();
+                    email_input.Clear();
+                    phone_input.Clear();
+                    website_input.Clear();
+                    profile_picture.Image = null;
+                    image_flowlayout.Controls.Clear();
 
-                    if (res == "OK")
-                    {
-                        name_input.Clear();
-                        industry_input.SelectedIndex = -1;
-                        description_richbox.Clear();
-                        address_input.Clear();
-                        email_input.Clear();
-                        phone_input.Clear();
-                        website_input.Clear();
-                        profile_picture.Image = null;
-                        image_flowlayout.Controls.Clear();
-
-                    }
-                    else return;
                 }
-                else
-                {
-                    MessageBox.Show("Failed to register business. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                else return;
+            }
+            else
+            {
+                MessageBox.Show("Failed to register business. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
-        private async void UpdateBusinessDetails(string status) {
+        private async void UpdateBusinessDetails(string status)
+        {
             TextBoxValidatorController.ValidateEmail(email_input);
             TextBoxValidatorController.ValidatePhoneNumber(phone_input);
             TextBoxValidatorController.AllowOnlyNumbers(phone_input);
@@ -300,8 +302,8 @@ namespace JobNear.JobPosterDashboardUserControl
                 status
                 );
 
-                if (response)
-                {
+            if (response)
+            {
                 var checkJobPosts = await MongoDbServices.JobPosterJobPosting
                     .Find(x => x.BusinessId == Session.CurrentBusinessSelected)
                     .ToListAsync();
@@ -370,8 +372,11 @@ namespace JobNear.JobPosterDashboardUserControl
         }
         private void SetUpRegisterBusinessForm()
         {
-            ButtonStyle.RoundedButton(attach_file, 25, "#FFFFFF");
+            PanelStyles.RoundedPanel(business_panel, 20, Color.White);
+            PanelStyles.RoundedPanel(address_panel, 20, Color.White);
+            PanelStyles.RoundedPanel(supporting_panel, 20, Color.White);
 
+            ButtonStyle.RoundedButton(attach_file, 25, "#FFFFFF");
             ButtonStyle.RoundedButton(upload_button, 10, "#3B82F6");
             ButtonStyle.RoundedButton(review_button, 10, "#10B981");
             ButtonStyle.RoundedButton(update_button, 10, "#10B981");
@@ -395,27 +400,6 @@ namespace JobNear.JobPosterDashboardUserControl
             sidebar_panel.Controls.Clear();
             sidebar_panel.Controls.Add(jp_businessDeets);
             jp_businessDeets.Dock = DockStyle.Fill;
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-
-
-
-
-
-
-        }
-
-        private void description_richbox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void sidebar_panel_Paint(object sender, PaintEventArgs e)
-        {
-
         }
 
         private void attach_file_Click(object sender, EventArgs e)

@@ -66,7 +66,6 @@
             this.sidebar_panel.Name = "sidebar_panel";
             this.sidebar_panel.Size = new System.Drawing.Size(1031, 705);
             this.sidebar_panel.TabIndex = 2;
-            this.sidebar_panel.Paint += new System.Windows.Forms.PaintEventHandler(this.sidebar_panel_Paint);
             // 
             // instruction_panel
             // 
@@ -182,7 +181,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(481, 139);
             this.panel2.TabIndex = 2;
-            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // label14
             // 
@@ -227,7 +225,6 @@
             this.label12.Size = new System.Drawing.Size(146, 84);
             this.label12.TabIndex = 5;
             this.label12.Text = "1000";
-            this.label12.Click += new System.EventHandler(this.label12_Click);
             // 
             // label11
             // 

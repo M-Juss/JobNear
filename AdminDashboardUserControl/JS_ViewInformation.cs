@@ -3,9 +3,8 @@ using JobNear.Services;
 using JobNear.Styles;
 using MongoDB.Driver;
 using System;
-using JobNear.Controllers;
-using System.Windows.Forms;
 using System.Drawing;
+using System.Windows.Forms;
 
 namespace JobNear.AdminDashboardUserControl
 {
@@ -15,12 +14,13 @@ namespace JobNear.AdminDashboardUserControl
         {
             InitializeComponent();
             LoadSpecificUser(email);
+
             PanelStyles.RoundedPanel(seeker_panel, 20, Color.White);
             ButtonStyle.RoundedButton(submit_button, 10, "#10B981");
             ButtonStyle.RoundedButton(cancel_button, 10, "#495057");
 
             image_flowlayout.FlowDirection = FlowDirection.TopDown;
-            image_flowlayout.WrapContents = false;  
+            image_flowlayout.WrapContents = false;
             image_flowlayout.AutoScroll = true;
         }
 
@@ -35,7 +35,7 @@ namespace JobNear.AdminDashboardUserControl
             if (specificUser != null)
             {
                 username_label.Text = specificUser.Username;
-                fullname_input.Text =  $"{specificUser.Lastname}, {specificUser.Firstname} {specificUser.Middlename}";
+                fullname_input.Text = $"{specificUser.Lastname}, {specificUser.Firstname} {specificUser.Middlename}";
                 age_input.Text = specificUser.Age.ToString();
                 sex_input.Text = specificUser.Sex;
                 birthdate_input.Text = specificUser.Birthdate.ToShortDateString();
@@ -46,7 +46,8 @@ namespace JobNear.AdminDashboardUserControl
                 lng_input.Text = specificUser.Longitude.ToString();
                 profile_picture.Image = ConvertDataTypeServices.ConvertBytesToImage(specificUser.ProfilePicture);
 
-                if (specificUser.SupportingDocuments != null) { 
+                if (specificUser.SupportingDocuments != null)
+                {
                     foreach (var doc in specificUser.SupportingDocuments)
                     {
                         FlowLayoutStyles.AddSupportingDocumentToFlow(doc, image_flowlayout, image_flowlayout.Width - 20, "No");
@@ -178,22 +179,8 @@ namespace JobNear.AdminDashboardUserControl
 
                 }
                 else MessageBox.Show("User not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }   
+            }
         }
 
-        private void sidebar_panel_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void email_input_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void remarks_richtext_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

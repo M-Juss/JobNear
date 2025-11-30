@@ -1,7 +1,6 @@
 ﻿using JobNear.Services;
 using JobNear.Styles;
 using MongoDB.Driver;
-using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
@@ -16,7 +15,8 @@ namespace JobNear.AdminDashboardUserControl
             SetUpJpPanel();
         }
 
-        private void SetUpJpPanel() {
+        private void SetUpJpPanel()
+        {
             poster_table.CellPainting += (s, e) =>
             {
                 if (e.RowIndex >= 0 &&
@@ -92,13 +92,15 @@ namespace JobNear.AdminDashboardUserControl
             search_input.Text = "Search";
             search_input.ForeColor = Color.Gray;
         }
-        private async void InitialTableValue() {
+        private async void InitialTableValue()
+        {
 
             var posters = await MongoDbServices.JobPosterAccount
                 .Find(_ => true)
                 .ToListAsync();
 
-            if (posters != null) {
+            if (posters != null)
+            {
                 posters.ForEach(poster =>
                 {
                     poster_table.Rows.Add(
@@ -110,12 +112,6 @@ namespace JobNear.AdminDashboardUserControl
             }
 
         }
-
-        private void sidebar_panel_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void seeker_table_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0 && e.ColumnIndex == poster_table.Columns["Action"].Index)
@@ -131,9 +127,5 @@ namespace JobNear.AdminDashboardUserControl
             }
         }
 
-        private void sidebar_panel_Paint_1(object sender, PaintEventArgs e)
-        {
-
-        }
     }
 }

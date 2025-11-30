@@ -13,15 +13,13 @@ namespace JobNear.AdminDashboardUserControl
         public Admin_ReportsAndComplaints()
         {
             InitializeComponent();
-
             LoadTable();
-            status_combo.SelectedIndex = 0;
 
+            status_combo.SelectedIndex = 0;
         }
 
-        private void LoadTable() {
-
-
+        private void LoadTable()
+        {
             reports_table.CellPainting += (s, e) =>
             {
                 if (e.RowIndex >= 0 &&
@@ -66,7 +64,7 @@ namespace JobNear.AdminDashboardUserControl
                         );
                     }
 
-                    e.Handled = true; 
+                    e.Handled = true;
                 }
             };
             TableStyles.UserTables(reports_table);
@@ -246,9 +244,5 @@ namespace JobNear.AdminDashboardUserControl
             }
         }
 
-        private void sidebar_panel_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
     }
 }

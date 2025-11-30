@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using JobNear.Controller;
+﻿using JobNear.Controller;
 using JobNear.Services;
 using JobNear.Styles;
+using System;
+using System.Drawing;
+using System.Windows.Forms;
 
 namespace JobNear.Forms
 {
@@ -30,6 +24,10 @@ namespace JobNear.Forms
 
             changepass_button.Click += async (s, e) =>
             {
+                if (!TextBoxValidatorController.ValidateEmail(email_input))
+                {
+                    return;
+                }
                 if (string.IsNullOrEmpty(email_input.Text) || string.IsNullOrEmpty(newpass_input.Text) || string.IsNullOrEmpty(confirmnewpass_input.Text))
                 {
                     MessageBox.Show("Please fill all fields", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -42,13 +40,13 @@ namespace JobNear.Forms
                     return;
                 }
 
-                bool result =  await MongoDbServices.UpdateUserAccount(email_input.Text.Trim(), newpass_input.Text.Trim(), user);
+                bool result = await MongoDbServices.UpdateUserAccount(email_input.Text.Trim(), newpass_input.Text.Trim(), user);
 
                 if (result)
                 {
                     MessageBox.Show("Password changed successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     FormsController.FormLoad(new JobNearUserForm(), app_panel);
-                    
+
                 }
                 else
                 {
@@ -58,32 +56,6 @@ namespace JobNear.Forms
             };
 
         }
-
-        private void ForgotPasswordForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void back_button_Click(object sender, EventArgs e)
-        {
-            FormsController.FormLoad(new JobNearUserForm(), app_panel);
-        }
-
-        private void changepass_button_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void app_panel_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void prev_lbl_Click(object sender, EventArgs e)
         {
             FormsController.FormLoad(new JobNearUserForm(), app_panel);

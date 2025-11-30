@@ -92,7 +92,6 @@
             this.sidebar_panel.Name = "sidebar_panel";
             this.sidebar_panel.Size = new System.Drawing.Size(1031, 705);
             this.sidebar_panel.TabIndex = 0;
-            this.sidebar_panel.Paint += new System.Windows.Forms.PaintEventHandler(this.sidebar_panel_Paint);
             // 
             // industry_input
             // 
@@ -439,7 +438,6 @@
             this.description_richbox.Name = "description_richbox";
             this.description_richbox.Size = new System.Drawing.Size(746, 142);
             this.description_richbox.TabIndex = 0;
-            this.description_richbox.TextChanged += new System.EventHandler(this.description_richbox_TextChanged);
             // 
             // update_button
             // 

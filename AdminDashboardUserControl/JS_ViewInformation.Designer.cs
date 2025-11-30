@@ -99,7 +99,6 @@
             this.sidebar_panel.Name = "sidebar_panel";
             this.sidebar_panel.Size = new System.Drawing.Size(1031, 705);
             this.sidebar_panel.TabIndex = 73;
-            this.sidebar_panel.Paint += new System.Windows.Forms.PaintEventHandler(this.sidebar_panel_Paint);
             // 
             // remarks_richtext
             // 
@@ -110,7 +109,6 @@
             this.remarks_richtext.Name = "remarks_richtext";
             this.remarks_richtext.Size = new System.Drawing.Size(474, 93);
             this.remarks_richtext.TabIndex = 102;
-            this.remarks_richtext.TextChanged += new System.EventHandler(this.remarks_richtext_TextChanged);
             // 
             // cancel_button
             // 
@@ -224,7 +222,6 @@
             this.email_input.Name = "email_input";
             this.email_input.Size = new System.Drawing.Size(317, 32);
             this.email_input.TabIndex = 90;
-            this.email_input.TextChanged += new System.EventHandler(this.email_input_TextChanged);
             // 
             // birthdate_input
             // 

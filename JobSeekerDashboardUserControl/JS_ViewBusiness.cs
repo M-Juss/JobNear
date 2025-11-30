@@ -1,10 +1,8 @@
-﻿using JobNear.Models;
-using JobNear.Services;
+﻿using JobNear.Services;
 using JobNear.Styles;
 using MongoDB.Driver;
 using System;
 using System.Drawing;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace JobNear.JobSeekerDashboardUserControl
@@ -14,13 +12,13 @@ namespace JobNear.JobSeekerDashboardUserControl
         public JS_ViewBusiness(string businessSpecificId)
         {
             InitializeComponent();
+
             PanelStyles.RoundedPanel(business_panel, 20, Color.White);
+            PanelStyles.RoundedPanel(business_panel, 20, Color.White);
+            PanelStyles.StyleRoundedLabel(report_label, 10, Color.Red, Color.White);
 
             LoadSelectedBusiness(businessSpecificId);
             LoadActiveJobPosted(businessSpecificId);
-
-            PanelStyles.RoundedPanel(business_panel, 20, Color.White);
-            PanelStyles.StyleRoundedLabel(report_label, 10, Color.Red, Color.White);
         }
 
         private async void LoadSelectedBusiness(string businessId)
@@ -95,7 +93,8 @@ namespace JobNear.JobSeekerDashboardUserControl
                 );
                     return;
                 }
-                else {
+                else
+                {
                     JS_ReportBusiness reportBusiness = new JS_ReportBusiness(Session.CurrentBusinessSelected);
                     sidebar_panel.Controls.Clear();
                     sidebar_panel.Controls.Add(reportBusiness);

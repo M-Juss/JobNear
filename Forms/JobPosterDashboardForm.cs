@@ -1,16 +1,6 @@
 ﻿using JobNear.Controllers;
-using JobNear.JobPosterDashboardUserControl;
-using JobNear.JobPosterDashboardUserControl;
-using JobNear.JobSeekerDashboardUserControl;
 using JobNear.Styles;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace JobNear.Forms
@@ -21,7 +11,10 @@ namespace JobNear.Forms
         public JobPosterDashboardForm()
         {
             InitializeComponent();
-
+            SetUpUI();
+        }
+        private void SetUpUI()
+        {
             ButtonStyle.SidebarButton(jobnear_button, "#3B82F6");
             ButtonStyle.SidebarButton(dashboard_button, "#3B82F6");
             ButtonStyle.SidebarButton(business_button, "#3B82F6");
@@ -34,7 +27,6 @@ namespace JobNear.Forms
             sidebar_panel.Controls.Add(jp_dashboard);
             jp_dashboard.Dock = DockStyle.Fill;
         }
-
         private void business_button_Click(object sender, EventArgs e)
         {
             JobPosterDashboardUserControl.JP_RegisterBusinessForm jp_register = new JobPosterDashboardUserControl.JP_RegisterBusinessForm();
@@ -45,7 +37,7 @@ namespace JobNear.Forms
 
         private void view_business_button_Click(object sender, EventArgs e)
         {
-            JobPosterDashboardUserControl.JP_MyBusiness jp_myBusiness = new JobPosterDashboardUserControl.JP_MyBusiness();  
+            JobPosterDashboardUserControl.JP_MyBusiness jp_myBusiness = new JobPosterDashboardUserControl.JP_MyBusiness();
             sidebar_panel.Controls.Clear();
             sidebar_panel.Controls.Add(jp_myBusiness);
             jp_myBusiness.Dock = DockStyle.Fill;
@@ -67,25 +59,10 @@ namespace JobNear.Forms
             jp_dashboard.Dock = DockStyle.Fill;
         }
 
-
         private void log_out_button_Click(object sender, EventArgs e)
         {
             UserController.LogoutUser();
         }
 
-        private void JobPosterDashboardForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void sidebar_panel_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void jobnear_button_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

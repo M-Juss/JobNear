@@ -1,16 +1,8 @@
 ﻿using JobNear.Controllers;
-using JobNear.JobSeekerDashboardUserControl;
 using JobNear.Services;
 using JobNear.Styles;
 using MongoDB.Driver;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace JobNear.Forms
@@ -21,9 +13,12 @@ namespace JobNear.Forms
         public JobSeekerDashboardForm()
         {
             InitializeComponent();
+            SetUpUI();
+        }
 
+        private void SetUpUI()
+        {
             hideInactiveSubMenu();
-
             ButtonStyle.SidebarButton(jobnear_button, "#3B82F6");
             ButtonStyle.SidebarButton(profile_button, "#3B82F6");
             ButtonStyle.SidebarButton(seekjob_button, "#3B82F6");
@@ -38,15 +33,7 @@ namespace JobNear.Forms
             sidebar_panel.Controls.Clear();
             sidebar_panel.Controls.Add(js_dashboard);
             js_dashboard.Dock = DockStyle.Fill;
-
-
         }
-
-        private void JobSeekerDashboardForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void hideInactiveSubMenu()
         {
             subSeekJob.Visible = false;
@@ -72,7 +59,7 @@ namespace JobNear.Forms
                 }
                 else
                 {
-                    subSeekJob.Visible = !subSeekJob.Visible; 
+                    subSeekJob.Visible = !subSeekJob.Visible;
                 }
             }
             catch (Exception ex)
@@ -126,11 +113,6 @@ namespace JobNear.Forms
             sidebar_panel.Controls.Clear();
             sidebar_panel.Controls.Add(js_dashboard);
             js_dashboard.Dock = DockStyle.Fill;
-        }
-
-        private void sidebar_panel_Paint(object sender, PaintEventArgs e)
-        {
-
         }
 
         private void logout_button_Click(object sender, EventArgs e)

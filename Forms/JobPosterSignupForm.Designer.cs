@@ -61,7 +61,6 @@
             this.app_panel.Name = "app_panel";
             this.app_panel.Size = new System.Drawing.Size(1231, 705);
             this.app_panel.TabIndex = 0;
-            this.app_panel.Paint += new System.Windows.Forms.PaintEventHandler(this.app_panel_Paint);
             // 
             // prev_lbl
             // 
@@ -97,7 +96,6 @@
             this.panel.Name = "panel";
             this.panel.Size = new System.Drawing.Size(468, 653);
             this.panel.TabIndex = 20;
-            this.panel.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // confirm_input
             // 
@@ -107,7 +105,6 @@
             this.confirm_input.Name = "confirm_input";
             this.confirm_input.Size = new System.Drawing.Size(306, 41);
             this.confirm_input.TabIndex = 42;
-            this.confirm_input.TextChanged += new System.EventHandler(this.confirm_input_TextChanged);
             // 
             // password_input
             // 
@@ -117,7 +114,6 @@
             this.password_input.Name = "password_input";
             this.password_input.Size = new System.Drawing.Size(306, 41);
             this.password_input.TabIndex = 41;
-            this.password_input.TextChanged += new System.EventHandler(this.password_input_TextChanged_1);
             // 
             // phone_input
             // 
@@ -127,7 +123,6 @@
             this.phone_input.Name = "phone_input";
             this.phone_input.Size = new System.Drawing.Size(306, 41);
             this.phone_input.TabIndex = 40;
-            this.phone_input.TextChanged += new System.EventHandler(this.phone_input_TextChanged);
             // 
             // email_input
             // 
@@ -137,7 +132,6 @@
             this.email_input.Name = "email_input";
             this.email_input.Size = new System.Drawing.Size(306, 41);
             this.email_input.TabIndex = 39;
-            this.email_input.TextChanged += new System.EventHandler(this.email_input_TextChanged_1);
             // 
             // username_input
             // 
@@ -147,7 +141,6 @@
             this.username_input.Name = "username_input";
             this.username_input.Size = new System.Drawing.Size(306, 41);
             this.username_input.TabIndex = 38;
-            this.username_input.TextChanged += new System.EventHandler(this.username_input_TextChanged);
             // 
             // label6
             // 
@@ -159,7 +152,6 @@
             this.label6.Size = new System.Drawing.Size(94, 28);
             this.label6.TabIndex = 37;
             this.label6.Text = "Username";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // label7
             // 
@@ -171,7 +163,6 @@
             this.label7.Size = new System.Drawing.Size(191, 37);
             this.label7.TabIndex = 31;
             this.label7.Text = "let’s build yours!";
-            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // label8
             // 
@@ -183,7 +174,7 @@
             this.label8.Size = new System.Drawing.Size(373, 37);
             this.label8.TabIndex = 30;
             this.label8.Text = "Great teams start with great hires";
-            this.label8.Click += new System.EventHandler(this.label8_Click);
+
             // 
             // label5
             // 
@@ -194,7 +185,6 @@
             this.label5.Size = new System.Drawing.Size(166, 48);
             this.label5.TabIndex = 29;
             this.label5.Text = "Job Poster";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // label4
             // 
@@ -206,7 +196,6 @@
             this.label4.Size = new System.Drawing.Size(155, 28);
             this.label4.TabIndex = 21;
             this.label4.Text = "Confirm Password";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // login_label
             // 
@@ -242,7 +231,6 @@
             this.label3.Size = new System.Drawing.Size(88, 28);
             this.label3.TabIndex = 14;
             this.label3.Text = "Password";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label2
             // 
@@ -255,7 +243,6 @@
             this.label2.TabIndex = 12;
             this.label2.Text = "Phone Number";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label1
             // 
@@ -267,7 +254,6 @@
             this.label1.Size = new System.Drawing.Size(55, 28);
             this.label1.TabIndex = 10;
             this.label1.Text = "Email";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // JobPosterSignupForm
             // 
@@ -279,7 +265,6 @@
             this.Name = "JobPosterSignupForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "JobPosterLoginForm";
-            this.Load += new System.EventHandler(this.JobPosterLoginForm_Load);
             this.app_panel.ResumeLayout(false);
             this.app_panel.PerformLayout();
             this.panel.ResumeLayout(false);

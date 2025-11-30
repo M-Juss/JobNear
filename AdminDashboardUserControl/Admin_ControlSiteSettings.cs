@@ -5,7 +5,6 @@ using MongoDB.Driver;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
-using System.Windows.Forms.DataVisualization.Charting;
 
 namespace JobNear.AdminDashboardUserControl
 {
@@ -14,13 +13,7 @@ namespace JobNear.AdminDashboardUserControl
         public Admin_ControlSiteSettings()
         {
             InitializeComponent();
-            TextboxStyles.RoundedTextBoxShadow(name_input, 10, "#FFFFFF", 1);
-            TextboxStyles.RoundedTextBoxShadow(description_input, 10, "#FFFFFF", 1);
-            PanelStyles.RoundedPanel(maintenance_panel, 20, Color.White);
-            ButtonStyle.RoundedButton(send_button, 20, "#495057");
-            ButtonStyle.RoundedButton(revoke_button, 20, "#495057");
-            ButtonStyle.RoundedButton(deactivate_button, 20, "#3B82F6");
-            ButtonStyle.RoundedButton(activate_button, 20, "#10B981");
+            SetUpUI();
 
             activate_button.Enabled = false;
             deactivate_button.Enabled = false;
@@ -29,8 +22,12 @@ namespace JobNear.AdminDashboardUserControl
         public Admin_ControlSiteSettings(string ControlId)
         {
             InitializeComponent();
-
             LoadControlSiteData(ControlId);
+            ControlButtonsVisibility();
+            SetUpUI();
+        }
+        private void SetUpUI()
+        {
             TextboxStyles.RoundedTextBoxShadow(name_input, 10, "#FFFFFF", 1);
             TextboxStyles.RoundedTextBoxShadow(description_input, 10, "#FFFFFF", 1);
             PanelStyles.RoundedPanel(maintenance_panel, 20, Color.White);
@@ -39,9 +36,7 @@ namespace JobNear.AdminDashboardUserControl
             ButtonStyle.RoundedButton(deactivate_button, 20, "#3B82F6");
             ButtonStyle.RoundedButton(activate_button, 20, "#10B981");
 
-            ControlButtonsVisibility();
         }
-
         private async void LoadControlSiteData(string ControlId)
         {
             var controlSite = await MongoDbServices.ControlSiteNotification
@@ -81,22 +76,18 @@ namespace JobNear.AdminDashboardUserControl
                 {
                     send_button.Visible = false;
                     revoke_button.Visible = true;
-                    
+
                     activate_button.Enabled = true;
                     deactivate_button.Enabled = false;
                 }
             }
         }
 
-        private void sidebar_panel_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-        // after sending it needs to be reload first 
         private async void send_button_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(name_input.Text) || string.IsNullOrEmpty(description_input.Text)
-                || string.IsNullOrEmpty(start_date.Text) || string.IsNullOrEmpty(end_date.Text)) {
+                || string.IsNullOrEmpty(start_date.Text) || string.IsNullOrEmpty(end_date.Text))
+            {
                 MessageBox.Show("Please fill out all the fields.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
@@ -184,9 +175,6 @@ namespace JobNear.AdminDashboardUserControl
                 MessageBox.Show(ex.Message, "Error sending notification", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-
-
         private async void revoke_button_Click(object sender, EventArgs e)
         {
             var confirm = MessageBox.Show("Are you sure you want to revoke the maintenance?",
@@ -277,7 +265,6 @@ namespace JobNear.AdminDashboardUserControl
                 }
             }
         }
-
         private async void deactivate_button_Click(object sender, EventArgs e)
         {
             var getMaintenance = await MongoDbServices.ControlSiteMaintenance

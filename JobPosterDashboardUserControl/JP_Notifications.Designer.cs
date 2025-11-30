@@ -59,7 +59,6 @@
             this.Controls.Add(this.notif_panel);
             this.Name = "JP_Notifications";
             this.Size = new System.Drawing.Size(1031, 705);
-            this.Load += new System.EventHandler(this.JP_Notifications_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

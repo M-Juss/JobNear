@@ -3,11 +3,7 @@ using GMap.NET.MapProviders;
 using GMap.NET.WindowsForms;
 using GMap.NET.WindowsForms.Markers;
 using System;
-using System.Collections.Generic;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace JobNear.Controllers
@@ -27,11 +23,10 @@ namespace JobNear.Controllers
 
             GMaps.Instance.Mode = AccessMode.ServerAndCache;
 
-            gmap.MapProvider = GMapProviders.GoogleMap; 
+            gmap.MapProvider = GMapProviders.GoogleMap;
 
             gmap.CanDragMap = false;
 
-            // this would be dynamic based on user location
             gmap.Position = new GMap.NET.PointLatLng(lat, lng);
 
             AddUserMarker(lat, lng, "ME");
@@ -39,16 +34,18 @@ namespace JobNear.Controllers
             gmap.CanDragMap = false;
             gmap.MouseWheelZoomEnabled = false;
             gmap.IgnoreMarkerOnMouseWheel = true;
-           
+
 
             gmap.MinZoom = 1;
             gmap.MaxZoom = 20;
-            gmap.Zoom = 16; // ~5km radius
+            gmap.Zoom = 16;
 
         }
 
-        public static void GetZoomLevel(string distance) {
-            switch (distance.ToLower()) { 
+        public static void GetZoomLevel(string distance)
+        {
+            switch (distance.ToLower())
+            {
                 case "1 km":
                     gmap.Zoom = 16;
                     break;
@@ -74,7 +71,7 @@ namespace JobNear.Controllers
                     break;
                 default:
                     gmap.Zoom = 16;
-                    break; 
+                    break;
             }
         }
 
@@ -107,7 +104,7 @@ namespace JobNear.Controllers
         }
         public static void Gmap_OnMarkerClick(GMapMarker item, MouseEventArgs e)
         {
-            
+
             if (item.Tag != null)
             {
                 string businessId = item.Tag.ToString();
@@ -115,7 +112,7 @@ namespace JobNear.Controllers
                 Session.CurrentBusinessSelectedStatus = "Verified";
 
                 JobSeekerDashboardUserControl.JS_ViewBusiness view = new JobSeekerDashboardUserControl.JS_ViewBusiness(businessId);
-                Session.CurrentSidebarPanel.Controls.Clear();   
+                Session.CurrentSidebarPanel.Controls.Clear();
                 Session.CurrentSidebarPanel.Controls.Add(view);
                 view.Dock = DockStyle.Fill;
             }
@@ -145,18 +142,5 @@ namespace JobNear.Controllers
 
         }
 
-
-        public static Bitmap GetBusinessIcon()
-        {
-            Bitmap business = new Bitmap("path_to_your_icon.png");
-            return new Bitmap(business, new Size(32, 32)); // Resize to 32x32 pixels
-        }
-
-        public static Bitmap GetUserIcon()
-        {
-            Bitmap user = new Bitmap("path_to_your_icon.png");
-            return new Bitmap(user, new Size(32, 32)); // Resize to 32x32 pixels
-        }
-
     }
-} 
+}

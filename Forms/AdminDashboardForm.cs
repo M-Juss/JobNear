@@ -1,17 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MongoDB.Driver;
-using System.Windows.Forms;
-using JobNear.Styles;
-using JobNear.Controllers;
-using JobNear.Controller;
+﻿using JobNear.Controllers;
 using JobNear.Services;
+using JobNear.Styles;
+using MongoDB.Driver;
+using System;
+using System.Windows.Forms;
 
 namespace JobNear.Forms
 {
@@ -21,7 +13,11 @@ namespace JobNear.Forms
         {
             InitializeComponent();
             CheckIfSuperAdminOrAdmin();
+            SetUpUI();
 
+        }
+        private void SetUpUI()
+        {
             hideInactiveSubMenu();
 
             ButtonStyle.SidebarButton(jobnear_button, "#3B82F6");
@@ -82,7 +78,7 @@ namespace JobNear.Forms
             sidebar_panel.Controls.Clear();
             sidebar_panel.Controls.Add(admin_Dashboard);
             admin_Dashboard.Dock = DockStyle.Fill;
-            
+
         }
 
         private void user_button_Click(object sender, EventArgs e)
@@ -124,14 +120,8 @@ namespace JobNear.Forms
             sidebar_panel.Controls.Clear();
             sidebar_panel.Controls.Add(admin_Reports);
             admin_Reports.Dock = DockStyle.Fill;
-            
-        }
-
-        private void sidebar_panel_Paint(object sender, PaintEventArgs e)
-        {
 
         }
-
         private void manageAdmin_button_Click(object sender, EventArgs e)
         {
             AdminDashboardUserControl.Admin_ManageAdmin admin_Manage = new AdminDashboardUserControl.Admin_ManageAdmin();
@@ -162,7 +152,8 @@ namespace JobNear.Forms
                 sidebar_panel.Controls.Add(admin_ControlSiteSettings);
                 admin_ControlSiteSettings.Dock = DockStyle.Fill;
             }
-            else {
+            else
+            {
                 AdminDashboardUserControl.Admin_ControlSiteSettings admin_ControlSiteSettings = new AdminDashboardUserControl.Admin_ControlSiteSettings();
                 sidebar_panel.Controls.Clear();
                 sidebar_panel.Controls.Add(admin_ControlSiteSettings);

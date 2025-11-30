@@ -1,9 +1,9 @@
 ﻿using JobNear.Services;
 using JobNear.Styles;
-using System;
 using MongoDB.Driver;
-using System.Windows.Forms;
+using System;
 using System.Drawing;
+using System.Windows.Forms;
 
 namespace JobNear.JobSeekerDashboardUserControl
 {
@@ -32,11 +32,12 @@ namespace JobNear.JobSeekerDashboardUserControl
                     sidebar_panel.Controls.Add(js_businessform);
                     js_businessform.Dock = DockStyle.Fill;
                 }
-                else if (prev == "report") { 
+                else if (prev == "report")
+                {
                     JS_ReportBusiness jS_ReportBusiness = new JS_ReportBusiness(Session.CurrentBusinessSelected);
                     sidebar_panel.Controls.Clear();
                     sidebar_panel.Controls.Add(jS_ReportBusiness);
-                    jS_ReportBusiness.Dock = DockStyle .Fill;
+                    jS_ReportBusiness.Dock = DockStyle.Fill;
                 }
             };
         }

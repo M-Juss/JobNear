@@ -1,9 +1,9 @@
 ﻿
-using System.Windows.Forms;
 using JobNear.Services;
-using MongoDB.Driver;
 using JobNear.Styles;
+using MongoDB.Driver;
 using System;
+using System.Windows.Forms;
 
 namespace JobNear.AdminDashboardUserControl
 {
@@ -23,7 +23,8 @@ namespace JobNear.AdminDashboardUserControl
                 .Find(x => x.Email == email)
                 .FirstOrDefaultAsync();
 
-            if (getUserId != null) { 
+            if (getUserId != null)
+            {
                 username_label.Text = getUserId.Username;
                 email_input.Text = getUserId.Email;
                 phone_input.Text = getUserId.Phone;
@@ -32,7 +33,8 @@ namespace JobNear.AdminDashboardUserControl
                     .Find(x => x.BusinessId == getUserId.Id)
                     .ToListAsync();
 
-                if (getUserBusinesses != null) {
+                if (getUserBusinesses != null)
+                {
                     getUserBusinesses.ForEach(business =>
                     {
                         FlowLayoutStyles.AddMyBusiness(
@@ -48,13 +50,6 @@ namespace JobNear.AdminDashboardUserControl
                 }
             }
         }
-
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void prev_lbl_Click(object sender, EventArgs e)
         {
             AdminDashboardUserControl.Admin_JP_UserManagement admin_JP_UserManagement = new AdminDashboardUserControl.Admin_JP_UserManagement();

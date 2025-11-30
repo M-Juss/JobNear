@@ -1,11 +1,10 @@
-﻿using JobNear.Styles;
+﻿using JobNear.Controllers;
+using JobNear.Services;
+using JobNear.Styles;
+using MongoDB.Driver;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
-using JobNear.Services;
-using MongoDB.Driver;
-using JobNear.Controller;
-using JobNear.Controllers;
 
 namespace JobNear.JobPosterDashboardUserControl
 {
@@ -17,22 +16,12 @@ namespace JobNear.JobPosterDashboardUserControl
 
             LoadSelectedBusiness(businessId);
             LoadPostedJobs(businessId);
+            SetUpUI();
 
-            FlowLayoutStyles.AddPostJob("412412412412", "Senior Developer", "Fully In Office", "Full Time", "Lorem ipsum dolor sit amet. Eum consequatur itaque et quibusdam voluptatem et aspernatur explicabo. Sit eaque possimus ut repellat enim et temporibus natus ut saepe nihil et iusto odit aut animi sunt cum necessitatibus incidunt. ", "ACtive", joblist_flowlayout, sidebar_panel);
-            FlowLayoutStyles.AddPostJob("sgfsdg2wrt2342", "Junior Developer", "Hybrid", "Part Time", "Lorem ipsum dolor sit amet. Eum consequatur itaque et quibusdam voluptatem et aspernatur explicabo. Sit eaque possimus ut repellat enim et temporibus natus ut saepe nihil et iusto odit aut animi sunt cum necessitatibus incidunt. ","Closed", joblist_flowlayout, sidebar_panel);
-            FlowLayoutStyles.AddPostJob("23432fsfr23rsf", "Intern Developer", "Fullt Remote", "Part Time", "Lorem ipsum dolor sit amet. Eum consequatur itaque et quibusdam voluptatem et aspernatur explicabo. Sit eaque possimus ut repellat enim et temporibus natus ut saepe nihil et iusto odit aut animi sunt cum necessitatibus incidunt.","Withdrawn" , joblist_flowlayout, sidebar_panel);
+            //FlowLayoutStyles.AddPostJob("412412412412", "Senior Developer", "Fully In Office", "Full Time", "Lorem ipsum dolor sit amet. Eum consequatur itaque et quibusdam voluptatem et aspernatur explicabo. Sit eaque possimus ut repellat enim et temporibus natus ut saepe nihil et iusto odit aut animi sunt cum necessitatibus incidunt. ", "ACtive", joblist_flowlayout, sidebar_panel);
+            //FlowLayoutStyles.AddPostJob("sgfsdg2wrt2342", "Junior Developer", "Hybrid", "Part Time", "Lorem ipsum dolor sit amet. Eum consequatur itaque et quibusdam voluptatem et aspernatur explicabo. Sit eaque possimus ut repellat enim et temporibus natus ut saepe nihil et iusto odit aut animi sunt cum necessitatibus incidunt. ","Closed", joblist_flowlayout, sidebar_panel);
+            //FlowLayoutStyles.AddPostJob("23432fsfr23rsf", "Intern Developer", "Fullt Remote", "Part Time", "Lorem ipsum dolor sit amet. Eum consequatur itaque et quibusdam voluptatem et aspernatur explicabo. Sit eaque possimus ut repellat enim et temporibus natus ut saepe nihil et iusto odit aut animi sunt cum necessitatibus incidunt.","Withdrawn" , joblist_flowlayout, sidebar_panel);
 
-            
-            PanelStyles.RoundedPanel(business_panel, 10, Color.White);
-            ButtonStyle.RoundedButton(edit_button, 10, "#3B82F6");
-            ButtonStyle.RoundedButton(post_job_button, 10, "#3B82F6");
-
-            UserController.SetSeekerAndBusinesStatus(status_lbl, status_lbl.Text);
-            PanelStyles.StyleRoundedLabel(status_lbl, 5);
-
-            joblist_flowlayout.FlowDirection = FlowDirection.TopDown;
-            joblist_flowlayout.WrapContents = false;
-            joblist_flowlayout.AutoScroll = true;
 
             edit_button.Click += (s, e) =>
             {
@@ -48,7 +37,8 @@ namespace JobNear.JobPosterDashboardUserControl
                 .Find(x => x.Id == businessId)
                 .FirstOrDefaultAsync();
 
-                if (businessDetails != null) {
+                if (businessDetails != null)
+                {
                     if (!businessDetails.Status.Equals("Verified"))
                     {
                         MessageBox.Show("Business must be Verified to post a job!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -67,7 +57,21 @@ namespace JobNear.JobPosterDashboardUserControl
                 }
 
 
-            }; 
+            };
+        }
+
+        private void SetUpUI()
+        {
+            PanelStyles.RoundedPanel(business_panel, 10, Color.White);
+            ButtonStyle.RoundedButton(edit_button, 10, "#3B82F6");
+            ButtonStyle.RoundedButton(post_job_button, 10, "#3B82F6");
+
+            UserController.SetSeekerAndBusinesStatus(status_lbl, status_lbl.Text);
+            PanelStyles.StyleRoundedLabel(status_lbl, 5);
+
+            joblist_flowlayout.FlowDirection = FlowDirection.TopDown;
+            joblist_flowlayout.WrapContents = false;
+            joblist_flowlayout.AutoScroll = true;
         }
         private async void LoadSelectedBusiness(string businessId)
         {
@@ -75,7 +79,8 @@ namespace JobNear.JobPosterDashboardUserControl
                 .Find(x => x.Id == businessId)
                 .FirstOrDefaultAsync();
 
-            if (businessDetails != null) {
+            if (businessDetails != null)
+            {
                 company_logo_picturebox.Image = ConvertDataTypeServices.ConvertBytesToImage(businessDetails.BusinessLogo);
                 name_label.Text = businessDetails.BusinessName;
                 description_label.Text = businessDetails.BusinessDescription;
@@ -121,9 +126,5 @@ namespace JobNear.JobPosterDashboardUserControl
             sidebar_panel.Dock = DockStyle.Fill;
         }
 
-        private void sidebar_panel_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
     }
 }

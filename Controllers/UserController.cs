@@ -1,18 +1,13 @@
-﻿using JobNear.Controller;
-using JobNear.Styles;
-using System;
-using System.Collections.Generic;
+﻿using JobNear.Styles;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace JobNear.Controllers
 {
     public class UserController
     {
-        public static void LogoutUser() { 
+        public static void LogoutUser()
+        {
             string response = MessageBox.Show("Are you sure you want to logout?", "Logout Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question).ToString();
             if (response == "Yes")
             {
@@ -78,7 +73,7 @@ namespace JobNear.Controllers
                     status_label.Text = "Unknown";
                     PanelStyles.StyleRoundedLabel(status_label, 10, Color.Black, Color.White);
                     break;
-            }   
+            }
         }
     }
 }

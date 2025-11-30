@@ -2,15 +2,8 @@
 using JobNear.Styles;
 using MongoDB.Driver;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace JobNear.AdminDashboardUserControl
@@ -32,10 +25,6 @@ namespace JobNear.AdminDashboardUserControl
             ShowSubmitButton();
         }
 
-        private void sidebar_panel_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
         private async void LoadAdminAccounts()
         {
             admin_table.Rows.Clear();
@@ -44,7 +33,8 @@ namespace JobNear.AdminDashboardUserControl
                 .Find(_ => true)
                 .ToListAsync();
 
-            if (adminAccounts != null) {
+            if (adminAccounts != null)
+            {
                 adminAccounts.ForEach(admin =>
                 {
                     admin_table.Rows.Add(
@@ -74,20 +64,21 @@ namespace JobNear.AdminDashboardUserControl
                     bool response = await MongoDbServices.InsertAdminAccountAsync(email_input.Text, password_input.Text, name_input.Text,
                         role_combo.SelectedItem.ToString(), status_combo.SelectedItem.ToString());
 
-                        if (response)
-                        {
-                            string res = MessageBox.Show(
-                                "New admin account registered successfully and ready for review",
-                                "Success",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Information
-                            ).ToString();
+                    if (response)
+                    {
+                        string res = MessageBox.Show(
+                            "New admin account registered successfully and ready for review",
+                            "Success",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Information
+                        ).ToString();
 
-                        if (res == "OK") {
-                            ClearForm(); 
+                        if (res == "OK")
+                        {
+                            ClearForm();
                             LoadAdminAccounts();
-                        } 
                         }
+                    }
                 }
             }
         }
@@ -184,7 +175,8 @@ namespace JobNear.AdminDashboardUserControl
                 }
             }
         }
-        private void InitializeTable() {
+        private void InitializeTable()
+        {
 
             admin_table.CellPainting += (s, e) =>
             {
@@ -202,14 +194,13 @@ namespace JobNear.AdminDashboardUserControl
 
                     using (GraphicsPath path = new GraphicsPath())
                     {
-                        // Correct AddArc usage
-                        path.AddArc(rect.X, rect.Y, radius, radius, 180, 90);                // top-left
-                        path.AddArc(rect.Right - radius, rect.Y, radius, radius, 270, 90);  // top-right
-                        path.AddArc(rect.Right - radius, rect.Bottom - radius, radius, radius, 0, 90); // bottom-right
-                        path.AddArc(rect.X, rect.Bottom - radius, radius, radius, 90, 90);  // bottom-left
+                        path.AddArc(rect.X, rect.Y, radius, radius, 180, 90);
+                        path.AddArc(rect.Right - radius, rect.Y, radius, radius, 270, 90);
+                        path.AddArc(rect.Right - radius, rect.Bottom - radius, radius, radius, 0, 90);
+                        path.AddArc(rect.X, rect.Bottom - radius, radius, radius, 90, 90);
                         path.CloseAllFigures();
 
-                        // Fill color
+
                         Color fillColor = admin_table.Columns[e.ColumnIndex].Name == "Update"
                                           ? ColorTranslator.FromHtml("#E0F0FF")
                                           : ColorTranslator.FromHtml("#FEE0E0");
@@ -217,7 +208,7 @@ namespace JobNear.AdminDashboardUserControl
                         using (SolidBrush brush = new SolidBrush(fillColor))
                             e.Graphics.FillPath(brush, path);
 
-                        // Border color
+
                         Color borderColor = admin_table.Columns[e.ColumnIndex].Name == "Update"
                                             ? ColorTranslator.FromHtml("#A5C8F0")
                                             : ColorTranslator.FromHtml("#F5A5A5");
@@ -225,7 +216,7 @@ namespace JobNear.AdminDashboardUserControl
                         using (Pen pen = new Pen(borderColor, 1))
                             e.Graphics.DrawPath(pen, path);
 
-                        // Draw text
+
                         string text = admin_table.Columns[e.ColumnIndex].Name;
                         TextRenderer.DrawText(e.Graphics, text, new Font("Poppins", 12, FontStyle.Regular),
                                               rect, Color.Black,

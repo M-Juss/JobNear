@@ -22,12 +22,6 @@ namespace JobNear.AdminDashboardUserControl
             status_combo.SelectedIndex = 0;
 
         }
-
-        private void Admin_VerifyRequirement_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void SetUpTable()
         {
 
@@ -125,11 +119,6 @@ namespace JobNear.AdminDashboardUserControl
             addRequirementControl.Dock = DockStyle.Fill;
         }
 
-        private void sidebar_panel_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private async void status_combo_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (status_combo.SelectedItem.ToString() == "For Job Seekers")
@@ -209,7 +198,7 @@ namespace JobNear.AdminDashboardUserControl
                 }
 
                 var file = doc.SupportingDocuments[0];
-                byte[] bytes = file.FileContent;  
+                byte[] bytes = file.FileContent;
                 string tempPath = Path.Combine(Path.GetTempPath(), file.FileName);
 
                 File.WriteAllBytes(tempPath, bytes);

@@ -55,7 +55,6 @@
             this.app_panel.Name = "app_panel";
             this.app_panel.Size = new System.Drawing.Size(1231, 705);
             this.app_panel.TabIndex = 0;
-            this.app_panel.Paint += new System.Windows.Forms.PaintEventHandler(this.app_panel_Paint);
             // 
             // prev_lbl
             // 
@@ -86,7 +85,6 @@
             this.panel.Name = "panel";
             this.panel.Size = new System.Drawing.Size(468, 529);
             this.panel.TabIndex = 21;
-            this.panel.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // password_input
             // 

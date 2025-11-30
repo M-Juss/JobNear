@@ -130,7 +130,6 @@
             this.jobnear_button.Size = new System.Drawing.Size(200, 49);
             this.jobnear_button.TabIndex = 0;
             this.jobnear_button.UseVisualStyleBackColor = true;
-            this.jobnear_button.Click += new System.EventHandler(this.jobnear_button_Click);
             // 
             // sidebar_panel
             // 
@@ -139,7 +138,6 @@
             this.sidebar_panel.Name = "sidebar_panel";
             this.sidebar_panel.Size = new System.Drawing.Size(1031, 705);
             this.sidebar_panel.TabIndex = 1;
-            this.sidebar_panel.Paint += new System.Windows.Forms.PaintEventHandler(this.sidebar_panel_Paint);
             // 
             // JobPosterDashboardForm
             // 
@@ -150,7 +148,6 @@
             this.Controls.Add(this.JP_sidebar_panel);
             this.Name = "JobPosterDashboardForm";
             this.Text = "Job Poster";
-            this.Load += new System.EventHandler(this.JobPosterDashboardForm_Load);
             this.JP_sidebar_panel.ResumeLayout(false);
             this.ResumeLayout(false);
 

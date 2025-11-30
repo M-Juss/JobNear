@@ -74,7 +74,6 @@
             this.sidebar_panel.Name = "sidebar_panel";
             this.sidebar_panel.Size = new System.Drawing.Size(1031, 705);
             this.sidebar_panel.TabIndex = 0;
-            this.sidebar_panel.Paint += new System.Windows.Forms.PaintEventHandler(this.sidebar_panel_Paint);
             // 
             // panel4
             // 
@@ -84,7 +83,7 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(787, 1);
             this.panel4.TabIndex = 130;
-            this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
+    
             // 
             // label9
             // 
@@ -234,7 +233,6 @@
             this.status_combo.Name = "status_combo";
             this.status_combo.Size = new System.Drawing.Size(270, 36);
             this.status_combo.TabIndex = 133;
-            this.status_combo.SelectedIndexChanged += new System.EventHandler(this.status_combo_SelectedIndexChanged);
             // 
             // part_time_checkbox
             // 
@@ -257,7 +255,6 @@
             this.label11.Size = new System.Drawing.Size(77, 34);
             this.label11.TabIndex = 132;
             this.label11.Text = "Status";
-            this.label11.Click += new System.EventHandler(this.label11_Click);
             // 
             // full_time_checkbox
             // 
@@ -280,7 +277,6 @@
             this.label10.Size = new System.Drawing.Size(155, 34);
             this.label10.TabIndex = 131;
             this.label10.Text = "Payment Type";
-            this.label10.Click += new System.EventHandler(this.label10_Click);
             // 
             // fully_remote_radiobtn
             // 
@@ -392,7 +388,6 @@
             this.hourly_input.Name = "hourly_input";
             this.hourly_input.Size = new System.Drawing.Size(276, 36);
             this.hourly_input.TabIndex = 137;
-            this.hourly_input.TextChanged += new System.EventHandler(this.hourly_input_TextChanged);
             // 
             // label6
             // 
@@ -415,7 +410,6 @@
             this.paymenttype_label.Size = new System.Drawing.Size(185, 34);
             this.paymenttype_label.TabIndex = 136;
             this.paymenttype_label.Text = "Salary per month";
-            this.paymenttype_label.Click += new System.EventHandler(this.paymenttype_label_Click);
             // 
             // JP_PostJobForm
             // 

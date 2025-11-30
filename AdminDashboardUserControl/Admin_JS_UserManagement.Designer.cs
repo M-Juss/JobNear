@@ -75,7 +75,6 @@
             this.sidebar_panel.Name = "sidebar_panel";
             this.sidebar_panel.Size = new System.Drawing.Size(1031, 705);
             this.sidebar_panel.TabIndex = 7;
-            this.sidebar_panel.Paint += new System.Windows.Forms.PaintEventHandler(this.sidebar_panel_Paint);
             // 
             // search_input
             // 
@@ -96,7 +95,6 @@
             this.label1.Size = new System.Drawing.Size(367, 56);
             this.label1.TabIndex = 2;
             this.label1.Text = "Manage Job Seekers";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // status_combo
             // 

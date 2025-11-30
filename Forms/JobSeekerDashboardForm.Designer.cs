@@ -160,7 +160,6 @@
             this.sidebar_panel.Name = "sidebar_panel";
             this.sidebar_panel.Size = new System.Drawing.Size(1031, 705);
             this.sidebar_panel.TabIndex = 1;
-            this.sidebar_panel.Paint += new System.Windows.Forms.PaintEventHandler(this.sidebar_panel_Paint);
             // 
             // JobSeekerDashboardForm
             // 
@@ -173,7 +172,6 @@
             this.Name = "JobSeekerDashboardForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "JobSeekerDashboardForm";
-            this.Load += new System.EventHandler(this.JobSeekerDashboardForm_Load);
             this.sidebar.ResumeLayout(false);
             this.subSeekJob.ResumeLayout(false);
             this.ResumeLayout(false);

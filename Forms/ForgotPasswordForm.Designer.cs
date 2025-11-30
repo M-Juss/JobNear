@@ -55,7 +55,6 @@
             this.app_panel.Name = "app_panel";
             this.app_panel.Size = new System.Drawing.Size(1231, 705);
             this.app_panel.TabIndex = 1;
-            this.app_panel.Paint += new System.Windows.Forms.PaintEventHandler(this.app_panel_Paint);
             // 
             // panel
             // 
@@ -74,7 +73,6 @@
             this.panel.Name = "panel";
             this.panel.Size = new System.Drawing.Size(468, 518);
             this.panel.TabIndex = 23;
-            this.panel.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // confirmnewpass_input
             // 
@@ -157,7 +155,6 @@
             this.changepass_button.TabIndex = 16;
             this.changepass_button.Text = "Change Password";
             this.changepass_button.UseVisualStyleBackColor = false;
-            this.changepass_button.Click += new System.EventHandler(this.changepass_button_Click);
             // 
             // label3
             // 
@@ -203,7 +200,6 @@
             this.Name = "ForgotPasswordForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ForgotPasswordForm";
-            this.Load += new System.EventHandler(this.ForgotPasswordForm_Load);
             this.app_panel.ResumeLayout(false);
             this.app_panel.PerformLayout();
             this.panel.ResumeLayout(false);

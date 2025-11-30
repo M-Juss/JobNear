@@ -1,16 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Drawing;
 using System.Windows.Forms;
 
 namespace JobNear.Styles
 {
     public class TableStyles
     {
-        public static void UserTables(DataGridView user_table) {
+        public static void UserTables(DataGridView user_table)
+        {
 
             user_table.Dock = DockStyle.Fill;
             user_table.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;

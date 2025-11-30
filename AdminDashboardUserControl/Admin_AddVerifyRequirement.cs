@@ -3,13 +3,8 @@ using JobNear.Services;
 using JobNear.Styles;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace JobNear.AdminDashboardUserControl
@@ -38,7 +33,8 @@ namespace JobNear.AdminDashboardUserControl
 
         private void attach_file_Click(object sender, EventArgs e)
         {
-            if (image_flowlayout.Controls.Count > 1) { 
+            if (image_flowlayout.Controls.Count > 1)
+            {
                 MessageBox.Show("You can only attach one file at a time.", "Attachment Limit", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
@@ -123,11 +119,6 @@ namespace JobNear.AdminDashboardUserControl
                 MessageBox.Show("Failed to add verification requirement. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-        }
-
-        private void sidebar_panel_Paint(object sender, PaintEventArgs e)
-        {
-
         }
     }
 }

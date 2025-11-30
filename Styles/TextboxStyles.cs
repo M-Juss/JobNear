@@ -10,7 +10,6 @@ namespace JobNear.Styles
         {
             Control parent = txt.Parent;
 
-            // --- Shadow Panel (bigger than textbox) ---
             Panel shadow = new Panel();
             shadow.BackColor = Color.Transparent;
             shadow.Size = new Size(txt.Width + shadowSize * 2, txt.Height + shadowSize * 2);
@@ -21,10 +20,9 @@ namespace JobNear.Styles
                 Graphics g = e.Graphics;
                 g.SmoothingMode = SmoothingMode.AntiAlias;
 
-                // Draw MANY layers to simulate a blur
                 for (int i = shadowSize; i > 0; i--)
                 {
-                    int alpha = (int)(20 * (i / (float)shadowSize)); // softer outer alpha
+                    int alpha = (int)(20 * (i / (float)shadowSize));
                     using (Pen p = new Pen(Color.FromArgb(alpha, 0, 0, 0), i * 2))
                     {
                         g.DrawPath(p, Rounded(shadow.Width - i, shadow.Height - i, radius + i));
@@ -32,7 +30,7 @@ namespace JobNear.Styles
                 }
             };
 
-            // --- Main Container Panel (rounded) ---
+
             Panel container = new Panel();
             container.Size = txt.Size;
             container.Location = txt.Location;
@@ -45,12 +43,12 @@ namespace JobNear.Styles
                 container.Region = new Region(Rounded(container.Width, container.Height, radius));
             };
 
-            // --- Style the textbox ---
+
             txt.BorderStyle = BorderStyle.None;
             txt.Location = new Point(12, 8);
             txt.Width = container.Width - 24;
 
-            // --- Add controls ---
+
             parent.Controls.Add(shadow);
             parent.Controls.Add(container);
             container.Controls.Add(txt);
@@ -64,14 +62,13 @@ namespace JobNear.Styles
         {
             Control parent = txt.Parent;
 
-            // Always ensure single line (password masking requirement)
             txt.Multiline = false;
 
-            // Save mask state
+
             bool mask = txt.UseSystemPasswordChar;
             char maskChar = txt.PasswordChar;
 
-            // Shadow panel
+
             Panel shadow = new Panel();
             shadow.BackColor = Color.Transparent;
             shadow.Size = new Size(txt.Width + shadowSize * 2, height + shadowSize * 2);
@@ -92,7 +89,7 @@ namespace JobNear.Styles
                 }
             };
 
-            // Main container
+
             Panel container = new Panel();
             container.Size = new Size(txt.Width, height);
             container.Location = txt.Location;
@@ -109,7 +106,7 @@ namespace JobNear.Styles
             txt.Location = new Point(12, (container.Height - txt.Height) / 2);
             txt.Width = container.Width - 24;
 
-            // Attach
+
             parent.Controls.Add(shadow);
             parent.Controls.Add(container);
             container.Controls.Add(txt);
@@ -117,7 +114,7 @@ namespace JobNear.Styles
             shadow.SendToBack();
             txt.BringToFront();
 
-            // Restore masking
+
             txt.UseSystemPasswordChar = mask;
             txt.PasswordChar = maskChar;
         }

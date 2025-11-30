@@ -5,11 +5,7 @@ using System;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
-using JobNear.Services;
-using System.Xml;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using Button = System.Windows.Forms.Button;
-using MongoDB.Driver;
 
 namespace JobNear.Styles
 {
@@ -239,7 +235,8 @@ namespace JobNear.Styles
         }
 
 
-        public static void AddMyBusiness(string businessSpecificId, string businessName, string businessDescription, string businessaddress, string businessStatus , FlowLayoutPanel file_flowlayout, Panel my_business_panel) {
+        public static void AddMyBusiness(string businessSpecificId, string businessName, string businessDescription, string businessaddress, string businessStatus, FlowLayoutPanel file_flowlayout, Panel my_business_panel)
+        {
             Panel businessPanel = new Panel();
             businessPanel.Height = 150;
             businessPanel.Width = file_flowlayout.Width - 20;
@@ -294,7 +291,7 @@ namespace JobNear.Styles
             addresLabel.Font = new Font("Poppins", 9, FontStyle.Regular);
             addresLabel.ForeColor = Color.Gray;
 
-            businessPanel.Click +=  (s, e) =>
+            businessPanel.Click += (s, e) =>
             {
                 Session.CurrentBusinessSelected = businessSpecificId;
                 Session.CurrentBusinessSelectedStatus = businessStatus;
@@ -307,7 +304,8 @@ namespace JobNear.Styles
                     businessDetails.Dock = DockStyle.Fill;
                 }
 
-                else {
+                else
+                {
                     JobPosterDashboardUserControl.JP_BusinessDetails jp_businessDeets = new JobPosterDashboardUserControl.JP_BusinessDetails(Session.CurrentBusinessSelected);
                     my_business_panel.Controls.Clear();
                     my_business_panel.Controls.Add(jp_businessDeets);
@@ -361,11 +359,11 @@ namespace JobNear.Styles
                 UserController.SetJobPostStatus(jobStatus, onRev);
             }
             else
-            { 
+            {
                 UserController.SetJobPostStatus(jobStatus, job_status);
             }
 
-            Label jobInfo= new Label();
+            Label jobInfo = new Label();
             jobInfo.AutoSize = false;
             jobInfo.Text = $" {work_model} | {employment_type}";
             jobInfo.Width = 700;
@@ -402,7 +400,7 @@ namespace JobNear.Styles
             {
                 jobEditPost.Click += (s, e) =>
                 {
-                    if(Session.CurrentBusinessSelectedStatus != "Verified")
+                    if (Session.CurrentBusinessSelectedStatus != "Verified")
                     {
                         MessageBox.Show("Business must be Verified to edit a job post!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
@@ -420,7 +418,7 @@ namespace JobNear.Styles
                     editJobForm.Dock = DockStyle.Fill;
                 };
             }
-            else 
+            else
             {
                 postJobPanel.Click += (s, e) =>
                 {
@@ -431,14 +429,14 @@ namespace JobNear.Styles
                     activeJobDetails.Dock = DockStyle.Fill;
                 };
 
-                jobEditPost.Visible = false; 
+                jobEditPost.Visible = false;
             }
 
 
 
             ButtonStyle.RoundedButton(jobEditPost, 5, "#3B82F6");
             PanelStyles.RoundedPanel(postJobPanel, 20, Color.White);
-            
+
             postJobPanel.Controls.Add(jobPosition);
             postJobPanel.Controls.Add(jobInfo);
             postJobPanel.Controls.Add(jobDescription);
@@ -449,7 +447,8 @@ namespace JobNear.Styles
 
         }
 
-        public static void LoadActivePostedJob(string job_id, string job_postion, string work_model, string employment_type, string job_description, string job_status, string job_address, FlowLayoutPanel joblist_flowlayout, Panel sidebar_panel) {
+        public static void LoadActivePostedJob(string job_id, string job_postion, string work_model, string employment_type, string job_description, string job_status, string job_address, FlowLayoutPanel joblist_flowlayout, Panel sidebar_panel)
+        {
             Panel postJobPanel = new Panel();
             postJobPanel.Height = 150;
             postJobPanel.Width = joblist_flowlayout.Width - 20;
@@ -472,7 +471,7 @@ namespace JobNear.Styles
             jobStatus.Width = 100;
             jobStatus.Height = 25;
             jobStatus.BorderStyle = BorderStyle.None;
-            jobStatus.Location = new Point(joblist_flowlayout.Width - 180   , 14);
+            jobStatus.Location = new Point(joblist_flowlayout.Width - 180, 14);
             jobStatus.TextAlign = ContentAlignment.MiddleCenter;
             jobStatus.Font = new Font("Poppins", 12, FontStyle.Bold);
 
@@ -521,7 +520,7 @@ namespace JobNear.Styles
                 sidebar_panel.Controls.Clear();
                 sidebar_panel.Controls.Add(activeJobDetails);
                 activeJobDetails.Dock = DockStyle.Fill;
-            };  
+            };
 
             postJobPanel.Controls.Add(jobPosition);
             postJobPanel.Controls.Add(jobInfo);

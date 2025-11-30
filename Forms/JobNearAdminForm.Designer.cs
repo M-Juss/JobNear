@@ -54,7 +54,6 @@
             this.app_panel.Name = "app_panel";
             this.app_panel.Size = new System.Drawing.Size(1231, 705);
             this.app_panel.TabIndex = 0;
-            this.app_panel.Paint += new System.Windows.Forms.PaintEventHandler(this.app_panel_Paint);
             // 
             // prev_lbl
             // 
@@ -83,7 +82,6 @@
             this.panel.Name = "panel";
             this.panel.Size = new System.Drawing.Size(468, 528);
             this.panel.TabIndex = 23;
-            this.panel.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // password_input
             // 
@@ -180,7 +178,6 @@
             this.Name = "JobNearAdminForm_";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "JobNearAdminForm_";
-            this.Load += new System.EventHandler(this.JobNearAdminForm__Load);
             this.app_panel.ResumeLayout(false);
             this.app_panel.PerformLayout();
             this.panel.ResumeLayout(false);

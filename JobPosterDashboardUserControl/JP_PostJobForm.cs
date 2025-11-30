@@ -1,10 +1,8 @@
-﻿using JobNear.Forms;
-using JobNear.Services;
+﻿using JobNear.Services;
 using JobNear.Styles;
 using MongoDB.Driver;
 using System;
 using System.Drawing;
-using System.Security.Cryptography;
 using System.Windows.Forms;
 
 namespace JobNear.JobPosterDashboardUserControl
@@ -15,32 +13,26 @@ namespace JobNear.JobPosterDashboardUserControl
         public JP_PostJobForm(string businessSelected)
         {
             InitializeComponent();
-            payment_combo.Text = "Select Payment Type";
+            SetUpUI();
             paymenttype_label.Text = "";
-            TextBoxValidatorController.AllowOnlyNumbers(hourly_input);
-            TextBoxValidatorController.AllowOnlyNumbers(monthly_input);
-            PanelStyles.RoundedPanel(job_panel, 10, Color.White);
-
-            ButtonStyle.RoundedButton(post_button, 10, "#10B981");
-            ButtonStyle.RoundedButton(cancel_button, 10, "#495057");
-
         }
 
-        public  JP_PostJobForm(string mode, string id)
+        public JP_PostJobForm(string mode, string id)
         {
             InitializeComponent();
-            payment_combo.Text = "Select Payment Type";
-
+            SetUpUI();
             LoadPostedJobDetails(id);
+        }
 
+        private void SetUpUI()
+        {
+            payment_combo.Text = "Select Payment Type";
             TextBoxValidatorController.AllowOnlyNumbers(hourly_input);
             TextBoxValidatorController.AllowOnlyNumbers(monthly_input);
             PanelStyles.RoundedPanel(job_panel, 10, Color.White);
             ButtonStyle.RoundedButton(post_button, 10, "#10B981");
             ButtonStyle.RoundedButton(cancel_button, 10, "#495057");
         }
-
-
         public async void LoadPostedJobDetails(string jobId)
         {
             var jobDetails = await MongoDbServices.JobPosterJobPosting
@@ -92,9 +84,9 @@ namespace JobNear.JobPosterDashboardUserControl
         }
         private async void post_button_Click_1(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(title_input.Text) || string.IsNullOrEmpty(min_qualification_richbox.Text) || 
-                string.IsNullOrEmpty(about_job_richbox.Text) ||string.IsNullOrEmpty(responsibilities_richbox.Text) ||
-                string.IsNullOrEmpty(preferred_qualification_richbox.Text) ||string.IsNullOrEmpty(payment_combo.Text) || string.IsNullOrEmpty(status_combo.Text))
+            if (string.IsNullOrEmpty(title_input.Text) || string.IsNullOrEmpty(min_qualification_richbox.Text) ||
+                string.IsNullOrEmpty(about_job_richbox.Text) || string.IsNullOrEmpty(responsibilities_richbox.Text) ||
+                string.IsNullOrEmpty(preferred_qualification_richbox.Text) || string.IsNullOrEmpty(payment_combo.Text) || string.IsNullOrEmpty(status_combo.Text))
             {
                 MessageBox.Show("Please fill all fields", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -137,7 +129,8 @@ namespace JobNear.JobPosterDashboardUserControl
             else if (hybrid_radiobtn.Checked) work_model = "Hybrid";
 
 
-            try {
+            try
+            {
                 string position = title_input.Text.Trim();
                 string emptype = employment_type.Trim();
                 string workmodel = work_model.Trim();
@@ -175,27 +168,28 @@ namespace JobNear.JobPosterDashboardUserControl
 
                     if (response)
                     {
-                            string result = MessageBox.Show("Job posted successfully!",
-                                "Success",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Information
-                            ).ToString();
+                        string result = MessageBox.Show("Job posted successfully!",
+                            "Success",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Information
+                        ).ToString();
 
-                            if (result == "OK")
-                            {
-                                sidebar_panel.Controls.Clear();
-                                JP_BusinessDetails profile = new JP_BusinessDetails(Session.CurrentBusinessSelected);
-                                profile.Dock = DockStyle.Fill;
-                                sidebar_panel.Controls.Add(profile);
-                            }
+                        if (result == "OK")
+                        {
+                            sidebar_panel.Controls.Clear();
+                            JP_BusinessDetails profile = new JP_BusinessDetails(Session.CurrentBusinessSelected);
+                            profile.Dock = DockStyle.Fill;
+                            sidebar_panel.Controls.Add(profile);
+                        }
                     }
                     else
                     {
-                      MessageBox.Show("Failed to update profile. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Failed to update profile. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
 
-                else if (Session.CurrentPostJobFormMode == "edit") {
+                else if (Session.CurrentPostJobFormMode == "edit")
+                {
 
                     bool response = await MongoDbServices.UpdatePostedJobAsync(
                         Session.CurrentPostedJobSelected,
@@ -220,23 +214,24 @@ namespace JobNear.JobPosterDashboardUserControl
                                     MessageBoxIcon.Information
                                 ).ToString();
 
-                         if (result == "OK")
-                         {
+                        if (result == "OK")
+                        {
                             sidebar_panel.Controls.Clear();
                             JP_BusinessDetails profile = new JP_BusinessDetails(Session.CurrentBusinessSelected);
                             profile.Dock = DockStyle.Fill;
                             sidebar_panel.Controls.Add(profile);
-                         }
+                        }
                     }
                     else
                     {
-                       MessageBox.Show("Failed to update profile. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Failed to update profile. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
 
 
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 MessageBox.Show("An error occurred while posting the job: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
@@ -253,7 +248,7 @@ namespace JobNear.JobPosterDashboardUserControl
             }
             else if (payment_combo.SelectedIndex == 1)
             {
-                paymenttype_label.Text = "Rate Per Hour"; 
+                paymenttype_label.Text = "Rate Per Hour";
                 hourly_input.Visible = true;
                 monthly_input.Visible = false;
 
@@ -268,39 +263,6 @@ namespace JobNear.JobPosterDashboardUserControl
             sidebar_panel.Dock = DockStyle.Fill;
         }
 
-        private void sidebar_panel_Paint(object sender, PaintEventArgs e)
-        {
 
-        }
-
-        private void panel4_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void paymenttype_label_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void hourly_input_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label11_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void status_combo_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label10_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

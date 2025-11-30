@@ -1,9 +1,8 @@
-﻿using System.Collections.Generic;
-using System.Windows.Forms;
-using JobNear.Controllers;
-using MongoDB.Driver;
+﻿using JobNear.Controllers;
 using JobNear.Services;
 using JobNear.Styles;
+using MongoDB.Driver;
+using System.Windows.Forms;
 
 namespace JobNear.JobSeekerDashboardUserControl
 {
@@ -12,29 +11,31 @@ namespace JobNear.JobSeekerDashboardUserControl
         public JS_JobBrowse()
         {
             InitializeComponent();
-
+            LoadBusinessInMap();
 
             MapController.InitializeMap(map_panel, Session.CurrentLatitude, Session.CurrentLongitude);
-
-            LoadBusinessInMap();
             ButtonStyle.RoundedButton(reset_button, 10, "#10B981");
+
             distance_combo.SelectedIndex = 0;
 
         }
 
-        private async void LoadBusinessInMap() { 
+        private async void LoadBusinessInMap()
+        {
 
             var businesses = await MongoDbServices.JobPosterBusiness
                 .Find(x => x.Status == "Verified")
                 .ToListAsync();
 
-            if (businesses != null) {
+            if (businesses != null)
+            {
 
-                foreach (var business in businesses) {
+                foreach (var business in businesses)
+                {
 
                     var businessActiveJobs = await MongoDbServices.JobPosterJobPosting
                         .CountDocumentsAsync(x => x.JobStatus == "Active");
-                        
+
                     string toolTipText = $"\n{business.BusinessName}\n{business.BusinessAddress}\n{businessActiveJobs} Active Jobs ";
 
                     MapController.AddBusinessMarker(
@@ -45,18 +46,8 @@ namespace JobNear.JobSeekerDashboardUserControl
                     );
                 }
 
-                    
+
             }
-        }
-
-        private void map_panel_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void sidebar_panel_Paint(object sender, PaintEventArgs e)
-        {
-
         }
 
         private void distance_combo_SelectedIndexChanged(object sender, System.EventArgs e)

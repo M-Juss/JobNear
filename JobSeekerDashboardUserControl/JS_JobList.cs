@@ -1,8 +1,6 @@
-﻿using JobNear.Models;
-using JobNear.Services;
+﻿using JobNear.Services;
 using JobNear.Styles;
 using MongoDB.Driver;
-using System;
 using System.Windows.Forms;
 
 namespace JobNear.JobSeekerDashboardUserControl
@@ -14,7 +12,6 @@ namespace JobNear.JobSeekerDashboardUserControl
             InitializeComponent();
             LoadPostedJobs();
         }
-
         public async void LoadPostedJobs()
         {
 
@@ -39,10 +36,6 @@ namespace JobNear.JobSeekerDashboardUserControl
                     );
                 });
             }
-
-        }
-        private void sidebar_panel_Paint(object sender, PaintEventArgs e)
-        {
 
         }
     }

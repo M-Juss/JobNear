@@ -1,18 +1,9 @@
-﻿using JobNear.Styles;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using JobNear.Controller;
+﻿using JobNear.Controller;
 using JobNear.Services;
-using JobNear.Controllers;
-using MongoDB.Driver;
-using JobNear.Models;
+using JobNear.Styles;
+using System;
+using System.Drawing;
+using System.Windows.Forms;
 
 namespace JobNear.Forms
 {
@@ -21,6 +12,11 @@ namespace JobNear.Forms
         public JobSeekerLoginForm()
         {
             InitializeComponent();
+            SetUpUI();
+        }
+
+        private void SetUpUI()
+        {
             ButtonStyle.RoundedButton(login_button, 40, "#10B981");
 
             PanelStyles.RoundedPanel(panel, 20, Color.White);
@@ -30,11 +26,7 @@ namespace JobNear.Forms
 
 
             password_input.UseSystemPasswordChar = true;
-
-
         }
-
-
         private void back_button_Click(object sender, EventArgs e)
         {
             FormsController.FormLoad(new JobNearUserForm(), app_panel);
@@ -50,13 +42,12 @@ namespace JobNear.Forms
             FormsController.FormLoad(new ForgotPasswordForm("jobseeker"), app_panel);
         }
 
-        private void password_checkbox_CheckedChanged(object sender, EventArgs e)
-        {
-            //password_input.UseSystemPasswordChar = !password_checkbox.Checked;
-        }
-
         private async void login_button_Click(object sender, EventArgs e)
         {
+            if (!TextBoxValidatorController.ValidateEmail(email_input))
+            {
+                return;
+            }
             if (string.IsNullOrEmpty(email_input.Text) || string.IsNullOrEmpty(password_input.Text))
             {
                 MessageBox.Show("Please fill all fields", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);

@@ -4,7 +4,6 @@ using JobNear.Styles;
 using MongoDB.Driver;
 using System;
 using System.Drawing;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace JobNear.AdminDashboardUserControl
@@ -14,13 +13,8 @@ namespace JobNear.AdminDashboardUserControl
         public Admin_ViewReportDetails(string complainantId, string complaineeId, string reportId, string status)
         {
             InitializeComponent();
-            DesignPanels();
             LoadReportDetails(complainantId, complaineeId, reportId);
-            TextboxStyles.RoundedTextBoxShadow(subject_lbl, 10, "#FFFFFF", 1);
-            TextboxStyles.RoundedTextBoxShadow(description_lbl, 10, "#FFFFFF", 1);
-
-            ButtonStyle.RoundedButton(submit_button, 10, "#10B981");
-            ButtonStyle.RoundedButton(cancel_button, 10, "#495057");
+            SetUpUI();
 
             back_button.Visible = false;
             if (status == "Closed")
@@ -86,13 +80,19 @@ namespace JobNear.AdminDashboardUserControl
             }
         }
 
-        private void DesignPanels()
+        private void SetUpUI()
         {
             PanelStyles.StyleRoundedLabel(complainant_lbl, 5, Color.Green, Color.White);
             PanelStyles.StyleRoundedLabel(complainee_lbl, 5, Color.Orange, Color.White);
             PanelStyles.RoundedPanel(complainant_panel, 5, Color.White, Color.LightGray);
             PanelStyles.RoundedPanel(complainee_panel, 5, Color.White, Color.LightGray);
             PanelStyles.RoundedPanel(details_panel, 15, Color.White, Color.LightGray);
+
+            TextboxStyles.RoundedTextBoxShadow(subject_lbl, 10, "#FFFFFF", 1);
+            TextboxStyles.RoundedTextBoxShadow(description_lbl, 10, "#FFFFFF", 1);
+
+            ButtonStyle.RoundedButton(submit_button, 10, "#10B981");
+            ButtonStyle.RoundedButton(cancel_button, 10, "#495057");
         }
 
         private async void submit_button_Click(object sender, EventArgs e)
@@ -220,11 +220,6 @@ namespace JobNear.AdminDashboardUserControl
             sidebar_panel.Controls.Clear();
             sidebar_panel.Controls.Add(rnc);
             rnc.Dock = DockStyle.Fill;
-        }
-
-        private void sidebar_panel_Paint(object sender, PaintEventArgs e)
-        {
-
         }
 
         private void back_button_Click(object sender, EventArgs e)

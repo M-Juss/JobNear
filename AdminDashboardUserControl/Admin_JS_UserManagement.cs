@@ -1,21 +1,11 @@
-﻿using JobNear.Controller;
-using JobNear.Controllers;
-using JobNear.JobSeekerDashboardUserControl;
-using JobNear.Models;
+﻿using JobNear.Models;
 using JobNear.Services;
 using JobNear.Styles;
 using MongoDB.Driver;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Xml.Serialization;
 
 namespace JobNear.AdminDashboardUserControl
 {
@@ -27,8 +17,8 @@ namespace JobNear.AdminDashboardUserControl
             SetUpJsPanel();
         }
 
-        private void SetUpJsPanel() {
-
+        private void SetUpJsPanel()
+        {
             seeker_table.CellPainting += (s, e) =>
             {
                 if (e.RowIndex >= 0 &&
@@ -107,7 +97,6 @@ namespace JobNear.AdminDashboardUserControl
             search_input.ForeColor = Color.Gray;
         }
 
-
         private void seeker_table_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
@@ -127,17 +116,6 @@ namespace JobNear.AdminDashboardUserControl
             search_input.Text = "";
             search_input.ForeColor = Color.Gray;
         }
-
-        private void sidebar_panel_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private async void status_combo_SelectedIndexChanged(object sender, EventArgs e)
         {
             string response = status_combo.Text.ToLower();
@@ -155,7 +133,8 @@ namespace JobNear.AdminDashboardUserControl
 
                     if (pendingAccounts != null)
                     {
-                        pendingAccounts.ForEach(account => {
+                        pendingAccounts.ForEach(account =>
+                        {
 
 
                             string fullname = $"{account.Lastname}, {account.Firstname} {account.Middlename}";
@@ -176,7 +155,8 @@ namespace JobNear.AdminDashboardUserControl
 
                     if (verifiedAccount != null)
                     {
-                        verifiedAccount.ForEach(account => {
+                        verifiedAccount.ForEach(account =>
+                        {
 
 
                             string fullname = $"{account.Lastname}, {account.Firstname} {account.Middlename}";
@@ -198,7 +178,8 @@ namespace JobNear.AdminDashboardUserControl
 
                     if (incompleteAccount != null)
                     {
-                        incompleteAccount.ForEach(account => {
+                        incompleteAccount.ForEach(account =>
+                        {
 
 
                             string fullname = $"{account.Lastname}, {account.Firstname} {account.Middlename}";
@@ -220,7 +201,8 @@ namespace JobNear.AdminDashboardUserControl
 
                     if (rejectedAccount != null)
                     {
-                        rejectedAccount.ForEach(account => {
+                        rejectedAccount.ForEach(account =>
+                        {
                             string fullname = $"{account.Lastname}, {account.Firstname} {account.Middlename}";
 
                             seeker_table.Rows.Add(account.Username, fullname, account.Email, account.Phone, account.Age, account.Sex, account.Status);
@@ -240,7 +222,8 @@ namespace JobNear.AdminDashboardUserControl
 
                     if (allAccount != null)
                     {
-                        allAccount.ForEach(account => {
+                        allAccount.ForEach(account =>
+                        {
 
                             string fullname = $"{account.Lastname}, {account.Firstname} {account.Middlename}";
 
