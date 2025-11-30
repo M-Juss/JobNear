@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.sidebar_panel = new System.Windows.Forms.Panel();
-            this.search_input = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.table_panel = new System.Windows.Forms.Panel();
             this.poster_table = new System.Windows.Forms.DataGridView();
@@ -40,7 +39,6 @@
             // 
             // sidebar_panel
             // 
-            this.sidebar_panel.Controls.Add(this.search_input);
             this.sidebar_panel.Controls.Add(this.label1);
             this.sidebar_panel.Controls.Add(this.table_panel);
             this.sidebar_panel.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -48,15 +46,6 @@
             this.sidebar_panel.Name = "sidebar_panel";
             this.sidebar_panel.Size = new System.Drawing.Size(1031, 705);
             this.sidebar_panel.TabIndex = 0;
-            // 
-            // search_input
-            // 
-            this.search_input.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.search_input.Location = new System.Drawing.Point(29, 93);
-            this.search_input.Margin = new System.Windows.Forms.Padding(2);
-            this.search_input.Name = "search_input";
-            this.search_input.Size = new System.Drawing.Size(611, 31);
-            this.search_input.TabIndex = 13;
             // 
             // label1
             // 
@@ -109,7 +98,6 @@
         #endregion
 
         private System.Windows.Forms.Panel sidebar_panel;
-        private System.Windows.Forms.TextBox search_input;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel table_panel;
         private System.Windows.Forms.DataGridView poster_table;

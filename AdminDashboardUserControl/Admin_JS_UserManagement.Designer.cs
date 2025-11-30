@@ -31,7 +31,6 @@
             this.table_panel = new System.Windows.Forms.Panel();
             this.seeker_table = new System.Windows.Forms.DataGridView();
             this.sidebar_panel = new System.Windows.Forms.Panel();
-            this.search_input = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.status_combo = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -65,7 +64,6 @@
             // sidebar_panel
             // 
             this.sidebar_panel.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.sidebar_panel.Controls.Add(this.search_input);
             this.sidebar_panel.Controls.Add(this.label1);
             this.sidebar_panel.Controls.Add(this.table_panel);
             this.sidebar_panel.Controls.Add(this.status_combo);
@@ -75,16 +73,6 @@
             this.sidebar_panel.Name = "sidebar_panel";
             this.sidebar_panel.Size = new System.Drawing.Size(1031, 705);
             this.sidebar_panel.TabIndex = 7;
-            // 
-            // search_input
-            // 
-            this.search_input.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.search_input.Location = new System.Drawing.Point(29, 93);
-            this.search_input.Margin = new System.Windows.Forms.Padding(2);
-            this.search_input.Name = "search_input";
-            this.search_input.Size = new System.Drawing.Size(611, 31);
-            this.search_input.TabIndex = 7;
-            this.search_input.MouseClick += new System.Windows.Forms.MouseEventHandler(this.search_input_MouseClick);
             // 
             // label1
             // 
@@ -145,6 +133,5 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox status_combo;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox search_input;
     }
 }
