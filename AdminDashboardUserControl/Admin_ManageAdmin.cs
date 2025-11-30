@@ -141,12 +141,16 @@ namespace JobNear.AdminDashboardUserControl
                 || string.IsNullOrEmpty(name_input.Text) || role_combo.SelectedIndex == -1 || status_combo.SelectedIndex == -1)
             {
                 MessageBox.Show("Please fill all fields", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
-            else
-            {
+
+            if (!TextBoxValidatorController.ValidateEmail(email_input)) {
+                return;
+            }
                 if (password_input.Text != confirm_input.Text)
                 {
                     MessageBox.Show("Passwords do not match", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return ;
                 }
                 else
                 {
@@ -174,7 +178,7 @@ namespace JobNear.AdminDashboardUserControl
                     }
                 }
             }
-        }
+        
         private void InitializeTable()
         {
 
