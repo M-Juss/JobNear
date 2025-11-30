@@ -1,4 +1,5 @@
-﻿using System;
+﻿using JobNear.Styles;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,12 @@ namespace JobNear.Forms
         public MaintenanceForm()
         {
             InitializeComponent();
+            ButtonStyle.RoundedButton(add_button, 10, "#10B981");
+        }
+
+        private void add_button_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
