@@ -89,8 +89,6 @@ namespace JobNear.AdminDashboardUserControl
 
             InitialTableValue();
 
-            search_input.Text = "Search";
-            search_input.ForeColor = Color.Gray;
         }
         private async void InitialTableValue()
         {

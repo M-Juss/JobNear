@@ -92,9 +92,6 @@ namespace JobNear.AdminDashboardUserControl
             actionButton.DefaultCellStyle.Font = new Font("Poppins", 12, FontStyle.Bold);
 
             seeker_table.Columns.Add(actionButton);
-
-            search_input.Text = "Search";
-            search_input.ForeColor = Color.Gray;
         }
 
         private void seeker_table_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -109,12 +106,6 @@ namespace JobNear.AdminDashboardUserControl
                 sidebar_panel.Controls.Add(viewInformation);
                 viewInformation.Dock = DockStyle.Fill;
             }
-        }
-
-        private void search_input_MouseClick(object sender, MouseEventArgs e)
-        {
-            search_input.Text = "";
-            search_input.ForeColor = Color.Gray;
         }
         private async void status_combo_SelectedIndexChanged(object sender, EventArgs e)
         {
