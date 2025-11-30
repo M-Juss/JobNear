@@ -36,7 +36,6 @@
             this.about_job_richbox = new System.Windows.Forms.TextBox();
             this.min_qualification_richbox = new System.Windows.Forms.TextBox();
             this.title_input = new System.Windows.Forms.TextBox();
-            this.paymenttype_label = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.payment_combo = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -53,11 +52,12 @@
             this.fully_office_radiobtn = new System.Windows.Forms.RadioButton();
             this.cancel_button = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.preferred_qualification_richbox = new System.Windows.Forms.TextBox();
             this.hourly_input = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.paymenttype_label = new System.Windows.Forms.Label();
             this.sidebar_panel.SuspendLayout();
             this.job_panel.SuspendLayout();
             this.SuspendLayout();
@@ -126,7 +126,7 @@
             this.job_panel.Controls.Add(this.label6);
             this.job_panel.Controls.Add(this.paymenttype_label);
             this.job_panel.Location = new System.Drawing.Point(44, 63);
-            this.job_panel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.job_panel.Margin = new System.Windows.Forms.Padding(2);
             this.job_panel.Name = "job_panel";
             this.job_panel.Size = new System.Drawing.Size(933, 1120);
             this.job_panel.TabIndex = 138;
@@ -167,21 +167,11 @@
             this.title_input.Size = new System.Drawing.Size(867, 32);
             this.title_input.TabIndex = 112;
             // 
-            // paymenttype_label
-            // 
-            this.paymenttype_label.AutoSize = true;
-            this.paymenttype_label.Font = new System.Drawing.Font("Poppins SemiBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.paymenttype_label.Location = new System.Drawing.Point(316, 960);
-            this.paymenttype_label.Name = "paymenttype_label";
-            this.paymenttype_label.Size = new System.Drawing.Size(185, 34);
-            this.paymenttype_label.TabIndex = 136;
-            this.paymenttype_label.Text = "Salary per month";
-            this.paymenttype_label.Click += new System.EventHandler(this.paymenttype_label_Click);
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Poppins SemiBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.DimGray;
             this.label1.Location = new System.Drawing.Point(25, 20);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(191, 34);
@@ -205,6 +195,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Poppins SemiBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.DimGray;
             this.label3.Location = new System.Drawing.Point(26, 98);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(190, 34);
@@ -224,6 +215,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Poppins SemiBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.DimGray;
             this.label4.Location = new System.Drawing.Point(355, 98);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(205, 34);
@@ -259,6 +251,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Poppins SemiBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.DimGray;
             this.label11.Location = new System.Drawing.Point(625, 960);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(77, 34);
@@ -281,6 +274,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Poppins SemiBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.DimGray;
             this.label10.Location = new System.Drawing.Point(30, 960);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(155, 34);
@@ -314,7 +308,8 @@
             // 
             // post_button
             // 
-            this.post_button.Font = new System.Drawing.Font("Poppins SemiBold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.post_button.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.post_button.ForeColor = System.Drawing.Color.White;
             this.post_button.Location = new System.Drawing.Point(788, 1060);
             this.post_button.Name = "post_button";
             this.post_button.Size = new System.Drawing.Size(109, 36);
@@ -337,7 +332,8 @@
             // 
             // cancel_button
             // 
-            this.cancel_button.Font = new System.Drawing.Font("Poppins SemiBold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cancel_button.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cancel_button.ForeColor = System.Drawing.Color.White;
             this.cancel_button.Location = new System.Drawing.Point(674, 1060);
             this.cancel_button.Name = "cancel_button";
             this.cancel_button.Size = new System.Drawing.Size(104, 36);
@@ -350,26 +346,18 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Poppins SemiBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.DimGray;
             this.label5.Location = new System.Drawing.Point(28, 172);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(247, 34);
             this.label5.TabIndex = 120;
             this.label5.Text = "Minimum Qualifications";
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Poppins SemiBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(29, 368);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(246, 34);
-            this.label6.TabIndex = 122;
-            this.label6.Text = "Preferred Qualifications";
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Poppins SemiBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.DimGray;
             this.label7.Location = new System.Drawing.Point(29, 565);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(152, 34);
@@ -380,6 +368,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Poppins SemiBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.DimGray;
             this.label8.Location = new System.Drawing.Point(27, 763);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(164, 34);
@@ -404,6 +393,29 @@
             this.hourly_input.Size = new System.Drawing.Size(276, 36);
             this.hourly_input.TabIndex = 137;
             this.hourly_input.TextChanged += new System.EventHandler(this.hourly_input_TextChanged);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Poppins SemiBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.DimGray;
+            this.label6.Location = new System.Drawing.Point(29, 368);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(246, 34);
+            this.label6.TabIndex = 122;
+            this.label6.Text = "Preferred Qualifications";
+            // 
+            // paymenttype_label
+            // 
+            this.paymenttype_label.AutoSize = true;
+            this.paymenttype_label.Font = new System.Drawing.Font("Poppins SemiBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.paymenttype_label.ForeColor = System.Drawing.Color.DimGray;
+            this.paymenttype_label.Location = new System.Drawing.Point(316, 960);
+            this.paymenttype_label.Name = "paymenttype_label";
+            this.paymenttype_label.Size = new System.Drawing.Size(185, 34);
+            this.paymenttype_label.TabIndex = 136;
+            this.paymenttype_label.Text = "Salary per month";
+            this.paymenttype_label.Click += new System.EventHandler(this.paymenttype_label_Click);
             // 
             // JP_PostJobForm
             // 

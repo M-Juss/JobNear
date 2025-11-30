@@ -36,10 +36,10 @@
             this.image_flowlayout = new System.Windows.Forms.FlowLayoutPanel();
             this.attach_file = new System.Windows.Forms.Button();
             this.submit_button = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.cancel_button = new System.Windows.Forms.Button();
             this.subject_input = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.business_panel = new System.Windows.Forms.Panel();
             this.description_label = new System.Windows.Forms.Label();
             this.footer_label = new System.Windows.Forms.Label();
@@ -70,7 +70,6 @@
             this.sidebar_panel.Name = "sidebar_panel";
             this.sidebar_panel.Size = new System.Drawing.Size(1031, 705);
             this.sidebar_panel.TabIndex = 9;
-            this.sidebar_panel.Paint += new System.Windows.Forms.PaintEventHandler(this.sidebar_panel_Paint);
             // 
             // label3
             // 
@@ -89,7 +88,7 @@
             this.info_panel.Controls.Add(this.image_flowlayout);
             this.info_panel.Controls.Add(this.attach_file);
             this.info_panel.Controls.Add(this.submit_button);
-            this.info_panel.Controls.Add(this.button1);
+            this.info_panel.Controls.Add(this.cancel_button);
             this.info_panel.Controls.Add(this.subject_input);
             this.info_panel.Controls.Add(this.label1);
             this.info_panel.Controls.Add(this.label2);
@@ -102,7 +101,7 @@
             // 
             this.description_input.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.description_input.Location = new System.Drawing.Point(144, 62);
-            this.description_input.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.description_input.Margin = new System.Windows.Forms.Padding(2);
             this.description_input.Multiline = true;
             this.description_input.Name = "description_input";
             this.description_input.Size = new System.Drawing.Size(827, 86);
@@ -134,24 +133,27 @@
             // 
             // submit_button
             // 
-            this.submit_button.Font = new System.Drawing.Font("Poppins SemiBold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.submit_button.Location = new System.Drawing.Point(886, 360);
+            this.submit_button.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.submit_button.ForeColor = System.Drawing.Color.White;
+            this.submit_button.Location = new System.Drawing.Point(878, 360);
             this.submit_button.Name = "submit_button";
-            this.submit_button.Size = new System.Drawing.Size(85, 31);
+            this.submit_button.Size = new System.Drawing.Size(93, 35);
             this.submit_button.TabIndex = 47;
             this.submit_button.Text = "Submit";
             this.submit_button.UseVisualStyleBackColor = true;
             this.submit_button.Click += new System.EventHandler(this.submit_button_Click);
             // 
-            // button1
+            // cancel_button
             // 
-            this.button1.Font = new System.Drawing.Font("Poppins SemiBold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(784, 360);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(85, 31);
-            this.button1.TabIndex = 46;
-            this.button1.Text = "Cancel";
-            this.button1.UseVisualStyleBackColor = true;
+            this.cancel_button.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cancel_button.ForeColor = System.Drawing.Color.White;
+            this.cancel_button.Location = new System.Drawing.Point(777, 360);
+            this.cancel_button.Name = "cancel_button";
+            this.cancel_button.Size = new System.Drawing.Size(85, 35);
+            this.cancel_button.TabIndex = 46;
+            this.cancel_button.Text = "Cancel";
+            this.cancel_button.UseVisualStyleBackColor = true;
+            this.cancel_button.Click += new System.EventHandler(this.cancel_button_Click);
             // 
             // subject_input
             // 
@@ -161,17 +163,6 @@
             this.subject_input.Name = "subject_input";
             this.subject_input.Size = new System.Drawing.Size(826, 41);
             this.subject_input.TabIndex = 45;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.DimGray;
-            this.label2.Location = new System.Drawing.Point(35, 56);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(108, 28);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Description:";
             // 
             // label1
             // 
@@ -183,6 +174,17 @@
             this.label1.Size = new System.Drawing.Size(78, 28);
             this.label1.TabIndex = 0;
             this.label1.Text = "Subject:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.DimGray;
+            this.label2.Location = new System.Drawing.Point(35, 56);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(108, 28);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Description:";
             // 
             // business_panel
             // 
@@ -259,7 +261,7 @@
         private System.Windows.Forms.Panel info_panel;
         private System.Windows.Forms.Button attach_file;
         private System.Windows.Forms.Button submit_button;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button cancel_button;
         private System.Windows.Forms.TextBox subject_input;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;

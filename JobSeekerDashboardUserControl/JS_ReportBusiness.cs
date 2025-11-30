@@ -18,22 +18,15 @@ namespace JobNear.JobSeekerDashboardUserControl
             image_flowlayout.FlowDirection = FlowDirection.TopDown;
             image_flowlayout.WrapContents = false;
             image_flowlayout.AutoScroll = true;
+            ButtonStyle.RoundedButton(attach_file, 25, "#F5F5F5");
+            ButtonStyle.RoundedButton(submit_button, 10, "#10B981");
+            ButtonStyle.RoundedButton(cancel_button, 10, "#495057");
             PanelStyles.RoundedPanel(business_panel, 20, Color.White);
             PanelStyles.RoundedPanel(info_panel, 20, Color.White);
             TextboxStyles.RoundedTextBoxShadow(subject_input, 10, "#FFFFFF", 1);
             TextboxStyles.RoundedTextBoxShadow(description_input, 10, "#FFFFFF", 1);
 
             LoadSelectedBusiness(businessSpecificId);
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void sidebar_panel_Paint(object sender, PaintEventArgs e)
-        {
-
         }
 
 
@@ -133,6 +126,14 @@ namespace JobNear.JobSeekerDashboardUserControl
             {
                 MessageBox.Show("Failed to insert report. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void cancel_button_Click(object sender, EventArgs e)
+        {
+            JobSeekerDashboardUserControl.JS_ViewBusiness view = new JobSeekerDashboardUserControl.JS_ViewBusiness(Session.CurrentBusinessSelected);
+            Session.CurrentSidebarPanel.Controls.Clear();
+            Session.CurrentSidebarPanel.Controls.Add(view);
+            view.Dock = DockStyle.Fill;
         }
     }
 }

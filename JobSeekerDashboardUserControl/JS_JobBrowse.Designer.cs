@@ -29,16 +29,18 @@
         private void InitializeComponent()
         {
             this.sidebar_panel = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.distance_combo = new System.Windows.Forms.ComboBox();
             this.map_panel = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.reset_button = new System.Windows.Forms.Button();
             this.sidebar_panel.SuspendLayout();
             this.SuspendLayout();
             // 
             // sidebar_panel
             // 
             this.sidebar_panel.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.sidebar_panel.Controls.Add(this.reset_button);
             this.sidebar_panel.Controls.Add(this.label1);
             this.sidebar_panel.Controls.Add(this.distance_combo);
             this.sidebar_panel.Controls.Add(this.map_panel);
@@ -49,6 +51,16 @@
             this.sidebar_panel.Size = new System.Drawing.Size(1031, 705);
             this.sidebar_panel.TabIndex = 4;
             this.sidebar_panel.Paint += new System.Windows.Forms.PaintEventHandler(this.sidebar_panel_Paint);
+            // 
+            // label1
+            // 
+            this.label1.Font = new System.Drawing.Font("Poppins", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.DimGray;
+            this.label1.Location = new System.Drawing.Point(14, 10);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(482, 56);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "📍 Discover Jobs Near You";
             // 
             // distance_combo
             // 
@@ -76,16 +88,6 @@
             this.map_panel.TabIndex = 0;
             this.map_panel.Paint += new System.Windows.Forms.PaintEventHandler(this.map_panel_Paint);
             // 
-            // label1
-            // 
-            this.label1.Font = new System.Drawing.Font("Poppins", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.DimGray;
-            this.label1.Location = new System.Drawing.Point(14, 10);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(482, 56);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "📍 Discover Jobs Near You";
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -96,6 +98,18 @@
             this.label2.Size = new System.Drawing.Size(116, 34);
             this.label2.TabIndex = 4;
             this.label2.Text = "Map Scale";
+            // 
+            // reset_button
+            // 
+            this.reset_button.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.reset_button.ForeColor = System.Drawing.Color.White;
+            this.reset_button.Location = new System.Drawing.Point(828, 72);
+            this.reset_button.Name = "reset_button";
+            this.reset_button.Size = new System.Drawing.Size(175, 35);
+            this.reset_button.TabIndex = 51;
+            this.reset_button.Text = "Reset Map Scale";
+            this.reset_button.UseVisualStyleBackColor = true;
+            this.reset_button.Click += new System.EventHandler(this.reset_button_Click);
             // 
             // JS_JobBrowse
             // 
@@ -117,5 +131,6 @@
         private System.Windows.Forms.ComboBox distance_combo;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button reset_button;
     }
 }

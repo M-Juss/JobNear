@@ -19,8 +19,10 @@ namespace JobNear.JobPosterDashboardUserControl
             paymenttype_label.Text = "";
             TextBoxValidatorController.AllowOnlyNumbers(hourly_input);
             TextBoxValidatorController.AllowOnlyNumbers(monthly_input);
-            PanelStyles.RoundedPanel(job_panel, 20, Color.White);
             PanelStyles.RoundedPanel(job_panel, 10, Color.White);
+
+            ButtonStyle.RoundedButton(post_button, 10, "#10B981");
+            ButtonStyle.RoundedButton(cancel_button, 10, "#495057");
 
         }
 
@@ -34,6 +36,8 @@ namespace JobNear.JobPosterDashboardUserControl
             TextBoxValidatorController.AllowOnlyNumbers(hourly_input);
             TextBoxValidatorController.AllowOnlyNumbers(monthly_input);
             PanelStyles.RoundedPanel(job_panel, 10, Color.White);
+            ButtonStyle.RoundedButton(post_button, 10, "#10B981");
+            ButtonStyle.RoundedButton(cancel_button, 10, "#495057");
         }
 
 

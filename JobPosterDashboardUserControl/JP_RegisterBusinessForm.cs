@@ -371,10 +371,11 @@ namespace JobNear.JobPosterDashboardUserControl
         private void SetUpRegisterBusinessForm()
         {
             ButtonStyle.RoundedButton(attach_file, 25, "#FFFFFF");
-            ButtonStyle.RoundedButton(cancel_button, 25, "#FFFFFF");
-            ButtonStyle.RoundedButton(review_button, 25, "#FFFFFF");
-            ButtonStyle.RoundedButton(upload_button, 25, "#FFFFFF");
-            ButtonStyle.RoundedButton(update_button, 25, "#FFFFFF");
+
+            ButtonStyle.RoundedButton(upload_button, 10, "#3B82F6");
+            ButtonStyle.RoundedButton(review_button, 10, "#10B981");
+            ButtonStyle.RoundedButton(update_button, 10, "#10B981");
+            ButtonStyle.RoundedButton(cancel_button, 10, "#495057");
 
             image_flowlayout.FlowDirection = FlowDirection.TopDown;
             image_flowlayout.WrapContents = false;

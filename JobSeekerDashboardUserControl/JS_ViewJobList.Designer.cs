@@ -72,6 +72,7 @@
             // 
             this.prev_lbl.AutoSize = true;
             this.prev_lbl.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.prev_lbl.ForeColor = System.Drawing.Color.Black;
             this.prev_lbl.Location = new System.Drawing.Point(10, 4);
             this.prev_lbl.Name = "prev_lbl";
             this.prev_lbl.Size = new System.Drawing.Size(102, 28);
@@ -114,6 +115,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Poppins SemiBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.DimGray;
             this.label9.Location = new System.Drawing.Point(512, 258);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(203, 34);
@@ -133,6 +135,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Poppins SemiBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.DimGray;
             this.label11.Location = new System.Drawing.Point(511, 91);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(201, 34);
@@ -152,6 +155,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Poppins SemiBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.DimGray;
             this.label7.Location = new System.Drawing.Point(61, 258);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(164, 34);
@@ -171,6 +175,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Poppins SemiBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.DimGray;
             this.label4.Location = new System.Drawing.Point(60, 91);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(157, 34);
@@ -222,6 +227,7 @@
             // jobtitle_label
             // 
             this.jobtitle_label.Font = new System.Drawing.Font("Poppins SemiBold", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.jobtitle_label.ForeColor = System.Drawing.Color.DimGray;
             this.jobtitle_label.Location = new System.Drawing.Point(50, 7);
             this.jobtitle_label.Name = "jobtitle_label";
             this.jobtitle_label.Size = new System.Drawing.Size(742, 56);
@@ -285,6 +291,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.Controls.Add(this.sidebar_panel);
+            this.ForeColor = System.Drawing.Color.DimGray;
             this.Name = "JS_ViewJobList";
             this.Size = new System.Drawing.Size(1031, 705);
             this.sidebar_panel.ResumeLayout(false);

@@ -25,7 +25,7 @@ namespace JobNear.AdminDashboardUserControl
 
             ButtonStyle.RoundedButton(update_button, 10, "#10B981");
             ButtonStyle.RoundedButton(submit_button, 10, "#10B981");
-            ButtonStyle.RoundedButton(clear_button, 25, "#495057");
+            ButtonStyle.RoundedButton(clear_button, 10, "#495057");
 
             InitializeTable();
             LoadAdminAccounts();

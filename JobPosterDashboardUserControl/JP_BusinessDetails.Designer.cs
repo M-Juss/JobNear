@@ -63,7 +63,7 @@
             this.edit_button.ForeColor = System.Drawing.Color.White;
             this.edit_button.Location = new System.Drawing.Point(892, 20);
             this.edit_button.Name = "edit_button";
-            this.edit_button.Size = new System.Drawing.Size(75, 28);
+            this.edit_button.Size = new System.Drawing.Size(75, 30);
             this.edit_button.TabIndex = 6;
             this.edit_button.Text = "Edit";
             this.edit_button.UseVisualStyleBackColor = true;
@@ -111,7 +111,7 @@
             // 
             // post_job_button
             // 
-            this.post_job_button.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.post_job_button.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.post_job_button.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.post_job_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.post_job_button.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

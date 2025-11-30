@@ -3,6 +3,7 @@ using System.Windows.Forms;
 using JobNear.Controllers;
 using MongoDB.Driver;
 using JobNear.Services;
+using JobNear.Styles;
 
 namespace JobNear.JobSeekerDashboardUserControl
 {
@@ -16,8 +17,8 @@ namespace JobNear.JobSeekerDashboardUserControl
             MapController.InitializeMap(map_panel, Session.CurrentLatitude, Session.CurrentLongitude);
 
             LoadBusinessInMap();
-
-            distance_combo.SelectedIndex = 0; // default to 5 km    
+            ButtonStyle.RoundedButton(reset_button, 10, "#10B981");
+            distance_combo.SelectedIndex = 0;
 
         }
 
@@ -62,6 +63,15 @@ namespace JobNear.JobSeekerDashboardUserControl
         {
             string selectedDistance = distance_combo.SelectedItem.ToString();
             MapController.GetZoomLevel(selectedDistance);
+        }
+
+        private void reset_button_Click(object sender, System.EventArgs e)
+        {
+            JobSeekerDashboardUserControl.JS_JobBrowse js_jobBrowsing = new JobSeekerDashboardUserControl.JS_JobBrowse();
+            sidebar_panel.Controls.Clear();
+            sidebar_panel.Controls.Add(js_jobBrowsing);
+            js_jobBrowsing.Dock = DockStyle.Fill;
+            Session.CurrentSeekJobSelected = "jobbrowse";
         }
     }
 }

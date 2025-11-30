@@ -23,6 +23,7 @@ namespace JobNear.AdminDashboardUserControl
             TextboxStyles.RoundedTextBoxShadow(description_input, 10, "#FFFFFF", 1);
             PanelStyles.RoundedPanel(req_panel, 20, Color.White);
 
+            ButtonStyle.RoundedButton(attach_file, 25, "#F5F5F5");
             ButtonStyle.RoundedButton(add_button, 10, "#10B981");
             ButtonStyle.RoundedButton(cancel_button, 10, "#495057");
         }

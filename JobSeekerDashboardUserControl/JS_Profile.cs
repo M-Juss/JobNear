@@ -51,11 +51,13 @@ namespace JobNear.JobSeekerDashboardUserControl
             SetProfileEditable(false);
 
 
-            ButtonStyle.RoundedButton(upload_button, 25, "#FFFFFF");
+
             ButtonStyle.RoundedButton(attach_file, 25, "#FFFFFF");
-            ButtonStyle.RoundedButton(draft_button, 25, "#FFFFFF");
-            ButtonStyle.RoundedButton(review_button, 25, "#FFFFFF");
-            ButtonStyle.RoundedButton(edit_btn, 25, "#3B82F6");
+            ButtonStyle.RoundedButton(edit_btn, 10, "#3B82F6");
+
+            ButtonStyle.RoundedButton(upload_button, 10, "#3B82F6");
+            ButtonStyle.RoundedButton(review_button, 10, "#10B981");
+            ButtonStyle.RoundedButton(draft_button, 10, "#495057");
 
 
             PanelStyles.RoundedPanel(personal_panel, 20, Color.White);
