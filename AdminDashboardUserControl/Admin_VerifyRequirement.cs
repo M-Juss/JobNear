@@ -17,6 +17,8 @@ namespace JobNear.AdminDashboardUserControl
             InitializeComponent();
             SetUpTable();
 
+            ButtonStyle.RoundedButton(add_button, 10, "#10B981");
+
             status_combo.SelectedIndex = 0;
 
         }

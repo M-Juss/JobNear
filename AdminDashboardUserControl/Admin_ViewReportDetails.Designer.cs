@@ -102,7 +102,7 @@
             this.description_lbl.Enabled = false;
             this.description_lbl.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.description_lbl.Location = new System.Drawing.Point(119, 67);
-            this.description_lbl.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.description_lbl.Margin = new System.Windows.Forms.Padding(2);
             this.description_lbl.Multiline = true;
             this.description_lbl.Name = "description_lbl";
             this.description_lbl.Size = new System.Drawing.Size(828, 104);
@@ -113,7 +113,7 @@
             this.subject_lbl.Enabled = false;
             this.subject_lbl.Font = new System.Drawing.Font("Poppins SemiBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.subject_lbl.Location = new System.Drawing.Point(119, 13);
-            this.subject_lbl.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.subject_lbl.Margin = new System.Windows.Forms.Padding(2);
             this.subject_lbl.Multiline = true;
             this.subject_lbl.Name = "subject_lbl";
             this.subject_lbl.Size = new System.Drawing.Size(828, 41);
@@ -121,8 +121,9 @@
             // 
             // cancel_button
             // 
-            this.cancel_button.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cancel_button.Location = new System.Drawing.Point(742, 399);
+            this.cancel_button.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cancel_button.ForeColor = System.Drawing.Color.White;
+            this.cancel_button.Location = new System.Drawing.Point(738, 399);
             this.cancel_button.Name = "cancel_button";
             this.cancel_button.Size = new System.Drawing.Size(98, 36);
             this.cancel_button.TabIndex = 116;
@@ -132,7 +133,8 @@
             // 
             // submit_button
             // 
-            this.submit_button.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.submit_button.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.submit_button.ForeColor = System.Drawing.Color.White;
             this.submit_button.Location = new System.Drawing.Point(845, 399);
             this.submit_button.Name = "submit_button";
             this.submit_button.Size = new System.Drawing.Size(101, 36);

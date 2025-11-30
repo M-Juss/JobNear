@@ -17,6 +17,11 @@ namespace JobNear.AdminDashboardUserControl
             TextboxStyles.RoundedTextBoxShadow(name_input, 10, "#FFFFFF", 1);
             TextboxStyles.RoundedTextBoxShadow(description_input, 10, "#FFFFFF", 1);
             PanelStyles.RoundedPanel(maintenance_panel, 20, Color.White);
+            ButtonStyle.RoundedButton(send_button, 20, "#495057");
+            ButtonStyle.RoundedButton(revoke_button, 20, "#495057");
+            ButtonStyle.RoundedButton(deactivate_button, 20, "#3B82F6");
+            ButtonStyle.RoundedButton(activate_button, 20, "#10B981");
+
             activate_button.Enabled = false;
             deactivate_button.Enabled = false;
         }
@@ -29,6 +34,11 @@ namespace JobNear.AdminDashboardUserControl
             TextboxStyles.RoundedTextBoxShadow(name_input, 10, "#FFFFFF", 1);
             TextboxStyles.RoundedTextBoxShadow(description_input, 10, "#FFFFFF", 1);
             PanelStyles.RoundedPanel(maintenance_panel, 20, Color.White);
+            ButtonStyle.RoundedButton(send_button, 20, "#495057");
+            ButtonStyle.RoundedButton(revoke_button, 20, "#495057");
+            ButtonStyle.RoundedButton(deactivate_button, 20, "#3B82F6");
+            ButtonStyle.RoundedButton(activate_button, 20, "#10B981");
+
             ControlButtonsVisibility();
         }
 

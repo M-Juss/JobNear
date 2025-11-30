@@ -16,6 +16,8 @@ namespace JobNear.AdminDashboardUserControl
             InitializeComponent();
             LoadSpecificUser(email);
             PanelStyles.RoundedPanel(seeker_panel, 20, Color.White);
+            ButtonStyle.RoundedButton(submit_button, 10, "#10B981");
+            ButtonStyle.RoundedButton(cancel_button, 10, "#495057");
 
             image_flowlayout.FlowDirection = FlowDirection.TopDown;
             image_flowlayout.WrapContents = false;  

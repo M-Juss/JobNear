@@ -102,7 +102,7 @@
             // 
             // cancel_button
             // 
-            this.cancel_button.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cancel_button.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cancel_button.ForeColor = System.Drawing.Color.White;
             this.cancel_button.Location = new System.Drawing.Point(496, 593);
             this.cancel_button.Name = "cancel_button";
@@ -114,7 +114,7 @@
             // 
             // add_button
             // 
-            this.add_button.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.add_button.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.add_button.ForeColor = System.Drawing.Color.White;
             this.add_button.Location = new System.Drawing.Point(597, 593);
             this.add_button.Name = "add_button";

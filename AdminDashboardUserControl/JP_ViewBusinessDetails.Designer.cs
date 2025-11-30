@@ -35,10 +35,7 @@
             this.business_panel = new System.Windows.Forms.Panel();
             this.remarks_richtext = new System.Windows.Forms.TextBox();
             this.status_combo = new System.Windows.Forms.ComboBox();
-            this.label12 = new System.Windows.Forms.Label();
             this.image_flowlayout = new System.Windows.Forms.FlowLayoutPanel();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.description_richbox = new System.Windows.Forms.TextBox();
             this.lng_input = new System.Windows.Forms.TextBox();
             this.lat_input = new System.Windows.Forms.TextBox();
@@ -47,6 +44,9 @@
             this.email_input = new System.Windows.Forms.TextBox();
             this.website_input = new System.Windows.Forms.TextBox();
             this.industry_input = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -77,7 +77,8 @@
             // 
             // cancel_button
             // 
-            this.cancel_button.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cancel_button.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cancel_button.ForeColor = System.Drawing.Color.White;
             this.cancel_button.Location = new System.Drawing.Point(177, 654);
             this.cancel_button.Name = "cancel_button";
             this.cancel_button.Size = new System.Drawing.Size(101, 36);
@@ -88,7 +89,8 @@
             // 
             // submit_button
             // 
-            this.submit_button.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.submit_button.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.submit_button.ForeColor = System.Drawing.Color.White;
             this.submit_button.Location = new System.Drawing.Point(70, 654);
             this.submit_button.Name = "submit_button";
             this.submit_button.Size = new System.Drawing.Size(101, 36);
@@ -133,7 +135,7 @@
             this.business_panel.Controls.Add(this.label8);
             this.business_panel.Controls.Add(this.label6);
             this.business_panel.Location = new System.Drawing.Point(70, 46);
-            this.business_panel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.business_panel.Margin = new System.Windows.Forms.Padding(2);
             this.business_panel.Name = "business_panel";
             this.business_panel.Size = new System.Drawing.Size(692, 597);
             this.business_panel.TabIndex = 110;
@@ -142,7 +144,7 @@
             // 
             this.remarks_richtext.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.remarks_richtext.Location = new System.Drawing.Point(197, 479);
-            this.remarks_richtext.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.remarks_richtext.Margin = new System.Windows.Forms.Padding(2);
             this.remarks_richtext.Multiline = true;
             this.remarks_richtext.Name = "remarks_richtext";
             this.remarks_richtext.Size = new System.Drawing.Size(474, 93);
@@ -162,6 +164,102 @@
             this.status_combo.Size = new System.Drawing.Size(156, 36);
             this.status_combo.TabIndex = 108;
             // 
+            // image_flowlayout
+            // 
+            this.image_flowlayout.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.image_flowlayout.Location = new System.Drawing.Point(22, 333);
+            this.image_flowlayout.Name = "image_flowlayout";
+            this.image_flowlayout.Size = new System.Drawing.Size(647, 116);
+            this.image_flowlayout.TabIndex = 106;
+            // 
+            // description_richbox
+            // 
+            this.description_richbox.Enabled = false;
+            this.description_richbox.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.description_richbox.Location = new System.Drawing.Point(24, 191);
+            this.description_richbox.Margin = new System.Windows.Forms.Padding(2);
+            this.description_richbox.Multiline = true;
+            this.description_richbox.Name = "description_richbox";
+            this.description_richbox.Size = new System.Drawing.Size(317, 100);
+            this.description_richbox.TabIndex = 103;
+            // 
+            // lng_input
+            // 
+            this.lng_input.Enabled = false;
+            this.lng_input.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lng_input.Location = new System.Drawing.Point(520, 259);
+            this.lng_input.Margin = new System.Windows.Forms.Padding(2);
+            this.lng_input.Multiline = true;
+            this.lng_input.Name = "lng_input";
+            this.lng_input.Size = new System.Drawing.Size(150, 32);
+            this.lng_input.TabIndex = 94;
+            // 
+            // lat_input
+            // 
+            this.lat_input.Enabled = false;
+            this.lat_input.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lat_input.Location = new System.Drawing.Point(356, 259);
+            this.lat_input.Margin = new System.Windows.Forms.Padding(2);
+            this.lat_input.Multiline = true;
+            this.lat_input.Name = "lat_input";
+            this.lat_input.Size = new System.Drawing.Size(152, 32);
+            this.lat_input.TabIndex = 93;
+            // 
+            // address_input
+            // 
+            this.address_input.Enabled = false;
+            this.address_input.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.address_input.Location = new System.Drawing.Point(356, 191);
+            this.address_input.Margin = new System.Windows.Forms.Padding(2);
+            this.address_input.Multiline = true;
+            this.address_input.Name = "address_input";
+            this.address_input.Size = new System.Drawing.Size(318, 32);
+            this.address_input.TabIndex = 92;
+            // 
+            // phone_input
+            // 
+            this.phone_input.Enabled = false;
+            this.phone_input.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.phone_input.Location = new System.Drawing.Point(356, 117);
+            this.phone_input.Margin = new System.Windows.Forms.Padding(2);
+            this.phone_input.Multiline = true;
+            this.phone_input.Name = "phone_input";
+            this.phone_input.Size = new System.Drawing.Size(318, 32);
+            this.phone_input.TabIndex = 91;
+            // 
+            // email_input
+            // 
+            this.email_input.Enabled = false;
+            this.email_input.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.email_input.Location = new System.Drawing.Point(356, 43);
+            this.email_input.Margin = new System.Windows.Forms.Padding(2);
+            this.email_input.Multiline = true;
+            this.email_input.Name = "email_input";
+            this.email_input.Size = new System.Drawing.Size(318, 32);
+            this.email_input.TabIndex = 90;
+            // 
+            // website_input
+            // 
+            this.website_input.Enabled = false;
+            this.website_input.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.website_input.Location = new System.Drawing.Point(22, 118);
+            this.website_input.Margin = new System.Windows.Forms.Padding(2);
+            this.website_input.Multiline = true;
+            this.website_input.Name = "website_input";
+            this.website_input.Size = new System.Drawing.Size(317, 32);
+            this.website_input.TabIndex = 87;
+            // 
+            // industry_input
+            // 
+            this.industry_input.Enabled = false;
+            this.industry_input.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.industry_input.Location = new System.Drawing.Point(22, 43);
+            this.industry_input.Margin = new System.Windows.Forms.Padding(2);
+            this.industry_input.Multiline = true;
+            this.industry_input.Name = "industry_input";
+            this.industry_input.Size = new System.Drawing.Size(317, 32);
+            this.industry_input.TabIndex = 86;
+            // 
             // label12
             // 
             this.label12.AutoSize = true;
@@ -173,14 +271,6 @@
             this.label12.Size = new System.Drawing.Size(206, 28);
             this.label12.TabIndex = 107;
             this.label12.Text = "Supporting Documents:";
-            // 
-            // image_flowlayout
-            // 
-            this.image_flowlayout.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.image_flowlayout.Location = new System.Drawing.Point(22, 333);
-            this.image_flowlayout.Name = "image_flowlayout";
-            this.image_flowlayout.Size = new System.Drawing.Size(647, 116);
-            this.image_flowlayout.TabIndex = 106;
             // 
             // label11
             // 
@@ -205,94 +295,6 @@
             this.label7.Size = new System.Drawing.Size(99, 28);
             this.label7.TabIndex = 104;
             this.label7.Text = "Set Status:";
-            // 
-            // description_richbox
-            // 
-            this.description_richbox.Enabled = false;
-            this.description_richbox.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.description_richbox.Location = new System.Drawing.Point(24, 191);
-            this.description_richbox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.description_richbox.Multiline = true;
-            this.description_richbox.Name = "description_richbox";
-            this.description_richbox.Size = new System.Drawing.Size(317, 100);
-            this.description_richbox.TabIndex = 103;
-            // 
-            // lng_input
-            // 
-            this.lng_input.Enabled = false;
-            this.lng_input.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lng_input.Location = new System.Drawing.Point(520, 259);
-            this.lng_input.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.lng_input.Multiline = true;
-            this.lng_input.Name = "lng_input";
-            this.lng_input.Size = new System.Drawing.Size(150, 32);
-            this.lng_input.TabIndex = 94;
-            // 
-            // lat_input
-            // 
-            this.lat_input.Enabled = false;
-            this.lat_input.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lat_input.Location = new System.Drawing.Point(356, 259);
-            this.lat_input.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.lat_input.Multiline = true;
-            this.lat_input.Name = "lat_input";
-            this.lat_input.Size = new System.Drawing.Size(152, 32);
-            this.lat_input.TabIndex = 93;
-            // 
-            // address_input
-            // 
-            this.address_input.Enabled = false;
-            this.address_input.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.address_input.Location = new System.Drawing.Point(356, 191);
-            this.address_input.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.address_input.Multiline = true;
-            this.address_input.Name = "address_input";
-            this.address_input.Size = new System.Drawing.Size(318, 32);
-            this.address_input.TabIndex = 92;
-            // 
-            // phone_input
-            // 
-            this.phone_input.Enabled = false;
-            this.phone_input.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.phone_input.Location = new System.Drawing.Point(356, 117);
-            this.phone_input.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.phone_input.Multiline = true;
-            this.phone_input.Name = "phone_input";
-            this.phone_input.Size = new System.Drawing.Size(318, 32);
-            this.phone_input.TabIndex = 91;
-            // 
-            // email_input
-            // 
-            this.email_input.Enabled = false;
-            this.email_input.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.email_input.Location = new System.Drawing.Point(356, 43);
-            this.email_input.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.email_input.Multiline = true;
-            this.email_input.Name = "email_input";
-            this.email_input.Size = new System.Drawing.Size(318, 32);
-            this.email_input.TabIndex = 90;
-            // 
-            // website_input
-            // 
-            this.website_input.Enabled = false;
-            this.website_input.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.website_input.Location = new System.Drawing.Point(22, 118);
-            this.website_input.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.website_input.Multiline = true;
-            this.website_input.Name = "website_input";
-            this.website_input.Size = new System.Drawing.Size(317, 32);
-            this.website_input.TabIndex = 87;
-            // 
-            // industry_input
-            // 
-            this.industry_input.Enabled = false;
-            this.industry_input.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.industry_input.Location = new System.Drawing.Point(22, 43);
-            this.industry_input.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.industry_input.Multiline = true;
-            this.industry_input.Name = "industry_input";
-            this.industry_input.Size = new System.Drawing.Size(317, 32);
-            this.industry_input.TabIndex = 86;
             // 
             // label10
             // 

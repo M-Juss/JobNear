@@ -22,10 +22,6 @@ namespace JobNear.Forms
             PanelStyles.RoundedPanel(panel, 20, Color.White);
             TextboxStyles.RoundedTextBoxShadow(email_input, 10, "#FFFFFF", 1);
             TextboxStyles.RoundedTextBoxShadow(password_input, 10, "#FFFFFF", 1);
-        }
-
-        private void JobPosterLoginForm_Load(object sender, EventArgs e)
-        {
             ButtonStyle.RoundedButton(login_button, 40, "#10B981");
         }
 

@@ -37,7 +37,6 @@
             this.submit_button = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.status_combo = new System.Windows.Forms.ComboBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.role_combo = new System.Windows.Forms.ComboBox();
             this.name_input = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -48,6 +47,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.lbl = new System.Windows.Forms.Label();
             this.update_button = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
             this.sidebar_panel.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.admin_table)).BeginInit();
@@ -123,7 +123,7 @@
             // 
             // clear_button
             // 
-            this.clear_button.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.clear_button.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.clear_button.ForeColor = System.Drawing.Color.White;
             this.clear_button.Location = new System.Drawing.Point(698, 268);
             this.clear_button.Name = "clear_button";
@@ -135,7 +135,7 @@
             // 
             // submit_button
             // 
-            this.submit_button.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.submit_button.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.submit_button.ForeColor = System.Drawing.Color.White;
             this.submit_button.Location = new System.Drawing.Point(819, 268);
             this.submit_button.Name = "submit_button";
@@ -167,17 +167,6 @@
             this.status_combo.Name = "status_combo";
             this.status_combo.Size = new System.Drawing.Size(417, 34);
             this.status_combo.TabIndex = 33;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label5.Location = new System.Drawing.Point(502, 107);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(49, 28);
-            this.label5.TabIndex = 32;
-            this.label5.Text = "Role:";
             // 
             // role_combo
             // 
@@ -282,6 +271,17 @@
             this.update_button.Text = "Update";
             this.update_button.UseVisualStyleBackColor = true;
             this.update_button.Click += new System.EventHandler(this.update_button_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label5.Location = new System.Drawing.Point(502, 107);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(49, 28);
+            this.label5.TabIndex = 32;
+            this.label5.Text = "Role:";
             // 
             // Admin_ManageAdmin
             // 

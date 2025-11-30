@@ -105,7 +105,7 @@
             // 
             this.remarks_richtext.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.remarks_richtext.Location = new System.Drawing.Point(267, 531);
-            this.remarks_richtext.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.remarks_richtext.Margin = new System.Windows.Forms.Padding(2);
             this.remarks_richtext.Multiline = true;
             this.remarks_richtext.Name = "remarks_richtext";
             this.remarks_richtext.Size = new System.Drawing.Size(474, 93);
@@ -114,7 +114,8 @@
             // 
             // cancel_button
             // 
-            this.cancel_button.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cancel_button.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cancel_button.ForeColor = System.Drawing.Color.White;
             this.cancel_button.Location = new System.Drawing.Point(194, 656);
             this.cancel_button.Name = "cancel_button";
             this.cancel_button.Size = new System.Drawing.Size(106, 36);
@@ -125,7 +126,8 @@
             // 
             // submit_button
             // 
-            this.submit_button.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.submit_button.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.submit_button.ForeColor = System.Drawing.Color.White;
             this.submit_button.Location = new System.Drawing.Point(73, 656);
             this.submit_button.Name = "submit_button";
             this.submit_button.Size = new System.Drawing.Size(106, 36);
@@ -173,7 +175,7 @@
             this.lng_input.Enabled = false;
             this.lng_input.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lng_input.Location = new System.Drawing.Point(590, 312);
-            this.lng_input.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.lng_input.Margin = new System.Windows.Forms.Padding(2);
             this.lng_input.Multiline = true;
             this.lng_input.Name = "lng_input";
             this.lng_input.Size = new System.Drawing.Size(150, 32);
@@ -184,7 +186,7 @@
             this.lat_input.Enabled = false;
             this.lat_input.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lat_input.Location = new System.Drawing.Point(424, 312);
-            this.lat_input.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.lat_input.Margin = new System.Windows.Forms.Padding(2);
             this.lat_input.Multiline = true;
             this.lat_input.Name = "lat_input";
             this.lat_input.Size = new System.Drawing.Size(152, 32);
@@ -195,7 +197,7 @@
             this.address_input.Enabled = false;
             this.address_input.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.address_input.Location = new System.Drawing.Point(424, 233);
-            this.address_input.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.address_input.Margin = new System.Windows.Forms.Padding(2);
             this.address_input.Multiline = true;
             this.address_input.Name = "address_input";
             this.address_input.Size = new System.Drawing.Size(317, 32);
@@ -206,7 +208,7 @@
             this.phone_input.Enabled = false;
             this.phone_input.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.phone_input.Location = new System.Drawing.Point(424, 159);
-            this.phone_input.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.phone_input.Margin = new System.Windows.Forms.Padding(2);
             this.phone_input.Multiline = true;
             this.phone_input.Name = "phone_input";
             this.phone_input.Size = new System.Drawing.Size(317, 32);
@@ -217,7 +219,7 @@
             this.email_input.Enabled = false;
             this.email_input.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.email_input.Location = new System.Drawing.Point(424, 87);
-            this.email_input.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.email_input.Margin = new System.Windows.Forms.Padding(2);
             this.email_input.Multiline = true;
             this.email_input.Name = "email_input";
             this.email_input.Size = new System.Drawing.Size(317, 32);
@@ -229,7 +231,7 @@
             this.birthdate_input.Enabled = false;
             this.birthdate_input.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.birthdate_input.Location = new System.Drawing.Point(91, 312);
-            this.birthdate_input.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.birthdate_input.Margin = new System.Windows.Forms.Padding(2);
             this.birthdate_input.Multiline = true;
             this.birthdate_input.Name = "birthdate_input";
             this.birthdate_input.Size = new System.Drawing.Size(315, 32);
@@ -240,7 +242,7 @@
             this.sex_input.Enabled = false;
             this.sex_input.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.sex_input.Location = new System.Drawing.Point(91, 233);
-            this.sex_input.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.sex_input.Margin = new System.Windows.Forms.Padding(2);
             this.sex_input.Multiline = true;
             this.sex_input.Name = "sex_input";
             this.sex_input.Size = new System.Drawing.Size(315, 32);
@@ -251,7 +253,7 @@
             this.age_input.Enabled = false;
             this.age_input.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.age_input.Location = new System.Drawing.Point(91, 159);
-            this.age_input.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.age_input.Margin = new System.Windows.Forms.Padding(2);
             this.age_input.Multiline = true;
             this.age_input.Name = "age_input";
             this.age_input.Size = new System.Drawing.Size(315, 32);
@@ -262,7 +264,7 @@
             this.fullname_input.Enabled = false;
             this.fullname_input.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fullname_input.Location = new System.Drawing.Point(91, 87);
-            this.fullname_input.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.fullname_input.Margin = new System.Windows.Forms.Padding(2);
             this.fullname_input.Multiline = true;
             this.fullname_input.Name = "fullname_input";
             this.fullname_input.Size = new System.Drawing.Size(315, 32);
@@ -414,7 +416,7 @@
             // seeker_panel
             // 
             this.seeker_panel.Location = new System.Drawing.Point(74, 44);
-            this.seeker_panel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.seeker_panel.Margin = new System.Windows.Forms.Padding(2);
             this.seeker_panel.Name = "seeker_panel";
             this.seeker_panel.Size = new System.Drawing.Size(687, 603);
             this.seeker_panel.TabIndex = 103;
@@ -437,7 +439,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.Controls.Add(this.sidebar_panel);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "JS_ViewInformation";
             this.Size = new System.Drawing.Size(1031, 705);
             this.sidebar_panel.ResumeLayout(false);

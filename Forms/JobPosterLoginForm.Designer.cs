@@ -219,7 +219,6 @@
             this.Name = "JobPosterLoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "JobPosterLoginForm";
-            this.Load += new System.EventHandler(this.JobPosterLoginForm_Load);
             this.app_panel.ResumeLayout(false);
             this.app_panel.PerformLayout();
             this.panel.ResumeLayout(false);

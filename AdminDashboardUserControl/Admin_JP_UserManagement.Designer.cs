@@ -53,7 +53,7 @@
             // search_input
             // 
             this.search_input.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.search_input.Location = new System.Drawing.Point(30, 101);
+            this.search_input.Location = new System.Drawing.Point(29, 93);
             this.search_input.Margin = new System.Windows.Forms.Padding(2);
             this.search_input.Name = "search_input";
             this.search_input.Size = new System.Drawing.Size(611, 31);
@@ -72,21 +72,23 @@
             // table_panel
             // 
             this.table_panel.Controls.Add(this.poster_table);
-            this.table_panel.Location = new System.Drawing.Point(30, 141);
+            this.table_panel.Location = new System.Drawing.Point(29, 141);
             this.table_panel.Name = "table_panel";
-            this.table_panel.Size = new System.Drawing.Size(976, 552);
+            this.table_panel.Size = new System.Drawing.Size(976, 536);
             this.table_panel.TabIndex = 12;
             // 
             // poster_table
             // 
             this.poster_table.AllowUserToAddRows = false;
             this.poster_table.AllowUserToDeleteRows = false;
+            this.poster_table.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.poster_table.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.poster_table.Location = new System.Drawing.Point(3, 3);
+            this.poster_table.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.poster_table.Location = new System.Drawing.Point(0, 0);
             this.poster_table.Name = "poster_table";
             this.poster_table.ReadOnly = true;
             this.poster_table.RowHeadersWidth = 51;
-            this.poster_table.Size = new System.Drawing.Size(973, 535);
+            this.poster_table.Size = new System.Drawing.Size(976, 536);
             this.poster_table.TabIndex = 3;
             this.poster_table.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.seeker_table_CellContentClick);
             // 

@@ -22,15 +22,14 @@ namespace JobNear.AdminDashboardUserControl
             InitializeComponent();
 
             PanelStyles.RoundedPanel(info_panel, 20, Color.White);
-            ButtonStyle.RoundedButton(submit_button, 25, "#3B82F6");
-            ButtonStyle.RoundedButton(clear_button, 25, "#3B82F6");
-            ButtonStyle.RoundedButton(update_button, 25, "#3B82F6");
 
+            ButtonStyle.RoundedButton(update_button, 10, "#10B981");
+            ButtonStyle.RoundedButton(submit_button, 10, "#10B981");
+            ButtonStyle.RoundedButton(clear_button, 25, "#495057");
 
             InitializeTable();
             LoadAdminAccounts();
             ShowSubmitButton();
-
         }
 
         private void sidebar_panel_Paint(object sender, PaintEventArgs e)

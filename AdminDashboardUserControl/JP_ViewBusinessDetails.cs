@@ -16,6 +16,8 @@ namespace JobNear.AdminDashboardUserControl
             InitializeComponent();
             LoadSelectedBusiness(id);
             PanelStyles.RoundedPanel(business_panel, 20, Color.White);
+            ButtonStyle.RoundedButton(submit_button, 10, "#10B981");
+            ButtonStyle.RoundedButton(cancel_button, 10, "#495057");
         }
 
         private async void LoadSelectedBusiness(string businessId)

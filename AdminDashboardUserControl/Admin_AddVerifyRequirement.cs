@@ -22,11 +22,9 @@ namespace JobNear.AdminDashboardUserControl
             TextboxStyles.RoundedTextBoxShadow(name_input, 10, "#FFFFFF", 1);
             TextboxStyles.RoundedTextBoxShadow(description_input, 10, "#FFFFFF", 1);
             PanelStyles.RoundedPanel(req_panel, 20, Color.White);
-        }
 
-        private void label4_Click(object sender, EventArgs e)
-        {
-
+            ButtonStyle.RoundedButton(add_button, 10, "#10B981");
+            ButtonStyle.RoundedButton(cancel_button, 10, "#495057");
         }
 
         private void cancel_button_Click(object sender, EventArgs e)

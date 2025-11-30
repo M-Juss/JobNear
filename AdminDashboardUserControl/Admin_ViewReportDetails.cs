@@ -18,6 +18,10 @@ namespace JobNear.AdminDashboardUserControl
             LoadReportDetails(complainantId, complaineeId, reportId);
             TextboxStyles.RoundedTextBoxShadow(subject_lbl, 10, "#FFFFFF", 1);
             TextboxStyles.RoundedTextBoxShadow(description_lbl, 10, "#FFFFFF", 1);
+
+            ButtonStyle.RoundedButton(submit_button, 10, "#10B981");
+            ButtonStyle.RoundedButton(cancel_button, 10, "#495057");
+
             back_button.Visible = false;
             if (status == "Closed")
             {

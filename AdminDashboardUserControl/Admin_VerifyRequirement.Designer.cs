@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.sidebar_panel = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.requirements_table = new System.Windows.Forms.DataGridView();
             this.status_combo = new System.Windows.Forms.ComboBox();
             this.add_button = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
             this.sidebar_panel.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.requirements_table)).BeginInit();
@@ -51,6 +51,16 @@
             this.sidebar_panel.Size = new System.Drawing.Size(1031, 705);
             this.sidebar_panel.TabIndex = 0;
             this.sidebar_panel.Paint += new System.Windows.Forms.PaintEventHandler(this.sidebar_panel_Paint);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Poppins", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(19, 6);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(540, 56);
+            this.label1.TabIndex = 53;
+            this.label1.Text = "Requirement Verification Panel";
             // 
             // panel1
             // 
@@ -90,25 +100,15 @@
             // 
             // add_button
             // 
-            this.add_button.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.add_button.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.add_button.ForeColor = System.Drawing.Color.White;
-            this.add_button.Location = new System.Drawing.Point(836, 66);
+            this.add_button.Location = new System.Drawing.Point(808, 65);
             this.add_button.Name = "add_button";
-            this.add_button.Size = new System.Drawing.Size(166, 32);
+            this.add_button.Size = new System.Drawing.Size(194, 35);
             this.add_button.TabIndex = 50;
-            this.add_button.Text = "Add Requirement";
+            this.add_button.Text = "✚ Add Requirement";
             this.add_button.UseVisualStyleBackColor = true;
             this.add_button.Click += new System.EventHandler(this.add_button_Click_1);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Poppins", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(19, 6);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(540, 56);
-            this.label1.TabIndex = 53;
-            this.label1.Text = "Requirement Verification Panel";
             // 
             // Admin_VerifyRequirement
             // 

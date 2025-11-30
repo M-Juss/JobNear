@@ -80,7 +80,7 @@
             // 
             // deactivate_button
             // 
-            this.deactivate_button.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.deactivate_button.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.deactivate_button.ForeColor = System.Drawing.Color.White;
             this.deactivate_button.Location = new System.Drawing.Point(362, 504);
             this.deactivate_button.Name = "deactivate_button";
@@ -92,7 +92,7 @@
             // 
             // activate_button
             // 
-            this.activate_button.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.activate_button.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.activate_button.ForeColor = System.Drawing.Color.White;
             this.activate_button.Location = new System.Drawing.Point(26, 504);
             this.activate_button.Name = "activate_button";
@@ -130,7 +130,7 @@
             // 
             // send_button
             // 
-            this.send_button.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.send_button.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.send_button.ForeColor = System.Drawing.Color.White;
             this.send_button.Location = new System.Drawing.Point(260, 450);
             this.send_button.Name = "send_button";
@@ -200,7 +200,7 @@
             // 
             // revoke_button
             // 
-            this.revoke_button.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.revoke_button.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.revoke_button.ForeColor = System.Drawing.Color.White;
             this.revoke_button.Location = new System.Drawing.Point(260, 450);
             this.revoke_button.Name = "revoke_button";

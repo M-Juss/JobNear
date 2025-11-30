@@ -82,8 +82,6 @@ namespace JobNear.AdminDashboardUserControl
 
             status_combo.SelectedIndex = 0;
 
-            status_combo.TextChanged += StatusChanged;
-
             TableStyles.UserTables(seeker_table);
 
             seeker_table.Columns.Add("Username", "Username");
@@ -105,31 +103,42 @@ namespace JobNear.AdminDashboardUserControl
 
             seeker_table.Columns.Add(actionButton);
 
-            InitialTableValue();
-
             search_input.Text = "Search";
             search_input.ForeColor = Color.Gray;
         }
 
-        private async void InitialTableValue() {
-            var filterPending = Builders<JobSeekerAccountModel>.Filter.Eq(x => x.Status, "pending");
 
-            var pendingAccounts = await MongoDbServices.JobSeekerAccount
-                .Find(filterPending)
-                .ToListAsync();
+        private void seeker_table_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
 
-            if (pendingAccounts != null)
+            if (e.RowIndex >= 0 && e.ColumnIndex == seeker_table.Columns["Action"].Index)
             {
-                pendingAccounts.ForEach(account => {
+                string email = seeker_table.Rows[e.RowIndex].Cells["Email"].Value.ToString();
 
-                    string fullname = $"{account.Lastname}, {account.Firstname} {account.Middlename}";
-
-                    seeker_table.Rows.Add(account.Username, fullname, account.Email, account.Phone, account.Age, account.Sex, account.Status);
-
-                });
+                JS_ViewInformation viewInformation = new JS_ViewInformation(email);
+                sidebar_panel.Controls.Clear();
+                sidebar_panel.Controls.Add(viewInformation);
+                viewInformation.Dock = DockStyle.Fill;
             }
         }
-        private async void StatusChanged(object sender, EventArgs e)
+
+        private void search_input_MouseClick(object sender, MouseEventArgs e)
+        {
+            search_input.Text = "";
+            search_input.ForeColor = Color.Gray;
+        }
+
+        private void sidebar_panel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private async void status_combo_SelectedIndexChanged(object sender, EventArgs e)
         {
             string response = status_combo.Text.ToLower();
 
@@ -144,7 +153,8 @@ namespace JobNear.AdminDashboardUserControl
                         .Find(filterPending)
                         .ToListAsync();
 
-                    if (pendingAccounts != null) { 
+                    if (pendingAccounts != null)
+                    {
                         pendingAccounts.ForEach(account => {
 
 
@@ -244,36 +254,6 @@ namespace JobNear.AdminDashboardUserControl
                     MessageBox.Show("Please select a valid status.", "Invalid Status", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     break;
             }
-        }
-
-        private void seeker_table_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-            if (e.RowIndex >= 0 && e.ColumnIndex == seeker_table.Columns["Action"].Index)
-            {
-                string email = seeker_table.Rows[e.RowIndex].Cells["Email"].Value.ToString();
-
-                JS_ViewInformation viewInformation = new JS_ViewInformation(email);
-                sidebar_panel.Controls.Clear();
-                sidebar_panel.Controls.Add(viewInformation);
-                viewInformation.Dock = DockStyle.Fill;
-            }
-        }
-
-        private void search_input_MouseClick(object sender, MouseEventArgs e)
-        {
-            search_input.Text = "";
-            search_input.ForeColor = Color.Gray;
-        }
-
-        private void sidebar_panel_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

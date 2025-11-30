@@ -43,9 +43,9 @@
             // table_panel
             // 
             this.table_panel.Controls.Add(this.seeker_table);
-            this.table_panel.Location = new System.Drawing.Point(22, 130);
+            this.table_panel.Location = new System.Drawing.Point(29, 141);
             this.table_panel.Name = "table_panel";
-            this.table_panel.Size = new System.Drawing.Size(976, 552);
+            this.table_panel.Size = new System.Drawing.Size(976, 541);
             this.table_panel.TabIndex = 6;
             // 
             // seeker_table
@@ -53,11 +53,12 @@
             this.seeker_table.AllowUserToAddRows = false;
             this.seeker_table.AllowUserToDeleteRows = false;
             this.seeker_table.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.seeker_table.Location = new System.Drawing.Point(3, 3);
+            this.seeker_table.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.seeker_table.Location = new System.Drawing.Point(0, 0);
             this.seeker_table.Name = "seeker_table";
             this.seeker_table.ReadOnly = true;
             this.seeker_table.RowHeadersWidth = 51;
-            this.seeker_table.Size = new System.Drawing.Size(973, 535);
+            this.seeker_table.Size = new System.Drawing.Size(976, 541);
             this.seeker_table.TabIndex = 3;
             this.seeker_table.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.seeker_table_CellContentClick);
             // 
@@ -79,8 +80,8 @@
             // search_input
             // 
             this.search_input.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.search_input.Location = new System.Drawing.Point(22, 90);
-            this.search_input.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.search_input.Location = new System.Drawing.Point(29, 93);
+            this.search_input.Margin = new System.Windows.Forms.Padding(2);
             this.search_input.Name = "search_input";
             this.search_input.Size = new System.Drawing.Size(611, 31);
             this.search_input.TabIndex = 7;
@@ -105,13 +106,14 @@
             this.status_combo.Items.AddRange(new object[] {
             "Pending",
             "Verified",
-            "Pending",
+            "Rejected",
             "Incomplete",
             "All"});
             this.status_combo.Location = new System.Drawing.Point(878, 89);
             this.status_combo.Name = "status_combo";
             this.status_combo.Size = new System.Drawing.Size(121, 33);
             this.status_combo.TabIndex = 4;
+            this.status_combo.SelectedIndexChanged += new System.EventHandler(this.status_combo_SelectedIndexChanged);
             // 
             // label2
             // 
