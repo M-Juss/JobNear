@@ -120,7 +120,7 @@
             this.address_panel.Controls.Add(this.label11);
             this.address_panel.Controls.Add(this.phone_input);
             this.address_panel.Controls.Add(this.label10);
-            this.address_panel.Location = new System.Drawing.Point(16, 474);
+            this.address_panel.Location = new System.Drawing.Point(16, 481);
             this.address_panel.Margin = new System.Windows.Forms.Padding(2);
             this.address_panel.Name = "address_panel";
             this.address_panel.Size = new System.Drawing.Size(773, 243);
@@ -268,7 +268,7 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Poppins SemiBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.DimGray;
-            this.label8.Location = new System.Drawing.Point(10, 437);
+            this.label8.Location = new System.Drawing.Point(10, 444);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(383, 34);
             this.label8.TabIndex = 64;
@@ -284,7 +284,7 @@
             this.business_panel.Location = new System.Drawing.Point(16, 83);
             this.business_panel.Margin = new System.Windows.Forms.Padding(2);
             this.business_panel.Name = "business_panel";
-            this.business_panel.Size = new System.Drawing.Size(773, 336);
+            this.business_panel.Size = new System.Drawing.Size(773, 352);
             this.business_panel.TabIndex = 87;
             // 
             // industry_input
@@ -333,13 +333,13 @@
             // 
             // description_richbox
             // 
-            this.description_richbox.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.description_richbox.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.description_richbox.Location = new System.Drawing.Point(13, 178);
             this.description_richbox.Margin = new System.Windows.Forms.Padding(2);
             this.description_richbox.Multiline = true;
             this.description_richbox.Name = "description_richbox";
             this.description_richbox.ReadOnly = true;
-            this.description_richbox.Size = new System.Drawing.Size(746, 142);
+            this.description_richbox.Size = new System.Drawing.Size(746, 162);
             this.description_richbox.TabIndex = 0;
             // 
             // JS_ViewBusinessProfile

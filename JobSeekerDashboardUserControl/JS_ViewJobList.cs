@@ -45,7 +45,6 @@ namespace JobNear.JobSeekerDashboardUserControl
                 }
             }
 
-
         }
         public async void LoadJobDetails(string jobId)
         {
@@ -96,7 +95,6 @@ namespace JobNear.JobSeekerDashboardUserControl
             sidebar_panel.Controls.Clear();
             sidebar_panel.Controls.Add(jS_ViewBusinessProfile);
             jS_ViewBusinessProfile.Dock = DockStyle.Fill;
-
         }
     }
 }

@@ -76,32 +76,29 @@ namespace JobNear.JobSeekerDashboardUserControl
 
         private async void report_label_Click(object sender, EventArgs e)
         {
-
-            var report = await MongoDbServices.ReportBusiness
-                .Find(x => x.Complainant == Session.CurrentUserId && x.Complainee == Session.CurrentBusinessSelected)
+            var existingReport = await MongoDbServices.ReportBusiness
+                .Find(x => x.Complainant == Session.CurrentUserId
+                          && x.Complainee == Session.CurrentBusinessSelected
+                          && x.Status == "Active")
                 .FirstOrDefaultAsync();
 
-            if (report != null)
+            if (existingReport != null)
             {
-                if (report.Status == "Active")
-                {
-                    MessageBox.Show(
+
+                MessageBox.Show(
                     "Your report has already been submitted and is currently waiting for review. Please wait for updates.",
                     "Report Pending",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information
                 );
-                    return;
-                }
-                else
-                {
-                    JS_ReportBusiness reportBusiness = new JS_ReportBusiness(Session.CurrentBusinessSelected);
-                    sidebar_panel.Controls.Clear();
-                    sidebar_panel.Controls.Add(reportBusiness);
-                    reportBusiness.Dock = DockStyle.Fill;
-                }
+                return;
             }
+            JS_ReportBusiness reportBusiness = new JS_ReportBusiness(Session.CurrentBusinessSelected);
+            sidebar_panel.Controls.Clear();
+            sidebar_panel.Controls.Add(reportBusiness);
+            reportBusiness.Dock = DockStyle.Fill;
         }
+
 
         private void prev_lbl_Click(object sender, EventArgs e)
         {

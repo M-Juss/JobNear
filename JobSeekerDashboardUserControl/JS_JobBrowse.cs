@@ -34,7 +34,7 @@ namespace JobNear.JobSeekerDashboardUserControl
                 {
 
                     var businessActiveJobs = await MongoDbServices.JobPosterJobPosting
-                        .CountDocumentsAsync(x => x.JobStatus == "Active");
+                        .CountDocumentsAsync(x => x.JobStatus == "Active" && x.BusinessId == business.Id);
 
                     string toolTipText = $"\n{business.BusinessName}\n{business.BusinessAddress}\n{businessActiveJobs} Active Jobs ";
 
@@ -42,10 +42,9 @@ namespace JobNear.JobSeekerDashboardUserControl
                         business.BusinessLatitude,
                         business.BusinessLongitude,
                         toolTipText,
-                        business.Id
+                        business.Id 
                     );
                 }
-
 
             }
         }

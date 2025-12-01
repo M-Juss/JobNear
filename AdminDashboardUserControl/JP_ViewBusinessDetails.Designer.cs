@@ -57,6 +57,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.name_label = new System.Windows.Forms.Label();
             this.status_lbl = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.sidebar_panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.profile_picture)).BeginInit();
             this.business_panel.SuspendLayout();
@@ -114,6 +115,8 @@
             // 
             // business_panel
             // 
+            this.business_panel.AutoScroll = true;
+            this.business_panel.Controls.Add(this.textBox1);
             this.business_panel.Controls.Add(this.remarks_richtext);
             this.business_panel.Controls.Add(this.status_combo);
             this.business_panel.Controls.Add(this.image_flowlayout);
@@ -139,13 +142,13 @@
             this.business_panel.Location = new System.Drawing.Point(70, 46);
             this.business_panel.Margin = new System.Windows.Forms.Padding(2);
             this.business_panel.Name = "business_panel";
-            this.business_panel.Size = new System.Drawing.Size(692, 597);
+            this.business_panel.Size = new System.Drawing.Size(706, 597);
             this.business_panel.TabIndex = 110;
             // 
             // remarks_richtext
             // 
             this.remarks_richtext.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.remarks_richtext.Location = new System.Drawing.Point(197, 479);
+            this.remarks_richtext.Location = new System.Drawing.Point(197, 613);
             this.remarks_richtext.Margin = new System.Windows.Forms.Padding(2);
             this.remarks_richtext.Multiline = true;
             this.remarks_richtext.Name = "remarks_richtext";
@@ -161,7 +164,7 @@
             "Verified",
             "Incomplete",
             "Rejected"});
-            this.status_combo.Location = new System.Drawing.Point(22, 479);
+            this.status_combo.Location = new System.Drawing.Point(22, 613);
             this.status_combo.Name = "status_combo";
             this.status_combo.Size = new System.Drawing.Size(156, 36);
             this.status_combo.TabIndex = 108;
@@ -169,7 +172,7 @@
             // image_flowlayout
             // 
             this.image_flowlayout.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.image_flowlayout.Location = new System.Drawing.Point(22, 333);
+            this.image_flowlayout.Location = new System.Drawing.Point(22, 467);
             this.image_flowlayout.Name = "image_flowlayout";
             this.image_flowlayout.Size = new System.Drawing.Size(647, 116);
             this.image_flowlayout.TabIndex = 106;
@@ -177,19 +180,19 @@
             // description_richbox
             // 
             this.description_richbox.Enabled = false;
-            this.description_richbox.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.description_richbox.Location = new System.Drawing.Point(24, 191);
+            this.description_richbox.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.description_richbox.Location = new System.Drawing.Point(21, 262);
             this.description_richbox.Margin = new System.Windows.Forms.Padding(2);
             this.description_richbox.Multiline = true;
             this.description_richbox.Name = "description_richbox";
-            this.description_richbox.Size = new System.Drawing.Size(317, 100);
+            this.description_richbox.Size = new System.Drawing.Size(648, 161);
             this.description_richbox.TabIndex = 103;
             // 
             // lng_input
             // 
             this.lng_input.Enabled = false;
             this.lng_input.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lng_input.Location = new System.Drawing.Point(520, 259);
+            this.lng_input.Location = new System.Drawing.Point(519, 191);
             this.lng_input.Margin = new System.Windows.Forms.Padding(2);
             this.lng_input.Multiline = true;
             this.lng_input.Name = "lng_input";
@@ -200,7 +203,7 @@
             // 
             this.lat_input.Enabled = false;
             this.lat_input.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lat_input.Location = new System.Drawing.Point(356, 259);
+            this.lat_input.Location = new System.Drawing.Point(355, 191);
             this.lat_input.Margin = new System.Windows.Forms.Padding(2);
             this.lat_input.Multiline = true;
             this.lat_input.Name = "lat_input";
@@ -211,7 +214,7 @@
             // 
             this.address_input.Enabled = false;
             this.address_input.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.address_input.Location = new System.Drawing.Point(356, 191);
+            this.address_input.Location = new System.Drawing.Point(21, 191);
             this.address_input.Margin = new System.Windows.Forms.Padding(2);
             this.address_input.Multiline = true;
             this.address_input.Name = "address_input";
@@ -267,7 +270,7 @@
             this.label12.AutoSize = true;
             this.label12.BackColor = System.Drawing.Color.White;
             this.label12.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(16, 302);
+            this.label12.Location = new System.Drawing.Point(16, 436);
             this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(206, 28);
@@ -279,7 +282,7 @@
             this.label11.AutoSize = true;
             this.label11.BackColor = System.Drawing.Color.White;
             this.label11.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(193, 453);
+            this.label11.Location = new System.Drawing.Point(193, 587);
             this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(88, 28);
@@ -291,7 +294,7 @@
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.White;
             this.label7.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(17, 453);
+            this.label7.Location = new System.Drawing.Point(17, 587);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(99, 28);
@@ -303,7 +306,7 @@
             this.label10.AutoSize = true;
             this.label10.BackColor = System.Drawing.Color.White;
             this.label10.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(351, 163);
+            this.label10.Location = new System.Drawing.Point(16, 163);
             this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(114, 28);
@@ -339,7 +342,7 @@
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.White;
             this.label3.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(20, 163);
+            this.label3.Location = new System.Drawing.Point(17, 234);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(185, 28);
@@ -375,7 +378,7 @@
             this.label8.AutoSize = true;
             this.label8.BackColor = System.Drawing.Color.White;
             this.label8.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(519, 234);
+            this.label8.Location = new System.Drawing.Point(518, 166);
             this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(97, 28);
@@ -387,7 +390,7 @@
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.White;
             this.label6.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(351, 234);
+            this.label6.Location = new System.Drawing.Point(350, 166);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(82, 28);
@@ -414,6 +417,18 @@
             this.status_lbl.TabIndex = 111;
             this.status_lbl.Text = "Status";
             this.status_lbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // textBox1
+            // 
+            this.textBox1.BackColor = System.Drawing.Color.White;
+            this.textBox1.Enabled = false;
+            this.textBox1.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(24, 722);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(318, 1);
+            this.textBox1.TabIndex = 110;
             // 
             // JP_ViewBusinessDetails
             // 
@@ -462,5 +477,6 @@
         private System.Windows.Forms.TextBox website_input;
         private System.Windows.Forms.TextBox industry_input;
         private System.Windows.Forms.Label status_lbl;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

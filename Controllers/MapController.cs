@@ -77,7 +77,6 @@ namespace JobNear.Controllers
 
         public static void AddBusinessMarker(double lat, double lng, string tooltipText, string businessSpecificId)
         {
-
             GMapOverlay markersOverlay;
 
             markersOverlay = gmap.Overlays.FirstOrDefault(o => o.Id == "markers");
@@ -94,7 +93,7 @@ namespace JobNear.Controllers
             {
                 ToolTipText = tooltipText,
                 ToolTipMode = MarkerTooltipMode.OnMouseOver,
-                Tag = businessSpecificId,
+                Tag = businessSpecificId 
             };
 
             markersOverlay.Markers.Add(marker);
@@ -102,16 +101,18 @@ namespace JobNear.Controllers
             gmap.OnMarkerClick -= Gmap_OnMarkerClick;
             gmap.OnMarkerClick += Gmap_OnMarkerClick;
         }
+
         public static void Gmap_OnMarkerClick(GMapMarker item, MouseEventArgs e)
         {
-
             if (item.Tag != null)
             {
                 string businessId = item.Tag.ToString();
-                Session.CurrentBusinessSelected = businessId;
-                Session.CurrentBusinessSelectedStatus = "Verified";
 
-                JobSeekerDashboardUserControl.JS_ViewBusiness view = new JobSeekerDashboardUserControl.JS_ViewBusiness(businessId);
+                Session.CurrentBusinessSelected = businessId;
+
+                JobSeekerDashboardUserControl.JS_ViewBusiness view =
+                    new JobSeekerDashboardUserControl.JS_ViewBusiness(Session.CurrentBusinessSelected);
+
                 Session.CurrentSidebarPanel.Controls.Clear();
                 Session.CurrentSidebarPanel.Controls.Add(view);
                 view.Dock = DockStyle.Fill;
@@ -121,6 +122,7 @@ namespace JobNear.Controllers
                 MessageBox.Show("This is your location!", "User Marker");
             }
         }
+
         public static void AddUserMarker(double lat, double lng, string tooltipText)
         {
             GMapOverlay markersOverlay;

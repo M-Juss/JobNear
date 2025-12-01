@@ -16,11 +16,15 @@ namespace JobNear.Services
         /// </summary>
         public async Task<Dictionary<string, (double lat, double lon)>> GetSuggestionsAsync(string input)
         {
+            var data = new Dictionary<string, (double lat, double lon)>();
+
             if (string.IsNullOrWhiteSpace(input))
-                return new Dictionary<string, (double lat, double lon)>();
+                return data;
 
             string query = Uri.EscapeDataString(input);
-            string url = $"https://api.geoapify.com/v1/geocode/autocomplete?text={query}&filter=countrycode:ph&format=json&apiKey={apiKey}";
+
+            string url =
+                $"https://api.geoapify.com/v1/geocode/autocomplete?text={query}&filter=countrycode:ph&apiKey={apiKey}";
 
             using (HttpClient client = new HttpClient())
             {
@@ -28,66 +32,48 @@ namespace JobNear.Services
                 {
                     string response = await client.GetStringAsync(url);
                     JObject json = JObject.Parse(response);
-                    var results = json["results"];
 
-                    var data = new Dictionary<string, (double lat, double lon)>();
+                    var features = json["features"] as JArray;
+                    if (features == null || features.Count == 0)
+                        return data;
 
-                    foreach (var r in results)
+                    foreach (var f in features)
                     {
-                        string formatted = r["formatted"].ToString();
-                        double lat = (double)r["lat"];
-                        double lon = (double)r["lon"];
+                        var props = f["properties"];
+                        if (props == null) continue;
 
-                        data[formatted] = (lat, lon);
+                        string formatted = props["formatted"]?.ToString();
+                        double lat = props["lat"]?.ToObject<double>() ?? 0;
+                        double lon = props["lon"]?.ToObject<double>() ?? 0;
+
+                        if (!string.IsNullOrEmpty(formatted))
+                            data[formatted] = (lat, lon);
                     }
-
-                    return data;
                 }
                 catch
                 {
-                    return new Dictionary<string, (double lat, double lon)>();
+                    return data;
                 }
             }
+
+            return data;
         }
 
-        /// <summary>
-        /// Helper: Updates a TextBox autocomplete with suggestions.
-        /// </summary>
         public void ApplyAutoComplete(TextBox textBox, Dictionary<string, (double lat, double lon)> suggestionData)
         {
             AutoCompleteStringCollection autoComplete = new AutoCompleteStringCollection();
+
             foreach (var key in suggestionData.Keys)
                 autoComplete.Add(key);
 
-            // ✅ Compare old vs new suggestions
-            bool changed = true;
-            if (textBox.AutoCompleteCustomSource != null &&
-                textBox.AutoCompleteCustomSource.Count == autoComplete.Count)
-            {
-                changed = false;
-                for (int i = 0; i < autoComplete.Count; i++)
-                {
-                    if (textBox.AutoCompleteCustomSource[i] != autoComplete[i])
-                    {
-                        changed = true;
-                        break;
-                    }
-                }
-            }
+            textBox.AutoCompleteMode = AutoCompleteMode.Suggest;
+            textBox.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            textBox.AutoCompleteCustomSource = autoComplete;
 
-            if (changed)
-            {
-                textBox.AutoCompleteMode = AutoCompleteMode.Suggest;
-                textBox.AutoCompleteSource = AutoCompleteSource.CustomSource;
-                textBox.AutoCompleteCustomSource = autoComplete;
-
-                // ✅ Trick: Reset text to refresh dropdown
-                string current = textBox.Text;
-                textBox.Text = "";
-                textBox.Text = current;
-                textBox.SelectionStart = textBox.Text.Length;
-            }
+            string current = textBox.Text;
+            textBox.Text = "";
+            textBox.Text = current;
+            textBox.SelectionStart = textBox.Text.Length;
         }
-
     }
 }

@@ -25,8 +25,8 @@ namespace JobNear.JobSeekerDashboardUserControl
         private double selectedLat;
         private double selectedLon;
 
-
-
+        private bool isUpdatingSuggestions = false;
+        private List<string> lastSuggestions = new List<string>();
         public JS_Profile()
         {
             InitializeComponent();
@@ -36,13 +36,9 @@ namespace JobNear.JobSeekerDashboardUserControl
             InitializeDebounce();
         }
 
-
-
         private void InitializeUI()
         {
             SetProfileEditable(false);
-
-
 
             ButtonStyle.RoundedButton(attach_file, 25, "#FFFFFF");
             ButtonStyle.RoundedButton(edit_btn, 10, "#3B82F6");
@@ -101,6 +97,8 @@ namespace JobNear.JobSeekerDashboardUserControl
         }
         private void address_input_TextChanged(object sender, EventArgs e)
         {
+            if (isUpdatingSuggestions) return;
+
             debounceTimer.Stop();
             debounceTimer.Start();
         }
@@ -109,11 +107,34 @@ namespace JobNear.JobSeekerDashboardUserControl
         {
             debounceTimer.Stop();
 
-            if (string.IsNullOrWhiteSpace(address_input.Text))
-                return;
+            if (string.IsNullOrWhiteSpace(address_input.Text) || address_input.Text.Length < 2)
+                return; 
+
+            isUpdatingSuggestions = true;
 
             suggestionData = await geoServices.GetSuggestionsAsync(address_input.Text);
-            geoServices.ApplyAutoComplete(address_input, suggestionData);
+
+
+            List<string> newSuggestions = suggestionData.Keys.ToList();
+            if (!newSuggestions.SequenceEqual(lastSuggestions))
+            {
+                lastSuggestions = newSuggestions;
+
+                AutoCompleteStringCollection autoComplete = new AutoCompleteStringCollection();
+                autoComplete.AddRange(newSuggestions.ToArray());
+
+                address_input.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+                address_input.AutoCompleteSource = AutoCompleteSource.CustomSource;
+                address_input.AutoCompleteCustomSource = autoComplete;
+
+                int caret = address_input.SelectionStart;
+                string text = address_input.Text;
+                address_input.Text = "";
+                address_input.Text = text;
+                address_input.SelectionStart = caret;
+            }
+
+            isUpdatingSuggestions = false;
         }
 
         private void Address_input_Leave(object sender, EventArgs e)

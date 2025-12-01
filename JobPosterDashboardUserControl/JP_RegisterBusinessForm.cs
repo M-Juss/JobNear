@@ -21,6 +21,9 @@ namespace JobNear.JobPosterDashboardUserControl
         private double selectedLon;
 
         private GeoaptifyAutocompeteAPIServices geoServices = new GeoaptifyAutocompeteAPIServices();
+        private bool isUpdatingSuggestions = false;
+        private List<string> lastSuggestions = new List<string>();
+
 
         public JP_RegisterBusinessForm()
         {
@@ -35,6 +38,7 @@ namespace JobNear.JobPosterDashboardUserControl
         {
             InitializeComponent();
             SetUpRegisterBusinessForm();
+
 
 
             LoadEditBusinessDetails(businessId);
@@ -83,28 +87,37 @@ namespace JobNear.JobPosterDashboardUserControl
         {
             debounceTimer.Stop();
 
-            suggestionData = await geoServices.GetSuggestionsAsync(address_input.Text);
-            geoServices.ApplyAutoComplete(address_input, suggestionData);
-        }
+            if (string.IsNullOrWhiteSpace(address_input.Text) || address_input.Text.Length < 2)
+                return; 
 
-        private void Address_input_Leave(object sender, EventArgs e)
-        {
-            if (suggestionData != null && suggestionData.ContainsKey(address_input.Text))
+            isUpdatingSuggestions = true;
+
+            suggestionData = await geoServices.GetSuggestionsAsync(address_input.Text);
+
+
+            List<string> newSuggestions = suggestionData.Keys.ToList();
+            if (!newSuggestions.SequenceEqual(lastSuggestions))
             {
-                var coords = suggestionData[address_input.Text];
-                selectedLat = coords.lat;
-                selectedLon = coords.lon;
+                lastSuggestions = newSuggestions;
+
+                AutoCompleteStringCollection autoComplete = new AutoCompleteStringCollection();
+                autoComplete.AddRange(newSuggestions.ToArray());
+
+                address_input.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+                address_input.AutoCompleteSource = AutoCompleteSource.CustomSource;
+                address_input.AutoCompleteCustomSource = autoComplete;
+
+
+                int caret = address_input.SelectionStart;
+                string text = address_input.Text;
+                address_input.Text = "";
+                address_input.Text = text;
+                address_input.SelectionStart = caret;
             }
-            else
-            {
-                selectedLat = 0;
-                selectedLon = 0;
-            }
-        }
-        private void Address_input_TextChanged(object sender, EventArgs e)
-        {
-            debounceTimer.Stop();
-            debounceTimer.Start();
+
+            isUpdatingSuggestions = false;
+
+            Console.WriteLine("Suggestions refreshed: " + suggestionData.Count);
         }
 
         private async void InsertBusinessDetails(string status)
@@ -387,11 +400,13 @@ namespace JobNear.JobPosterDashboardUserControl
             image_flowlayout.AutoScroll = true;
 
             debounceTimer = new Timer();
-            debounceTimer.Interval = 300;
+            debounceTimer.Interval = 600;   
             debounceTimer.Tick += DebounceTimer_Tick;
 
-            address_input.Leave += Address_input_Leave;
-            address_input.TextChanged += Address_input_TextChanged;
+
+            address_input.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            address_input.AutoCompleteSource = AutoCompleteSource.CustomSource;
+
         }
 
         private void cancel_button_Click_1(object sender, EventArgs e)
@@ -423,6 +438,32 @@ namespace JobNear.JobPosterDashboardUserControl
 
                     FlowLayoutStyles.AddFileItem(destPath, image_flowlayout, image_flowlayout.Width - 20);
                 }
+            }
+        }
+
+        private void address_input_TextChanged_1(object sender, EventArgs e)
+        {
+            if (isUpdatingSuggestions)
+                return;
+
+            debounceTimer.Stop();
+            debounceTimer.Start();
+
+            Console.WriteLine("Typed: " + address_input.Text);
+        }
+
+        private void address_input_Leave_1(object sender, EventArgs e)
+        {
+            if (suggestionData != null && suggestionData.ContainsKey(address_input.Text))
+            {
+                var coords = suggestionData[address_input.Text];
+                selectedLat = coords.lat;
+                selectedLon = coords.lon;
+            }
+            else
+            {
+                selectedLat = 0;
+                selectedLon = 0;
             }
         }
     }

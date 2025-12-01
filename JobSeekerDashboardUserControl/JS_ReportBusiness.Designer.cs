@@ -41,8 +41,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.business_panel = new System.Windows.Forms.Panel();
-            this.description_label = new System.Windows.Forms.Label();
             this.footer_label = new System.Windows.Forms.Label();
+            this.description_label = new System.Windows.Forms.Label();
             this.name_label = new System.Windows.Forms.Label();
             this.company_logo_picturebox = new System.Windows.Forms.PictureBox();
             this.sidebar_panel.SuspendLayout();
@@ -189,8 +189,8 @@
             // business_panel
             // 
             this.business_panel.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.business_panel.Controls.Add(this.description_label);
             this.business_panel.Controls.Add(this.footer_label);
+            this.business_panel.Controls.Add(this.description_label);
             this.business_panel.Controls.Add(this.name_label);
             this.business_panel.Controls.Add(this.company_logo_picturebox);
             this.business_panel.Location = new System.Drawing.Point(15, 50);
@@ -199,42 +199,42 @@
             this.business_panel.TabIndex = 51;
             this.business_panel.Click += new System.EventHandler(this.business_panel_Click);
             // 
-            // description_label
-            // 
-            this.description_label.AutoEllipsis = true;
-            this.description_label.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.description_label.Location = new System.Drawing.Point(274, 64);
-            this.description_label.Name = "description_label";
-            this.description_label.Size = new System.Drawing.Size(660, 95);
-            this.description_label.TabIndex = 5;
-            // 
             // footer_label
             // 
             this.footer_label.AutoEllipsis = true;
-            this.footer_label.Font = new System.Drawing.Font("Poppins", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.footer_label.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.footer_label.ForeColor = System.Drawing.Color.Gray;
-            this.footer_label.Location = new System.Drawing.Point(274, 164);
+            this.footer_label.Location = new System.Drawing.Point(246, 177);
             this.footer_label.Name = "footer_label";
-            this.footer_label.Size = new System.Drawing.Size(660, 29);
-            this.footer_label.TabIndex = 4;
+            this.footer_label.Size = new System.Drawing.Size(710, 22);
+            this.footer_label.TabIndex = 8;
+            // 
+            // description_label
+            // 
+            this.description_label.AutoEllipsis = true;
+            this.description_label.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.description_label.Location = new System.Drawing.Point(246, 50);
+            this.description_label.Name = "description_label";
+            this.description_label.Size = new System.Drawing.Size(710, 135);
+            this.description_label.TabIndex = 9;
             // 
             // name_label
             // 
             this.name_label.AllowDrop = true;
             this.name_label.AutoEllipsis = true;
             this.name_label.Font = new System.Drawing.Font("Poppins", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.name_label.Location = new System.Drawing.Point(274, 20);
+            this.name_label.Location = new System.Drawing.Point(242, 14);
             this.name_label.Name = "name_label";
-            this.name_label.Size = new System.Drawing.Size(660, 38);
-            this.name_label.TabIndex = 3;
+            this.name_label.Size = new System.Drawing.Size(714, 36);
+            this.name_label.TabIndex = 7;
             // 
             // company_logo_picturebox
             // 
             this.company_logo_picturebox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.company_logo_picturebox.Location = new System.Drawing.Point(62, 17);
+            this.company_logo_picturebox.Location = new System.Drawing.Point(39, 22);
             this.company_logo_picturebox.Name = "company_logo_picturebox";
             this.company_logo_picturebox.Size = new System.Drawing.Size(190, 176);
-            this.company_logo_picturebox.TabIndex = 0;
+            this.company_logo_picturebox.TabIndex = 6;
             this.company_logo_picturebox.TabStop = false;
             // 
             // JS_ReportBusiness
@@ -267,11 +267,11 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel business_panel;
-        private System.Windows.Forms.Label description_label;
-        private System.Windows.Forms.Label footer_label;
-        private System.Windows.Forms.Label name_label;
-        private System.Windows.Forms.PictureBox company_logo_picturebox;
         private System.Windows.Forms.FlowLayoutPanel image_flowlayout;
         private System.Windows.Forms.TextBox description_input;
+        private System.Windows.Forms.Label footer_label;
+        private System.Windows.Forms.Label description_label;
+        private System.Windows.Forms.Label name_label;
+        private System.Windows.Forms.PictureBox company_logo_picturebox;
     }
 }

@@ -48,6 +48,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.upload_button = new System.Windows.Forms.Button();
             this.cancel_button = new System.Windows.Forms.Button();
+            this.profile_picture = new System.Windows.Forms.PictureBox();
             this.header_label = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -58,12 +59,11 @@
             this.label6 = new System.Windows.Forms.Label();
             this.description_richbox = new System.Windows.Forms.TextBox();
             this.update_button = new System.Windows.Forms.Button();
-            this.profile_picture = new System.Windows.Forms.PictureBox();
             this.sidebar_panel.SuspendLayout();
             this.supporting_panel.SuspendLayout();
             this.address_panel.SuspendLayout();
-            this.business_panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.profile_picture)).BeginInit();
+            this.business_panel.SuspendLayout();
             this.SuspendLayout();
             // 
             // sidebar_panel
@@ -228,10 +228,11 @@
             // 
             this.address_input.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.address_input.Location = new System.Drawing.Point(10, 38);
-            this.address_input.Multiline = true;
             this.address_input.Name = "address_input";
-            this.address_input.Size = new System.Drawing.Size(751, 32);
+            this.address_input.Size = new System.Drawing.Size(751, 31);
             this.address_input.TabIndex = 47;
+            this.address_input.TextChanged += new System.EventHandler(this.address_input_TextChanged_1);
+            this.address_input.Leave += new System.EventHandler(this.address_input_Leave_1);
             // 
             // label13
             // 
@@ -340,6 +341,17 @@
             this.cancel_button.Text = "Cancel";
             this.cancel_button.UseVisualStyleBackColor = true;
             this.cancel_button.Click += new System.EventHandler(this.cancel_button_Click_1);
+            // 
+            // profile_picture
+            // 
+            this.profile_picture.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.profile_picture.Image = global::JobNear.Properties.Resources.default_profile;
+            this.profile_picture.Location = new System.Drawing.Point(802, 95);
+            this.profile_picture.Name = "profile_picture";
+            this.profile_picture.Size = new System.Drawing.Size(201, 199);
+            this.profile_picture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.profile_picture.TabIndex = 79;
+            this.profile_picture.TabStop = false;
             // 
             // header_label
             // 
@@ -451,17 +463,6 @@
             this.update_button.UseVisualStyleBackColor = true;
             this.update_button.Click += new System.EventHandler(this.update_button_Click);
             // 
-            // profile_picture
-            // 
-            this.profile_picture.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.profile_picture.Image = global::JobNear.Properties.Resources.default_profile;
-            this.profile_picture.Location = new System.Drawing.Point(802, 95);
-            this.profile_picture.Name = "profile_picture";
-            this.profile_picture.Size = new System.Drawing.Size(201, 199);
-            this.profile_picture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.profile_picture.TabIndex = 79;
-            this.profile_picture.TabStop = false;
-            // 
             // JP_RegisterBusinessForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -475,9 +476,9 @@
             this.supporting_panel.ResumeLayout(false);
             this.address_panel.ResumeLayout(false);
             this.address_panel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.profile_picture)).EndInit();
             this.business_panel.ResumeLayout(false);
             this.business_panel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.profile_picture)).EndInit();
             this.ResumeLayout(false);
 
         }

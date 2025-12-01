@@ -41,25 +41,25 @@
             this.image_flowlayout = new System.Windows.Forms.FlowLayoutPanel();
             this.edit_btn = new System.Windows.Forms.Button();
             this.personal_panel = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
-            this.sex_combo = new System.Windows.Forms.ComboBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.birthdate_picker = new System.Windows.Forms.DateTimePicker();
-            this.label8 = new System.Windows.Forms.Label();
-            this.age_input = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.middlename_input = new System.Windows.Forms.TextBox();
-            this.firstname_input = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.lastname_input = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.firstname_input = new System.Windows.Forms.TextBox();
+            this.middlename_input = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.age_input = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.birthdate_picker = new System.Windows.Forms.DateTimePicker();
+            this.label7 = new System.Windows.Forms.Label();
+            this.sex_combo = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.address_panel = new System.Windows.Forms.Panel();
-            this.label10 = new System.Windows.Forms.Label();
-            this.phone_input = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.email_input = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
             this.address_input = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.email_input = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.phone_input = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.supporting_panel = new System.Windows.Forms.Panel();
             this.attach_file = new System.Windows.Forms.Button();
             this.sidebar_panel = new System.Windows.Forms.Panel();
@@ -224,16 +224,105 @@
             this.personal_panel.Size = new System.Drawing.Size(795, 190);
             this.personal_panel.TabIndex = 54;
             // 
-            // label6
+            // lastname_input
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.DimGray;
-            this.label6.Location = new System.Drawing.Point(14, 98);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(42, 28);
-            this.label6.TabIndex = 30;
-            this.label6.Text = "Sex:";
+            this.lastname_input.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lastname_input.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lastname_input.Location = new System.Drawing.Point(13, 41);
+            this.lastname_input.Multiline = true;
+            this.lastname_input.Name = "lastname_input";
+            this.lastname_input.Size = new System.Drawing.Size(244, 32);
+            this.lastname_input.TabIndex = 24;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.DimGray;
+            this.label3.Location = new System.Drawing.Point(14, 16);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(94, 28);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "Lastname:";
+            // 
+            // firstname_input
+            // 
+            this.firstname_input.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.firstname_input.Location = new System.Drawing.Point(272, 41);
+            this.firstname_input.Multiline = true;
+            this.firstname_input.Name = "firstname_input";
+            this.firstname_input.Size = new System.Drawing.Size(244, 32);
+            this.firstname_input.TabIndex = 28;
+            // 
+            // middlename_input
+            // 
+            this.middlename_input.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.middlename_input.Location = new System.Drawing.Point(530, 41);
+            this.middlename_input.Multiline = true;
+            this.middlename_input.Name = "middlename_input";
+            this.middlename_input.Size = new System.Drawing.Size(244, 32);
+            this.middlename_input.TabIndex = 29;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.DimGray;
+            this.label4.Location = new System.Drawing.Point(272, 16);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(94, 28);
+            this.label4.TabIndex = 25;
+            this.label4.Text = "Firstname:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.DimGray;
+            this.label5.Location = new System.Drawing.Point(530, 16);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(113, 28);
+            this.label5.TabIndex = 27;
+            this.label5.Text = "Middlename";
+            // 
+            // age_input
+            // 
+            this.age_input.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.age_input.Location = new System.Drawing.Point(530, 123);
+            this.age_input.Multiline = true;
+            this.age_input.Name = "age_input";
+            this.age_input.Size = new System.Drawing.Size(244, 32);
+            this.age_input.TabIndex = 36;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.DimGray;
+            this.label8.Location = new System.Drawing.Point(532, 98);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(47, 28);
+            this.label8.TabIndex = 35;
+            this.label8.Text = "Age:";
+            // 
+            // birthdate_picker
+            // 
+            this.birthdate_picker.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.birthdate_picker.Location = new System.Drawing.Point(272, 123);
+            this.birthdate_picker.Name = "birthdate_picker";
+            this.birthdate_picker.Size = new System.Drawing.Size(244, 31);
+            this.birthdate_picker.TabIndex = 34;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.DimGray;
+            this.label7.Location = new System.Drawing.Point(271, 98);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(89, 28);
+            this.label7.TabIndex = 32;
+            this.label7.Text = "Birthdate:";
             // 
             // sex_combo
             // 
@@ -247,105 +336,16 @@
             this.sex_combo.Size = new System.Drawing.Size(244, 33);
             this.sex_combo.TabIndex = 31;
             // 
-            // label7
+            // label6
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.DimGray;
-            this.label7.Location = new System.Drawing.Point(271, 98);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(89, 28);
-            this.label7.TabIndex = 32;
-            this.label7.Text = "Birthdate:";
-            // 
-            // birthdate_picker
-            // 
-            this.birthdate_picker.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.birthdate_picker.Location = new System.Drawing.Point(272, 123);
-            this.birthdate_picker.Name = "birthdate_picker";
-            this.birthdate_picker.Size = new System.Drawing.Size(244, 31);
-            this.birthdate_picker.TabIndex = 34;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.DimGray;
-            this.label8.Location = new System.Drawing.Point(532, 98);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(47, 28);
-            this.label8.TabIndex = 35;
-            this.label8.Text = "Age:";
-            // 
-            // age_input
-            // 
-            this.age_input.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.age_input.Location = new System.Drawing.Point(530, 123);
-            this.age_input.Multiline = true;
-            this.age_input.Name = "age_input";
-            this.age_input.Size = new System.Drawing.Size(244, 32);
-            this.age_input.TabIndex = 36;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.DimGray;
-            this.label5.Location = new System.Drawing.Point(530, 16);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(113, 28);
-            this.label5.TabIndex = 27;
-            this.label5.Text = "Middlename";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.DimGray;
-            this.label4.Location = new System.Drawing.Point(272, 16);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(94, 28);
-            this.label4.TabIndex = 25;
-            this.label4.Text = "Firstname:";
-            // 
-            // middlename_input
-            // 
-            this.middlename_input.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.middlename_input.Location = new System.Drawing.Point(530, 41);
-            this.middlename_input.Multiline = true;
-            this.middlename_input.Name = "middlename_input";
-            this.middlename_input.Size = new System.Drawing.Size(244, 32);
-            this.middlename_input.TabIndex = 29;
-            // 
-            // firstname_input
-            // 
-            this.firstname_input.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.firstname_input.Location = new System.Drawing.Point(272, 41);
-            this.firstname_input.Multiline = true;
-            this.firstname_input.Name = "firstname_input";
-            this.firstname_input.Size = new System.Drawing.Size(244, 32);
-            this.firstname_input.TabIndex = 28;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.DimGray;
-            this.label3.Location = new System.Drawing.Point(14, 16);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(94, 28);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "Lastname:";
-            // 
-            // lastname_input
-            // 
-            this.lastname_input.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lastname_input.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lastname_input.Location = new System.Drawing.Point(13, 41);
-            this.lastname_input.Multiline = true;
-            this.lastname_input.Name = "lastname_input";
-            this.lastname_input.Size = new System.Drawing.Size(244, 32);
-            this.lastname_input.TabIndex = 24;
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.DimGray;
+            this.label6.Location = new System.Drawing.Point(14, 98);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(42, 28);
+            this.label6.TabIndex = 30;
+            this.label6.Text = "Sex:";
             // 
             // address_panel
             // 
@@ -361,45 +361,14 @@
             this.address_panel.Size = new System.Drawing.Size(795, 180);
             this.address_panel.TabIndex = 55;
             // 
-            // label10
+            // address_input
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.DimGray;
-            this.label10.Location = new System.Drawing.Point(399, 88);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(132, 28);
-            this.label10.TabIndex = 40;
-            this.label10.Text = "Phone Number:";
-            // 
-            // phone_input
-            // 
-            this.phone_input.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.phone_input.Location = new System.Drawing.Point(402, 112);
-            this.phone_input.Multiline = true;
-            this.phone_input.Name = "phone_input";
-            this.phone_input.Size = new System.Drawing.Size(382, 32);
-            this.phone_input.TabIndex = 41;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.DimGray;
-            this.label11.Location = new System.Drawing.Point(4, 88);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(127, 28);
-            this.label11.TabIndex = 38;
-            this.label11.Text = "Email Address:";
-            // 
-            // email_input
-            // 
-            this.email_input.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.email_input.Location = new System.Drawing.Point(8, 112);
-            this.email_input.Multiline = true;
-            this.email_input.Name = "email_input";
-            this.email_input.Size = new System.Drawing.Size(382, 32);
-            this.email_input.TabIndex = 39;
+            this.address_input.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.address_input.Location = new System.Drawing.Point(8, 38);
+            this.address_input.Name = "address_input";
+            this.address_input.Size = new System.Drawing.Size(778, 31);
+            this.address_input.TabIndex = 47;
+            this.address_input.TextChanged += new System.EventHandler(this.address_input_TextChanged);
             // 
             // label13
             // 
@@ -412,15 +381,45 @@
             this.label13.TabIndex = 46;
             this.label13.Text = "Full Address:";
             // 
-            // address_input
+            // email_input
             // 
-            this.address_input.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.address_input.Location = new System.Drawing.Point(8, 38);
-            this.address_input.Multiline = true;
-            this.address_input.Name = "address_input";
-            this.address_input.Size = new System.Drawing.Size(778, 32);
-            this.address_input.TabIndex = 47;
-            this.address_input.TextChanged += new System.EventHandler(this.address_input_TextChanged);
+            this.email_input.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.email_input.Location = new System.Drawing.Point(8, 112);
+            this.email_input.Multiline = true;
+            this.email_input.Name = "email_input";
+            this.email_input.Size = new System.Drawing.Size(382, 32);
+            this.email_input.TabIndex = 39;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.DimGray;
+            this.label11.Location = new System.Drawing.Point(4, 88);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(127, 28);
+            this.label11.TabIndex = 38;
+            this.label11.Text = "Email Address:";
+            // 
+            // phone_input
+            // 
+            this.phone_input.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.phone_input.Location = new System.Drawing.Point(402, 112);
+            this.phone_input.Multiline = true;
+            this.phone_input.Name = "phone_input";
+            this.phone_input.Size = new System.Drawing.Size(382, 32);
+            this.phone_input.TabIndex = 41;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.DimGray;
+            this.label10.Location = new System.Drawing.Point(399, 88);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(132, 28);
+            this.label10.TabIndex = 40;
+            this.label10.Text = "Phone Number:";
             // 
             // supporting_panel
             // 
