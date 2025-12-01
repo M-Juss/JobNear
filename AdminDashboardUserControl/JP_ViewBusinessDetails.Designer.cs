@@ -56,6 +56,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.name_label = new System.Windows.Forms.Label();
+            this.status_lbl = new System.Windows.Forms.Label();
             this.sidebar_panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.profile_picture)).BeginInit();
             this.business_panel.SuspendLayout();
@@ -68,6 +69,7 @@
             this.sidebar_panel.Controls.Add(this.profile_picture);
             this.sidebar_panel.Controls.Add(this.business_panel);
             this.sidebar_panel.Controls.Add(this.name_label);
+            this.sidebar_panel.Controls.Add(this.status_lbl);
             this.sidebar_panel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.sidebar_panel.Location = new System.Drawing.Point(0, 0);
             this.sidebar_panel.Name = "sidebar_panel";
@@ -403,6 +405,16 @@
             this.name_label.TabIndex = 96;
             this.name_label.Text = "Test";
             // 
+            // status_lbl
+            // 
+            this.status_lbl.Font = new System.Drawing.Font("Poppins SemiBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.status_lbl.Location = new System.Drawing.Point(797, 18);
+            this.status_lbl.Name = "status_lbl";
+            this.status_lbl.Size = new System.Drawing.Size(200, 37);
+            this.status_lbl.TabIndex = 111;
+            this.status_lbl.Text = "Status";
+            this.status_lbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // JP_ViewBusinessDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -449,5 +461,6 @@
         private System.Windows.Forms.TextBox email_input;
         private System.Windows.Forms.TextBox website_input;
         private System.Windows.Forms.TextBox industry_input;
+        private System.Windows.Forms.Label status_lbl;
     }
 }

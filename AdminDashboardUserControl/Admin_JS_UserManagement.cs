@@ -204,10 +204,9 @@ namespace JobNear.AdminDashboardUserControl
 
                 case "all":
                     seeker_table.Rows.Clear();
-                    var submmitedAccount = Builders<JobSeekerAccountModel>.Filter.Eq(x => x.IsDraft, false);
 
                     var allAccount = await MongoDbServices.JobSeekerAccount
-                        .Find(submmitedAccount)
+                        .Find(_ => true)
                         .ToListAsync();
 
 

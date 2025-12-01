@@ -1,4 +1,5 @@
-﻿using JobNear.Models;
+﻿using JobNear.Controllers;
+using JobNear.Models;
 using JobNear.Services;
 using JobNear.Styles;
 using MongoDB.Driver;
@@ -45,6 +46,7 @@ namespace JobNear.AdminDashboardUserControl
                 lat_input.Text = specificUser.Latitude.ToString();
                 lng_input.Text = specificUser.Longitude.ToString();
                 profile_picture.Image = ConvertDataTypeServices.ConvertBytesToImage(specificUser.ProfilePicture);
+                UserController.SetSeekerAndBusinesStatus(status_lbl, specificUser.Status);
 
                 if (specificUser.SupportingDocuments != null)
                 {

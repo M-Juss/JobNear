@@ -58,6 +58,7 @@
             this.profile_picture = new System.Windows.Forms.PictureBox();
             this.seeker_panel = new System.Windows.Forms.Panel();
             this.username_label = new System.Windows.Forms.Label();
+            this.status_lbl = new System.Windows.Forms.Label();
             this.sidebar_panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.profile_picture)).BeginInit();
             this.SuspendLayout();
@@ -94,6 +95,7 @@
             this.sidebar_panel.Controls.Add(this.profile_picture);
             this.sidebar_panel.Controls.Add(this.seeker_panel);
             this.sidebar_panel.Controls.Add(this.username_label);
+            this.sidebar_panel.Controls.Add(this.status_lbl);
             this.sidebar_panel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.sidebar_panel.Location = new System.Drawing.Point(0, 0);
             this.sidebar_panel.Name = "sidebar_panel";
@@ -430,6 +432,16 @@
             this.username_label.Text = "Username";
             this.username_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // status_lbl
+            // 
+            this.status_lbl.Font = new System.Drawing.Font("Poppins SemiBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.status_lbl.Location = new System.Drawing.Point(798, 16);
+            this.status_lbl.Name = "status_lbl";
+            this.status_lbl.Size = new System.Drawing.Size(200, 37);
+            this.status_lbl.TabIndex = 112;
+            this.status_lbl.Text = "Status";
+            this.status_lbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // JS_ViewInformation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -478,5 +490,6 @@
         private System.Windows.Forms.Button cancel_button;
         private System.Windows.Forms.TextBox remarks_richtext;
         private System.Windows.Forms.Panel seeker_panel;
+        private System.Windows.Forms.Label status_lbl;
     }
 }
