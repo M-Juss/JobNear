@@ -83,12 +83,10 @@ namespace JobNear.JobPosterDashboardUserControl
                 company_logo_picturebox.Image = ConvertDataTypeServices.ConvertBytesToImage(businessDetails.BusinessLogo);
                 name_label.Text = businessDetails.BusinessName;
                 description_label.Text = businessDetails.BusinessDescription;
-                address_label.Text = businessDetails.BusinessAddress;
+                footer_label.Text = businessDetails.BusinessAddress;
                 status_lbl.Text = businessDetails.Status;
 
                 UserController.SetSeekerAndBusinesStatus(status_lbl, businessDetails.Status);
-
-
             }
         }
 
