@@ -196,6 +196,7 @@ namespace JobNear.AdminDashboardUserControl
                                     await MongoDbServices.JobPosterJobPosting.UpdateOneAsync(jobPostFilter, updateJobPost);
                                 }
                             }
+                            else MessageBox.Show("IsBusinessOnreview not updating");
                         }
                         else
                         {

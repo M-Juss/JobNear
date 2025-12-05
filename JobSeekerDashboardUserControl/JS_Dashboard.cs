@@ -30,13 +30,9 @@ namespace JobNear.JobSeekerDashboardUserControl
                     .Find(x => x.JobStatus == "Active" && x.IsBusinessOnReview == false)
                     .CountDocumentsAsync();
 
-                if (business != 0 && jobposting != 0)
-                {
                     business_lbl.Text = business.ToString();
                     posting_lbl.Text = jobposting.ToString();
-                }
-                else MessageBox.Show("No data to shown in dashboard");
-                
+             
             }
             catch (Exception ex)
             {

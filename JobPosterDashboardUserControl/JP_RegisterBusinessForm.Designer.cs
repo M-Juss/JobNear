@@ -90,7 +90,7 @@
             this.sidebar_panel.Controls.Add(this.update_button);
             this.sidebar_panel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.sidebar_panel.Location = new System.Drawing.Point(0, 0);
-            this.sidebar_panel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.sidebar_panel.Margin = new System.Windows.Forms.Padding(4);
             this.sidebar_panel.Name = "sidebar_panel";
             this.sidebar_panel.Size = new System.Drawing.Size(1375, 868);
             this.sidebar_panel.TabIndex = 0;
@@ -145,7 +145,7 @@
             "Cultural and Arts Management",
             "Executive and Strategic Management"});
             this.industry_input.Location = new System.Drawing.Point(37, 254);
-            this.industry_input.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.industry_input.Margin = new System.Windows.Forms.Padding(4);
             this.industry_input.Name = "industry_input";
             this.industry_input.Size = new System.Drawing.Size(993, 34);
             this.industry_input.TabIndex = 61;
@@ -155,7 +155,7 @@
             this.name_input.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.name_input.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.name_input.Location = new System.Drawing.Point(37, 165);
-            this.name_input.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.name_input.Margin = new System.Windows.Forms.Padding(4);
             this.name_input.Multiline = true;
             this.name_input.Name = "name_input";
             this.name_input.Size = new System.Drawing.Size(994, 39);
@@ -184,7 +184,7 @@
             this.attach_file.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.attach_file.ForeColor = System.Drawing.Color.DimGray;
             this.attach_file.Location = new System.Drawing.Point(17, 17);
-            this.attach_file.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.attach_file.Margin = new System.Windows.Forms.Padding(4);
             this.attach_file.Name = "attach_file";
             this.attach_file.Size = new System.Drawing.Size(997, 170);
             this.attach_file.TabIndex = 48;
@@ -212,7 +212,7 @@
             // 
             this.website_input.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.website_input.Location = new System.Drawing.Point(13, 231);
-            this.website_input.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.website_input.Margin = new System.Windows.Forms.Padding(4);
             this.website_input.Multiline = true;
             this.website_input.Name = "website_input";
             this.website_input.Size = new System.Drawing.Size(1000, 38);
@@ -234,7 +234,7 @@
             // 
             this.address_input.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.address_input.Location = new System.Drawing.Point(13, 47);
-            this.address_input.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.address_input.Margin = new System.Windows.Forms.Padding(4);
             this.address_input.Name = "address_input";
             this.address_input.Size = new System.Drawing.Size(1000, 37);
             this.address_input.TabIndex = 47;
@@ -257,7 +257,7 @@
             // 
             this.email_input.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.email_input.Location = new System.Drawing.Point(13, 142);
-            this.email_input.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.email_input.Margin = new System.Windows.Forms.Padding(4);
             this.email_input.Multiline = true;
             this.email_input.Name = "email_input";
             this.email_input.Size = new System.Drawing.Size(492, 38);
@@ -279,7 +279,7 @@
             // 
             this.phone_input.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.phone_input.Location = new System.Drawing.Point(528, 142);
-            this.phone_input.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.phone_input.Margin = new System.Windows.Forms.Padding(4);
             this.phone_input.Multiline = true;
             this.phone_input.Name = "phone_input";
             this.phone_input.Size = new System.Drawing.Size(485, 38);
@@ -303,7 +303,7 @@
             this.image_flowlayout.BackColor = System.Drawing.Color.WhiteSmoke;
             this.image_flowlayout.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.image_flowlayout.Location = new System.Drawing.Point(21, 1162);
-            this.image_flowlayout.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.image_flowlayout.Margin = new System.Windows.Forms.Padding(4);
             this.image_flowlayout.Name = "image_flowlayout";
             this.image_flowlayout.Size = new System.Drawing.Size(1031, 143);
             this.image_flowlayout.TabIndex = 55;
@@ -338,7 +338,7 @@
             this.upload_button.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.upload_button.ForeColor = System.Drawing.Color.White;
             this.upload_button.Location = new System.Drawing.Point(1069, 379);
-            this.upload_button.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.upload_button.Margin = new System.Windows.Forms.Padding(4);
             this.upload_button.Name = "upload_button";
             this.upload_button.Size = new System.Drawing.Size(267, 39);
             this.upload_button.TabIndex = 84;
@@ -351,7 +351,7 @@
             this.cancel_button.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cancel_button.ForeColor = System.Drawing.Color.White;
             this.cancel_button.Location = new System.Drawing.Point(937, 1344);
-            this.cancel_button.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cancel_button.Margin = new System.Windows.Forms.Padding(4);
             this.cancel_button.Name = "cancel_button";
             this.cancel_button.Size = new System.Drawing.Size(147, 44);
             this.cancel_button.TabIndex = 82;
@@ -362,9 +362,9 @@
             // profile_picture
             // 
             this.profile_picture.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.profile_picture.Image = global::JobNear.Properties.Resources.default_profile;
+            this.profile_picture.Image = global::JobNear.Properties.Resources.JobnearLogo;
             this.profile_picture.Location = new System.Drawing.Point(1069, 117);
-            this.profile_picture.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.profile_picture.Margin = new System.Windows.Forms.Padding(4);
             this.profile_picture.Name = "profile_picture";
             this.profile_picture.Size = new System.Drawing.Size(267, 244);
             this.profile_picture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -410,7 +410,7 @@
             this.review_button.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.review_button.ForeColor = System.Drawing.Color.White;
             this.review_button.Location = new System.Drawing.Point(1097, 1344);
-            this.review_button.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.review_button.Margin = new System.Windows.Forms.Padding(4);
             this.review_button.Name = "review_button";
             this.review_button.Size = new System.Drawing.Size(233, 44);
             this.review_button.TabIndex = 83;
@@ -481,7 +481,7 @@
             this.update_button.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.update_button.ForeColor = System.Drawing.Color.White;
             this.update_button.Location = new System.Drawing.Point(1097, 1344);
-            this.update_button.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.update_button.Margin = new System.Windows.Forms.Padding(4);
             this.update_button.Name = "update_button";
             this.update_button.Size = new System.Drawing.Size(233, 44);
             this.update_button.TabIndex = 85;
@@ -495,7 +495,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.Controls.Add(this.sidebar_panel);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "JP_RegisterBusinessForm";
             this.Size = new System.Drawing.Size(1375, 868);
             this.sidebar_panel.ResumeLayout(false);
