@@ -56,6 +56,7 @@ namespace JobNear.Forms
                 if (seeker.Status != "Verified")
                 {
                     MessageBox.Show("Your account is not yet verified.", "Account Not Verified", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
                 }
                 else
                 {

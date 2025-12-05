@@ -104,9 +104,10 @@
             this.label9.Location = new System.Drawing.Point(72, 302);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(817, 36);
+            this.label9.Size = new System.Drawing.Size(872, 36);
             this.label9.TabIndex = 17;
-            this.label9.Text = "| Job Browse - View nearby jobs on the map and tap a location to see job details";
+            this.label9.Text = "| Job Browse - View nearby jobs on the map and tap a location to see business det" +
+    "ails";
             // 
             // label8
             // 
@@ -140,9 +141,9 @@
             this.label6.Location = new System.Drawing.Point(71, 170);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(465, 36);
+            this.label6.Size = new System.Drawing.Size(476, 36);
             this.label6.TabIndex = 14;
-            this.label6.Text = "Check Notificications for verification updates.";
+            this.label6.Text = "| Check Notificications for verification updates.";
             // 
             // label5
             // 
@@ -152,9 +153,9 @@
             this.label5.Location = new System.Drawing.Point(71, 130);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(817, 36);
+            this.label5.Size = new System.Drawing.Size(828, 36);
             this.label5.TabIndex = 13;
-            this.label5.Text = "Complete your personal details and upload the required supporting documents.";
+            this.label5.Text = "| Complete your personal details and upload the required supporting documents.";
             // 
             // label4
             // 

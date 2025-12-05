@@ -129,21 +129,26 @@ namespace JobNear.Controllers
                 default: return "●";
             }
         }
-
         private string FormatTimeAgo(DateTime date)
         {
-            var span = DateTime.Now - date;
+            if (date.Kind == DateTimeKind.Utc)
+                date = date.ToLocalTime();
+
+            var now = DateTime.Now;
+            var span = now - date;
+
+            if (span.TotalSeconds < 0)
+                return "Just now";
+
             if (span.TotalMinutes < 1) return "Just now";
             if (span.TotalMinutes < 60) return $"{(int)span.TotalMinutes}m ago";
             if (span.TotalHours < 24) return $"{(int)span.TotalHours}h ago";
             if (span.TotalDays < 7) return $"{(int)span.TotalDays}d ago";
+
             return date.ToString("MM/dd/yyyy");
         }
     }
-
-
-
-    public class NotificationFlowManager
+        public class NotificationFlowManager
     {
         private FlowLayoutPanel flowPanel;
 

@@ -49,7 +49,7 @@ namespace JobNear.JobSeekerDashboardUserControl
                 {
                     Console.WriteLine("Business Status: " + getBusiness.Status);
                     var getActiveJobs = await MongoDbServices.JobPosterJobPosting
-                        .Find(x => x.BusinessId == getBusiness.Id && x.JobStatus == "Active")
+                        .Find(x => x.BusinessId == getBusiness.Id && x.JobStatus == "Active" && x.IsBusinessOnReview == false)
                         .ToListAsync();
 
                     getActiveJobs.ForEach(job =>

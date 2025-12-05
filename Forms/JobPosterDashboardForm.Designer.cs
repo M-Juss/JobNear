@@ -50,7 +50,7 @@
             this.JP_sidebar_panel.Controls.Add(this.jobnear_button);
             this.JP_sidebar_panel.Dock = System.Windows.Forms.DockStyle.Left;
             this.JP_sidebar_panel.Location = new System.Drawing.Point(0, 0);
-            this.JP_sidebar_panel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.JP_sidebar_panel.Margin = new System.Windows.Forms.Padding(4);
             this.JP_sidebar_panel.Name = "JP_sidebar_panel";
             this.JP_sidebar_panel.Size = new System.Drawing.Size(267, 868);
             this.JP_sidebar_panel.TabIndex = 0;
@@ -61,11 +61,11 @@
             this.notification_button.Dock = System.Windows.Forms.DockStyle.Top;
             this.notification_button.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.notification_button.Location = new System.Drawing.Point(0, 240);
-            this.notification_button.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.notification_button.Margin = new System.Windows.Forms.Padding(4);
             this.notification_button.Name = "notification_button";
             this.notification_button.Size = new System.Drawing.Size(267, 60);
             this.notification_button.TabIndex = 6;
-            this.notification_button.Text = "   🔔   Notifications";
+            this.notification_button.Text = "  🔔   Notifications";
             this.notification_button.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.notification_button.UseVisualStyleBackColor = false;
             this.notification_button.Click += new System.EventHandler(this.notification_button_Click);
@@ -77,7 +77,7 @@
             this.log_out_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.log_out_button.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.log_out_button.Location = new System.Drawing.Point(0, 819);
-            this.log_out_button.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.log_out_button.Margin = new System.Windows.Forms.Padding(4);
             this.log_out_button.Name = "log_out_button";
             this.log_out_button.Size = new System.Drawing.Size(267, 49);
             this.log_out_button.TabIndex = 5;
@@ -91,7 +91,7 @@
             this.view_business_button.Dock = System.Windows.Forms.DockStyle.Top;
             this.view_business_button.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.view_business_button.Location = new System.Drawing.Point(0, 180);
-            this.view_business_button.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.view_business_button.Margin = new System.Windows.Forms.Padding(4);
             this.view_business_button.Name = "view_business_button";
             this.view_business_button.Size = new System.Drawing.Size(267, 60);
             this.view_business_button.TabIndex = 4;
@@ -107,11 +107,11 @@
             this.business_button.Dock = System.Windows.Forms.DockStyle.Top;
             this.business_button.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.business_button.Location = new System.Drawing.Point(0, 120);
-            this.business_button.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.business_button.Margin = new System.Windows.Forms.Padding(4);
             this.business_button.Name = "business_button";
             this.business_button.Size = new System.Drawing.Size(267, 60);
             this.business_button.TabIndex = 2;
-            this.business_button.Text = "   🏢   Register Business";
+            this.business_button.Text = "  🏢   Register Business";
             this.business_button.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.business_button.UseVisualStyleBackColor = false;
             this.business_button.Click += new System.EventHandler(this.business_button_Click);
@@ -122,11 +122,11 @@
             this.dashboard_button.Dock = System.Windows.Forms.DockStyle.Top;
             this.dashboard_button.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dashboard_button.Location = new System.Drawing.Point(0, 60);
-            this.dashboard_button.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dashboard_button.Margin = new System.Windows.Forms.Padding(4);
             this.dashboard_button.Name = "dashboard_button";
             this.dashboard_button.Size = new System.Drawing.Size(267, 60);
             this.dashboard_button.TabIndex = 1;
-            this.dashboard_button.Text = "   📊 Dashboard";
+            this.dashboard_button.Text = "  📊 Dashboard";
             this.dashboard_button.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.dashboard_button.UseVisualStyleBackColor = false;
             this.dashboard_button.Click += new System.EventHandler(this.dashboard_button_Click);
@@ -136,7 +136,7 @@
             this.jobnear_button.Dock = System.Windows.Forms.DockStyle.Top;
             this.jobnear_button.Image = global::JobNear.Properties.Resources.JobNearDashboardLogo;
             this.jobnear_button.Location = new System.Drawing.Point(0, 0);
-            this.jobnear_button.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.jobnear_button.Margin = new System.Windows.Forms.Padding(4);
             this.jobnear_button.Name = "jobnear_button";
             this.jobnear_button.Size = new System.Drawing.Size(267, 60);
             this.jobnear_button.TabIndex = 0;
@@ -146,7 +146,7 @@
             // 
             this.sidebar_panel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.sidebar_panel.Location = new System.Drawing.Point(267, 0);
-            this.sidebar_panel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.sidebar_panel.Margin = new System.Windows.Forms.Padding(4);
             this.sidebar_panel.Name = "sidebar_panel";
             this.sidebar_panel.Size = new System.Drawing.Size(1374, 868);
             this.sidebar_panel.TabIndex = 1;
@@ -158,7 +158,7 @@
             this.ClientSize = new System.Drawing.Size(1641, 868);
             this.Controls.Add(this.sidebar_panel);
             this.Controls.Add(this.JP_sidebar_panel);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "JobPosterDashboardForm";
             this.Text = "Job Poster";
             this.JP_sidebar_panel.ResumeLayout(false);
