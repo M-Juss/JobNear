@@ -5,7 +5,9 @@ using System;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
+using MongoDB.Driver;
 using Button = System.Windows.Forms.Button;
+using JobNear.Services;
 
 namespace JobNear.Styles
 {
@@ -324,7 +326,7 @@ namespace JobNear.Styles
             file_flowlayout.Controls.Add(businessPanel);
         }
 
-        public static void AddPostJob(string job_id, string job_postion, string work_model, string employment_type, string job_description, string job_status, FlowLayoutPanel joblist_flowlayout, Panel sidebar_panel)
+        public async static void AddPostJob(string job_id, string job_postion, string work_model, string employment_type, string job_description, string job_status, FlowLayoutPanel joblist_flowlayout, Panel sidebar_panel)
         {
             Panel postJobPanel = new Panel();
             postJobPanel.AutoSize = false;
@@ -396,27 +398,49 @@ namespace JobNear.Styles
             jobEditPost.Font = new Font("Poppins", 10, FontStyle.Bold);
             jobEditPost.ForeColor = Color.White;
 
+
+
             if (Session.CurrentUserType == "poster")
             {
-                jobEditPost.Click += (s, e) =>
-                {
-                    if (Session.CurrentBusinessSelectedStatus != "Verified")
-                    {
-                        MessageBox.Show("Business must be Verified to edit a job post!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
+
+                var getJobIdStatus = await MongoDbServices.JobPosterJobPosting
+                    .Find(x => x.Id == job_id)
+                    .ToListAsync();
+
+                if (getJobIdStatus.Count > 0) {
+                    foreach (var jobStat in getJobIdStatus) {
+
+                        if (jobStat.JobStatus != "Pending") {
+                            jobEditPost.Click += (s, e) =>
+                            {
+                                if (Session.CurrentBusinessSelectedStatus != "Verified")
+                                {
+                                    MessageBox.Show("Business must be Verified to edit a job post!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    return;
+                                }
+
+                                string mode = "edit";
+                                Session.CurrentPostJobFormMode = mode;
+                                Session.CurrentPostedJobSelected = job_id;
+
+                                Console.WriteLine(Session.CurrentPostedJobSelected);
+
+                                JobPosterDashboardUserControl.JP_PostJobForm editJobForm = new JobPosterDashboardUserControl.JP_PostJobForm(mode, job_id);
+                                sidebar_panel.Controls.Clear();
+                                sidebar_panel.Controls.Add(editJobForm);
+                                editJobForm.Dock = DockStyle.Fill;
+                            };
+                        }
+                        if (jobStat.JobStatus == "Pending")
+                        {
+                            jobEditPost.Visible = false;
+                            break;
+                        }
+
                     }
+                }
 
-                    string mode = "edit";
-                    Session.CurrentPostJobFormMode = mode;
-                    Session.CurrentPostedJobSelected = job_id;
 
-                    Console.WriteLine(Session.CurrentPostedJobSelected);
-
-                    JobPosterDashboardUserControl.JP_PostJobForm editJobForm = new JobPosterDashboardUserControl.JP_PostJobForm(mode, job_id);
-                    sidebar_panel.Controls.Clear();
-                    sidebar_panel.Controls.Add(editJobForm);
-                    editJobForm.Dock = DockStyle.Fill;
-                };
             }
             else
             {

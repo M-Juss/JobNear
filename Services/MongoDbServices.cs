@@ -342,7 +342,7 @@ namespace JobNear.Services
             }
         }
 
-        public static async Task<bool> InsertJobPostingAsync(string id, string address, string title, string employmentType, string workModel, int applicantsNeeded, string minQual, string prefQual, string aboutJob, string responsibilities, string paymentType, double monthlySalary, double hourlyRate, string status)
+        public static async Task<bool> InsertJobPostingAsync(string id, string address, string title, string employmentType, string workModel, int applicantsNeeded, string minQual, string prefQual, string aboutJob, string responsibilities, string paymentType, double monthlySalary, double hourlyRate)
         {
             try
             {
@@ -360,8 +360,7 @@ namespace JobNear.Services
                     JobResponsibilities = responsibilities,
                     JobPaymentType = paymentType,
                     JobMonthlyRate = monthlySalary,
-                    JobHourlyRate = hourlyRate,
-                    JobStatus = status
+                    JobHourlyRate = hourlyRate
                 };
 
                 await JobPosterJobPosting.InsertOneAsync(newJobPosting);
@@ -670,8 +669,6 @@ namespace JobNear.Services
 
             return onReview;
         }
-
-
 
     }
 }

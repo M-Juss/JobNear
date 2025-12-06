@@ -23,7 +23,7 @@ namespace JobNear.Models
         public string JobPaymentType { get; set; }
         public double JobMonthlyRate { get; set; }
         public double JobHourlyRate { get; set; }
-        public string JobStatus { get; set; }
-        public bool IsBusinessOnReview { get; set; } = true;
+        public string JobStatus { get; set; } = "Pending";
+        public bool IsBusinessOnReview { get; set; } = false;
     }
 }

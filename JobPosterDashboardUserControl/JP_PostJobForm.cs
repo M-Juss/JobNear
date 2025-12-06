@@ -15,6 +15,7 @@ namespace JobNear.JobPosterDashboardUserControl
             InitializeComponent();
             SetUpUI();
             paymenttype_label.Text = "";
+            update_button.Visible = false;
         }
 
         public JP_PostJobForm(string mode, string id)
@@ -22,6 +23,7 @@ namespace JobNear.JobPosterDashboardUserControl
             InitializeComponent();
             SetUpUI();
             LoadPostedJobDetails(id);
+            post_button.Visible = false;
         }
 
         private void SetUpUI()
@@ -164,14 +166,13 @@ namespace JobNear.JobPosterDashboardUserControl
                     responsibilities,
                     paytype,
                     monthlysalary,
-                    hourlyrate,
-                    stat
+                    hourlyrate
                     );
 
 
                     if (response)
                     {
-                        string result = MessageBox.Show("Job posted successfully!",
+                        string result = MessageBox.Show("Job posted successfully! Wait for admin approval and your job status will be automatically active.",
                             "Success",
                             MessageBoxButtons.OK,
                             MessageBoxIcon.Information
@@ -266,5 +267,9 @@ namespace JobNear.JobPosterDashboardUserControl
             sidebar_panel.Dock = DockStyle.Fill;
         }
 
+        private void update_button_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
