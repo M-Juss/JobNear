@@ -101,8 +101,17 @@ namespace JobNear.JobSeekerDashboardUserControl
             jS_ViewBusinessProfile.Dock = DockStyle.Fill;
         }
 
-        private void apply_label_Click(object sender, EventArgs e)
+        private async void apply_label_Click(object sender, EventArgs e)
         {
+            var getJobApplicationInformation = await MongoDbServices.JobApplication
+                .Find(x => x.JobId == Session.CurrentPostedJobSelected && x.SeekerId == Session.CurrentUserId && x.Status == "Pending" && x.isSubmissionActive == true)
+                .FirstOrDefaultAsync();
+
+            if (getJobApplicationInformation != null) {
+                MessageBox.Show("You currently have active proposal in this job. Please check Business response.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
             JS_JobApplication jS_JobApplication = new JS_JobApplication(Session.CurrentPostedJobSelected);
             sidebar_panel.Controls.Clear();
             sidebar_panel.Controls.Add(jS_JobApplication);

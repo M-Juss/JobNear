@@ -41,7 +41,7 @@
             this.attach_file = new System.Windows.Forms.Button();
             this.submit_button = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.description_input = new System.Windows.Forms.TextBox();
+            this.coverletter_input = new System.Windows.Forms.TextBox();
             this.sidebar_panel.SuspendLayout();
             this.job_panel.SuspendLayout();
             this.details_panel.SuspendLayout();
@@ -90,7 +90,7 @@
             this.applicants_lbl.AutoSize = true;
             this.applicants_lbl.BackColor = System.Drawing.Color.Transparent;
             this.applicants_lbl.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.applicants_lbl.Location = new System.Drawing.Point(687, 51);
+            this.applicants_lbl.Location = new System.Drawing.Point(687, 56);
             this.applicants_lbl.Name = "applicants_lbl";
             this.applicants_lbl.Size = new System.Drawing.Size(240, 26);
             this.applicants_lbl.TabIndex = 23;
@@ -101,7 +101,7 @@
             // 
             this.jobinfo_label.AutoSize = true;
             this.jobinfo_label.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.jobinfo_label.Location = new System.Drawing.Point(61, 53);
+            this.jobinfo_label.Location = new System.Drawing.Point(61, 58);
             this.jobinfo_label.Name = "jobinfo_label";
             this.jobinfo_label.Size = new System.Drawing.Size(81, 26);
             this.jobinfo_label.TabIndex = 22;
@@ -112,7 +112,7 @@
             // 
             this.jobtitle_label.Font = new System.Drawing.Font("Poppins SemiBold", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.jobtitle_label.ForeColor = System.Drawing.Color.DimGray;
-            this.jobtitle_label.Location = new System.Drawing.Point(54, 6);
+            this.jobtitle_label.Location = new System.Drawing.Point(54, 11);
             this.jobtitle_label.Name = "jobtitle_label";
             this.jobtitle_label.Size = new System.Drawing.Size(742, 56);
             this.jobtitle_label.TabIndex = 21;
@@ -131,7 +131,7 @@
             // rate_lbl
             // 
             this.rate_lbl.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rate_lbl.Location = new System.Drawing.Point(669, 22);
+            this.rate_lbl.Location = new System.Drawing.Point(669, 27);
             this.rate_lbl.Name = "rate_lbl";
             this.rate_lbl.Size = new System.Drawing.Size(272, 28);
             this.rate_lbl.TabIndex = 25;
@@ -140,7 +140,7 @@
             // details_panel
             // 
             this.details_panel.BackColor = System.Drawing.Color.White;
-            this.details_panel.Controls.Add(this.description_input);
+            this.details_panel.Controls.Add(this.coverletter_input);
             this.details_panel.Controls.Add(this.image_flowlayout);
             this.details_panel.Controls.Add(this.attach_file);
             this.details_panel.Controls.Add(this.submit_button);
@@ -184,6 +184,7 @@
             this.submit_button.TabIndex = 54;
             this.submit_button.Text = "Submit Application";
             this.submit_button.UseVisualStyleBackColor = true;
+            this.submit_button.Click += new System.EventHandler(this.submit_button_Click);
             // 
             // label1
             // 
@@ -197,15 +198,15 @@
             this.label1.TabIndex = 57;
             this.label1.Text = "Cover Letter:";
             // 
-            // description_input
+            // coverletter_input
             // 
-            this.description_input.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.description_input.Location = new System.Drawing.Point(29, 33);
-            this.description_input.Margin = new System.Windows.Forms.Padding(2);
-            this.description_input.Multiline = true;
-            this.description_input.Name = "description_input";
-            this.description_input.Size = new System.Drawing.Size(943, 178);
-            this.description_input.TabIndex = 58;
+            this.coverletter_input.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.coverletter_input.Location = new System.Drawing.Point(29, 33);
+            this.coverletter_input.Margin = new System.Windows.Forms.Padding(2);
+            this.coverletter_input.Multiline = true;
+            this.coverletter_input.Name = "coverletter_input";
+            this.coverletter_input.Size = new System.Drawing.Size(943, 178);
+            this.coverletter_input.TabIndex = 58;
             // 
             // JS_JobApplication
             // 
@@ -239,6 +240,6 @@
         private System.Windows.Forms.Button attach_file;
         private System.Windows.Forms.Button submit_button;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox description_input;
+        private System.Windows.Forms.TextBox coverletter_input;
     }
 }

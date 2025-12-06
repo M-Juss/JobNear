@@ -42,6 +42,7 @@ namespace JobNear.JobPosterDashboardUserControl
             if (jobDetails != null)
             {
                 title_input.Text = jobDetails.JobPosition;
+                appplicants_lbl.Text = jobDetails.JobApplicantsNeeded.ToString();
                 min_qualification_richbox.Text = jobDetails.JobMinimumQualification;
                 preferred_qualification_richbox.Text = jobDetails.JobPreferredQualification;
                 about_job_richbox.Text = jobDetails.JobAbout;
@@ -84,7 +85,7 @@ namespace JobNear.JobPosterDashboardUserControl
         }
         private async void post_button_Click_1(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(title_input.Text) || string.IsNullOrEmpty(min_qualification_richbox.Text) ||
+            if (string.IsNullOrEmpty(title_input.Text) || string.IsNullOrEmpty(min_qualification_richbox.Text) || string.IsNullOrEmpty(appplicants_lbl.Text) ||
                 string.IsNullOrEmpty(about_job_richbox.Text) || string.IsNullOrEmpty(responsibilities_richbox.Text) ||
                 string.IsNullOrEmpty(preferred_qualification_richbox.Text) || string.IsNullOrEmpty(payment_combo.Text) || string.IsNullOrEmpty(status_combo.Text))
             {
@@ -134,6 +135,7 @@ namespace JobNear.JobPosterDashboardUserControl
                 string position = title_input.Text.Trim();
                 string emptype = employment_type.Trim();
                 string workmodel = work_model.Trim();
+                int applicantsNeeded = int.Parse(appplicants_lbl.Text.Trim());
                 string minqualification = min_qualification_richbox.Text.Trim();
                 string preferredqualification = preferred_qualification_richbox.Text.Trim();
                 string aboutjob = about_job_richbox.Text.Trim();
@@ -155,6 +157,7 @@ namespace JobNear.JobPosterDashboardUserControl
                     position,
                     emptype,
                     workmodel,
+                    applicantsNeeded,
                     minqualification,
                     preferredqualification,
                     aboutjob,
@@ -262,7 +265,6 @@ namespace JobNear.JobPosterDashboardUserControl
             sidebar_panel.Controls.Add(jp_businessDetails);
             sidebar_panel.Dock = DockStyle.Fill;
         }
-
 
     }
 }

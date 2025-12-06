@@ -3,8 +3,10 @@ using JobNear.Services;
 using JobNear.Styles;
 using MongoDB.Driver;
 using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace JobNear.JobSeekerDashboardUserControl
@@ -23,7 +25,7 @@ namespace JobNear.JobSeekerDashboardUserControl
             PanelStyles.RoundedPanel(job_panel, 20, Color.White);
             PanelStyles.RoundedPanel(details_panel, 20, Color.White);
             ButtonStyle.RoundedButton(attach_file, 25, "#F5F5F5");
-            TextboxStyles.RoundedTextBoxShadow(description_input, 10, "#FFFFFF", 1);
+            TextboxStyles.RoundedTextBoxShadow(coverletter_input, 10, "#FFFFFF", 1);
             ButtonStyle.RoundedButton(submit_button, 10, "#10B981");
 
 
@@ -87,6 +89,66 @@ namespace JobNear.JobSeekerDashboardUserControl
 
                     FlowLayoutStyles.AddFileItem(destPath, image_flowlayout, image_flowlayout.Width - 20);
                 }
+            }
+        }
+
+        private async void submit_button_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(coverletter_input.Text)) {
+                MessageBox.Show("Cover letter is required", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (image_flowlayout.Controls.Count == 0)
+            {
+                MessageBox.Show("Please attach at least one supporting document", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            List<SupportingDocument> supportingDocuments = new List<SupportingDocument>();
+
+            foreach (Control ctrl in image_flowlayout.Controls)
+            {
+                if (ctrl is Panel panel)
+                {
+                    if (panel.Tag is SupportingDocument existingDoc)
+                    {
+                        supportingDocuments.Add(existingDoc);
+                    }
+                    else if (panel.Tag is string filePath && File.Exists(filePath))
+                    {
+                        supportingDocuments.Add(new SupportingDocument
+                        {
+                            FileName = Path.GetFileName(filePath),
+                            FileContent = File.ReadAllBytes(filePath)
+                        });
+                    }
+                }
+            }
+
+            bool result = await MongoDbServices.InsertJobApplication(Session.CurrentPostedJobSelected, Session.CurrentUserId, coverletter_input.Text.Trim(), supportingDocuments);
+
+            if (result)
+            {
+                string res = MessageBox.Show(
+                    "Job application submitted successfully and ready for review",
+                    "Success",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information
+                ).ToString();
+
+                if (res == "OK")
+                {
+                    JobSeekerDashboardUserControl.JS_JobList js_jobList = new JobSeekerDashboardUserControl.JS_JobList();
+                    sidebar_panel.Controls.Clear();
+                    sidebar_panel.Controls.Add(js_jobList);
+                    js_jobList.Dock = DockStyle.Fill;
+
+                    Session.CurrentSeekJobSelected = "joblist";
+                }
+            }
+            else
+            {
+                MessageBox.Show("Failed to submit job application. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

@@ -46,7 +46,8 @@ namespace JobNear.Services
 
         public static IMongoCollection<AdminAccountModel> AdminAccount =>
             _database.GetCollection<AdminAccountModel>("AdminAccounts");
-
+        public static IMongoCollection<JobApplicationModel> JobApplication =>
+    _database.GetCollection<JobApplicationModel>("JobApplications");
         public static IMongoCollection<UserNotificationModel> UserNotification =>
             _database.GetCollection<UserNotificationModel>("UserNotifications");
         public static IMongoCollection<ReportBusinessModel> ReportBusiness =>
@@ -341,7 +342,7 @@ namespace JobNear.Services
             }
         }
 
-        public static async Task<bool> InsertJobPostingAsync(string id, string address, string title, string employmentType, string workModel, string minQual, string prefQual, string aboutJob, string responsibilities, string paymentType, double monthlySalary, double hourlyRate, string status)
+        public static async Task<bool> InsertJobPostingAsync(string id, string address, string title, string employmentType, string workModel, int applicantsNeeded, string minQual, string prefQual, string aboutJob, string responsibilities, string paymentType, double monthlySalary, double hourlyRate, string status)
         {
             try
             {
@@ -352,6 +353,7 @@ namespace JobNear.Services
                     JobPosition = title,
                     JobEmploymentType = employmentType,
                     JobWorkModel = workModel,
+                    JobApplicantsNeeded = applicantsNeeded,
                     JobMinimumQualification = minQual,
                     JobPreferredQualification = prefQual,
                     JobAbout = aboutJob,
@@ -465,6 +467,28 @@ namespace JobNear.Services
                 };
 
                 await ControlSiteNotification.InsertOneAsync(newControl);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error occurred while adding control site: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+
+        public static async Task<bool> InsertJobApplication(string jobId, string seekerId, string coverLetter, List<SupportingDocument> docu)
+        {
+            try
+            {
+                var newApplication = new JobApplicationModel
+                {
+                    JobId = jobId,
+                    SeekerId = seekerId,
+                    CoverLetter = coverLetter,
+                    SupportingDocuments = docu,
+                };
+
+                await JobApplication.InsertOneAsync(newApplication);
                 return true;
             }
             catch (Exception ex)
