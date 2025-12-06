@@ -15,6 +15,7 @@ namespace JobNear.Models
         public string JobPosition { get; set; }
         public string JobEmploymentType { get; set; }
         public string JobWorkModel { get; set; }
+        public int JobApplicantsNeeded { get; set; }
         public string JobMinimumQualification { get; set; }
         public string JobPreferredQualification { get; set; }
         public string JobAbout { get; set; }

@@ -16,10 +16,10 @@ namespace JobNear.JobSeekerDashboardUserControl
 
             PanelStyles.RoundedPanel(business_panel, 20, Color.White);
             PanelStyles.RoundedPanel(job_panel, 20, Color.White);
+            PanelStyles.StyleRoundedLabel(apply_label, 5, ColorTranslator.FromHtml("#10B981"), Color.White);
 
             LoadJobDetails(id);
             LoadBusinessDetails(id);
-            ;
         }
 
         public async void LoadBusinessDetails(string businessId)
@@ -54,21 +54,23 @@ namespace JobNear.JobSeekerDashboardUserControl
 
             if (job != null)
             {
+                string rate;
+                if (job.JobHourlyRate == 0)
+                {
+                    rate = $"Monthly Salary: ₱{job.JobMonthlyRate}";
+                }
+                else rate = $"Hourly Rate: ₱{job.JobHourlyRate}";
+
                 jobtitle_label.Text = job.JobPosition;
-                jobinfo_label.Text = $"{job.JobWorkModel} | {job.JobEmploymentType}";
+                jobinfo_label.Text = $"{job.JobWorkModel} | {job.JobEmploymentType} | {rate} ";
+
                 about_label.Text = job.JobAbout;
                 responsibilities_label.Text = job.JobResponsibilities;
                 preffered_label.Text = job.JobPreferredQualification;
                 minimum_label.Text = job.JobMinimumQualification;
-                status_label.Text = job.JobStatus;
 
-                if (job.JobHourlyRate == 0)
-                {
-                    rate_label.Text = $"Monthly Salary: ₱{job.JobMonthlyRate}";
-                }
-                else rate_label.Text = $"Hourly Rate: ₱{job.JobHourlyRate}";
+                applicants_lbl.Text = $"Number of applicants needed: {job.JobApplicantsNeeded}";
 
-                UserController.SetJobPostStatus(status_label, job.JobStatus);
             }
         }
 
@@ -95,6 +97,11 @@ namespace JobNear.JobSeekerDashboardUserControl
             sidebar_panel.Controls.Clear();
             sidebar_panel.Controls.Add(jS_ViewBusinessProfile);
             jS_ViewBusinessProfile.Dock = DockStyle.Fill;
+        }
+
+        private void apply_label_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

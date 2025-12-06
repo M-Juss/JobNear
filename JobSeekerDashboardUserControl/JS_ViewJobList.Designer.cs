@@ -41,15 +41,15 @@
             this.about_label = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.rate_label = new System.Windows.Forms.Label();
             this.jobinfo_label = new System.Windows.Forms.Label();
-            this.status_label = new System.Windows.Forms.Label();
+            this.apply_label = new System.Windows.Forms.Label();
             this.jobtitle_label = new System.Windows.Forms.Label();
             this.business_panel = new System.Windows.Forms.Panel();
             this.footer_label = new System.Windows.Forms.Label();
             this.description_label = new System.Windows.Forms.Label();
             this.name_label = new System.Windows.Forms.Label();
             this.company_logo_picturebox = new System.Windows.Forms.PictureBox();
+            this.applicants_lbl = new System.Windows.Forms.Label();
             this.sidebar_panel.SuspendLayout();
             this.job_panel.SuspendLayout();
             this.business_panel.SuspendLayout();
@@ -84,6 +84,7 @@
             // 
             this.job_panel.AutoScroll = true;
             this.job_panel.BackColor = System.Drawing.Color.White;
+            this.job_panel.Controls.Add(this.applicants_lbl);
             this.job_panel.Controls.Add(this.label1);
             this.job_panel.Controls.Add(this.minimum_label);
             this.job_panel.Controls.Add(this.label9);
@@ -94,9 +95,8 @@
             this.job_panel.Controls.Add(this.about_label);
             this.job_panel.Controls.Add(this.label4);
             this.job_panel.Controls.Add(this.panel2);
-            this.job_panel.Controls.Add(this.rate_label);
             this.job_panel.Controls.Add(this.jobinfo_label);
-            this.job_panel.Controls.Add(this.status_label);
+            this.job_panel.Controls.Add(this.apply_label);
             this.job_panel.Controls.Add(this.jobtitle_label);
             this.job_panel.Location = new System.Drawing.Point(15, 256);
             this.job_panel.Name = "job_panel";
@@ -107,7 +107,7 @@
             // 
             this.label1.AutoEllipsis = true;
             this.label1.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(261, 550);
+            this.label1.Location = new System.Drawing.Point(261, 538);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(432, 1);
             this.label1.TabIndex = 18;
@@ -116,9 +116,9 @@
             // 
             this.minimum_label.AutoEllipsis = true;
             this.minimum_label.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.minimum_label.Location = new System.Drawing.Point(510, 345);
+            this.minimum_label.Location = new System.Drawing.Point(510, 337);
             this.minimum_label.Name = "minimum_label";
-            this.minimum_label.Size = new System.Drawing.Size(432, 184);
+            this.minimum_label.Size = new System.Drawing.Size(432, 172);
             this.minimum_label.TabIndex = 17;
             // 
             // label9
@@ -126,7 +126,7 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Poppins SemiBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.DimGray;
-            this.label9.Location = new System.Drawing.Point(508, 311);
+            this.label9.Location = new System.Drawing.Point(508, 303);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(203, 34);
             this.label9.TabIndex = 16;
@@ -136,9 +136,9 @@
             // 
             this.preffered_label.AutoEllipsis = true;
             this.preffered_label.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.preffered_label.Location = new System.Drawing.Point(510, 119);
+            this.preffered_label.Location = new System.Drawing.Point(510, 127);
             this.preffered_label.Name = "preffered_label";
-            this.preffered_label.Size = new System.Drawing.Size(432, 184);
+            this.preffered_label.Size = new System.Drawing.Size(432, 172);
             this.preffered_label.TabIndex = 15;
             // 
             // label11
@@ -146,7 +146,7 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Poppins SemiBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.DimGray;
-            this.label11.Location = new System.Drawing.Point(508, 91);
+            this.label11.Location = new System.Drawing.Point(508, 99);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(201, 34);
             this.label11.TabIndex = 14;
@@ -156,9 +156,9 @@
             // 
             this.responsibilities_label.AutoEllipsis = true;
             this.responsibilities_label.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.responsibilities_label.Location = new System.Drawing.Point(59, 345);
+            this.responsibilities_label.Location = new System.Drawing.Point(59, 337);
             this.responsibilities_label.Name = "responsibilities_label";
-            this.responsibilities_label.Size = new System.Drawing.Size(432, 184);
+            this.responsibilities_label.Size = new System.Drawing.Size(432, 172);
             this.responsibilities_label.TabIndex = 13;
             // 
             // label7
@@ -166,7 +166,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Poppins SemiBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.DimGray;
-            this.label7.Location = new System.Drawing.Point(58, 311);
+            this.label7.Location = new System.Drawing.Point(58, 303);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(164, 34);
             this.label7.TabIndex = 12;
@@ -176,9 +176,9 @@
             // 
             this.about_label.AutoEllipsis = true;
             this.about_label.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.about_label.Location = new System.Drawing.Point(59, 119);
+            this.about_label.Location = new System.Drawing.Point(59, 127);
             this.about_label.Name = "about_label";
-            this.about_label.Size = new System.Drawing.Size(432, 184);
+            this.about_label.Size = new System.Drawing.Size(432, 172);
             this.about_label.TabIndex = 11;
             // 
             // label4
@@ -186,7 +186,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Poppins SemiBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.DimGray;
-            this.label4.Location = new System.Drawing.Point(57, 91);
+            this.label4.Location = new System.Drawing.Point(57, 99);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(157, 34);
             this.label4.TabIndex = 10;
@@ -201,16 +201,6 @@
             this.panel2.Size = new System.Drawing.Size(885, 1);
             this.panel2.TabIndex = 9;
             // 
-            // rate_label
-            // 
-            this.rate_label.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rate_label.Location = new System.Drawing.Point(700, 54);
-            this.rate_label.Name = "rate_label";
-            this.rate_label.Size = new System.Drawing.Size(240, 28);
-            this.rate_label.TabIndex = 8;
-            this.rate_label.Text = "Salary";
-            this.rate_label.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
             // jobinfo_label
             // 
             this.jobinfo_label.AutoSize = true;
@@ -222,16 +212,19 @@
             this.jobinfo_label.Text = "Job Infos";
             this.jobinfo_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // status_label
+            // apply_label
             // 
-            this.status_label.AutoSize = true;
-            this.status_label.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.status_label.Location = new System.Drawing.Point(835, 21);
-            this.status_label.Name = "status_label";
-            this.status_label.Padding = new System.Windows.Forms.Padding(20, 0, 20, 0);
-            this.status_label.Size = new System.Drawing.Size(105, 28);
-            this.status_label.TabIndex = 6;
-            this.status_label.Text = "Status";
+            this.apply_label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(185)))), ((int)(((byte)(129)))));
+            this.apply_label.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.apply_label.ForeColor = System.Drawing.Color.White;
+            this.apply_label.Location = new System.Drawing.Point(801, 16);
+            this.apply_label.Name = "apply_label";
+            this.apply_label.Padding = new System.Windows.Forms.Padding(20, 0, 20, 0);
+            this.apply_label.Size = new System.Drawing.Size(141, 33);
+            this.apply_label.TabIndex = 6;
+            this.apply_label.Text = "Apply Now";
+            this.apply_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.apply_label.Click += new System.EventHandler(this.apply_label_Click);
             // 
             // jobtitle_label
             // 
@@ -295,6 +288,18 @@
             this.company_logo_picturebox.TabIndex = 0;
             this.company_logo_picturebox.TabStop = false;
             // 
+            // applicants_lbl
+            // 
+            this.applicants_lbl.AutoSize = true;
+            this.applicants_lbl.BackColor = System.Drawing.Color.Transparent;
+            this.applicants_lbl.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.applicants_lbl.Location = new System.Drawing.Point(680, 54);
+            this.applicants_lbl.Name = "applicants_lbl";
+            this.applicants_lbl.Size = new System.Drawing.Size(254, 28);
+            this.applicants_lbl.TabIndex = 20;
+            this.applicants_lbl.Text = "Number of applicants needed:";
+            this.applicants_lbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // JS_ViewJobList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -325,8 +330,7 @@
         private System.Windows.Forms.PictureBox company_logo_picturebox;
         private System.Windows.Forms.Panel job_panel;
         private System.Windows.Forms.Label jobinfo_label;
-        private System.Windows.Forms.Label status_label;
-        private System.Windows.Forms.Label rate_label;
+        private System.Windows.Forms.Label apply_label;
         private System.Windows.Forms.Label about_label;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel2;
@@ -338,5 +342,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label prev_lbl;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label applicants_lbl;
     }
 }
