@@ -54,6 +54,8 @@ namespace JobNear.JobSeekerDashboardUserControl
 
             if (job != null)
             {
+                Session.CurrentPostedJobSelected = job.Id;
+
                 string rate;
                 if (job.JobHourlyRate == 0)
                 {
@@ -101,7 +103,10 @@ namespace JobNear.JobSeekerDashboardUserControl
 
         private void apply_label_Click(object sender, EventArgs e)
         {
-
+            JS_JobApplication jS_JobApplication = new JS_JobApplication(Session.CurrentPostedJobSelected);
+            sidebar_panel.Controls.Clear();
+            sidebar_panel.Controls.Add(jS_JobApplication);
+            jS_JobApplication.Dock = DockStyle.Fill;
         }
     }
 }

@@ -382,6 +382,12 @@
     <Compile Include="JobSeekerDashboardUserControl\JS_Dashboard.Designer.cs">
       <DependentUpon>JS_Dashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="JobSeekerDashboardUserControl\JS_JobApplication.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="JobSeekerDashboardUserControl\JS_JobApplication.Designer.cs">
+      <DependentUpon>JS_JobApplication.cs</DependentUpon>
+    </Compile>
     <Compile Include="JobSeekerDashboardUserControl\JS_JobBrowse.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -546,6 +552,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="JobSeekerDashboardUserControl\JS_Dashboard.resx">
       <DependentUpon>JS_Dashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JobSeekerDashboardUserControl\JS_JobApplication.resx">
+      <DependentUpon>JS_JobApplication.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="JobSeekerDashboardUserControl\JS_JobBrowse.resx">
       <DependentUpon>JS_JobBrowse.cs</DependentUpon>

@@ -35,6 +35,7 @@ namespace JobNear.JobSeekerDashboardUserControl
             TextboxStyles.RoundedTextBoxShadow(subject_input, 10, "#FFFFFF", 1);
             TextboxStyles.RoundedTextBoxShadow(description_input, 10, "#FFFFFF", 1);
 
+
         }
         private async void LoadSelectedBusiness(string businessId)
         {
