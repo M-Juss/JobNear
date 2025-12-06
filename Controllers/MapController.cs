@@ -2,6 +2,8 @@
 using GMap.NET.MapProviders;
 using GMap.NET.WindowsForms;
 using GMap.NET.WindowsForms.Markers;
+using JobNear.Services;
+using MongoDB.Driver;
 using System;
 using System.Linq;
 using System.Windows.Forms;
@@ -102,7 +104,7 @@ namespace JobNear.Controllers
             gmap.OnMarkerClick += Gmap_OnMarkerClick;
         }
 
-        public static void Gmap_OnMarkerClick(GMapMarker item, MouseEventArgs e)
+        public async static void Gmap_OnMarkerClick(GMapMarker item, MouseEventArgs e)
         {
             if (item.Tag != null)
             {
@@ -110,12 +112,21 @@ namespace JobNear.Controllers
 
                 Session.CurrentBusinessSelected = businessId;
 
-                JobSeekerDashboardUserControl.JS_ViewBusiness view =
-                    new JobSeekerDashboardUserControl.JS_ViewBusiness(Session.CurrentBusinessSelected);
+                var getBusinessStatus = await MongoDbServices.JobPosterBusiness
+                    .Find(x => x.Id == Session.CurrentBusinessSelected)
+                    .FirstOrDefaultAsync();
 
-                Session.CurrentSidebarPanel.Controls.Clear();
-                Session.CurrentSidebarPanel.Controls.Add(view);
-                view.Dock = DockStyle.Fill;
+                if (getBusinessStatus != null)
+                {
+                    Session.CurrentBusinessSelectedStatus = getBusinessStatus.Status;
+
+                    JobSeekerDashboardUserControl.JS_ViewBusiness view =
+                        new JobSeekerDashboardUserControl.JS_ViewBusiness(Session.CurrentBusinessSelected);
+
+                    Session.CurrentSidebarPanel.Controls.Clear();
+                    Session.CurrentSidebarPanel.Controls.Add(view);
+                    view.Dock = DockStyle.Fill;
+                }
             }
             else
             {

@@ -24,10 +24,6 @@ namespace JobNear.Forms
 
             password_input.UseSystemPasswordChar = true;
         }
-        private void password_checkbox_CheckedChanged(object sender, EventArgs e)
-        {
-            password_input.UseSystemPasswordChar = !password_checkbox.Checked;
-        }
 
         private async void login_button_Click(object sender, EventArgs e)
         {

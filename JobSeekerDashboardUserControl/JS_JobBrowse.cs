@@ -29,7 +29,6 @@ namespace JobNear.JobSeekerDashboardUserControl
 
             if (businesses != null)
             {
-
                 foreach (var business in businesses)
                 {
 
