@@ -1,4 +1,5 @@
 ﻿using JobNear.Controllers;
+using JobNear.JobPosterDashboardUserControl;
 using JobNear.Styles;
 using System;
 using System.Windows.Forms;
@@ -19,7 +20,7 @@ namespace JobNear.Forms
             ButtonStyle.SidebarButton(dashboard_button, "#3B82F6");
             ButtonStyle.SidebarButton(business_button, "#3B82F6");
             ButtonStyle.SidebarButton(view_business_button, "#3B82F6");
-            ButtonStyle.SidebarButton(notification_button, "#3B82F6");
+            ButtonStyle.SidebarButton(review_button, "#3B82F6");
             ButtonStyle.SidebarButton(log_out_button, "#3B82F6");
 
             jp_dashboard = new JobPosterDashboardUserControl.JP_Dashboard();
@@ -43,14 +44,6 @@ namespace JobNear.Forms
             jp_myBusiness.Dock = DockStyle.Fill;
         }
 
-        private void notification_button_Click(object sender, EventArgs e)
-        {
-            JobPosterDashboardUserControl.JP_Notifications jp_notifications = new JobPosterDashboardUserControl.JP_Notifications();
-            sidebar_panel.Controls.Clear();
-            sidebar_panel.Controls.Add(jp_notifications);
-            jp_notifications.Dock = DockStyle.Fill;
-        }
-
         private void dashboard_button_Click(object sender, EventArgs e)
         {
             jp_dashboard = new JobPosterDashboardUserControl.JP_Dashboard();
@@ -64,5 +57,20 @@ namespace JobNear.Forms
             UserController.LogoutUser();
         }
 
+        private void notification_button_Click_1(object sender, EventArgs e)
+        {
+            JobPosterDashboardUserControl.JP_Notifications jp_notifications = new JobPosterDashboardUserControl.JP_Notifications();
+            sidebar_panel.Controls.Clear();
+            sidebar_panel.Controls.Add(jp_notifications);
+            jp_notifications.Dock = DockStyle.Fill;
+        }
+
+        private void review_button_Click(object sender, EventArgs e)
+        {
+            JP_ReviewApplication jP_ReviewApplication = new JP_ReviewApplication();
+            sidebar_panel.Controls.Clear();
+            sidebar_panel.Controls.Add(jP_ReviewApplication);
+            jP_ReviewApplication.Dock = DockStyle.Fill;
+        }
     }
 }

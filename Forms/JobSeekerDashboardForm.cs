@@ -1,4 +1,5 @@
 ﻿using JobNear.Controllers;
+using JobNear.JobSeekerDashboardUserControl;
 using JobNear.Services;
 using JobNear.Styles;
 using MongoDB.Driver;
@@ -24,7 +25,7 @@ namespace JobNear.Forms
             ButtonStyle.SidebarButton(seekjob_button, "#3B82F6");
             ButtonStyle.SidebarButton(joblist_sub_button, "#3B82F6");
             ButtonStyle.SidebarButton(job_browsing_sub_button, "#3B82F6");
-            ButtonStyle.SidebarButton(notification_button, "#3B82F6");
+            ButtonStyle.SidebarButton(application_button, "#3B82F6");
             ButtonStyle.SidebarButton(logout_button, "#3B82F6");
 
             Session.CurrentSidebarPanel = sidebar_panel;
@@ -98,14 +99,7 @@ namespace JobNear.Forms
             Session.CurrentSeekJobSelected = "joblist";
         }
 
-        private void notification_button_Click(object sender, EventArgs e)
-        {
-            JobSeekerDashboardUserControl.JS_Notifications js_notification = new JobSeekerDashboardUserControl.JS_Notifications();
-            hideInactiveSubMenu();
-            sidebar_panel.Controls.Clear();
-            sidebar_panel.Controls.Add(js_notification);
-            js_notification.Dock = DockStyle.Fill;
-        }
+
 
         private void jobnear_button_Click(object sender, EventArgs e)
         {
@@ -119,6 +113,23 @@ namespace JobNear.Forms
         private void logout_button_Click(object sender, EventArgs e)
         {
             UserController.LogoutUser();
+        }
+
+        private void notification_button_Click(object sender, EventArgs e)
+        {
+            JobSeekerDashboardUserControl.JS_Notifications js_notification = new JobSeekerDashboardUserControl.JS_Notifications();
+            hideInactiveSubMenu();
+            sidebar_panel.Controls.Clear();
+            sidebar_panel.Controls.Add(js_notification);
+            js_notification.Dock = DockStyle.Fill;
+        }
+
+        private void application_button_Click(object sender, EventArgs e)
+        {
+            JS_MyApplication jS_MyApplication = new JS_MyApplication();
+            sidebar_panel.Controls.Clear();
+            sidebar_panel.Controls.Add(jS_MyApplication);
+            jS_MyApplication.Dock = DockStyle.Fill;
         }
     }
 }

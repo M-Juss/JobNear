@@ -376,6 +376,12 @@
     <Compile Include="JobPosterDashboardUserControl\JP_BusinessDetails.Designer.cs">
       <DependentUpon>JP_BusinessDetails.cs</DependentUpon>
     </Compile>
+    <Compile Include="JobPosterDashboardUserControl\JP_ReviewApplication.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="JobPosterDashboardUserControl\JP_ReviewApplication.Designer.cs">
+      <DependentUpon>JP_ReviewApplication.cs</DependentUpon>
+    </Compile>
     <Compile Include="JobSeekerDashboardUserControl\JS_Dashboard.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -399,6 +405,12 @@
     </Compile>
     <Compile Include="JobSeekerDashboardUserControl\JS_JobList.Designer.cs">
       <DependentUpon>JS_JobList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="JobSeekerDashboardUserControl\JS_MyApplication.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="JobSeekerDashboardUserControl\JS_MyApplication.Designer.cs">
+      <DependentUpon>JS_MyApplication.cs</DependentUpon>
     </Compile>
     <Compile Include="JobSeekerDashboardUserControl\JS_Notifications.cs">
       <SubType>UserControl</SubType>
@@ -551,6 +563,9 @@
     <EmbeddedResource Include="JobPosterDashboardUserControl\JP_Notifications.resx">
       <DependentUpon>JP_Notifications.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="JobPosterDashboardUserControl\JP_ReviewApplication.resx">
+      <DependentUpon>JP_ReviewApplication.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="JobSeekerDashboardUserControl\JS_Dashboard.resx">
       <DependentUpon>JS_Dashboard.cs</DependentUpon>
     </EmbeddedResource>
@@ -562,6 +577,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="JobSeekerDashboardUserControl\JS_JobList.resx">
       <DependentUpon>JS_JobList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JobSeekerDashboardUserControl\JS_MyApplication.resx">
+      <DependentUpon>JS_MyApplication.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="JobSeekerDashboardUserControl\JS_Notifications.resx">
       <DependentUpon>JS_Notifications.cs</DependentUpon>

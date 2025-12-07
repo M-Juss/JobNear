@@ -15,11 +15,12 @@ namespace JobNear
 
 
             // System Addition 
-            // [] Add field in JobPost on how many are they looking for
-            // [] JobPost should be verifeid first by admin
-            // [] Active Jobs in Seekers POV must have apply button. After clicking apply button attach their resume and some description.
+            // [/] Add field in JobPost on how many are they looking for
+            // [/] JobPost should be verifeid first by admin
+            // [/] Active Jobs in Seekers POV must have apply button. After clicking apply button attach their resume and some description.
             // Then wait for the notification if they are hired or not
-            // [] Basis on about the user report.
+            // [/] Basis on about the user report.
+            // [/] job post inactive when editing
         }
     }
 }

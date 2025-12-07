@@ -39,8 +39,6 @@ namespace JobNear.JobPosterDashboardUserControl
             InitializeComponent();
             SetUpRegisterBusinessForm();
 
-
-
             LoadEditBusinessDetails(businessId);
             review_button.Visible = false;
 

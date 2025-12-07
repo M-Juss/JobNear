@@ -30,6 +30,7 @@
         {
             this.JP_sidebar_panel = new System.Windows.Forms.Panel();
             this.notification_button = new System.Windows.Forms.Button();
+            this.review_button = new System.Windows.Forms.Button();
             this.log_out_button = new System.Windows.Forms.Button();
             this.view_business_button = new System.Windows.Forms.Button();
             this.business_button = new System.Windows.Forms.Button();
@@ -43,6 +44,7 @@
             // 
             this.JP_sidebar_panel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(58)))), ((int)(((byte)(138)))));
             this.JP_sidebar_panel.Controls.Add(this.notification_button);
+            this.JP_sidebar_panel.Controls.Add(this.review_button);
             this.JP_sidebar_panel.Controls.Add(this.log_out_button);
             this.JP_sidebar_panel.Controls.Add(this.view_business_button);
             this.JP_sidebar_panel.Controls.Add(this.business_button);
@@ -59,16 +61,31 @@
             // 
             this.notification_button.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.notification_button.Dock = System.Windows.Forms.DockStyle.Top;
-            this.notification_button.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.notification_button.Location = new System.Drawing.Point(0, 240);
+            this.notification_button.Font = new System.Drawing.Font("Poppins SemiBold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.notification_button.Location = new System.Drawing.Point(0, 300);
             this.notification_button.Margin = new System.Windows.Forms.Padding(4);
             this.notification_button.Name = "notification_button";
             this.notification_button.Size = new System.Drawing.Size(267, 60);
-            this.notification_button.TabIndex = 6;
+            this.notification_button.TabIndex = 7;
             this.notification_button.Text = "  🔔   Notifications";
             this.notification_button.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.notification_button.UseVisualStyleBackColor = false;
-            this.notification_button.Click += new System.EventHandler(this.notification_button_Click);
+            this.notification_button.Click += new System.EventHandler(this.notification_button_Click_1);
+            // 
+            // review_button
+            // 
+            this.review_button.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.review_button.Dock = System.Windows.Forms.DockStyle.Top;
+            this.review_button.Font = new System.Drawing.Font("Poppins SemiBold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.review_button.Location = new System.Drawing.Point(0, 240);
+            this.review_button.Margin = new System.Windows.Forms.Padding(4);
+            this.review_button.Name = "review_button";
+            this.review_button.Size = new System.Drawing.Size(267, 60);
+            this.review_button.TabIndex = 6;
+            this.review_button.Text = "  🔍   Review Applications";
+            this.review_button.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.review_button.UseVisualStyleBackColor = false;
+            this.review_button.Click += new System.EventHandler(this.review_button_Click);
             // 
             // log_out_button
             // 
@@ -89,7 +106,7 @@
             // 
             this.view_business_button.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.view_business_button.Dock = System.Windows.Forms.DockStyle.Top;
-            this.view_business_button.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.view_business_button.Font = new System.Drawing.Font("Poppins SemiBold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.view_business_button.Location = new System.Drawing.Point(0, 180);
             this.view_business_button.Margin = new System.Windows.Forms.Padding(4);
             this.view_business_button.Name = "view_business_button";
@@ -105,7 +122,7 @@
             // 
             this.business_button.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.business_button.Dock = System.Windows.Forms.DockStyle.Top;
-            this.business_button.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.business_button.Font = new System.Drawing.Font("Poppins SemiBold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.business_button.Location = new System.Drawing.Point(0, 120);
             this.business_button.Margin = new System.Windows.Forms.Padding(4);
             this.business_button.Name = "business_button";
@@ -120,13 +137,13 @@
             // 
             this.dashboard_button.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.dashboard_button.Dock = System.Windows.Forms.DockStyle.Top;
-            this.dashboard_button.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dashboard_button.Font = new System.Drawing.Font("Poppins SemiBold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dashboard_button.Location = new System.Drawing.Point(0, 60);
             this.dashboard_button.Margin = new System.Windows.Forms.Padding(4);
             this.dashboard_button.Name = "dashboard_button";
             this.dashboard_button.Size = new System.Drawing.Size(267, 60);
             this.dashboard_button.TabIndex = 1;
-            this.dashboard_button.Text = "  📊 Dashboard";
+            this.dashboard_button.Text = "  📊   Dashboard";
             this.dashboard_button.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.dashboard_button.UseVisualStyleBackColor = false;
             this.dashboard_button.Click += new System.EventHandler(this.dashboard_button_Click);
@@ -175,6 +192,7 @@
         private System.Windows.Forms.Button dashboard_button;
         private System.Windows.Forms.Button jobnear_button;
         private System.Windows.Forms.Button log_out_button;
+        private System.Windows.Forms.Button review_button;
         private System.Windows.Forms.Button notification_button;
     }
 }
