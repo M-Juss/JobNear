@@ -17,20 +17,27 @@ namespace JobNear.JobSeekerDashboardUserControl
         {
             InitializeComponent();
             LoadJobDetails();
-
             image_flowlayout.FlowDirection = FlowDirection.TopDown;
             image_flowlayout.WrapContents = false;
             image_flowlayout.AutoScroll = true;
+            SetUpUI();
 
+        }
+
+        public JS_JobApplication(string applicationId, string type) {
+            image_flowlayout.Visible = false;
+            submit_button.Visible = false;
+            SetUpUI();
+        }
+
+        private void SetUpUI()
+        {
             PanelStyles.RoundedPanel(job_panel, 20, Color.White);
             PanelStyles.RoundedPanel(details_panel, 20, Color.White);
             ButtonStyle.RoundedButton(attach_file, 25, "#F5F5F5");
             TextboxStyles.RoundedTextBoxShadow(coverletter_input, 10, "#FFFFFF", 1);
             ButtonStyle.RoundedButton(submit_button, 10, "#10B981");
-
-
         }
-
         private async void LoadJobDetails() {
             try
             {
