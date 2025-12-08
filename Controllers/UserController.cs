@@ -79,5 +79,28 @@ namespace JobNear.Controllers
                     break;
             }
         }
+
+        public static void SetJobApplicationStatus(Label status_label, string status)
+        {
+            switch (status.ToLower())
+            {
+                case "submitted":
+                    status_label.Text = "Submitted";
+                    PanelStyles.StyleRoundedLabel(status_label, 10, Color.Orange, Color.White);
+                    break;
+                case "accepted":
+                    status_label.Text = "Accepted";
+                    PanelStyles.StyleRoundedLabel(status_label, 10, Color.Green, Color.White);
+                    break;
+                case "rejected":
+                    status_label.Text = "Rejected";
+                    PanelStyles.StyleRoundedLabel(status_label, 10, Color.Red, Color.White);
+                    break;
+                default:
+                    status_label.Text = "Unknown";
+                    PanelStyles.StyleRoundedLabel(status_label, 10, Color.Black, Color.White);
+                    break;
+            }
+        }
     }
 }

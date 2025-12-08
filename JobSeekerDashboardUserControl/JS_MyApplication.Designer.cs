@@ -69,6 +69,7 @@
             this.review_table.RowHeadersWidth = 51;
             this.review_table.Size = new System.Drawing.Size(1337, 754);
             this.review_table.TabIndex = 4;
+            this.review_table.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.review_table_CellContentClick);
             // 
             // status_combo
             // 
@@ -77,7 +78,8 @@
             this.status_combo.Items.AddRange(new object[] {
             "Submitted",
             "Accepted",
-            "Rejected"});
+            "Rejected",
+            "All"});
             this.status_combo.Location = new System.Drawing.Point(19, 45);
             this.status_combo.Name = "status_combo";
             this.status_combo.Size = new System.Drawing.Size(121, 44);

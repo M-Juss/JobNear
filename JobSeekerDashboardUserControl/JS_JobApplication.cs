@@ -1,4 +1,5 @@
-﻿using JobNear.Models;
+﻿using JobNear.Controllers;
+using JobNear.Models;
 using JobNear.Services;
 using JobNear.Styles;
 using MongoDB.Driver;
@@ -17,6 +18,9 @@ namespace JobNear.JobSeekerDashboardUserControl
         {
             InitializeComponent();
             LoadJobDetails();
+            back_button.Visible = false;
+            status_label.Visible = false;
+            documents_lbl.Visible = false;
             image_flowlayout.FlowDirection = FlowDirection.TopDown;
             image_flowlayout.WrapContents = false;
             image_flowlayout.AutoScroll = true;
@@ -25,9 +29,15 @@ namespace JobNear.JobSeekerDashboardUserControl
         }
 
         public JS_JobApplication(string applicationId, string type) {
-            image_flowlayout.Visible = false;
+            InitializeComponent();
+            LoadJobDetails();
+            LoadApplicationDetails(applicationId);
             submit_button.Visible = false;
+            prev_lbl.Visible = false;
+            attach_file.Visible = false;
+            coverletter_input.Enabled = false;
             SetUpUI();
+
         }
 
         private void SetUpUI()
@@ -37,6 +47,32 @@ namespace JobNear.JobSeekerDashboardUserControl
             ButtonStyle.RoundedButton(attach_file, 25, "#F5F5F5");
             TextboxStyles.RoundedTextBoxShadow(coverletter_input, 10, "#FFFFFF", 1);
             ButtonStyle.RoundedButton(submit_button, 10, "#10B981");
+            ButtonStyle.RoundedButton(back_button, 10, "#495057");
+        }
+        private async void LoadApplicationDetails(string applicationId) 
+        {
+           var getApplicationDetails = await MongoDbServices.JobApplication
+                .Find(x => x.Id == applicationId)   
+                .FirstOrDefaultAsync();
+
+            if (getApplicationDetails != null) {
+
+                if (getApplicationDetails.Status == "To Review")
+                {
+                    UserController.SetJobApplicationStatus(status_label, "Submitted");
+                } else UserController.SetJobApplicationStatus(status_label, getApplicationDetails.Status);
+
+                coverletter_input.Text = getApplicationDetails.CoverLetter;
+
+                if (getApplicationDetails.SupportingDocuments != null)
+                {
+                    foreach (var doc in getApplicationDetails.SupportingDocuments)
+                    {
+                        FlowLayoutStyles.AddSupportingDocumentToFlow(doc, image_flowlayout, image_flowlayout.Width - 20, "No");
+                    }
+                }
+
+            }
         }
         private async void LoadJobDetails() {
             try
@@ -157,6 +193,14 @@ namespace JobNear.JobSeekerDashboardUserControl
             {
                 MessageBox.Show("Failed to submit job application. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void back_button_Click(object sender, EventArgs e)
+        {
+            JS_MyApplication jS_MyApplication = new JS_MyApplication();
+            sidebar_panel.Controls.Clear();
+            sidebar_panel.Controls.Add(jS_MyApplication);
+            jS_MyApplication.Dock = DockStyle.Fill;
         }
     }
 }

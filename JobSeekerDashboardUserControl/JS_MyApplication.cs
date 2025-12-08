@@ -8,6 +8,7 @@ using MongoDB.Driver;
 using System.Windows.Forms;
 using JobNear.Services;
 using JobNear.Styles;
+using JobNear.AdminDashboardUserControl;
 
 namespace JobNear.JobSeekerDashboardUserControl
 {
@@ -103,7 +104,7 @@ namespace JobNear.JobSeekerDashboardUserControl
             switch (status.ToLower()) {
                 case "submitted":
                     var submmitedApplication = await MongoDbServices.JobApplication
-                        .Find(x => x.Status == "Submitted")
+                        .Find(x => x.Status == "To Review")
                         .ToListAsync();
 
                     if (submmitedApplication != null) {
@@ -116,8 +117,7 @@ namespace JobNear.JobSeekerDashboardUserControl
                                 .Find(x => x.Id == getJob.BusinessId)
                                 .FirstOrDefaultAsync();
 
-                            review_table.Rows.Add(getBusiness.BusinessName, getJob.JobPosition, application.Status, application.Id);
-
+                            review_table.Rows.Add(getBusiness.BusinessName, getJob.JobPosition, "Submitted", application.Id);
                         }
                     }
                     break;
@@ -162,6 +162,46 @@ namespace JobNear.JobSeekerDashboardUserControl
                         }
                     }
                     break;
+                case "all":
+                    var allApplication = await MongoDbServices.JobApplication
+                        .Find(_ => true)
+                        .ToListAsync();
+
+                    if (allApplication != null)
+                    {
+                        foreach (var application in allApplication)
+                        {
+                            var getJob = await MongoDbServices.JobPosterJobPosting
+                                .Find(x => x.Id == application.JobId)
+                                .FirstOrDefaultAsync();
+                            var getBusiness = await MongoDbServices.JobPosterBusiness
+                                .Find(x => x.Id == getJob.BusinessId)
+                                .FirstOrDefaultAsync();
+
+                            review_table.Rows.Add(getBusiness.BusinessName, getJob.JobPosition, application.Status, application.Id);
+                        }
+                    }
+                    break;
+            }
+        }
+
+        private async void review_table_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.ColumnIndex == review_table.Columns["Action"].Index)
+            {
+                
+                string applicationId = review_table.Rows[e.RowIndex].Cells["ApplicationId"].Value.ToString();
+
+                var getApplication = await MongoDbServices.JobApplication
+                    .Find(x => x.Id == applicationId)
+                    .FirstOrDefaultAsync();
+
+                Session.CurrentPostedJobSelected = getApplication.JobId;   
+
+                JS_JobApplication viewInformation = new JS_JobApplication(applicationId, "view");
+                sidebar_panel.Controls.Clear();
+                sidebar_panel.Controls.Add(viewInformation);
+                viewInformation.Dock = DockStyle.Fill;
             }
         }
     }
