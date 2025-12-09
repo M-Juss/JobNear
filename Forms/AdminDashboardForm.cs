@@ -166,5 +166,13 @@ namespace JobNear.Forms
         {
 
         }
+
+        private void jobposting_button_Click(object sender, EventArgs e)
+        {
+            AdminDashboardUserControl.Admin_JobPostingMangement admin_JobPostingMangement = new AdminDashboardUserControl.Admin_JobPostingMangement();
+            sidebar_panel.Controls.Clear();
+            sidebar_panel.Controls.Add(admin_JobPostingMangement);
+            admin_JobPostingMangement.Dock = DockStyle.Fill                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         ;
+        }
     }
 }

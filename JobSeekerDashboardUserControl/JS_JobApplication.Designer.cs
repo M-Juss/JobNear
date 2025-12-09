@@ -30,11 +30,13 @@
         {
             this.sidebar_panel = new System.Windows.Forms.Panel();
             this.details_panel = new System.Windows.Forms.Panel();
+            this.back_button = new System.Windows.Forms.Button();
             this.coverletter_input = new System.Windows.Forms.TextBox();
             this.image_flowlayout = new System.Windows.Forms.FlowLayoutPanel();
-            this.attach_file = new System.Windows.Forms.Button();
             this.submit_button = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.attach_file = new System.Windows.Forms.Button();
+            this.documents_lbl = new System.Windows.Forms.Label();
             this.prev_lbl = new System.Windows.Forms.Label();
             this.job_panel = new System.Windows.Forms.Panel();
             this.rate_lbl = new System.Windows.Forms.Label();
@@ -42,9 +44,7 @@
             this.applicants_lbl = new System.Windows.Forms.Label();
             this.jobinfo_label = new System.Windows.Forms.Label();
             this.jobtitle_label = new System.Windows.Forms.Label();
-            this.back_button = new System.Windows.Forms.Button();
             this.status_label = new System.Windows.Forms.Label();
-            this.documents_lbl = new System.Windows.Forms.Label();
             this.sidebar_panel.SuspendLayout();
             this.details_panel.SuspendLayout();
             this.job_panel.SuspendLayout();
@@ -59,7 +59,7 @@
             this.sidebar_panel.Controls.Add(this.status_label);
             this.sidebar_panel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.sidebar_panel.Location = new System.Drawing.Point(0, 0);
-            this.sidebar_panel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.sidebar_panel.Margin = new System.Windows.Forms.Padding(4);
             this.sidebar_panel.Name = "sidebar_panel";
             this.sidebar_panel.Size = new System.Drawing.Size(1375, 868);
             this.sidebar_panel.TabIndex = 0;
@@ -67,18 +67,31 @@
             // details_panel
             // 
             this.details_panel.BackColor = System.Drawing.Color.White;
+            this.details_panel.Controls.Add(this.attach_file);
             this.details_panel.Controls.Add(this.back_button);
             this.details_panel.Controls.Add(this.coverletter_input);
             this.details_panel.Controls.Add(this.image_flowlayout);
             this.details_panel.Controls.Add(this.submit_button);
             this.details_panel.Controls.Add(this.label1);
-            this.details_panel.Controls.Add(this.attach_file);
             this.details_panel.Controls.Add(this.documents_lbl);
             this.details_panel.Location = new System.Drawing.Point(20, 286);
-            this.details_panel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.details_panel.Margin = new System.Windows.Forms.Padding(4);
             this.details_panel.Name = "details_panel";
             this.details_panel.Size = new System.Drawing.Size(1333, 566);
             this.details_panel.TabIndex = 21;
+            // 
+            // back_button
+            // 
+            this.back_button.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.back_button.ForeColor = System.Drawing.Color.White;
+            this.back_button.Location = new System.Drawing.Point(1168, 507);
+            this.back_button.Margin = new System.Windows.Forms.Padding(4);
+            this.back_button.Name = "back_button";
+            this.back_button.Size = new System.Drawing.Size(127, 43);
+            this.back_button.TabIndex = 59;
+            this.back_button.Text = "Back";
+            this.back_button.UseVisualStyleBackColor = true;
+            this.back_button.Click += new System.EventHandler(this.back_button_Click);
             // 
             // coverletter_input
             // 
@@ -96,32 +109,18 @@
             this.image_flowlayout.BackColor = System.Drawing.Color.WhiteSmoke;
             this.image_flowlayout.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.image_flowlayout.Location = new System.Drawing.Point(39, 327);
-            this.image_flowlayout.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.image_flowlayout.Margin = new System.Windows.Forms.Padding(4);
             this.image_flowlayout.Name = "image_flowlayout";
             this.image_flowlayout.Size = new System.Drawing.Size(1257, 169);
             this.image_flowlayout.TabIndex = 56;
             this.image_flowlayout.WrapContents = false;
-            // 
-            // attach_file
-            // 
-            this.attach_file.BackColor = System.Drawing.Color.White;
-            this.attach_file.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.attach_file.ForeColor = System.Drawing.Color.DimGray;
-            this.attach_file.Location = new System.Drawing.Point(39, 270);
-            this.attach_file.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.attach_file.Name = "attach_file";
-            this.attach_file.Size = new System.Drawing.Size(1257, 49);
-            this.attach_file.TabIndex = 55;
-            this.attach_file.Text = "Attach here your resume and sample works to strengthen your proposal";
-            this.attach_file.UseVisualStyleBackColor = false;
-            this.attach_file.Click += new System.EventHandler(this.attach_file_Click);
             // 
             // submit_button
             // 
             this.submit_button.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.submit_button.ForeColor = System.Drawing.Color.White;
             this.submit_button.Location = new System.Drawing.Point(1048, 507);
-            this.submit_button.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.submit_button.Margin = new System.Windows.Forms.Padding(4);
             this.submit_button.Name = "submit_button";
             this.submit_button.Size = new System.Drawing.Size(248, 43);
             this.submit_button.TabIndex = 54;
@@ -141,6 +140,33 @@
             this.label1.Size = new System.Drawing.Size(142, 36);
             this.label1.TabIndex = 57;
             this.label1.Text = "Cover Letter:";
+            // 
+            // attach_file
+            // 
+            this.attach_file.BackColor = System.Drawing.Color.White;
+            this.attach_file.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.attach_file.ForeColor = System.Drawing.Color.DimGray;
+            this.attach_file.Location = new System.Drawing.Point(39, 270);
+            this.attach_file.Margin = new System.Windows.Forms.Padding(4);
+            this.attach_file.Name = "attach_file";
+            this.attach_file.Size = new System.Drawing.Size(1257, 49);
+            this.attach_file.TabIndex = 55;
+            this.attach_file.Text = "Attach here your resume and sample works to strengthen your proposal";
+            this.attach_file.UseVisualStyleBackColor = false;
+            this.attach_file.Click += new System.EventHandler(this.attach_file_Click);
+            // 
+            // documents_lbl
+            // 
+            this.documents_lbl.AutoSize = true;
+            this.documents_lbl.BackColor = System.Drawing.Color.Transparent;
+            this.documents_lbl.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.documents_lbl.ForeColor = System.Drawing.Color.DimGray;
+            this.documents_lbl.Location = new System.Drawing.Point(33, 287);
+            this.documents_lbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.documents_lbl.Name = "documents_lbl";
+            this.documents_lbl.Size = new System.Drawing.Size(137, 36);
+            this.documents_lbl.TabIndex = 60;
+            this.documents_lbl.Text = "Documents:";
             // 
             // prev_lbl
             // 
@@ -165,7 +191,7 @@
             this.job_panel.Controls.Add(this.jobinfo_label);
             this.job_panel.Controls.Add(this.jobtitle_label);
             this.job_panel.Location = new System.Drawing.Point(20, 48);
-            this.job_panel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.job_panel.Margin = new System.Windows.Forms.Padding(4);
             this.job_panel.Name = "job_panel";
             this.job_panel.Size = new System.Drawing.Size(1333, 228);
             this.job_panel.TabIndex = 19;
@@ -227,19 +253,6 @@
             this.jobtitle_label.Text = "Job Title";
             this.jobtitle_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // back_button
-            // 
-            this.back_button.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.back_button.ForeColor = System.Drawing.Color.White;
-            this.back_button.Location = new System.Drawing.Point(1168, 507);
-            this.back_button.Margin = new System.Windows.Forms.Padding(4);
-            this.back_button.Name = "back_button";
-            this.back_button.Size = new System.Drawing.Size(127, 43);
-            this.back_button.TabIndex = 59;
-            this.back_button.Text = "Back";
-            this.back_button.UseVisualStyleBackColor = true;
-            this.back_button.Click += new System.EventHandler(this.back_button_Click);
-            // 
             // status_label
             // 
             this.status_label.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -252,25 +265,12 @@
             this.status_label.Text = "Status";
             this.status_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // documents_lbl
-            // 
-            this.documents_lbl.AutoSize = true;
-            this.documents_lbl.BackColor = System.Drawing.Color.Transparent;
-            this.documents_lbl.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.documents_lbl.ForeColor = System.Drawing.Color.DimGray;
-            this.documents_lbl.Location = new System.Drawing.Point(33, 287);
-            this.documents_lbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.documents_lbl.Name = "documents_lbl";
-            this.documents_lbl.Size = new System.Drawing.Size(137, 36);
-            this.documents_lbl.TabIndex = 60;
-            this.documents_lbl.Text = "Documents:";
-            // 
             // JS_JobApplication
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.sidebar_panel);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "JS_JobApplication";
             this.Size = new System.Drawing.Size(1375, 868);
             this.sidebar_panel.ResumeLayout(false);

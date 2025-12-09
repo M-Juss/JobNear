@@ -41,8 +41,9 @@
             this.logout_button = new System.Windows.Forms.Button();
             this.user_button = new System.Windows.Forms.Button();
             this.dashboard_button = new System.Windows.Forms.Button();
-            this.jobnear_button = new System.Windows.Forms.Button();
             this.sidebar_panel = new System.Windows.Forms.Panel();
+            this.jobposting_button = new System.Windows.Forms.Button();
+            this.jobnear_button = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.subSystemSettings.SuspendLayout();
             this.subUserManagement.SuspendLayout();
@@ -61,7 +62,7 @@
             this.panel1.Controls.Add(this.jobnear_button);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(267, 868);
             this.panel1.TabIndex = 0;
@@ -72,8 +73,8 @@
             this.subSystemSettings.Controls.Add(this.verificationReq_button);
             this.subSystemSettings.Controls.Add(this.manageAdmin_button);
             this.subSystemSettings.Dock = System.Windows.Forms.DockStyle.Top;
-            this.subSystemSettings.Location = new System.Drawing.Point(0, 399);
-            this.subSystemSettings.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.subSystemSettings.Location = new System.Drawing.Point(0, 461);
+            this.subSystemSettings.Margin = new System.Windows.Forms.Padding(4);
             this.subSystemSettings.Name = "subSystemSettings";
             this.subSystemSettings.Size = new System.Drawing.Size(267, 162);
             this.subSystemSettings.TabIndex = 9;
@@ -83,7 +84,7 @@
             this.controlSite_button.Dock = System.Windows.Forms.DockStyle.Top;
             this.controlSite_button.Font = new System.Drawing.Font("Poppins SemiBold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.controlSite_button.Location = new System.Drawing.Point(0, 97);
-            this.controlSite_button.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.controlSite_button.Margin = new System.Windows.Forms.Padding(4);
             this.controlSite_button.Name = "controlSite_button";
             this.controlSite_button.Size = new System.Drawing.Size(267, 49);
             this.controlSite_button.TabIndex = 5;
@@ -97,7 +98,7 @@
             this.verificationReq_button.Dock = System.Windows.Forms.DockStyle.Top;
             this.verificationReq_button.Font = new System.Drawing.Font("Poppins SemiBold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.verificationReq_button.Location = new System.Drawing.Point(0, 48);
-            this.verificationReq_button.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.verificationReq_button.Margin = new System.Windows.Forms.Padding(4);
             this.verificationReq_button.Name = "verificationReq_button";
             this.verificationReq_button.Size = new System.Drawing.Size(267, 49);
             this.verificationReq_button.TabIndex = 4;
@@ -111,7 +112,7 @@
             this.manageAdmin_button.Dock = System.Windows.Forms.DockStyle.Top;
             this.manageAdmin_button.Font = new System.Drawing.Font("Poppins SemiBold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.manageAdmin_button.Location = new System.Drawing.Point(0, 0);
-            this.manageAdmin_button.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.manageAdmin_button.Margin = new System.Windows.Forms.Padding(4);
             this.manageAdmin_button.Name = "manageAdmin_button";
             this.manageAdmin_button.Size = new System.Drawing.Size(267, 48);
             this.manageAdmin_button.TabIndex = 3;
@@ -124,8 +125,8 @@
             // 
             this.settings_button.Dock = System.Windows.Forms.DockStyle.Top;
             this.settings_button.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.settings_button.Location = new System.Drawing.Point(0, 344);
-            this.settings_button.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.settings_button.Location = new System.Drawing.Point(0, 406);
+            this.settings_button.Margin = new System.Windows.Forms.Padding(4);
             this.settings_button.Name = "settings_button";
             this.settings_button.Size = new System.Drawing.Size(267, 55);
             this.settings_button.TabIndex = 8;
@@ -138,8 +139,8 @@
             // 
             this.reports_button.Dock = System.Windows.Forms.DockStyle.Top;
             this.reports_button.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.reports_button.Location = new System.Drawing.Point(0, 289);
-            this.reports_button.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.reports_button.Location = new System.Drawing.Point(0, 351);
+            this.reports_button.Margin = new System.Windows.Forms.Padding(4);
             this.reports_button.Name = "reports_button";
             this.reports_button.Size = new System.Drawing.Size(267, 55);
             this.reports_button.TabIndex = 6;
@@ -150,13 +151,14 @@
             // 
             // subUserManagement
             // 
+            this.subUserManagement.Controls.Add(this.jobposting_button);
             this.subUserManagement.Controls.Add(this.jobposters_button);
             this.subUserManagement.Controls.Add(this.jobseekers_button);
             this.subUserManagement.Dock = System.Windows.Forms.DockStyle.Top;
             this.subUserManagement.Location = new System.Drawing.Point(0, 184);
-            this.subUserManagement.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.subUserManagement.Margin = new System.Windows.Forms.Padding(4);
             this.subUserManagement.Name = "subUserManagement";
-            this.subUserManagement.Size = new System.Drawing.Size(267, 105);
+            this.subUserManagement.Size = new System.Drawing.Size(267, 167);
             this.subUserManagement.TabIndex = 5;
             // 
             // jobposters_button
@@ -164,9 +166,9 @@
             this.jobposters_button.Dock = System.Windows.Forms.DockStyle.Top;
             this.jobposters_button.Font = new System.Drawing.Font("Poppins SemiBold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.jobposters_button.Location = new System.Drawing.Point(0, 55);
-            this.jobposters_button.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.jobposters_button.Margin = new System.Windows.Forms.Padding(4);
             this.jobposters_button.Name = "jobposters_button";
-            this.jobposters_button.Size = new System.Drawing.Size(267, 49);
+            this.jobposters_button.Size = new System.Drawing.Size(267, 55);
             this.jobposters_button.TabIndex = 4;
             this.jobposters_button.Text = "      📝 Job Posters";
             this.jobposters_button.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -178,7 +180,7 @@
             this.jobseekers_button.Dock = System.Windows.Forms.DockStyle.Top;
             this.jobseekers_button.Font = new System.Drawing.Font("Poppins SemiBold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.jobseekers_button.Location = new System.Drawing.Point(0, 0);
-            this.jobseekers_button.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.jobseekers_button.Margin = new System.Windows.Forms.Padding(4);
             this.jobseekers_button.Name = "jobseekers_button";
             this.jobseekers_button.Size = new System.Drawing.Size(267, 55);
             this.jobseekers_button.TabIndex = 3;
@@ -192,7 +194,7 @@
             this.logout_button.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.logout_button.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.logout_button.Location = new System.Drawing.Point(0, 794);
-            this.logout_button.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.logout_button.Margin = new System.Windows.Forms.Padding(4);
             this.logout_button.Name = "logout_button";
             this.logout_button.Size = new System.Drawing.Size(267, 74);
             this.logout_button.TabIndex = 3;
@@ -205,7 +207,7 @@
             this.user_button.Dock = System.Windows.Forms.DockStyle.Top;
             this.user_button.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.user_button.Location = new System.Drawing.Point(0, 129);
-            this.user_button.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.user_button.Margin = new System.Windows.Forms.Padding(4);
             this.user_button.Name = "user_button";
             this.user_button.Size = new System.Drawing.Size(267, 55);
             this.user_button.TabIndex = 2;
@@ -219,7 +221,7 @@
             this.dashboard_button.Dock = System.Windows.Forms.DockStyle.Top;
             this.dashboard_button.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dashboard_button.Location = new System.Drawing.Point(0, 74);
-            this.dashboard_button.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dashboard_button.Margin = new System.Windows.Forms.Padding(4);
             this.dashboard_button.Name = "dashboard_button";
             this.dashboard_button.Size = new System.Drawing.Size(267, 55);
             this.dashboard_button.TabIndex = 1;
@@ -228,26 +230,40 @@
             this.dashboard_button.UseVisualStyleBackColor = true;
             this.dashboard_button.Click += new System.EventHandler(this.dashboard_button_Click);
             // 
+            // sidebar_panel
+            // 
+            this.sidebar_panel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.sidebar_panel.Location = new System.Drawing.Point(267, 0);
+            this.sidebar_panel.Margin = new System.Windows.Forms.Padding(4);
+            this.sidebar_panel.Name = "sidebar_panel";
+            this.sidebar_panel.Size = new System.Drawing.Size(1374, 868);
+            this.sidebar_panel.TabIndex = 1;
+            // 
+            // jobposting_button
+            // 
+            this.jobposting_button.Dock = System.Windows.Forms.DockStyle.Top;
+            this.jobposting_button.Font = new System.Drawing.Font("Poppins SemiBold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.jobposting_button.Location = new System.Drawing.Point(0, 110);
+            this.jobposting_button.Margin = new System.Windows.Forms.Padding(4);
+            this.jobposting_button.Name = "jobposting_button";
+            this.jobposting_button.Size = new System.Drawing.Size(267, 55);
+            this.jobposting_button.TabIndex = 5;
+            this.jobposting_button.Text = "      📝 Job Postings";
+            this.jobposting_button.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.jobposting_button.UseVisualStyleBackColor = true;
+            this.jobposting_button.Click += new System.EventHandler(this.jobposting_button_Click);
+            // 
             // jobnear_button
             // 
             this.jobnear_button.Dock = System.Windows.Forms.DockStyle.Top;
             this.jobnear_button.Image = global::JobNear.Properties.Resources.JobNearDashboardLogo;
             this.jobnear_button.Location = new System.Drawing.Point(0, 0);
-            this.jobnear_button.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.jobnear_button.Margin = new System.Windows.Forms.Padding(4);
             this.jobnear_button.Name = "jobnear_button";
             this.jobnear_button.Size = new System.Drawing.Size(267, 74);
             this.jobnear_button.TabIndex = 0;
             this.jobnear_button.UseVisualStyleBackColor = true;
             this.jobnear_button.Click += new System.EventHandler(this.jobnear_button_Click);
-            // 
-            // sidebar_panel
-            // 
-            this.sidebar_panel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.sidebar_panel.Location = new System.Drawing.Point(267, 0);
-            this.sidebar_panel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.sidebar_panel.Name = "sidebar_panel";
-            this.sidebar_panel.Size = new System.Drawing.Size(1374, 868);
-            this.sidebar_panel.TabIndex = 1;
             // 
             // AdminDashboardForm
             // 
@@ -257,7 +273,7 @@
             this.Controls.Add(this.sidebar_panel);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AdminDashboardForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AdminDashboard";
@@ -285,5 +301,6 @@
         private System.Windows.Forms.Button verificationReq_button;
         private System.Windows.Forms.Button manageAdmin_button;
         private System.Windows.Forms.Button controlSite_button;
+        private System.Windows.Forms.Button jobposting_button;
     }
 }

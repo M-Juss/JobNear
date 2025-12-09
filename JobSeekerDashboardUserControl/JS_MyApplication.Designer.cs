@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.sidebar_panel = new System.Windows.Forms.Panel();
+            this.status_combo = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.review_table = new System.Windows.Forms.DataGridView();
-            this.status_combo = new System.Windows.Forms.ComboBox();
             this.sidebar_panel.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.review_table)).BeginInit();
@@ -47,6 +47,21 @@
             this.sidebar_panel.Name = "sidebar_panel";
             this.sidebar_panel.Size = new System.Drawing.Size(1375, 868);
             this.sidebar_panel.TabIndex = 0;
+            // 
+            // status_combo
+            // 
+            this.status_combo.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.status_combo.FormattingEnabled = true;
+            this.status_combo.Items.AddRange(new object[] {
+            "Submitted",
+            "Accepted",
+            "Rejected",
+            "All"});
+            this.status_combo.Location = new System.Drawing.Point(19, 45);
+            this.status_combo.Name = "status_combo";
+            this.status_combo.Size = new System.Drawing.Size(192, 44);
+            this.status_combo.TabIndex = 5;
+            this.status_combo.SelectedIndexChanged += new System.EventHandler(this.status_combo_SelectedIndexChanged);
             // 
             // panel1
             // 
@@ -70,21 +85,6 @@
             this.review_table.Size = new System.Drawing.Size(1337, 754);
             this.review_table.TabIndex = 4;
             this.review_table.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.review_table_CellContentClick);
-            // 
-            // status_combo
-            // 
-            this.status_combo.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.status_combo.FormattingEnabled = true;
-            this.status_combo.Items.AddRange(new object[] {
-            "Submitted",
-            "Accepted",
-            "Rejected",
-            "All"});
-            this.status_combo.Location = new System.Drawing.Point(19, 45);
-            this.status_combo.Name = "status_combo";
-            this.status_combo.Size = new System.Drawing.Size(121, 44);
-            this.status_combo.TabIndex = 5;
-            this.status_combo.SelectedIndexChanged += new System.EventHandler(this.status_combo_SelectedIndexChanged);
             // 
             // JS_MyApplication
             // 

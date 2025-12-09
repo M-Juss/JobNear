@@ -214,6 +214,12 @@
     <Compile Include="AdminDashboardUserControl\Admin_Dashboard.Designer.cs">
       <DependentUpon>Admin_Dashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="AdminDashboardUserControl\Admin_JobPostingMangement.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AdminDashboardUserControl\Admin_JobPostingMangement.Designer.cs">
+      <DependentUpon>Admin_JobPostingMangement.cs</DependentUpon>
+    </Compile>
     <Compile Include="AdminDashboardUserControl\Admin_JP_UserManagement.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -237,6 +243,12 @@
     </Compile>
     <Compile Include="AdminDashboardUserControl\Admin_ManageAdmin.Designer.cs">
       <DependentUpon>Admin_ManageAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminDashboardUserControl\Admin_TermsAndPolicy.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AdminDashboardUserControl\Admin_TermsAndPolicy.Designer.cs">
+      <DependentUpon>Admin_TermsAndPolicy.cs</DependentUpon>
     </Compile>
     <Compile Include="AdminDashboardUserControl\Admin_VerifyRequirement.cs">
       <SubType>UserControl</SubType>
@@ -382,6 +394,18 @@
     <Compile Include="JobPosterDashboardUserControl\JP_ReviewApplication.Designer.cs">
       <DependentUpon>JP_ReviewApplication.cs</DependentUpon>
     </Compile>
+    <Compile Include="JobPosterDashboardUserControl\JP_ViewApplication.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="JobPosterDashboardUserControl\JP_ViewApplication.Designer.cs">
+      <DependentUpon>JP_ViewApplication.cs</DependentUpon>
+    </Compile>
+    <Compile Include="JobPosterDashboardUserControl\JP_ViewCoverLetter.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="JobPosterDashboardUserControl\JP_ViewCoverLetter.Designer.cs">
+      <DependentUpon>JP_ViewCoverLetter.cs</DependentUpon>
+    </Compile>
     <Compile Include="JobSeekerDashboardUserControl\JS_Dashboard.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -485,6 +509,9 @@
     <EmbeddedResource Include="AdminDashboardUserControl\Admin_Dashboard.resx">
       <DependentUpon>Admin_Dashboard.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AdminDashboardUserControl\Admin_JobPostingMangement.resx">
+      <DependentUpon>Admin_JobPostingMangement.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AdminDashboardUserControl\Admin_JP_UserManagement.resx">
       <DependentUpon>Admin_JP_UserManagement.cs</DependentUpon>
     </EmbeddedResource>
@@ -496,6 +523,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AdminDashboardUserControl\Admin_ManageAdmin.resx">
       <DependentUpon>Admin_ManageAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminDashboardUserControl\Admin_TermsAndPolicy.resx">
+      <DependentUpon>Admin_TermsAndPolicy.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AdminDashboardUserControl\Admin_VerifyRequirement.resx">
       <DependentUpon>Admin_VerifyRequirement.cs</DependentUpon>
@@ -565,6 +595,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="JobPosterDashboardUserControl\JP_ReviewApplication.resx">
       <DependentUpon>JP_ReviewApplication.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JobPosterDashboardUserControl\JP_ViewApplication.resx">
+      <DependentUpon>JP_ViewApplication.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JobPosterDashboardUserControl\JP_ViewCoverLetter.resx">
+      <DependentUpon>JP_ViewCoverLetter.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="JobSeekerDashboardUserControl\JS_Dashboard.resx">
       <DependentUpon>JS_Dashboard.cs</DependentUpon>

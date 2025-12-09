@@ -98,7 +98,7 @@
             this.sidebar_panel.Controls.Add(this.status_lbl);
             this.sidebar_panel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.sidebar_panel.Location = new System.Drawing.Point(0, 0);
-            this.sidebar_panel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.sidebar_panel.Margin = new System.Windows.Forms.Padding(4);
             this.sidebar_panel.Name = "sidebar_panel";
             this.sidebar_panel.Size = new System.Drawing.Size(1375, 868);
             this.sidebar_panel.TabIndex = 73;
@@ -115,28 +115,30 @@
             // 
             // cancel_button
             // 
+            this.cancel_button.BackColor = System.Drawing.Color.LightGray;
             this.cancel_button.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cancel_button.ForeColor = System.Drawing.Color.White;
             this.cancel_button.Location = new System.Drawing.Point(259, 807);
-            this.cancel_button.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cancel_button.Margin = new System.Windows.Forms.Padding(4);
             this.cancel_button.Name = "cancel_button";
             this.cancel_button.Size = new System.Drawing.Size(141, 44);
             this.cancel_button.TabIndex = 101;
             this.cancel_button.Text = "Cancel";
-            this.cancel_button.UseVisualStyleBackColor = true;
+            this.cancel_button.UseVisualStyleBackColor = false;
             this.cancel_button.Click += new System.EventHandler(this.cancel_button_Click);
             // 
             // submit_button
             // 
+            this.submit_button.BackColor = System.Drawing.Color.LightGray;
             this.submit_button.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.submit_button.ForeColor = System.Drawing.Color.White;
             this.submit_button.Location = new System.Drawing.Point(97, 807);
-            this.submit_button.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.submit_button.Margin = new System.Windows.Forms.Padding(4);
             this.submit_button.Name = "submit_button";
             this.submit_button.Size = new System.Drawing.Size(141, 44);
             this.submit_button.TabIndex = 100;
             this.submit_button.Text = "Submit";
-            this.submit_button.UseVisualStyleBackColor = true;
+            this.submit_button.UseVisualStyleBackColor = false;
             this.submit_button.Click += new System.EventHandler(this.submit_button_Click);
             // 
             // status_combo
@@ -150,7 +152,7 @@
             "Incomplete",
             "Rejected"});
             this.status_combo.Location = new System.Drawing.Point(123, 654);
-            this.status_combo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.status_combo.Margin = new System.Windows.Forms.Padding(4);
             this.status_combo.Name = "status_combo";
             this.status_combo.Size = new System.Drawing.Size(207, 44);
             this.status_combo.TabIndex = 99;
@@ -170,7 +172,7 @@
             // 
             this.image_flowlayout.BackColor = System.Drawing.Color.WhiteSmoke;
             this.image_flowlayout.Location = new System.Drawing.Point(123, 475);
-            this.image_flowlayout.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.image_flowlayout.Margin = new System.Windows.Forms.Padding(4);
             this.image_flowlayout.Name = "image_flowlayout";
             this.image_flowlayout.Size = new System.Drawing.Size(863, 143);
             this.image_flowlayout.TabIndex = 97;
@@ -400,7 +402,7 @@
             this.profile_picture.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.profile_picture.Image = global::JobNear.Properties.Resources.default_profile;
             this.profile_picture.Location = new System.Drawing.Point(1064, 54);
-            this.profile_picture.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.profile_picture.Margin = new System.Windows.Forms.Padding(4);
             this.profile_picture.Name = "profile_picture";
             this.profile_picture.Size = new System.Drawing.Size(266, 246);
             this.profile_picture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;

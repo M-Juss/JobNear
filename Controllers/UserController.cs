@@ -59,7 +59,7 @@ namespace JobNear.Controllers
                     break;
                 case "closed":
                     status_label.Text = "Closed";
-                    PanelStyles.StyleRoundedLabel(status_label, 10, Color.Red, Color.White);
+                    PanelStyles.StyleRoundedLabel(status_label, 10, Color.Black, Color.White);
                     break;
                 case "withdrawn":
                     status_label.Text = "Withdrawn";
@@ -72,6 +72,10 @@ namespace JobNear.Controllers
                 case "pending":
                     status_label.Text = "Pending";
                     PanelStyles.StyleRoundedLabel(status_label, 10, Color.Orange, Color.White);
+                    break;
+                case "rejected":
+                    status_label.Text = "Rejected";
+                    PanelStyles.StyleRoundedLabel(status_label, 10, Color.Red, Color.White);
                     break;
                 default:
                     status_label.Text = "Unknown";

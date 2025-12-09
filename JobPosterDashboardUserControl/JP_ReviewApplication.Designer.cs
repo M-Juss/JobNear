@@ -31,6 +31,7 @@
             this.sidebar_panel = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.review_table = new System.Windows.Forms.DataGridView();
+            this.status_combo = new System.Windows.Forms.ComboBox();
             this.sidebar_panel.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.review_table)).BeginInit();
@@ -39,6 +40,7 @@
             // sidebar_panel
             // 
             this.sidebar_panel.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.sidebar_panel.Controls.Add(this.status_combo);
             this.sidebar_panel.Controls.Add(this.panel1);
             this.sidebar_panel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.sidebar_panel.Location = new System.Drawing.Point(0, 0);
@@ -68,6 +70,21 @@
             this.review_table.RowHeadersWidth = 51;
             this.review_table.Size = new System.Drawing.Size(1331, 732);
             this.review_table.TabIndex = 4;
+            this.review_table.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.review_table_CellContentClick);
+            // 
+            // status_combo
+            // 
+            this.status_combo.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.status_combo.FormattingEnabled = true;
+            this.status_combo.Items.AddRange(new object[] {
+            "Submitted",
+            "Accepted",
+            "Rejected",
+            "All"});
+            this.status_combo.Location = new System.Drawing.Point(21, 69);
+            this.status_combo.Name = "status_combo";
+            this.status_combo.Size = new System.Drawing.Size(240, 44);
+            this.status_combo.TabIndex = 6;
             // 
             // JP_ReviewApplication
             // 
@@ -88,5 +105,6 @@
         private System.Windows.Forms.Panel sidebar_panel;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DataGridView review_table;
+        private System.Windows.Forms.ComboBox status_combo;
     }
 }

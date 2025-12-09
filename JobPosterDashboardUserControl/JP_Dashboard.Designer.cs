@@ -34,13 +34,14 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.insturction_panel = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.read_lbl = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.insturction_panel.SuspendLayout();
             this.SuspendLayout();
@@ -52,7 +53,7 @@
             this.panel1.Controls.Add(this.applicants_lbl);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Location = new System.Drawing.Point(23, 137);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(395, 153);
             this.panel1.TabIndex = 5;
@@ -110,6 +111,7 @@
             // 
             // insturction_panel
             // 
+            this.insturction_panel.Controls.Add(this.read_lbl);
             this.insturction_panel.Controls.Add(this.label4);
             this.insturction_panel.Controls.Add(this.label13);
             this.insturction_panel.Controls.Add(this.label14);
@@ -122,6 +124,18 @@
             this.insturction_panel.Name = "insturction_panel";
             this.insturction_panel.Size = new System.Drawing.Size(1325, 534);
             this.insturction_panel.TabIndex = 6;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Poppins SemiBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.DimGray;
+            this.label4.Location = new System.Drawing.Point(13, 398);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(884, 42);
+            this.label4.TabIndex = 26;
+            this.label4.Text = "Always check Notifications for system messages and admin responses";
             // 
             // label13
             // 
@@ -198,17 +212,18 @@
             this.label5.TabIndex = 17;
             this.label5.Text = "How to Register your Business?";
             // 
-            // label4
+            // read_lbl
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Poppins SemiBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.DimGray;
-            this.label4.Location = new System.Drawing.Point(19, 452);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(884, 42);
-            this.label4.TabIndex = 26;
-            this.label4.Text = "Always check Notifications for system messages and admin responses";
+            this.read_lbl.AutoSize = true;
+            this.read_lbl.BackColor = System.Drawing.Color.Transparent;
+            this.read_lbl.Font = new System.Drawing.Font("Poppins", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Italic | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.read_lbl.ForeColor = System.Drawing.Color.SteelBlue;
+            this.read_lbl.Location = new System.Drawing.Point(22, 482);
+            this.read_lbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.read_lbl.Name = "read_lbl";
+            this.read_lbl.Size = new System.Drawing.Size(158, 30);
+            this.read_lbl.TabIndex = 109;
+            this.read_lbl.Text = "Terms and Policy";
             // 
             // JP_Dashboard
             // 
@@ -220,7 +235,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "JP_Dashboard";
             this.Size = new System.Drawing.Size(1375, 868);
             this.panel1.ResumeLayout(false);
@@ -247,5 +262,6 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label read_lbl;
     }
 }

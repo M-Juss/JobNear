@@ -103,6 +103,7 @@ namespace JobNear.JobSeekerDashboardUserControl
 
             switch (status.ToLower()) {
                 case "submitted":
+                    review_table.Rows.Clear();
                     var submmitedApplication = await MongoDbServices.JobApplication
                         .Find(x => x.Status == "To Review")
                         .ToListAsync();
@@ -122,6 +123,7 @@ namespace JobNear.JobSeekerDashboardUserControl
                     }
                     break;
                 case "accepted":
+                    review_table.Rows.Clear();
                     var acceptedApplication = await MongoDbServices.JobApplication
                         .Find(x => x.Status == "Accepted")
                         .ToListAsync();
@@ -143,6 +145,7 @@ namespace JobNear.JobSeekerDashboardUserControl
                     }
                     break;
                 case "rejected":
+                    review_table.Rows.Clear();
                     var rejectedApplication = await MongoDbServices.JobApplication
                         .Find(x => x.Status == "Rejected")
                         .ToListAsync();
@@ -163,6 +166,7 @@ namespace JobNear.JobSeekerDashboardUserControl
                     }
                     break;
                 case "all":
+                    review_table.Rows.Clear();
                     var allApplication = await MongoDbServices.JobApplication
                         .Find(_ => true)
                         .ToListAsync();
