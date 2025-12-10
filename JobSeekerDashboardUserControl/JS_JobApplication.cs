@@ -208,12 +208,7 @@ namespace JobNear.JobSeekerDashboardUserControl
             jS_MyApplication.Dock = DockStyle.Fill;
         }
 
-        private void job_panel_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void job_panel_MouseClick(object sender, MouseEventArgs e)
+        private void read_lbl_Click(object sender, EventArgs e)
         {
             JobSeekerDashboardUserControl.JS_ViewJobList activeJobDetails = new JobSeekerDashboardUserControl.JS_ViewJobList(Session.CurrentPostedJobSelected, "view");
             sidebar_panel.Controls.Clear();

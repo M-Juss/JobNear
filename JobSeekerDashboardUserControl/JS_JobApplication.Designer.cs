@@ -45,6 +45,7 @@
             this.jobinfo_label = new System.Windows.Forms.Label();
             this.jobtitle_label = new System.Windows.Forms.Label();
             this.status_label = new System.Windows.Forms.Label();
+            this.read_lbl = new System.Windows.Forms.Label();
             this.sidebar_panel.SuspendLayout();
             this.details_panel.SuspendLayout();
             this.job_panel.SuspendLayout();
@@ -178,6 +179,7 @@
             // job_panel
             // 
             this.job_panel.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.job_panel.Controls.Add(this.read_lbl);
             this.job_panel.Controls.Add(this.rate_lbl);
             this.job_panel.Controls.Add(this.about_lbl);
             this.job_panel.Controls.Add(this.applicants_lbl);
@@ -187,12 +189,11 @@
             this.job_panel.Name = "job_panel";
             this.job_panel.Size = new System.Drawing.Size(1000, 185);
             this.job_panel.TabIndex = 19;
-            this.job_panel.MouseClick += new System.Windows.Forms.MouseEventHandler(this.job_panel_MouseClick);
             // 
             // rate_lbl
             // 
             this.rate_lbl.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rate_lbl.Location = new System.Drawing.Point(669, 23);
+            this.rate_lbl.Location = new System.Drawing.Point(669, 20);
             this.rate_lbl.Name = "rate_lbl";
             this.rate_lbl.Size = new System.Drawing.Size(272, 28);
             this.rate_lbl.TabIndex = 25;
@@ -201,9 +202,9 @@
             // about_lbl
             // 
             this.about_lbl.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.about_lbl.Location = new System.Drawing.Point(61, 86);
+            this.about_lbl.Location = new System.Drawing.Point(61, 83);
             this.about_lbl.Name = "about_lbl";
-            this.about_lbl.Size = new System.Drawing.Size(880, 87);
+            this.about_lbl.Size = new System.Drawing.Size(880, 63);
             this.about_lbl.TabIndex = 24;
             this.about_lbl.Text = "About Job";
             // 
@@ -212,7 +213,7 @@
             this.applicants_lbl.AutoSize = true;
             this.applicants_lbl.BackColor = System.Drawing.Color.Transparent;
             this.applicants_lbl.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.applicants_lbl.Location = new System.Drawing.Point(687, 52);
+            this.applicants_lbl.Location = new System.Drawing.Point(687, 49);
             this.applicants_lbl.Name = "applicants_lbl";
             this.applicants_lbl.Size = new System.Drawing.Size(240, 26);
             this.applicants_lbl.TabIndex = 23;
@@ -223,7 +224,7 @@
             // 
             this.jobinfo_label.AutoSize = true;
             this.jobinfo_label.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.jobinfo_label.Location = new System.Drawing.Point(61, 54);
+            this.jobinfo_label.Location = new System.Drawing.Point(61, 51);
             this.jobinfo_label.Name = "jobinfo_label";
             this.jobinfo_label.Size = new System.Drawing.Size(81, 26);
             this.jobinfo_label.TabIndex = 22;
@@ -234,7 +235,7 @@
             // 
             this.jobtitle_label.Font = new System.Drawing.Font("Poppins SemiBold", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.jobtitle_label.ForeColor = System.Drawing.Color.Black;
-            this.jobtitle_label.Location = new System.Drawing.Point(54, 7);
+            this.jobtitle_label.Location = new System.Drawing.Point(54, 4);
             this.jobtitle_label.Name = "jobtitle_label";
             this.jobtitle_label.Size = new System.Drawing.Size(742, 56);
             this.jobtitle_label.TabIndex = 21;
@@ -251,6 +252,19 @@
             this.status_label.TabIndex = 22;
             this.status_label.Text = "Status";
             this.status_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // read_lbl
+            // 
+            this.read_lbl.AutoSize = true;
+            this.read_lbl.BackColor = System.Drawing.Color.Transparent;
+            this.read_lbl.Font = new System.Drawing.Font("Poppins", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Italic | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.read_lbl.ForeColor = System.Drawing.Color.SteelBlue;
+            this.read_lbl.Location = new System.Drawing.Point(61, 151);
+            this.read_lbl.Name = "read_lbl";
+            this.read_lbl.Size = new System.Drawing.Size(149, 25);
+            this.read_lbl.TabIndex = 111;
+            this.read_lbl.Text = "View Job Full Details";
+            this.read_lbl.Click += new System.EventHandler(this.read_lbl_Click);
             // 
             // JS_JobApplication
             // 
@@ -288,5 +302,6 @@
         private System.Windows.Forms.Button back_button;
         private System.Windows.Forms.Label documents_lbl;
         private System.Windows.Forms.Label status_label;
+        private System.Windows.Forms.Label read_lbl;
     }
 }

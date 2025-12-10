@@ -114,14 +114,6 @@ namespace JobNear.JobSeekerDashboardUserControl
             }
         }
 
-        private void business_panel_Click(object sender, EventArgs e)
-        {
-            JS_ViewBusinessProfile jS_ViewBusinessProfile = new JS_ViewBusinessProfile("joblist");
-            sidebar_panel.Controls.Clear();
-            sidebar_panel.Controls.Add(jS_ViewBusinessProfile);
-            jS_ViewBusinessProfile.Dock = DockStyle.Fill;
-        }
-
         private async void apply_label_Click(object sender, EventArgs e)
         {
             var getJobApplicationInformation = await MongoDbServices.JobApplication
@@ -143,6 +135,14 @@ namespace JobNear.JobSeekerDashboardUserControl
         private void business_panel_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void read_lbl_Click(object sender, EventArgs e)
+        {
+            JS_ViewBusinessProfile jS_ViewBusinessProfile = new JS_ViewBusinessProfile("joblist");
+            sidebar_panel.Controls.Clear();
+            sidebar_panel.Controls.Add(jS_ViewBusinessProfile);
+            jS_ViewBusinessProfile.Dock = DockStyle.Fill;
         }
     }
 }
