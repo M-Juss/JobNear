@@ -22,6 +22,7 @@ namespace JobNear.Forms
             ButtonStyle.SidebarButton(view_business_button, "#3B82F6");
             ButtonStyle.SidebarButton(review_button, "#3B82F6");
             ButtonStyle.SidebarButton(log_out_button, "#3B82F6");
+            ButtonStyle.SidebarButton(notification_button, "#3B82F6");
 
             jp_dashboard = new JobPosterDashboardUserControl.JP_Dashboard();
             sidebar_panel.Controls.Clear();

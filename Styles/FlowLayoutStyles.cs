@@ -242,7 +242,7 @@ namespace JobNear.Styles
         {
             Panel businessPanel = new Panel();
             businessPanel.Height = 150;
-            businessPanel.Width = file_flowlayout.Width - 20;
+            businessPanel.Width = file_flowlayout.Width - 40;
             businessPanel.Margin = new Padding(10, 10, 10, 10);
             businessPanel.BackColor = Color.WhiteSmoke;
             businessPanel.BorderStyle = BorderStyle.None;

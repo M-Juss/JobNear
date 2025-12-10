@@ -60,7 +60,7 @@ namespace JobNear.Forms
                     if (await MongoDbServices.InsertJobPosterAccountAsync(username_input.Text.Trim(), email_input.Text.Trim(), phone_input.Text.Trim(), password_input.Text.Trim()))
                     {
                         MessageBox.Show("Account created successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        FormsController.FormLoad(new JobSeekerLoginForm(), app_panel);
+                        FormsController.FormLoad(new JobPosterLoginForm(), app_panel);
                     }
                     else
                     {
