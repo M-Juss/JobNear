@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.sidebar_panel = new System.Windows.Forms.Panel();
-            this.postedjob_flowlayout = new System.Windows.Forms.FlowLayoutPanel();
-            this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.postedjob_flowlayout = new System.Windows.Forms.FlowLayoutPanel();
             this.sidebar_panel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -47,24 +47,6 @@
             this.sidebar_panel.Size = new System.Drawing.Size(1031, 705);
             this.sidebar_panel.TabIndex = 4;
             // 
-            // postedjob_flowlayout
-            // 
-            this.postedjob_flowlayout.Location = new System.Drawing.Point(32, 99);
-            this.postedjob_flowlayout.Name = "postedjob_flowlayout";
-            this.postedjob_flowlayout.Size = new System.Drawing.Size(964, 572);
-            this.postedjob_flowlayout.TabIndex = 0;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Poppins", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.DimGray;
-            this.label1.Location = new System.Drawing.Point(42, 16);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(322, 56);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "📄 Active Job Lists";
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -76,6 +58,24 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Explore the role and see if it’s the right fit for you. Your next career move sta" +
     "rts here.";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Poppins", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(42, 16);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(322, 56);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "📄 Active Job Lists";
+            // 
+            // postedjob_flowlayout
+            // 
+            this.postedjob_flowlayout.Location = new System.Drawing.Point(32, 99);
+            this.postedjob_flowlayout.Name = "postedjob_flowlayout";
+            this.postedjob_flowlayout.Size = new System.Drawing.Size(964, 572);
+            this.postedjob_flowlayout.TabIndex = 0;
             // 
             // JS_JobList
             // 
