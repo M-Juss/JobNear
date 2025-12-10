@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using JobNear.Services;
 using JobNear.Styles;
+using System;
 
 
 namespace JobNear.JobPosterDashboardUserControl
@@ -22,65 +23,77 @@ namespace JobNear.JobPosterDashboardUserControl
             };
         }
 
-        private async void LoadApplicationDetails(string applicationId) {
-
+        private async void LoadApplicationDetails(string applicationId)
+        {
             var application = await MongoDbServices.JobApplication
                 .Find(x => x.Id == applicationId)
                 .FirstOrDefaultAsync();
+
+            if (application == null)
+            {
+                
+                MessageBox.Show("Application not found.");
+                return;
+            }
 
             var getApplicant = await MongoDbServices.JobSeekerAccount
                 .Find(x => x.Id == application.SeekerId)
                 .FirstOrDefaultAsync();
 
+            if (getApplicant == null)
+            {
+                MessageBox.Show("Applicant record not found.");
+                return;
+            }
+
             var getPostedJob = await MongoDbServices.JobPosterJobPosting
                 .Find(x => x.Id == application.JobId)
                 .FirstOrDefaultAsync();
+
+            if (getPostedJob == null)
+            {
+                MessageBox.Show("Job posting not found.");
+                return;
+            }
 
             var getBusiness = await MongoDbServices.JobPosterBusiness
                 .Find(x => x.Id == getPostedJob.BusinessId)
                 .FirstOrDefaultAsync();
 
-            if (application != null && getApplicant != null && getPostedJob != null) 
+            if (getBusiness == null)
             {
-                header_label.Text = $"Applying for: {getPostedJob.JobPosition}";
-                sub_lbl.Text = $"In Business: {getBusiness.BusinessName}";
+                MessageBox.Show("Business details not found.");
+                return;
+            }
 
-                string fullname = $"{getApplicant.Firstname} {getApplicant.Middlename} {getApplicant.Lastname}";
+            header_label.Text = $"Applying for: {getPostedJob.JobPosition}";
+            sub_lbl.Text = $"In Business: {getBusiness.BusinessName}";
 
-                profile_picture.Image = ConvertDataTypeServices.ConvertBytesToImage(getApplicant.ProfilePicture);
-                name_label.Text = fullname;
-                email_lbl.Text = getApplicant.Email;
-                phone_lbl.Text = getApplicant.Phone;
+            string fullname = $"{getApplicant.Firstname} {getApplicant.Middlename} {getApplicant.Lastname}".Replace("  ", " ");
 
-                if (application.SupportingDocuments != null)
+            profile_picture.Image = ConvertDataTypeServices.ConvertBytesToImage(getApplicant.ProfilePicture);
+            name_label.Text = fullname;
+            email_lbl.Text = getApplicant.Email;
+            phone_lbl.Text = getApplicant.Phone;
+            address_lbl.Text = getApplicant.Address;
+
+            image_flowlayout.Controls.Clear();
+
+            if (application.SupportingDocuments != null && application.SupportingDocuments.Count > 0)
+            {
+                foreach (var doc in application.SupportingDocuments)
                 {
-                    foreach (var doc in application.SupportingDocuments)
-                    {
-                        FlowLayoutStyles.AddSupportingDocumentToFlow(doc, image_flowlayout, image_flowlayout.Width - 20, "No");
-                    }
+                    FlowLayoutStyles.AddSupportingDocumentToFlow(
+                        doc,
+                        image_flowlayout,
+                        image_flowlayout.Width - 20,
+                        "No"
+                    );
                 }
-
             }
         }
 
-        private void view_lbl_Click(object sender, System.EventArgs e)
-        {
 
-        }
 
-        private void business_panel_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void view_lbl_Click_1(object sender, System.EventArgs e)
-        {
-
-        }
-
-        private void submit_button_Click(object sender, System.EventArgs e)
-        {
-
-        }
     }
 }

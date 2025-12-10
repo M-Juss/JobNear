@@ -41,13 +41,13 @@
             this.documents_lbl = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.business_panel = new System.Windows.Forms.Panel();
+            this.address_lbl = new System.Windows.Forms.Label();
+            this.phone_lbl = new System.Windows.Forms.Label();
+            this.email_lbl = new System.Windows.Forms.Label();
             this.name_label = new System.Windows.Forms.Label();
             this.profile_picture = new System.Windows.Forms.PictureBox();
-            this.header_label = new System.Windows.Forms.Label();
-            this.email_lbl = new System.Windows.Forms.Label();
-            this.phone_lbl = new System.Windows.Forms.Label();
-            this.address_lbl = new System.Windows.Forms.Label();
             this.sub_lbl = new System.Windows.Forms.Label();
+            this.header_label = new System.Windows.Forms.Label();
             this.sidebar_panel.SuspendLayout();
             this.panel1.SuspendLayout();
             this.business_panel.SuspendLayout();
@@ -69,6 +69,7 @@
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.Controls.Add(this.view_lbl);
             this.panel1.Controls.Add(this.cancel_button);
             this.panel1.Controls.Add(this.submit_button);
@@ -96,7 +97,6 @@
             this.view_lbl.Size = new System.Drawing.Size(161, 30);
             this.view_lbl.TabIndex = 108;
             this.view_lbl.Text = "View Cover Letter";
-            this.view_lbl.Click += new System.EventHandler(this.view_lbl_Click_1);
             // 
             // cancel_button
             // 
@@ -123,7 +123,6 @@
             this.submit_button.TabIndex = 106;
             this.submit_button.Text = "Submit";
             this.submit_button.UseVisualStyleBackColor = false;
-            this.submit_button.Click += new System.EventHandler(this.submit_button_Click);
             // 
             // remarks_richtext
             // 
@@ -226,14 +225,49 @@
             this.business_panel.Name = "business_panel";
             this.business_panel.Size = new System.Drawing.Size(1273, 251);
             this.business_panel.TabIndex = 76;
-            this.business_panel.Paint += new System.Windows.Forms.PaintEventHandler(this.business_panel_Paint);
+            // 
+            // address_lbl
+            // 
+            this.address_lbl.AllowDrop = true;
+            this.address_lbl.AutoEllipsis = true;
+            this.address_lbl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.address_lbl.Font = new System.Drawing.Font("Poppins", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.address_lbl.Location = new System.Drawing.Point(302, 184);
+            this.address_lbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.address_lbl.Name = "address_lbl";
+            this.address_lbl.Size = new System.Drawing.Size(869, 43);
+            this.address_lbl.TabIndex = 12;
+            // 
+            // phone_lbl
+            // 
+            this.phone_lbl.AllowDrop = true;
+            this.phone_lbl.AutoEllipsis = true;
+            this.phone_lbl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.phone_lbl.Font = new System.Drawing.Font("Poppins", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.phone_lbl.Location = new System.Drawing.Point(302, 133);
+            this.phone_lbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.phone_lbl.Name = "phone_lbl";
+            this.phone_lbl.Size = new System.Drawing.Size(869, 43);
+            this.phone_lbl.TabIndex = 11;
+            // 
+            // email_lbl
+            // 
+            this.email_lbl.AllowDrop = true;
+            this.email_lbl.AutoEllipsis = true;
+            this.email_lbl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.email_lbl.Font = new System.Drawing.Font("Poppins", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.email_lbl.Location = new System.Drawing.Point(302, 81);
+            this.email_lbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.email_lbl.Name = "email_lbl";
+            this.email_lbl.Size = new System.Drawing.Size(869, 43);
+            this.email_lbl.TabIndex = 10;
             // 
             // name_label
             // 
             this.name_label.AllowDrop = true;
             this.name_label.AutoEllipsis = true;
             this.name_label.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.name_label.Font = new System.Drawing.Font("Poppins", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.name_label.Font = new System.Drawing.Font("Poppins SemiBold", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.name_label.Location = new System.Drawing.Point(302, 29);
             this.name_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.name_label.Name = "name_label";
@@ -243,60 +277,13 @@
             // profile_picture
             // 
             this.profile_picture.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.profile_picture.Location = new System.Drawing.Point(71, 29);
+            this.profile_picture.Location = new System.Drawing.Point(48, 18);
             this.profile_picture.Margin = new System.Windows.Forms.Padding(4);
             this.profile_picture.Name = "profile_picture";
-            this.profile_picture.Size = new System.Drawing.Size(211, 198);
+            this.profile_picture.Size = new System.Drawing.Size(234, 218);
+            this.profile_picture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.profile_picture.TabIndex = 0;
             this.profile_picture.TabStop = false;
-            // 
-            // header_label
-            // 
-            this.header_label.AutoSize = true;
-            this.header_label.Font = new System.Drawing.Font("Poppins", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.header_label.ForeColor = System.Drawing.Color.DimGray;
-            this.header_label.Location = new System.Drawing.Point(32, 9);
-            this.header_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.header_label.Name = "header_label";
-            this.header_label.Size = new System.Drawing.Size(263, 60);
-            this.header_label.TabIndex = 75;
-            this.header_label.Text = "Applying For: ";
-            // 
-            // email_lbl
-            // 
-            this.email_lbl.AllowDrop = true;
-            this.email_lbl.AutoEllipsis = true;
-            this.email_lbl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.email_lbl.Font = new System.Drawing.Font("Poppins", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.email_lbl.Location = new System.Drawing.Point(302, 81);
-            this.email_lbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.email_lbl.Name = "email_lbl";
-            this.email_lbl.Size = new System.Drawing.Size(869, 43);
-            this.email_lbl.TabIndex = 10;
-            // 
-            // phone_lbl
-            // 
-            this.phone_lbl.AllowDrop = true;
-            this.phone_lbl.AutoEllipsis = true;
-            this.phone_lbl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.phone_lbl.Font = new System.Drawing.Font("Poppins", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.phone_lbl.Location = new System.Drawing.Point(302, 133);
-            this.phone_lbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.phone_lbl.Name = "phone_lbl";
-            this.phone_lbl.Size = new System.Drawing.Size(869, 43);
-            this.phone_lbl.TabIndex = 11;
-            // 
-            // address_lbl
-            // 
-            this.address_lbl.AllowDrop = true;
-            this.address_lbl.AutoEllipsis = true;
-            this.address_lbl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.address_lbl.Font = new System.Drawing.Font("Poppins", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.address_lbl.Location = new System.Drawing.Point(302, 184);
-            this.address_lbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.address_lbl.Name = "address_lbl";
-            this.address_lbl.Size = new System.Drawing.Size(869, 43);
-            this.address_lbl.TabIndex = 12;
             // 
             // sub_lbl
             // 
@@ -310,6 +297,18 @@
             this.sub_lbl.Size = new System.Drawing.Size(142, 36);
             this.sub_lbl.TabIndex = 109;
             this.sub_lbl.Text = "Cover Letter:";
+            // 
+            // header_label
+            // 
+            this.header_label.AutoSize = true;
+            this.header_label.Font = new System.Drawing.Font("Poppins", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.header_label.ForeColor = System.Drawing.Color.DimGray;
+            this.header_label.Location = new System.Drawing.Point(32, 9);
+            this.header_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.header_label.Name = "header_label";
+            this.header_label.Size = new System.Drawing.Size(254, 58);
+            this.header_label.TabIndex = 75;
+            this.header_label.Text = "Applying For: ";
             // 
             // JP_ViewApplication
             // 

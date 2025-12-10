@@ -30,12 +30,12 @@
         {
             this.sidebar_panel = new System.Windows.Forms.Panel();
             this.details_panel = new System.Windows.Forms.Panel();
+            this.attach_file = new System.Windows.Forms.Button();
             this.back_button = new System.Windows.Forms.Button();
             this.coverletter_input = new System.Windows.Forms.TextBox();
             this.image_flowlayout = new System.Windows.Forms.FlowLayoutPanel();
             this.submit_button = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.attach_file = new System.Windows.Forms.Button();
             this.documents_lbl = new System.Windows.Forms.Label();
             this.prev_lbl = new System.Windows.Forms.Label();
             this.job_panel = new System.Windows.Forms.Panel();
@@ -80,6 +80,20 @@
             this.details_panel.Size = new System.Drawing.Size(1333, 566);
             this.details_panel.TabIndex = 21;
             // 
+            // attach_file
+            // 
+            this.attach_file.BackColor = System.Drawing.Color.White;
+            this.attach_file.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.attach_file.ForeColor = System.Drawing.Color.DimGray;
+            this.attach_file.Location = new System.Drawing.Point(39, 270);
+            this.attach_file.Margin = new System.Windows.Forms.Padding(4);
+            this.attach_file.Name = "attach_file";
+            this.attach_file.Size = new System.Drawing.Size(1257, 49);
+            this.attach_file.TabIndex = 55;
+            this.attach_file.Text = "Attach here your resume and sample works to strengthen your proposal";
+            this.attach_file.UseVisualStyleBackColor = false;
+            this.attach_file.Click += new System.EventHandler(this.attach_file_Click);
+            // 
             // back_button
             // 
             this.back_button.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -100,6 +114,8 @@
             this.coverletter_input.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.coverletter_input.Multiline = true;
             this.coverletter_input.Name = "coverletter_input";
+            this.coverletter_input.ReadOnly = true;
+            this.coverletter_input.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.coverletter_input.Size = new System.Drawing.Size(1256, 218);
             this.coverletter_input.TabIndex = 58;
             // 
@@ -140,20 +156,6 @@
             this.label1.Size = new System.Drawing.Size(142, 36);
             this.label1.TabIndex = 57;
             this.label1.Text = "Cover Letter:";
-            // 
-            // attach_file
-            // 
-            this.attach_file.BackColor = System.Drawing.Color.White;
-            this.attach_file.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.attach_file.ForeColor = System.Drawing.Color.DimGray;
-            this.attach_file.Location = new System.Drawing.Point(39, 270);
-            this.attach_file.Margin = new System.Windows.Forms.Padding(4);
-            this.attach_file.Name = "attach_file";
-            this.attach_file.Size = new System.Drawing.Size(1257, 49);
-            this.attach_file.TabIndex = 55;
-            this.attach_file.Text = "Attach here your resume and sample works to strengthen your proposal";
-            this.attach_file.UseVisualStyleBackColor = false;
-            this.attach_file.Click += new System.EventHandler(this.attach_file_Click);
             // 
             // documents_lbl
             // 

@@ -1,6 +1,8 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
+using JobNear.JobSeekerDashboardUserControl;
 using JobNear.Services;
 using JobNear.Styles;
 using MongoDB.Driver;
@@ -13,6 +15,7 @@ namespace JobNear.JobPosterDashboardUserControl
         {
             InitializeComponent();
             SetUpUI();
+            status_combo.SelectedIndex = 0;
         }
 
         private void SetUpUI() {
@@ -71,7 +74,6 @@ namespace JobNear.JobPosterDashboardUserControl
             review_table.Columns.Add("Business", "Business");
             review_table.Columns.Add("Job", "Job");
             review_table.Columns.Add("Status", "Status");
-            review_table.Columns.Add("Status", "Status");
             review_table.Columns.Add("ApplicationId", "ApplicationId");
 
             review_table.Columns["ApplicationId"].Visible = false;
@@ -93,11 +95,28 @@ namespace JobNear.JobPosterDashboardUserControl
 
         private async void review_table_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.RowIndex >= 0 && e.ColumnIndex == review_table.Columns["Action"].Index)
+            {
+
+                string applicationId = review_table.Rows[e.RowIndex].Cells["ApplicationId"].Value.ToString();
+
+                    JP_ViewApplication viewInformation = new JP_ViewApplication(applicationId);
+                    sidebar_panel.Controls.Clear();
+                    sidebar_panel.Controls.Add(viewInformation);
+                    viewInformation.Dock = DockStyle.Fill;
+                
+
+
+            }
+        }
+
+        private async void status_combo_SelectedIndexChanged(object sender, System.EventArgs e)
+        {
             string status = status_combo.SelectedItem.ToString();
 
             switch (status.ToLower())
             {
-                case "To Review":
+                case "to review":
                     review_table.Rows.Clear();
                     var getToReview = await MongoDbServices.JobApplication
                         .Find(x => x.Status == "To Review")
@@ -105,7 +124,8 @@ namespace JobNear.JobPosterDashboardUserControl
 
                     if (getToReview.Count > 0)
                     {
-                        foreach (var application in getToReview) { 
+                        foreach (var application in getToReview)
+                        {
                             var getApplicant = await MongoDbServices.JobSeekerAccount
                                 .Find(x => x.Id == application.SeekerId)
                                 .FirstOrDefaultAsync();
@@ -123,8 +143,9 @@ namespace JobNear.JobPosterDashboardUserControl
                             review_table.Rows.Add(fullname, getBusiness.BusinessName, getPostedJob.JobPosition, application.Status, application.Id);
                         }
                     }
+                    else MessageBox.Show("null");
                     break;
-                case "Accepted":
+                case "accepted":
                     review_table.Rows.Clear();
                     var getAccepted = await MongoDbServices.JobApplication
                         .Find(x => x.Status == "Accepted")
@@ -151,11 +172,12 @@ namespace JobNear.JobPosterDashboardUserControl
                             review_table.Rows.Add(fullname, getBusiness.BusinessName, getPostedJob.JobPosition, application.Status, application.Id);
                         }
                     }
+                    else MessageBox.Show("null");
                     break;
-                case "Rejected":
+                case "rejected":
                     review_table.Rows.Clear();
-                    var getRejected= await MongoDbServices.JobApplication
-                        .Find(x => x.Status == "Accepted")
+                    var getRejected = await MongoDbServices.JobApplication
+                        .Find(x => x.Status == "Rejected")
                         .ToListAsync();
 
                     if (getRejected.Count > 0)
@@ -179,8 +201,9 @@ namespace JobNear.JobPosterDashboardUserControl
                             review_table.Rows.Add(fullname, getBusiness.BusinessName, getPostedJob.JobPosition, application.Status, application.Id);
                         }
                     }
+                    else MessageBox.Show("null");
                     break;
-                case "All":
+                case "all":
                     review_table.Rows.Clear();
                     var getAll = await MongoDbServices.JobApplication
                         .Find(_ => true)
@@ -207,6 +230,7 @@ namespace JobNear.JobPosterDashboardUserControl
                             review_table.Rows.Add(fullname, getBusiness.BusinessName, getPostedJob.JobPosition, application.Status, application.Id);
                         }
                     }
+                    else MessageBox.Show("null");
                     break;
             }
         }

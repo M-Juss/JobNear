@@ -110,6 +110,7 @@
             this.remarks_richtext.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.remarks_richtext.Multiline = true;
             this.remarks_richtext.Name = "remarks_richtext";
+            this.remarks_richtext.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.remarks_richtext.Size = new System.Drawing.Size(631, 114);
             this.remarks_richtext.TabIndex = 102;
             // 

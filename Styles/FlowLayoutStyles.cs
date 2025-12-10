@@ -556,7 +556,7 @@ namespace JobNear.Styles
 
         }
 
-        public static void LoadPendingPostedJob(string job_id, string job_postion, string work_model, string employment_type, string applicants_needed, string job_description, string job_status, FlowLayoutPanel joblist_flowlayout, Panel sidebar_panel)
+        public static void LoadPendingPostedJob(string job_id, string job_postion, string work_model, string employment_type, int applicants_needed, string job_description, string job_status, FlowLayoutPanel joblist_flowlayout, Panel sidebar_panel)
         {
             Panel postJobPanel = new Panel();
             postJobPanel.Height = 150;
@@ -635,7 +635,7 @@ namespace JobNear.Styles
             postJobPanel.Controls.Add(jobInfo);
             postJobPanel.Controls.Add(jobDescription);
             postJobPanel.Controls.Add(jobStatus);
-            postJobPanel.Controls.Add(jobAddress);
+            //postJobPanel.Controls.Add(jobAddress);
 
             joblist_flowlayout.Controls.Add(postJobPanel);
 

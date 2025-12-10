@@ -39,5 +39,13 @@ namespace JobNear.JobSeekerDashboardUserControl
                 MessageBox.Show("Error loading dashboard anallytics" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void read_lbl_Click(object sender, EventArgs e)
+        {
+            AdminDashboardUserControl.Admin_TermsAndPolicy admin_TermsAndPolicy = new AdminDashboardUserControl.Admin_TermsAndPolicy();
+            sidebar_panel.Controls.Clear();
+            sidebar_panel.Controls.Add(admin_TermsAndPolicy);
+            admin_TermsAndPolicy.Dock = DockStyle.Fill;
+        }
     }
 }

@@ -117,4 +117,45 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="read_lbl.Text" xml:space="preserve">
+    <value>Welcome to JobNear, our job tracking application. These Terms and Conditions govern the use of our platform. By accessing or using this application, you agree to these terms and conditions. Please read them carefully.
+
+1. Governing Law and Compliance 
+	These terms and your use of the platform are governed by the laws of the Republic of the Philippines. Users (job-seekers or job-posters) agree to comply with applicable Philippine laws, including but not limited to labor, privacy, and anti-discrimination statutes
+
+2. Equal Opportunity &amp; Non-Discrimination
+2.1 Prohibited Discrimination
+Employers posting jobs via the Platform must not discriminate in hiring, terms of employment, compensation, promotion, benefits or any employment condition on the basis of sex, gender, age, disability, or other protected characteristic.
+In particular, discrimination based on sex is prohibited under Republic Act 6725, which amended the Labor Code to forbid paying lesser wages or providing fewer benefits to women for work of equal value.
+Discrimination on the basis of age is prohibited under Republic Act 10911 (Anti-Age Discrimination in Employment Act). It prohibits job ads or hiring practices that impose arbitrary age limits or preferences, or treat applicants unfairly based on age.
+Discrimination against qualified persons with disabilities is prohibited under Republic Act 7277 (Magna Carta for Disabled Persons), as amended by Republic Act 10524 — private and public employers may not deny employment, compensation, benefits, or opportunities solely due to disability.
+2.2 Job Posting &amp; Hiring Transparency
+All job listings on the Platform must include clear and complete information: company/employer name; job title and description; required qualifications; work location; employment type (full-time, part-time, contractual, remote, etc.); work schedule or shift details if applicable; compensation or salary range; benefits (statutory and other); and other material working conditions (e.g. travel requirements, shift rotation, required certifications).
+Employers must not conceal or omit material job requirements or conditions that are likely to affect a candidate’s decision to apply or accept a job offer.
+Employers must ensure that job ads do not include unlawful or discriminatory conditions (e.g. specifying age, gender, disability-based exclusion) except when permitted by law (e.g. bona fide occupational qualification).
+
+3. Data Privacy and Handling of Personal Information
+The Platform and its users shall comply with Republic Act 10173 (Data Privacy Act of 2012) when processing personal data of job-seekers or employers. 
+Personal information collected must be processed in accordance with the law’s principles: collected for specified, legitimate purposes; processed fairly and lawfully; kept accurate and up-to-date; not excessive relative to the processing purpose; stored only as long as necessary for those purposes.
+Sensitive data (if any) must be handled with heightened security, confidentiality, and if required — explicit consent. The Platform will implement reasonable measures to protect personal data from unauthorized access, disclosure, or misuse.
+
+4. Employer Obligations &amp; Representations
+The ad and the recruitment process will comply with all applicable Philippine anti-discrimination laws (e.g. RA 6725, RA 10911, RA 7277 / RA 10524).
+The job listing is honest, accurate, and not misleading; all material terms and conditions are clearly disclosed.
+The employer will not require job seekers to pay any fee, deposit, or other consideration in exchange for consideration or employment.
+For disabled applicants, the employer will provide reasonable accommodations and equal opportunity, consistent with the anti-discrimination laws.
+
+5. Reporting Violations &amp; Enforcement
+Users (job-seekers or third parties) may report job listings or businesses that appear to violate these Terms (e.g. discriminatory, misleading, or incomplete ads).
+Upon receipt of a report, we may review and — at our discretion — suspend, remove, or block offending job ads or accounts.
+We may also cooperate with relevant Philippine authorities (e.g. Department of Labor and Employment — DOLE) if necessary, especially in cases of suspected legal violations (e.g. unlawful discrimination).
+
+6. Changes to Terms
+We may revise these Terms from time to time. Changes will be posted on the Platform with a revised date. Continued use of the Platform after posting constitutes acceptance of the updated Terms.
+
+7. Contact Information
+	For questions, inquiries, complaints, or reports, please contact us at:
+	jobnear@gmail.com
+	(0123) 456-7890</value>
+  </data>
 </root>

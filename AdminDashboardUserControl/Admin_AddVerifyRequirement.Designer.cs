@@ -52,8 +52,9 @@
             this.sidebar_panel.Controls.Add(this.req_panel);
             this.sidebar_panel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.sidebar_panel.Location = new System.Drawing.Point(0, 0);
+            this.sidebar_panel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.sidebar_panel.Name = "sidebar_panel";
-            this.sidebar_panel.Size = new System.Drawing.Size(1031, 705);
+            this.sidebar_panel.Size = new System.Drawing.Size(1375, 868);
             this.sidebar_panel.TabIndex = 0;
             // 
             // req_panel
@@ -71,9 +72,10 @@
             this.req_panel.Controls.Add(this.label3);
             this.req_panel.Controls.Add(this.label2);
             this.req_panel.Controls.Add(this.label1);
-            this.req_panel.Location = new System.Drawing.Point(157, 31);
+            this.req_panel.Location = new System.Drawing.Point(209, 38);
+            this.req_panel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.req_panel.Name = "req_panel";
-            this.req_panel.Size = new System.Drawing.Size(716, 642);
+            this.req_panel.Size = new System.Drawing.Size(955, 790);
             this.req_panel.TabIndex = 1;
             // 
             // user_combo
@@ -84,9 +86,10 @@
             this.user_combo.Items.AddRange(new object[] {
             "For Job Seeker",
             "For Job Poster"});
-            this.user_combo.Location = new System.Drawing.Point(362, 355);
+            this.user_combo.Location = new System.Drawing.Point(483, 437);
+            this.user_combo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.user_combo.Name = "user_combo";
-            this.user_combo.Size = new System.Drawing.Size(324, 33);
+            this.user_combo.Size = new System.Drawing.Size(431, 38);
             this.user_combo.TabIndex = 102;
             // 
             // label5
@@ -94,9 +97,10 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.DimGray;
-            this.label5.Location = new System.Drawing.Point(357, 324);
+            this.label5.Location = new System.Drawing.Point(476, 399);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(92, 28);
+            this.label5.Size = new System.Drawing.Size(115, 36);
             this.label5.TabIndex = 101;
             this.label5.Text = "User Type";
             // 
@@ -104,9 +108,10 @@
             // 
             this.cancel_button.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cancel_button.ForeColor = System.Drawing.Color.White;
-            this.cancel_button.Location = new System.Drawing.Point(496, 593);
+            this.cancel_button.Location = new System.Drawing.Point(661, 730);
+            this.cancel_button.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cancel_button.Name = "cancel_button";
-            this.cancel_button.Size = new System.Drawing.Size(89, 32);
+            this.cancel_button.Size = new System.Drawing.Size(119, 39);
             this.cancel_button.TabIndex = 100;
             this.cancel_button.Text = "Cancel";
             this.cancel_button.UseVisualStyleBackColor = true;
@@ -116,9 +121,10 @@
             // 
             this.add_button.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.add_button.ForeColor = System.Drawing.Color.White;
-            this.add_button.Location = new System.Drawing.Point(597, 593);
+            this.add_button.Location = new System.Drawing.Point(796, 730);
+            this.add_button.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.add_button.Name = "add_button";
-            this.add_button.Size = new System.Drawing.Size(89, 32);
+            this.add_button.Size = new System.Drawing.Size(119, 39);
             this.add_button.TabIndex = 99;
             this.add_button.Text = "Add";
             this.add_button.UseVisualStyleBackColor = true;
@@ -127,18 +133,20 @@
             // image_flowlayout
             // 
             this.image_flowlayout.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.image_flowlayout.Location = new System.Drawing.Point(26, 461);
+            this.image_flowlayout.Location = new System.Drawing.Point(35, 567);
+            this.image_flowlayout.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.image_flowlayout.Name = "image_flowlayout";
-            this.image_flowlayout.Size = new System.Drawing.Size(660, 116);
+            this.image_flowlayout.Size = new System.Drawing.Size(880, 143);
             this.image_flowlayout.TabIndex = 98;
             // 
             // attach_file
             // 
             this.attach_file.BackColor = System.Drawing.Color.White;
             this.attach_file.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.attach_file.Location = new System.Drawing.Point(26, 408);
+            this.attach_file.Location = new System.Drawing.Point(35, 502);
+            this.attach_file.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.attach_file.Name = "attach_file";
-            this.attach_file.Size = new System.Drawing.Size(660, 47);
+            this.attach_file.Size = new System.Drawing.Size(880, 58);
             this.attach_file.TabIndex = 78;
             this.attach_file.Text = "Click here to attach a document";
             this.attach_file.UseVisualStyleBackColor = false;
@@ -152,27 +160,31 @@
             this.requirement_combo.Items.AddRange(new object[] {
             "Required",
             "Optional"});
-            this.requirement_combo.Location = new System.Drawing.Point(26, 355);
+            this.requirement_combo.Location = new System.Drawing.Point(35, 437);
+            this.requirement_combo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.requirement_combo.Name = "requirement_combo";
-            this.requirement_combo.Size = new System.Drawing.Size(324, 33);
+            this.requirement_combo.Size = new System.Drawing.Size(431, 38);
             this.requirement_combo.TabIndex = 28;
             // 
             // description_input
             // 
             this.description_input.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.description_input.Location = new System.Drawing.Point(26, 172);
+            this.description_input.Location = new System.Drawing.Point(35, 212);
+            this.description_input.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.description_input.Multiline = true;
             this.description_input.Name = "description_input";
-            this.description_input.Size = new System.Drawing.Size(660, 138);
+            this.description_input.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.description_input.Size = new System.Drawing.Size(879, 169);
             this.description_input.TabIndex = 27;
             // 
             // name_input
             // 
             this.name_input.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.name_input.Location = new System.Drawing.Point(26, 98);
+            this.name_input.Location = new System.Drawing.Point(35, 121);
+            this.name_input.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.name_input.Multiline = true;
             this.name_input.Name = "name_input";
-            this.name_input.Size = new System.Drawing.Size(660, 41);
+            this.name_input.Size = new System.Drawing.Size(879, 50);
             this.name_input.TabIndex = 26;
             // 
             // label4
@@ -180,9 +192,10 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.DimGray;
-            this.label4.Location = new System.Drawing.Point(21, 324);
+            this.label4.Location = new System.Drawing.Point(28, 399);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(162, 28);
+            this.label4.Size = new System.Drawing.Size(202, 36);
             this.label4.TabIndex = 15;
             this.label4.Text = "Requirement Type";
             // 
@@ -191,9 +204,10 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.DimGray;
-            this.label3.Location = new System.Drawing.Point(21, 141);
+            this.label3.Location = new System.Drawing.Point(28, 174);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(104, 28);
+            this.label3.Size = new System.Drawing.Size(132, 36);
             this.label3.TabIndex = 14;
             this.label3.Text = "Description";
             // 
@@ -202,9 +216,10 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.DimGray;
-            this.label2.Location = new System.Drawing.Point(21, 67);
+            this.label2.Location = new System.Drawing.Point(28, 82);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(152, 28);
+            this.label2.Size = new System.Drawing.Size(188, 36);
             this.label2.TabIndex = 13;
             this.label2.Text = "Document Name";
             // 
@@ -213,20 +228,22 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Poppins", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.DimGray;
-            this.label1.Location = new System.Drawing.Point(16, 5);
+            this.label1.Location = new System.Drawing.Point(21, 6);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(334, 56);
+            this.label1.Size = new System.Drawing.Size(412, 70);
             this.label1.TabIndex = 12;
             this.label1.Text = "Add Requirements";
             // 
             // Admin_AddVerifyRequirement
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.Controls.Add(this.sidebar_panel);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Admin_AddVerifyRequirement";
-            this.Size = new System.Drawing.Size(1031, 705);
+            this.Size = new System.Drawing.Size(1375, 868);
             this.sidebar_panel.ResumeLayout(false);
             this.req_panel.ResumeLayout(false);
             this.req_panel.PerformLayout();

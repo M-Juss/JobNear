@@ -168,6 +168,7 @@
             this.remarks_richtext.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.remarks_richtext.Multiline = true;
             this.remarks_richtext.Name = "remarks_richtext";
+            this.remarks_richtext.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.remarks_richtext.Size = new System.Drawing.Size(631, 114);
             this.remarks_richtext.TabIndex = 109;
             // 
@@ -205,6 +206,7 @@
             this.description_richbox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.description_richbox.Multiline = true;
             this.description_richbox.Name = "description_richbox";
+            this.description_richbox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.description_richbox.Size = new System.Drawing.Size(863, 197);
             this.description_richbox.TabIndex = 103;
             // 

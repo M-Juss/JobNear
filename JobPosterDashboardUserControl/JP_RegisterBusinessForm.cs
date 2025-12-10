@@ -363,10 +363,7 @@ namespace JobNear.JobPosterDashboardUserControl
 
         private void review_button_Click_1(object sender, EventArgs e)
         {
-            var confirmation = MessageBox.Show("", "Confirmation", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
-            if (confirmation == DialogResult.Yes) InsertBusinessDetails("Pending");
-            return;
-
+            InsertBusinessDetails("Pending");
         }
 
         private void update_button_Click(object sender, EventArgs e)

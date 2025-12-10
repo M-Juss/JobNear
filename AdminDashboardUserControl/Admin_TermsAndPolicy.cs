@@ -17,6 +17,7 @@ namespace JobNear.AdminDashboardUserControl
         public Admin_TermsAndPolicy()
         {
             InitializeComponent();
+            
         }
 
         private void back_button_Click(object sender, EventArgs e)
