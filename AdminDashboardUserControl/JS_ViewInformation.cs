@@ -99,8 +99,8 @@ namespace JobNear.AdminDashboardUserControl
                                 NotificationId = seeker.Id,
                                 Key = key,
                                 HeaderMessage = verifyMessage,
-                                Type = verifyType,
                                 Remarks = remarks,
+                                Type = verifyType,
                                 Date = date
                             };
 
@@ -116,8 +116,8 @@ namespace JobNear.AdminDashboardUserControl
                                 NotificationId = seeker.Id,
                                 Key = key,
                                 HeaderMessage = incMessage,
-                                Type = incType,
                                 Remarks = remarks,
+                                Type = incType,
                                 Date = date
                             };
 

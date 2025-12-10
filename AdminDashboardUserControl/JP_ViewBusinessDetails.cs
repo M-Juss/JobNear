@@ -105,8 +105,8 @@ namespace JobNear.AdminDashboardUserControl
                                 NotificationId = business.BusinessId,
                                 Key = key,
                                 HeaderMessage = verifyMessage,
-                                Type = verifyType,
                                 Remarks = remarks,
+                                Type = verifyType,
                                 Date = date
                             };
 
@@ -123,8 +123,8 @@ namespace JobNear.AdminDashboardUserControl
                                 NotificationId = business.BusinessId,
                                 Key = key,
                                 HeaderMessage = pendingMessage,
-                                Type = pendingType,
                                 Remarks = remarks,
+                                Type = pendingType,
                                 Date = date
                             };
 
@@ -141,8 +141,8 @@ namespace JobNear.AdminDashboardUserControl
                                 NotificationId = business.BusinessId,
                                 Key = key,
                                 HeaderMessage = incMessage,
-                                Type = incType,
                                 Remarks = remarks,
+                                Type = incType,
                                 Date = date
                             };
 
@@ -158,8 +158,8 @@ namespace JobNear.AdminDashboardUserControl
                                 NotificationId = business.BusinessId,
                                 Key = key,
                                 HeaderMessage = rejectedMessage,
-                                Type = rejectedType,
                                 Remarks = remarks,
+                                Type = rejectedType,
                                 Date = date
                             };
 

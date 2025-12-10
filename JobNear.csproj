@@ -256,6 +256,12 @@
     <Compile Include="AdminDashboardUserControl\Admin_VerifyRequirement.Designer.cs">
       <DependentUpon>Admin_VerifyRequirement.cs</DependentUpon>
     </Compile>
+    <Compile Include="AdminDashboardUserControl\Admin_ViewJobPostDetails.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AdminDashboardUserControl\Admin_ViewJobPostDetails.Designer.cs">
+      <DependentUpon>Admin_ViewJobPostDetails.cs</DependentUpon>
+    </Compile>
     <Compile Include="AdminDashboardUserControl\Admin_ViewReportDetails.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -529,6 +535,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AdminDashboardUserControl\Admin_VerifyRequirement.resx">
       <DependentUpon>Admin_VerifyRequirement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminDashboardUserControl\Admin_ViewJobPostDetails.resx">
+      <DependentUpon>Admin_ViewJobPostDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AdminDashboardUserControl\Admin_ViewReportDetails.resx">
       <DependentUpon>Admin_ViewReportDetails.cs</DependentUpon>

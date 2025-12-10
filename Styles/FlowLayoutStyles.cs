@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using MongoDB.Driver;
 using Button = System.Windows.Forms.Button;
 using JobNear.Services;
+using JobNear.AdminDashboardUserControl;
 
 namespace JobNear.Styles
 {
@@ -556,7 +557,7 @@ namespace JobNear.Styles
 
         }
 
-        public static void LoadPendingPostedJob(string job_id, string job_postion, string work_model, string employment_type, int applicants_needed, string job_description, string job_status, FlowLayoutPanel joblist_flowlayout, Panel sidebar_panel)
+        public static void LoadPendingPostedJob(string job_id, string job_postion, string work_model, string employment_type,string rate, int applicants_needed, string job_description, string job_status, FlowLayoutPanel joblist_flowlayout, Panel sidebar_panel)
         {
             Panel postJobPanel = new Panel();
             postJobPanel.Height = 150;
@@ -564,16 +565,6 @@ namespace JobNear.Styles
             postJobPanel.Margin = new Padding(10, 10, 10, 10);
             postJobPanel.BackColor = Color.WhiteSmoke;
             postJobPanel.BorderStyle = BorderStyle.None;
-
-            Label jobPosition = new Label();
-            jobPosition.AutoSize = false;
-            jobPosition.Text = job_postion;
-            jobPosition.Width = 500;
-            jobPosition.Height = 30;
-            jobPosition.BorderStyle = BorderStyle.None;
-            jobPosition.Location = new Point(40, 10);
-            jobPosition.Font = new Font("Poppins", 16, FontStyle.Bold);
-            jobPosition.ForeColor = Color.Black;
 
             Label jobStatus = new Label();
             jobStatus.AutoSize = false;
@@ -586,56 +577,69 @@ namespace JobNear.Styles
 
             UserController.SetJobPostStatus(jobStatus, job_status);
 
-            Label jobInfo = new Label();
-            jobInfo.AutoSize = false;
-            jobInfo.Text = $" {work_model} | {employment_type}";
-            jobInfo.Width = 700;
-            jobInfo.AutoEllipsis = true;
-            jobInfo.BorderStyle = BorderStyle.None;
-            jobInfo.Location = new Point(39, 40);
-            jobInfo.Font = new Font("Poppins", 12, FontStyle.Regular);
-            jobInfo.ForeColor = Color.Black;
+            Label jobPosition = new Label();
+            jobPosition.AutoSize = false;
+            jobPosition.Text = job_postion;
+            jobPosition.Width = 500;
+            jobPosition.Height = 30;
+            jobPosition.BorderStyle = BorderStyle.None;
+            jobPosition.Location = new Point(40, 10);
+            jobPosition.Font = new Font("Poppins", 16, FontStyle.Bold);
+            jobPosition.ForeColor = Color.Black;
+
 
             Label jobDescription = new Label();
             jobDescription.AutoSize = false;
             jobDescription.AutoEllipsis = true;
             jobDescription.Text = job_description;
-            jobDescription.Width = 700;
-            jobDescription.Height = 50;
+            jobDescription.Width = 730;
+            jobDescription.Height = 60;
             jobDescription.AutoEllipsis = true;
             jobDescription.BorderStyle = BorderStyle.None;
             jobDescription.TextAlign = ContentAlignment.TopLeft;
-            jobDescription.Location = new Point(43, 70);
+            jobDescription.Location = new Point(40, 45);
             jobDescription.Font = new Font("Poppins", 10, FontStyle.Regular);
             jobDescription.ForeColor = Color.Gray;
 
-            //Label jobAddress = new Label();
-            //jobAddress.AutoSize = false;
-            //jobAddress.Text = job_address;
-            //jobAddress.Width = 605;
-            //jobAddress.Height = 20;
-            //jobAddress.BorderStyle = BorderStyle.None;
-            //jobAddress.Location = new Point(45, 117);
-            //jobAddress.TextAlign = ContentAlignment.TopLeft;
-            //jobAddress.Font = new Font("Poppins", 9, FontStyle.Regular);
-            //jobAddress.ForeColor = Color.Gray;
+
+            Label jobInfo = new Label();
+            jobInfo.AutoSize = false;
+            jobInfo.Text = $" {work_model} | {employment_type} | Applicants Needed: {applicants_needed}";
+            jobInfo.Width = 500;
+            jobInfo.AutoEllipsis = true;
+            jobInfo.BorderStyle = BorderStyle.None;
+            jobInfo.Location = new Point(40, 110);
+            jobInfo.Font = new Font("Poppins", 12, FontStyle.Regular);
+            jobInfo.ForeColor = Color.Black;
+
+            Label jobRate = new Label();
+            jobRate.AutoSize = false;
+            jobRate.Text = rate;
+            jobRate.Width = 400; 
+            jobRate.AutoEllipsis = true;
+            jobRate.BorderStyle = BorderStyle.None;
+            jobRate.Location = new Point(joblist_flowlayout.Width - 270, 110); 
+            jobRate.Font = new Font("Poppins", 12, FontStyle.Regular);
+            jobRate.ForeColor = Color.Black;
+
+
 
             PanelStyles.RoundedPanel(postJobPanel, 20, Color.White);
 
             postJobPanel.Click += (s, e) =>
             {
                 Session.CurrentPostedJobSelected = job_id;
-                JobSeekerDashboardUserControl.JS_ViewJobList activeJobDetails = new JobSeekerDashboardUserControl.JS_ViewJobList(Session.CurrentPostedJobSelected);
+                Admin_ViewJobPostDetails pendingJobDetails = new Admin_ViewJobPostDetails(Session.CurrentPostedJobSelected);
                 sidebar_panel.Controls.Clear();
-                sidebar_panel.Controls.Add(activeJobDetails);
-                activeJobDetails.Dock = DockStyle.Fill;
+                sidebar_panel.Controls.Add(pendingJobDetails);
+                pendingJobDetails.Dock = DockStyle.Fill;
             };
 
             postJobPanel.Controls.Add(jobPosition);
             postJobPanel.Controls.Add(jobInfo);
+            postJobPanel.Controls.Add(jobRate);
             postJobPanel.Controls.Add(jobDescription);
             postJobPanel.Controls.Add(jobStatus);
-            //postJobPanel.Controls.Add(jobAddress);
 
             joblist_flowlayout.Controls.Add(postJobPanel);
 

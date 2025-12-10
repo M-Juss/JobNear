@@ -32,6 +32,9 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
             this.job_panel = new System.Windows.Forms.Panel();
+            this.update_button = new System.Windows.Forms.Button();
+            this.appplicants_lbl = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.responsibilities_richbox = new System.Windows.Forms.TextBox();
             this.about_job_richbox = new System.Windows.Forms.TextBox();
             this.min_qualification_richbox = new System.Windows.Forms.TextBox();
@@ -58,9 +61,6 @@
             this.hourly_input = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.paymenttype_label = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.appplicants_lbl = new System.Windows.Forms.TextBox();
-            this.update_button = new System.Windows.Forms.Button();
             this.sidebar_panel.SuspendLayout();
             this.job_panel.SuspendLayout();
             this.SuspendLayout();
@@ -135,12 +135,45 @@
             this.job_panel.Size = new System.Drawing.Size(933, 1120);
             this.job_panel.TabIndex = 138;
             // 
+            // update_button
+            // 
+            this.update_button.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.update_button.ForeColor = System.Drawing.Color.White;
+            this.update_button.Location = new System.Drawing.Point(789, 1061);
+            this.update_button.Name = "update_button";
+            this.update_button.Size = new System.Drawing.Size(109, 36);
+            this.update_button.TabIndex = 144;
+            this.update_button.Text = "Update";
+            this.update_button.UseVisualStyleBackColor = true;
+            this.update_button.Click += new System.EventHandler(this.update_button_Click);
+            // 
+            // appplicants_lbl
+            // 
+            this.appplicants_lbl.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.appplicants_lbl.Location = new System.Drawing.Point(643, 130);
+            this.appplicants_lbl.Multiline = true;
+            this.appplicants_lbl.Name = "appplicants_lbl";
+            this.appplicants_lbl.Size = new System.Drawing.Size(255, 32);
+            this.appplicants_lbl.TabIndex = 143;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Poppins SemiBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.DimGray;
+            this.label2.Location = new System.Drawing.Point(637, 98);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(251, 34);
+            this.label2.TabIndex = 142;
+            this.label2.Text = "# of Applicants Needed:";
+            // 
             // responsibilities_richbox
             // 
             this.responsibilities_richbox.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.responsibilities_richbox.Location = new System.Drawing.Point(33, 795);
             this.responsibilities_richbox.Multiline = true;
             this.responsibilities_richbox.Name = "responsibilities_richbox";
+            this.responsibilities_richbox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.responsibilities_richbox.Size = new System.Drawing.Size(867, 156);
             this.responsibilities_richbox.TabIndex = 141;
             // 
@@ -150,6 +183,7 @@
             this.about_job_richbox.Location = new System.Drawing.Point(35, 598);
             this.about_job_richbox.Multiline = true;
             this.about_job_richbox.Name = "about_job_richbox";
+            this.about_job_richbox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.about_job_richbox.Size = new System.Drawing.Size(867, 156);
             this.about_job_richbox.TabIndex = 140;
             // 
@@ -159,6 +193,7 @@
             this.min_qualification_richbox.Location = new System.Drawing.Point(33, 206);
             this.min_qualification_richbox.Multiline = true;
             this.min_qualification_richbox.Name = "min_qualification_richbox";
+            this.min_qualification_richbox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.min_qualification_richbox.Size = new System.Drawing.Size(867, 156);
             this.min_qualification_richbox.TabIndex = 138;
             // 
@@ -384,6 +419,7 @@
             this.preferred_qualification_richbox.Location = new System.Drawing.Point(35, 401);
             this.preferred_qualification_richbox.Multiline = true;
             this.preferred_qualification_richbox.Name = "preferred_qualification_richbox";
+            this.preferred_qualification_richbox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.preferred_qualification_richbox.Size = new System.Drawing.Size(867, 156);
             this.preferred_qualification_richbox.TabIndex = 139;
             // 
@@ -417,38 +453,6 @@
             this.paymenttype_label.Size = new System.Drawing.Size(185, 34);
             this.paymenttype_label.TabIndex = 136;
             this.paymenttype_label.Text = "Salary per month";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Poppins SemiBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.DimGray;
-            this.label2.Location = new System.Drawing.Point(637, 98);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(251, 34);
-            this.label2.TabIndex = 142;
-            this.label2.Text = "# of Applicants Needed:";
-            // 
-            // appplicants_lbl
-            // 
-            this.appplicants_lbl.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.appplicants_lbl.Location = new System.Drawing.Point(643, 130);
-            this.appplicants_lbl.Multiline = true;
-            this.appplicants_lbl.Name = "appplicants_lbl";
-            this.appplicants_lbl.Size = new System.Drawing.Size(255, 32);
-            this.appplicants_lbl.TabIndex = 143;
-            // 
-            // update_button
-            // 
-            this.update_button.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.update_button.ForeColor = System.Drawing.Color.White;
-            this.update_button.Location = new System.Drawing.Point(789, 1061);
-            this.update_button.Name = "update_button";
-            this.update_button.Size = new System.Drawing.Size(109, 36);
-            this.update_button.TabIndex = 144;
-            this.update_button.Text = "Update";
-            this.update_button.UseVisualStyleBackColor = true;
-            this.update_button.Click += new System.EventHandler(this.update_button_Click);
             // 
             // JP_PostJobForm
             // 
