@@ -144,41 +144,42 @@ namespace JobNear.AdminDashboardUserControl
                 return;
             }
 
-            if (!TextBoxValidatorController.ValidateEmail(email_input)) {
+            if (!TextBoxValidatorController.ValidateEmail(email_input))
+            {
                 return;
             }
-                if (password_input.Text != confirm_input.Text)
-                {
-                    MessageBox.Show("Passwords do not match", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return ;
-                }
-                else
-                {
-                    bool response = await MongoDbServices.UpdateAdminAccountAsync(Session.CurrentAdminSelected, email_input.Text, password_input.Text, name_input.Text,
-                        role_combo.SelectedItem.ToString(), status_combo.SelectedItem.ToString());
+            if (password_input.Text != confirm_input.Text)
+            {
+                MessageBox.Show("Passwords do not match", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            else
+            {
+                bool response = await MongoDbServices.UpdateAdminAccountAsync(Session.CurrentAdminSelected, email_input.Text, password_input.Text, name_input.Text,
+                    role_combo.SelectedItem.ToString(), status_combo.SelectedItem.ToString());
 
-                    if (response)
+                if (response)
+                {
+                    string res = MessageBox.Show(
+                        "Admin account udpated successfully and ready for review",
+                        "Success",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information
+                    ).ToString();
+
+                    if (res == "OK")
                     {
-                        string res = MessageBox.Show(
-                            "Admin account udpated successfully and ready for review",
-                            "Success",
-                            MessageBoxButtons.OK,
-                            MessageBoxIcon.Information
-                        ).ToString();
+                        ClearForm();
+                        LoadAdminAccounts();
+                        ShowSubmitButton();
 
-                        if (res == "OK")
-                        {
-                            ClearForm();
-                            LoadAdminAccounts();
-                            ShowSubmitButton();
+                        Session.CurrentAdminSelected = null;
 
-                            Session.CurrentAdminSelected = null;
-
-                        }
                     }
                 }
             }
-        
+        }
+
         private void InitializeTable()
         {
 

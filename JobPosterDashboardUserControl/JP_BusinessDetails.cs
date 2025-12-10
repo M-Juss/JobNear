@@ -15,12 +15,8 @@ namespace JobNear.JobPosterDashboardUserControl
             InitializeComponent();
 
             LoadSelectedBusiness(businessId);
-            LoadPostedJobs(businessId);
+            status_combo.SelectedIndex = 0;
             SetUpUI();
-
-            //FlowLayoutStyles.AddPostJob("412412412412", "Senior Developer", "Fully In Office", "Full Time", "Lorem ipsum dolor sit amet. Eum consequatur itaque et quibusdam voluptatem et aspernatur explicabo. Sit eaque possimus ut repellat enim et temporibus natus ut saepe nihil et iusto odit aut animi sunt cum necessitatibus incidunt. ", "ACtive", joblist_flowlayout, sidebar_panel);
-            //FlowLayoutStyles.AddPostJob("sgfsdg2wrt2342", "Junior Developer", "Hybrid", "Part Time", "Lorem ipsum dolor sit amet. Eum consequatur itaque et quibusdam voluptatem et aspernatur explicabo. Sit eaque possimus ut repellat enim et temporibus natus ut saepe nihil et iusto odit aut animi sunt cum necessitatibus incidunt. ","Closed", joblist_flowlayout, sidebar_panel);
-            //FlowLayoutStyles.AddPostJob("23432fsfr23rsf", "Intern Developer", "Fullt Remote", "Part Time", "Lorem ipsum dolor sit amet. Eum consequatur itaque et quibusdam voluptatem et aspernatur explicabo. Sit eaque possimus ut repellat enim et temporibus natus ut saepe nihil et iusto odit aut animi sunt cum necessitatibus incidunt.","Withdrawn" , joblist_flowlayout, sidebar_panel);
 
 
             edit_button.Click += (s, e) =>
@@ -90,10 +86,34 @@ namespace JobNear.JobPosterDashboardUserControl
             }
         }
 
-        private async void LoadPostedJobs(string businessId)
+        private async void LoadPostedJobs(string businessId, string status)
         {
-            var postedJobs = await MongoDbServices.JobPosterJobPosting
+            if (status == "All")
+            {
+                var postJobs = await MongoDbServices.JobPosterJobPosting
                 .Find(x => x.BusinessId == businessId)
+                .ToListAsync();
+
+                if (postJobs != null)
+                {
+                    postJobs.ForEach(job =>
+                    {
+                        FlowLayoutStyles.AddPostJob(
+                            job.Id,
+                            job.JobPosition,
+                            job.JobWorkModel,
+                            job.JobEmploymentType,
+                            job.JobAbout,
+                            job.JobStatus,
+                            joblist_flowlayout,
+                            sidebar_panel
+                        );
+                    });
+                }
+            }
+
+            var postedJobs = await MongoDbServices.JobPosterJobPosting
+                .Find(x => x.BusinessId == businessId && x.JobStatus == status)
                 .ToListAsync();
 
             if (postedJobs != null)
@@ -123,5 +143,16 @@ namespace JobNear.JobPosterDashboardUserControl
             sidebar_panel.Dock = DockStyle.Fill;
         }
 
+        private void status_combo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string status = status_combo.SelectedItem.ToString();
+            joblist_flowlayout.Controls.Clear();
+            LoadPostedJobs(Session.CurrentBusinessSelected, status);
+        }
+
+        private void post_job_button_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

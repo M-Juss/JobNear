@@ -1,14 +1,14 @@
 ﻿
+using JobNear.AdminDashboardUserControl;
 using JobNear.Controllers;
 using JobNear.Models;
+using JobNear.Services;
+using MongoDB.Driver;
 using System;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
-using MongoDB.Driver;
 using Button = System.Windows.Forms.Button;
-using JobNear.Services;
-using JobNear.AdminDashboardUserControl;
 
 namespace JobNear.Styles
 {
@@ -349,7 +349,7 @@ namespace JobNear.Styles
 
             Label jobStatus = new Label();
             jobStatus.AutoSize = false;
-            jobStatus.Width = 100;
+            jobStatus.Width = 110;
             jobStatus.Height = 25;
             jobStatus.BorderStyle = BorderStyle.None;
             jobStatus.Location = new Point(joblist_flowlayout.Width - 170, 14);
@@ -408,18 +408,53 @@ namespace JobNear.Styles
                     .Find(x => x.Id == job_id)
                     .ToListAsync();
 
-                if (getJobIdStatus.Count > 0) {
-                    foreach (var jobStat in getJobIdStatus) {
+                if (getJobIdStatus.Count > 0)
+                {
+                    foreach (var jobStat in getJobIdStatus)
+                    {
 
-                        if (jobStat.JobStatus != "Pending") {
-                            jobEditPost.Click += (s, e) =>
+                        if (jobStat.JobStatus != "Pending")
+                        {
+                            jobEditPost.Click += async (s, e) =>
                             {
                                 if (Session.CurrentBusinessSelectedStatus != "Verified")
                                 {
                                     MessageBox.Show("Business must be Verified to edit a job post!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                     return;
                                 }
+                                if (jobStat.JobStatus == "Active")
+                                {
+                                    var confirm = MessageBox.Show(
+                                        $"The job {jobPosition} is currently Active.\n\n" +
+                                        "To edit this job, it must first be set to Inactive.\n\n" +
+                                        "Do you want to mark it as Inactive now?",
+                                        "Edit Active Job",
+                                        MessageBoxButtons.YesNo,
+                                        MessageBoxIcon.Warning
+                                    );
 
+                                    if (confirm == DialogResult.Yes)
+                                    {
+
+                                        var jobpost = Builders<JobPosterJobPostingModel>.Filter.Eq(x => x.Id, job_id);
+
+                                        if (jobpost != null)
+                                        {
+                                            var updateStatus = Builders<JobPosterJobPostingModel>.Update
+                                                .Set(x => x.JobStatus, "Inactive");
+
+                                            await MongoDbServices.JobPosterJobPosting.UpdateOneAsync(jobpost, updateStatus);
+
+                                            JobPosterDashboardUserControl.JP_BusinessDetails jp_businessDetails = new JobPosterDashboardUserControl.JP_BusinessDetails(Session.CurrentBusinessSelected);
+                                            sidebar_panel.Controls.Clear();
+                                            sidebar_panel.Controls.Add(jp_businessDetails);
+                                            sidebar_panel.Dock = DockStyle.Fill;
+                                            return;
+                                        }
+                                    }
+                                    else return;
+
+                                }
                                 string mode = "edit";
                                 Session.CurrentPostJobFormMode = mode;
                                 Session.CurrentPostedJobSelected = job_id;
@@ -557,7 +592,7 @@ namespace JobNear.Styles
 
         }
 
-        public static void LoadPendingPostedJob(string job_id, string job_postion, string work_model, string employment_type,string rate, int applicants_needed, string job_description, string job_status, FlowLayoutPanel joblist_flowlayout, Panel sidebar_panel)
+        public static void LoadPendingPostedJob(string job_id, string job_postion, string work_model, string employment_type, string rate, int applicants_needed, string job_description, string job_status, FlowLayoutPanel joblist_flowlayout, Panel sidebar_panel)
         {
             Panel postJobPanel = new Panel();
             postJobPanel.Height = 150;
@@ -615,10 +650,10 @@ namespace JobNear.Styles
             Label jobRate = new Label();
             jobRate.AutoSize = false;
             jobRate.Text = rate;
-            jobRate.Width = 400; 
+            jobRate.Width = 400;
             jobRate.AutoEllipsis = true;
             jobRate.BorderStyle = BorderStyle.None;
-            jobRate.Location = new Point(joblist_flowlayout.Width - 270, 110); 
+            jobRate.Location = new Point(joblist_flowlayout.Width - 270, 110);
             jobRate.Font = new Font("Poppins", 12, FontStyle.Regular);
             jobRate.ForeColor = Color.Black;
 

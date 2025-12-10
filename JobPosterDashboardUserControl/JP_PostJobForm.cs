@@ -15,7 +15,6 @@ namespace JobNear.JobPosterDashboardUserControl
             InitializeComponent();
             SetUpUI();
             paymenttype_label.Text = "";
-            update_button.Visible = false;
         }
 
         public JP_PostJobForm(string mode, string id)
@@ -23,7 +22,7 @@ namespace JobNear.JobPosterDashboardUserControl
             InitializeComponent();
             SetUpUI();
             LoadPostedJobDetails(id);
-            post_button.Visible = false;
+            post_button.Text = "Update";
         }
 
         private void SetUpUI()
@@ -194,6 +193,48 @@ namespace JobNear.JobPosterDashboardUserControl
 
                 else if (Session.CurrentPostJobFormMode == "edit")
                 {
+
+                    if (stat == "Active")
+                    {
+
+                        bool result = await MongoDbServices.UpdatePostedJobAsync(
+                            Session.CurrentPostedJobSelected,
+                            position,
+                            emptype,
+                            workmodel,
+                            minqualification,
+                            preferredqualification,
+                            aboutjob,
+                            responsibilities,
+                            paytype,
+                            monthlysalary,
+                            hourlyrate,
+                            "Pending"
+                            );
+
+
+                        if (result)
+                        {
+                            string results = MessageBox.Show("Job updated successfully to Active! Wait for admin approval and your job status will be automatically active.",
+                                "Success",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Information
+                            ).ToString();
+
+                            if (results == "OK")
+                            {
+                                sidebar_panel.Controls.Clear();
+                                JP_BusinessDetails profile = new JP_BusinessDetails(Session.CurrentBusinessSelected);
+                                profile.Dock = DockStyle.Fill;
+                                sidebar_panel.Controls.Add(profile);
+                                return;
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Failed to update profile. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
 
                     bool response = await MongoDbServices.UpdatePostedJobAsync(
                         Session.CurrentPostedJobSelected,

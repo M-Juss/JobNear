@@ -15,7 +15,7 @@ namespace JobNear.Models
         public string CoverLetter { get; set; }
         public List<SupportingDocument> SupportingDocuments { get; set; }
         public string Status { get; set; } = "To Review";
-        public bool isSubmissionActive  { get; set; } = true;
+        public bool isSubmissionActive { get; set; } = true;
 
         public DateTime DateCreated { get; set; } = DateTime.Now;
     }

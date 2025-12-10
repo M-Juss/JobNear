@@ -32,7 +32,6 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
             this.job_panel = new System.Windows.Forms.Panel();
-            this.update_button = new System.Windows.Forms.Button();
             this.appplicants_lbl = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.responsibilities_richbox = new System.Windows.Forms.TextBox();
@@ -100,7 +99,6 @@
             // job_panel
             // 
             this.job_panel.BackColor = System.Drawing.Color.White;
-            this.job_panel.Controls.Add(this.update_button);
             this.job_panel.Controls.Add(this.appplicants_lbl);
             this.job_panel.Controls.Add(this.label2);
             this.job_panel.Controls.Add(this.responsibilities_richbox);
@@ -134,18 +132,6 @@
             this.job_panel.Name = "job_panel";
             this.job_panel.Size = new System.Drawing.Size(933, 1120);
             this.job_panel.TabIndex = 138;
-            // 
-            // update_button
-            // 
-            this.update_button.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.update_button.ForeColor = System.Drawing.Color.White;
-            this.update_button.Location = new System.Drawing.Point(789, 1061);
-            this.update_button.Name = "update_button";
-            this.update_button.Size = new System.Drawing.Size(109, 36);
-            this.update_button.TabIndex = 144;
-            this.update_button.Text = "Update";
-            this.update_button.UseVisualStyleBackColor = true;
-            this.update_button.Click += new System.EventHandler(this.update_button_Click);
             // 
             // appplicants_lbl
             // 
@@ -504,6 +490,5 @@
         private System.Windows.Forms.TextBox preferred_qualification_richbox;
         private System.Windows.Forms.TextBox appplicants_lbl;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button update_button;
     }
 }

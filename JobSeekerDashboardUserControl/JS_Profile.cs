@@ -108,7 +108,7 @@ namespace JobNear.JobSeekerDashboardUserControl
             debounceTimer.Stop();
 
             if (string.IsNullOrWhiteSpace(address_input.Text) || address_input.Text.Length < 2)
-                return; 
+                return;
 
             isUpdatingSuggestions = true;
 

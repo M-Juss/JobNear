@@ -95,7 +95,7 @@ namespace JobNear.Controllers
             {
                 ToolTipText = tooltipText,
                 ToolTipMode = MarkerTooltipMode.OnMouseOver,
-                Tag = businessSpecificId 
+                Tag = businessSpecificId
             };
 
             markersOverlay.Markers.Add(marker);

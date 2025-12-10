@@ -57,6 +57,10 @@ namespace JobNear.Controllers
                     status_label.Text = "Active";
                     PanelStyles.StyleRoundedLabel(status_label, 10, Color.Green, Color.White);
                     break;
+                case "inactive":
+                    status_label.Text = "Inactive";
+                    PanelStyles.StyleRoundedLabel(status_label, 10, Color.Gray, Color.White);
+                    break;
                 case "closed":
                     status_label.Text = "Closed";
                     PanelStyles.StyleRoundedLabel(status_label, 10, Color.Black, Color.White);

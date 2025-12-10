@@ -1,11 +1,9 @@
-﻿using System;
+﻿using JobNear.Services;
+using JobNear.Styles;
+using MongoDB.Driver;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
-using JobNear.JobSeekerDashboardUserControl;
-using JobNear.Services;
-using JobNear.Styles;
-using MongoDB.Driver;
 
 namespace JobNear.JobPosterDashboardUserControl
 {
@@ -15,10 +13,11 @@ namespace JobNear.JobPosterDashboardUserControl
         {
             InitializeComponent();
             SetUpUI();
-            status_combo.SelectedIndex = 0;
+            LoadToReviewApplication();
         }
 
-        private void SetUpUI() {
+        private void SetUpUI()
+        {
             review_table.CellPainting += (s, e) =>
             {
                 if (e.RowIndex >= 0 &&
@@ -100,138 +99,44 @@ namespace JobNear.JobPosterDashboardUserControl
 
                 string applicationId = review_table.Rows[e.RowIndex].Cells["ApplicationId"].Value.ToString();
 
-                    JP_ViewApplication viewInformation = new JP_ViewApplication(applicationId);
-                    sidebar_panel.Controls.Clear();
-                    sidebar_panel.Controls.Add(viewInformation);
-                    viewInformation.Dock = DockStyle.Fill;
-                
+                Session.CurrentJobApplicationSelected = applicationId;
+                JP_ViewApplication viewInformation = new JP_ViewApplication(applicationId);
+                sidebar_panel.Controls.Clear();
+                sidebar_panel.Controls.Add(viewInformation);
+                viewInformation.Dock = DockStyle.Fill;
+
 
 
             }
         }
 
-        private async void status_combo_SelectedIndexChanged(object sender, System.EventArgs e)
+        private async void LoadToReviewApplication()
         {
-            string status = status_combo.SelectedItem.ToString();
+            review_table.Rows.Clear();
+            var getToReview = await MongoDbServices.JobApplication
+                .Find(x => x.Status == "To Review")
+                .ToListAsync();
 
-            switch (status.ToLower())
+            if (getToReview.Count > 0)
             {
-                case "to review":
-                    review_table.Rows.Clear();
-                    var getToReview = await MongoDbServices.JobApplication
-                        .Find(x => x.Status == "To Review")
-                        .ToListAsync();
+                foreach (var application in getToReview)
+                {
+                    var getApplicant = await MongoDbServices.JobSeekerAccount
+                        .Find(x => x.Id == application.SeekerId)
+                        .FirstOrDefaultAsync();
 
-                    if (getToReview.Count > 0)
-                    {
-                        foreach (var application in getToReview)
-                        {
-                            var getApplicant = await MongoDbServices.JobSeekerAccount
-                                .Find(x => x.Id == application.SeekerId)
-                                .FirstOrDefaultAsync();
+                    var getPostedJob = await MongoDbServices.JobPosterJobPosting
+                        .Find(x => x.Id == application.JobId)
+                        .FirstOrDefaultAsync();
 
-                            var getPostedJob = await MongoDbServices.JobPosterJobPosting
-                                .Find(x => x.Id == application.JobId)
-                                .FirstOrDefaultAsync();
+                    var getBusiness = await MongoDbServices.JobPosterBusiness
+                        .Find(x => x.Id == getPostedJob.BusinessId)
+                        .FirstOrDefaultAsync();
 
-                            var getBusiness = await MongoDbServices.JobPosterBusiness
-                                .Find(x => x.Id == getPostedJob.BusinessId)
-                                .FirstOrDefaultAsync();
+                    string fullname = $"{getApplicant.Firstname} {getApplicant.Middlename} {getApplicant.Lastname}";
 
-                            string fullname = $"{getApplicant.Firstname} {getApplicant.Middlename} {getApplicant.Lastname}";
-
-                            review_table.Rows.Add(fullname, getBusiness.BusinessName, getPostedJob.JobPosition, application.Status, application.Id);
-                        }
-                    }
-                    else MessageBox.Show("null");
-                    break;
-                case "accepted":
-                    review_table.Rows.Clear();
-                    var getAccepted = await MongoDbServices.JobApplication
-                        .Find(x => x.Status == "Accepted")
-                        .ToListAsync();
-
-                    if (getAccepted.Count > 0)
-                    {
-                        foreach (var application in getAccepted)
-                        {
-                            var getApplicant = await MongoDbServices.JobSeekerAccount
-                                .Find(x => x.Id == application.SeekerId)
-                                .FirstOrDefaultAsync();
-
-                            var getPostedJob = await MongoDbServices.JobPosterJobPosting
-                                .Find(x => x.Id == application.JobId)
-                                .FirstOrDefaultAsync();
-
-                            var getBusiness = await MongoDbServices.JobPosterBusiness
-                                .Find(x => x.Id == getPostedJob.BusinessId)
-                                .FirstOrDefaultAsync();
-
-                            string fullname = $"{getApplicant.Firstname} {getApplicant.Middlename} {getApplicant.Lastname}";
-
-                            review_table.Rows.Add(fullname, getBusiness.BusinessName, getPostedJob.JobPosition, application.Status, application.Id);
-                        }
-                    }
-                    else MessageBox.Show("null");
-                    break;
-                case "rejected":
-                    review_table.Rows.Clear();
-                    var getRejected = await MongoDbServices.JobApplication
-                        .Find(x => x.Status == "Rejected")
-                        .ToListAsync();
-
-                    if (getRejected.Count > 0)
-                    {
-                        foreach (var application in getRejected)
-                        {
-                            var getApplicant = await MongoDbServices.JobSeekerAccount
-                                .Find(x => x.Id == application.SeekerId)
-                                .FirstOrDefaultAsync();
-
-                            var getPostedJob = await MongoDbServices.JobPosterJobPosting
-                                .Find(x => x.Id == application.JobId)
-                                .FirstOrDefaultAsync();
-
-                            var getBusiness = await MongoDbServices.JobPosterBusiness
-                                .Find(x => x.Id == getPostedJob.BusinessId)
-                                .FirstOrDefaultAsync();
-
-                            string fullname = $"{getApplicant.Firstname} {getApplicant.Middlename} {getApplicant.Lastname}";
-
-                            review_table.Rows.Add(fullname, getBusiness.BusinessName, getPostedJob.JobPosition, application.Status, application.Id);
-                        }
-                    }
-                    else MessageBox.Show("null");
-                    break;
-                case "all":
-                    review_table.Rows.Clear();
-                    var getAll = await MongoDbServices.JobApplication
-                        .Find(_ => true)
-                        .ToListAsync();
-
-                    if (getAll.Count > 0)
-                    {
-                        foreach (var application in getAll)
-                        {
-                            var getApplicant = await MongoDbServices.JobSeekerAccount
-                                .Find(x => x.Id == application.SeekerId)
-                                .FirstOrDefaultAsync();
-
-                            var getPostedJob = await MongoDbServices.JobPosterJobPosting
-                                .Find(x => x.Id == application.JobId)
-                                .FirstOrDefaultAsync();
-
-                            var getBusiness = await MongoDbServices.JobPosterBusiness
-                                .Find(x => x.Id == getPostedJob.BusinessId)
-                                .FirstOrDefaultAsync();
-
-                            string fullname = $"{getApplicant.Firstname} {getApplicant.Middlename} {getApplicant.Lastname}";
-
-                            review_table.Rows.Add(fullname, getBusiness.BusinessName, getPostedJob.JobPosition, application.Status, application.Id);
-                        }
-                    }
-                    else MessageBox.Show("null");
-                    break;
+                    review_table.Rows.Add(fullname, getBusiness.BusinessName, getPostedJob.JobPosition, application.Status, application.Id);
+                }
             }
         }
     }

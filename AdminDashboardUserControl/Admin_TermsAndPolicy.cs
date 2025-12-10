@@ -1,14 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using JobNear.JobPosterDashboardUserControl;
+﻿using JobNear.JobPosterDashboardUserControl;
 using JobNear.JobSeekerDashboardUserControl;
+using System;
+using System.Windows.Forms;
 
 namespace JobNear.AdminDashboardUserControl
 {
@@ -17,7 +10,7 @@ namespace JobNear.AdminDashboardUserControl
         public Admin_TermsAndPolicy()
         {
             InitializeComponent();
-            
+
         }
 
         private void back_button_Click(object sender, EventArgs e)
@@ -29,7 +22,7 @@ namespace JobNear.AdminDashboardUserControl
                 sidebar_panel.Controls.Add(admin_Dashboard);
                 admin_Dashboard.Dock = DockStyle.Fill;
             }
-            else if (Session.CurrentUserType == "poster") 
+            else if (Session.CurrentUserType == "poster")
             {
                 JP_Dashboard jP_Dashboard = new JP_Dashboard();
                 sidebar_panel.Controls.Clear();

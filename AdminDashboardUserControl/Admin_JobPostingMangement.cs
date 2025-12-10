@@ -1,8 +1,8 @@
-﻿using System;
-using MongoDB.Driver;
-using System.Windows.Forms;
-using JobNear.Services;
+﻿using JobNear.Services;
 using JobNear.Styles;
+using MongoDB.Driver;
+using System;
+using System.Windows.Forms;
 
 namespace JobNear.AdminDashboardUserControl
 {
@@ -22,9 +22,10 @@ namespace JobNear.AdminDashboardUserControl
                     .Find(x => x.JobStatus == "Pending")
                     .ToListAsync();
 
-                if(pendingPost.Count > 0)
+                if (pendingPost.Count > 0)
                 {
-                    foreach (var pendings in pendingPost) {
+                    foreach (var pendings in pendingPost)
+                    {
 
                         string rate;
                         if (pendings.JobHourlyRate == 0)
@@ -37,7 +38,8 @@ namespace JobNear.AdminDashboardUserControl
                     }
                 }
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 MessageBox.Show("");
             }
         }

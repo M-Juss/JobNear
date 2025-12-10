@@ -96,7 +96,7 @@ namespace JobNear.AdminDashboardUserControl
 
                     if (getPostedJob != null)
                     {
-                        var updateJob= Builders<JobPosterJobPostingModel>.Update
+                        var updateJob = Builders<JobPosterJobPostingModel>.Update
                             .Set(x => x.JobStatus, status);
 
                         await MongoDbServices.JobPosterJobPosting.UpdateOneAsync(getPostedJob, updateJob);

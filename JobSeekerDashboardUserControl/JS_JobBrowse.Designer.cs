@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.sidebar_panel = new System.Windows.Forms.Panel();
+            this.reset_button = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.distance_combo = new System.Windows.Forms.ComboBox();
             this.map_panel = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
-            this.reset_button = new System.Windows.Forms.Button();
             this.sidebar_panel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -51,10 +51,22 @@
             this.sidebar_panel.Size = new System.Drawing.Size(1031, 705);
             this.sidebar_panel.TabIndex = 4;
             // 
+            // reset_button
+            // 
+            this.reset_button.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.reset_button.ForeColor = System.Drawing.Color.White;
+            this.reset_button.Location = new System.Drawing.Point(828, 72);
+            this.reset_button.Name = "reset_button";
+            this.reset_button.Size = new System.Drawing.Size(175, 35);
+            this.reset_button.TabIndex = 51;
+            this.reset_button.Text = "Reset Map Scale";
+            this.reset_button.UseVisualStyleBackColor = true;
+            this.reset_button.Click += new System.EventHandler(this.reset_button_Click);
+            // 
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Poppins", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.DimGray;
+            this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.Location = new System.Drawing.Point(14, 10);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(482, 56);
@@ -90,24 +102,12 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Poppins SemiBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.DimGray;
+            this.label2.ForeColor = System.Drawing.Color.Black;
             this.label2.Location = new System.Drawing.Point(272, 74);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(116, 34);
             this.label2.TabIndex = 4;
             this.label2.Text = "Map Scale";
-            // 
-            // reset_button
-            // 
-            this.reset_button.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.reset_button.ForeColor = System.Drawing.Color.White;
-            this.reset_button.Location = new System.Drawing.Point(828, 72);
-            this.reset_button.Name = "reset_button";
-            this.reset_button.Size = new System.Drawing.Size(175, 35);
-            this.reset_button.TabIndex = 51;
-            this.reset_button.Text = "Reset Map Scale";
-            this.reset_button.UseVisualStyleBackColor = true;
-            this.reset_button.Click += new System.EventHandler(this.reset_button_Click);
             // 
             // JS_JobBrowse
             // 

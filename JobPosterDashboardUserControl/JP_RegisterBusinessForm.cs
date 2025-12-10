@@ -86,7 +86,7 @@ namespace JobNear.JobPosterDashboardUserControl
             debounceTimer.Stop();
 
             if (string.IsNullOrWhiteSpace(address_input.Text) || address_input.Text.Length < 2)
-                return; 
+                return;
 
             isUpdatingSuggestions = true;
 
@@ -399,7 +399,7 @@ namespace JobNear.JobPosterDashboardUserControl
             image_flowlayout.AutoScroll = true;
 
             debounceTimer = new Timer();
-            debounceTimer.Interval = 600;   
+            debounceTimer.Interval = 600;
             debounceTimer.Tick += DebounceTimer_Tick;
 
 

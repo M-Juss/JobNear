@@ -41,7 +41,7 @@ namespace JobNear.JobSeekerDashboardUserControl
                         business.BusinessLatitude,
                         business.BusinessLongitude,
                         toolTipText,
-                        business.Id 
+                        business.Id
                     );
                 }
 

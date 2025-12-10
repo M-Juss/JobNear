@@ -7,7 +7,6 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace JobNear.JobSeekerDashboardUserControl
@@ -28,7 +27,8 @@ namespace JobNear.JobSeekerDashboardUserControl
 
         }
 
-        public JS_JobApplication(string applicationId, string type) {
+        public JS_JobApplication(string applicationId, string type)
+        {
             InitializeComponent();
             LoadJobDetails();
             LoadApplicationDetails(applicationId);
@@ -48,18 +48,20 @@ namespace JobNear.JobSeekerDashboardUserControl
             ButtonStyle.RoundedButton(submit_button, 10, "#10B981");
             ButtonStyle.RoundedButton(back_button, 10, "#495057");
         }
-        private async void LoadApplicationDetails(string applicationId) 
+        private async void LoadApplicationDetails(string applicationId)
         {
-           var getApplicationDetails = await MongoDbServices.JobApplication
-                .Find(x => x.Id == applicationId)   
-                .FirstOrDefaultAsync();
+            var getApplicationDetails = await MongoDbServices.JobApplication
+                 .Find(x => x.Id == applicationId)
+                 .FirstOrDefaultAsync();
 
-            if (getApplicationDetails != null) {
+            if (getApplicationDetails != null)
+            {
 
                 if (getApplicationDetails.Status == "To Review")
                 {
                     UserController.SetJobApplicationStatus(status_label, "Submitted");
-                } else UserController.SetJobApplicationStatus(status_label, getApplicationDetails.Status);
+                }
+                else UserController.SetJobApplicationStatus(status_label, getApplicationDetails.Status);
 
                 coverletter_input.Text = getApplicationDetails.CoverLetter;
 
@@ -73,14 +75,16 @@ namespace JobNear.JobSeekerDashboardUserControl
 
             }
         }
-        private async void LoadJobDetails() {
+        private async void LoadJobDetails()
+        {
             try
             {
                 var job = await MongoDbServices.JobPosterJobPosting
                     .Find(x => x.Id == Session.CurrentPostedJobSelected)
                     .FirstOrDefaultAsync();
 
-                if (job != null) {
+                if (job != null)
+                {
                     string rate;
                     if (job.JobHourlyRate == 0)
                     {
@@ -97,7 +101,8 @@ namespace JobNear.JobSeekerDashboardUserControl
                     applicants_lbl.Text = $"Number of applicants needed: {job.JobApplicantsNeeded}";
                 }
             }
-            catch (Exception ex) { 
+            catch (Exception ex)
+            {
                 MessageBox.Show("Failed to load job details" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -136,7 +141,8 @@ namespace JobNear.JobSeekerDashboardUserControl
 
         private async void submit_button_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(coverletter_input.Text)) {
+            if (string.IsNullOrEmpty(coverletter_input.Text))
+            {
                 MessageBox.Show("Cover letter is required", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }

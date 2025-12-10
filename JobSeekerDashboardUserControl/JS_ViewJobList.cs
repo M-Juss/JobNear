@@ -1,5 +1,4 @@
-﻿using JobNear.Controllers;
-using JobNear.Services;
+﻿using JobNear.Services;
 using JobNear.Styles;
 using MongoDB.Driver;
 using System;
@@ -107,7 +106,8 @@ namespace JobNear.JobSeekerDashboardUserControl
                 .Find(x => x.JobId == Session.CurrentPostedJobSelected && x.SeekerId == Session.CurrentUserId && x.Status == "Pending" && x.isSubmissionActive == true)
                 .FirstOrDefaultAsync();
 
-            if (getJobApplicationInformation != null) {
+            if (getJobApplicationInformation != null)
+            {
                 MessageBox.Show("You currently have active proposal in this job. Please check Business response.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }

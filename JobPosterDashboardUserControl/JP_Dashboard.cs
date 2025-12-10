@@ -1,9 +1,9 @@
-﻿using JobNear.Styles;
+﻿using JobNear.Services;
+using JobNear.Styles;
+using MongoDB.Driver;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
-using JobNear.Services;
-using MongoDB.Driver;
 
 namespace JobNear.JobPosterDashboardUserControl
 {
@@ -18,17 +18,21 @@ namespace JobNear.JobPosterDashboardUserControl
             LoadAnalytics();
         }
 
-        private async void LoadAnalytics() {
-            try { 
+        private async void LoadAnalytics()
+        {
+            try
+            {
                 var seekers = await MongoDbServices.JobSeekerAccount
                     .Find(x => x.Status == "Verified")
                     .CountDocumentsAsync();
 
-                if (seekers != 0) { 
+                if (seekers != 0)
+                {
                     applicants_lbl.Text = seekers.ToString();
                 }
 
-            } catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show("Error loading dashboard anallytics" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }

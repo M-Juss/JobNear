@@ -1,6 +1,7 @@
-﻿using MongoDB.Driver;
+﻿using JobNear.Services;
+using JobNear.Styles;
+using MongoDB.Driver;
 using System.Windows.Forms;
-using JobNear.Services;
 
 namespace JobNear.JobPosterDashboardUserControl
 {
@@ -10,11 +11,13 @@ namespace JobNear.JobPosterDashboardUserControl
         {
             InitializeComponent();
             LoadCoverLetter(applicationId);
+            ButtonStyle.RoundedButton(back_button, 10, "#495057");
         }
 
-        private async void LoadCoverLetter(string application) { 
+        private async void LoadCoverLetter(string application)
+        {
             var getApplication = await MongoDbServices.JobApplication
-                .Find(x => x.Id == application )
+                .Find(x => x.Id == application)
                 .FirstOrDefaultAsync();
 
             if (getApplication != null)

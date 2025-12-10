@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+﻿using JobNear.Services;
+using JobNear.Styles;
+using MongoDB.Driver;
+using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using MongoDB.Driver;
 using System.Windows.Forms;
-using JobNear.Services;
-using JobNear.Styles;
-using JobNear.AdminDashboardUserControl;
 
 namespace JobNear.JobSeekerDashboardUserControl
 {
@@ -101,14 +97,16 @@ namespace JobNear.JobSeekerDashboardUserControl
         {
             string status = status_combo.SelectedItem.ToString();
 
-            switch (status.ToLower()) {
+            switch (status.ToLower())
+            {
                 case "submitted":
                     review_table.Rows.Clear();
                     var submmitedApplication = await MongoDbServices.JobApplication
                         .Find(x => x.Status == "To Review")
                         .ToListAsync();
 
-                    if (submmitedApplication != null) {
+                    if (submmitedApplication != null)
+                    {
                         foreach (var application in submmitedApplication)
                         {
                             var getJob = await MongoDbServices.JobPosterJobPosting
@@ -193,14 +191,14 @@ namespace JobNear.JobSeekerDashboardUserControl
         {
             if (e.RowIndex >= 0 && e.ColumnIndex == review_table.Columns["Action"].Index)
             {
-                
+
                 string applicationId = review_table.Rows[e.RowIndex].Cells["ApplicationId"].Value.ToString();
 
                 var getApplication = await MongoDbServices.JobApplication
                     .Find(x => x.Id == applicationId)
                     .FirstOrDefaultAsync();
 
-                Session.CurrentPostedJobSelected = getApplication.JobId;   
+                Session.CurrentPostedJobSelected = getApplication.JobId;
 
                 JS_JobApplication viewInformation = new JS_JobApplication(applicationId, "view");
                 sidebar_panel.Controls.Clear();

@@ -50,7 +50,7 @@ namespace JobNear.Controllers
             headerLabel.Font = new Font("Poppins", 9);
             headerLabel.ForeColor = Color.FromArgb(60, 60, 60);
             headerLabel.Location = new Point(65, 36);
-            headerLabel.Size = new Size(600, 20);
+            headerLabel.Size = new Size(900, 20);
 
             Label remarksLabel = new Label();
             remarksLabel.Text = remarks;
@@ -148,7 +148,7 @@ namespace JobNear.Controllers
             return date.ToString("MM/dd/yyyy");
         }
     }
-        public class NotificationFlowManager
+    public class NotificationFlowManager
     {
         private FlowLayoutPanel flowPanel;
 

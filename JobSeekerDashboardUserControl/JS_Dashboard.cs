@@ -1,9 +1,9 @@
 ﻿using JobNear.Services;
 using JobNear.Styles;
+using MongoDB.Driver;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
-using MongoDB.Driver;
 
 namespace JobNear.JobSeekerDashboardUserControl
 {
@@ -30,9 +30,9 @@ namespace JobNear.JobSeekerDashboardUserControl
                     .Find(x => x.JobStatus == "Active" && x.IsBusinessOnReview == false)
                     .CountDocumentsAsync();
 
-                    business_lbl.Text = business.ToString();
-                    posting_lbl.Text = jobposting.ToString();
-             
+                business_lbl.Text = business.ToString();
+                posting_lbl.Text = jobposting.ToString();
+
             }
             catch (Exception ex)
             {
