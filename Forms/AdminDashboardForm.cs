@@ -30,6 +30,7 @@ namespace JobNear.Forms
             ButtonStyle.SidebarButton(settings_button, "#3B82F6");
             ButtonStyle.SidebarButton(manageAdmin_button, "#3B82F6");
             ButtonStyle.SidebarButton(verificationReq_button, "#3B82F6");
+            ButtonStyle.SidebarButton(jobposting_button, "#3B82F6");
             ButtonStyle.SidebarButton(controlSite_button, "#3B82F6");
 
             AdminDashboardUserControl.Admin_Dashboard admin_Dashboard = new AdminDashboardUserControl.Admin_Dashboard();

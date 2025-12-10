@@ -18,7 +18,14 @@ namespace JobNear.JobSeekerDashboardUserControl
 
             prev_lbl.Click += (s, e) =>
             {
-                if (prev == "joblist")
+                if (prev == "joblist" && Session.IsViewing == "Yes")
+                {
+                    JS_ViewJobList js_viewjoblistform = new JS_ViewJobList(Session.CurrentPostedJobSelected, "view");
+                    sidebar_panel.Controls.Clear();
+                    sidebar_panel.Controls.Add(js_viewjoblistform);
+                    js_viewjoblistform.Dock = DockStyle.Fill;
+                }
+                else if (prev == "joblist")
                 {
                     JS_ViewJobList js_viewjoblistform = new JS_ViewJobList(Session.CurrentPostedJobSelected);
                     sidebar_panel.Controls.Clear();
@@ -39,6 +46,7 @@ namespace JobNear.JobSeekerDashboardUserControl
                     sidebar_panel.Controls.Add(jS_ReportBusiness);
                     jS_ReportBusiness.Dock = DockStyle.Fill;
                 }
+
             };
         }
 

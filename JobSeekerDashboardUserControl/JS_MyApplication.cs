@@ -199,6 +199,7 @@ namespace JobNear.JobSeekerDashboardUserControl
                     .FirstOrDefaultAsync();
 
                 Session.CurrentPostedJobSelected = getApplication.JobId;
+                Session.CurrentJobApplicationSelected = applicationId;
 
                 JS_JobApplication viewInformation = new JS_JobApplication(applicationId, "view");
                 sidebar_panel.Controls.Clear();

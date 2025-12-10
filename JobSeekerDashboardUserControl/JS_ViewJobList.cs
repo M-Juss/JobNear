@@ -21,6 +21,21 @@ namespace JobNear.JobSeekerDashboardUserControl
             LoadBusinessDetails(id);
         }
 
+        public JS_ViewJobList(string id, string mode)
+        {
+            InitializeComponent();
+
+            PanelStyles.RoundedPanel(business_panel, 20, Color.White);
+            PanelStyles.RoundedPanel(job_panel, 20, Color.White);
+            PanelStyles.StyleRoundedLabel(apply_label, 5, ColorTranslator.FromHtml("#10B981"), Color.White);
+
+            LoadJobDetails(id);
+            LoadBusinessDetails(id);
+            apply_label.Visible = false;
+            Session.IsViewing = "Yes";
+        }
+
+
         public async void LoadBusinessDetails(string businessId)
         {
 
@@ -90,6 +105,13 @@ namespace JobNear.JobSeekerDashboardUserControl
                 sidebar_panel.Controls.Add(jS_ViewBusiness);
                 jS_ViewBusiness.Dock = DockStyle.Fill;
             }
+            else
+            {
+                JS_JobApplication jS_JobApplication = new JS_JobApplication(Session.CurrentJobApplicationSelected, "view");
+                sidebar_panel.Controls.Clear();
+                sidebar_panel.Controls.Add(jS_JobApplication);
+                jS_JobApplication.Dock = DockStyle.Fill;
+            }
         }
 
         private void business_panel_Click(object sender, EventArgs e)
@@ -116,6 +138,11 @@ namespace JobNear.JobSeekerDashboardUserControl
             sidebar_panel.Controls.Clear();
             sidebar_panel.Controls.Add(jS_JobApplication);
             jS_JobApplication.Dock = DockStyle.Fill;
+        }
+
+        private void business_panel_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

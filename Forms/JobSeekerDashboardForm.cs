@@ -27,6 +27,7 @@ namespace JobNear.Forms
             ButtonStyle.SidebarButton(job_browsing_sub_button, "#3B82F6");
             ButtonStyle.SidebarButton(application_button, "#3B82F6");
             ButtonStyle.SidebarButton(logout_button, "#3B82F6");
+            ButtonStyle.SidebarButton(notification_button, "#3B82F6");
 
             Session.CurrentSidebarPanel = sidebar_panel;
 

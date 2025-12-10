@@ -107,7 +107,7 @@
             // 
             this.coverletter_input.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.coverletter_input.Location = new System.Drawing.Point(29, 35);
-            this.coverletter_input.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.coverletter_input.Margin = new System.Windows.Forms.Padding(2);
             this.coverletter_input.Multiline = true;
             this.coverletter_input.Name = "coverletter_input";
             this.coverletter_input.ReadOnly = true;
@@ -187,6 +187,7 @@
             this.job_panel.Name = "job_panel";
             this.job_panel.Size = new System.Drawing.Size(1000, 185);
             this.job_panel.TabIndex = 19;
+            this.job_panel.MouseClick += new System.Windows.Forms.MouseEventHandler(this.job_panel_MouseClick);
             // 
             // rate_lbl
             // 

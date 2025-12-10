@@ -19,5 +19,6 @@ namespace JobNear
         public static string CurrentAdminSelected { get; set; }
         public static string CurrentReportSelected { get; set; }
         public static string CurrentJobApplicationSelected { get; set; }
+        public static string IsViewing { get; set; }
     }
 }

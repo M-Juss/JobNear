@@ -207,5 +207,18 @@ namespace JobNear.JobSeekerDashboardUserControl
             sidebar_panel.Controls.Add(jS_MyApplication);
             jS_MyApplication.Dock = DockStyle.Fill;
         }
+
+        private void job_panel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void job_panel_MouseClick(object sender, MouseEventArgs e)
+        {
+            JobSeekerDashboardUserControl.JS_ViewJobList activeJobDetails = new JobSeekerDashboardUserControl.JS_ViewJobList(Session.CurrentPostedJobSelected, "view");
+            sidebar_panel.Controls.Clear();
+            sidebar_panel.Controls.Add(activeJobDetails);
+            activeJobDetails.Dock = DockStyle.Fill;
+        }
     }
 }
