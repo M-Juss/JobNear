@@ -32,11 +32,11 @@
             this.prev_lbl = new System.Windows.Forms.Label();
             this.report_label = new System.Windows.Forms.Label();
             this.business_panel = new System.Windows.Forms.Panel();
-            this.company_logo_picturebox = new System.Windows.Forms.PictureBox();
-            this.joblist_flowlayout = new System.Windows.Forms.FlowLayoutPanel();
             this.footer_label = new System.Windows.Forms.Label();
             this.description_label = new System.Windows.Forms.Label();
             this.name_label = new System.Windows.Forms.Label();
+            this.company_logo_picturebox = new System.Windows.Forms.PictureBox();
+            this.joblist_flowlayout = new System.Windows.Forms.FlowLayoutPanel();
             this.sidebar_panel.SuspendLayout();
             this.business_panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.company_logo_picturebox)).BeginInit();
@@ -92,22 +92,6 @@
             this.business_panel.TabIndex = 5;
             this.business_panel.Click += new System.EventHandler(this.business_panel_Click);
             // 
-            // company_logo_picturebox
-            // 
-            this.company_logo_picturebox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.company_logo_picturebox.Location = new System.Drawing.Point(25, 17);
-            this.company_logo_picturebox.Name = "company_logo_picturebox";
-            this.company_logo_picturebox.Size = new System.Drawing.Size(190, 176);
-            this.company_logo_picturebox.TabIndex = 0;
-            this.company_logo_picturebox.TabStop = false;
-            // 
-            // joblist_flowlayout
-            // 
-            this.joblist_flowlayout.Location = new System.Drawing.Point(40, 268);
-            this.joblist_flowlayout.Name = "joblist_flowlayout";
-            this.joblist_flowlayout.Size = new System.Drawing.Size(975, 407);
-            this.joblist_flowlayout.TabIndex = 3;
-            // 
             // footer_label
             // 
             this.footer_label.AutoEllipsis = true;
@@ -136,6 +120,23 @@
             this.name_label.Name = "name_label";
             this.name_label.Size = new System.Drawing.Size(714, 36);
             this.name_label.TabIndex = 6;
+            // 
+            // company_logo_picturebox
+            // 
+            this.company_logo_picturebox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.company_logo_picturebox.Location = new System.Drawing.Point(25, 17);
+            this.company_logo_picturebox.Name = "company_logo_picturebox";
+            this.company_logo_picturebox.Size = new System.Drawing.Size(190, 176);
+            this.company_logo_picturebox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.company_logo_picturebox.TabIndex = 0;
+            this.company_logo_picturebox.TabStop = false;
+            // 
+            // joblist_flowlayout
+            // 
+            this.joblist_flowlayout.Location = new System.Drawing.Point(40, 268);
+            this.joblist_flowlayout.Name = "joblist_flowlayout";
+            this.joblist_flowlayout.Size = new System.Drawing.Size(975, 407);
+            this.joblist_flowlayout.TabIndex = 3;
             // 
             // JS_ViewBusiness
             // 

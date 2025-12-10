@@ -72,6 +72,7 @@
             // 
             // postedjob_flowlayout
             // 
+            this.postedjob_flowlayout.AutoScroll = true;
             this.postedjob_flowlayout.Location = new System.Drawing.Point(32, 99);
             this.postedjob_flowlayout.Name = "postedjob_flowlayout";
             this.postedjob_flowlayout.Size = new System.Drawing.Size(964, 572);

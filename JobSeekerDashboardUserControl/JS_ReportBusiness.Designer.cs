@@ -234,6 +234,7 @@
             this.company_logo_picturebox.Location = new System.Drawing.Point(39, 14);
             this.company_logo_picturebox.Name = "company_logo_picturebox";
             this.company_logo_picturebox.Size = new System.Drawing.Size(190, 184);
+            this.company_logo_picturebox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.company_logo_picturebox.TabIndex = 6;
             this.company_logo_picturebox.TabStop = false;
             // 

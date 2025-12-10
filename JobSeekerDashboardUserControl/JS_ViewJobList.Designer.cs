@@ -46,11 +46,11 @@
             this.apply_label = new System.Windows.Forms.Label();
             this.jobtitle_label = new System.Windows.Forms.Label();
             this.business_panel = new System.Windows.Forms.Panel();
+            this.read_lbl = new System.Windows.Forms.Label();
             this.footer_label = new System.Windows.Forms.Label();
             this.description_label = new System.Windows.Forms.Label();
             this.name_label = new System.Windows.Forms.Label();
             this.company_logo_picturebox = new System.Windows.Forms.PictureBox();
-            this.read_lbl = new System.Windows.Forms.Label();
             this.sidebar_panel.SuspendLayout();
             this.job_panel.SuspendLayout();
             this.business_panel.SuspendLayout();
@@ -263,6 +263,19 @@
             this.business_panel.Size = new System.Drawing.Size(1000, 211);
             this.business_panel.TabIndex = 4;
             // 
+            // read_lbl
+            // 
+            this.read_lbl.AutoSize = true;
+            this.read_lbl.BackColor = System.Drawing.Color.Transparent;
+            this.read_lbl.Font = new System.Drawing.Font("Poppins", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Italic | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.read_lbl.ForeColor = System.Drawing.Color.SteelBlue;
+            this.read_lbl.Location = new System.Drawing.Point(38, 183);
+            this.read_lbl.Name = "read_lbl";
+            this.read_lbl.Size = new System.Drawing.Size(184, 25);
+            this.read_lbl.TabIndex = 112;
+            this.read_lbl.Text = "View Business Full Details";
+            this.read_lbl.Click += new System.EventHandler(this.read_lbl_Click);
+            // 
             // footer_label
             // 
             this.footer_label.AutoEllipsis = true;
@@ -299,21 +312,9 @@
             this.company_logo_picturebox.Location = new System.Drawing.Point(38, 17);
             this.company_logo_picturebox.Name = "company_logo_picturebox";
             this.company_logo_picturebox.Size = new System.Drawing.Size(190, 163);
+            this.company_logo_picturebox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.company_logo_picturebox.TabIndex = 0;
             this.company_logo_picturebox.TabStop = false;
-            // 
-            // read_lbl
-            // 
-            this.read_lbl.AutoSize = true;
-            this.read_lbl.BackColor = System.Drawing.Color.Transparent;
-            this.read_lbl.Font = new System.Drawing.Font("Poppins", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Italic | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.read_lbl.ForeColor = System.Drawing.Color.SteelBlue;
-            this.read_lbl.Location = new System.Drawing.Point(38, 183);
-            this.read_lbl.Name = "read_lbl";
-            this.read_lbl.Size = new System.Drawing.Size(184, 25);
-            this.read_lbl.TabIndex = 112;
-            this.read_lbl.Text = "View Business Full Details";
-            this.read_lbl.Click += new System.EventHandler(this.read_lbl_Click);
             // 
             // JS_ViewJobList
             // 

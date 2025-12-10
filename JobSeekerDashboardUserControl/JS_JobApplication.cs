@@ -35,6 +35,7 @@ namespace JobNear.JobSeekerDashboardUserControl
             submit_button.Visible = false;
             prev_lbl.Visible = false;
             attach_file.Visible = false;
+            coverletter_input.ReadOnly = true;
             SetUpUI();
 
         }

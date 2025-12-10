@@ -511,7 +511,7 @@ namespace JobNear.Styles
         {
             Panel postJobPanel = new Panel();
             postJobPanel.Height = 150;
-            postJobPanel.Width = joblist_flowlayout.Width - 20;
+            postJobPanel.Width = joblist_flowlayout.Width - 40;
             postJobPanel.Margin = new Padding(10, 10, 10, 10);
             postJobPanel.BackColor = Color.WhiteSmoke;
             postJobPanel.BorderStyle = BorderStyle.None;
@@ -596,7 +596,7 @@ namespace JobNear.Styles
         {
             Panel postJobPanel = new Panel();
             postJobPanel.Height = 150;
-            postJobPanel.Width = joblist_flowlayout.Width - 20;
+            postJobPanel.Width = joblist_flowlayout.Width - 40;
             postJobPanel.Margin = new Padding(10, 10, 10, 10);
             postJobPanel.BackColor = Color.WhiteSmoke;
             postJobPanel.BorderStyle = BorderStyle.None;
@@ -652,6 +652,7 @@ namespace JobNear.Styles
             jobRate.Text = rate;
             jobRate.Width = 400;
             jobRate.AutoEllipsis = true;
+            jobRate.TextAlign = ContentAlignment.MiddleLeft;
             jobRate.BorderStyle = BorderStyle.None;
             jobRate.Location = new Point(joblist_flowlayout.Width - 270, 110);
             jobRate.Font = new Font("Poppins", 12, FontStyle.Regular);

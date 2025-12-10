@@ -101,7 +101,6 @@
             // info_panel
             // 
             this.info_panel.Controls.Add(this.clear_button);
-            this.info_panel.Controls.Add(this.submit_button);
             this.info_panel.Controls.Add(this.label6);
             this.info_panel.Controls.Add(this.status_combo);
             this.info_panel.Controls.Add(this.role_combo);
@@ -115,6 +114,7 @@
             this.info_panel.Controls.Add(this.lbl);
             this.info_panel.Controls.Add(this.update_button);
             this.info_panel.Controls.Add(this.label5);
+            this.info_panel.Controls.Add(this.submit_button);
             this.info_panel.Location = new System.Drawing.Point(29, 54);
             this.info_panel.Name = "info_panel";
             this.info_panel.Size = new System.Drawing.Size(973, 315);
@@ -157,6 +157,7 @@
             // 
             // status_combo
             // 
+            this.status_combo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.status_combo.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.status_combo.FormattingEnabled = true;
             this.status_combo.Items.AddRange(new object[] {
@@ -169,6 +170,7 @@
             // 
             // role_combo
             // 
+            this.role_combo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.role_combo.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.role_combo.FormattingEnabled = true;
             this.role_combo.Items.AddRange(new object[] {
@@ -261,7 +263,7 @@
             // 
             // update_button
             // 
-            this.update_button.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.update_button.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.update_button.ForeColor = System.Drawing.Color.White;
             this.update_button.Location = new System.Drawing.Point(819, 268);
             this.update_button.Name = "update_button";

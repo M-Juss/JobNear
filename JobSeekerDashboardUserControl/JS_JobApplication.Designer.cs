@@ -39,13 +39,13 @@
             this.documents_lbl = new System.Windows.Forms.Label();
             this.prev_lbl = new System.Windows.Forms.Label();
             this.job_panel = new System.Windows.Forms.Panel();
+            this.read_lbl = new System.Windows.Forms.Label();
             this.rate_lbl = new System.Windows.Forms.Label();
             this.about_lbl = new System.Windows.Forms.Label();
             this.applicants_lbl = new System.Windows.Forms.Label();
             this.jobinfo_label = new System.Windows.Forms.Label();
             this.jobtitle_label = new System.Windows.Forms.Label();
             this.status_label = new System.Windows.Forms.Label();
-            this.read_lbl = new System.Windows.Forms.Label();
             this.sidebar_panel.SuspendLayout();
             this.details_panel.SuspendLayout();
             this.job_panel.SuspendLayout();
@@ -111,7 +111,6 @@
             this.coverletter_input.Margin = new System.Windows.Forms.Padding(2);
             this.coverletter_input.Multiline = true;
             this.coverletter_input.Name = "coverletter_input";
-            this.coverletter_input.ReadOnly = true;
             this.coverletter_input.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.coverletter_input.Size = new System.Drawing.Size(943, 178);
             this.coverletter_input.TabIndex = 58;
@@ -190,6 +189,19 @@
             this.job_panel.Size = new System.Drawing.Size(1000, 185);
             this.job_panel.TabIndex = 19;
             // 
+            // read_lbl
+            // 
+            this.read_lbl.AutoSize = true;
+            this.read_lbl.BackColor = System.Drawing.Color.Transparent;
+            this.read_lbl.Font = new System.Drawing.Font("Poppins", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Italic | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.read_lbl.ForeColor = System.Drawing.Color.SteelBlue;
+            this.read_lbl.Location = new System.Drawing.Point(61, 151);
+            this.read_lbl.Name = "read_lbl";
+            this.read_lbl.Size = new System.Drawing.Size(149, 25);
+            this.read_lbl.TabIndex = 111;
+            this.read_lbl.Text = "View Job Full Details";
+            this.read_lbl.Click += new System.EventHandler(this.read_lbl_Click);
+            // 
             // rate_lbl
             // 
             this.rate_lbl.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -252,19 +264,6 @@
             this.status_label.TabIndex = 22;
             this.status_label.Text = "Status";
             this.status_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // read_lbl
-            // 
-            this.read_lbl.AutoSize = true;
-            this.read_lbl.BackColor = System.Drawing.Color.Transparent;
-            this.read_lbl.Font = new System.Drawing.Font("Poppins", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Italic | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.read_lbl.ForeColor = System.Drawing.Color.SteelBlue;
-            this.read_lbl.Location = new System.Drawing.Point(61, 151);
-            this.read_lbl.Name = "read_lbl";
-            this.read_lbl.Size = new System.Drawing.Size(149, 25);
-            this.read_lbl.TabIndex = 111;
-            this.read_lbl.Text = "View Job Full Details";
-            this.read_lbl.Click += new System.EventHandler(this.read_lbl_Click);
             // 
             // JS_JobApplication
             // 
