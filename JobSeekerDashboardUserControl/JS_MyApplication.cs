@@ -116,6 +116,12 @@ namespace JobNear.JobSeekerDashboardUserControl
                                 .Find(x => x.Id == getJob.BusinessId)
                                 .FirstOrDefaultAsync();
 
+                            var getUser = await MongoDbServices.JobApplication
+                                .Find(x => x.SeekerId == Session.CurrentUserId)
+                                .FirstOrDefaultAsync();
+
+                            Console.WriteLine($"{getUser.Id} \n{Session.CurrentUserId}");
+
                             review_table.Rows.Add(getBusiness.BusinessName, getJob.JobPosition, "Submitted", application.Id);
                         }
                     }

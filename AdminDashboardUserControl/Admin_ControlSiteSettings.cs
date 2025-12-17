@@ -120,7 +120,7 @@ namespace JobNear.AdminDashboardUserControl
 
                         string key = "Admin";
                         DateTime date = DateTime.Now;
-                        string headerMessage = name_input.Text.Trim();
+                        string headerMessage = $"{name_input.Text.Trim()} (Starting on {start_date.Value.ToString()} to {end_date.Value.ToString()})";
                         string remarks = description_input.Text.Trim();
                         string type = "info";
 
@@ -140,7 +140,7 @@ namespace JobNear.AdminDashboardUserControl
                             await MongoDbServices.UserNotification.InsertOneAsync(newNotifSeeker);
                         });
 
-                        getAllSeeker.ForEach(async poster =>
+                        getAllPoster.ForEach(async poster =>
                         {
                             var newNotifPoster = new UserNotificationModel
                             {

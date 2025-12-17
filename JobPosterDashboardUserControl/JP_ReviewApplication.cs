@@ -113,8 +113,9 @@ namespace JobNear.JobPosterDashboardUserControl
         private async void LoadToReviewApplication()
         {
             review_table.Rows.Clear();
+
             var getToReview = await MongoDbServices.JobApplication
-                .Find(x => x.Status == "To Review")
+                .Find(x => x.Status == "To Review" )
                 .ToListAsync();
 
             if (getToReview.Count > 0)
@@ -133,9 +134,14 @@ namespace JobNear.JobPosterDashboardUserControl
                         .Find(x => x.Id == getPostedJob.BusinessId)
                         .FirstOrDefaultAsync();
 
-                    string fullname = $"{getApplicant.Firstname} {getApplicant.Middlename} {getApplicant.Lastname}";
+                    if (getBusiness.BusinessId == Session.CurrentUserId)
+                    {
+                        string fullname = $"{getApplicant.Firstname} {getApplicant.Middlename} {getApplicant.Lastname}";
 
-                    review_table.Rows.Add(fullname, getBusiness.BusinessName, getPostedJob.JobPosition, application.Status, application.Id);
+                        review_table.Rows.Add(fullname, getBusiness.BusinessName, getPostedJob.JobPosition, application.Status, application.Id);
+
+                    }
+                   
                 }
             }
         }

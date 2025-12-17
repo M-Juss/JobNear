@@ -425,7 +425,7 @@ namespace JobNear.Styles
                                 if (jobStat.JobStatus == "Active")
                                 {
                                     var confirm = MessageBox.Show(
-                                        $"The job {jobPosition} is currently Active.\n\n" +
+                                        $"The job {job_postion} is currently Active.\n\n" +
                                         "To edit this job, it must first be set to Inactive.\n\n" +
                                         "Do you want to mark it as Inactive now?",
                                         "Edit Active Job",

@@ -1,5 +1,6 @@
 ﻿using JobNear.JobPosterDashboardUserControl;
 using JobNear.JobSeekerDashboardUserControl;
+using JobNear.Styles;
 using System;
 using System.Windows.Forms;
 
@@ -10,6 +11,7 @@ namespace JobNear.AdminDashboardUserControl
         public Admin_TermsAndPolicy()
         {
             InitializeComponent();
+            ButtonStyle.RoundedButton(back_button, 10, "#495057");
 
         }
 
