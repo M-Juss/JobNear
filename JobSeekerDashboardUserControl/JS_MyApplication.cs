@@ -102,7 +102,7 @@ namespace JobNear.JobSeekerDashboardUserControl
                 case "submitted":
                     review_table.Rows.Clear();
                     var submmitedApplication = await MongoDbServices.JobApplication
-                        .Find(x => x.Status == "To Review")
+                        .Find(x => x.Status == "To Review" && x.SeekerId == Session.CurrentUserId)
                         .ToListAsync();
 
                     if (submmitedApplication != null)
@@ -129,7 +129,7 @@ namespace JobNear.JobSeekerDashboardUserControl
                 case "accepted":
                     review_table.Rows.Clear();
                     var acceptedApplication = await MongoDbServices.JobApplication
-                        .Find(x => x.Status == "Accepted")
+                        .Find(x => x.Status == "Accepted" && x.SeekerId == Session.CurrentUserId)
                         .ToListAsync();
 
                     if (acceptedApplication != null)
@@ -151,7 +151,7 @@ namespace JobNear.JobSeekerDashboardUserControl
                 case "rejected":
                     review_table.Rows.Clear();
                     var rejectedApplication = await MongoDbServices.JobApplication
-                        .Find(x => x.Status == "Rejected")
+                        .Find(x => x.Status == "Rejected" && x.SeekerId == Session.CurrentUserId)
                         .ToListAsync();
 
                     if (rejectedApplication != null)
@@ -172,7 +172,7 @@ namespace JobNear.JobSeekerDashboardUserControl
                 case "all":
                     review_table.Rows.Clear();
                     var allApplication = await MongoDbServices.JobApplication
-                        .Find(_ => true)
+                        .Find(x => x.SeekerId == Session.CurrentUserId)
                         .ToListAsync();
 
                     if (allApplication != null)

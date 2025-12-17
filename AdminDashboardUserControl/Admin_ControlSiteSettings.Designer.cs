@@ -64,7 +64,6 @@
             this.maintenance_panel.Controls.Add(this.end_date);
             this.maintenance_panel.Controls.Add(this.start_date);
             this.maintenance_panel.Controls.Add(this.label5);
-            this.maintenance_panel.Controls.Add(this.send_button);
             this.maintenance_panel.Controls.Add(this.description_input);
             this.maintenance_panel.Controls.Add(this.name_input);
             this.maintenance_panel.Controls.Add(this.label4);
@@ -72,6 +71,7 @@
             this.maintenance_panel.Controls.Add(this.label2);
             this.maintenance_panel.Controls.Add(this.label1);
             this.maintenance_panel.Controls.Add(this.revoke_button);
+            this.maintenance_panel.Controls.Add(this.send_button);
             this.maintenance_panel.Location = new System.Drawing.Point(158, 62);
             this.maintenance_panel.Name = "maintenance_panel";
             this.maintenance_panel.Size = new System.Drawing.Size(714, 567);

@@ -159,12 +159,13 @@ namespace JobNear.AdminDashboardUserControl
                         await MongoDbServices.UserNotification.InsertOneAsync(warningNotif);
                     }
 
-                    var updateWarning = Builders<JobPosterBusinessModel>.Update
-                        .Set(x => x.WarningCount, warningCount);
+                    var updateBusiness = Builders<JobPosterBusinessModel>.Update
+                        .Set(x => x.WarningCount, warningCount)
+                        .Set(x => x.Status, "Pending");
 
                     await MongoDbServices.JobPosterBusiness.UpdateOneAsync(
                         x => x.Id == complainee.Id,
-                        updateWarning);
+                        updateBusiness);
 
                     var updateReportStatus = Builders<ReportBusinessModel>.Update
                         .Set(x => x.Status, "Closed");

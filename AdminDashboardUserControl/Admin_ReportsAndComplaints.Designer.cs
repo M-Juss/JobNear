@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.sidebar_panel = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.reports_table = new System.Windows.Forms.DataGridView();
             this.status_combo = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.sidebar_panel.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.reports_table)).BeginInit();
@@ -51,6 +51,26 @@
             this.sidebar_panel.Name = "sidebar_panel";
             this.sidebar_panel.Size = new System.Drawing.Size(1031, 705);
             this.sidebar_panel.TabIndex = 0;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(735, 65);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(135, 28);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "Filter by status:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Poppins", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(19, 10);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(368, 56);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "User Activity Reports";
             // 
             // panel1
             // 
@@ -77,7 +97,7 @@
             // status_combo
             // 
             this.status_combo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.status_combo.Font = new System.Drawing.Font("Poppins", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.status_combo.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.status_combo.FormattingEnabled = true;
             this.status_combo.Items.AddRange(new object[] {
             "Active",
@@ -85,29 +105,9 @@
             "All"});
             this.status_combo.Location = new System.Drawing.Point(876, 60);
             this.status_combo.Name = "status_combo";
-            this.status_combo.Size = new System.Drawing.Size(128, 33);
+            this.status_combo.Size = new System.Drawing.Size(128, 36);
             this.status_combo.TabIndex = 7;
             this.status_combo.SelectedIndexChanged += new System.EventHandler(this.status_combo_SelectedIndexChanged_1);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Poppins", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(19, 10);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(368, 56);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "User Activity Reports";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(735, 65);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(135, 28);
-            this.label2.TabIndex = 10;
-            this.label2.Text = "Filter by status:";
             // 
             // Admin_ReportsAndComplaints
             // 
